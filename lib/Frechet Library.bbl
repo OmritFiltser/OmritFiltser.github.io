@@ -1,0 +1,46 @@
+\begin{thebibliography}{BBMM14}
+
+\bibitem[AAKS14]{AgarwalAKS14}
+Pankaj~K. Agarwal, Rinat~Ben Avraham, Haim Kaplan, and Micha Sharir.
+\newblock Computing the discrete fr{\'{e}}chet distance in subquadratic time.
+\newblock {\em {SIAM} J. Comput.}, 43(2):429--449, 2014.
+
+\bibitem[AG95]{AltG95}
+Helmut Alt and Michael Godau.
+\newblock Computing the fr{\'{e}}chet distance between two polygonal curves.
+\newblock {\em Int. J. Comput. Geometry Appl.}, 5:75--91, 1995.
+
+\bibitem[BBMM14]{BuchinBMM14}
+Kevin Buchin, Maike Buchin, Wouter Meulemans, and Wolfgang Mulzer.
+\newblock Four soviets walk the dog - with an application to alt's conjecture.
+\newblock In {\em Proceedings of the Twenty-Fifth Annual {ACM-SIAM} Symposium
+  on Discrete Algorithms, {SODA} 2014, Portland, Oregon, USA, January 5-7,
+  2014}, pages 1399--1413, 2014.
+
+\bibitem[Bri14]{Bringmann14}
+Karl Bringmann.
+\newblock Why walking the dog takes time: Frechet distance has no strongly
+  subquadratic algorithms unless {SETH} fails.
+\newblock In {\em 55th {IEEE} Annual Symposium on Foundations of Computer
+  Science, {FOCS} 2014, Philadelphia, PA, USA, October 18-21, 2014}, pages
+  661--670, 2014.
+
+\bibitem[EM94]{EiterM94}
+Thomas Eiter and Heikki Mannila.
+\newblock Computing discrete {F}r\'echet distance.
+\newblock Technical Report CD-TR 94/64, Information Systems Dept, Technical
+  University of Vienna, 1994.
+
+\bibitem[Fre06]{Frechet1906}
+Maurice Frechet.
+\newblock {Sur quelques points du calcul fonctionnel}.
+\newblock {\em Rendiconti del Circolo Matematico di Palermo (1884 - 1940)},
+  22(1):1--72, December 1906.
+
+\bibitem[JXZ08]{JiangXZ08}
+Minghui Jiang, Ying Xu, and Binhai Zhu.
+\newblock Protein structure-structure alignment with discrete fr{\'{e}}chet
+  distance.
+\newblock {\em J. Bioinformatics and Computational Biology}, 6(1):51--64, 2008.
+
+\end{thebibliography}

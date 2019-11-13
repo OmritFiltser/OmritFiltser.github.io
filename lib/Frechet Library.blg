@@ -1,0 +1,10 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: Frechet Library.aux
+The style file: alpha.bst
+Database file #1: refs.bib
+A bad cross reference---entry "BuchinBMM14"
+refers to entry "DBLP:conf/soda/2014", which doesn't exist
+A bad cross reference---entry "Bringmann14"
+refers to entry "DBLP:conf/focs/2014", which doesn't exist
+Warning--I didn't find a database entry for "DBLP:conf/focs/2014"
+Warning--I didn't find a database entry for "DBLP:conf/soda/2014"
+(There were 2 error messages)

@@ -1,0 +1,175 @@
+\documentclass[a4paper,onecolumn]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+%\usepackage{a4wide}                 % Increases width of printed area of an a4 page.
+\usepackage[a4paper]{geometry}      % adjust the margins of pages
+
+\usepackage{graphicx}               % insert graphic files
+\usepackage{float}                  % Improves the interface for defining floating objects such as figures and tables.
+\usepackage{subfigure}              % Provides support for the manipulation and reference of small or ‘sub’ figures and tables within a single figure
+\usepackage{algorithm}
+\usepackage[noend]{algorithmic}     % with noend option the end statements are omitted in the output.
+
+\usepackage{amsthm,amsmath,amssymb} % math stuff
+\usepackage{color}                  % colored text
+\usepackage{textcomp}               % supports the Text Companion fonts, which provide many text symbols
+\usepackage{sectsty}                % to help change the style of any or all of LaTeX's sectional headers in the article, book, or report classes.
+\usepackage[normalem]{ulem}         % underline text
+\usepackage{soul}                   % Provides hyphenateable spacing out (letterspacing), underlining, striking out, etc.
+\usepackage{enumerate}              % adds an optional argument to the enumerate environment which determines the style
+%\usepackage{microtype}              % improves the spacing between words and letters
+%\usepackage{babel}                  % internationalization of LaTeX (needed for using hebrew)
+
+\usepackage[bookmarksnumbered=true]{hyperref}   % manage links
+%\usepackage{pdfsync}                % Creates an auxiliary file with geometrical information to permit references back and forth between source and PDF
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\numberwithin{algorithm}{section}
+
+\theoremstyle{plain}
+\ifx\thechapter\undefined
+\newtheorem{theorem}{Theorem}[section]
+\else
+\newtheorem{theorem}{Theorem}[chapter]
+\fi
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{observation}[theorem]{Observation}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{problem}[theorem]{Problem}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{corollary}[theorem]{Corollary}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+
+\def\reals{{\mathbb R}}
+\def\natural{{\mathbb N}}
+\def\eps{{\varepsilon}}
+\def\A{{\cal A}}
+\def\B{{\cal B}}
+\def\BO{{\mathcal{O}}}
+
+\newcommand{\frechet}{Fr\'echet}
+\newcommand{\df}{d_F}
+\newcommand{\dfd}{d_{dF}}
+\newcommand{\npc}{\textbf{NP}-complete}
+
+\newcommand{\MyFrame}[1]{\noindent \framebox[\textwidth]{ \begin{minipage}{0.97\textwidth} #1 \end{minipage}}}%
+
+\date{}
+
+% comments
+\def\marrow{\marginpar[\hfill$\longrightarrow$]{$\longleftarrow$}}
+\def\omrit#1{\textsc{(Omrit says: }\marrow\textsf{#1})}
+\def\matya#1{\textsc{(Matya says: }\marrow\textsf{#1})}
+
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% Document
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+\begin{document}
+
+
+{\Huge \bfseries \frechet\ Distance Library} \\
+
+The \frechet\ distance is a useful and well known similarity measure for polygonal curves.
+It is generally described as follows; Consider a
+person and a dog connected by a leash, each walking along a different curve
+from its starting point to its end point. Both are allowed to control
+their speed but they cannot backtrack. The \frechet\ distance between
+the two curves is the minimum length of a leash that is sufficient
+for traversing both curves in this manner.
+
+See \href{http://www.cim.mcgill.ca/~stephane/cs507/Project.html}{this web-site} for more details and a \frechet\ distance applet.
+
+Here is a summery of the different variants and applications of the \frechet\ distance metric which have been studied in the literature.
+\tableofcontents{}
+
+\section{Continuous \frechet\ distance}
+\begin{itemize}
+\item The \frechet\ distance was first defined by Maurice \frechet\ (1878-1973) \cite{Frechet1906}.
+\item Alt and Godau~\cite{AltG95} showed that the \frechet\ distance of two polygonal curves with a total of $n$ edges can be computed, using dynamic programming, in $O(n^{2}\log n)$ time.
+\item Buchin et al.~\cite{BuchinBMM14} recently improved the bound of Alt and Godau and showed how to compute the \frechet\ distance in $O(n^2 (\log n)^{1/2} (\log\log n)^{3/2})$ time on a pointer machine, and in $O(n^2 (\log\log n)^2)$ time on a word RAM.
+\item Bringmann~\cite{Bringmann14} showed that the (discrete and continuous) \frechet\ distance has no strongly subquadratic algorithms unless SETH fails. He also showed that there is no strongly subquadratic 1.001-approximation algorithm unless SETH' fails.
+\end{itemize}
+
+\section{Discrete \frechet\ distance}
+The \emph{discrete \frechet\ distance} is a simpler variant that arises when we
+replace each of the input curves by a sequence of densely sampled points.
+Intuitively, the discrete \frechet\ distance 
+replaces the curves by two sequences of points, and replaces the person and the dog by
+two frogs. At each move, the frogs can jump from their current point to the next. The frogs are
+not allowed to backtrack. We are interested in the minimum length
+of a leash that connects the frogs and allows them to traverse both curves in this manner.
+The resulting discrete distance is considered as a good approximation of the actual continuous distance.
+\begin{itemize}
+\item Eiter and Mannila~\cite{EiterM94} showed that the discrete \frechet\ distance can be computed, also using dynamic programming, in $O(mn)$ time.
+\item Agarwal et al.~\cite{AgarwalAKS14} showed how to compute the discrete \frechet\ distance in $O\left(\dfrac{mn\log\log n}{\log n}\right)$ time.
+\item Jiang et al~\cite{JiangXZ08} successfully applied the discrete \frechet\ distance for aligning the backbones of proteins, which are represented as chains of atoms in 2D or 3D. In this application, the discrete variant makes more sense than the continuous because matching points that does not represent atoms is false biologically.    
+\end{itemize}
+
+\section{Variants of \frechet\ distance}
+
+\subsection{\frechet\ distance with shortcuts}
+
+Anne Driemel and Sariel Har-Peled. Jaywalking your dog: Computing the \frechet\ distance with shortcuts, 2013.
+Rinat Ben Avraham, Omrit Filtser, Haim Kaplan, Matthew J. Katz, and Micha Sharir. The discrete \frechet\ distance with shortcuts via approximate distance counting and selection, 2014.
+Maike Buchin, Anne Driemel, and Bettina Speckmann. Computing the \frechet\ distance with shortcuts is NP-hard, 2014.
+
+\subsection{Weak \frechet\ distance}
+Helmut Alt and Michael Godau. Computing the \frechet\ distance between two polygonal curves, 1995.
+Sariel Har-Peled and Benjamin Raichel. The \frechet\ distance revisited and extended, 2011.
+\subsection{Partial \frechet\ distance}
+Helmut Alt and Michael Godau. Computing the \frechet\ distance between two polygonal curves, 1995.
+Kevin Buchin, Maike Buchin, and Yusu Wang. Exact algorithms for partial curve matching via the \frechet\ distance, 2009.
+Anne Driemel and Sariel Har-Peled. Jaywalking your dog: Computing the \frechet\ distance with shortcuts, 2013.
+Jean-Lou De Carufel, Amin Gheibi, Anil Maheshwari, J\"org-Rüdiger Sack, Christian Scheffer. Similarity of Polygonal Curves in the Presence of Outliers, 2012.
+\subsection{\frechet\ distance of a set of curves}
+Adrian Dumitrescu and G\"unter Rote. On the \frechet\ distance of a set of curves, 2004.
+Sariel Har-Peled and Benjamin Raichel. The \frechet\ distance revisited and extended, 2011.
+\subsection{Average and summed \frechet\ distance}
+Sotiris Brakatsoulas, Dieter Pfoser, Randall Salas, and Carola Wenk. On map-matching vehicle tracking data, 2005.
+Alon Efrat, Quanfu Fan and Suresh Venkatasubramanian. Curve matching, time warping, and light fields: New algorithms for computing similarity between curves, 2007.
+\subsection{\frechet\ distance with speed limits}
+\subsection{Strong \frechet\ distance}
+\subsection{Locally Correct \frechet\ Matchings}
+\section{\frechet\ distance in different metric spaces}
+\subsection{Homotopic \frechet\ distance}
+Erin W. Chambers, \'Eric Colin de Verdi\`ere, Jeff Erickson, Sylvain Lazard, Francis Lazarus, and Shripad Thite. Homotopic \frechet\ distance between curves or, walking your dog in the woods in polynomial time, 2010.
+\subsection{Geodesic \frechet\ distance}
+Atlas F. Cook and Carola Wenk. Geodesic \frechet\ distance inside a simple polygon, 2008.
+\section{\frechet\ distance for realistic curves}
+H. Alt, C. Knauer, and Carola Wenk. Comparison of distance measures for planar curves, 2003.
+Anne Driemel, Sariel Har-Peled, and Carola Wenk. Approximating the \frechet\ distance for realistic curves in near linear time.
+G. Rote. Computing the \frechet\ distance between piecewise smooth curves, 2007.
+B. Aronov, S. Har-Peled, C. Knauer, Y. Wang, and C. Wenk. \frechet\ distance for curves, revisited.
+\section{Applications of \frechet\ distance}
+\subsection{Chain simplification}
+Pankaj K. Agarwal, Sariel Har-Peled, Nabil H. Mustafa, and Yusu Wang. Near-linear time approximation algorithms for curve simplification, 2005.
+Sergey Bereg, Minghui Jiang, Wencheng Wang, Boting Yang, and Binhai Zhu. Simplifying 3d polygonal chains under the discrete \frechet\ distance, 2008.
+Reza Dorrigiv, Stephane Durocher, Arash Farzan, Robert Fraser, Alejandro L\'opez-Ortiz, J. Ian Munro, Alejandro Salinger, and Matthew Skala. Finding a hausdorff core of a polygon: On convex polygon containment with bounded hausdorff distance, 2009.
+Tim Wylie and Binhai Zhu. Protein chain pair simplification under the discrete \frechet\ distance, 2013.
+Omrit Filtser, Matthew J. Katz, Tim Wylie, and Binhai Zhu. On the chain pair simplification problem, 2014.
+\subsection{Mean and median curve}
+Kevin Buchin, Maike Buchin, Marc J. van Kreveld, Maarten L\"offler, Rodrigo I. Silveira, Carola Wenk, and Lionov Wiratma. Median trajectories, 2013.
+\subsection{Matching}
+H. Alt, A. Efrat, G. Rote, and C. Wenk. Matching planar maps, 2003.
+Sotiris Brakatsoulas, Dieter Pfoser, Randall Salas, and Carola Wenk. On map-matching vehicle tracking data, 2005.
+Daniel Chen, Anne Driemel, Leonidas J. Guibas, Andy Nguyen, and Carola Wenk. Approximate map matching with respect to the \frechet\ distance, 2011.
+\subsection{Voronoi diagram}
+Sergey Bereg, Kevin Buchin, Maike Buchin, Marina Gavrilova and Binhai Zhu. Voronoi Diagram of Polygonal Chains Under the Discrete \frechet\ Distance, 2007.
+
+\bibliographystyle{alpha}
+\bibliography{refs}
+
+\end{document}

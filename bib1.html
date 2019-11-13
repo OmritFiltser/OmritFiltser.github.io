@@ -1,0 +1,1576 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+<title>JabRef References output</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<script type="text/javascript">
+<!--
+// QuickSearch script for JabRef HTML export 
+// Version: 2.0
+//
+// Copyright (c) 2006-2008, Mark Schenk
+//
+// This software is distributed under a Creative Commons Attribution 3.0 License
+// http://creativecommons.org/licenses/by/3.0/
+
+// Some features:
+// + optionally searches Abstracts and Reviews
+// + allows RegExp searches
+//   e.g. to search for entries between 1980 and 1989, type:  198[0-9]
+//   e.g. for any entry ending with 'symmetry', type:  symmetry$
+//   e.g. for all reftypes that are books: ^book$, or ^article$
+//   e.g. for entries by either John or Doe, type john|doe
+// + easy toggling of Abstract/Review/BibTeX
+
+// Search settings
+var searchAbstract = true;
+var searchReview = true;
+
+// Speed optimisation introduced some esoteric problems with certain RegExp searches
+// e.g. if the previous search is 200[-7] and the next search is 200[4-7] then the search doesn't work properly until the next 'keyup'
+// hence the searchOpt can be turned off for RegExp adepts
+var searchOpt = true;
+
+if (window.addEventListener) {
+	window.addEventListener("load",initSearch,false); }
+else if (window.attachEvent) {
+	window.attachEvent("onload", initSearch); }
+
+function initSearch() {
+	// basic object detection
+	if(!document.getElementById || !document.getElementsByTagName) { return; }
+	if (!document.getElementById('qstable')||!document.getElementById('qs')) { return; }
+
+	// find QS table and appropriate rows
+	searchTable = document.getElementById('qstable');
+	var allRows = searchTable.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+	// split all rows into entryRows and infoRows (e.g. abstract, review, bibtex)
+	entryRows = new Array();
+	infoRows = new Array(); absRows = new Array(); revRows = new Array();
+
+	for (var i=0, k=0, j=0; i<allRows.length;i++) {
+		if (allRows[i].className.match(/entry/)) {
+			entryRows[j++] = allRows[i];
+		} else {
+			infoRows[k++] = allRows[i];
+			// check for abstract/review
+			if (allRows[i].className.match(/abstract/)) {
+				absRows.push(allRows[i]);
+			} else if (allRows[i].className.match(/review/)) {
+				revRows.push(allRows[i]);
+			}
+		}
+	}
+
+	//number of entries and rows
+	numRows = allRows.length;
+	numEntries = entryRows.length;
+	numInfo = infoRows.length;
+	numAbs = absRows.length;
+	numRev = revRows.length;
+
+	//find the query field
+	qsfield = document.getElementById('qsfield');
+
+	// previous search term; used for speed optimisation
+	prevSearch = '';
+
+	//find statistics location
+	stats = document.getElementById('stat');
+	setStatistics(-1);
+
+	// creates the appropriate search settings
+	createQSettingsDialog();
+
+	// shows the searchfield
+	document.getElementById('qs').style.display = 'block';
+	document.getElementById('qsfield').onkeyup = testEvent;
+}
+
+function quickSearch(tInput){
+
+	 if (tInput.value.length == 0) {
+		showAll();
+		setStatistics(-1);
+		qsfield.className = '';
+		return;
+	} else {
+		// only search for valid RegExp
+		try {
+			var searchText = new RegExp(tInput.value,"i")
+			closeAllInfo();
+			qsfield.className = '';
+		}
+		catch(err) {
+			prevSearch = tInput.value;
+			qsfield.className = 'invalidsearch';
+			return;
+		}
+	}
+	
+	// count number of hits
+	var hits = 0;
+
+	// start looping through all entry rows
+	for (var i = 0; cRow = entryRows[i]; i++){
+
+		// only show search the cells if it isn't already hidden OR if the search term is getting shorter, then search all
+		// some further optimisation is possible: if the search string is getting shorter, and the row is already visible, skip it. Then be careful with hits!
+		if(!searchOpt || cRow.className.indexOf('noshow')==-1 || tInput.value.length <= prevSearch.length){
+			var found = false; 
+
+			var inCells = cRow.getElementsByTagName('td');
+			var numCols = inCells.length;
+				
+			for (var j=0; j<numCols; j++) {
+				cCell = inCells[j];
+				var t = cCell.innerText?cCell.innerText:getTextContent(cCell);
+				if (t.search(searchText) != -1){ 
+					found=true; 
+					break;
+				} 
+			}
+
+			// look for further hits in Abstract and Review
+			if(!found) {
+				var articleid = cRow.id;
+				if(searchAbstract && (abs = document.getElementById('abs_'+articleid))) {
+					if (getTextContent(abs).search(searchText) != -1){ found=true; } 
+				}
+				if(searchReview && (rev = document.getElementById('rev_'+articleid))) {
+					if (getTextContent(rev).search(searchText) != -1){ found=true; } 
+				}
+			}
+			
+			if(found) {
+				cRow.className = 'entry show';
+				hits++;
+			} else {
+				cRow.className = 'entry noshow';
+			}
+		}
+	}
+
+	// update statistics
+	setStatistics(hits)
+	
+	// set previous search value
+	prevSearch = tInput.value;
+}
+
+function toggleInfo(articleid,info) {
+
+	var entry = document.getElementById(articleid);
+	var abs = document.getElementById('abs_'+articleid);
+	var rev = document.getElementById('rev_'+articleid);
+	var bib = document.getElementById('bib_'+articleid);
+	
+	if (abs && info == 'abstract') {
+		if(abs.className.indexOf('abstract') != -1) {
+		abs.className.indexOf('noshow') == -1?abs.className = 'abstract noshow':abs.className = 'abstract';
+		}
+	} else if (rev && info == 'review') {
+		if(rev.className.indexOf('review') != -1) {
+		rev.className.indexOf('noshow') == -1?rev.className = 'review noshow':rev.className = 'review';
+		}
+	} else if (bib && info == 'bibtex') {
+		if(bib.className.indexOf('bibtex') != -1) {
+		bib.className.indexOf('noshow') == -1?bib.className = 'bibtex noshow':bib.className = 'bibtex';
+		}		
+	} else { 
+		return;
+	}
+
+	// check if one or the other is available
+	var revshow = false;
+	var absshow = false;
+	var bibshow = false;
+	(abs && abs.className.indexOf('noshow') == -1)? absshow = true: absshow = false;
+	(rev && rev.className.indexOf('noshow') == -1)? revshow = true: revshow = false;	
+	(bib && bib.className == 'bibtex')? bibshow = true: bibshow = false;
+	
+	// highlight original entry
+	if(entry) {
+		if (revshow || absshow || bibshow) {
+		entry.className = 'entry highlight show';
+		} else {
+		entry.className = 'entry show';
+		}		
+	}
+	
+	// When there's a combination of abstract/review/bibtex showing, need to add class for correct styling
+	if(absshow) {
+		(revshow||bibshow)?abs.className = 'abstract nextshow':abs.className = 'abstract';
+	} 
+	if (revshow) {
+		bibshow?rev.className = 'review nextshow': rev.className = 'review';
+	}
+	
+}
+
+function setStatistics (hits) {
+	if(hits < 0) { hits=numEntries; }
+	if(stats) { stats.firstChild.data = hits + '/' + numEntries}
+}
+
+function getTextContent(node) {
+	// Function written by Arve Bersvendsen
+	// http://www.virtuelvis.com
+	
+	if (node.nodeType == 3) {
+	return node.nodeValue;
+	} // text node
+	if (node.nodeType == 1) { // element node
+	var text = [];
+	for (var chld = node.firstChild;chld;chld=chld.nextSibling) {
+		text.push(getTextContent(chld));
+	}
+	return text.join("");
+	} return ""; // some other node, won't contain text nodes.
+}
+
+function showAll(){
+	// first close all abstracts, reviews, etc.
+	closeAllInfo();
+
+	for (var i = 0; i < numEntries; i++){
+		entryRows[i].className = 'entry show'; 
+	}
+}
+
+function closeAllInfo(){
+	for (var i=0; i < numInfo; i++){
+		if (infoRows[i].className.indexOf('noshow') ==-1) {
+			infoRows[i].className = infoRows[i].className + ' noshow';
+		}
+	}
+}
+
+function testEvent(e){
+	if (!e) var e = window.event;
+	quickSearch(this);
+}
+
+function clearQS() {
+	qsfield.value = '';
+	quickSearch(qsfield);
+}
+
+function redoQS(){
+	showAll();
+	quickSearch(qsfield);
+}
+
+// Create Search Settings
+
+function toggleQSettingsDialog() {
+
+	var qssettings = document.getElementById('qssettings');
+	
+	if(qssettings.className.indexOf('active')==-1) {
+		qssettings.className = 'active';
+
+		if(absCheckBox && searchAbstract == true) { absCheckBox.checked = 'checked'; }
+		if(revCheckBox && searchReview == true) { revCheckBox.checked = 'checked'; }
+
+	} else {
+		qssettings.className= '';
+	}
+}
+
+function createQSettingsDialog(){
+	var qssettingslist = document.getElementById('qssettings').getElementsByTagName('ul')[0];
+	
+	if(numAbs!=0) {
+		var x = document.createElement('input');
+		x.id = "searchAbs";
+		x.type = "checkbox";
+		x.onclick = toggleQSetting;
+		var y = qssettingslist.appendChild(document.createElement('li')).appendChild(document.createElement('label'));
+		y.appendChild(x);
+		y.appendChild(document.createTextNode('search abstracts'));		
+	}
+	if(numRev!=0) {
+		var x = document.createElement('input');
+		x.id = "searchRev";
+		x.type = "checkbox";		
+		x.onclick = toggleQSetting;
+		var y = qssettingslist.appendChild(document.createElement('li')).appendChild(document.createElement('label'));		
+		y.appendChild(x);		
+		y.appendChild(document.createTextNode('search reviews'));
+	}
+		
+	// global variables
+	absCheckBox = document.getElementById('searchAbs');
+	revCheckBox = document.getElementById('searchRev');
+	
+	// show search settings
+	if(absCheckBox||revCheckBox) {
+		document.getElementById('qssettings').style.display = 'block';
+	}
+}
+
+function toggleQSetting() {
+	if(this.id=='searchAbs') { searchAbstract = !searchAbstract; }
+	if(this.id=='searchRev') { searchReview = !searchReview; }
+	redoQS()
+} 
+-->
+</script>
+<style type="text/css">
+
+#qs { width: auto; border-style: solid; border-color: gray; border-width: 1px 1px 0px 1px; padding: 0.5em 0.5em; display:none; position:relative; }
+#qs form { padding: 0px; margin: 0px; }
+#qs form p { padding: 0px; margin: 0px; }
+
+.invalidsearch { background-color: red; }
+
+table { border: 1px gray solid; width: 100%; empty-cells: show; }
+th, td { border: 1px gray solid; padding: 0.5em; vertical-align: top;  }
+td { text-align: left; vertical-align: top; }
+th { background-color: #EFEFEF; }
+
+td a { color: navy; text-decoration: none; }
+td a:hover  { text-decoration: underline; }
+
+tr.noshow { display: none;}
+
+tr.highlight td { background-color: #F1F1F1; border-top: 2px black solid; font-weight: bold; }
+tr.abstract td, tr.review td, tr.bibtex td { background-color: #F1F1F1; border-bottom: 2px black solid; }
+tr.nextshow td { border-bottom: 1px gray solid; }
+
+tr.bibtex pre { width: 100%; overflow: auto;}
+
+p.infolinks { margin: 0.5em 0em 0em 0em; padding: 0px; }
+
+#qssettings { padding: 0.5em; position: absolute; top: 0.2em; right: 0.2em; border: 1px gray solid; background-color: white; display: none; }
+#qssettings p { font-weight: bold; cursor: pointer; }
+#qssettings ul { display: none; list-style-type: none; padding-left: 0; margin: 0; }
+#qssettings.active ul { display: block; }
+
+@media print {
+	p.infolinks, #qssettings, #qs { display: none !important; }
+	table { border-width: 0px; }
+	tr { page-break-inside: avoid; }
+	tr > * + * + * + * + * {display: none; }
+	thead tr::before { content: "Reference"; border: 1px gray solid; padding: 0.5em; vertical-align: top; font-weight: bold; text-align: center; display: table-cell; background-color: #EFEFEF; }
+	tr[id]::before { content: attr(id); display: table-cell; border: 1px gray solid; padding: 0.5em; vertical-align: top; font-style: italic; }
+}
+</style>
+</head>
+<body>
+
+<div id="qs">
+	<form action="">
+	<p>QuickSearch: <input type="text" name="qsfield" id="qsfield" autocomplete="off" title="Allows plain text as well as RegExp searches" /><input type="button" onclick="clearQS()" value="clear" />&nbsp; Number of matching entries: <span id="stat">0</span>.</p>
+	<div id="qssettings">
+		<p onclick="toggleQSettingsDialog()">Search Settings</p>
+		<ul></ul>
+	</div>
+	</form>
+</div>
+<table id="qstable" border="1">
+<thead><tr><th width="20%">Author</th><th width="30%">Title</th><th width="5%">Year</th><th width="30%">Journal/Proceedings</th><th width="10%">Reftype</th><th width="5%">DOI/URL</th></tr></thead>
+<tbody><tr id="AgarwalAKS14" class="entry">
+	<td>Agarwal, P.K., Avraham, R.B., Kaplan, H. &amp; Sharir, M.</td>
+	<td>Computing the Discrete Fr&eacute;chet Distance in Subquadratic Time <p class="infolinks">[<a href="javascript:toggleInfo('AgarwalAKS14','bibtex')">BibTeX</a>]</p></td>
+	<td>2014</td>
+	<td>SIAM J. Comput.<br/>Vol. 43(2), pp. 429-449&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://dx.doi.org/10.1137/130920526">DOI</a> <a href="http://dx.doi.org/10.1137/130920526">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_AgarwalAKS14" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@article{AgarwalAKS14,
+  author = {Pankaj K. Agarwal and Rinat Ben Avraham and Haim Kaplan and Micha Sharir},
+  title = {Computing the Discrete Fr&eacute;chet Distance in Subquadratic Time},
+  journal = {SIAM J. Comput.},
+  year = {2014},
+  volume = {43},
+  number = {2},
+  pages = {429--449},
+  url = {http://dx.doi.org/10.1137/130920526},
+  doi = {http://dx.doi.org/10.1137/130920526}
+}
+</pre></td>
+</tr>
+<tr id="AgarwalHMW05" class="entry">
+	<td>Agarwal, P.K., Har-Peled, S., Mustafa, N.H. &amp; Wang, Y.</td>
+	<td>Near-Linear Time Approximation Algorithms for Curve Simplification <p class="infolinks">[<a href="javascript:toggleInfo('AgarwalHMW05','bibtex')">BibTeX</a>]</p></td>
+	<td>2005</td>
+	<td>Algorithmica<br/>Vol. 42(3-4), pp. 203-219&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://dx.doi.org/10.1007/s00453-005-1165-y">DOI</a> <a href="http://dx.doi.org/10.1007/s00453-005-1165-y">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_AgarwalHMW05" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@article{AgarwalHMW05,
+  author = {Pankaj K. Agarwal and Sariel Har-Peled and Nabil H. Mustafa and Yusu Wang},
+  title = {Near-Linear Time Approximation Algorithms for Curve Simplification},
+  journal = {Algorithmica},
+  year = {2005},
+  volume = {42},
+  number = {3-4},
+  pages = {203--219},
+  url = {http://dx.doi.org/10.1007/s00453-005-1165-y},
+  doi = {http://dx.doi.org/10.1007/s00453-005-1165-y}
+}
+</pre></td>
+</tr>
+<tr id="AltERW03" class="entry">
+	<td>Alt, H., Efrat, A., Rote, G&uuml;. &amp; Wenk, C.</td>
+	<td>Matching planar maps <p class="infolinks">[<a href="javascript:toggleInfo('AltERW03','bibtex')">BibTeX</a>]</p></td>
+	<td>2003</td>
+	<td>J. Algorithms<br/>Vol. 49(2), pp. 262-283&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://dx.doi.org/10.1016/S0196-6774(03)00085-3">DOI</a> <a href="http://dx.doi.org/10.1016/S0196-6774(03)00085-3">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_AltERW03" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@article{AltERW03,
+  author = {Helmut Alt and Alon Efrat and G&uuml;nter Rote and Carola Wenk},
+  title = {Matching planar maps},
+  journal = {J. Algorithms},
+  year = {2003},
+  volume = {49},
+  number = {2},
+  pages = {262--283},
+  url = {http://dx.doi.org/10.1016/S0196-6774(03)00085-3},
+  doi = {http://dx.doi.org/10.1016/S0196-6774(03)00085-3}
+}
+</pre></td>
+</tr>
+<tr id="AltG95" class="entry">
+	<td>Alt, H. &amp; Godau, M.</td>
+	<td>Computing the Fr&eacute;chet distance between two polygonal curves <p class="infolinks">[<a href="javascript:toggleInfo('AltG95','bibtex')">BibTeX</a>]</p></td>
+	<td>1995</td>
+	<td>Int. J. Comput. Geometry Appl.<br/>Vol. 5, pp. 75-91&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://dx.doi.org/10.1142/S0218195995000064">DOI</a> <a href="http://dx.doi.org/10.1142/S0218195995000064">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_AltG95" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@article{AltG95,
+  author = {Helmut Alt and Michael Godau},
+  title = {Computing the Fr&eacute;chet distance between two polygonal curves},
+  journal = {Int. J. Comput. Geometry Appl.},
+  year = {1995},
+  volume = {5},
+  pages = {75--91},
+  url = {http://dx.doi.org/10.1142/S0218195995000064},
+  doi = {http://dx.doi.org/10.1142/S0218195995000064}
+}
+</pre></td>
+</tr>
+<tr id="AltG92" class="entry">
+	<td>Alt, H. &amp; Godau, M.</td>
+	<td>Measuring the Resemblance of Polygonal Curves <p class="infolinks">[<a href="javascript:toggleInfo('AltG92','bibtex')">BibTeX</a>]</p></td>
+	<td>1992</td>
+	<td>Symposium on Computational Geometry, pp. 102-109&nbsp;</td>
+	<td>inproceedings</td>
+	<td><a href="http://dx.doi.org/10.1145/142675.142699">DOI</a> <a href="http://doi.acm.org/10.1145/142675.142699">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_AltG92" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@inproceedings{AltG92,
+  author = {Helmut Alt and Michael Godau},
+  title = {Measuring the Resemblance of Polygonal Curves},
+  booktitle = {Symposium on Computational Geometry},
+  year = {1992},
+  pages = {102--109},
+  url = {http://doi.acm.org/10.1145/142675.142699},
+  doi = {http://dx.doi.org/10.1145/142675.142699}
+}
+</pre></td>
+</tr>
+<tr id="AltKW01" class="entry">
+	<td>Alt, H., Knauer, C. &amp; Wenk, C.</td>
+	<td>Matching Polygonal Curves with Respect to the Fr&eacute;chet Distance <p class="infolinks">[<a href="javascript:toggleInfo('AltKW01','bibtex')">BibTeX</a>]</p></td>
+	<td>2001</td>
+	<td>STACS 2001, 18th Annual Symposium on Theoretical Aspects of Computer Science, Dresden, Germany, February 15-17, 2001, Proceedings, pp. 63-74&nbsp;</td>
+	<td>inproceedings</td>
+	<td><a href="http://dx.doi.org/10.1007/3-540-44693-1_6">DOI</a> <a href="http://dx.doi.org/10.1007/3-540-44693-1_6">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_AltKW01" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@inproceedings{AltKW01,
+  author = {Helmut Alt and Christian Knauer and Carola Wenk},
+  title = {Matching Polygonal Curves with Respect to the Fr&eacute;chet Distance},
+  booktitle = {STACS 2001, 18th Annual Symposium on Theoretical Aspects of Computer Science, Dresden, Germany, February 15-17, 2001, Proceedings},
+  year = {2001},
+  pages = {63--74},
+  url = {http://dx.doi.org/10.1007/3-540-44693-1_6},
+  doi = {http://dx.doi.org/10.1007/3-540-44693-1_6}
+}
+</pre></td>
+</tr>
+<tr id="AronovHKWW06" class="entry">
+	<td>Aronov, B., Har-Peled, S., Knauer, C., Wang, Y. &amp; Wenk, C.</td>
+	<td>Fr&eacute;chet Distance for Curves, Revisited <p class="infolinks">[<a href="javascript:toggleInfo('AronovHKWW06','bibtex')">BibTeX</a>]</p></td>
+	<td>2006</td>
+	<td>Algorithms - ESA 2006, 14th Annual European Symposium, Zurich, Switzerland, September 11-13, 2006, Proceedings, pp. 52-63&nbsp;</td>
+	<td>inproceedings</td>
+	<td><a href="http://dx.doi.org/10.1007/11841036_8">DOI</a> <a href="http://dx.doi.org/10.1007/11841036_8">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_AronovHKWW06" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@inproceedings{AronovHKWW06,
+  author = {Boris Aronov and Sariel Har-Peled and Christian Knauer and Yusu Wang and Carola Wenk},
+  title = {Fr&eacute;chet Distance for Curves, Revisited},
+  booktitle = {Algorithms - ESA 2006, 14th Annual European Symposium, Zurich, Switzerland, September 11-13, 2006, Proceedings},
+  year = {2006},
+  pages = {52--63},
+  url = {http://dx.doi.org/10.1007/11841036_8},
+  doi = {http://dx.doi.org/10.1007/11841036_8}
+}
+</pre></td>
+</tr>
+<tr id="AvrahamFKKS14" class="entry">
+	<td>Avraham, R.B., Filtser, O., Kaplan, H., Katz, M.J. &amp; Sharir, M.</td>
+	<td>The Discrete Fr&eacute;chet Distance with Shortcuts via Approximate Distance Counting and Selection <p class="infolinks">[<a href="javascript:toggleInfo('AvrahamFKKS14','bibtex')">BibTeX</a>]</p></td>
+	<td>2014</td>
+	<td>30th Annual Symposium on Computational Geometry, SOCG'14, Kyoto, Japan, June 08 - 11, 2014, pp. 377&nbsp;</td>
+	<td>inproceedings</td>
+	<td><a href="http://dx.doi.org/10.1145/2582112.2582155">DOI</a> <a href="http://doi.acm.org/10.1145/2582112.2582155">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_AvrahamFKKS14" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@inproceedings{AvrahamFKKS14,
+  author = {Rinat Ben Avraham and Omrit Filtser and Haim Kaplan and Matthew J. Katz and Micha Sharir},
+  title = {The Discrete Fr&eacute;chet Distance with Shortcuts via Approximate Distance Counting and Selection},
+  booktitle = {30th Annual Symposium on Computational Geometry, SOCG'14, Kyoto, Japan, June 08 - 11, 2014},
+  year = {2014},
+  pages = {377},
+  url = {http://doi.acm.org/10.1145/2582112.2582155},
+  doi = {http://dx.doi.org/10.1145/2582112.2582155}
+}
+</pre></td>
+</tr>
+<tr id="BeregJWYZ08" class="entry">
+	<td>Bereg, S., Jiang, M., Wang, W., Yang, B. &amp; Zhu, B.</td>
+	<td>Simplifying 3D Polygonal Chains Under the Discrete Fr&eacute;chet Distance <p class="infolinks">[<a href="javascript:toggleInfo('BeregJWYZ08','bibtex')">BibTeX</a>]</p></td>
+	<td>2008</td>
+	<td>LATIN 2008: Theoretical Informatics, 8th Latin American Symposium, B&uacute;zios, Brazil, April 7-11, 2008, Proceedings, pp. 630-641&nbsp;</td>
+	<td>inproceedings</td>
+	<td><a href="http://dx.doi.org/10.1007/978-3-540-78773-0_54">DOI</a> <a href="http://dx.doi.org/10.1007/978-3-540-78773-0_54">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_BeregJWYZ08" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@inproceedings{BeregJWYZ08,
+  author = {Sergey Bereg and Minghui Jiang and Wencheng Wang and Boting Yang and Binhai Zhu},
+  title = {Simplifying 3D Polygonal Chains Under the Discrete Fr&eacute;chet Distance},
+  booktitle = {LATIN 2008: Theoretical Informatics, 8th Latin American Symposium, B&uacute;zios, Brazil, April 7-11, 2008, Proceedings},
+  year = {2008},
+  pages = {630--641},
+  url = {http://dx.doi.org/10.1007/978-3-540-78773-0_54},
+  doi = {http://dx.doi.org/10.1007/978-3-540-78773-0_54}
+}
+</pre></td>
+</tr>
+<tr id="BespamyatnikhS02" class="entry">
+	<td>Bespamyatnikh, S. &amp; Segal, M.</td>
+	<td>Fast Algorithms for Approximating Distances <p class="infolinks">[<a href="javascript:toggleInfo('BespamyatnikhS02','bibtex')">BibTeX</a>]</p></td>
+	<td>2002</td>
+	<td>Algorithmica<br/>Vol. 33(2), pp. 263-269&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://dx.doi.org/10.1007/s00453-001-0114-7">DOI</a> <a href="http://dx.doi.org/10.1007/s00453-001-0114-7">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_BespamyatnikhS02" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@article{BespamyatnikhS02,
+  author = {Sergei Bespamyatnikh and Michael Segal},
+  title = {Fast Algorithms for Approximating Distances},
+  journal = {Algorithmica},
+  year = {2002},
+  volume = {33},
+  number = {2},
+  pages = {263--269},
+  url = {http://dx.doi.org/10.1007/s00453-001-0114-7},
+  doi = {http://dx.doi.org/10.1007/s00453-001-0114-7}
+}
+</pre></td>
+</tr>
+<tr id="BrakatsoulasPSW05" class="entry">
+	<td>Brakatsoulas, S., Pfoser, D., Salas, R. &amp; Wenk, C.</td>
+	<td>On Map-Matching Vehicle Tracking Data <p class="infolinks">[<a href="javascript:toggleInfo('BrakatsoulasPSW05','bibtex')">BibTeX</a>]</p></td>
+	<td>2005</td>
+	<td>Proceedings of the 31st International Conference on Very Large Data Bases, Trondheim, Norway, August 30 - September 2, 2005, pp. 853-864&nbsp;</td>
+	<td>inproceedings</td>
+	<td><a href="http://www.vldb2005.org/program/paper/fri/p853-brakatsoulas.pdf">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_BrakatsoulasPSW05" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@inproceedings{BrakatsoulasPSW05,
+  author = {Sotiris Brakatsoulas and Dieter Pfoser and Randall Salas and Carola Wenk},
+  title = {On Map-Matching Vehicle Tracking Data},
+  booktitle = {Proceedings of the 31st International Conference on Very Large Data Bases, Trondheim, Norway, August 30 - September 2, 2005},
+  year = {2005},
+  pages = {853--864},
+  url = {http://www.vldb2005.org/program/paper/fri/p853-brakatsoulas.pdf}
+}
+</pre></td>
+</tr>
+<tr id="Bringmann14" class="entry">
+	<td>Bringmann, K.</td>
+	<td>Why walking the dog takes time: Frechet distance has no strongly subquadratic algorithms unless SETH fails <p class="infolinks">[<a href="javascript:toggleInfo('Bringmann14','bibtex')">BibTeX</a>]</p></td>
+	<td>2014</td>
+	<td>CoRR<br/>Vol. abs/1404.1448&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://arxiv.org/abs/1404.1448">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_Bringmann14" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@article{Bringmann14,
+  author = {Karl Bringmann},
+  title = {Why walking the dog takes time: Frechet distance has no strongly subquadratic algorithms unless SETH fails},
+  journal = {CoRR},
+  year = {2014},
+  volume = {abs/1404.1448},
+  url = {http://arxiv.org/abs/1404.1448}
+}
+</pre></td>
+</tr>
+<tr id="BuchinBG08" class="entry">
+	<td>Buchin, K., Buchin, M. &amp; Gudmundsson, J.</td>
+	<td>Detecting single file movement <p class="infolinks">[<a href="javascript:toggleInfo('BuchinBG08','bibtex')">BibTeX</a>]</p></td>
+	<td>2008</td>
+	<td>16th ACM SIGSPATIAL International Symposium on Advances in Geographic Information Systems, ACM-GIS 2008, November 5-7, 2008, Irvine, California, USA, Proceedings, pp. 33&nbsp;</td>
+	<td>inproceedings</td>
+	<td><a href="http://dx.doi.org/10.1145/1463434.1463476">DOI</a> <a href="http://doi.acm.org/10.1145/1463434.1463476">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_BuchinBG08" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@inproceedings{BuchinBG08,
+  author = {Kevin Buchin and Maike Buchin and Joachim Gudmundsson},
+  title = {Detecting single file movement},
+  booktitle = {16th ACM SIGSPATIAL International Symposium on Advances in Geographic Information Systems, ACM-GIS 2008, November 5-7, 2008, Irvine, California, USA, Proceedings},
+  year = {2008},
+  pages = {33},
+  url = {http://doi.acm.org/10.1145/1463434.1463476},
+  doi = {http://dx.doi.org/10.1145/1463434.1463476}
+}
+</pre></td>
+</tr>
+<tr id="BuchinBGLL11" class="entry">
+	<td>Buchin, K., Buchin, M., Gudmundsson, J., L&ouml;ffler, M. &amp; Luo, J.</td>
+	<td>Detecting Commuting Patterns by Clustering Subtrajectories <p class="infolinks">[<a href="javascript:toggleInfo('BuchinBGLL11','bibtex')">BibTeX</a>]</p></td>
+	<td>2011</td>
+	<td>Int. J. Comput. Geometry Appl.<br/>Vol. 21(3), pp. 253-282&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://dx.doi.org/10.1142/S0218195911003652">DOI</a> <a href="http://dx.doi.org/10.1142/S0218195911003652">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_BuchinBGLL11" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@article{BuchinBGLL11,
+  author = {Kevin Buchin and Maike Buchin and Joachim Gudmundsson and Maarten L&ouml;ffler and Jun Luo},
+  title = {Detecting Commuting Patterns by Clustering Subtrajectories},
+  journal = {Int. J. Comput. Geometry Appl.},
+  year = {2011},
+  volume = {21},
+  number = {3},
+  pages = {253--282},
+  url = {http://dx.doi.org/10.1142/S0218195911003652},
+  doi = {http://dx.doi.org/10.1142/S0218195911003652}
+}
+</pre></td>
+</tr>
+<tr id="BuchinBKLSWW13" class="entry">
+	<td>Buchin, K., Buchin, M., van Kreveld, M.J., L&ouml;ffler, M., Silveira, R.I., Wenk, C. &amp; Wiratma, L.</td>
+	<td>Median Trajectories <p class="infolinks">[<a href="javascript:toggleInfo('BuchinBKLSWW13','bibtex')">BibTeX</a>]</p></td>
+	<td>2013</td>
+	<td>Algorithmica<br/>Vol. 66(3), pp. 595-614&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://dx.doi.org/10.1007/s00453-012-9654-2">DOI</a> <a href="http://dx.doi.org/10.1007/s00453-012-9654-2">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_BuchinBKLSWW13" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@article{BuchinBKLSWW13,
+  author = {Kevin Buchin and Maike Buchin and Marc J. van Kreveld and Maarten L&ouml;ffler and Rodrigo I. Silveira and Carola Wenk and Lionov Wiratma},
+  title = {Median Trajectories},
+  journal = {Algorithmica},
+  year = {2013},
+  volume = {66},
+  number = {3},
+  pages = {595--614},
+  url = {http://dx.doi.org/10.1007/s00453-012-9654-2},
+  doi = {http://dx.doi.org/10.1007/s00453-012-9654-2}
+}
+</pre></td>
+</tr>
+<tr id="BuchinBMM14" class="entry">
+	<td>Buchin, K., Buchin, M., Meulemans, W. &amp; Mulzer, W.</td>
+	<td>Four Soviets Walk the Dog - with an Application to Alt's Conjecture <p class="infolinks">[<a href="javascript:toggleInfo('BuchinBMM14','bibtex')">BibTeX</a>]</p></td>
+	<td>2014</td>
+	<td>Proceedings of the Twenty-Fifth Annual ACM-SIAM Symposium on Discrete Algorithms, SODA 2014, Portland, Oregon, USA, January 5-7, 2014, pp. 1399-1413&nbsp;</td>
+	<td>inproceedings</td>
+	<td><a href="http://dx.doi.org/10.1137/1.9781611973402.103">DOI</a> <a href="http://dx.doi.org/10.1137/1.9781611973402.103">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_BuchinBMM14" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@inproceedings{BuchinBMM14,
+  author = {Kevin Buchin and Maike Buchin and Wouter Meulemans and Wolfgang Mulzer},
+  title = {Four Soviets Walk the Dog - with an Application to Alt's Conjecture},
+  booktitle = {Proceedings of the Twenty-Fifth Annual ACM-SIAM Symposium on Discrete Algorithms, SODA 2014, Portland, Oregon, USA, January 5-7, 2014},
+  year = {2014},
+  pages = {1399--1413},
+  url = {http://dx.doi.org/10.1137/1.9781611973402.103},
+  doi = {http://dx.doi.org/10.1137/1.9781611973402.103}
+}
+</pre></td>
+</tr>
+<tr id="BuchinBMS12" class="entry">
+	<td>Buchin, K., Buchin, M., Meulemans, W. &amp; Speckmann, B.</td>
+	<td>Locally Correct Fr&eacute;chet Matchings <p class="infolinks">[<a href="javascript:toggleInfo('BuchinBMS12','bibtex')">BibTeX</a>]</p></td>
+	<td>2012</td>
+	<td>Algorithms - ESA 2012 - 20th Annual European Symposium, Ljubljana, Slovenia, September 10-12, 2012. Proceedings, pp. 229-240&nbsp;</td>
+	<td>inproceedings</td>
+	<td><a href="http://dx.doi.org/10.1007/978-3-642-33090-2_21">DOI</a> <a href="http://dx.doi.org/10.1007/978-3-642-33090-2_21">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_BuchinBMS12" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@inproceedings{BuchinBMS12,
+  author = {Kevin Buchin and Maike Buchin and Wouter Meulemans and Bettina Speckmann},
+  title = {Locally Correct Fr&eacute;chet Matchings},
+  booktitle = {Algorithms - ESA 2012 - 20th Annual European Symposium, Ljubljana, Slovenia, September 10-12, 2012. Proceedings},
+  year = {2012},
+  pages = {229--240},
+  url = {http://dx.doi.org/10.1007/978-3-642-33090-2_21},
+  doi = {http://dx.doi.org/10.1007/978-3-642-33090-2_21}
+}
+</pre></td>
+</tr>
+<tr id="BuchinBW09" class="entry">
+	<td>Buchin, K., Buchin, M. &amp; Wang, Y.</td>
+	<td>Exact algorithms for partial curve matching via the Fr&eacute;chet distance <p class="infolinks">[<a href="javascript:toggleInfo('BuchinBW09','bibtex')">BibTeX</a>]</p></td>
+	<td>2009</td>
+	<td>Proceedings of the Twentieth Annual ACM-SIAM Symposium on Discrete Algorithms, SODA 2009, New York, NY, USA, January 4-6, 2009, pp. 645-654&nbsp;</td>
+	<td>inproceedings</td>
+	<td><a href="http://dl.acm.org/citation.cfm?id=1496770.1496841">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_BuchinBW09" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@inproceedings{BuchinBW09,
+  author = {Kevin Buchin and Maike Buchin and Yusu Wang},
+  title = {Exact algorithms for partial curve matching via the Fr&eacute;chet distance},
+  booktitle = {Proceedings of the Twentieth Annual ACM-SIAM Symposium on Discrete Algorithms, SODA 2009, New York, NY, USA, January 4-6, 2009},
+  year = {2009},
+  pages = {645--654},
+  url = {http://dl.acm.org/citation.cfm?id=1496770.1496841}
+}
+</pre></td>
+</tr>
+<tr id="BuchinDS14" class="entry">
+	<td>Buchin, M., Driemel, A. &amp; Speckmann, B.</td>
+	<td>Computing the Fr&eacute;chet distance with shortcuts is NP-hard <p class="infolinks">[<a href="javascript:toggleInfo('BuchinDS14','bibtex')">BibTeX</a>]</p></td>
+	<td>2014</td>
+	<td>30th Annual Symposium on Computational Geometry, SOCG'14, Kyoto, Japan, June 08 - 11, 2014, pp. 367&nbsp;</td>
+	<td>inproceedings</td>
+	<td><a href="http://dx.doi.org/10.1145/2582112.2582144">DOI</a> <a href="http://doi.acm.org/10.1145/2582112.2582144">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_BuchinDS14" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@inproceedings{BuchinDS14,
+  author = {Maike Buchin and Anne Driemel and Bettina Speckmann},
+  title = {Computing the Fr&eacute;chet distance with shortcuts is NP-hard},
+  booktitle = {30th Annual Symposium on Computational Geometry, SOCG'14, Kyoto, Japan, June 08 - 11, 2014},
+  year = {2014},
+  pages = {367},
+  url = {http://doi.acm.org/10.1145/2582112.2582144},
+  doi = {http://dx.doi.org/10.1145/2582112.2582144}
+}
+</pre></td>
+</tr>
+<tr id="ChambersVELLT10" class="entry">
+	<td>Chambers, E.W., de Verdi&egrave;re, &Eacute;.C., Erickson, J., Lazard, S., Lazarus, F. &amp; Thite, S.</td>
+	<td>Homotopic Fr&eacute;chet distance between curves or, walking your dog in the woods in polynomial time <p class="infolinks">[<a href="javascript:toggleInfo('ChambersVELLT10','bibtex')">BibTeX</a>]</p></td>
+	<td>2010</td>
+	<td>Comput. Geom.<br/>Vol. 43(3), pp. 295-311&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://dx.doi.org/10.1016/j.comgeo.2009.02.008">DOI</a> <a href="http://dx.doi.org/10.1016/j.comgeo.2009.02.008">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_ChambersVELLT10" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@article{ChambersVELLT10,
+  author = {Erin W. Chambers and &Eacute;ric Colin de Verdi&egrave;re and Jeff Erickson and Sylvain Lazard and Francis Lazarus and Shripad Thite},
+  title = {Homotopic Fr&eacute;chet distance between curves or, walking your dog in the woods in polynomial time},
+  journal = {Comput. Geom.},
+  year = {2010},
+  volume = {43},
+  number = {3},
+  pages = {295--311},
+  url = {http://dx.doi.org/10.1016/j.comgeo.2009.02.008},
+  doi = {http://dx.doi.org/10.1016/j.comgeo.2009.02.008}
+}
+</pre></td>
+</tr>
+<tr id="Chazelle93a" class="entry">
+	<td>Chazelle, B.</td>
+	<td>Cutting Hyperplanes for Divide-and-Conquer <p class="infolinks">[<a href="javascript:toggleInfo('Chazelle93a','bibtex')">BibTeX</a>]</p></td>
+	<td>1993</td>
+	<td>Discrete &amp; Computational Geometry<br/>Vol. 9, pp. 145-158&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://dx.doi.org/10.1007/BF02189314">DOI</a> <a href="http://dx.doi.org/10.1007/BF02189314">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_Chazelle93a" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@article{Chazelle93a,
+  author = {Bernard Chazelle},
+  title = {Cutting Hyperplanes for Divide-and-Conquer},
+  journal = {Discrete &amp; Computational Geometry},
+  year = {1993},
+  volume = {9},
+  pages = {145--158},
+  url = {http://dx.doi.org/10.1007/BF02189314},
+  doi = {http://dx.doi.org/10.1007/BF02189314}
+}
+</pre></td>
+</tr>
+<tr id="ChazelleF90" class="entry">
+	<td>Chazelle, B. &amp; Friedman, J.</td>
+	<td>A deterministic view of random sampling and its use in geometry <p class="infolinks">[<a href="javascript:toggleInfo('ChazelleF90','bibtex')">BibTeX</a>]</p></td>
+	<td>1990</td>
+	<td>Combinatorica<br/>Vol. 10(3), pp. 229-249&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://dx.doi.org/10.1007/BF02122778">DOI</a> <a href="http://dx.doi.org/10.1007/BF02122778">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_ChazelleF90" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@article{ChazelleF90,
+  author = {Bernard Chazelle and Joel Friedman},
+  title = {A deterministic view of random sampling and its use in geometry},
+  journal = {Combinatorica},
+  year = {1990},
+  volume = {10},
+  number = {3},
+  pages = {229--249},
+  url = {http://dx.doi.org/10.1007/BF02122778},
+  doi = {http://dx.doi.org/10.1007/BF02122778}
+}
+</pre></td>
+</tr>
+<tr id="ChenDGNW11" class="entry">
+	<td>Chen, D., Driemel, A., Guibas, L.J., Nguyen, A. &amp; Wenk, C.</td>
+	<td>Approximate Map Matching with respect to the Fr&eacute;chet Distance <p class="infolinks">[<a href="javascript:toggleInfo('ChenDGNW11','bibtex')">BibTeX</a>]</p></td>
+	<td>2011</td>
+	<td>Proceedings of the Thirteenth Workshop on Algorithm Engineering and Experiments, ALENEX 2011, Holiday Inn San Francisco Golden Gateway, San Francisco, California, USA, January 22, 2011, pp. 75-83&nbsp;</td>
+	<td>inproceedings</td>
+	<td><a href="http://dx.doi.org/10.1137/1.9781611972917.8">DOI</a> <a href="http://dx.doi.org/10.1137/1.9781611972917.8">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_ChenDGNW11" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@inproceedings{ChenDGNW11,
+  author = {Daniel Chen and Anne Driemel and Leonidas J. Guibas and Andy Nguyen and Carola Wenk},
+  title = {Approximate Map Matching with respect to the Fr&eacute;chet Distance},
+  booktitle = {Proceedings of the Thirteenth Workshop on Algorithm Engineering and Experiments, ALENEX 2011, Holiday Inn San Francisco Golden Gateway, San Francisco, California, USA, January 22, 2011},
+  year = {2011},
+  pages = {75--83},
+  url = {http://dx.doi.org/10.1137/1.9781611972917.8},
+  doi = {http://dx.doi.org/10.1137/1.9781611972917.8}
+}
+</pre></td>
+</tr>
+<tr id="WenkC08" class="entry">
+	<td>Cook, A.F. &amp; Wenk, C.</td>
+	<td>Geodesic Fr&eacute;chet Distance Inside a Simple Polygon <p class="infolinks">[<a href="javascript:toggleInfo('WenkC08','bibtex')">BibTeX</a>]</p></td>
+	<td>2008</td>
+	<td>STACS 2008, 25th Annual Symposium on Theoretical Aspects of Computer Science, Bordeaux, France, February 21-23, 2008, Proceedings, pp. 193-204&nbsp;</td>
+	<td>inproceedings</td>
+	<td><a href="http://dx.doi.org/10.4230/LIPIcs.STACS.2008.1330">DOI</a> <a href="http://dx.doi.org/10.4230/LIPIcs.STACS.2008.1330">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_WenkC08" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@inproceedings{WenkC08,
+  author = {Atlas F. Cook and Carola Wenk},
+  title = {Geodesic Fr&eacute;chet Distance Inside a Simple Polygon},
+  booktitle = {STACS 2008, 25th Annual Symposium on Theoretical Aspects of Computer Science, Bordeaux, France, February 21-23, 2008, Proceedings},
+  year = {2008},
+  pages = {193--204},
+  url = {http://dx.doi.org/10.4230/LIPIcs.STACS.2008.1330},
+  doi = {http://dx.doi.org/10.4230/LIPIcs.STACS.2008.1330}
+}
+</pre></td>
+</tr>
+<tr id="DorrigivDFFLMSS09" class="entry">
+	<td>Dorrigiv, R., Durocher, S., Farzan, A., Fraser, R., L&oacute;pez-Ortiz, A., Munro, J.I., Salinger, A. &amp; Skala, M.</td>
+	<td>Finding a Hausdorff Core of a Polygon: On Convex Polygon Containment with Bounded Hausdorff Distance <p class="infolinks">[<a href="javascript:toggleInfo('DorrigivDFFLMSS09','bibtex')">BibTeX</a>]</p></td>
+	<td>2009</td>
+	<td>Algorithms and Data Structures, 11th International Symposium, WADS 2009, Banff, Canada, August 21-23, 2009. Proceedings, pp. 218-229&nbsp;</td>
+	<td>inproceedings</td>
+	<td><a href="http://dx.doi.org/10.1007/978-3-642-03367-4_20">DOI</a> <a href="http://dx.doi.org/10.1007/978-3-642-03367-4_20">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_DorrigivDFFLMSS09" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@inproceedings{DorrigivDFFLMSS09,
+  author = {Reza Dorrigiv and Stephane Durocher and Arash Farzan and Robert Fraser and Alejandro L&oacute;pez-Ortiz and J. Ian Munro and Alejandro Salinger and Matthew Skala},
+  title = {Finding a Hausdorff Core of a Polygon: On Convex Polygon Containment with Bounded Hausdorff Distance},
+  booktitle = {Algorithms and Data Structures, 11th International Symposium, WADS 2009, Banff, Canada, August 21-23, 2009. Proceedings},
+  year = {2009},
+  pages = {218--229},
+  url = {http://dx.doi.org/10.1007/978-3-642-03367-4_20},
+  doi = {http://dx.doi.org/10.1007/978-3-642-03367-4_20}
+}
+</pre></td>
+</tr>
+<tr id="Driemel13" class="entry">
+	<td>Driemel, A.</td>
+	<td>Realistic Analysis for Algorithmic Problems on Geographical Data <p class="infolinks">[<a href="javascript:toggleInfo('Driemel13','bibtex')">BibTeX</a>]</p></td>
+	<td>2013</td>
+	<td><i>School</i>: Utrecht University&nbsp;</td>
+	<td>phdthesis</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="bib_Driemel13" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@phdthesis{Driemel13,
+  author = {Driemel, Anne},
+  title = {Realistic Analysis for Algorithmic Problems on Geographical Data},
+  school = {Utrecht University},
+  year = {2013}
+}
+</pre></td>
+</tr>
+<tr id="DriemelH13" class="entry">
+	<td>Driemel, A. &amp; Har-Peled, S.</td>
+	<td>Jaywalking Your Dog: Computing the Fr&eacute;chet Distance with Shortcuts <p class="infolinks">[<a href="javascript:toggleInfo('DriemelH13','bibtex')">BibTeX</a>]</p></td>
+	<td>2013</td>
+	<td>SIAM J. Comput.<br/>Vol. 42(5), pp. 1830-1866&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://dx.doi.org/10.1137/120865112">DOI</a> <a href="http://dx.doi.org/10.1137/120865112">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_DriemelH13" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@article{DriemelH13,
+  author = {Anne Driemel and Sariel Har-Peled},
+  title = {Jaywalking Your Dog: Computing the Fr&eacute;chet Distance with Shortcuts},
+  journal = {SIAM J. Comput.},
+  year = {2013},
+  volume = {42},
+  number = {5},
+  pages = {1830--1866},
+  url = {http://dx.doi.org/10.1137/120865112},
+  doi = {http://dx.doi.org/10.1137/120865112}
+}
+</pre></td>
+</tr>
+<tr id="DriemelHW12" class="entry">
+	<td>Driemel, A., Har-Peled, S. &amp; Wenk, C.</td>
+	<td>Approximating the Fr&eacute;chet Distance for Realistic Curves in Near Linear Time <p class="infolinks">[<a href="javascript:toggleInfo('DriemelHW12','bibtex')">BibTeX</a>]</p></td>
+	<td>2012</td>
+	<td>Discrete &amp; Computational Geometry<br/>Vol. 48(1), pp. 94-127&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://dx.doi.org/10.1007/s00454-012-9402-z">DOI</a> <a href="http://dx.doi.org/10.1007/s00454-012-9402-z">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_DriemelHW12" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@article{DriemelHW12,
+  author = {Anne Driemel and Sariel Har-Peled and Carola Wenk},
+  title = {Approximating the Fr&eacute;chet Distance for Realistic Curves in Near Linear Time},
+  journal = {Discrete &amp; Computational Geometry},
+  year = {2012},
+  volume = {48},
+  number = {1},
+  pages = {94--127},
+  url = {http://dx.doi.org/10.1007/s00454-012-9402-z},
+  doi = {http://dx.doi.org/10.1007/s00454-012-9402-z}
+}
+</pre></td>
+</tr>
+<tr id="DumitrescuR04" class="entry">
+	<td>Dumitrescu, A. &amp; Rote, G&uuml;.</td>
+	<td>On the Fr&eacute;chet distance of a set of curves <p class="infolinks">[<a href="javascript:toggleInfo('DumitrescuR04','bibtex')">BibTeX</a>]</p></td>
+	<td>2004</td>
+	<td>Proceedings of the 16th Canadian Conference on Computational Geometry, CCCG'04, Concordia University, Montr&eacute;al, Qu&eacute;bec, Canada, August 9-11, 2004, pp. 162-165&nbsp;</td>
+	<td>inproceedings</td>
+	<td><a href="http://www.cccg.ca/proceedings/2004/39.pdf">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_DumitrescuR04" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@inproceedings{DumitrescuR04,
+  author = {Adrian Dumitrescu and G&uuml;nter Rote},
+  title = {On the Fr&eacute;chet distance of a set of curves},
+  booktitle = {Proceedings of the 16th Canadian Conference on Computational Geometry, CCCG'04, Concordia University, Montr&eacute;al, Qu&eacute;bec, Canada, August 9-11, 2004},
+  year = {2004},
+  pages = {162--165},
+  url = {http://www.cccg.ca/proceedings/2004/39.pdf}
+}
+</pre></td>
+</tr>
+<tr id="EiterM94" class="entry">
+	<td>Eiter, T. &amp; Mannila, H.</td>
+	<td>Computing discrete Fr&eacute;chet distance <p class="infolinks">[<a href="javascript:toggleInfo('EiterM94','bibtex')">BibTeX</a>]</p></td>
+	<td>1994</td>
+	<td>(CD-TR 94/64)&nbsp;</td>
+	<td>techreport</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="bib_EiterM94" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@techreport{EiterM94,
+  author = {Eiter, Thomas and Mannila, Heikki},
+  title = {Computing discrete Fr&eacute;chet distance},
+  year = {1994},
+  number = {CD-TR 94/64}
+}
+</pre></td>
+</tr>
+<tr id="FiltserKWZ14" class="entry">
+	<td>Filtser, O., Katz, M.J., Wylie, T. &amp; Zhu, B.</td>
+	<td>On the Chain Pair Simplification Problem <p class="infolinks">[<a href="javascript:toggleInfo('FiltserKWZ14','bibtex')">BibTeX</a>]</p></td>
+	<td>2014</td>
+	<td>CoRR<br/>Vol. abs/1409.2457&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://arxiv.org/abs/1409.2457">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_FiltserKWZ14" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@article{FiltserKWZ14,
+  author = {Omrit Filtser and Matthew J. Katz and Tim Wylie and Binhai Zhu},
+  title = {On the Chain Pair Simplification Problem},
+  journal = {CoRR},
+  year = {2014},
+  volume = {abs/1409.2457},
+  url = {http://arxiv.org/abs/1409.2457}
+}
+</pre></td>
+</tr>
+<tr id="Frechet1906" class="entry">
+	<td>Frechet, M.</td>
+	<td>Sur quelques points du calcul fonctionnel <p class="infolinks">[<a href="javascript:toggleInfo('Frechet1906','bibtex')">BibTeX</a>]</p></td>
+	<td>1906</td>
+	<td>Rendiconti del Circolo Matematico di Palermo (1884 - 1940)<br/>Vol. 22(1), pp. 1-72&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://dx.doi.org/10.1007/BF03018603">DOI</a> <a href="http://dx.doi.org/10.1007/BF03018603">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_Frechet1906" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@article{Frechet1906,
+  author = {Frechet, Maurice},
+  title = {Sur quelques points du calcul fonctionnel},
+  journal = {Rendiconti del Circolo Matematico di Palermo (1884 - 1940)},
+  year = {1906},
+  volume = {22},
+  number = {1},
+  pages = {1--72},
+  url = {http://dx.doi.org/10.1007/BF03018603},
+  doi = {http://dx.doi.org/10.1007/BF03018603}
+}
+</pre></td>
+</tr>
+<tr id="Godau91" class="entry">
+	<td>Godau, M.</td>
+	<td>A Natural Metric for Curves - Computing the Distance for Polygonal Chains and Approximation Algorithms <p class="infolinks">[<a href="javascript:toggleInfo('Godau91','bibtex')">BibTeX</a>]</p></td>
+	<td>1991</td>
+	<td>STACS 91, 8th Annual Symposium on Theoretical Aspects of Computer Science, Hamburg, Germany, February 14-16, 1991, Proceedings, pp. 127-136&nbsp;</td>
+	<td>inproceedings</td>
+	<td><a href="http://dx.doi.org/10.1007/BFb0020793">DOI</a> <a href="http://dx.doi.org/10.1007/BFb0020793">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_Godau91" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@inproceedings{Godau91,
+  author = {Michael Godau},
+  title = {A Natural Metric for Curves - Computing the Distance for Polygonal Chains and Approximation Algorithms},
+  booktitle = {STACS 91, 8th Annual Symposium on Theoretical Aspects of Computer Science, Hamburg, Germany, February 14-16, 1991, Proceedings},
+  year = {1991},
+  pages = {127--136},
+  url = {http://dx.doi.org/10.1007/BFb0020793},
+  doi = {http://dx.doi.org/10.1007/BFb0020793}
+}
+</pre></td>
+</tr>
+<tr id="Har-PeledR11" class="entry">
+	<td>Har-Peled, S. &amp; Raichel, B.</td>
+	<td>The frechet distance revisited and extended <p class="infolinks">[<a href="javascript:toggleInfo('Har-PeledR11','bibtex')">BibTeX</a>]</p></td>
+	<td>2011</td>
+	<td>Proceedings of the 27th ACM Symposium on Computational Geometry, Paris, France, June 13-15, 2011, pp. 448-457&nbsp;</td>
+	<td>inproceedings</td>
+	<td><a href="http://dx.doi.org/10.1145/1998196.1998269">DOI</a> <a href="http://doi.acm.org/10.1145/1998196.1998269">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_Har-PeledR11" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@inproceedings{Har-PeledR11,
+  author = {Sariel Har-Peled and Benjamin Raichel},
+  title = {The frechet distance revisited and extended},
+  booktitle = {Proceedings of the 27th ACM Symposium on Computational Geometry, Paris, France, June 13-15, 2011},
+  year = {2011},
+  pages = {448--457},
+  url = {http://doi.acm.org/10.1145/1998196.1998269},
+  doi = {http://dx.doi.org/10.1145/1998196.1998269}
+}
+</pre></td>
+</tr>
+<tr id="Har-PeledR13" class="entry">
+	<td>Har-Peled, S. &amp; Raichel, B.A.</td>
+	<td>Net and prune: a linear time algorithm for euclidean distance problems <p class="infolinks">[<a href="javascript:toggleInfo('Har-PeledR13','bibtex')">BibTeX</a>]</p></td>
+	<td>2013</td>
+	<td>Symposium on Theory of Computing Conference, STOC'13, Palo Alto, CA, USA, June 1-4, 2013, pp. 605-614&nbsp;</td>
+	<td>inproceedings</td>
+	<td><a href="http://dx.doi.org/10.1145/2488608.2488684">DOI</a> <a href="http://doi.acm.org/10.1145/2488608.2488684">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_Har-PeledR13" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@inproceedings{Har-PeledR13,
+  author = {Sariel Har-Peled and Benjamin Adam Raichel},
+  title = {Net and prune: a linear time algorithm for euclidean distance problems},
+  booktitle = {Symposium on Theory of Computing Conference, STOC'13, Palo Alto, CA, USA, June 1-4, 2013},
+  year = {2013},
+  pages = {605--614},
+  url = {http://doi.acm.org/10.1145/2488608.2488684},
+  doi = {http://dx.doi.org/10.1145/2488608.2488684}
+}
+</pre></td>
+</tr>
+<tr id="Har-PeledS11" class="entry">
+	<td>Har-Peled, S. &amp; Sharir, M.</td>
+	<td>Relative (<em>p</em>, <em>epsilon</em>)-Approximations in Geometry <p class="infolinks">[<a href="javascript:toggleInfo('Har-PeledS11','bibtex')">BibTeX</a>]</p></td>
+	<td>2011</td>
+	<td>Discrete &amp; Computational Geometry<br/>Vol. 45(3), pp. 462-496&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://dx.doi.org/10.1007/s00454-010-9248-1">DOI</a> <a href="http://dx.doi.org/10.1007/s00454-010-9248-1">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_Har-PeledS11" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@article{Har-PeledS11,
+  author = {Sariel Har-Peled and Micha Sharir},
+  title = {Relative (<em>p</em>, <em>epsilon</em>)-Approximations in Geometry},
+  journal = {Discrete &amp; Computational Geometry},
+  year = {2011},
+  volume = {45},
+  number = {3},
+  pages = {462--496},
+  url = {http://dx.doi.org/10.1007/s00454-010-9248-1},
+  doi = {http://dx.doi.org/10.1007/s00454-010-9248-1}
+}
+</pre></td>
+</tr>
+<tr id="JiangXZ08" class="entry">
+	<td>Jiang, M., Xu, Y. &amp; Zhu, B.</td>
+	<td>Protein Structure-structure Alignment with Discrete Fr&Eacute;chet Distance <p class="infolinks">[<a href="javascript:toggleInfo('JiangXZ08','bibtex')">BibTeX</a>]</p></td>
+	<td>2008</td>
+	<td>J. Bioinformatics and Computational Biology<br/>Vol. 6(1), pp. 51-64&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://dx.doi.org/10.1142/S0219720008003278">DOI</a> <a href="http://dx.doi.org/10.1142/S0219720008003278">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_JiangXZ08" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@article{JiangXZ08,
+  author = {Minghui Jiang and Ying Xu and Binhai Zhu},
+  title = {Protein Structure-structure Alignment with Discrete Fr&Eacute;chet Distance},
+  journal = {J. Bioinformatics and Computational Biology},
+  year = {2008},
+  volume = {6},
+  number = {1},
+  pages = {51--64},
+  url = {http://dx.doi.org/10.1142/S0219720008003278},
+  doi = {http://dx.doi.org/10.1142/S0219720008003278}
+}
+</pre></td>
+</tr>
+<tr id="KatzS97" class="entry">
+	<td>Katz, M.J. &amp; Sharir, M.</td>
+	<td>An Expander-Based Approach to Geometric Optimization <p class="infolinks">[<a href="javascript:toggleInfo('KatzS97','bibtex')">BibTeX</a>]</p></td>
+	<td>1997</td>
+	<td>SIAM J. Comput.<br/>Vol. 26(5), pp. 1384-1408&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://dx.doi.org/10.1137/S0097539794268649">DOI</a> <a href="http://dx.doi.org/10.1137/S0097539794268649">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_KatzS97" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@article{KatzS97,
+  author = {Matthew J. Katz and Micha Sharir},
+  title = {An Expander-Based Approach to Geometric Optimization},
+  journal = {SIAM J. Comput.},
+  year = {1997},
+  volume = {26},
+  number = {5},
+  pages = {1384--1408},
+  url = {http://dx.doi.org/10.1137/S0097539794268649},
+  doi = {http://dx.doi.org/10.1137/S0097539794268649}
+}
+</pre></td>
+</tr>
+<tr id="KimKS05" class="entry">
+	<td>Kim, M., Kim, S. &amp; Shin, M.</td>
+	<td>Optimization of subsequence matching under time warping in time-series databases <p class="infolinks">[<a href="javascript:toggleInfo('KimKS05','bibtex')">BibTeX</a>]</p></td>
+	<td>2005</td>
+	<td>Proceedings of the 2005 ACM Symposium on Applied Computing (SAC), Santa Fe, New Mexico, USA, March 13-17, 2005, pp. 581-586&nbsp;</td>
+	<td>inproceedings</td>
+	<td><a href="http://dx.doi.org/10.1145/1066677.1066814">DOI</a> <a href="http://doi.acm.org/10.1145/1066677.1066814">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_KimKS05" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@inproceedings{KimKS05,
+  author = {Man-Soon Kim and Sang-Wook Kim and Miyoung Shin},
+  title = {Optimization of subsequence matching under time warping in time-series databases},
+  booktitle = {Proceedings of the 2005 ACM Symposium on Applied Computing (SAC), Santa Fe, New Mexico, USA, March 13-17, 2005},
+  year = {2005},
+  pages = {581--586},
+  url = {http://doi.acm.org/10.1145/1066677.1066814},
+  doi = {http://dx.doi.org/10.1145/1066677.1066814}
+}
+</pre></td>
+</tr>
+<tr id="KreveldW11" class="entry">
+	<td>van Kreveld, M.J. &amp; Wiratma, L.</td>
+	<td>Median trajectories using well-visited regions and shortest paths <p class="infolinks">[<a href="javascript:toggleInfo('KreveldW11','bibtex')">BibTeX</a>]</p></td>
+	<td>2011</td>
+	<td>19th ACM SIGSPATIAL International Symposium on Advances in Geographic Information Systems, ACM-GIS 2011, November 1-4, 2011, Chicago, IL, USA, Proceedings, pp. 241-250&nbsp;</td>
+	<td>inproceedings</td>
+	<td><a href="http://dx.doi.org/10.1145/2093973.2094006">DOI</a> <a href="http://doi.acm.org/10.1145/2093973.2094006">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_KreveldW11" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@inproceedings{KreveldW11,
+  author = {Marc J. van Kreveld and Lionov Wiratma},
+  title = {Median trajectories using well-visited regions and shortest paths},
+  booktitle = {19th ACM SIGSPATIAL International Symposium on Advances in Geographic Information Systems, ACM-GIS 2011, November 1-4, 2011, Chicago, IL, USA, Proceedings},
+  year = {2011},
+  pages = {241--250},
+  url = {http://doi.acm.org/10.1145/2093973.2094006},
+  doi = {http://dx.doi.org/10.1145/2093973.2094006}
+}
+</pre></td>
+</tr>
+<tr id="KwongHMCT98" class="entry">
+	<td>Kwong, S., He, Q., Man, K., Chau, C. &amp; Tang, K.</td>
+	<td>Parallel Genetic-Based Hybrid Pattern Matching Algorithm for Isolated Word Recognition <p class="infolinks">[<a href="javascript:toggleInfo('KwongHMCT98','bibtex')">BibTeX</a>]</p></td>
+	<td>1998</td>
+	<td>IJPRAI<br/>Vol. 12(4), pp. 573-594&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://dx.doi.org/10.1142/S0218001498000348">DOI</a> <a href="http://dx.doi.org/10.1142/S0218001498000348">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_KwongHMCT98" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@article{KwongHMCT98,
+  author = {Sam Kwong and Qianhua He and Kim-Fung Man and Chak-Wai Chau and Kit-Sang Tang},
+  title = {Parallel Genetic-Based Hybrid Pattern Matching Algorithm for Isolated Word Recognition},
+  journal = {IJPRAI},
+  year = {1998},
+  volume = {12},
+  number = {4},
+  pages = {573--594},
+  url = {http://dx.doi.org/10.1142/S0218001498000348},
+  doi = {http://dx.doi.org/10.1142/S0218001498000348}
+}
+</pre></td>
+</tr>
+<tr id="LiLS01" class="entry">
+	<td>Li, Y., Long, P.M. &amp; Srinivasan, A.</td>
+	<td>Improved Bounds on the Sample Complexity of Learning <p class="infolinks">[<a href="javascript:toggleInfo('LiLS01','bibtex')">BibTeX</a>]</p></td>
+	<td>2001</td>
+	<td>J. Comput. Syst. Sci.<br/>Vol. 62(3), pp. 516-527&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://dx.doi.org/10.1006/jcss.2000.1741">DOI</a> <a href="http://dx.doi.org/10.1006/jcss.2000.1741">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_LiLS01" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@article{LiLS01,
+  author = {Yi Li and Philip M. Long and Aravind Srinivasan},
+  title = {Improved Bounds on the Sample Complexity of Learning},
+  journal = {J. Comput. Syst. Sci.},
+  year = {2001},
+  volume = {62},
+  number = {3},
+  pages = {516--527},
+  url = {http://dx.doi.org/10.1006/jcss.2000.1741},
+  doi = {http://dx.doi.org/10.1006/jcss.2000.1741}
+}
+</pre></td>
+</tr>
+<tr id="Matousek91a" class="entry">
+	<td>Matousek, J.</td>
+	<td>Cutting Hyperplane Arrangements <p class="infolinks">[<a href="javascript:toggleInfo('Matousek91a','bibtex')">BibTeX</a>]</p></td>
+	<td>1991</td>
+	<td>Discrete &amp; Computational Geometry<br/>Vol. 6, pp. 385-406&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://dx.doi.org/10.1007/BF02574697">DOI</a> <a href="http://dx.doi.org/10.1007/BF02574697">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_Matousek91a" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@article{Matousek91a,
+  author = {Jir Matousek},
+  title = {Cutting Hyperplane Arrangements},
+  journal = {Discrete &amp; Computational Geometry},
+  year = {1991},
+  volume = {6},
+  pages = {385--406},
+  url = {http://dx.doi.org/10.1007/BF02574697},
+  doi = {http://dx.doi.org/10.1007/BF02574697}
+}
+</pre></td>
+</tr>
+<tr id="MosigC05" class="entry">
+	<td>Mosig, A. &amp; Clausen, M.</td>
+	<td>Approximately matching polygonal curves with respect to the Fre'chet distance <p class="infolinks">[<a href="javascript:toggleInfo('MosigC05','bibtex')">BibTeX</a>]</p></td>
+	<td>2005</td>
+	<td>Comput. Geom.<br/>Vol. 30(2), pp. 113-127&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://dx.doi.org/10.1016/j.comgeo.2004.05.004">DOI</a> <a href="http://dx.doi.org/10.1016/j.comgeo.2004.05.004">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_MosigC05" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@article{MosigC05,
+  author = {Axel Mosig and Michael Clausen},
+  title = {Approximately matching polygonal curves with respect to the Fre'chet distance},
+  journal = {Comput. Geom.},
+  year = {2005},
+  volume = {30},
+  number = {2},
+  pages = {113--127},
+  url = {http://dx.doi.org/10.1016/j.comgeo.2004.05.004},
+  doi = {http://dx.doi.org/10.1016/j.comgeo.2004.05.004}
+}
+</pre></td>
+</tr>
+<tr id="MunichP99" class="entry">
+	<td>Munich, M.E. &amp; Perona, P.</td>
+	<td>Continuous Dynamic Time Warping for Translation-Invariant Curve Alignment with Applications to Signature Verification <p class="infolinks">[<a href="javascript:toggleInfo('MunichP99','bibtex')">BibTeX</a>]</p></td>
+	<td>1999</td>
+	<td>ICCV, pp. 108-115&nbsp;</td>
+	<td>inproceedings</td>
+	<td><a href="http://computer.org/proceedings/iccv/0164/vol%201/01640108abs.htm">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_MunichP99" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@inproceedings{MunichP99,
+  author = {Mario E. Munich and Pietro Perona},
+  title = {Continuous Dynamic Time Warping for Translation-Invariant Curve Alignment with Applications to Signature Verification},
+  booktitle = {ICCV},
+  year = {1999},
+  pages = {108--115},
+  url = {http://computer.org/proceedings/iccv/0164/vol%201/01640108abs.htm}
+}
+</pre></td>
+</tr>
+<tr id="SharirS11" class="entry">
+	<td>Sharir, M. &amp; Shaul, H.</td>
+	<td>Semialgebraic Range Reporting and Emptiness Searching with Applications <p class="infolinks">[<a href="javascript:toggleInfo('SharirS11','bibtex')">BibTeX</a>]</p></td>
+	<td>2011</td>
+	<td>SIAM J. Comput.<br/>Vol. 40(4), pp. 1045-1074&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://dx.doi.org/10.1137/090765092">DOI</a> <a href="http://dx.doi.org/10.1137/090765092">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_SharirS11" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@article{SharirS11,
+  author = {Micha Sharir and Hayim Shaul},
+  title = {Semialgebraic Range Reporting and Emptiness Searching with Applications},
+  journal = {SIAM J. Comput.},
+  year = {2011},
+  volume = {40},
+  number = {4},
+  pages = {1045--1074},
+  url = {http://dx.doi.org/10.1137/090765092},
+  doi = {http://dx.doi.org/10.1137/090765092}
+}
+</pre></td>
+</tr>
+<tr id="WenkSP06" class="entry">
+	<td>Wenk, C., Salas, R. &amp; Pfoser, D.</td>
+	<td>Addressing the Need for Map-Matching Speed: Localizing Globalb Curve-Matching Algorithms <p class="infolinks">[<a href="javascript:toggleInfo('WenkSP06','bibtex')">BibTeX</a>]</p></td>
+	<td>2006</td>
+	<td>18th International Conference on Scientific and Statistical Database Management, SSDBM 2006, 3-5 July 2006, Vienna, Austria, Proceedings, pp. 379-388&nbsp;</td>
+	<td>inproceedings</td>
+	<td><a href="http://dx.doi.org/10.1109/SSDBM.2006.11">DOI</a> <a href="http://dx.doi.org/10.1109/SSDBM.2006.11">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_WenkSP06" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@inproceedings{WenkSP06,
+  author = {Carola Wenk and Randall Salas and Dieter Pfoser},
+  title = {Addressing the Need for Map-Matching Speed: Localizing Globalb Curve-Matching Algorithms},
+  booktitle = {18th International Conference on Scientific and Statistical Database Management, SSDBM 2006, 3-5 July 2006, Vienna, Austria, Proceedings},
+  year = {2006},
+  pages = {379--388},
+  url = {http://dx.doi.org/10.1109/SSDBM.2006.11},
+  doi = {http://dx.doi.org/10.1109/SSDBM.2006.11}
+}
+</pre></td>
+</tr>
+<tr id="Wiratma10" class="entry">
+	<td>Wiratma, L.</td>
+	<td>Following the Majority: a New Algorithm for Computing a Median Trajectory <p class="infolinks">[<a href="javascript:toggleInfo('Wiratma10','bibtex')">BibTeX</a>]</p></td>
+	<td>2010</td>
+	<td><i>School</i>: Utrecht University&nbsp;</td>
+	<td>phdthesis</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="bib_Wiratma10" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@phdthesis{Wiratma10,
+  author = {Lionov Wiratma},
+  title = {Following the Majority: a New Algorithm for Computing a Median Trajectory},
+  school = {Utrecht University},
+  year = {2010}
+}
+</pre></td>
+</tr>
+<tr id="Wylie13" class="entry">
+	<td>Wylie, T.</td>
+	<td>The Discrete Fr&eacute;chet Distance with Applications <p class="infolinks">[<a href="javascript:toggleInfo('Wylie13','bibtex')">BibTeX</a>]</p></td>
+	<td>2013</td>
+	<td><i>School</i>: Montana State University&nbsp;</td>
+	<td>phdthesis</td>
+	<td>&nbsp;</td>
+</tr>
+<tr id="bib_Wylie13" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@phdthesis{Wylie13,
+  author = {Tim Wylie},
+  title = {The Discrete Fr&eacute;chet Distance with Applications},
+  school = {Montana State University},
+  year = {2013}
+}
+</pre></td>
+</tr>
+<tr id="WylieLZ11" class="entry">
+	<td>Wylie, T., Luo, J. &amp; Zhu, B.</td>
+	<td>A Practical Solution for Aligning and Simplifying Pairs of Protein Backbones under the Discrete Fr&eacute;chet Distance <p class="infolinks">[<a href="javascript:toggleInfo('WylieLZ11','bibtex')">BibTeX</a>]</p></td>
+	<td>2011</td>
+	<td>Computational Science and Its Applications - ICCSA 2011 - International Conference, Santander, Spain, June 20-23, 2011. Proceedings, Part III, pp. 74-83&nbsp;</td>
+	<td>inproceedings</td>
+	<td><a href="http://dx.doi.org/10.1007/978-3-642-21931-3_6">DOI</a> <a href="http://dx.doi.org/10.1007/978-3-642-21931-3_6">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_WylieLZ11" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@inproceedings{WylieLZ11,
+  author = {Tim Wylie and Jun Luo and Binhai Zhu},
+  title = {A Practical Solution for Aligning and Simplifying Pairs of Protein Backbones under the Discrete Fr&eacute;chet Distance},
+  booktitle = {Computational Science and Its Applications - ICCSA 2011 - International Conference, Santander, Spain, June 20-23, 2011. Proceedings, Part III},
+  year = {2011},
+  pages = {74--83},
+  url = {http://dx.doi.org/10.1007/978-3-642-21931-3_6},
+  doi = {http://dx.doi.org/10.1007/978-3-642-21931-3_6}
+}
+</pre></td>
+</tr>
+<tr id="WylieZ13" class="entry">
+	<td>Wylie, T. &amp; Zhu, B.</td>
+	<td>Protein Chain Pair Simplification under the Discrete Fr&eacute;chet Distance <p class="infolinks">[<a href="javascript:toggleInfo('WylieZ13','bibtex')">BibTeX</a>]</p></td>
+	<td>2013</td>
+	<td>IEEE/ACM Trans. Comput. Biology Bioinform.<br/>Vol. 10(6), pp. 1372-1383&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://dx.doi.org/10.1109/TCBB.2013.17">DOI</a> <a href="http://doi.ieeecomputersociety.org/10.1109/TCBB.2013.17">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_WylieZ13" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@article{WylieZ13,
+  author = {Tim Wylie and Binhai Zhu},
+  title = {Protein Chain Pair Simplification under the Discrete Fr&eacute;chet Distance},
+  journal = {IEEE/ACM Trans. Comput. Biology Bioinform.},
+  year = {2013},
+  volume = {10},
+  number = {6},
+  pages = {1372--1383},
+  url = {http://doi.ieeecomputersociety.org/10.1109/TCBB.2013.17},
+  doi = {http://dx.doi.org/10.1109/TCBB.2013.17}
+}
+</pre></td>
+</tr>
+<tr id="WylieZ12" class="entry">
+	<td>Wylie, T. &amp; Zhu, B.</td>
+	<td>A Polynomial Time Solution for Protein Chain Pair Simplification under the Discrete Fr&eacute;chet Distance <p class="infolinks">[<a href="javascript:toggleInfo('WylieZ12','bibtex')">BibTeX</a>]</p></td>
+	<td>2012</td>
+	<td>Bioinformatics Research and Applications - 8th International Symposium, ISBRA 2012, Dallas, TX, USA, May 21-23, 2012. Proceedings, pp. 287-298&nbsp;</td>
+	<td>inproceedings</td>
+	<td><a href="http://dx.doi.org/10.1007/978-3-642-30191-9_27">DOI</a> <a href="http://dx.doi.org/10.1007/978-3-642-30191-9_27">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_WylieZ12" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@inproceedings{WylieZ12,
+  author = {Tim Wylie and Binhai Zhu},
+  title = {A Polynomial Time Solution for Protein Chain Pair Simplification under the Discrete Fr&eacute;chet Distance},
+  booktitle = {Bioinformatics Research and Applications - 8th International Symposium, ISBRA 2012, Dallas, TX, USA, May 21-23, 2012. Proceedings},
+  year = {2012},
+  pages = {287--298},
+  url = {http://dx.doi.org/10.1007/978-3-642-30191-9_27},
+  doi = {http://dx.doi.org/10.1007/978-3-642-30191-9_27}
+}
+</pre></td>
+</tr>
+<tr id="Zhu07" class="entry">
+	<td>Zhu, B.</td>
+	<td>Protein Local Structure Alignment Under the Discrete Fr&eacute;chet Distance <p class="infolinks">[<a href="javascript:toggleInfo('Zhu07','bibtex')">BibTeX</a>]</p></td>
+	<td>2007</td>
+	<td>Journal of Computational Biology<br/>Vol. 14(10), pp. 1343-1351&nbsp;</td>
+	<td>article</td>
+	<td><a href="http://dx.doi.org/10.1089/cmb.2007.0156">DOI</a> <a href="http://dx.doi.org/10.1089/cmb.2007.0156">URL</a>&nbsp;</td>
+</tr>
+<tr id="bib_Zhu07" class="bibtex noshow">
+<td colspan="6"><b>BibTeX</b>:
+<pre>
+@article{Zhu07,
+  author = {Binhai Zhu},
+  title = {Protein Local Structure Alignment Under the Discrete Fr&eacute;chet Distance},
+  journal = {Journal of Computational Biology},
+  year = {2007},
+  volume = {14},
+  number = {10},
+  pages = {1343--1351},
+  url = {http://dx.doi.org/10.1089/cmb.2007.0156},
+  doi = {http://dx.doi.org/10.1089/cmb.2007.0156}
+}
+</pre></td>
+</tr>
+</tbody>
+</table>
+
+<p>
+ <small>Created by <a href="http://jabref.sourceforge.net">JabRef</a> on 10/11/2014.</small>
+</p>
+
+</body>
+</html>
+
+<!-- File generated by JabRef ; Export Filter written by Mark Schenk -->

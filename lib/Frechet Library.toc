@@ -1,0 +1,20 @@
+\contentsline {section}{\numberline {1}Continuous Fr\'echet\ distance}{1}{section.1}
+\contentsline {section}{\numberline {2}Discrete Fr\'echet\ distance}{2}{section.2}
+\contentsline {section}{\numberline {3}Variants of Fr\'echet\ distance}{2}{section.3}
+\contentsline {subsection}{\numberline {3.1}Fr\'echet\ distance with shortcuts}{2}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Weak Fr\'echet\ distance}{2}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Partial Fr\'echet\ distance}{2}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Fr\'echet\ distance of a set of curves}{3}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.5}Average and summed Fr\'echet\ distance}{3}{subsection.3.5}
+\contentsline {subsection}{\numberline {3.6}Fr\'echet\ distance with speed limits}{3}{subsection.3.6}
+\contentsline {subsection}{\numberline {3.7}Strong Fr\'echet\ distance}{3}{subsection.3.7}
+\contentsline {subsection}{\numberline {3.8}Locally Correct Fr\'echet\ Matchings}{3}{subsection.3.8}
+\contentsline {section}{\numberline {4}Fr\'echet\ distance in different metric spaces}{3}{section.4}
+\contentsline {subsection}{\numberline {4.1}Homotopic Fr\'echet\ distance}{3}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Geodesic Fr\'echet\ distance}{3}{subsection.4.2}
+\contentsline {section}{\numberline {5}Fr\'echet\ distance for realistic curves}{3}{section.5}
+\contentsline {section}{\numberline {6}Applications of Fr\'echet\ distance}{3}{section.6}
+\contentsline {subsection}{\numberline {6.1}Chain simplification}{3}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Mean and median curve}{4}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}Matching}{4}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.4}Voronoi diagram}{4}{subsection.6.4}
