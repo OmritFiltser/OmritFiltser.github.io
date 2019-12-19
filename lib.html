@@ -4,14 +4,14 @@
 
 <p>This page contains a (partial) summary of the different variants, results and applications of the Fr&eacute;chet distance metric, which have been studied in the literature.</p>
 
-<ol>
+<ul style="list-style-type:none">
 <li><a href="#continuous" target="_self">Continuous Fr&eacute;chet distance</a></li>
 <li><a href="#discrete" target="_self">Discrete Fr&eacute;chet distance</a></li>
 <li><a href="#hardness" target="_self">Hardness results</a></li>
 <li><a href="#approximation" target="_self">Approximation Algorithms</a></li>
 <li><a href="#realistic" target="_self">Fr&eacute;chet distance for realistic curves</a></li>
 	<li><a href="#variants" target="_self">Variants of Fr&eacute;chet distance</a>
-		<ol>
+		<ul style="list-style-type:none">
 			<li><a href="#shortcuts" target="_self">Fr&eacute;chet distance with shortcuts</a></li>
 			<li><a href="#weak" target="_self">Weak Fr&eacute;chet distance</a></li>
 			<li><a href="#avarage" target="_self">Average and summed Fr&eacute;chet distance</a></li>
@@ -20,11 +20,11 @@
 			<li><a href="#imprecise" target="_self">Fr&eacute;chet distance with imprecise input</a></li>
 				<li><a href="#set" target="_self">Fr&eacute;chet distance of a set of curves</a></li>
 				<li><a href="#gap" target="_self">Fr&eacute;chet gap</a></li>
-		</ol>
+		</ul>
 	</li>
 	<li><a href="#transformations" target="_self">Fr&eacute;chet distance under transformations</a></li>
 	<li><a href="#applications" target="_self">Applications of Fr&eacute;chet distance</a>
-		<ol>
+		<ul style="list-style-type:none">
 			<li><a href="#simplification" target="_self">Curve simplification</a></li>
 			<li><a href="#nns" target="_self">Nearest neighbor search</a></li>
 			<li><a href="#clustering" target="_self">Clustering curves</a></li>
@@ -32,15 +32,15 @@
 			<li><a href="#matching" target="_self">Matching</a></li>
 			<li><a href="#voronoi" target="_self">Voronoi diagram</a></li>
 			<li><a href="#partial" target="_self">Partial similarity under the Fr&eacute;chet distance</a></li>
-		</ol>
+		</ul>
 	</li>
 	<li><a href="#metric">Fr&eacute;chet distance in different metric spaces</a>
-		<ol>
+		<ul style="list-style-type:none">
 			<li><a href="#homotopic">Homotopic Fr&eacute;chet distance</a></li>
 			<li><a href="#geodesic">Geodesic Fr&eacute;chet distance</a></li>
-		</ol>
+		</ul>
 	</li>
-</ol>
+</ul>
 
 <p>
 <a href="https://omrit.filtser.com/bib.html">Bibliography</a>
@@ -59,8 +59,7 @@
 </p>
 
 <a href="#top" target="_self">&#8679;</a>
-<p>
-<a name="discrete"></a><h3>2&nbsp;Discrete Fr&eacute;chet distance</h3>
+<p><a name="discrete"><h3>2&nbsp;Discrete Fr&eacute;chet distance</h3></a>
 The discrete Fr&eacute;chet distance is a simpler variant that arises when we
 replace each of the input curves by a sequence of densely sampled points.<br>
 Intuitively, the discrete Fr&eacute;chet distance replaces the curves by two sequences of points, and replaces the person and the dog by
@@ -79,8 +78,7 @@ The resulting discrete distance is considered as a good approximation of the act
 </p>
 
 <a href="#top" target="_self">&#8679;</a>
-<p>
-<a name="discrete"></a><h3>3&nbsp;Hardness results</h3>
+<p><a name="discrete"><h3>3&nbsp;Hardness results</h3></a>
 <ul>
 	<li><b>Bringmann</b> <a href="#Bringmann14"  target="_self">[Bringmann14]</a> showed that the (discrete and continuous) Fr&eacute;chet distance has no strongly subquadratic algorithms unless SETH fails. He also showed that there is no strongly 
 		subquadratic 1.001-approximation algorithm unless SETH' fails.</li>	
@@ -89,8 +87,7 @@ The resulting discrete distance is considered as a good approximation of the act
 </p>
 
 <a href="#top" target="_self">&#8679;</a>
-<p>
-<a name="approximation"></a><h3>4&nbsp;Approximation Algorithms</h3>
+<p><a name="approximation"><h3>4&nbsp;Approximation Algorithms</h3></a>
 <ul>
 	<li><b>Bringmann and Mulzer</b> [BM16] present linear-time greedy algorithm with approximation factor of 2<sup>O(n)</sup>, and an &alpha;-approximation algorithm that runs in time O(n log n+n<sup>2</sup>/ &alpha;), for any &alpha; in [1,n].</li>
 	<li><b>Chan and Rahmati</b> [CR18] improved this result by presenting an &alpha;-approximation algorithm for any &alpha; in [1,&radic;<span style="text-decoration: overline;">&nbsp;n log n&nbsp;</span>] and runs in O(n log n + n<sup>2</sup>/ &alpha;<sup>2</sup>) time.</li>
@@ -98,8 +95,7 @@ The resulting discrete distance is considered as a good approximation of the act
 </p>
 
 <a href="#top" target="_self">&#8679;</a>	
-<p>
-<a name="realistic"></a><h3>5&nbsp;Fr&eacute;chet distance for realistic curves</h3>
+<p><a name="realistic"><h3>5&nbsp;Fr&eacute;chet distance for realistic curves</h3></a>
 	<ul>
 	<li><b>Alt et al.</b>: Comparison of distance measures for planar curves, 2003.</li>
 	<li><b>Driemel et al.</b>: Approximating the Fr&eacute;chet distance for realistic curves in near linear time.</li>
@@ -109,8 +105,7 @@ The resulting discrete distance is considered as a good approximation of the act
 </p>
 
 <a href="#top" target="_self">&#8679;</a>
-<p>
-<a name="variants"></a><h3>6&nbsp;Variants of Fr&eacute;chet distance</h3>
+<p><a name="variants"><h3>6&nbsp;Variants of Fr&eacute;chet distance</h3></a>
 	<p><a name="shortcuts"><h4>6.1&nbsp;Fr&eacute;chet distance with shortcuts</h4></a>
 		<ul>
 		<li><b>Driemel and Har-Peled</b>: Jaywalking your dog: Computing the Fr&eacute;chet distance with shortcuts.</li>
@@ -158,8 +153,7 @@ The resulting discrete distance is considered as a good approximation of the act
 </p>
 
 <a href="#top" target="_self">&#8679;</a>
-<p>
-<a name="transformations"></a><h3>7&nbsp;Fr&eacute;chet distance under transformations</h3>
+<p><a name="transformations"><h3>7&nbsp;Fr&eacute;chet distance under transformations</h3></a>
 	<ul>
 	<li><b>Alt et al.</b> <a href="#AltKW01"  target="_self">[AltKW01]</a> showed an O((mn)<sup>3</sup>(m+n)<sup>2</sup> log(m+n)) time exact algorithm for Fr&eacute;chet 
 	Distance under translations, and a (1+&epsilon;)-approximation algorithm for the problem in O(mn &epsilon;<sup>-2</sup>) time.</li>
@@ -183,8 +177,7 @@ The resulting discrete distance is considered as a good approximation of the act
 </p>
 
 <a href="#top" target="_self">&#8679;</a>
-<p>
-<a name="applications"></a><h3>8&nbsp;Applications of Fr&eacute;chet distance</h3>
+<p><a name="applications"><h3>8&nbsp;Applications of Fr&eacute;chet distance</h3></a>
 	<p><a name="simplification"><h4>8.1&nbsp;Chain simplification</h4></a>
 		<ul>
 		<li><b>Agarwal et al.</b>: Near-linear time approximation algorithms for curve simplification.</li>
@@ -233,8 +226,7 @@ The resulting discrete distance is considered as a good approximation of the act
 </p>
 
 <a href="#top" target="_self">&#8679;</a>
-<p>
-<a name="metric"></a><h3>9&nbsp;Fr&eacute;chet distance in different metric space</h3>
+<p><a name="metric"><h3>9&nbsp;Fr&eacute;chet distance in different metric space</h3></a>
 	<p><a name="homotopic"><h4>9.1&nbsp;Homotopic Fr&eacute;chet distance</h4></a>
 		<ul>
 		<li><b>Chambers et al.</b> 
