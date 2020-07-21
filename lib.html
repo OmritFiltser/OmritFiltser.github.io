@@ -7,32 +7,38 @@
 <ul style="list-style-type:none">
 	<li><a href="#continuous" target="_self">1&nbsp;Continuous Fréchet distance</a></li>
 	<li><a href="#discrete" target="_self">2&nbsp;Discrete Fréchet distance</a></li>
-	<li><a href="#hardness" target="_self">3&nbsp;Hardness results</a></li>
+	<li><a href="#bounds" target="_self">3&nbsp;Conditional lower bounds</a></li>
 	<li><a href="#approximation" target="_self">4&nbsp;Approximation Algorithms</a></li>
 	<li><a href="#realistic" target="_self">5&nbsp;Fréchet distance for realistic or restricted curves</a></li>
 	<li><a href="#transformations" target="_self">6&nbsp;Fréchet distance under transformations</a></li>
 	<li><a href="#applications" target="_self">7&nbsp;Applications of Fréchet distance</a>
 		<ul style="list-style-type:none">
-			<li><a href="#simplification" target="_self">7.1&nbsp;Curve simplification</a></li>
-			<li><a href="#nns" target="_self">7.2&nbsp;Nearest neighbor search</a></li>
-			<li><a href="#clustering" target="_self">7.3&nbsp;Clustering curves</a></li>
-			<li><a href="#median" target="_self">7.4&nbsp;Mean and median curve</a></li>
-			<li><a href="#matching" target="_self">7.5&nbsp;Matching</a></li>
-			<li><a href="#voronoi" target="_self">7.6&nbsp;Voronoi diagram</a></li>
-			<li><a href="#partial" target="_self">7.7&nbsp;Partial similarity under the Fréchet distance</a></li>
+			<li><a href="#simplification" target="_self">Curve simplification</a></li>
+			<li><a href="#nns" target="_self">Nearest neighbor search</a></li>
+			<li><a href="#clustering" target="_self">Clustering curves</a></li>
+			<li><a href="#median" target="_self">Mean and median curve</a></li>
+			<li><a href="#voronoi" target="_self">Voronoi diagram</a></li>
+			<li><a href="#partial" target="_self">Partial similarity under the Fréchet distance</a></li>
 		</ul>
 	</li>
 	<li><a href="#variants" target="_self">8&nbsp;Variants of Fréchet distance</a>
 		<ul style="list-style-type:none">
-			<li><a href="#shortcuts" target="_self">8.1&nbsp;Fréchet distance with shortcuts</a></li>
-			<li><a href="#weak" target="_self">8.2&nbsp;Weak Fréchet distance</a></li>
-			<li><a href="#avarage" target="_self">8.3&nbsp;Average and summed Fréchet distance</a></li>
-			<li><a href="#speed" target="_self">8.4&nbsp;Fréchet distance with speed limits</a></li>
-			<li><a href="#locally" target="_self">8.5&nbsp;Locally Correct Fréchet Matchings</a></li>
-			<li><a href="#gap" target="_self">8.6&nbsp;Fréchet gap</a></li>
+			<li><a href="#shortcuts" target="_self">Fréchet distance with shortcuts</a></li>
+			<li><a href="#weak" target="_self">Weak Fréchet distance</a></li>
+			<li><a href="#avarage" target="_self">Average and summed Fréchet distance</a></li>
+			<li><a href="#speed" target="_self">Fréchet distance with speed limits</a></li>
+			<li><a href="#locally" target="_self">Locally Correct Fréchet Matchings</a></li>
+			<li><a href="#gap" target="_self">Fréchet gap</a></li>
 		</ul>
 	</li>
-	<li><a href="#extensions" target="_self">9&nbsp;More extensions</a></li>
+	<li><a href="#generalizations" target="_self">9&nbsp;Generalizations</a>
+		<ul style="list-style-type:none">
+			<li><a href="#matching" target="_self">Map matching</a></li>
+			<li><a href="#geodesic" target="_self">Geodesic Fréchet distance</a></li>
+			<li><a href="#imprecise" target="_self">Fréchet distance with imprecise input</a></li>
+			<li><a href="#set" target="_self">Fréchet distance of a set of curves</a></li>
+		</ul>
+	</li>
 </ul>
 
 <p>
@@ -40,11 +46,11 @@
 </p>
 
 <p><a name="continuous"><h3>1&nbsp;Continuous Fréchet distance</h3></a>
-<ul>
+	<ul>
 		<li> The Fréchet distance was first defined by Maurice Fréchet (1878-1973) .</li>
-		<li><b>Alt and Godau</b> <a href="#AltG95"  target="_self">[AltG95]</a> showed that the Fréchet distance between 
+		<li><b>Alt and Godau</b> <a href="#AG95"  target="_self">[AG95]</a> showed that the Fréchet distance between 
 		two polygonal curves with n edges can be computed, using dynamic programming, in O(n<sup>2</sup>log n) time.</li>
-		<li><b>Buchin et al.</b> <a href="#BuchinBMS12"  target="_self">[BuchinBMS12]</a> improved this bound and showed how to 
+		<li><b>Buchin et al.</b> <a href="#BBMS12"  target="_self">[BBMS12]</a> improved this bound and showed how to 
 		compute the Fréchet distance in O(n<sup>2</sup>(log n)<sup>1/2</sup>(log log n)<sup>3/2</sup>) time on a pointer machine, 
 				and in O(n<sup>2</sup>(log log n)<sup>2</sup>) time on a word RAM.</li>
 	</ul>
@@ -59,18 +65,18 @@ two frogs. At each move, the frogs can jump from their current point to the next
 in the minimum length of a leash that connects the frogs and allows them to traverse both curves in this manner.
 The resulting discrete distance is considered as a good approximation of the actual continuous distance.
 <ul>
-	<li><b>Eiter and Mannila</b> <a href="#EiterM94"  target="_self">[EiterM94]</a> showed that the discrete Fréchet distance between 
+	<li><b>Eiter and Mannila</b> <a href="#EM94"  target="_self">[EM94]</a> showed that the discrete Fréchet distance between 
 	two polygonal curves with n edges can be computed, using dynamic programming, in O(n<sup>2</sup>) time.</li>
-	<li><b>Jiang et al.</b> <a href="#JiangXZ08"  target="_self">[JiangXZ08]</a> successfully applied the discrete Fréchet distance for aligning the backbones of proteins, 
+	<li><b>Jiang et al.</b> <a href="#JXZ08"  target="_self">[JXZ08]</a> successfully applied the discrete Fréchet distance for aligning the backbones of proteins, 
 			which are represented as chains of atoms in 2D or 3D. In this application, the discrete variant makes more sense 
 			than the continuous because matching points that does not represent atoms is false biologically. </li> 
-	<li><b>Agarwal et al.</b> <a href="#AgarwalAKS14"  target="_self">[AgarwalAKS14]</a> showed how to compute the discrete Fréchet distance in slightly subquadratic time.</li>
+	<li><b>Agarwal et al.</b> <a href="#AAKS14"  target="_self">[AAKS14]</a> showed how to compute the discrete Fréchet distance in slightly subquadratic time.</li>
 </ul>
 <img src="lib/two-frogs.gif"/>
 </p>
 
 <a href="#top" target="_self">&#8679;</a>
-<p><a name="hardness"><h3>3&nbsp;Hardness results</h3></a>
+<p><a name="bounds"><h3>3&nbsp;Conditional lower bounds</h3></a>
 <ul>
 	<li><b>Bringmann</b> <a href="#Bringmann14"  target="_self">[Bringmann14]</a> showed that the (discrete and continuous) Fréchet distance has no strongly subquadratic algorithms unless SETH fails. He also showed that there is no strongly 
 		subquadratic 1.001-approximation algorithm unless SETH' fails.</li>	
@@ -126,20 +132,22 @@ only if it is Continuous and in One Dimension.</li>
 
 <a href="#top" target="_self">&#8679;</a>
 <p><a name="applications"><h3>7&nbsp;Applications of Fréchet distance</h3></a>
-	<p><a name="simplification"><h4>7.1&nbsp;Chain simplification</h4></a>
+	<p><a name="simplification"><h4>Curve simplification</h4></a>
 		<ul>
 		<li><b>Agarwal et al.</b> <a href="#AHMW05" target="_self">[AHMW05]</a>: Near-linear time approximation algorithms for curve simplification.</li>
 		<li><b>Bereg et al.</b> <a href="#BJWYZ08" target="_self">[BJWYZ08]</a>: Simplifying 3d polygonal chains under the discrete Fréchet distance.</li>
 		<li><b>Dorrigiv et al.</b> <a href="#DDFFLMSS09" target="_self">[DDFFLMSS09]</a>: Finding a hausdorff core of a polygon: On convex polygon containment with bounded hausdorff distance.</li>
 		<li><b>Abam et al.</b> <a href="#ABHZ10" target="_self">[ABHZ10]</a>: Streaming Algorithms for Line Simplification.</li>
 		<li><b>Wylie and Zhu</b> <a href="#WZ13" target="_self">[WZ13]</a>: Protein chain pair simplification under the discrete Fréchet distance.</li>
+		<li><b>Driemel and Har-Peled</b> <a href="#DH13"  target="_self">[DH13]</a>: Jaywalking your dog: Computing the Fréchet distance with shortcuts.</li>
 		<li><b>Fan et al.</b> <a href="#FFKWZ15" target="_self">[FFKWZ15]</a> showed that the chain pair simplification problem is in P.</li>
 		<li><b>Fan et al.</b> <a href="#FFKZ16" target="_self">[FFKZ16]</a> considered the general chain pair simplification problem.</li>
+		<li><b>Filtser</b> <a href="#DH13"  target="_self">[Filtser18]</a>: Universal approximate simplification under the discrete Fréchet distance.</li>
 		<li><b>van Kreveld et al.</b> <a href="#KLW20" target="_self">[KLW20]</a>: On optimal polyline simplification using the Hausdorff and Fréchet distance.</li>
 		<li><b>van de Kerkhof et al.</b> <a href="#KKLMW19" target="_self">[KKLMW19]</a>: Global Curve Simplification.</li>
 		</ul>
 	</p>
-	<p><a name="nns"><h4>7.2&nbsp;Nearest neighbour search</h4></a>
+	<p><a name="nns"><h4>Nearest neighbour search</h4></a>
 		<ul>
 		<li><b>Indyk</b> <a href="#Indyk02" target="_self">[Indyk02]</a>: Approximate nearest neighbor algorithms for Fréchet distance via product metrics.</li>
 		<li><b>Driemel and Silvestri</b> <a href="#DS17" target="_self">[DS17]</a>: Locality-Sensitive Hashing of Curves.</li>
@@ -149,34 +157,27 @@ only if it is Continuous and in One Dimension.</li>
 		<li><b>Filtser et al.</b> <a href="#FFK20" target="_self">[FFK20]</a>: Approximate Nearest Neighbor for Curves - Simple, Efficient, and Deterministic.</li>
 		</ul>
 	</p>
-	<p><a name="clustering"><h4>7.3&nbsp;Clustering curves</h4></a>
+	<p><a name="clustering"><h4>Clustering curves</h4></a>
 		<ul>
 		<li><b>Driemel et al.</b> <a href="#DKS16" target="_self">[DKS16]</a>:Clustering time series under the Fréchet distance.</li>
 		<li><b>Aronov et al.</b> <a href="#AFHKS19" target="_self">[AFHKS19]</a>:Efficient Nearest-Neighbor Query and Clustering of Planar Curves.</li>
 		<li><b>Buchin et al.</b> <a href="#BDGHKLS19" target="_self">[BDGHKLS19]</a>: Approximating (k,l)-center clustering for curves.</li>
 		</ul>
 	</p>	
-	<p><a name="median"><h4>7.4&nbsp;Mean and median curve</h4></a>
+	<p><a name="median"><h4>Mean and median curve</h4></a>
 		<ul>
-		<li><b>Buchin et al.</b> <a href="#BBKLSWW13"  target="_self">[BBKLSWW13]</a>: Median trajectories, 2013.</li>
+		<li><b>Buchin et al.</b> <a href="#BBKLSWW13"  target="_self">[BBKLSWW13]</a>: Median trajectories.</li>
 		</ul>
 	</p>
-	<p><a name="matching"><h4>7.5&nbsp;Matching</h4></a>
+	<p><a name="voronoi"><h4>Voronoi diagram</h4></a>
 		<ul>
-		<li><b>Alt et al.</b> <a href="#AERW03"  target="_self">[AERW03]</a>: Matching planar maps, 2003.</li>
-		<li><b>Brakatsoulas et al.</b>: On map-matching vehicle tracking data.</li>
-		<li><b>Chen et al.</b> <a href="#CDGNW11"  target="_self">[CDGNW11]</a>: Approximate map matching with respect to the Fréchet distance, 2011.</li>
+		<li><b>Bereg et al.</b> <a href="#BBBGZ10"  target="_self">[BBBGZ10]</a>: Voronoi Diagram of Polygonal Chains Under the Discrete Fréchet Distance.</li>
 		</ul>
 	</p>
-	<p><a name="voronoi"><h4>7.6&nbsp;Voronoi diagram</h4></a>
-		<ul>
-		<li><b>Bereg et al.</b>: Voronoi Diagram of Polygonal Chains Under the Discrete Fréchet Distance.</li>
-		</ul>
-	</p>
-	<p><a name="partial"><h4>7.7&nbsp;Partial curve similarity under the Fréchet distance</h4></a>
+	<p><a name="partial"><h4>Partial curve similarity under the Fréchet distance</h4></a>
 		<ul>
 		<li><b>Alt and Godau</b> <a href="#AG95"  target="_self">[AG95]</a>: Computing the Fréchet distance between two polygonal curves.</li>
-		<li><b>Buchin et al.</b> <a href="#BBW09"  target="_self">[BBW09]</a>: Exact algorithms for partial curve matching via the Fréchet distance, 2009.</li>
+		<li><b>Buchin et al.</b> <a href="#BBW09"  target="_self">[BBW09]</a>: Exact algorithms for partial curve matching via the Fréchet distance.</li>
 		<li><b>De Carufel et al.</b>: Similarity of Polygonal Curves in the Presence of Outliers.</li>
 		<li><b>Driemel and Har-Peled</b> <a href="#DH13"  target="_self">[DH13]</a>: Jaywalking your dog: Computing the Fréchet distance with shortcuts.</li>
 		<li><b>Buchin, Ophelders and Speckmann</b> <a href="#BOS19"  target="_self">[BOS19]</a>: SETH Says: Weak Fréchet Distance is Faster, but
@@ -187,14 +188,14 @@ only if it is Continuous and in One Dimension.</li>
 
 <a href="#top" target="_self">&#8679;</a>
 <p><a name="variants"><h3>8&nbsp;Variants of Fréchet distance</h3></a>
-	<p><a name="shortcuts"><h4>8.1&nbsp;Fréchet distance with shortcuts</h4></a>
+	<p><a name="shortcuts"><h4>Fréchet distance with shortcuts</h4></a>
 		<ul>
 		<li><b>Driemel and Har-Peled</b> <a href="#DH13"  target="_self">[DH13]</a>: Jaywalking your dog: Computing the Fréchet distance with shortcuts.</li>
 		<li><b>Ben Avraham et al.</b> <a href="#AFKKS15"  target="_self">[AFKKS15]</a>: The discrete Fréchet distance with shortcuts via approximate distance counting and selection.</li>
 		<li><b>Buchin et al.</b> <a href="#BDS14"  target="_self">[BDS14]</a>: Computing the Fréchet distance with shortcuts is NP-hard.</li>
 		</ul>
 	</p>
-	<p><a name="weak"><h4>8.2&nbsp;Weak Fréchet distance</h4></a>
+	<p><a name="weak"><h4>Weak Fréchet distance</h4></a>
 		<ul>
 		<li><b>Alt and Godau</b> <a href="#AG95"  target="_self">[AG95]</a>: Computing the Fréchet distance between two polygonal curves.</li>
 		<li><b>Har-Peled and Raichel</b> <a href="#HR11"  target="_self">[HR11]</a>: The Fréchet distance revisited and extended.</li>
@@ -202,21 +203,21 @@ only if it is Continuous and in One Dimension.</li>
 only if it is Continuous and in One Dimension.</li>
 		</ul>
 	</p>
-	<p><a name="average"><h4>8.3&nbsp;Average and summed Fréchet distance</h4></a>
+	<p><a name="average"><h4>Average and summed Fréchet distance</h4></a>
 		<ul>
 		<li><b>Brakatsoulas et al.</b> <a href="#BPSW05" target="_self">[BPSW05]</a>: On map-matching vehicle tracking data.</li>
 		<li><b>Efrat et al.</b> <a href="#EFV07" target="_self">[EFV07]</a>: Curve matching, time warping, and light fields: New algorithms for computing similarity between curves.</li>
 		</ul>
 	</p>
-	<p><a name="speed"><h4>8.4&nbsp;Fréchet distance with speed limits</h4></a>
+	<p><a name="speed"><h4>Fréchet distance with speed limits</h4></a>
 		<li><b>Maheshwari et al.</b> <a href="#MSSZ11" target="_self">[MSSZ11]</a>: Fréchet distance with speed limits.</li>
 	</p>
-	<p><a name="locally"><h4>8.5&nbsp;Locally Correct Fréchet Matchings</h4></a>
+	<p><a name="locally"><h4>Locally Correct Fréchet Matchings</h4></a>
 		<ul>
 		<li><b>Buchin et al.</b> <a href="#BBMS19"  target="_self">[BBMS19]</a>: Locally Correct Fréchet Matchings.</li>
 		</ul>
 	</p>
-	<p><a name="gap"><h4>8.6&nbsp;Fréchet gap</h4></a>
+	<p><a name="gap"><h4>Fréchet gap</h4></a>
 	<ul>
 		<li><b>Filtser and Katz</b> <a href="#FK15" target="_self">[FK15]</a>,<a href="#FK18"  target="_self">[FK18]</a> presented the discrete Fréchet gap.</li>
 		<li><b>Fan and Raichel</b> <a href="#FR17" target="_self">[FR17]</a> considered the continuous Fréchet gap.</li>
@@ -225,12 +226,23 @@ only if it is Continuous and in One Dimension.</li>
 </p>
 
 <a href="#top" target="_self">&#8679;</a>
-<p><a name="extensions"><h3>9&nbsp;More extensions</h3></a>
-	<li><b>Chambers et al.</b> <a href="#CVELLT10"  target="_self">[CVELLT10]</a>: Homotopic Fréchet distance between curves or, walking your dog in the woods in polynomial time.</li>
-	<li><b>Cook and Wenk</b> <a href="#CW08"  target="_self">[CW08]</a>: Geodesic Fréchet distance inside a simple polygon.</li>
+<p><a name="generalizations"><h3>9&nbsp;Generalizations</h3></a>
+	<p><a name="matching"><h4>Map matching</h4></a>
+		<ul>
+		<li><b>Alt et al.</b> <a href="#AERW03"  target="_self">[AERW03]</a>: Matching planar maps.</li>
+		<li><b>Brakatsoulas et al.</b>: On map-matching vehicle tracking data.</li>
+		<li><b>Chen et al.</b> <a href="#CDGNW11"  target="_self">[CDGNW11]</a>: Approximate map matching with respect to the Fréchet distance.</li>
+		</ul>
+	</p>
+	<p><a name="geodesic"><h4>Geodesic Fréchet distance</h4></a>
+		<ul>
+		<li><b>Cook and Wenk</b> <a href="#CW08"  target="_self">[CW08]</a>: Geodesic Fréchet distance inside a simple polygon.</li>
+		<li><b>Chambers et al.</b> <a href="#CVELLT10"  target="_self">[CVELLT10]</a>: Homotopic Fréchet distance between curves or, walking your dog in the woods in polynomial time.</li>
+		</ul>
+	</p>
 	<p><a name="imprecise"><h4>Fréchet distance with imprecise input</h4></a>
 		<ul>
-		<li><b>Ahn et al.</b> <a href="#AKSSV12"  target="_self">[AKSSV12]</a></li>
+		<li><b>Ahn et al.</b> <a href="#AKSSV12"  target="_self">[AKSSV12]</a>: Computing the Discrete Fréchet Distance with Imprecise Input.</li>
 		<li><b>Fan and Zhu</b> <a href="#FZ15"  target="_self">[FZ15]</a></li>
 		</ul>
 	</p>	
