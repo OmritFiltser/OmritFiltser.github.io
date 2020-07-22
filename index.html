@@ -57,62 +57,65 @@
   </head>
 
   <body>
-        <div id="wrap">
-                <div class="container">
-                        <div class="span10 offset1">
+	<div id="wrap">
+		<div class="container">
+			<div class="span10 offset1">
+					
+				<div class="navbar" style="margin-top: 30px;">
+				  <div class="navbar-inner">
+						<a class="brand" href="./" target="_self">Omrit Filtser</a>
+						<ul class="nav" id="myTab">
+						  <li class="active"><a href="#home">Home</a></li>
+						  <li><a href="#research">Research</a></li>
+						  <li><a href="#frechet">Fr&eacute;chet Distance</a></li>
+						  <li><a href="#cv">CV</a></li>
+						  <li><a href="#personal">Personal</a></li>
+						</ul>
+				  </div>
+				</div>
+
+				<div class="tab-content">
 						
-                                <div class="navbar" style="margin-top: 30px;">
-                                  <div class="navbar-inner">
-                                        <a class="brand" href="./" target="_self">Omrit Filtser</a>
-                                        <ul class="nav" id="myTab">
-                                          <li class="active"><a href="#home">Home</a></li>
-                                          <li><a href="#research">Research</a></li>
-                                          <li><a href="#frechet">Fr&eacute;chet Distance</a></li>
-                                          <li><a href="#cv">CV</a></li>
-                                          <li><a href="#personal">Personal</a></li>
-                                        </ul>
-                                  </div>
-                                </div>
+					<div class="tab-pane fade active in" id="home"> <!-- About Me -->
+						<div class="row">
+							<div class="span6">
+								<h3>About Me</h3>
+								<p>
+								I am a postdoc at <a href="https://www.stonybrook.edu/commcms/ams/" target="_blank">Stony Brook University</a>, hosted by Prof. <a href="http://www.ams.sunysb.edu/~jsbm/" target="_blank">Joseph S.B. Mitchell</a>.
+								Before coming to Stony Brook, I did my PhD at <a href="http://www.cs.bgu.ac.il/" target="_blank">Ben-Gurion University of the Negev</a>, and was fortunate to have <a href="http://www.cs.bgu.ac.il/~matya/" target="_blank">Matthew (Matya) Katz</a> as my advisor.
+								</p>
+								<p>
+								My research interest is in theoretical computational geometry, focusing on similarity of curves, chain simplification, optimization problems, geometric data structures and algorithms.
+								</p>
+								<div>
+								<h3>Contact information</h3>
+								<address>
+										<strong>Omrit Filtser</strong></br>
+										State University of New York at Stony Brook</br>
+										Department of Applied Mathematics and Statistics</br>
+										<strong>Office: </strong>Math Tower, Room 2-101</br>
+										<strong>Email: </strong><img src="./img/email.png"><br>
+								</address>
+								</div>
+							</div>
+							<div class="span3" style="text-align: center;">
+									<img src="./img/profile2.png" class="img-polaroid">
+							</div>
+						</div>
+					</div>
 
-                                <div class="tab-content">
-								
-                                        <div class="tab-pane fade active in" id="home"> <!-- About Me -->
-                                                <div class="row">
-                                                        <div class="span6">
-                                                                <h3>About Me</h3>
-                                                                <p>
-																I am a postdoc at <a href="https://www.stonybrook.edu/commcms/ams/" target="_blank">Stony Brook University</a>, hosted by Prof. <a href="http://www.ams.sunysb.edu/~jsbm/" target="_blank">Joseph S.B. Mitchell</a>.
-																Before coming to Stony Brook, I did my PhD at <a href="http://www.cs.bgu.ac.il/" target="_blank">Ben-Gurion University of the Negev</a>, and was fortunate to have <a href="http://www.cs.bgu.ac.il/~matya/" target="_blank">Matthew (Matya) Katz</a> as my advisor.
-                                                                </p>
-                                                                <p>
-                                                                My research interest is in theoretical computational geometry, focusing on similarity of curves, chain simplification, optimization problems, geometric data structures and algorithms.
-                                                                </p>
-                                                                <div>
-                                                                <h3>Contact information</h3>
-                                                                <address>
-                                                                        <strong>Omrit Filtser</strong></br>
-                                                                        State University of New York at Stony Brook</br>
-																		Department of Applied Mathematics and Statistics</br>
-																		<strong>Office: </strong>Math Tower, Room 2-101</br>
-                                                                        <strong>Email: </strong><img src="./img/email.png"><br>
-                                                                </address>
-                                                                </div>
-                                                        </div>
-                                                        <div class="span3" style="text-align: center;">
-                                                                <img src="./img/profile2.png" class="img-polaroid">
-                                                        </div>
-                                                </div>
-												
-
-                                        </div>
-
-                                        <div class="tab-pane fade" id="research"> <!-- Publications -->
-												<p/>
-												<H2>Publications</H2>
-                                                <br>
-												[<a href="https://dblp.org/pers/hd/f/Filtser:Omrit">DBLP</a>] [<a href="https://scholar.google.com/citations?user=gUDGUC8AAAAJ&hl=en">Google Scholar</a>]
-												<br><br>
-												<ol reversed>
+					<div class="tab-pane fade" id="research"> <!-- Publications -->
+						<p/>
+						<H2>Publications</H2>
+						<br>
+						[<a href="https://dblp.org/pers/hd/f/Filtser:Omrit">DBLP</a>] [<a href="https://scholar.google.com/citations?user=gUDGUC8AAAAJ&hl=en">Google Scholar</a>]
+						<br><br>
+						<ol reversed>
+						<li>
+							<b>Static and Streaming Data Structures for Fréchet Distance Queries</b>.<br>
+								Arnold Filtser and Omrit Filtser.<br>
+								[<a href="https://arxiv.org/abs/2007.10898">ArXiv</a>]
+							</li>
 							<li>
 							<b>Plurality in Spatial Voting Games with constant &beta;</b>.<br>
 								Arnold Filtser and Omrit Filtser.<br>
@@ -123,7 +126,7 @@
 								Arnold Filtser,
 								Omrit Filtser, and 
 								Matthew J. Katz.<br>
-								[<a href="http://arxiv.org/abs/1902.07562">ArXiv</a>]
+								[<a href="http://arxiv.org/abs/1902.07562">ArXiv</a>][<a href="https://drops.dagstuhl.de/opus/volltexte/2020/12455/">ICALP 2020</a>]
 							</li>
 							<li>
 								<b>Efficient Nearest-Neighbor Query and Clustering of Planar Curves</b>.<br>
@@ -201,7 +204,7 @@
 								[<a href="https://link.springer.com/chapter/10.1007%2F978-3-319-21840-3_29">WADS 2015</a>]
 								[<a href="http://arxiv.org/abs/1409.2457">Arxiv</a>]
 							</li>
-                                                    	<li>
+							<li>
 								<b>The Discrete Fréchet Distance with Shortcuts via Approximate Distance Counting and Selection Techniques</b>.<br>
 								Rinat Ben Avraham,
 								Omrit Filtser,
@@ -213,19 +216,19 @@
 								[<a href="http://arxiv.org/abs/1310.5245">Arxiv</a>]
 							</li>
 						</ol>
-                                        </div>
+					</div>
 
-									   <div class="tab-pane fade" id="frechet"> <!-- Frechet -->
-												<div id="lib"></div>
-												<hr>
-												<p><a name="bibliography"><h3>Bibliography</h3></a></p>
-												<div id="bib"></div>
-										</div>
+					<div class="tab-pane fade" id="frechet"> <!-- Frechet -->
+						<div id="lib"></div>
+						<hr>
+						<p><a name="bibliography"><h3>Bibliography</h3></a></p>
+						<div id="bib"></div>
+					</div>
 
-				<div class="tab-pane fade" id="cv"> <!-- Teaching -->
-					[<a href="./files/CV_Omrit_Filtser.pdf">My full CV</a>] (last update: January 2020)
-					
-					<H2>Honors and Awards</H2>
+					<div class="tab-pane fade" id="cv"> <!-- Teaching -->
+						[<a href="./files/CV_Omrit_Filtser.pdf">My full CV</a>] (last update: January 2020)
+						
+						<H2>Honors and Awards</H2>
 						<ul>
 							<li> <b>The Israeli Council for Higher Education fellowship</b> for postdoctoral women fellows, 2019.</li>
 							<li> <b>BGU scholarship</b> for postdoctoral women fellows abroad, 2019.</li>
@@ -240,9 +243,9 @@
 							<li> <b>Martha and Solomon Scharf Prize</b> for excellent undergraduate students, 2010,2011,2012.</li>
 							<li> <b>Dean's Honour</b> for excellent undergraduate students, The Faculty of Natural Sciences, Ben-Gurion University, 2011,2012.</li>
 						</ul>
-					
-					<H2>Teaching:</H2>
-					<UL>
+			
+						<H2>Teaching:</H2>
+						<UL>
 							<li>Fall 2013: <a href="http://www.cs.bgu.ac.il/~auto131/Main">Automata and Formal Languages</a></br>
 							</li>
 							<li>Spring 2015: <a href="http://www.cs.bgu.ac.il/~ds152/Main">Data Structures</a></br>
@@ -255,9 +258,9 @@
 							</li>
 							<li>Spring 2019: <a href="http://www.cs.bgu.ac.il/~ds192/Main">Data Structures</a></br>
 							</li>
-					</UL>
-					<H2>Grading:</H2>
-					<UL>
+						</UL>
+						<H2>Grading:</H2>
+						<UL>
 							<li>Spring 2013: <a href="http://www.cs.bgu.ac.il/~dsc132/Main">Discrete Structures and Combinatorics</a></br>
 							</li>
 							<li>Fall 2014: <a href="http://www.cs.bgu.ac.il/~auto141/Main">Automata and Formal Languages</a></br>
@@ -273,33 +276,36 @@
 							<li>Fall 2018: <a href="http://www.cs.bgu.ac.il/~matya/Courses/cg15.htm">Computational Geometry</a></br>
 							</li>
 						</UL>
-				</div>
+					</div>
 
-				<div class="tab-pane fade" id="personal"> <!-- Personal -->
+					<div class="tab-pane fade" id="personal"> <!-- Personal -->
 						<div class="column">
-								<div class="span7">
-										<H2>Personal</H2>
-										<p>
-												I am married to <a href="http://arnold.filtser.com/" target="_blank">Arnold Filtser</a>, who is also a postdoc at the Computer Science Department at Columbia university.
-												I am also a mother to two clever and curious girls, 
-												<a href="http://naama.filtser.com/" target="_blank">Naama</a> and <a href="http://hadass.filtser.com/" target="_blank">Hadass</a>.
-										</p>
-										<p>
-												Things that I like to do other than research: <a href="http://www.ravelry.com/designers/omrit-filtser" target="_blank">crocheting</a>, sewing, drawing, skiing.
-										</p>
-								</div>
-								<div class="span7" style="text-align: center;">
-										<img src="./img/family3.jpeg" class="img-polaroid">
-								</div>
-							   
+							<div class="span7">
+								<H2>Personal</H2>
+								<p>
+										I am married to <a href="http://arnold.filtser.com/" target="_blank">Arnold Filtser</a>, who is also a postdoc at the Computer Science Department at Columbia university.
+										I am also a mother to two clever and curious girls, 
+										<a href="http://naama.filtser.com/" target="_blank">Naama</a> and <a href="http://hadass.filtser.com/" target="_blank">Hadass</a>.
+								</p>
+								<p>
+										Things that I like to do other than research: <a href="http://www.ravelry.com/designers/omrit-filtser" target="_blank">crocheting</a>, sewing, drawing, skiing.
+								</p>
+							</div>
+							<div class="span7" style="text-align: center;">
+									<img src="./img/family3.jpeg" class="img-polaroid">
+							</div>
 						</div>
-				</div>
+					</div>
 
-                                </div><!-- tab content-->
-                        </div> <!-- /main span -->
-                </div> <!-- /container -->
-                <div id="push"></div>
-        </div> <!-- /wrap -->
+				</div><!-- tab content-->
+			
+			</div> <!-- /main span -->
+		
+		</div> <!-- /container -->
+		
+		<div id="push"></div>
+	
+	</div> <!-- /wrap -->
   
     <div id="footer">
                 <div class="container" style="color: #777;">
@@ -319,7 +325,6 @@
 		</a>
 		</h1>
 	</div>
-
 		
     <!-- Le javascript
     ================================================== -->
@@ -337,17 +342,17 @@
     <script src="./js/bootstrap-collapse.js"></script>
     <script src="./js/bootstrap-carousel.js"></script>
     <script src="./js/bootstrap-typeahead.js"></script>-->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-        <script src="./js/bootstrap.js"></script>
-        <script>
-                $('#myTab a').click(function (e) {
-                        e.preventDefault();
-                        $(this).tab('show');
-                })
-                if(window.location.hash) {
-                        $('#myTab a[href="'+window.location.hash+'"]').tab('show');
-                }
-        </script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script src="./js/bootstrap.js"></script>
+	<script>
+			$('#myTab a').click(function (e) {
+					e.preventDefault();
+					$(this).tab('show');
+			})
+			if(window.location.hash) {
+					$('#myTab a[href="'+window.location.hash+'"]').tab('show');
+			}
+	</script>
 	<script src="jquery.js"></script> 
     <script> 
     $(function(){
