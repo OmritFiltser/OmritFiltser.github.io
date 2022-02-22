@@ -390,6 +390,16 @@
   url       = {https://doi.org/10.1137/1.9781611975482.181},
 }
 
+@InProceedings{BDNP22,
+  author       = {Bringmann, Karl and Driemel, Anne and Nusser, Andr{\'e} and Psarros, Ioannis},
+  booktitle    = {Proceedings of the 2022 Annual ACM-SIAM Symposium on Discrete Algorithms (SODA)},
+  title        = {Tight Bounds for Approximate Near Neighbor Searching for Time Series under the {F}r{\'e}chet Distance},
+  year         = {2022},
+  organization = {SIAM},
+  pages        = {517--550},
+  doi          = {10.1137/1.9781611977073.25},
+}
+
 @InProceedings{BDS14,
   author    = {Buchin, Maike and Driemel, Anne and Speckmann, Bettina},
   title     = {Computing the {F}r{\'{e}}chet distance with shortcuts is {NP}-hard},
