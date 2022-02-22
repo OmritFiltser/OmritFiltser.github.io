@@ -393,7 +393,7 @@
 @InProceedings{BDNP22,
   author       = {Bringmann, Karl and Driemel, Anne and Nusser, Andr{\'e} and Psarros, Ioannis},
   booktitle    = {Proceedings of the 2022 Annual ACM-SIAM Symposium on Discrete Algorithms (SODA)},
-  title        = {Tight Bounds for Approximate Near Neighbor Searching for Time Series under the Fr{\'e}chet Distance},
+  title        = {Tight Bounds for Approximate Near Neighbor Searching for Time Series under the {F}r{\'e}chet Distance},
   year         = {2022},
   organization = {SIAM},
   pages        = {517--550},
