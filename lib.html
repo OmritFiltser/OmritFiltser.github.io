@@ -2,7 +2,7 @@
 
 <p>The Fréchet distance is a useful and well-known similarity measure for polygonal curves.<br /> It is generally described as follows; Consider a person and a dog connected by a leash, each walking along a different curve from its starting point to its end point. Both can control their speed, but they are not allowed to backtrack. The Fréchet distance between the two curves is the minimum length of a leash that is sufficient for traversing both curves in this manner. <br /> <img src="lib/man-dog2.gif" /></p>
 
-<p>This page contains a (partial) summary of the different variants, results and applications of the Fréchet distance metric, which have been studied in the literature.</p>
+<p>This page contains a (partial and biased) summary of the different variants, results and applications of the Fréchet distance metric, which have been studied in the literature.</p>
 
 <ul style="list-style-type:none">
 	<li><a href="#continuous" target="_self">1&nbsp;Continuous Fréchet distance</a></li>
@@ -14,8 +14,8 @@
 	<li><a href="#applications" target="_self">7&nbsp;Applications of Fréchet distance</a>
 		<ul style="list-style-type:none">
 			<li><a href="#simplification" target="_self">Curve simplification</a></li>
-			<li><a href="#nns" target="_self">Nearest neighbor search</a></li>
-			<li><a href="#clustering" target="_self">Clustering curves</a></li>
+			<li><a href="#nns" target="_self">Distance oracles and nearest neighbour search</a></li>
+			<li><a href="#clustering" target="_self">Clustering</a></li>
 			<li><a href="#median" target="_self">Mean and median curve</a></li>
 			<li><a href="#voronoi" target="_self">Voronoi diagram</a></li>
 			<li><a href="#partial" target="_self">Partial similarity under the Fréchet distance</a></li>
@@ -148,19 +148,22 @@ only if it is Continuous and in One Dimension.</li>
 		<li><b>van de Kerkhof et al.</b> <a href="#KKLMW19" target="_self">[KKLMW19]</a>: Global Curve Simplification.</li>
 		</ul>
 	</p>
-	<p><a name="nns"><h4>Nearest neighbour search</h4></a>
+	<p><a name="nns"><h4>Distance oracles and nearest neighbour search</h4></a>
 		<ul>
 		<li><b>Indyk</b> <a href="#Indyk02" target="_self">[Indyk02]</a>: Approximate nearest neighbor algorithms for Fréchet distance via product metrics.</li>
 		<li><b>Driemel and Silvestri</b> <a href="#DS17" target="_self">[DS17]</a>: Locality-Sensitive Hashing of Curves.</li>
+		<li><b>de Berg et al.</b> <a href="#dBMO17" target="_self">[dBMO17]</a>: A dynamic data structure for approximate Proximity queries in trajectory data.</li>
+		<li><b>de Berg et al.</b> <a href="#dBMO17a" target="_self">[dBMO17a]</a>: Data Structures for Fréchet Queries in Trajectory Data.</li>
 		<li><b>Emiris and Psarros</b> <a href="#EP18" target="_self">[EP18]</a>: Products of Euclidean Metrics and Applications to Proximity Questions among Curves.</li>
 		<li><b>Aronov et al.</b> <a href="#AFHKS19" target="_self">[AFHKS19]</a>:Efficient Nearest-Neighbor Query and Clustering of Planar Curves.</li>
 		<li><b>Driemel et al.</b> <a href="#DPS19" target="_self">[DPS19]</a>: Sublinear data structures for short Fréchet queries.</li>
 		<li><b>Filtser et al.</b> <a href="#FFK20" target="_self">[FFK20]</a>: Approximate Nearest Neighbor for Curves - Simple, Efficient, and Deterministic.</li>
+		<li><b>Driemel and Psarros</b> <a href="#DP21" target="_self">[DP21]</a>: ANN for Time Series Under the Fréchet Distance.</li>	
 		<li><b>Bringmann et al.</b> <a href="#BDNP22" target="_self">[BDNP22]</a>: Tight Bounds for Approximate Near Neighbor Searching for Time Series under the Fréchet Distance.</li>
 		
 		</ul>
 	</p>
-	<p><a name="clustering"><h4>Clustering curves</h4></a>
+	<p><a name="clustering"><h4>Clustering</h4></a>
 		<ul>
 		<li><b>Driemel et al.</b> <a href="#DKS16" target="_self">[DKS16]</a>:Clustering time series under the Fréchet distance.</li>
 		<li><b>Aronov et al.</b> <a href="#AFHKS19" target="_self">[AFHKS19]</a>:Efficient Nearest-Neighbor Query and Clustering of Planar Curves.</li>

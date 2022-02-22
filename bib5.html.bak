@@ -62,115 +62,7 @@ body {
 <body>
 
 
-<hr><div class="bibtex_entry" title="Generated on 21|22|2022">
-
-	<div class="bibtex_header">
-		<div class="bibtex_key">
-			<a name="AAKS14">AAKS14</a>
-		</div>
-
-		
-		<div class="bibtex_doi">
-			<a href="https://doi.org/10.1137/130920526">doi</a>
-		</div>
-		
-
-		
-
-		
-
-		
-
-		
-	</div>
-
-	<div class="bibtex_content">
-
-		
-		<div class="bibtex_title">
-			Computing the Discrete Fr&eacute;chet Distance in Subquadratic Time
-		</div>
-		
-
-		
-		<div class="bibtex_author">
-			Agarwal, P. K.; Avraham, R. B.; Kaplan, H. &amp; Sharir, M.
-		</div>
-		
-
-		
-		<div class="bibtex_journal">
-			SIAM Journal on Computing
-		</div>,
-		
-
-		
-		<div class="bibtex_volume">
-			Vol. 43
-		</div>,
-		
-
-		
-		<div class="bibtex_pages">
-			pp. 429-449
-		</div>,
-		
-
-		<div class="bibtex_year">
-			2014
-		</div>
-	</div>
-</div>
-<div class="bibtex_entry">
-
-	<div class="bibtex_header">
-		<div class="bibtex_key">
-			<a name="ABBKKW14">ABBKKW14</a>
-		</div>
-
-		
-		<div class="bibtex_doi">
-			<a href="https://doi.org/10.1145/2666310.2666415">doi</a>
-		</div>
-		
-
-		
-
-		
-
-		
-	</div>
-
-	<div class="bibtex_content">
-
-		
-		<div class="bibtex_title">
-			A framework for trajectory segmentation by stable criteria
-		</div>
-		
-
-		
-		<div class="bibtex_author">
-			Alewijnse, S. P. A.; Buchin, K.; Buchin, M.; K�lzsch, A.; Kruckenberg, H. &amp; Westenberg, M. A.
-		</div>
-		
-
-		
-		<div class="bibtex_journal">
-			Proceedings of the 22nd ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems
-		</div>,
-		
-
-		
-
-		
-
-		<div class="bibtex_year">
-			2014
-		</div>
-	</div>
-</div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
+<hr><div class="bibtex_entry" title="Generated on 52|22|2022">
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
@@ -233,7 +125,7 @@ body {
 		</div>
 	</div>
 </div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
+<div class="bibtex_entry" title="Generated on 52|22|2022">
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
@@ -296,55 +188,6 @@ body {
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
-			<a name="ACP08">ACP08</a>
-		</div>
-
-		
-
-		
-
-		
-
-		
-	</div>
-
-	<div class="bibtex_content">
-
-		
-		<div class="bibtex_title">
-			Hardness of nearest neighbor under L-infinity
-		</div>
-		
-
-		
-		<div class="bibtex_author">
-			Andoni, A.; Croitoru, D. &amp; Patrascu, M.
-		</div>
-		
-
-		
-		<div class="bibtex_journal">
-			Proceedings of the 49th Annual IEEE Symposium on Foundations of Computer Science
-		</div>,
-		
-
-		
-
-		
-		<div class="bibtex_pages">
-			pp. 424-433
-		</div>,
-		
-
-		<div class="bibtex_year">
-			2008
-		</div>
-	</div>
-</div>
-<div class="bibtex_entry">
-
-	<div class="bibtex_header">
-		<div class="bibtex_key">
 			<a name="AD18">AD18</a>
 		</div>
 
@@ -398,16 +241,16 @@ body {
 		</div>
 	</div>
 </div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
+<div class="bibtex_entry" title="Generated on 52|22|2022">
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
-			<a name="AERW03">AERW03</a>
+			<a name="AAKS14">AAKS14</a>
 		</div>
 
 		
 		<div class="bibtex_doi">
-			<a href="https://doi.org/10.1016/S0196-6774(03)00085-3">doi</a>
+			<a href="https://doi.org/10.1137/130920526">doi</a>
 		</div>
 		
 
@@ -417,10 +260,6 @@ body {
 
 		
 
-		
-		<div class="bibtex_url">
-			<a href="http://dx.doi.org/10.1016/S0196-6774(03)00085-3">url</a>
-		</div>
 		
 	</div>
 
@@ -428,333 +267,40 @@ body {
 
 		
 		<div class="bibtex_title">
-			Matching planar maps
+			Computing the Discrete Fr&eacute;chet Distance in Subquadratic Time
 		</div>
 		
 
 		
 		<div class="bibtex_author">
-			Alt, H.; Efrat, A.; Rote, G. &amp; Wenk, C.
+			Agarwal, P. K.; Avraham, R. B.; Kaplan, H. &amp; Sharir, M.
 		</div>
 		
 
 		
 		<div class="bibtex_journal">
-			J. Algorithms
+			SIAM Journal on Computing
 		</div>,
 		
 
 		
 		<div class="bibtex_volume">
-			Vol. 49
+			Vol. 43
 		</div>,
 		
 
 		
 		<div class="bibtex_pages">
-			pp. 262-283
+			pp. 429-449
 		</div>,
 		
 
 		<div class="bibtex_year">
-			2003
+			2014
 		</div>
 	</div>
 </div>
-<div class="bibtex_entry">
-
-	<div class="bibtex_header">
-		<div class="bibtex_key">
-			<a name="AFHKS19">AFHKS19</a>
-		</div>
-
-		
-		<div class="bibtex_doi">
-			<a href="https://doi.org/10.1007/978-3-030-24766-9%5C_3">doi</a>
-		</div>
-		
-
-		
-
-		
-
-		
-		<div class="bibtex_url">
-			<a href="https://doi.org/10.1007/978-3-030-24766-9\_3">url</a>
-		</div>
-		
-	</div>
-
-	<div class="bibtex_content">
-
-		
-		<div class="bibtex_title">
-			Efficient Nearest-Neighbor Query and Clustering of Planar Curves
-		</div>
-		
-
-		
-		<div class="bibtex_author">
-			Aronov, B.; Filtser, O.; Horton, M.; Katz, M. J. &amp; Sheikhan, K.
-		</div>
-		
-
-		
-		<div class="bibtex_journal">
-			Algorithms and Data Structures - 16th International Symposium, WADS 2019, Edmonton, AB, Canada, August 5-7, 2019, Proceedings
-		</div>,
-		
-
-		
-
-		
-		<div class="bibtex_pages">
-			pp. 28-42
-		</div>,
-		
-
-		<div class="bibtex_year">
-			2019
-		</div>
-	</div>
-</div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
-
-	<div class="bibtex_header">
-		<div class="bibtex_key">
-			<a name="AFKKS15">AFKKS15</a>
-		</div>
-
-		
-		<div class="bibtex_doi">
-			<a href="https://doi.org/10.1145/2700222">doi</a>
-		</div>
-		
-
-		
-
-		
-
-		
-
-		
-		<div class="bibtex_url">
-			<a href="http://doi.acm.org/10.1145/2700222">url</a>
-		</div>
-		
-	</div>
-
-	<div class="bibtex_content">
-
-		
-		<div class="bibtex_title">
-			The Discrete and Semicontinuous Fr&eacute;chet Distance with Shortcuts via Approximate Distance Counting and Selection
-		</div>
-		
-
-		
-		<div class="bibtex_author">
-			Avraham, R. B.; Filtser, O.; Kaplan, H.; Katz, M. J. &amp; Sharir, M.
-		</div>
-		
-
-		
-		<div class="bibtex_journal">
-			ACM Transactions on Algorithms
-		</div>,
-		
-
-		
-		<div class="bibtex_volume">
-			Vol. 11
-		</div>,
-		
-
-		
-		<div class="bibtex_pages">
-			pp. 29
-		</div>,
-		
-
-		<div class="bibtex_year">
-			2015
-		</div>
-	</div>
-</div>
-<div class="bibtex_entry">
-
-	<div class="bibtex_header">
-		<div class="bibtex_key">
-			<a name="AG92">AG92</a>
-		</div>
-
-		
-		<div class="bibtex_doi">
-			<a href="https://doi.org/10.1145/142675.142699">doi</a>
-		</div>
-		
-
-		
-
-		
-
-		
-		<div class="bibtex_url">
-			<a href="http://doi.acm.org/10.1145/142675.142699">url</a>
-		</div>
-		
-	</div>
-
-	<div class="bibtex_content">
-
-		
-		<div class="bibtex_title">
-			Measuring the Resemblance of Polygonal Curves
-		</div>
-		
-
-		
-		<div class="bibtex_author">
-			Alt, H. &amp; Godau, M.
-		</div>
-		
-
-		
-		<div class="bibtex_journal">
-			Proceedings of the Symposium on Computational Geometry
-		</div>,
-		
-
-		
-
-		
-		<div class="bibtex_pages">
-			pp. 102-109
-		</div>,
-		
-
-		<div class="bibtex_year">
-			1992
-		</div>
-	</div>
-</div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
-
-	<div class="bibtex_header">
-		<div class="bibtex_key">
-			<a name="AG95">AG95</a>
-		</div>
-
-		
-		<div class="bibtex_doi">
-			<a href="https://doi.org/10.1142/S0218195995000064">doi</a>
-		</div>
-		
-
-		
-
-		
-
-		
-
-		
-	</div>
-
-	<div class="bibtex_content">
-
-		
-		<div class="bibtex_title">
-			Computing the Fr&eacute;chet distance between two polygonal curves
-		</div>
-		
-
-		
-		<div class="bibtex_author">
-			Alt, H. &amp; Godau, M.
-		</div>
-		
-
-		
-		<div class="bibtex_journal">
-			International Journal of Computational Geometry &amp; Applications
-		</div>,
-		
-
-		
-		<div class="bibtex_volume">
-			Vol. 05
-		</div>,
-		
-
-		
-		<div class="bibtex_pages">
-			pp. 75-91
-		</div>,
-		
-
-		<div class="bibtex_year">
-			1995
-		</div>
-	</div>
-</div>
-<div class="bibtex_entry">
-
-	<div class="bibtex_header">
-		<div class="bibtex_key">
-			<a name="AHKWW06">AHKWW06</a>
-		</div>
-
-		
-		<div class="bibtex_doi">
-			<a href="https://doi.org/10.1007/11841036_8">doi</a>
-		</div>
-		
-
-		
-
-		
-
-		
-		<div class="bibtex_url">
-			<a href="http://dx.doi.org/10.1007/11841036_8">url</a>
-		</div>
-		
-	</div>
-
-	<div class="bibtex_content">
-
-		
-		<div class="bibtex_title">
-			Fr&eacute;chet Distance for Curves, Revisited
-		</div>
-		
-
-		
-		<div class="bibtex_author">
-			Aronov, B.; Har-Peled, S.; Knauer, C.; Wang, Y. &amp; Wenk, C.
-		</div>
-		
-
-		
-		<div class="bibtex_journal">
-			Proceedings of the 14th Annual European Sympos. on Algorithms, ESA
-		</div>,
-		
-
-		
-
-		
-		<div class="bibtex_pages">
-			pp. 52-63
-		</div>,
-		
-
-		<div class="bibtex_year">
-			2006
-		</div>
-	</div>
-</div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
+<div class="bibtex_entry" title="Generated on 52|22|2022">
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
@@ -817,62 +363,7 @@ body {
 		</div>
 	</div>
 </div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
-
-	<div class="bibtex_header">
-		<div class="bibtex_key">
-			<a name="AKS15">AKS15</a>
-		</div>
-
-		
-
-		
-
-		
-
-		
-
-		
-		<div class="bibtex_url">
-			<a href="http://arxiv.org/abs/1501.03724">url</a>
-		</div>
-		
-	</div>
-
-	<div class="bibtex_content">
-
-		
-		<div class="bibtex_title">
-			A faster algorithm for the discrete Fr&eacute;chet distance under translation
-		</div>
-		
-
-		
-		<div class="bibtex_author">
-			Avraham, R. B.; Kaplan, H. &amp; Sharir, M.
-		</div>
-		
-
-		
-		<div class="bibtex_journal">
-			CoRR
-		</div>,
-		
-
-		
-		<div class="bibtex_volume">
-			Vol. abs/1501.03724
-		</div>,
-		
-
-		
-
-		<div class="bibtex_year">
-			2015
-		</div>
-	</div>
-</div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
+<div class="bibtex_entry" title="Generated on 52|22|2022">
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
@@ -939,6 +430,291 @@ body {
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
+			<a name="ABBKKW14">ABBKKW14</a>
+		</div>
+
+		
+		<div class="bibtex_doi">
+			<a href="https://doi.org/10.1145/2666310.2666415">doi</a>
+		</div>
+		
+
+		
+
+		
+
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			A framework for trajectory segmentation by stable criteria
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			Alewijnse, S. P. A.; Buchin, K.; Buchin, M.; K�lzsch, A.; Kruckenberg, H. &amp; Westenberg, M. A.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			Proceedings of the 22nd ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems
+		</div>,
+		
+
+		
+
+		
+
+		<div class="bibtex_year">
+			2014
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name="Alt09">Alt09</a>
+		</div>
+
+		
+		<div class="bibtex_doi">
+			<a href="https://doi.org/10.1007/978-3-642-03456-5_16">doi</a>
+		</div>
+		
+
+		
+
+		
+
+		
+		<div class="bibtex_url">
+			<a href="http://dx.doi.org/10.1007/978-3-642-03456-5_16">url</a>
+		</div>
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			The Computational Geometry of Comparing Shapes
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			Alt, H.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			Efficient Algorithms, Essays Dedicated to Kurt Mehlhorn on the Occasion of His 60th Birthday
+		</div>,
+		
+
+		
+
+		
+		<div class="bibtex_pages">
+			pp. 235-248
+		</div>,
+		
+
+		<div class="bibtex_year">
+			2009
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry" title="Generated on 52|22|2022">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name="AERW03">AERW03</a>
+		</div>
+
+		
+		<div class="bibtex_doi">
+			<a href="https://doi.org/10.1016/S0196-6774(03)00085-3">doi</a>
+		</div>
+		
+
+		
+
+		
+
+		
+
+		
+		<div class="bibtex_url">
+			<a href="http://dx.doi.org/10.1016/S0196-6774(03)00085-3">url</a>
+		</div>
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			Matching planar maps
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			Alt, H.; Efrat, A.; Rote, G. &amp; Wenk, C.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			J. Algorithms
+		</div>,
+		
+
+		
+		<div class="bibtex_volume">
+			Vol. 49
+		</div>,
+		
+
+		
+		<div class="bibtex_pages">
+			pp. 262-283
+		</div>,
+		
+
+		<div class="bibtex_year">
+			2003
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name="AG92">AG92</a>
+		</div>
+
+		
+		<div class="bibtex_doi">
+			<a href="https://doi.org/10.1145/142675.142699">doi</a>
+		</div>
+		
+
+		
+
+		
+
+		
+		<div class="bibtex_url">
+			<a href="http://doi.acm.org/10.1145/142675.142699">url</a>
+		</div>
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			Measuring the Resemblance of Polygonal Curves
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			Alt, H. &amp; Godau, M.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			Proceedings of the Symposium on Computational Geometry
+		</div>,
+		
+
+		
+
+		
+		<div class="bibtex_pages">
+			pp. 102-109
+		</div>,
+		
+
+		<div class="bibtex_year">
+			1992
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry" title="Generated on 52|22|2022">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name="AG95">AG95</a>
+		</div>
+
+		
+		<div class="bibtex_doi">
+			<a href="https://doi.org/10.1142/S0218195995000064">doi</a>
+		</div>
+		
+
+		
+
+		
+
+		
+
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			Computing the Fr&eacute;chet distance between two polygonal curves
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			Alt, H. &amp; Godau, M.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			International Journal of Computational Geometry &amp; Applications
+		</div>,
+		
+
+		
+		<div class="bibtex_volume">
+			Vol. 05
+		</div>,
+		
+
+		
+		<div class="bibtex_pages">
+			pp. 75-91
+		</div>,
+		
+
+		<div class="bibtex_year">
+			1995
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
 			<a name="AKW01">AKW01</a>
 		</div>
 
@@ -992,7 +768,7 @@ body {
 		</div>
 	</div>
 </div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
+<div class="bibtex_entry" title="Generated on 52|22|2022">
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
@@ -1059,12 +835,61 @@ body {
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
-			<a name="Alt09">Alt09</a>
+			<a name="ACP08">ACP08</a>
+		</div>
+
+		
+
+		
+
+		
+
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			Hardness of nearest neighbor under L-infinity
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			Andoni, A.; Croitoru, D. &amp; Patrascu, M.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			Proceedings of the 49th Annual IEEE Symposium on Foundations of Computer Science
+		</div>,
+		
+
+		
+
+		
+		<div class="bibtex_pages">
+			pp. 424-433
+		</div>,
+		
+
+		<div class="bibtex_year">
+			2008
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name="AFHKS19">AFHKS19</a>
 		</div>
 
 		
 		<div class="bibtex_doi">
-			<a href="https://doi.org/10.1007/978-3-642-03456-5_16">doi</a>
+			<a href="https://doi.org/10.1007/978-3-030-24766-9%5C_3">doi</a>
 		</div>
 		
 
@@ -1074,7 +899,7 @@ body {
 
 		
 		<div class="bibtex_url">
-			<a href="http://dx.doi.org/10.1007/978-3-642-03456-5_16">url</a>
+			<a href="https://doi.org/10.1007/978-3-030-24766-9\_3">url</a>
 		</div>
 		
 	</div>
@@ -1083,19 +908,19 @@ body {
 
 		
 		<div class="bibtex_title">
-			The Computational Geometry of Comparing Shapes
+			Efficient Nearest-Neighbor Query and Clustering of Planar Curves
 		</div>
 		
 
 		
 		<div class="bibtex_author">
-			Alt, H.
+			Aronov, B.; Filtser, O.; Horton, M.; Katz, M. J. &amp; Sheikhan, K.
 		</div>
 		
 
 		
 		<div class="bibtex_journal">
-			Efficient Algorithms, Essays Dedicated to Kurt Mehlhorn on the Occasion of His 60th Birthday
+			Algorithms and Data Structures - 16th International Symposium, WADS 2019, Edmonton, AB, Canada, August 5-7, 2019, Proceedings
 		</div>,
 		
 
@@ -1103,16 +928,425 @@ body {
 
 		
 		<div class="bibtex_pages">
-			pp. 235-248
+			pp. 28-42
 		</div>,
 		
 
 		<div class="bibtex_year">
-			2009
+			2019
 		</div>
 	</div>
 </div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
+<div class="bibtex_entry">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name="AHKWW06">AHKWW06</a>
+		</div>
+
+		
+		<div class="bibtex_doi">
+			<a href="https://doi.org/10.1007/11841036_8">doi</a>
+		</div>
+		
+
+		
+
+		
+
+		
+		<div class="bibtex_url">
+			<a href="http://dx.doi.org/10.1007/11841036_8">url</a>
+		</div>
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			Fr&eacute;chet Distance for Curves, Revisited
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			Aronov, B.; Har-Peled, S.; Knauer, C.; Wang, Y. &amp; Wenk, C.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			Proceedings of the 14th Annual European Sympos. on Algorithms, ESA
+		</div>,
+		
+
+		
+
+		
+		<div class="bibtex_pages">
+			pp. 52-63
+		</div>,
+		
+
+		<div class="bibtex_year">
+			2006
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name="CDHSW11">CDHSW11</a>
+		</div>
+
+		
+		<div class="bibtex_doi">
+			<a href="https://doi.org/10.1007/978-3-642-22300-6_23">doi</a>
+		</div>
+		
+
+		
+
+		
+
+		
+		<div class="bibtex_url">
+			<a href="http://dx.doi.org/10.1007/978-3-642-22300-6_23">url</a>
+		</div>
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			Computing the Fr&eacute;chet Distance between Folded Polygons
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			Atlas F. Cook, I. V.; Driemel, A.; Har-Peled, S.; Sherette, J. &amp; Wenk, C.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			Proceedings of the 12th International Symposium on Algorithms and Data Structures, WADS
+		</div>,
+		
+
+		
+
+		
+		<div class="bibtex_pages">
+			pp. 267-278
+		</div>,
+		
+
+		<div class="bibtex_year">
+			2011
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name="CW08">CW08</a>
+		</div>
+
+		
+		<div class="bibtex_doi">
+			<a href="https://doi.org/10.4230/LIPIcs.STACS.2008.1330">doi</a>
+		</div>
+		
+
+		
+
+		
+
+		
+		<div class="bibtex_url">
+			<a href="http://dx.doi.org/10.4230/LIPIcs.STACS.2008.1330">url</a>
+		</div>
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			Geodesic Fr&eacute;chet Distance Inside a Simple Polygon
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			Atlas F. Cook, I. V. &amp; Wenk, C.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			Proceedings of the 25th Annual Sympos. on Theoretical Aspects of Computer Science, STACS
+		</div>,
+		
+
+		
+
+		
+		<div class="bibtex_pages">
+			pp. 193-204
+		</div>,
+		
+
+		<div class="bibtex_year">
+			2008
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry" title="Generated on 52|22|2022">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name="AFKKS15">AFKKS15</a>
+		</div>
+
+		
+		<div class="bibtex_doi">
+			<a href="https://doi.org/10.1145/2700222">doi</a>
+		</div>
+		
+
+		
+
+		
+
+		
+
+		
+		<div class="bibtex_url">
+			<a href="http://doi.acm.org/10.1145/2700222">url</a>
+		</div>
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			The Discrete and Semicontinuous Fr&eacute;chet Distance with Shortcuts via Approximate Distance Counting and Selection
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			Avraham, R. B.; Filtser, O.; Kaplan, H.; Katz, M. J. &amp; Sharir, M.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			ACM Transactions on Algorithms
+		</div>,
+		
+
+		
+		<div class="bibtex_volume">
+			Vol. 11
+		</div>,
+		
+
+		
+		<div class="bibtex_pages">
+			pp. 29
+		</div>,
+		
+
+		<div class="bibtex_year">
+			2015
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name="BFKKS14">BFKKS14</a>
+		</div>
+
+		
+		<div class="bibtex_doi">
+			<a href="https://doi.org/10.1145/2582112.2582155">doi</a>
+		</div>
+		
+
+		
+
+		
+
+		
+		<div class="bibtex_url">
+			<a href="http://doi.acm.org/10.1145/2582112.2582155">url</a>
+		</div>
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			The Discrete Fr&eacute;chet Distance with Shortcuts via Approximate Distance Counting and Selection
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			Avraham, R. B.; Filtser, O.; Kaplan, H.; Katz, M. J. &amp; Sharir, M.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			Proceedings of the 30th Annual ACM Sympos. on Computational Geometry, SoCG
+		</div>,
+		
+
+		
+
+		
+		<div class="bibtex_pages">
+			pp. 377
+		</div>,
+		
+
+		<div class="bibtex_year">
+			2014
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry" title="Generated on 52|22|2022">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name="BFKKS15">BFKKS15</a>
+		</div>
+
+		
+		<div class="bibtex_doi">
+			<a href="https://doi.org/10.1145/2700222">doi</a>
+		</div>
+		
+
+		
+
+		
+
+		
+
+		
+		<div class="bibtex_url">
+			<a href="https://doi.org/10.1145/2700222">url</a>
+		</div>
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			The Discrete and Semicontinuous Fr&eacute;chet Distance with Shortcuts via Approximate Distance Counting and Selection
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			Avraham, R. B.; Filtser, O.; Kaplan, H.; Katz, M. J. &amp; Sharir, M.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			ACM Trans. Algorithms
+		</div>,
+		
+
+		
+		<div class="bibtex_volume">
+			Vol. 11
+		</div>,
+		
+
+		
+		<div class="bibtex_pages">
+			pp. 29:1-29:29
+		</div>,
+		
+
+		<div class="bibtex_year">
+			2015
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry" title="Generated on 52|22|2022">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name="AKS15">AKS15</a>
+		</div>
+
+		
+
+		
+
+		
+
+		
+
+		
+		<div class="bibtex_url">
+			<a href="http://arxiv.org/abs/1501.03724">url</a>
+		</div>
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			A faster algorithm for the discrete Fr&eacute;chet distance under translation
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			Avraham, R. B.; Kaplan, H. &amp; Sharir, M.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			CoRR
+		</div>,
+		
+
+		
+		<div class="bibtex_volume">
+			Vol. abs/1501.03724
+		</div>,
+		
+
+		
+
+		<div class="bibtex_year">
+			2015
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry" title="Generated on 52|22|2022">
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
@@ -1179,6 +1413,660 @@ body {
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
+			<a name="BJWYZ08">BJWYZ08</a>
+		</div>
+
+		
+		<div class="bibtex_doi">
+			<a href="https://doi.org/10.1007/978-3-540-78773-0_54">doi</a>
+		</div>
+		
+
+		
+
+		
+
+		
+		<div class="bibtex_url">
+			<a href="http://dx.doi.org/10.1007/978-3-540-78773-0_54">url</a>
+		</div>
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			Simplifying 3D Polygonal Chains Under the Discrete Fr&eacute;chet Distance
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			Bereg, S.; Jiang, M.; Wang, W.; Yang, B. &amp; Zhu, B.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			Proceedings of the 8th Latin American Theoretical Informatics Sympos., LATIN
+		</div>,
+		
+
+		
+
+		
+		<div class="bibtex_pages">
+			pp. 630-641
+		</div>,
+		
+
+		<div class="bibtex_year">
+			2008
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name="dBC11">dBC11</a>
+		</div>
+
+		
+		<div class="bibtex_doi">
+			<a href="https://doi.org/10.1007/978-3-642-19754-3%5C_10">doi</a>
+		</div>
+		
+
+		
+
+		
+
+		
+		<div class="bibtex_url">
+			<a href="https://doi.org/10.1007/978-3-642-19754-3\_10">url</a>
+		</div>
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			Go with the Flow: The Direction-Based Fr&eacute;chet Distance of Polygonal Curves
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			de Berg, M. &amp; Atlas F. Cook, I. V.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			Proceedings of the International Conference on Theory and Practice of Algorithms in (Computer) Systems
+		</div>,
+		
+
+		
+
+		
+		<div class="bibtex_pages">
+			pp. 81-91
+		</div>,
+		
+
+		<div class="bibtex_year">
+			2011
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry" title="Generated on 52|22|2022">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name="dBCG13">dBCG13</a>
+		</div>
+
+		
+		<div class="bibtex_doi">
+			<a href="https://doi.org/10.1016/j.comgeo.2012.11.006">doi</a>
+		</div>
+		
+
+		
+
+		
+
+		
+
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			Fast Fr&eacute;chet queries
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			de Berg, M.; Atlas F. Cook, I. V. &amp; Gudmundsson, J.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			Computational Geometry
+		</div>,
+		
+
+		
+		<div class="bibtex_volume">
+			Vol. 46
+		</div>,
+		
+
+		
+		<div class="bibtex_pages">
+			pp. 747-755
+		</div>,
+		
+
+		<div class="bibtex_year">
+			2013
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name="dBGM17">dBGM17</a>
+		</div>
+
+		
+
+		
+
+		
+
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			A dynamic data structure for approximate Proximity queries in trajectory data
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			de Berg, M.; Gudmundsson, J. &amp; Mehrabi, A. D.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			Proceedings of the 25th ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems
+		</div>,
+		
+
+		
+
+		
+		<div class="bibtex_pages">
+			pp. 48
+		</div>,
+		
+
+		<div class="bibtex_year">
+			2017
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name="dBMO17a">dBMO17a</a>
+		</div>
+
+		
+
+		
+
+		
+
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			Data Structures for Fr&eacute;chet Queries in Trajectory Data
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			de Berg, M.; Mehrabi, A. D. &amp; Ophelders, T.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			Proceedings of the 29th Canadian Conference on Computational Geometry, CCCG 2017, July 26-28, 2017, Carleton University, Ottawa, Ontario, Canada
+		</div>,
+		
+
+		
+
+		
+		<div class="bibtex_pages">
+			pp. 214-219
+		</div>,
+		
+
+		<div class="bibtex_year">
+			2017
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name="BC94">BC94</a>
+		</div>
+
+		
+
+		
+
+		
+
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			Using Dynamic Time Warping to Find Patterns in Time Series
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			Berndt, D. J. &amp; Clifford, J.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			Papers from the AAAI Knowledge Discovery in Databases Workshop: Technical Report WS-94-03
+		</div>,
+		
+
+		
+
+		
+		<div class="bibtex_pages">
+			pp. 359-370
+		</div>,
+		
+
+		<div class="bibtex_year">
+			1994
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry" title="Generated on 52|22|2022">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name="BS02">BS02</a>
+		</div>
+
+		
+		<div class="bibtex_doi">
+			<a href="https://doi.org/10.1007/s00453-001-0114-7">doi</a>
+		</div>
+		
+
+		
+
+		
+
+		
+
+		
+		<div class="bibtex_url">
+			<a href="http://dx.doi.org/10.1007/s00453-001-0114-7">url</a>
+		</div>
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			Fast Algorithms for Approximating Distances
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			Bespamyatnikh, S. &amp; Segal, M.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			Algorithmica
+		</div>,
+		
+
+		
+		<div class="bibtex_volume">
+			Vol. 33
+		</div>,
+		
+
+		
+		<div class="bibtex_pages">
+			pp. 263-269
+		</div>,
+		
+
+		<div class="bibtex_year">
+			2002
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name="BPSW05">BPSW05</a>
+		</div>
+
+		
+
+		
+
+		
+
+		
+		<div class="bibtex_url">
+			<a href="http://www.vldb2005.org/program/paper/fri/p853-brakatsoulas.pdf">url</a>
+		</div>
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			On Map-Matching Vehicle Tracking Data
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			Brakatsoulas, S.; Pfoser, D.; Salas, R. &amp; Wenk, C.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			Proceedings of the 31st Internat. Conf. Very Large Data Bases
+		</div>,
+		
+
+		
+
+		
+		<div class="bibtex_pages">
+			pp. 853-864
+		</div>,
+		
+
+		<div class="bibtex_year">
+			2005
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name="Bringmann14">Bringmann14</a>
+		</div>
+
+		
+		<div class="bibtex_doi">
+			<a href="https://doi.org/10.1109/focs.2014.76">doi</a>
+		</div>
+		
+
+		
+
+		
+
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			Why Walking the Dog Takes Time: Fr&eacute;chet Distance Has No Strongly Subquadratic Algorithms Unless SETH Fails
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			Bringmann, K.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			Proceedings of the 55th IEEE Symposium on Foundations of Computer Science
+		</div>,
+		
+
+		
+
+		
+
+		<div class="bibtex_year">
+			2014
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name="BDNP22">BDNP22</a>
+		</div>
+
+		
+		<div class="bibtex_doi">
+			<a href="https://doi.org/10.1137/1.9781611977073.25">doi</a>
+		</div>
+		
+
+		
+
+		
+
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			Tight Bounds for Approximate Near Neighbor Searching for Time Series under the Fr&eacute;chet Distance
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			Bringmann, K.; Driemel, A.; Nusser, A. &amp; Psarros, I.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			Proceedings of the 2022 Annual ACM-SIAM Symposium on Discrete Algorithms (SODA)
+		</div>,
+		
+
+		
+
+		
+		<div class="bibtex_pages">
+			pp. 517-550
+		</div>,
+		
+
+		<div class="bibtex_year">
+			2022
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name="BKN19">BKN19</a>
+		</div>
+
+		
+		<div class="bibtex_doi">
+			<a href="https://doi.org/10.1137/1.9781611975482.180">doi</a>
+		</div>
+		
+
+		
+
+		
+
+		
+		<div class="bibtex_url">
+			<a href="https://doi.org/10.1137/1.9781611975482.180">url</a>
+		</div>
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			Fr&eacute;chet Distance Under Translation: Conditional Hardness and an Algorithm via Offline Dynamic Grid Reachability
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			Bringmann, K.; K&uuml;nnemann, M. &amp; Nusser, A.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			Proceedings of the 13th Annual ACM-SIAM Symposium on Discrete Algorithms, SODA
+		</div>,
+		
+
+		
+
+		
+		<div class="bibtex_pages">
+			pp. 2902-2921
+		</div>,
+		
+
+		<div class="bibtex_year">
+			2019
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry" title="Generated on 52|22|2022">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name="BM16">BM16</a>
+		</div>
+
+		
+
+		
+
+		
+
+		
+
+		
+		<div class="bibtex_url">
+			<a href="http://jocg.org/index.php/jocg/article/view/261">url</a>
+		</div>
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			Approximability of the discrete Fr&eacute;chet distance
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			Bringmann, K. &amp; Mulzer, W.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			Journal on Computational Geometry
+		</div>,
+		
+
+		
+		<div class="bibtex_volume">
+			Vol. 7
+		</div>,
+		
+
+		
+		<div class="bibtex_pages">
+			pp. 46-76
+		</div>,
+		
+
+		<div class="bibtex_year">
+			2016
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
 			<a name="BBG08">BBG08</a>
 		</div>
 
@@ -1232,7 +2120,7 @@ body {
 		</div>
 	</div>
 </div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
+<div class="bibtex_entry" title="Generated on 52|22|2022">
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
@@ -1295,7 +2183,56 @@ body {
 		</div>
 	</div>
 </div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
+<div class="bibtex_entry">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name="BBKRW07">BBKRW07</a>
+		</div>
+
+		
+
+		
+
+		
+
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			How Difficult is it to Walk the Dog?
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			Buchin, K.; Buchin, M.; Knauer, C.; Rote, G. &amp; Wenk, C.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			IProceedings of the 23rd European Workshop on Computational Geometry
+		</div>,
+		
+
+		
+
+		
+		<div class="bibtex_pages">
+			pp. 170-173
+		</div>,
+		
+
+		<div class="bibtex_year">
+			2007
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry" title="Generated on 52|22|2022">
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
@@ -1355,55 +2292,6 @@ body {
 
 		<div class="bibtex_year">
 			2013
-		</div>
-	</div>
-</div>
-<div class="bibtex_entry">
-
-	<div class="bibtex_header">
-		<div class="bibtex_key">
-			<a name="BBKRW07">BBKRW07</a>
-		</div>
-
-		
-
-		
-
-		
-
-		
-	</div>
-
-	<div class="bibtex_content">
-
-		
-		<div class="bibtex_title">
-			How Difficult is it to Walk the Dog?
-		</div>
-		
-
-		
-		<div class="bibtex_author">
-			Buchin, K.; Buchin, M.; Knauer, C.; Rote, G. &amp; Wenk, C.
-		</div>
-		
-
-		
-		<div class="bibtex_journal">
-			IProceedings of the 23rd European Workshop on Computational Geometry
-		</div>,
-		
-
-		
-
-		
-		<div class="bibtex_pages">
-			pp. 170-173
-		</div>,
-		
-
-		<div class="bibtex_year">
-			2007
 		</div>
 	</div>
 </div>
@@ -1578,7 +2466,7 @@ body {
 		</div>
 	</div>
 </div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
+<div class="bibtex_entry" title="Generated on 52|22|2022">
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
@@ -1698,55 +2586,6 @@ body {
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
-			<a name="BC94">BC94</a>
-		</div>
-
-		
-
-		
-
-		
-
-		
-	</div>
-
-	<div class="bibtex_content">
-
-		
-		<div class="bibtex_title">
-			Using Dynamic Time Warping to Find Patterns in Time Series
-		</div>
-		
-
-		
-		<div class="bibtex_author">
-			Berndt, D. J. &amp; Clifford, J.
-		</div>
-		
-
-		
-		<div class="bibtex_journal">
-			Papers from the AAAI Knowledge Discovery in Databases Workshop: Technical Report WS-94-03
-		</div>,
-		
-
-		
-
-		
-		<div class="bibtex_pages">
-			pp. 359-370
-		</div>,
-		
-
-		<div class="bibtex_year">
-			1994
-		</div>
-	</div>
-</div>
-<div class="bibtex_entry">
-
-	<div class="bibtex_header">
-		<div class="bibtex_key">
 			<a name="BDGHKLS19">BDGHKLS19</a>
 		</div>
 
@@ -1796,117 +2635,7 @@ body {
 		</div>
 	</div>
 </div>
-<div class="bibtex_entry">
-
-	<div class="bibtex_header">
-		<div class="bibtex_key">
-			<a name="BDNP22">BDNP22</a>
-		</div>
-
-		
-		<div class="bibtex_doi">
-			<a href="https://doi.org/10.1137/1.9781611977073.25">doi</a>
-		</div>
-		
-
-		
-
-		
-
-		
-	</div>
-
-	<div class="bibtex_content">
-
-		
-		<div class="bibtex_title">
-			Tight Bounds for Approximate Near Neighbor Searching for Time Series under the Fr&eacute;chet Distance
-		</div>
-		
-
-		
-		<div class="bibtex_author">
-			Bringmann, K.; Driemel, A.; Nusser, A. &amp; Psarros, I.
-		</div>
-		
-
-		
-		<div class="bibtex_journal">
-			Proceedings of the 2022 Annual ACM-SIAM Symposium on Discrete Algorithms (SODA)
-		</div>,
-		
-
-		
-
-		
-		<div class="bibtex_pages">
-			pp. 517-550
-		</div>,
-		
-
-		<div class="bibtex_year">
-			2022
-		</div>
-	</div>
-</div>
-<div class="bibtex_entry">
-
-	<div class="bibtex_header">
-		<div class="bibtex_key">
-			<a name="BDS14">BDS14</a>
-		</div>
-
-		
-		<div class="bibtex_doi">
-			<a href="https://doi.org/10.1145/2582112.2582144">doi</a>
-		</div>
-		
-
-		
-
-		
-
-		
-		<div class="bibtex_url">
-			<a href="http://doi.acm.org/10.1145/2582112.2582144">url</a>
-		</div>
-		
-	</div>
-
-	<div class="bibtex_content">
-
-		
-		<div class="bibtex_title">
-			Computing the Fr&eacute;chet distance with shortcuts is NP-hard
-		</div>
-		
-
-		
-		<div class="bibtex_author">
-			Buchin, M.; Driemel, A. &amp; Speckmann, B.
-		</div>
-		
-
-		
-		<div class="bibtex_journal">
-			Proceedings of the 30th Sympos. Comput. Geom.
-		</div>,
-		
-
-		
-
-		
-		<div class="bibtex_pages">
-			pp. 367
-		</div>,
-		
-
-		<div class="bibtex_year">
-			2014
-		</div>
-	</div>
-</div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
+<div class="bibtex_entry" title="Generated on 52|22|2022">
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
@@ -1958,299 +2687,6 @@ body {
 
 		<div class="bibtex_year">
 			2019
-		</div>
-	</div>
-</div>
-<div class="bibtex_entry">
-
-	<div class="bibtex_header">
-		<div class="bibtex_key">
-			<a name="BFKKS14">BFKKS14</a>
-		</div>
-
-		
-		<div class="bibtex_doi">
-			<a href="https://doi.org/10.1145/2582112.2582155">doi</a>
-		</div>
-		
-
-		
-
-		
-
-		
-		<div class="bibtex_url">
-			<a href="http://doi.acm.org/10.1145/2582112.2582155">url</a>
-		</div>
-		
-	</div>
-
-	<div class="bibtex_content">
-
-		
-		<div class="bibtex_title">
-			The Discrete Fr&eacute;chet Distance with Shortcuts via Approximate Distance Counting and Selection
-		</div>
-		
-
-		
-		<div class="bibtex_author">
-			Avraham, R. B.; Filtser, O.; Kaplan, H.; Katz, M. J. &amp; Sharir, M.
-		</div>
-		
-
-		
-		<div class="bibtex_journal">
-			Proceedings of the 30th Annual ACM Sympos. on Computational Geometry, SoCG
-		</div>,
-		
-
-		
-
-		
-		<div class="bibtex_pages">
-			pp. 377
-		</div>,
-		
-
-		<div class="bibtex_year">
-			2014
-		</div>
-	</div>
-</div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
-
-	<div class="bibtex_header">
-		<div class="bibtex_key">
-			<a name="BFKKS15">BFKKS15</a>
-		</div>
-
-		
-		<div class="bibtex_doi">
-			<a href="https://doi.org/10.1145/2700222">doi</a>
-		</div>
-		
-
-		
-
-		
-
-		
-
-		
-		<div class="bibtex_url">
-			<a href="https://doi.org/10.1145/2700222">url</a>
-		</div>
-		
-	</div>
-
-	<div class="bibtex_content">
-
-		
-		<div class="bibtex_title">
-			The Discrete and Semicontinuous Fr&eacute;chet Distance with Shortcuts via Approximate Distance Counting and Selection
-		</div>
-		
-
-		
-		<div class="bibtex_author">
-			Avraham, R. B.; Filtser, O.; Kaplan, H.; Katz, M. J. &amp; Sharir, M.
-		</div>
-		
-
-		
-		<div class="bibtex_journal">
-			ACM Trans. Algorithms
-		</div>,
-		
-
-		
-		<div class="bibtex_volume">
-			Vol. 11
-		</div>,
-		
-
-		
-		<div class="bibtex_pages">
-			pp. 29:1-29:29
-		</div>,
-		
-
-		<div class="bibtex_year">
-			2015
-		</div>
-	</div>
-</div>
-<div class="bibtex_entry">
-
-	<div class="bibtex_header">
-		<div class="bibtex_key">
-			<a name="BJWYZ08">BJWYZ08</a>
-		</div>
-
-		
-		<div class="bibtex_doi">
-			<a href="https://doi.org/10.1007/978-3-540-78773-0_54">doi</a>
-		</div>
-		
-
-		
-
-		
-
-		
-		<div class="bibtex_url">
-			<a href="http://dx.doi.org/10.1007/978-3-540-78773-0_54">url</a>
-		</div>
-		
-	</div>
-
-	<div class="bibtex_content">
-
-		
-		<div class="bibtex_title">
-			Simplifying 3D Polygonal Chains Under the Discrete Fr&eacute;chet Distance
-		</div>
-		
-
-		
-		<div class="bibtex_author">
-			Bereg, S.; Jiang, M.; Wang, W.; Yang, B. &amp; Zhu, B.
-		</div>
-		
-
-		
-		<div class="bibtex_journal">
-			Proceedings of the 8th Latin American Theoretical Informatics Sympos., LATIN
-		</div>,
-		
-
-		
-
-		
-		<div class="bibtex_pages">
-			pp. 630-641
-		</div>,
-		
-
-		<div class="bibtex_year">
-			2008
-		</div>
-	</div>
-</div>
-<div class="bibtex_entry">
-
-	<div class="bibtex_header">
-		<div class="bibtex_key">
-			<a name="BKN19">BKN19</a>
-		</div>
-
-		
-		<div class="bibtex_doi">
-			<a href="https://doi.org/10.1137/1.9781611975482.180">doi</a>
-		</div>
-		
-
-		
-
-		
-
-		
-		<div class="bibtex_url">
-			<a href="https://doi.org/10.1137/1.9781611975482.180">url</a>
-		</div>
-		
-	</div>
-
-	<div class="bibtex_content">
-
-		
-		<div class="bibtex_title">
-			Fr&eacute;chet Distance Under Translation: Conditional Hardness and an Algorithm via Offline Dynamic Grid Reachability
-		</div>
-		
-
-		
-		<div class="bibtex_author">
-			Bringmann, K.; K&uuml;nnemann, M. &amp; Nusser, A.
-		</div>
-		
-
-		
-		<div class="bibtex_journal">
-			Proceedings of the 13th Annual ACM-SIAM Symposium on Discrete Algorithms, SODA
-		</div>,
-		
-
-		
-
-		
-		<div class="bibtex_pages">
-			pp. 2902-2921
-		</div>,
-		
-
-		<div class="bibtex_year">
-			2019
-		</div>
-	</div>
-</div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
-
-	<div class="bibtex_header">
-		<div class="bibtex_key">
-			<a name="BM16">BM16</a>
-		</div>
-
-		
-
-		
-
-		
-
-		
-
-		
-		<div class="bibtex_url">
-			<a href="http://jocg.org/index.php/jocg/article/view/261">url</a>
-		</div>
-		
-	</div>
-
-	<div class="bibtex_content">
-
-		
-		<div class="bibtex_title">
-			Approximability of the discrete Fr&eacute;chet distance
-		</div>
-		
-
-		
-		<div class="bibtex_author">
-			Bringmann, K. &amp; Mulzer, W.
-		</div>
-		
-
-		
-		<div class="bibtex_journal">
-			Journal on Computational Geometry
-		</div>,
-		
-
-		
-		<div class="bibtex_volume">
-			Vol. 7
-		</div>,
-		
-
-		
-		<div class="bibtex_pages">
-			pp. 46-76
-		</div>,
-		
-
-		<div class="bibtex_year">
-			2016
 		</div>
 	</div>
 </div>
@@ -2315,171 +2751,6 @@ body {
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
-			<a name="BPSW05">BPSW05</a>
-		</div>
-
-		
-
-		
-
-		
-
-		
-		<div class="bibtex_url">
-			<a href="http://www.vldb2005.org/program/paper/fri/p853-brakatsoulas.pdf">url</a>
-		</div>
-		
-	</div>
-
-	<div class="bibtex_content">
-
-		
-		<div class="bibtex_title">
-			On Map-Matching Vehicle Tracking Data
-		</div>
-		
-
-		
-		<div class="bibtex_author">
-			Brakatsoulas, S.; Pfoser, D.; Salas, R. &amp; Wenk, C.
-		</div>
-		
-
-		
-		<div class="bibtex_journal">
-			Proceedings of the 31st Internat. Conf. Very Large Data Bases
-		</div>,
-		
-
-		
-
-		
-		<div class="bibtex_pages">
-			pp. 853-864
-		</div>,
-		
-
-		<div class="bibtex_year">
-			2005
-		</div>
-	</div>
-</div>
-<div class="bibtex_entry">
-
-	<div class="bibtex_header">
-		<div class="bibtex_key">
-			<a name="Bringmann14">Bringmann14</a>
-		</div>
-
-		
-		<div class="bibtex_doi">
-			<a href="https://doi.org/10.1109/focs.2014.76">doi</a>
-		</div>
-		
-
-		
-
-		
-
-		
-	</div>
-
-	<div class="bibtex_content">
-
-		
-		<div class="bibtex_title">
-			Why Walking the Dog Takes Time: Fr&eacute;chet Distance Has No Strongly Subquadratic Algorithms Unless SETH Fails
-		</div>
-		
-
-		
-		<div class="bibtex_author">
-			Bringmann, K.
-		</div>
-		
-
-		
-		<div class="bibtex_journal">
-			Proceedings of the 55th IEEE Symposium on Foundations of Computer Science
-		</div>,
-		
-
-		
-
-		
-
-		<div class="bibtex_year">
-			2014
-		</div>
-	</div>
-</div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
-
-	<div class="bibtex_header">
-		<div class="bibtex_key">
-			<a name="BS02">BS02</a>
-		</div>
-
-		
-		<div class="bibtex_doi">
-			<a href="https://doi.org/10.1007/s00453-001-0114-7">doi</a>
-		</div>
-		
-
-		
-
-		
-
-		
-
-		
-		<div class="bibtex_url">
-			<a href="http://dx.doi.org/10.1007/s00453-001-0114-7">url</a>
-		</div>
-		
-	</div>
-
-	<div class="bibtex_content">
-
-		
-		<div class="bibtex_title">
-			Fast Algorithms for Approximating Distances
-		</div>
-		
-
-		
-		<div class="bibtex_author">
-			Bespamyatnikh, S. &amp; Segal, M.
-		</div>
-		
-
-		
-		<div class="bibtex_journal">
-			Algorithmica
-		</div>,
-		
-
-		
-		<div class="bibtex_volume">
-			Vol. 33
-		</div>,
-		
-
-		
-		<div class="bibtex_pages">
-			pp. 263-269
-		</div>,
-		
-
-		<div class="bibtex_year">
-			2002
-		</div>
-	</div>
-</div>
-<div class="bibtex_entry">
-
-	<div class="bibtex_header">
-		<div class="bibtex_key">
 			<a name="Buchin07">Buchin07</a>
 		</div>
 
@@ -2513,7 +2784,121 @@ body {
 		</div>
 	</div>
 </div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
+<div class="bibtex_entry">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name="BDR21">BDR21</a>
+		</div>
+
+		
+		<div class="bibtex_doi">
+			<a href="https://doi.org/10.1137/1.9781611976465.160">doi</a>
+		</div>
+		
+
+		
+
+		
+
+		
+		<div class="bibtex_url">
+			<a href="https://doi.org/10.1137/1.9781611976465.160">url</a>
+		</div>
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			Approximating (k,l)-Median Clustering for Polygonal Curves
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			Buchin, M.; Driemel, A. &amp; Rohde, D.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			Proceedings of the 2021 ACM-SIAM Symposium on Discrete Algorithms, SODA 2021, Virtual Conference, January 10 - 13, 2021
+		</div>,
+		
+
+		
+
+		
+		<div class="bibtex_pages">
+			pp. 2697-2717
+		</div>,
+		
+
+		<div class="bibtex_year">
+			2021
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name="BDS14">BDS14</a>
+		</div>
+
+		
+		<div class="bibtex_doi">
+			<a href="https://doi.org/10.1145/2582112.2582144">doi</a>
+		</div>
+		
+
+		
+
+		
+
+		
+		<div class="bibtex_url">
+			<a href="http://doi.acm.org/10.1145/2582112.2582144">url</a>
+		</div>
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			Computing the Fr&eacute;chet distance with shortcuts is NP-hard
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			Buchin, M.; Driemel, A. &amp; Speckmann, B.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			Proceedings of the 30th Sympos. Comput. Geom.
+		</div>,
+		
+
+		
+
+		
+		<div class="bibtex_pages">
+			pp. 367
+		</div>,
+		
+
+		<div class="bibtex_year">
+			2014
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry" title="Generated on 52|22|2022">
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
@@ -2576,290 +2961,7 @@ body {
 		</div>
 	</div>
 </div>
-<div class="bibtex_entry">
-
-	<div class="bibtex_header">
-		<div class="bibtex_key">
-			<a name="CDGNW11">CDGNW11</a>
-		</div>
-
-		
-		<div class="bibtex_doi">
-			<a href="https://doi.org/10.1137/1.9781611972917.8">doi</a>
-		</div>
-		
-
-		
-
-		
-
-		
-		<div class="bibtex_url">
-			<a href="http://dx.doi.org/10.1137/1.9781611972917.8">url</a>
-		</div>
-		
-	</div>
-
-	<div class="bibtex_content">
-
-		
-		<div class="bibtex_title">
-			Approximate Map Matching with respect to the Fr&eacute;chet Distance
-		</div>
-		
-
-		
-		<div class="bibtex_author">
-			Chen, D.; Driemel, A.; Guibas, L. J.; Nguyen, A. &amp; Wenk, C.
-		</div>
-		
-
-		
-		<div class="bibtex_journal">
-			Proceedings of the 13th Workshop on Algorithm Engineering and Experiments, ALENEX
-		</div>,
-		
-
-		
-
-		
-		<div class="bibtex_pages">
-			pp. 75-83
-		</div>,
-		
-
-		<div class="bibtex_year">
-			2011
-		</div>
-	</div>
-</div>
-<div class="bibtex_entry">
-
-	<div class="bibtex_header">
-		<div class="bibtex_key">
-			<a name="CDHSW11">CDHSW11</a>
-		</div>
-
-		
-		<div class="bibtex_doi">
-			<a href="https://doi.org/10.1007/978-3-642-22300-6_23">doi</a>
-		</div>
-		
-
-		
-
-		
-
-		
-		<div class="bibtex_url">
-			<a href="http://dx.doi.org/10.1007/978-3-642-22300-6_23">url</a>
-		</div>
-		
-	</div>
-
-	<div class="bibtex_content">
-
-		
-		<div class="bibtex_title">
-			Computing the Fr&eacute;chet Distance between Folded Polygons
-		</div>
-		
-
-		
-		<div class="bibtex_author">
-			Atlas F. Cook, I. V.; Driemel, A.; Har-Peled, S.; Sherette, J. &amp; Wenk, C.
-		</div>
-		
-
-		
-		<div class="bibtex_journal">
-			Proceedings of the 12th International Symposium on Algorithms and Data Structures, WADS
-		</div>,
-		
-
-		
-
-		
-		<div class="bibtex_pages">
-			pp. 267-278
-		</div>,
-		
-
-		<div class="bibtex_year">
-			2011
-		</div>
-	</div>
-</div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
-
-	<div class="bibtex_header">
-		<div class="bibtex_key">
-			<a name="CF20">CF20</a>
-		</div>
-
-		
-
-		
-
-		
-
-		
-
-		
-	</div>
-
-	<div class="bibtex_content">
-
-		
-		<div class="bibtex_title">
-			Approximating the (continuous) Fréchet distance
-		</div>
-		
-
-		
-		<div class="bibtex_author">
-			Colombe, C. &amp; Fox, K.
-		</div>
-		
-
-		
-
-		
-
-		
-
-		<div class="bibtex_year">
-			2020
-		</div>
-	</div>
-</div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
-
-	<div class="bibtex_header">
-		<div class="bibtex_key">
-			<a name="CR18">CR18</a>
-		</div>
-
-		
-		<div class="bibtex_doi">
-			<a href="https://doi.org/10.1016/j.ipl.2018.06.011">doi</a>
-		</div>
-		
-
-		
-
-		
-
-		
-
-		
-		<div class="bibtex_url">
-			<a href="https://doi.org/10.1016/j.ipl.2018.06.011">url</a>
-		</div>
-		
-	</div>
-
-	<div class="bibtex_content">
-
-		
-		<div class="bibtex_title">
-			An improved approximation algorithm for the discrete Fr&eacute;chet distance
-		</div>
-		
-
-		
-		<div class="bibtex_author">
-			Chan, T. M. &amp; Rahmati, Z.
-		</div>
-		
-
-		
-		<div class="bibtex_journal">
-			Inf. Process. Lett.
-		</div>,
-		
-
-		
-		<div class="bibtex_volume">
-			Vol. 138
-		</div>,
-		
-
-		
-		<div class="bibtex_pages">
-			pp. 72-74
-		</div>,
-		
-
-		<div class="bibtex_year">
-			2018
-		</div>
-	</div>
-</div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
-
-	<div class="bibtex_header">
-		<div class="bibtex_key">
-			<a name="CSYB05">CSYB05</a>
-		</div>
-
-		
-		<div class="bibtex_doi">
-			<a href="https://doi.org/10.1007/s00371-005-0308-0">doi</a>
-		</div>
-		
-
-		
-
-		
-
-		
-
-		
-		<div class="bibtex_url">
-			<a href="http://dx.doi.org/10.1007/s00371-005-0308-0">url</a>
-		</div>
-		
-	</div>
-
-	<div class="bibtex_content">
-
-		
-		<div class="bibtex_title">
-			Computing hierarchical curve-skeletons of 3D objects
-		</div>
-		
-
-		
-		<div class="bibtex_author">
-			Cornea, N. D.; Silver, D.; Yuan, X. &amp; Balasubramanian, R.
-		</div>
-		
-
-		
-		<div class="bibtex_journal">
-			The Visual Computer
-		</div>,
-		
-
-		
-		<div class="bibtex_volume">
-			Vol. 21
-		</div>,
-		
-
-		
-		<div class="bibtex_pages">
-			pp. 945-955
-		</div>,
-		
-
-		<div class="bibtex_year">
-			2005
-		</div>
-	</div>
-</div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
+<div class="bibtex_entry" title="Generated on 52|22|2022">
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
@@ -2922,17 +3024,19 @@ body {
 		</div>
 	</div>
 </div>
-<div class="bibtex_entry">
+<div class="bibtex_entry" title="Generated on 52|22|2022">
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
-			<a name="CW08">CW08</a>
+			<a name="CR18">CR18</a>
 		</div>
 
 		
 		<div class="bibtex_doi">
-			<a href="https://doi.org/10.4230/LIPIcs.STACS.2008.1330">doi</a>
+			<a href="https://doi.org/10.1016/j.ipl.2018.06.011">doi</a>
 		</div>
+		
+
 		
 
 		
@@ -2941,7 +3045,7 @@ body {
 
 		
 		<div class="bibtex_url">
-			<a href="http://dx.doi.org/10.4230/LIPIcs.STACS.2008.1330">url</a>
+			<a href="https://doi.org/10.1016/j.ipl.2018.06.011">url</a>
 		</div>
 		
 	</div>
@@ -2950,32 +3054,36 @@ body {
 
 		
 		<div class="bibtex_title">
-			Geodesic Fr&eacute;chet Distance Inside a Simple Polygon
+			An improved approximation algorithm for the discrete Fr&eacute;chet distance
 		</div>
 		
 
 		
 		<div class="bibtex_author">
-			Atlas F. Cook, I. V. &amp; Wenk, C.
+			Chan, T. M. &amp; Rahmati, Z.
 		</div>
 		
 
 		
 		<div class="bibtex_journal">
-			Proceedings of the 25th Annual Sympos. on Theoretical Aspects of Computer Science, STACS
+			Inf. Process. Lett.
 		</div>,
 		
 
+		
+		<div class="bibtex_volume">
+			Vol. 138
+		</div>,
 		
 
 		
 		<div class="bibtex_pages">
-			pp. 193-204
+			pp. 72-74
 		</div>,
 		
 
 		<div class="bibtex_year">
-			2008
+			2018
 		</div>
 	</div>
 </div>
@@ -2983,12 +3091,12 @@ body {
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
-			<a name="dBC11">dBC11</a>
+			<a name="CDGNW11">CDGNW11</a>
 		</div>
 
 		
 		<div class="bibtex_doi">
-			<a href="https://doi.org/10.1007/978-3-642-19754-3%5C_10">doi</a>
+			<a href="https://doi.org/10.1137/1.9781611972917.8">doi</a>
 		</div>
 		
 
@@ -2998,7 +3106,7 @@ body {
 
 		
 		<div class="bibtex_url">
-			<a href="https://doi.org/10.1007/978-3-642-19754-3\_10">url</a>
+			<a href="http://dx.doi.org/10.1137/1.9781611972917.8">url</a>
 		</div>
 		
 	</div>
@@ -3007,19 +3115,19 @@ body {
 
 		
 		<div class="bibtex_title">
-			Go with the Flow: The Direction-Based Fr&eacute;chet Distance of Polygonal Curves
+			Approximate Map Matching with respect to the Fr&eacute;chet Distance
 		</div>
 		
 
 		
 		<div class="bibtex_author">
-			de Berg, M. &amp; Atlas F. Cook, I. V.
+			Chen, D.; Driemel, A.; Guibas, L. J.; Nguyen, A. &amp; Wenk, C.
 		</div>
 		
 
 		
 		<div class="bibtex_journal">
-			Proceedings of the International Conference on Theory and Practice of Algorithms in (Computer) Systems
+			Proceedings of the 13th Workshop on Algorithm Engineering and Experiments, ALENEX
 		</div>,
 		
 
@@ -3027,7 +3135,7 @@ body {
 
 		
 		<div class="bibtex_pages">
-			pp. 81-91
+			pp. 75-83
 		</div>,
 		
 
@@ -3036,17 +3144,13 @@ body {
 		</div>
 	</div>
 </div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
+<div class="bibtex_entry" title="Generated on 52|22|2022">
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
-			<a name="dBCG13">dBCG13</a>
+			<a name="CF20">CF20</a>
 		</div>
 
-		
-		<div class="bibtex_doi">
-			<a href="https://doi.org/10.1016/j.comgeo.2012.11.006">doi</a>
-		</div>
 		
 
 		
@@ -3062,36 +3166,87 @@ body {
 
 		
 		<div class="bibtex_title">
-			Fast Fr&eacute;chet queries
+			Approximating the (continuous) Fréchet distance
 		</div>
 		
 
 		
 		<div class="bibtex_author">
-			de Berg, M.; Atlas F. Cook, I. V. &amp; Gudmundsson, J.
+			Colombe, C. &amp; Fox, K.
+		</div>
+		
+
+		
+
+		
+
+		
+
+		<div class="bibtex_year">
+			2020
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry" title="Generated on 52|22|2022">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name="CSYB05">CSYB05</a>
+		</div>
+
+		
+		<div class="bibtex_doi">
+			<a href="https://doi.org/10.1007/s00371-005-0308-0">doi</a>
+		</div>
+		
+
+		
+
+		
+
+		
+
+		
+		<div class="bibtex_url">
+			<a href="http://dx.doi.org/10.1007/s00371-005-0308-0">url</a>
+		</div>
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			Computing hierarchical curve-skeletons of 3D objects
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			Cornea, N. D.; Silver, D.; Yuan, X. &amp; Balasubramanian, R.
 		</div>
 		
 
 		
 		<div class="bibtex_journal">
-			Computational Geometry
+			The Visual Computer
 		</div>,
 		
 
 		
 		<div class="bibtex_volume">
-			Vol. 46
+			Vol. 21
 		</div>,
 		
 
 		
 		<div class="bibtex_pages">
-			pp. 747-755
+			pp. 945-955
 		</div>,
 		
 
 		<div class="bibtex_year">
-			2013
+			2005
 		</div>
 	</div>
 </div>
@@ -3099,12 +3254,8 @@ body {
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
-			<a name="dBGM17">dBGM17</a>
+			<a name="Driemel13">Driemel13</a>
 		</div>
-
-		
-
-		
 
 		
 
@@ -3115,32 +3266,24 @@ body {
 
 		
 		<div class="bibtex_title">
-			A dynamic data structure for approximate Proximity queries in trajectory data
+			Realistic Analysis for Algorithmic Problems on Geographical Data
 		</div>
 		
 
 		
 		<div class="bibtex_author">
-			de Berg, M.; Gudmundsson, J. &amp; Mehrabi, A. D.
+			Driemel, A.
 		</div>
 		
 
 		
 		<div class="bibtex_journal">
-			Proceedings of the 25th ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems
-		</div>,
-		
-
-		
-
-		
-		<div class="bibtex_pages">
-			pp. 48
+			Utrecht University
 		</div>,
 		
 
 		<div class="bibtex_year">
-			2017
+			2013
 		</div>
 	</div>
 </div>
@@ -3197,7 +3340,7 @@ body {
 		</div>
 	</div>
 </div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
+<div class="bibtex_entry" title="Generated on 52|22|2022">
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
@@ -3260,7 +3403,7 @@ body {
 		</div>
 	</div>
 </div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
+<div class="bibtex_entry" title="Generated on 52|22|2022">
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
@@ -3376,7 +3519,131 @@ body {
 		</div>
 	</div>
 </div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
+<div class="bibtex_entry" title="Generated on 52|22|2022">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name="DNPP21">DNPP21</a>
+		</div>
+
+		
+		<div class="bibtex_doi">
+			<a href="https://doi.org/10.1007/s00454-021-00318-z">doi</a>
+		</div>
+		
+
+		
+
+		
+
+		
+
+		
+		<div class="bibtex_url">
+			<a href="https://doi.org/10.1007/s00454-021-00318-z">url</a>
+		</div>
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			The VC Dimension of Metric Balls under Fr&eacute;chet and Hausdorff Distances
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			Driemel, A.; Nusser, A.; Phillips, J. M. &amp; Psarros, I.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			Discret. Comput. Geom.
+		</div>,
+		
+
+		
+		<div class="bibtex_volume">
+			Vol. 66
+		</div>,
+		
+
+		
+		<div class="bibtex_pages">
+			pp. 1351-1381
+		</div>,
+		
+
+		<div class="bibtex_year">
+			2021
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name="DP21">DP21</a>
+		</div>
+
+		
+		<div class="bibtex_doi">
+			<a href="https://doi.org/10.1007/978-3-030-83508-8%5C_23">doi</a>
+		</div>
+		
+
+		
+
+		
+
+		
+		<div class="bibtex_url">
+			<a href="https://doi.org/10.1007/978-3-030-83508-8\_23">url</a>
+		</div>
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			ANN for Time Series Under the Fr&eacute;chet Distance
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			Driemel, A. &amp; Psarros, I.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			Algorithms and Data Structures - 17th International Symposium, WADS 2021, Virtual Event, August 9-11, 2021, Proceedings
+		</div>,
+		
+
+		
+		<div class="bibtex_volume">
+			Vol. 12808
+		</div>,
+		
+
+		
+		<div class="bibtex_pages">
+			pp. 315-328
+		</div>,
+		
+
+		<div class="bibtex_year">
+			2021
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry" title="Generated on 52|22|2022">
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
@@ -3428,96 +3695,6 @@ body {
 
 		<div class="bibtex_year">
 			2019
-		</div>
-	</div>
-</div>
-<div class="bibtex_entry">
-
-	<div class="bibtex_header">
-		<div class="bibtex_key">
-			<a name="DR04">DR04</a>
-		</div>
-
-		
-
-		
-
-		
-
-		
-		<div class="bibtex_url">
-			<a href="http://www.cccg.ca/proceedings/2004/39.pdf">url</a>
-		</div>
-		
-	</div>
-
-	<div class="bibtex_content">
-
-		
-		<div class="bibtex_title">
-			On the Fr&eacute;chet distance of a set of curves
-		</div>
-		
-
-		
-		<div class="bibtex_author">
-			Dumitrescu, A. &amp; Rote, G.
-		</div>
-		
-
-		
-		<div class="bibtex_journal">
-			Proceedings of the 16th Canadian Conference on Computational Geometry, CCCG
-		</div>,
-		
-
-		
-
-		
-		<div class="bibtex_pages">
-			pp. 162-165
-		</div>,
-		
-
-		<div class="bibtex_year">
-			2004
-		</div>
-	</div>
-</div>
-<div class="bibtex_entry">
-
-	<div class="bibtex_header">
-		<div class="bibtex_key">
-			<a name="Driemel13">Driemel13</a>
-		</div>
-
-		
-
-		
-	</div>
-
-	<div class="bibtex_content">
-
-		
-		<div class="bibtex_title">
-			Realistic Analysis for Algorithmic Problems on Geographical Data
-		</div>
-		
-
-		
-		<div class="bibtex_author">
-			Driemel, A.
-		</div>
-		
-
-		
-		<div class="bibtex_journal">
-			Utrecht University
-		</div>,
-		
-
-		<div class="bibtex_year">
-			2013
 		</div>
 	</div>
 </div>
@@ -3582,7 +3759,60 @@ body {
 		</div>
 	</div>
 </div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
+<div class="bibtex_entry">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name="DR04">DR04</a>
+		</div>
+
+		
+
+		
+
+		
+
+		
+		<div class="bibtex_url">
+			<a href="http://www.cccg.ca/proceedings/2004/39.pdf">url</a>
+		</div>
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			On the Fr&eacute;chet distance of a set of curves
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			Dumitrescu, A. &amp; Rote, G.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			Proceedings of the 16th Canadian Conference on Computational Geometry, CCCG
+		</div>,
+		
+
+		
+
+		
+		<div class="bibtex_pages">
+			pp. 162-165
+		</div>,
+		
+
+		<div class="bibtex_year">
+			2004
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry" title="Generated on 52|22|2022">
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
@@ -3645,7 +3875,7 @@ body {
 		</div>
 	</div>
 </div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
+<div class="bibtex_entry" title="Generated on 52|22|2022">
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
@@ -3742,118 +3972,6 @@ body {
 
 		<div class="bibtex_year">
 			2018
-		</div>
-	</div>
-</div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
-
-	<div class="bibtex_header">
-		<div class="bibtex_key">
-			<a name="FFK19">FFK19</a>
-		</div>
-
-		
-
-		
-
-		
-
-		
-
-		
-		<div class="bibtex_url">
-			<a href="http://arxiv.org/abs/1902.07562">url</a>
-		</div>
-		
-	</div>
-
-	<div class="bibtex_content">
-
-		
-		<div class="bibtex_title">
-			Approximate Nearest Neighbor for Curves - Simple, Efficient, and Deterministic
-		</div>
-		
-
-		
-		<div class="bibtex_author">
-			Filtser, A.; Filtser, O. &amp; Katz, M. J.
-		</div>
-		
-
-		
-		<div class="bibtex_journal">
-			CoRR
-		</div>,
-		
-
-		
-		<div class="bibtex_volume">
-			Vol. abs/1902.07562
-		</div>,
-		
-
-		
-
-		<div class="bibtex_year">
-			2019
-		</div>
-	</div>
-</div>
-<div class="bibtex_entry">
-
-	<div class="bibtex_header">
-		<div class="bibtex_key">
-			<a name="FFK20">FFK20</a>
-		</div>
-
-		
-		<div class="bibtex_doi">
-			<a href="https://doi.org/10.4230/LIPIcs.ICALP.2020.48">doi</a>
-		</div>
-		
-
-		
-
-		
-
-		
-		<div class="bibtex_url">
-			<a href="https://doi.org/10.4230/LIPIcs.ICALP.2020.48">url</a>
-		</div>
-		
-	</div>
-
-	<div class="bibtex_content">
-
-		
-		<div class="bibtex_title">
-			Approximate Nearest Neighbor for Curves - Simple, Efficient, and Deterministic
-		</div>
-		
-
-		
-		<div class="bibtex_author">
-			Filtser, A.; Filtser, O. &amp; Katz, M. J.
-		</div>
-		
-
-		
-		<div class="bibtex_journal">
-			47th International Colloquium on Automata, Languages, and Programming, ICALP 2020, July 8-11, 2020, Saarbr&uuml;cken, Germany (Virtual Conference)
-		</div>,
-		
-
-		
-
-		
-		<div class="bibtex_pages">
-			pp. 48:1-48:19
-		</div>,
-		
-
-		<div class="bibtex_year">
-			2020
 		</div>
 	</div>
 </div>
@@ -3971,7 +4089,176 @@ body {
 		</div>
 	</div>
 </div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
+<div class="bibtex_entry">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name="FR17">FR17</a>
+		</div>
+
+		
+		<div class="bibtex_doi">
+			<a href="https://doi.org/10.4230/LIPIcs.SoCG.2017.42">doi</a>
+		</div>
+		
+
+		
+
+		
+
+		
+		<div class="bibtex_url">
+			<a href="https://doi.org/10.4230/LIPIcs.SoCG.2017.42">url</a>
+		</div>
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			Computing the Fr&eacute;chet Gap Distance
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			Fan, C. &amp; Raichel, B.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			Proceedings of the 33rd Sympos. Comput. Geom.
+		</div>,
+		
+
+		
+
+		
+		<div class="bibtex_pages">
+			pp. 42:1-42:16
+		</div>,
+		
+
+		<div class="bibtex_year">
+			2017
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry" title="Generated on 52|22|2022">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name="FFK19">FFK19</a>
+		</div>
+
+		
+
+		
+
+		
+
+		
+
+		
+		<div class="bibtex_url">
+			<a href="http://arxiv.org/abs/1902.07562">url</a>
+		</div>
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			Approximate Nearest Neighbor for Curves - Simple, Efficient, and Deterministic
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			Filtser, A.; Filtser, O. &amp; Katz, M. J.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			CoRR
+		</div>,
+		
+
+		
+		<div class="bibtex_volume">
+			Vol. abs/1902.07562
+		</div>,
+		
+
+		
+
+		<div class="bibtex_year">
+			2019
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name="FFK20">FFK20</a>
+		</div>
+
+		
+		<div class="bibtex_doi">
+			<a href="https://doi.org/10.4230/LIPIcs.ICALP.2020.48">doi</a>
+		</div>
+		
+
+		
+
+		
+
+		
+		<div class="bibtex_url">
+			<a href="https://doi.org/10.4230/LIPIcs.ICALP.2020.48">url</a>
+		</div>
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			Approximate Nearest Neighbor for Curves - Simple, Efficient, and Deterministic
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			Filtser, A.; Filtser, O. &amp; Katz, M. J.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			47th International Colloquium on Automata, Languages, and Programming, ICALP 2020, July 8-11, 2020, Saarbr&uuml;cken, Germany (Virtual Conference)
+		</div>,
+		
+
+		
+
+		
+		<div class="bibtex_pages">
+			pp. 48:1-48:19
+		</div>,
+		
+
+		<div class="bibtex_year">
+			2020
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry" title="Generated on 52|22|2022">
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
@@ -4034,7 +4321,7 @@ body {
 		</div>
 	</div>
 </div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
+<div class="bibtex_entry" title="Generated on 52|22|2022">
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
@@ -4146,64 +4433,7 @@ body {
 		</div>
 	</div>
 </div>
-<div class="bibtex_entry">
-
-	<div class="bibtex_header">
-		<div class="bibtex_key">
-			<a name="FR17">FR17</a>
-		</div>
-
-		
-		<div class="bibtex_doi">
-			<a href="https://doi.org/10.4230/LIPIcs.SoCG.2017.42">doi</a>
-		</div>
-		
-
-		
-
-		
-
-		
-		<div class="bibtex_url">
-			<a href="https://doi.org/10.4230/LIPIcs.SoCG.2017.42">url</a>
-		</div>
-		
-	</div>
-
-	<div class="bibtex_content">
-
-		
-		<div class="bibtex_title">
-			Computing the Fr&eacute;chet Gap Distance
-		</div>
-		
-
-		
-		<div class="bibtex_author">
-			Fan, C. &amp; Raichel, B.
-		</div>
-		
-
-		
-		<div class="bibtex_journal">
-			Proceedings of the 33rd Sympos. Comput. Geom.
-		</div>,
-		
-
-		
-
-		
-		<div class="bibtex_pages">
-			pp. 42:1-42:16
-		</div>,
-		
-
-		<div class="bibtex_year">
-			2017
-		</div>
-	</div>
-</div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
+<div class="bibtex_entry" title="Generated on 52|22|2022">
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
@@ -4266,7 +4496,64 @@ body {
 		</div>
 	</div>
 </div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
+<div class="bibtex_entry">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name="Godau91">Godau91</a>
+		</div>
+
+		
+		<div class="bibtex_doi">
+			<a href="https://doi.org/10.1007/BFb0020793">doi</a>
+		</div>
+		
+
+		
+
+		
+
+		
+		<div class="bibtex_url">
+			<a href="http://dx.doi.org/10.1007/BFb0020793">url</a>
+		</div>
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			A Natural Metric for Curves -- Computing the Distance for Polygonal Chains and Approximation Algorithms
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			Godau, M.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			Proceedings of the 8th Annual Sympos. on Theoretical Aspects of Computer Science STACS
+		</div>,
+		
+
+		
+
+		
+		<div class="bibtex_pages">
+			pp. 127-136
+		</div>,
+		
+
+		<div class="bibtex_year">
+			1991
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry" title="Generated on 52|22|2022">
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
@@ -4325,7 +4612,7 @@ body {
 		</div>
 	</div>
 </div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
+<div class="bibtex_entry" title="Generated on 52|22|2022">
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
@@ -4388,121 +4675,7 @@ body {
 		</div>
 	</div>
 </div>
-<div class="bibtex_entry">
-
-	<div class="bibtex_header">
-		<div class="bibtex_key">
-			<a name="Godau91">Godau91</a>
-		</div>
-
-		
-		<div class="bibtex_doi">
-			<a href="https://doi.org/10.1007/BFb0020793">doi</a>
-		</div>
-		
-
-		
-
-		
-
-		
-		<div class="bibtex_url">
-			<a href="http://dx.doi.org/10.1007/BFb0020793">url</a>
-		</div>
-		
-	</div>
-
-	<div class="bibtex_content">
-
-		
-		<div class="bibtex_title">
-			A Natural Metric for Curves -- Computing the Distance for Polygonal Chains and Approximation Algorithms
-		</div>
-		
-
-		
-		<div class="bibtex_author">
-			Godau, M.
-		</div>
-		
-
-		
-		<div class="bibtex_journal">
-			Proceedings of the 8th Annual Sympos. on Theoretical Aspects of Computer Science STACS
-		</div>,
-		
-
-		
-
-		
-		<div class="bibtex_pages">
-			pp. 127-136
-		</div>,
-		
-
-		<div class="bibtex_year">
-			1991
-		</div>
-	</div>
-</div>
-<div class="bibtex_entry">
-
-	<div class="bibtex_header">
-		<div class="bibtex_key">
-			<a name="HR11">HR11</a>
-		</div>
-
-		
-		<div class="bibtex_doi">
-			<a href="https://doi.org/10.1145/1998196.1998269">doi</a>
-		</div>
-		
-
-		
-
-		
-
-		
-		<div class="bibtex_url">
-			<a href="http://doi.acm.org/10.1145/1998196.1998269">url</a>
-		</div>
-		
-	</div>
-
-	<div class="bibtex_content">
-
-		
-		<div class="bibtex_title">
-			The Fr&eacute;chet Distance Revisited and Extended
-		</div>
-		
-
-		
-		<div class="bibtex_author">
-			Har-Peled, S. &amp; Raichel, B.
-		</div>
-		
-
-		
-		<div class="bibtex_journal">
-			Proceedings of the 27th ACM Symposium on Computational Geometry
-		</div>,
-		
-
-		
-
-		
-		<div class="bibtex_pages">
-			pp. 448-457
-		</div>,
-		
-
-		<div class="bibtex_year">
-			2011
-		</div>
-	</div>
-</div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
+<div class="bibtex_entry" title="Generated on 52|22|2022">
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
@@ -4569,6 +4742,63 @@ body {
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
+			<a name="HR11">HR11</a>
+		</div>
+
+		
+		<div class="bibtex_doi">
+			<a href="https://doi.org/10.1145/1998196.1998269">doi</a>
+		</div>
+		
+
+		
+
+		
+
+		
+		<div class="bibtex_url">
+			<a href="http://doi.acm.org/10.1145/1998196.1998269">url</a>
+		</div>
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			The Fr&eacute;chet Distance Revisited and Extended
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			Har-Peled, S. &amp; Raichel, B.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			Proceedings of the 27th ACM Symposium on Computational Geometry
+		</div>,
+		
+
+		
+
+		
+		<div class="bibtex_pages">
+			pp. 448-457
+		</div>,
+		
+
+		<div class="bibtex_year">
+			2011
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
 			<a name="Indyk02">Indyk02</a>
 		</div>
 
@@ -4618,7 +4848,7 @@ body {
 		</div>
 	</div>
 </div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
+<div class="bibtex_entry" title="Generated on 52|22|2022">
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
@@ -4799,7 +5029,7 @@ body {
 		</div>
 	</div>
 </div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
+<div class="bibtex_entry" title="Generated on 52|22|2022">
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
@@ -4915,7 +5145,7 @@ body {
 		</div>
 	</div>
 </div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
+<div class="bibtex_entry" title="Generated on 52|22|2022">
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
@@ -4978,7 +5208,70 @@ body {
 		</div>
 	</div>
 </div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
+<div class="bibtex_entry" title="Generated on 52|22|2022">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name="MSSZ11">MSSZ11</a>
+		</div>
+
+		
+		<div class="bibtex_doi">
+			<a href="https://doi.org/10.1016/j.comgeo.2010.09.008">doi</a>
+		</div>
+		
+
+		
+
+		
+
+		
+
+		
+		<div class="bibtex_url">
+			<a href="http://dx.doi.org/10.1016/j.comgeo.2010.09.008">url</a>
+		</div>
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			Fr&eacute;chet distance with speed limits
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			Maheshwari, A.; Sack, J.; Shahbaz, K. &amp; Zarrabi-Zadeh, H.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			Comput. Geom.
+		</div>,
+		
+
+		
+		<div class="bibtex_volume">
+			Vol. 44
+		</div>,
+		
+
+		
+		<div class="bibtex_pages">
+			pp. 110-120
+		</div>,
+		
+
+		<div class="bibtex_year">
+			2011
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry" title="Generated on 52|22|2022">
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
@@ -5094,70 +5387,7 @@ body {
 		</div>
 	</div>
 </div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
-
-	<div class="bibtex_header">
-		<div class="bibtex_key">
-			<a name="MSSZ11">MSSZ11</a>
-		</div>
-
-		
-		<div class="bibtex_doi">
-			<a href="https://doi.org/10.1016/j.comgeo.2010.09.008">doi</a>
-		</div>
-		
-
-		
-
-		
-
-		
-
-		
-		<div class="bibtex_url">
-			<a href="http://dx.doi.org/10.1016/j.comgeo.2010.09.008">url</a>
-		</div>
-		
-	</div>
-
-	<div class="bibtex_content">
-
-		
-		<div class="bibtex_title">
-			Fr&eacute;chet distance with speed limits
-		</div>
-		
-
-		
-		<div class="bibtex_author">
-			Maheshwari, A.; Sack, J.; Shahbaz, K. &amp; Zarrabi-Zadeh, H.
-		</div>
-		
-
-		
-		<div class="bibtex_journal">
-			Comput. Geom.
-		</div>,
-		
-
-		
-		<div class="bibtex_volume">
-			Vol. 44
-		</div>,
-		
-
-		
-		<div class="bibtex_pages">
-			pp. 110-120
-		</div>,
-		
-
-		<div class="bibtex_year">
-			2011
-		</div>
-	</div>
-</div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
+<div class="bibtex_entry" title="Generated on 52|22|2022">
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
@@ -5216,7 +5446,7 @@ body {
 		</div>
 	</div>
 </div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
+<div class="bibtex_entry" title="Generated on 52|22|2022">
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
@@ -5279,46 +5509,7 @@ body {
 		</div>
 	</div>
 </div>
-<div class="bibtex_entry">
-
-	<div class="bibtex_header">
-		<div class="bibtex_key">
-			<a name="SDI06">SDI06</a>
-		</div>
-
-        
-
-		
-	</div>
-
-	<div class="bibtex_content">
-
-		
-		<div class="bibtex_title">
-			Nearest-neighbor methods in learning and vision: theory and practice (neural information processing)
-		</div>
- 		
-
-		
-		<div class="bibtex_author">
-			Shakhnarovich, G.; Darrell, T. &amp; Indyk, P.
-		</div>
-		
-
-		
-		<div class="bibtex_publisher">
-			The MIT press
-		</div>,
-		
-
-		
-
-		<div class="bibtex_year">
-			2006
-		</div>
-	</div>
-</div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
+<div class="bibtex_entry" title="Generated on 52|22|2022">
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
@@ -5377,6 +5568,45 @@ body {
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
+			<a name="SDI06">SDI06</a>
+		</div>
+
+        
+
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			Nearest-neighbor methods in learning and vision: theory and practice (neural information processing)
+		</div>
+ 		
+
+		
+		<div class="bibtex_author">
+			Shakhnarovich, G.; Darrell, T. &amp; Indyk, P.
+		</div>
+		
+
+		
+		<div class="bibtex_publisher">
+			The MIT press
+		</div>,
+		
+
+		
+
+		<div class="bibtex_year">
+			2006
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
 			<a name="Wenk03">Wenk03</a>
 		</div>
 
@@ -5418,11 +5648,23 @@ body {
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
-			<a name="Wiratma10">Wiratma10</a>
+			<a name="WSP06">WSP06</a>
 		</div>
 
 		
+		<div class="bibtex_doi">
+			<a href="https://doi.org/10.1109/SSDBM.2006.11">doi</a>
+		</div>
+		
 
+		
+
+		
+
+		
+		<div class="bibtex_url">
+			<a href="http://dx.doi.org/10.1109/SSDBM.2006.11">url</a>
+		</div>
 		
 	</div>
 
@@ -5430,28 +5672,36 @@ body {
 
 		
 		<div class="bibtex_title">
-			Following the Majority: a New Algorithm for Computing a Median Trajectory
+			Addressing the Need for Map-Matching Speed: Localizing Globalb Curve-Matching Algorithms
 		</div>
 		
 
 		
 		<div class="bibtex_author">
-			Wiratma, L.
+			Wenk, C.; Salas, R. &amp; Pfoser, D.
 		</div>
 		
 
 		
 		<div class="bibtex_journal">
-			Utrecht University
+			Proceedings of the 18th International Conference on Scientific and Statistical Database Management, SSDBM
+		</div>,
+		
+
+		
+
+		
+		<div class="bibtex_pages">
+			pp. 379-388
 		</div>,
 		
 
 		<div class="bibtex_year">
-			2010
+			2006
 		</div>
 	</div>
 </div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
+<div class="bibtex_entry" title="Generated on 52|22|2022">
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
@@ -5518,6 +5768,80 @@ body {
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
+			<a name="Wiratma10">Wiratma10</a>
+		</div>
+
+		
+
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			Following the Majority: a New Algorithm for Computing a Median Trajectory
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			Wiratma, L.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			Utrecht University
+		</div>,
+		
+
+		<div class="bibtex_year">
+			2010
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name="Wylie13">Wylie13</a>
+		</div>
+
+		
+
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+		<div class="bibtex_title">
+			The Discrete Fr&eacute;chet Distance with Applications
+		</div>
+		
+
+		
+		<div class="bibtex_author">
+			Wylie, T.
+		</div>
+		
+
+		
+		<div class="bibtex_journal">
+			Montana State University
+		</div>,
+		
+
+		<div class="bibtex_year">
+			2013
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
 			<a name="WLZ11">WLZ11</a>
 		</div>
 
@@ -5568,100 +5892,6 @@ body {
 
 		<div class="bibtex_year">
 			2011
-		</div>
-	</div>
-</div>
-<div class="bibtex_entry">
-
-	<div class="bibtex_header">
-		<div class="bibtex_key">
-			<a name="WSP06">WSP06</a>
-		</div>
-
-		
-		<div class="bibtex_doi">
-			<a href="https://doi.org/10.1109/SSDBM.2006.11">doi</a>
-		</div>
-		
-
-		
-
-		
-
-		
-		<div class="bibtex_url">
-			<a href="http://dx.doi.org/10.1109/SSDBM.2006.11">url</a>
-		</div>
-		
-	</div>
-
-	<div class="bibtex_content">
-
-		
-		<div class="bibtex_title">
-			Addressing the Need for Map-Matching Speed: Localizing Globalb Curve-Matching Algorithms
-		</div>
-		
-
-		
-		<div class="bibtex_author">
-			Wenk, C.; Salas, R. &amp; Pfoser, D.
-		</div>
-		
-
-		
-		<div class="bibtex_journal">
-			Proceedings of the 18th International Conference on Scientific and Statistical Database Management, SSDBM
-		</div>,
-		
-
-		
-
-		
-		<div class="bibtex_pages">
-			pp. 379-388
-		</div>,
-		
-
-		<div class="bibtex_year">
-			2006
-		</div>
-	</div>
-</div>
-<div class="bibtex_entry">
-
-	<div class="bibtex_header">
-		<div class="bibtex_key">
-			<a name="Wylie13">Wylie13</a>
-		</div>
-
-		
-
-		
-	</div>
-
-	<div class="bibtex_content">
-
-		
-		<div class="bibtex_title">
-			The Discrete Fr&eacute;chet Distance with Applications
-		</div>
-		
-
-		
-		<div class="bibtex_author">
-			Wylie, T.
-		</div>
-		
-
-		
-		<div class="bibtex_journal">
-			Montana State University
-		</div>,
-		
-
-		<div class="bibtex_year">
-			2013
 		</div>
 	</div>
 </div>
@@ -5722,7 +5952,7 @@ body {
 		</div>
 	</div>
 </div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
+<div class="bibtex_entry" title="Generated on 52|22|2022">
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
@@ -5785,7 +6015,7 @@ body {
 		</div>
 	</div>
 </div>
-<div class="bibtex_entry" title="Generated on 21|22|2022">
+<div class="bibtex_entry" title="Generated on 52|22|2022">
 
 	<div class="bibtex_header">
 		<div class="bibtex_key">
@@ -5848,8 +6078,183 @@ body {
 		</div>
 	</div>
 </div>
+<div class="bibtex_entry" title="Generated on 52|22|2022">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name=""></a>
+		</div>
+
+		
+
+		
+
+		
+
+		
+
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+
+		
+
+		
+
+		
+
+		
+
+		<div class="bibtex_year">
+			
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry" title="Generated on 52|22|2022">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name=""></a>
+		</div>
+
+		
+
+		
+
+		
+
+		
+
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+
+		
+
+		
+
+		
+
+		
+
+		<div class="bibtex_year">
+			
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry" title="Generated on 52|22|2022">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name=""></a>
+		</div>
+
+		
+
+		
+
+		
+
+		
+
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+
+		
+
+		
+
+		
+
+		
+
+		<div class="bibtex_year">
+			
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry" title="Generated on 52|22|2022">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name=""></a>
+		</div>
+
+		
+
+		
+
+		
+
+		
+
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+
+		
+
+		
+
+		
+
+		
+
+		<div class="bibtex_year">
+			
+		</div>
+	</div>
+</div>
+<div class="bibtex_entry" title="Generated on 52|22|2022">
+
+	<div class="bibtex_header">
+		<div class="bibtex_key">
+			<a name=""></a>
+		</div>
+
+		
+
+		
+
+		
+
+		
+
+		
+	</div>
+
+	<div class="bibtex_content">
+
+		
+
+		
+
+		
+
+		
+
+		
+
+		<div class="bibtex_year">
+			
+		</div>
+	</div>
+</div>
 <hr>
-<p style="font-size: smaller;">Generated on 2022-02-22 09:21:35 IST</p>
+<p style="font-size: smaller;">Generated on 2022-02-22 09:52:19 IST</p>
 
 </body>
 </html>
