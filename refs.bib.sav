@@ -504,18 +504,6 @@
   url     = {http://jocg.org/index.php/jocg/article/view/261},
 }
 
-@InProceedings{BMO17,
-  author    = {Mark de Berg and Ali D. Mehrabi and Tim Ophelders},
-  booktitle = {Proceedings of the 29th Canadian Conference on Computational Geometry, {CCCG} 2017, July 26-28, 2017, Carleton University, Ottawa, Ontario, Canada},
-  title     = {Data Structures for Fr{\'{e}}chet Queries in Trajectory Data},
-  year      = {2017},
-  editor    = {Joachim Gudmundsson and Michiel H. M. Smid},
-  pages     = {214--219},
-  bibsource = {dblp computer science bibliography, https://dblp.org},
-  biburl    = {https://dblp.org/rec/conf/cccg/BergMO17.bib},
-  timestamp = {Thu, 12 Mar 2020 11:28:08 +0100},
-}
-
 @InProceedings{BOS19,
   author    = {Kevin Buchin and Tim Ophelders and Bettina Speckmann},
   booktitle = {Proceedings of the Thirtieth Annual {ACM-SIAM} Symposium on Discrete Algorithms, {SODA} 2019, San Diego, California, USA, January 6-9, 2019},
@@ -723,6 +711,18 @@
   year         = {2017},
   pages        = {48},
   organization = {ACM},
+}
+
+@InProceedings{dBMO17a,
+  author    = {Mark de Berg and Ali D. Mehrabi and Tim Ophelders},
+  booktitle = {Proceedings of the 29th Canadian Conference on Computational Geometry, {CCCG} 2017, July 26-28, 2017, Carleton University, Ottawa, Ontario, Canada},
+  title     = {Data Structures for Fr{\'{e}}chet Queries in Trajectory Data},
+  year      = {2017},
+  editor    = {Joachim Gudmundsson and Michiel H. M. Smid},
+  pages     = {214--219},
+  bibsource = {dblp computer science bibliography, https://dblp.org},
+  biburl    = {https://dblp.org/rec/conf/cccg/BergMO17.bib},
+  timestamp = {Thu, 12 Mar 2020 11:28:08 +0100},
 }
 
 @InProceedings{DH12,
