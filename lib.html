@@ -10,8 +10,7 @@
 	<li><a href="#bounds" target="_self">3&nbsp;Conditional lower bounds</a></li>
 	<li><a href="#approximation" target="_self">4&nbsp;Approximation Algorithms</a></li>
 	<li><a href="#realistic" target="_self">5&nbsp;Fréchet distance for realistic or restricted curves</a></li>
-	<li><a href="#transformations" target="_self">6&nbsp;Fréchet distance under transformations</a></li>
-	<li><a href="#applications" target="_self">7&nbsp;Applications of Fréchet distance</a>
+	<li><a href="#applications" target="_self">6&nbsp;Applications</a>
 		<ul style="list-style-type:none">
 			<li><a href="#simplification" target="_self">Curve simplification</a></li>
 			<li><a href="#nns" target="_self">Distance oracles and nearest neighbour search</a></li>
@@ -19,8 +18,9 @@
 			<li><a href="#partial" target="_self">Partial similarity under the Fréchet distance</a></li>
 		</ul>
 	</li>
-	<li><a href="#variants" target="_self">8&nbsp;Variants of Fréchet distance</a>
+	<li><a href="#variants" target="_self">7&nbsp;Variants</a>
 		<ul style="list-style-type:none">
+			<li><a href="#transformations" target="_self">Fréchet distance under transformations</a></li>
 			<li><a href="#shortcuts" target="_self">Fréchet distance with shortcuts</a></li>
 			<li><a href="#weak" target="_self">Weak Fréchet distance</a></li>
 			<li><a href="#avarage" target="_self">Average and summed Fréchet distance</a></li>
@@ -29,7 +29,7 @@
 			<li><a href="#gap" target="_self">Fréchet gap</a></li>
 		</ul>
 	</li>
-	<li><a href="#generalizations" target="_self">9&nbsp;Generalizations</a>
+	<li><a href="#generalizations" target="_self">8&nbsp;Generalizations</a>
 		<ul style="list-style-type:none">
 			<li><a href="#matching" target="_self">Map matching</a></li>
 			<li><a href="#geodesic" target="_self">Geodesic Fréchet distance</a></li>
@@ -116,29 +116,6 @@ The resulting discrete distance is considered as a good approximation of the act
 	</ul>
 </p>
 
-<a href="#top" target="_self">&#8679;</a>
-<p><a name="transformations"><h3>6&nbsp;Fréchet distance under transformations</h3></a>
-	<ul>
-	<li><b>Alt et al.</b> <a href="#AKW01" target="_self">[AKW01]</a> showed an O((mn)<sup>3</sup>(m+n)<sup>2</sup> log(m+n)) time exact algorithm for Fréchet 
-	Distance under translations, and a (1+&epsilon;)-approximation algorithm for the problem in O(mn &epsilon;<sup>-2</sup>) time.</li>
-	<li><b>Wenk</b> <a href="#Wenk02"  target="_self">[Wenk02]</a> considered the problem of minimizing the Fréchet distance under transformations in high dimensions. 
-	For transformations in dimension d and k degrees of freedom, an O((m+n)<sup>3k+2</sup>log(m+n)) time algorithm is presented. For example, the running time for Fréchet under 
-	translations in d dimensions is O((m+n)<sup>3d+2</sup>log(m+n)).</li>
-	<li><b>Mosig and Clausen</b> <a href="#MC05"  target="_self">[MC05]</a> consider a decision version of the discrete problem, for various transformation groups. 
-	Given two curves P,Q and a parameter &epsilon;, if there exists a transformation T s.t. the Fréchet distance between T(P) and Q is at most &epsilon;, 
-	their algorithm returns a transformation T' s.t. the distance between T'(P) and Q is at most 2&epsilon;. If there is no transformation T s.t. the Fréchet 
-	distance between T(P) and Q is at most 2&epsilon;, the algorithm returns false. Otherwise, the algorithm can return false or a a transformation T' s.t. the 
-	distance between T'(P) and Q is at most 2&epsilon;. The transformation can be scaling, rotation, translation and rotation, or translation and scaling. 
-	The running time is O(n<sup>2</sup>m<sup>2</sup>). They also consider the partial Fréchet disance, and Fréchet distance for closed curves.</li>
-	<li><b>Jiang et al.</b> <a href="#JXZ08"  target="_self">[JXZ08]</a> considered the problem of minimizing the discrete Fréchet distance between two 2D polygonal 
-	chains under translation and rotation. For translation only, they presented an O(m<sup>3</sup>n<sup>3</sup>log(1/&epsilon;)) time (1 + &epsilon;)-approximation algorithm and an 
-	O(m<sup>3</sup>n<sup>3</sup>log(m + n)) time exact algorithm. For translation and rotation, they presented an O(m<sup>4</sup>n<sup>4</sup>log(1/&epsilon;)) time 
-	(1 + &epsilon;)-approximation algorithm and an O(m<sup>4</sup>n<sup>4</sup>log(m + n)) time exact algorithm.</li>
-	<li><b>Ben Avraham et al.</b> <a href="#AKS15"  target="_self">[AKS15]</a> considered the problem of minimizing the discrete Fréchet distance between two 2D polygonal 
-	chains under translations, and presented a faster exact algorthim for the problem, which runs in O(m<sup>3</sup>n<sup>2</sup>(1 + log(n/m)) log(m + n)) time.</li>
-	<li><b>Filtser and Katz</b> considered other variants of the discrete Fréchet distance under translations: the discrete Fréchet distance with shortcuts, the weak discrete Fréchet distance, and curves in 1D.</li>
-	</ul>
-</p>
 
 <a href="#top" target="_self">&#8679;</a>
 <p><a name="applications"><h3>7&nbsp;Applications of Fréchet distance</h3></a>
@@ -201,6 +178,30 @@ only if it is Continuous and in One Dimension.</li>
 
 <a href="#top" target="_self">&#8679;</a>
 <p><a name="variants"><h3>8&nbsp;Variants of Fréchet distance</h3></a>
+
+	<p><a name="transformations"><h3>Fréchet distance under transformations</h3></a>
+		<ul>
+		<li><b>Alt et al.</b> <a href="#AKW01" target="_self">[AKW01]</a> showed an O((mn)<sup>3</sup>(m+n)<sup>2</sup> log(m+n)) time exact algorithm for Fréchet 
+		Distance under translations, and a (1+&epsilon;)-approximation algorithm for the problem in O(mn &epsilon;<sup>-2</sup>) time.</li>
+		<li><b>Wenk</b> <a href="#Wenk02"  target="_self">[Wenk02]</a> considered the problem of minimizing the Fréchet distance under transformations in high dimensions. 
+		For transformations in dimension d and k degrees of freedom, an O((m+n)<sup>3k+2</sup>log(m+n)) time algorithm is presented. For example, the running time for Fréchet under 
+		translations in d dimensions is O((m+n)<sup>3d+2</sup>log(m+n)).</li>
+		<li><b>Mosig and Clausen</b> <a href="#MC05"  target="_self">[MC05]</a> consider a decision version of the discrete problem, for various transformation groups. 
+		Given two curves P,Q and a parameter &epsilon;, if there exists a transformation T s.t. the Fréchet distance between T(P) and Q is at most &epsilon;, 
+		their algorithm returns a transformation T' s.t. the distance between T'(P) and Q is at most 2&epsilon;. If there is no transformation T s.t. the Fréchet 
+		distance between T(P) and Q is at most 2&epsilon;, the algorithm returns false. Otherwise, the algorithm can return false or a a transformation T' s.t. the 
+		distance between T'(P) and Q is at most 2&epsilon;. The transformation can be scaling, rotation, translation and rotation, or translation and scaling. 
+		The running time is O(n<sup>2</sup>m<sup>2</sup>). They also consider the partial Fréchet disance, and Fréchet distance for closed curves.</li>
+		<li><b>Jiang et al.</b> <a href="#JXZ08"  target="_self">[JXZ08]</a> considered the problem of minimizing the discrete Fréchet distance between two 2D polygonal 
+		chains under translation and rotation. For translation only, they presented an O(m<sup>3</sup>n<sup>3</sup>log(1/&epsilon;)) time (1 + &epsilon;)-approximation algorithm and an 
+		O(m<sup>3</sup>n<sup>3</sup>log(m + n)) time exact algorithm. For translation and rotation, they presented an O(m<sup>4</sup>n<sup>4</sup>log(1/&epsilon;)) time 
+		(1 + &epsilon;)-approximation algorithm and an O(m<sup>4</sup>n<sup>4</sup>log(m + n)) time exact algorithm.</li>
+		<li><b>Ben Avraham et al.</b> <a href="#AKS15"  target="_self">[AKS15]</a> considered the problem of minimizing the discrete Fréchet distance between two 2D polygonal 
+		chains under translations, and presented a faster exact algorthim for the problem, which runs in O(m<sup>3</sup>n<sup>2</sup>(1 + log(n/m)) log(m + n)) time.</li>
+		<li><b>Filtser and Katz</b> considered other variants of the discrete Fréchet distance under translations: the discrete Fréchet distance with shortcuts, the weak discrete Fréchet distance, and curves in 1D.</li>
+		</ul>
+	</p>
+
 	<p><a name="shortcuts"><h4>Fréchet distance with shortcuts</h4></a>
 		<ul>
 		<li><b>Driemel and Har-Peled</b> <a href="#DH13"  target="_self">[DH13]</a>: Jaywalking your dog: Computing the Fréchet distance with shortcuts.</li>
