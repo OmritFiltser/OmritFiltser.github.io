@@ -46,11 +46,14 @@
 <p><a name="continuous"><h3>1&nbsp;Continuous Fréchet distance</h3></a>
 	<ul>
 		<li> The Fréchet distance was first defined by Maurice Fréchet (1878-1973) .</li>
-		<li><b>Alt and Godau</b> <a href="#AG95"  target="_self">[AG95]</a> showed that the Fréchet distance between 
-		two polygonal curves with n edges can be computed, using dynamic programming, in O(n<sup>2</sup>log n) time.</li>
-		<li><b>Buchin et al.</b> <a href="#BBMS12"  target="_self">[BBMS12]</a> improved this bound and showed how to 
-		compute the Fréchet distance in O(n<sup>2</sup>(log n)<sup>1/2</sup>(log log n)<sup>3/2</sup>) time on a pointer machine, 
-				and in O(n<sup>2</sup>(log log n)<sup>2</sup>) time on a word RAM.</li>
+		<li><details><summary style="cursor:pointer;display: inline;"><b>Computing the Fréchet distance between two polygonal curves.</b> Alt and Godau. 
+			<a href="https://dblp.org/rec/journals/ijcga/AltG95" target="_blank">[IJCGA95]</a></summary>
+			<p>show that the Fréchet distance between two polygonal curves with n edges can be computed, using dynamic programming, in O(n<sup>2</sup>log n) time.</p></details></li>
+		<li><details><summary style="cursor:pointer;display: inline;"><b>Four Soviets Walk the Dog: Improved Bounds for Computing the Fréchet Distance.</b>  Kevin Buchin, Maike Buchin, Wouter Meulemans, Wolfgang Mulzer.
+			<a href="https://dblp.org/rec/journals/dcg/BuchinBMM17"  target="_blank">[DCG17]</a> 
+			<a href="https://arxiv.org/abs/1209.4403" target="_blank">[ArXiv]</a></summary>
+			<p>show how to compute the Fréchet distance in O(n<sup>2</sup>(log n)<sup>1/2</sup>(log log n)<sup>3/2</sup>) time on a pointer machine, 
+				and in O(n<sup>2</sup>(log log n)<sup>2</sup>) time on a word RAM.</p></details></li>
 	</ul>
 </p>
 
@@ -63,12 +66,17 @@ two frogs. At each move, the frogs can jump from their current point to the next
 in the minimum length of a leash that connects the frogs and allows them to traverse both curves in this manner.
 The resulting discrete distance is considered as a good approximation of the actual continuous distance.
 <ul>
-	<li><b>Eiter and Mannila</b> <a href="#EM94"  target="_self">[EM94]</a> showed that the discrete Fréchet distance between 
-	two polygonal curves with n edges can be computed, using dynamic programming, in O(n<sup>2</sup>) time.</li>
-	<li><b>Jiang et al.</b> <a href="#JXZ08"  target="_self">[JXZ08]</a> successfully applied the discrete Fréchet distance for aligning the backbones of proteins, 
+	<li><details><summary style="cursor:pointer;display: inline;"><b>Computing Discrete Fréchet Distance. </b> Thomas Eiter and Heikki Mannila.
+		<a href="http://www.kr.tuwien.ac.at/staff/eiter/et-archive/cdtr9464.pdf"  target="_blank">[Technical Report, 94]</a></summary>
+		<p>show that the discrete Fréchet distance between two polygonal curves with n edges can be computed, using dynamic programming, in O(n<sup>2</sup>) time.</p></details></li>
+	<li><details><summary style="cursor:pointer;display: inline;"><b>Protein Structure-structure Alignment with Discrete Fréchet Distance</b> Minghui Jiang, Ying Xu, Binhai Zhu.
+		<a href="https://dblp.org/rec/journals/jbcb/JiangXZ08"  target="_blank">[JBCB08]</a> </summary>
+		<p>successfully applied the discrete Fréchet distance for aligning the backbones of proteins, 
 			which are represented as chains of atoms in 2D or 3D. In this application, the discrete variant makes more sense 
-			than the continuous because matching points that does not represent atoms is false biologically. </li> 
-	<li><b>Agarwal et al.</b> <a href="#AAKS14"  target="_self">[AAKS14]</a> showed how to compute the discrete Fréchet distance in slightly subquadratic time.</li>
+			than the continuous because matching points that does not represent atoms is false biologically. </p></details></li> 
+	<li><details><summary style="cursor:pointer;display: inline;"><b>Computing the Discrete Fréchet Distance in Subquadratic Time. </b>Pankaj K. Agarwal, Rinat Ben Avraham, Haim Kaplan, Micha Sharir. 
+		<a href="https://dblp.org/rec/journals/siamcomp/AgarwalAKS14"  target="_blank">[JoC14]</a> </summary>
+		<p>show how to compute the discrete Fréchet distance in slightly subquadratic time.</p></details></li>
 </ul>
 <img src="lib/two-frogs.gif"/>
 </p>
@@ -76,10 +84,10 @@ The resulting discrete distance is considered as a good approximation of the act
 <a href="#top" target="_self">&#8679;</a>
 <p><a name="bounds"><h3>3&nbsp;Conditional lower bounds</h3></a>
 <ul>
-	<li><b>Why Walking the Dog Takes Time: Fréchet Distance Has No Strongly Subquadratic Algorithms Unless SETH Fails.</b> Bringmann.<a href="https://dblp.org/rec/conf/focs/Bringmann14">[FOCS14]</a></li>
+	<li><b>Why Walking the Dog Takes Time: Fréchet Distance Has No Strongly Subquadratic Algorithms Unless SETH Fails.</b> Bringmann.<a href="https://dblp.org/rec/conf/focs/Bringmann14" target="_blank">[FOCS14]</a></li>
 	<li><b>Approximability of the discrete Fréchet distance.</b> Bringmann and Mulzer.<a href="https://dblp.org/rec/journals/jocg/BringmannM16">[JoCG16]</a></li>
-	<li><b>SETH Says: Weak Fréchet Distance is Faster, but only if it is Continuous and in One Dimension.</b> Buchin, Ophelders, and Speckmann. <a href="https://dblp.org/rec/conf/soda/BuchinOS19">[SODA19]</a></li>
-	<li><b>Fine-Grained Analysis of Problems on Curves.</b> Buchin, Buchin, Konzack, Mulzer, and Schulz. <a href="https://eurocg2016.usi.ch/sites/default/files/paper_68.pdf">[EuroCG16]</a>: </li>
+	<li><b>SETH Says: Weak Fréchet Distance is Faster, but only if it is Continuous and in One Dimension.</b> Buchin, Ophelders, and Speckmann. <a href="https://dblp.org/rec/conf/soda/BuchinOS19" target="_blank">[SODA19]</a></li>
+	<li><b>Fine-Grained Analysis of Problems on Curves.</b> Buchin, Buchin, Konzack, Mulzer, and Schulz. <a href="https://eurocg2016.usi.ch/sites/default/files/paper_68.pdf" target="_blank">[EuroCG16]</a>: </li>
 
 </ul>
 </p>
@@ -87,9 +95,12 @@ The resulting discrete distance is considered as a good approximation of the act
 <a href="#top" target="_self">&#8679;</a>
 <p><a name="approximation"><h3>4&nbsp;Approximation Algorithms</h3></a>
 <ul>
-	<li><b>Bringmann and Mulzer</b><a href="#BOS19"  target="_self">[BM16]</a> present linear-time greedy algorithm with approximation factor of 2<sup>O(n)</sup>, and an &alpha;-approximation algorithm that runs in time O(n log n+n<sup>2</sup>/ &alpha;), for any &alpha; in [1,n].</li>
-	<li><b>Chan and Rahmati</b> <a href="#CR18"  target="_self">[CR18]</a> improved this result by presenting an &alpha;-approximation algorithm for any &alpha; in [1,&radic;<span style="text-decoration: overline;">&nbsp;n log n&nbsp;</span>] and runs in O(n log n + n<sup>2</sup>/ &alpha;<sup>2</sup>) time.</li>
-	<li><b>Colombe and Fox</b> <a href="#CF20"  target="_self">[CF20]</a>: Approximating the (continuous) Fréchet distance.</li>
+	<li><details><summary style="cursor:pointer;display: inline;"><b>Approximability of the discrete Fréchet distance.</b> Bringmann and Mulzer.<a href="https://dblp.org/rec/journals/jocg/BringmannM16" target="_blank">[JoCG16]</a></summary> 
+	<p>present linear-time greedy algorithm with approximation factor of 2<sup>O(n)</sup>, and an &alpha;-approximation algorithm that runs in time O(n log n+n<sup>2</sup>/ &alpha;), for any &alpha; in [1,n].</p></details></li>
+	<li><details><summary style="cursor:pointer;display: inline;"><b>An improved approximation algorithm for the discrete Fréchet distance.</b> Chan and Rahmati. <a href="https://dblp.org/rec/journals/ipl/ChanR18" target="_blank">[IPL18]</a></summary> 
+	<p>present an &alpha;-approximation algorithm for any &alpha; in [1,&radic;<span style="text-decoration: overline;">&nbsp;n log n&nbsp;</span>] that runs in O(n log n + n<sup>2</sup>/ &alpha;<sup>2</sup>) time.</p></details></li>
+	<li><b>Approximating the (continuous) Fréchet distance.</b> Colombe and Fox.<a href="https://dblp.org/rec/conf/compgeom/ColombeF21" target="_blank">[SoCG21]</a><a href="https://arxiv.org/abs/2007.07994" target="_blank">[ArXiv]</a></li>
+	<li><b>A Subquadratic n^ε-approximation for the Continuous Fréchet Distance.</b> Thijs van der Horst, Marc van Kreveld, Tim Ophelders, Bettina Speckmann. <a href="https://arxiv.org/abs/2208.12721" target="_blank">[ArXiv]</a></li>
 </ul>
 </p>
 
@@ -199,9 +210,9 @@ only if it is Continuous and in One Dimension.</li>
 	</p>
 	<p><a name="weak"><h4>Weak Fréchet distance</h4></a>
 		<ul>
-		<li><b>Computing the Fréchet distance between two polygonal curves.</b> Alt and Godau. <a href="https://dblp.org/rec/journals/ijcga/AltG95">[IJCGA95]</a></li>
-		<li><b>The Fréchet distance revisited and extended.</b> Har-Peled and Raichel. <a href="https://dblp.org/rec/journals/talg/Har-PeledR14">[TALG14]</a></li>
-		<li><b>SETH Says: Weak Fréchet Distance is Faster, but only if it is Continuous and in One Dimension.</b> Buchin, Opheldersת and Speckmann.<a href="https://dblp.org/rec/conf/soda/BuchinOS19">[SODA19]</a></li>
+		<li><b>Computing the Fréchet distance between two polygonal curves.</b> Alt and Godau. <a href="https://dblp.org/rec/journals/ijcga/AltG95" target="_blank">[IJCGA95]</a></li>
+		<li><b>The Fréchet distance revisited and extended.</b> Har-Peled and Raichel. <a href="https://dblp.org/rec/journals/talg/Har-PeledR14" target="_blank">[TALG14]</a></li>
+		<li><b>SETH Says: Weak Fréchet Distance is Faster, but only if it is Continuous and in One Dimension.</b> Buchin, Opheldersת and Speckmann.<a href="https://dblp.org/rec/conf/soda/BuchinOS19" target="_blank">[SODA19]</a></li>
 		</ul>
 	</p>
 	<p><a name="average"><h4>Average and summed Fréchet distance</h4></a>
