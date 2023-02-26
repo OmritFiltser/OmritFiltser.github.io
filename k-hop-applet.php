@@ -81,28 +81,17 @@
 	</script>
 </head>
 <body>
-	
-	<?php
-        echo "Good morning";
-    ?>
-  
-    <p>Good to see you</p>
-        
-    <?php
-      $str = "This is GeeksforGeeks portal";
-      echo " $str.";
-    ?>
-	
 	<h1>Grid Applet</h1>
 	<p>Select a connected subset of squares in the grid, and choose a value of k between 1 and 100.</p>
 	
 	<table>
 		<tbody>
+			<!-- Generate the grid -->
 			<?php
 				for ($i = 0; $i < 50; $i++) {
 					echo "<tr>";
 					for ($j = 0; $j < 50; $j++) {
-						echo "<td></td>";
+						echo "<td onclick='selectSquare(this)'></td>";
 					}
 					echo "</tr>";
 				}
