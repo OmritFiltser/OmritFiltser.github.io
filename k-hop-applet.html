@@ -1,0 +1,120 @@
+<html>
+<head>
+	<title>Grid Applet</title>
+	<style>
+		table {
+			border-collapse: collapse;
+		}
+		td {
+			width: 10px;
+			height: 10px;
+			border: 1px solid black;
+		}
+		.green {
+			background-color: green;
+		}
+		.yellow {
+			background-color: yellow;
+		}
+	</style>
+	<script>
+		let selectedSquares = [];
+		let k = 1;
+		
+		// Function to color the selected squares green
+		function selectSquare(square) {
+			if (selectedSquares.includes(square)) {
+				// Deselect the square
+				square.classList.remove("green");
+				selectedSquares.splice(selectedSquares.indexOf(square), 1);
+			} else {
+				// Select the square
+				square.classList.add("green");
+				selectedSquares.push(square);
+			}
+		}
+		
+		// Function to color nearby squares yellow
+		function colorNearbySquares(square) {
+			// Get the coordinates of the clicked square
+			const row = square.parentElement.rowIndex;
+			const col = square.cellIndex;
+			
+			// Loop through all the squares to check if they're nearby
+			for (let i = 0; i < 50; i++) {
+				for (let j = 0; j < 50; j++) {
+					const distance = Math.sqrt((i-row)**2 + (j-col)**2);
+					if (distance <= k && selectedSquares.some(s => s.parentElement.rowIndex === i && s.cellIndex === j)) {
+						document.getElementsByTagName("table")[0].rows[i].cells[j].classList.add("yellow");
+					}
+				}
+			}
+		}
+		
+		// Function to reset the grid
+		function resetGrid() {
+			selectedSquares.forEach(square => {
+				square.classList.remove("green");
+			});
+			selectedSquares = [];
+			k = 1;
+			const yellowSquares = document.getElementsByClassName("yellow");
+			while (yellowSquares.length > 0) {
+				yellowSquares[0].classList.remove("yellow");
+			}
+			document.getElementById("kInput").value = "";
+		}
+		
+		// Function to handle the "Finish" button click
+		function finishSelection() {
+			const kInput = document.getElementById("kInput").value;
+			if (kInput >= 1 && kInput <= 100) {
+				k = kInput;
+			} else {
+				alert("Please enter a number between 1 and 100.");
+				return;
+			}
+			selectedSquares.forEach(square => {
+				colorNearbySquares(square);
+			});
+		}
+	</script>
+</head>
+<body>
+	
+	<?php
+        echo "Good morning";
+    ?>
+  
+    <p>Good to see you</p>
+        
+    <?php
+      $str = "This is GeeksforGeeks portal";
+      echo " $str.";
+    ?>
+	
+	<h1>Grid Applet</h1>
+	<p>Select a connected subset of squares in the grid, and choose a value of k between 1 and 100.</p>
+	
+	<table>
+		<tbody>
+			<?php
+				for ($i = 0; $i < 50; $i++) {
+					echo "<tr>";
+					for ($j = 0; $j < 50; $j++) {
+						echo "<td></td>";
+					}
+					echo "</tr>";
+				}
+			?>
+		</tbody>
+	</table>
+	
+<br>
+<label for="kInput">Choose a value of k:</label>
+<input type="number" id="kInput" min="1" max="100">
+<br><br>
+<button onclick="finishSelection()">Finish</button>
+<button onclick="resetGrid()">Reset</button>
+</body>
+</html>
