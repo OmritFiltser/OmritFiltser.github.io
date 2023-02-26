@@ -1,0 +1,357 @@
+<html>
+<head>
+	<title>k-hop Applet</title>
+	<style>
+		table {
+			border-collapse: collapse;
+		}
+		td {
+			width: 20px;
+			height: 20px;
+			border: 1px solid black;
+		}
+		.green {
+			background-color: green;
+		}
+		.yellow {
+			background-color: yellow;
+		}
+	</style>
+	<script>
+		let polyomino = [];
+		let k = 2;
+		let flag = 0;
+		let gridSize=15;
+		
+		// Function to color the selected squares green
+		function selectSquare(square) {
+			if (flag==0) {
+				if (polyomino.includes(square)) {
+					// Deselect the square
+					square.classList.remove("green");
+					polyomino.splice(polyomino.indexOf(square), 1);
+				} else {
+					// Select the square
+					square.classList.add("green");
+					polyomino.push(square);
+				}
+			}
+			else {
+				colorNearbySquares(square);
+			}
+		}
+		
+		// Function to color nearby squares yellow
+		function colorNearbySquares(square) {
+			// Get the coordinates of the clicked square
+			const row = square.parentElement.rowIndex;
+			const col = square.cellIndex;
+			
+			const closeSquares = [];
+			
+			// if square belongs to the polyomino
+			if (polyomino.some(s => s.parentElement.rowIndex === row && s.cellIndex === col)){
+			
+				// color it yellow
+				document.getElementsByTagName("table")[0].rows[row].cells[col].classList.add("yellow");
+				// add it to the set of yellow squares
+				closeSquares.push(square);
+				
+				// Color squares up to distance k
+				for (let p = 0; p < k; p++){
+					const closeSquaresLayer = [];
+					// go over all grid squares to find polyomino squares that have a yellow square as their neighbour
+					for (let i = 0; i < gridSize; i++) {
+						for (let j = 0; j < gridSize; j++) {
+							// if the i,j square belongs to the polyomino
+							if (polyomino.some(s => s.parentElement.rowIndex === i && s.cellIndex === j)){
+								// check if there exists a neighbour yellow square
+								if(closeSquares.some(s => s.parentElement.rowIndex === i-1 && s.cellIndex === j) ||
+									closeSquares.some(s => s.parentElement.rowIndex === i && s.cellIndex === j-1) ||
+									closeSquares.some(s => s.parentElement.rowIndex === i+1 && s.cellIndex === j) ||
+									closeSquares.some(s => s.parentElement.rowIndex === i && s.cellIndex === j+1)){
+									const sqr = document.getElementsByTagName("table")[0].rows[i].cells[j];
+									sqr.classList.add("yellow");
+									closeSquaresLayer.push(sqr);
+								}
+							}
+						}
+					}
+					closeSquaresLayer.forEach(s => closeSquares.push(s));
+				}
+			}
+		}
+		
+		// Function to reset the grid
+		function resetGrid() {
+			flag = 0;
+			polyomino.forEach(square => {
+				square.classList.remove("green");
+			});
+			polyomino = [];
+			k = 2;
+			const yellowSquares = document.getElementsByClassName("yellow");
+			while (yellowSquares.length > 0) {
+				yellowSquares[0].classList.remove("yellow");
+			}
+			document.getElementById("kInput").value = "2";
+		}
+		
+		// Function to handle the "Finish" button click
+		function finishSelection() {
+			const kInput = document.getElementById("kInput").value;
+			if (kInput >= 1 && kInput <= 100) {
+				k = kInput;
+			} else {
+				alert("Please enter a number between 1 and 100.");
+				return;
+			}
+			flag=1;
+		}
+	</script>
+</head>
+<body>
+	<h1>Polyominoes K-Hop Applet</h1>
+	<p>Select a connected subset of squares in the grid, and choose a value of k between 1 and 100.</p>
+	
+	<table>
+		<tbody>
+			<!-- Generate the grid -->
+			<tr>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			</tr>
+			<tr>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			</tr><tr>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			</tr><tr>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			</tr><tr>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			</tr><tr>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			</tr><tr>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			</tr><tr>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			</tr><tr>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			</tr><tr>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			</tr><tr>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			</tr><tr>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			</tr><tr>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			</tr><tr>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			</tr><tr>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			<td onclick='selectSquare(this)'></td>
+			</tr>
+		</tbody>
+	</table>
+	
+<br>
+<label for="kInput">Choose a value of k:</label>
+<input type="number" id="kInput" min="1" max="100" value="2">
+<br><br>
+<button onclick="finishSelection()">Lock Polyomino</button>
+<button onclick="resetGrid()">Reset</button>
+</body>
+</html>
