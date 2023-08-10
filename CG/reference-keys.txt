@@ -6,7 +6,7 @@ tab:nice-tab
 הקדמה
 מהי-גאומטריה-חישובית
 מאפיינים-חשובים
-כלים-ומקורות-נוספים
+כלים-ומקורות-נוספים.
 מושגי-יסוד
 אובייקטים-גאומטריים-בסיסיים
 עקומים-ופוליגונים
@@ -43,3 +43,5 @@ sharing-your-book
 publishing
 pages
 metadata-for-sharing
+cover-image-path-to-the-social-sharing-image-like-imagescover.jpg
+כלים-ומקורות-נוספים
