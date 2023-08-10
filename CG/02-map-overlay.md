@@ -28,6 +28,8 @@ Systems), כאשר רוצים להציג ולנתח שכבות מידע ממספ
 
 #### קראו את ההקדמה לפרק 2 (עמודים 19--20). {.unnumbered}
 
+<hr class="mt-5 mb-5">
+
 ## טכניקת הישר הסורק
 
 ### חיתוך קטעים במישור
@@ -58,8 +60,8 @@ intersection). בבעיה זו, הקלט הוא אוסף של קטעים במי�
 האלגוריתם. בכל פעם שהישר מגיע למאורע, יש לעדכן את הסטטוס ואת תור
 המאורעות, ולבצע בדיקות של חיתוכים בין הקטעים בסטטוס.
 
-#### ענו על השאלה הבאה: {.unnumbered}
-
+::: rmdwarning
+<img src="images/question.png" align="right" width="10%" style="padding:0px 0px 0px 10px"/>
 זמן הריצה של האלגוריתם הראשון שמתואר בסרטון ומשתמש בשיטת הישר הסורק, הוא
 $O(n^2)$. האם קיים אוסף של קטעים ללא נקודות חיתוך כלל, שעבורו זמן הריצה
 של האלגוריתם הזה יהיה $\Theta(n^2)$?
@@ -79,6 +81,7 @@ $O(n^2)$. האם קיים אוסף של קטעים ללא נקודות חיתו�
 </p>
 
 </details>
+:::
 
 ### טכניקת הישר הסורק - מימוש
 
@@ -106,10 +109,19 @@ $O(n^2)$. האם קיים אוסף של קטעים ללא נקודות חיתו�
 
 זוהי נוסחה חשובה ביותר, ונעשה בה שימוש גם בהמשך הקורס.
 
-#### ענו על השאלה: {.unnumbered}
-
+::: rmdwarning
+<img src="images/question.png" align="right" width="10%" style="padding:0px 0px 0px 10px"/>
 נסו לחשוב על אלגוריתם המקבל אוסף של קטעים במישור, ובודק האם קיים זוג
 קטעים שנחתכים. איזה זמן ריצה ניתן להשיג?
+
+<details>
+
+<summary>(פתרון)</summary>
+שימו לב שניתן להשתמש באותו אלגוריתם שראינו למציאת כל נקודות החיתוך, אך לעצור מייד עם מציאת נקודת החיתוך הראשונה.
+נקבל זמן ריצה של $O(n\log n)$.
+</details>
+
+:::
 
 ### כיצד נבדוק האם זוג קטעים נחתכים?
 
@@ -155,8 +167,8 @@ $t_x=\frac{c-c'}{m'-m}$, $t_y=\frac{cm'-c'm}{m'-m}$.
 נניח שמתקיים $p_x\le q_x$, $p_y\le q_y$. אז נקודת החיתוך $t$ שייכת לקטע
 $\overline{p q}$ אם $t_x\in [p_x, q_y]$, $t_y\in[p_y, q_y]$.
 
-#### נכון או לא נכון? {.unnumbered}
-
+::: rmdwarning
+<img src="images/question.png" align="right" width="10%" style="padding:0px 0px 0px 10px"/>
 בשלב השלישי, האם מספיק לבדוק שנקודת החיתוך שייכת לאחד הקטעים?
 
 <details>
@@ -173,6 +185,7 @@ $\overline{p q}$ אם $t_x\in [p_x, q_y]$, $t_y\in[p_y, q_y]$.
 </p>
 
 </details>
+:::
 
 #### כיצד מטפלים במקרים מיוחדים? {.unnumbered}
 
@@ -217,6 +230,8 @@ $\ell$ המכיל את $\overline{pq}$, על ידי חישוב של שתי הד�
 המתאימות. לאחר מכן נוכל לבדוק האם הנקודות $p$ ו-$q$ נמצאות בשני צדדים
 שונים של הישר $\ell'$ המכיל את $\overline{p'q'}$.
 
+<hr class="mt-5 mb-5">
+
 ## מבנה DCEL
 
 ### יצוג של מפה מישורית
@@ -232,11 +247,12 @@ $\ell$ המכיל את $\overline{pq}$, על ידי חישוב של שתי הד�
 
 #### צפו בסרטון הבא: {.unnumbered}
 
-
 <p align="center" width="100%">
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/HuT0R9LRR9M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 
 </iframe>
+
 </p>
 
 #### קראו את סעיף 2.2 בספר (עמודים 29--33) {.unnumbered}

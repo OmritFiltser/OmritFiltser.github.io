@@ -6,7 +6,7 @@ tab:nice-tab
 הקדמה
 מהי-גאומטריה-חישובית
 מאפיינים-חשובים
-כלים-ומקורות-נוספים.
+כלים-ומקורות-נוספים
 מושגי-יסוד
 אובייקטים-גאומטריים-בסיסיים
 עקומים-ופוליגונים
@@ -28,7 +28,11 @@ tab:nice-tab
 יצוג-של-מפה-מישורית
 בעיית-map-overlay
 פעולות-בוליאניות
-parts
+שילושי-פוליגונים-ובעיית-הגלריה-לאמנות
+הקדמה-2
+בעיית-הגלריה-לאמנות
+מודל-גאומטרי-לבעיה
+מהו-המקרה-הגרוע-ביותר
 footnotes-and-citations
 footnotes
 citations
@@ -43,5 +47,3 @@ sharing-your-book
 publishing
 pages
 metadata-for-sharing
-cover-image-path-to-the-social-sharing-image-like-imagescover.jpg
-כלים-ומקורות-נוספים
