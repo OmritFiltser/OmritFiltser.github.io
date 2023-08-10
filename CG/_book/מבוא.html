@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>פרק 1 מבוא | גאומטריה חישובית</title>
+<meta name="author" content="עומרית פילצר">
+<meta name="description" content="1.1 הקדמה  מהי גאומטריה חישובית? גאומטריה חישובית היא תחום מחקר במדעי המחשב העוסק בפיתוח של כלים, מודלים, מבני נתונים, ואלגוריתמים, המיועדים לפתרון בעיות חישוב גאומטריות. המחקר התיאורטי בגאומטריה...">
+<meta name="generator" content="bookdown 0.34 with bs4_book()">
+<meta property="og:title" content="פרק 1 מבוא | גאומטריה חישובית">
+<meta property="og:type" content="book">
+<meta property="og:description" content="1.1 הקדמה  מהי גאומטריה חישובית? גאומטריה חישובית היא תחום מחקר במדעי המחשב העוסק בפיתוח של כלים, מודלים, מבני נתונים, ואלגוריתמים, המיועדים לפתרון בעיות חישוב גאומטריות. המחקר התיאורטי בגאומטריה...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="פרק 1 מבוא | גאומטריה חישובית">
+<meta name="twitter:description" content="1.1 הקדמה  מהי גאומטריה חישובית? גאומטריה חישובית היא תחום מחקר במדעי המחשב העוסק בפיתוח של כלים, מודלים, מבני נתונים, ואלגוריתמים, המיועדים לפתרון בעיות חישוב גאומטריות. המחקר התיאורטי בגאומטריה...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.0/transition.js"></script><script src="libs/bs3compat-0.5.0/tabs.js"></script><script src="libs/bs3compat-0.5.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script>
+        $(function() {
+            $("#toc h2").html("בפרק זה:");
+        });
+    </script><script>
+        $(function() {
+            $("#main-nav h2").html("רשימת הפרקים:");
+        });
+    </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">גאומטריה חישובית</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">לפני שמתחילים</a></li>
+<li><a class="active" href="%D7%9E%D7%91%D7%95%D7%90.html"><span class="header-section-number">1</span> מבוא</a></li>
+<li><a class="" href="%D7%9E%D7%A4%D7%95%D7%AA-%D7%9E%D7%99%D7%A9%D7%95%D7%A8%D7%99%D7%95%D7%AA-%D7%95%D7%98%D7%9B%D7%A0%D7%99%D7%A7%D7%AA-%D7%94%D7%99%D7%A9%D7%A8-%D7%94%D7%A1%D7%95%D7%A8%D7%A7.html"><span class="header-section-number">2</span> מפות מישוריות וטכניקת הישר הסורק</a></li>
+<li><a class="" href="parts.html"><span class="header-section-number">3</span> Parts</a></li>
+<li><a class="" href="footnotes-and-citations.html"><span class="header-section-number">4</span> Footnotes and citations</a></li>
+<li><a class="" href="blocks.html"><span class="header-section-number">5</span> Blocks</a></li>
+<li><a class="" href="cross.html"><span class="header-section-number">6</span> Cross-references</a></li>
+<li><a class="" href="sharing-your-book.html"><span class="header-section-number">7</span> Sharing your book</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="מבוא" class="section level1" number="1">
+<h1>
+<span class="header-section-number">פרק 1</span> מבוא<a class="anchor" aria-label="anchor" href="#%D7%9E%D7%91%D7%95%D7%90"><i class="fas fa-link"></i></a>
+</h1>
+<div id="הקדמה" class="section level2" number="1.1">
+<h2>
+<span class="header-section-number">1.1</span> הקדמה<a class="anchor" aria-label="anchor" href="#%D7%94%D7%A7%D7%93%D7%9E%D7%94"><i class="fas fa-link"></i></a>
+</h2>
+<div id="מהי-גאומטריה-חישובית" class="section level3 unnumbered">
+<h3>
+<strong>מהי גאומטריה חישובית?</strong><a class="anchor" aria-label="anchor" href="#%D7%9E%D7%94%D7%99-%D7%92%D7%90%D7%95%D7%9E%D7%98%D7%A8%D7%99%D7%94-%D7%97%D7%99%D7%A9%D7%95%D7%91%D7%99%D7%AA"><i class="fas fa-link"></i></a>
+</h3>
+<p>גאומטריה חישובית היא תחום מחקר במדעי המחשב העוסק בפיתוח של כלים, מודלים, מבני נתונים, ואלגוריתמים, המיועדים לפתרון בעיות חישוב גאומטריות. המחקר התיאורטי בגאומטריה חישובית מיושם בתחומים רבים ומגוונים. בסרטון הבא נספר איך נולד התחום, ונציג מספר דוגמאות לבעיות שבהן נעסוק במהלך הקורס.</p>
+<div id="צפו-בסרטון-הבא." class="section level4 unnumbered">
+<h4>
+<strong>צפו בסרטון הבא.</strong><a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90."><i class="fas fa-link"></i></a>
+</h4>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ALiuyo_TN5Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+</div>
+<div id="מדדים-להערכת-טיב-הפתרון" class="section level4 unnumbered">
+<h4>
+<strong>מדדים להערכת טיב הפתרון</strong><a class="anchor" aria-label="anchor" href="#%D7%9E%D7%93%D7%93%D7%99%D7%9D-%D7%9C%D7%94%D7%A2%D7%A8%D7%9B%D7%AA-%D7%98%D7%99%D7%91-%D7%94%D7%A4%D7%AA%D7%A8%D7%95%D7%9F"><i class="fas fa-link"></i></a>
+</h4>
+<p>פתרון לבעיה יכול להיות בצורה של אלגוריתם, המקבל קלט ומייצר פלט מתאים. במקרה זה טיב הפתרון נמדד ב<strong>זמן הריצה</strong> של האלגוריתם, וב<strong>סיבוכיות הזיכרון</strong> הנדרשת לפעולתו. </p>
+<p>כאשר הפתרון הוא בצורה של מבנה נתונים, קיים מדד נוסף, שהוא זמן העיבוד המקדים. לכן, בניתוח של מבנה נתונים נתייחס לכל אחד מהמדדים הבאים:</p>
+<ul>
+<li><p><strong>זמן עיבוד מקדים (Preprocessing Time)</strong> - הזמן שלוקח לנו לעבד את הקלט ולבנות את מבנה הנתונים.</p></li>
+<li><p><strong>סיבוכיות מקום/זיכרון (Storage Space)</strong> - גודל הזיכרון או נפח האחסון לו נזדקק עבור מבנה הנתונים.</p></li>
+<li><p><strong>זמן שאילתה (Query Time)</strong> - זמן הריצה של אלגוריתם השאילתה.</p></li>
+</ul>
+</div>
+<div id="קראו-את-ההקדמה-לפרק-1-עמודים-12." class="section level4 unnumbered">
+<h4>
+<strong>קראו את ההקדמה לפרק 1 (עמודים 1–2).</strong><a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%94%D7%94%D7%A7%D7%93%D7%9E%D7%94-%D7%9C%D7%A4%D7%A8%D7%A7-1-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-12."><i class="fas fa-link"></i></a>
+</h4>
+</div>
+<div id="תחומי-יישום" class="section level4 unnumbered">
+<h4>
+<strong>תחומי יישום</strong><a class="anchor" aria-label="anchor" href="#%D7%AA%D7%97%D7%95%D7%9E%D7%99-%D7%99%D7%99%D7%A9%D7%95%D7%9D"><i class="fas fa-link"></i></a>
+</h4>
+<p>להרחבה על האפליקציות השונות והתפקיד שמשחקת בהן הגאומטריה החישובית, מומלץ לקרוא את פרק 1.3 בספר.</p>
+</div>
+</div>
+<div id="מאפיינים-חשובים" class="section level3 unnumbered">
+<h3>
+<strong>מאפיינים חשובים</strong><a class="anchor" aria-label="anchor" href="#%D7%9E%D7%90%D7%A4%D7%99%D7%99%D7%A0%D7%99%D7%9D-%D7%97%D7%A9%D7%95%D7%91%D7%99%D7%9D"><i class="fas fa-link"></i></a>
+</h3>
+<p>כמו בכל תחום מדעי, למחקר בגאומטריה חישובית יש מספר מאפיינים שהתקבעו כתוצאה מתחומי העניין והמומחיות של החוקרים בתחום. כאן נתאר את העיקריים שבהם.</p>
+<div id="ריגורוזיות" class="section level4 unnumbered">
+<h4>
+<strong>ריגורוזיות</strong><a class="anchor" aria-label="anchor" href="#%D7%A8%D7%99%D7%92%D7%95%D7%A8%D7%95%D7%96%D7%99%D7%95%D7%AA"><i class="fas fa-link"></i></a>
+</h4>
+<p>לפני שהתפתח המחקר בגאומטריה חישובית, היו המון היוריסטיקות ופתרונות אד הוק ליישומים גאומטרים. פתרונות כאלה נבדקו על ידי ביצוע ניסויים, ולכן היו בדרך כלל יעילים רק במצבים מסוימים, ולעיתים אף שגויים לחלוטין. לעומת זאת, תחום הגאומטריה החישובית התפתח כתחום מתמטי שבו הגישה לפתרון היא ריגורוזית: הבעיות מוגדרות היטב, וכל פתרון כולל הוכחת יעילות ונכונות מתמטית.</p>
+</div>
+<div id="מימד-נמוך" class="section level4 unnumbered">
+<h4>
+<strong>מימד נמוך</strong><a class="anchor" aria-label="anchor" href="#%D7%9E%D7%99%D7%9E%D7%93-%D7%A0%D7%9E%D7%95%D7%9A"><i class="fas fa-link"></i></a>
+</h4>
+<p>היסטורית, הגאומטריה החישובית התפתחה כתחום מחקר העוסק בבעיות על מרחבים ממימד אוקלידי נמוך (לרוב מרחב דו-מימדי, ולעיתים גם תלת מימדי). לכן לאורך הקורס אנו נתמקד בעיקר במרחב אוקלידי הדו-מימדי, <span class="math inline">\(\mathbb{R}^2\)</span> , שמכונה גם <strong>המישור האוקלידי</strong> (או בקיצור, המישור). רוב האלגוריתמים שנראה יעבדו רק בשניים או שלושה מימדים. אלגוריתמים שמתאימים גם למימדים גבוהים יותר סובלים במקרים רבים מתופעה שנקראת <strong>“קללת המימד הגבוה”</strong> (curse of high dimensionality), כלומר, זמן הריצה שלהם כולל פקטורים שגדלים אקספוננצילית במימד. עם זאת, לעיתים נדון גם באפשרות להרחבה למימדים גבוהים יותר, או בהבדלים הקיימים במעבר למימד גבוה יותר.</p>
+</div>
+<div id="קלט-בדיד-דיסקרטי" class="section level4 unnumbered">
+<h4>
+<strong>קלט בדיד (דיסקרטי)</strong><a class="anchor" aria-label="anchor" href="#%D7%A7%D7%9C%D7%98-%D7%91%D7%93%D7%99%D7%93-%D7%93%D7%99%D7%A1%D7%A7%D7%A8%D7%98%D7%99"><i class="fas fa-link"></i></a>
+</h4>
+<p>תחום הגאומטריה החישובית מתמקד בבעיות בהן האובייקטים הנתונים הם <strong>בדידים</strong> בטבעם, למשל קבוצות סופיות של נקודות, ישרים, או מעגלים. קיימות אפליקציות רבות בהן האובייקטים הם <strong>רציפים</strong>, כמו למשל מרחב תלת מימדי המתאר את טמפרטורת האוויר באיזור מסוים. מכיוון שהחישוב בעזרת מחשב הוא <strong>בדיד</strong> בטבעו, במקרים כאלו נדרש תהליך של <strong>דיסקרטיזציה</strong>, המאפשר לקבל קירוב לפתרון הרציף. בקורס הזה נדבר על בעיות עם קלט בדיד, ולא נדון בתהליך הדיסקרטיזציה.</p>
+</div>
+<div id="המודל-החישובי" class="section level4 unnumbered">
+<h4>
+<strong>המודל החישובי</strong><a class="anchor" aria-label="anchor" href="#%D7%94%D7%9E%D7%95%D7%93%D7%9C-%D7%94%D7%97%D7%99%D7%A9%D7%95%D7%91%D7%99"><i class="fas fa-link"></i></a>
+</h4>
+<p>לפני שניגשים לניתוח יעילות של אלגוריתם, צריך להחליט באיזה מודל חישובי הוא פועל. המודל החישובי מגדיר את הקשר בין הקלט ופעולות האלגוריתם לבין ייצוגם ואופן חישובם במחשב. בתחום הגאומטריה החישובית מקובל להשתמש במודל מתמטי הנקרא <strong>מודל RAM הממשי (real RAM)</strong>. זהו מודל המבוסס על המודל המוכר של Random Access Machine, כלומר הגישה לתאי הזיכרון היא באמצעות מצביעים. אלגוריתמים לבעיות גאומטריות דורשים בדרך כלל חישובים על מספרים ממשיים, וכאשר מתרגמים אלגוריתמים אלו לתוכניות מחשב, המספרים המחושבים הם בעצם מקורבים, כתלות בדיוק המחשב. מודל זה מאפשר להזניח את בעיית שגיאות העיגול בייצוג המקורב של הממשיים: כל מספר ממשי ניתן לאחסון ביחידת זיכרון אחת, והמספרים הם מדויקים ולא מקורבים. כמו כן המודל מניח שהפעולות האריתמטיות (חיבור, חיסור, כפל, וחילוק), וכן פעולות השוואה, מתבצעות בזמן קבוע על מספרים ממשיים.</p>
+<p>על אף כוחו הבלתי רגיל של מודל RAM הממשי, קיימות מספר שפות תכנות המיועדות למימוש אלגוריתמים גאומטריים ומאפשרות סימולציה שלו. הרעיון בסימולציה כזו הוא שרמת הדיוק בחישוב וייצוג המספרים משתנה בהתאם לצרכי האלגוריתם, כך שניתן יהיה לבצע השוואות מדויקות ולהימנע מטעויות עיגול. לדוגמה, <a href="https://www.cgal.org/"><strong>הספריה CGAL</strong></a> תומכת בחישובים גאומטריים מדוייקים באמצעות מנגנון מסוג זה.</p>
+</div>
+</div>
+<div id="כלים-ומקורות-נוספים" class="section level3 unnumbered">
+<h3>
+<strong>כלים ומקורות נוספים</strong><a class="anchor" aria-label="anchor" href="#%D7%9B%D7%9C%D7%99%D7%9D-%D7%95%D7%9E%D7%A7%D7%95%D7%A8%D7%95%D7%AA-%D7%A0%D7%95%D7%A1%D7%A4%D7%99%D7%9D"><i class="fas fa-link"></i></a>
+</h3>
+<p>בדף זה ירוכזו כלים שימושיים לקורס, ומקורות נוספים ללמידה והעשרה.</p>
+<div id="כלים-מומלצים-לשימוש-בקורס" class="section level4 unnumbered">
+<h4>כלים מומלצים לשימוש בקורס<a class="anchor" aria-label="anchor" href="#%D7%9B%D7%9C%D7%99%D7%9D-%D7%9E%D7%95%D7%9E%D7%9C%D7%A6%D7%99%D7%9D-%D7%9C%D7%A9%D7%99%D7%9E%D7%95%D7%A9-%D7%91%D7%A7%D7%95%D7%A8%D7%A1"><i class="fas fa-link"></i></a>
+</h4>
+<ul>
+<li><p><a href="https://ipe.otfried.org/"><strong>Ipe</strong></a>- כלי חינמי מצוין לציורים גאומטריים שפותח ע”י Otfried Cheong, חוקר בגאומטריה חישובית. מדריך מצוין לכלי זה ניתן למצוא <a href="https://www.youtube.com/watch?v=moM4CATxTgw&amp;ab_channel=V%C3%A1clavBla%C5%BEej"><strong>כאן</strong></a>.</p></li>
+<li><p><a href="https://www.geogebra.org/geometry"><strong>Geogebra</strong></a>- כלי ליצירת אובייקטים גאומטריים אינטראקטיביים.</p></li>
+<li><p><a href="https://www.cgal.org/"><strong>CGAL</strong></a> - ספריית C++ המכילה מגוון של אלגוריתמים ומבני נתונים גאומטריים.</p></li>
+</ul>
+</div>
+<div id="הרצאות-מוקלטות-וחומרי-לימוד-נוספים" class="section level4 unnumbered">
+<h4>הרצאות מוקלטות וחומרי לימוד נוספים<a class="anchor" aria-label="anchor" href="#%D7%94%D7%A8%D7%A6%D7%90%D7%95%D7%AA-%D7%9E%D7%95%D7%A7%D7%9C%D7%98%D7%95%D7%AA-%D7%95%D7%97%D7%95%D7%9E%D7%A8%D7%99-%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A0%D7%95%D7%A1%D7%A4%D7%99%D7%9D"><i class="fas fa-link"></i></a>
+</h4>
+<p>למעוניינים בכך, ניתן למצוא חומרי לימוד מצויינים מקורסים דומים הניתנים ברחבי העולם. הנה רשימה חלקית ביותר של הבולטים שבהם:</p>
+<ul>
+<li><p><a href="http://www.cs.umd.edu/class/spring2020/cmsc754/Lects/cmsc754-spring2020-lects.pdf"><strong>CMSC 754 Computational Geometry</strong></a>, by David M. Mount.</p></li>
+<li><p><a href="https://geometry.inf.ethz.ch/gca18.pdf"><strong>Geometry: Combinatorics and Algorithms</strong></a>, by Luis Barba Bernd Gärtner, Michael Hoffmann and Emo Welzl.</p></li>
+<li><p><a href="https://www.youtube.com/@PhilippKindermann/playlists?view=50&amp;sort=dd&amp;shelf_id=2"><strong>Computational Geometry</strong></a>, video lectures by Philipp Kindermann.</p></li>
+</ul>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div id="מושגי-יסוד" class="section level2" number="1.2">
+<h2>
+<span class="header-section-number">1.2</span> <strong>מושגי יסוד</strong><a class="anchor" aria-label="anchor" href="#%D7%9E%D7%95%D7%A9%D7%92%D7%99-%D7%99%D7%A1%D7%95%D7%93"><i class="fas fa-link"></i></a>
+</h2>
+<div id="אובייקטים-גאומטריים-בסיסיים" class="section level3 unnumbered">
+<h3>
+<strong>אובייקטים גאומטריים בסיסיים</strong><a class="anchor" aria-label="anchor" href="#%D7%90%D7%95%D7%91%D7%99%D7%99%D7%A7%D7%98%D7%99%D7%9D-%D7%92%D7%90%D7%95%D7%9E%D7%98%D7%A8%D7%99%D7%99%D7%9D-%D7%91%D7%A1%D7%99%D7%A1%D7%99%D7%99%D7%9D"><i class="fas fa-link"></i></a>
+</h3>
+<p>בחלק זה מופיעה רשימה של הגדרות בסיסיות איתן נעבוד. גם אם אתם כבר מכירים את כולן או את רובן, מומלץ בכל זאת לקרוא את הפרק כדי לודא שאתם מבינים את הניסוח המתמטי שבו נשתמש בקורס. תוכלו לחזור לפרק זה בכל עת, אם תרצו להיזכר באחת מההגדרות.</p>
+<div id="מרחב-אוקלידי-נקודה-נורמה-ומרחק" class="section level4 unnumbered">
+<h4>
+<strong>מרחב אוקלידי, נקודה, נורמה ומרחק</strong><a class="anchor" aria-label="anchor" href="#%D7%9E%D7%A8%D7%97%D7%91-%D7%90%D7%95%D7%A7%D7%9C%D7%99%D7%93%D7%99-%D7%A0%D7%A7%D7%95%D7%93%D7%94-%D7%A0%D7%95%D7%A8%D7%9E%D7%94-%D7%95%D7%9E%D7%A8%D7%97%D7%A7"><i class="fas fa-link"></i></a>
+</h4>
+</div>
+</div>
+<div id="עקומים-ופוליגונים" class="section level3 unnumbered">
+<h3>
+<strong>עקומים ופוליגונים</strong><a class="anchor" aria-label="anchor" href="#%D7%A2%D7%A7%D7%95%D7%9E%D7%99%D7%9D-%D7%95%D7%A4%D7%95%D7%9C%D7%99%D7%92%D7%95%D7%A0%D7%99%D7%9D"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="פוליגונים-מיוחדים" class="section level3 unnumbered">
+<h3>
+<strong>פוליגונים מיוחדים</strong><a class="anchor" aria-label="anchor" href="#%D7%A4%D7%95%D7%9C%D7%99%D7%92%D7%95%D7%A0%D7%99%D7%9D-%D7%9E%D7%99%D7%95%D7%97%D7%93%D7%99%D7%9D"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+</div>
+<div id="הקמור-של-קבוצת-נקודות-במישור" class="section level2" number="1.3">
+<h2>
+<span class="header-section-number">1.3</span> הקמור של קבוצת נקודות במישור<a class="anchor" aria-label="anchor" href="#%D7%94%D7%A7%D7%9E%D7%95%D7%A8-%D7%A9%D7%9C-%D7%A7%D7%91%D7%95%D7%A6%D7%AA-%D7%A0%D7%A7%D7%95%D7%93%D7%95%D7%AA-%D7%91%D7%9E%D7%99%D7%A9%D7%95%D7%A8"><i class="fas fa-link"></i></a>
+</h2>
+<div id="הגדרת-הקמור" class="section level3" number="1.3.1">
+<h3>
+<span class="header-section-number">1.3.1</span> <strong>הגדרת הקמור</strong><a class="anchor" aria-label="anchor" href="#%D7%94%D7%92%D7%93%D7%A8%D7%AA-%D7%94%D7%A7%D7%9E%D7%95%D7%A8"><i class="fas fa-link"></i></a>
+</h3>
+<p>הדוגמה הראשונה לבעיה גאומטרית שנלמד בקורס היא בעיית חישוב הקמור. הקמור של קבוצת נקודות הוא מושג בסיסי וחשוב ביותר, מכיוון שיש לו אינספור שימושים בתחומים שונים ומגוונים. בסרטון הבא נגדיר מהו הקמור של קבוצת נקודות, ונציג דוגמה אחת לשימוש בו - דווקא בבעיה שבמבט ראשון אין לה קשר לגאומטריה, ובהמשך נראה איך בכל זאת הגאומטריה תעזור לנו בפתרון הבעיה.</p>
+<div id="צפו-בסרטון-הבא.-1" class="section level4" number="1.3.1.1">
+<h4>
+<span class="header-section-number">1.3.1.1</span> צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-1"><i class="fas fa-link"></i></a>
+</h4>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/qCTU2jxXfs0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+</div>
+<div id="הגדרה-קבוצה-קמורה" class="section level4" number="1.3.1.2">
+<h4>
+<span class="header-section-number">1.3.1.2</span> הגדרה: קבוצה קמורה<a class="anchor" aria-label="anchor" href="#%D7%94%D7%92%D7%93%D7%A8%D7%94-%D7%A7%D7%91%D7%95%D7%A6%D7%94-%D7%A7%D7%9E%D7%95%D7%A8%D7%94"><i class="fas fa-link"></i></a>
+</h4>
+<p>קבוצת נקודות S היא קבוצה קמורה אם לכל זוג נקודות p,q∈S מתקיים שהקטע pq מוכל בקבוצה S.</p>
+</div>
+<div id="הגדרה-הקמור" class="section level4" number="1.3.1.3">
+<h4>
+<span class="header-section-number">1.3.1.3</span> הגדרה: הקמור<a class="anchor" aria-label="anchor" href="#%D7%94%D7%92%D7%93%D7%A8%D7%94-%D7%94%D7%A7%D7%9E%D7%95%D7%A8"><i class="fas fa-link"></i></a>
+</h4>
+<p>עבור קבוצת נקודות , הקמור (Convex Hull) של  מסומן .</p>
+<p>לקמור של קבוצת נקודות יש מספר הגדרות שקולות:</p>
+<p>הקמור של קבוצת נקודות  הוא הקבוצה הקמורה הקטנה ביותר שמכילה את . (כלומר, לא קיימת קבוצה קמורה שמכילה את  ומוכלת ממש בקמור של ).</p>
+<p>הקמור של קבוצת נקודות  הוא הפוליגון הקמור היחיד שקודקודיו הם נקודות מ- ושמכיל את .</p>
+<p>הקמור של קבוצת נקודות  הוא החיתוך של כל חצאי המרחבים הסגורים שמכילים את .</p>
+</div>
+</div>
+<div id="אלגוריתם-נאיבי" class="section level3" number="1.3.2">
+<h3>
+<span class="header-section-number">1.3.2</span> <strong>אלגוריתם נאיבי</strong><a class="anchor" aria-label="anchor" href="#%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D-%D7%A0%D7%90%D7%99%D7%91%D7%99"><i class="fas fa-link"></i></a>
+</h3>
+<p>בחלק הראשון של סעיף 1.1 בספר הלימוד מופיעות הגדרות הקמור שראינו קודם, וכן מתואר האלגוריתם <strong>SlowConvexHull</strong>, שהוא אלגוריתם נאיבי. סיבוכיות זמן הריצה שלו היא , והיא רחוקה מלהיות אופטימלית, אך הוא אינטואיטיבי ונכונותו נובעת ישירות מהאבחנות שעשינו קודם על התכונות הגאומטריות של הקמור. </p>
+<p>באלגוריתם זה עולה הנושא של <strong>מצבים מנוונים (degeneracies)</strong>, אלו הם למעשה מקרי קצה של הקלט שיש לקחת בחשבון. בנוסף, באלגוריתם עולה גם בעיה של <strong>עמידות החישוב (robustness)</strong>, כלומר במצבים מסוימים של טעויות עיגול בחישובים עם נקודה צפה (floating point), יתכן  שהאלגוריתם אפילו לא יחזיר פוליגון. בחלק הרביעי של יחידה זו תוכלו לקרוא עוד על עמידות החישוב ומצבים מנוונים.</p>
+<div id="קראו-את-חלקו-הראשון-של-סעיף-1.1-בספר-הלימוד-עמודים-25" class="section level4" number="1.3.2.1">
+<h4>
+<span class="header-section-number">1.3.2.1</span> קראו את חלקו הראשון של סעיף 1.1 בספר הלימוד (עמודים 2–5)<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%97%D7%9C%D7%A7%D7%95-%D7%94%D7%A8%D7%90%D7%A9%D7%95%D7%9F-%D7%A9%D7%9C-%D7%A1%D7%A2%D7%99%D7%A3-1.1-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-25"><i class="fas fa-link"></i></a>
+</h4>
+</div>
+</div>
+<div id="אלגוריתם-אינקרמנטלי" class="section level3" number="1.3.3">
+<h3>
+<span class="header-section-number">1.3.3</span> <strong>אלגוריתם אינקרמנטלי</strong><a class="anchor" aria-label="anchor" href="#%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D-%D7%90%D7%99%D7%A0%D7%A7%D7%A8%D7%9E%D7%A0%D7%98%D7%9C%D7%99"><i class="fas fa-link"></i></a>
+</h3>
+<p>בסרטון הבא נתאר את האלגוריתם <strong>ConvexHull</strong> המופיע בחלקו השני של סעיף 1.1 בספר הלימוד. האלגוריתם הזה נקרא גם <strong>האלגוריתם האינקרמנטלי</strong>, או <strong>סריקת גרהם (Graham Scan)</strong>. הוא מתוחכם יותר, וסיבוכיות זמן הריצה שלו היא  - זמן כמעט לינארי. זהו שיפור משמעותי מאוד לעומת האלגוריתם הנאיבי שראינו בחלק הקודם. </p>
+<div id="צפו-בסרטון-הבא" class="section level4" number="1.3.3.1">
+<h4>
+<span class="header-section-number">1.3.3.1</span> צפו בסרטון הבא:<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90"><i class="fas fa-link"></i></a>
+</h4>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RgGhwKWO2F4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+</div>
+<div id="קראו-את-חלקו-השני-של-סעיף-1.1-בספר-הלימוד-עמודים-68" class="section level4" number="1.3.3.2">
+<h4>
+<span class="header-section-number">1.3.3.2</span> קראו את חלקו השני של סעיף 1.1 בספר הלימוד (עמודים 6–8)<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%97%D7%9C%D7%A7%D7%95-%D7%94%D7%A9%D7%A0%D7%99-%D7%A9%D7%9C-%D7%A1%D7%A2%D7%99%D7%A3-1.1-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-68"><i class="fas fa-link"></i></a>
+</h4>
+</div>
+</div>
+<div id="אלגוריתם-רגיש-לפלט" class="section level3" number="1.3.4">
+<h3>
+<span class="header-section-number">1.3.4</span> <strong>אלגוריתם רגיש לפלט</strong><a class="anchor" aria-label="anchor" href="#%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D-%D7%A8%D7%92%D7%99%D7%A9-%D7%9C%D7%A4%D7%9C%D7%98"><i class="fas fa-link"></i></a>
+</h3>
+<p>האם ניתן לשפר את זמן הריצה של האלגוריתם האינקרמנטלי שראינו קודם? בסרטון הבא נתאר  אלגוריתם נוסף לחישוב הקמור, שנקרא <strong>אלגוריתם עטיפת המתנה (Gift Wrapping)</strong> או <strong>Jarvis’s March</strong>. זמן הריצה שלו הוא, כאשר  הוא מספר קודקודי הקמור. סוג כזה של אלגוריתם נקרא <strong>output sensitive</strong>, כלומר אלגוריתם שזמן הריצה שלו תלוי בגודל הפלט.</p>
+<div id="צפו-בסרטון-הבא-1" class="section level4" number="1.3.4.1">
+<h4>
+<span class="header-section-number">1.3.4.1</span> צפו בסרטון הבא:<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90-1"><i class="fas fa-link"></i></a>
+</h4>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6eZmX1bAC_w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+</div>
+</div>
+</div>
+<div id="מצבים-מנוונים-ועמידות-החישוב" class="section level2" number="1.4">
+<h2>
+<span class="header-section-number">1.4</span> <strong>מצבים מנוונים ועמידות החישוב</strong><a class="anchor" aria-label="anchor" href="#%D7%9E%D7%A6%D7%91%D7%99%D7%9D-%D7%9E%D7%A0%D7%95%D7%95%D7%A0%D7%99%D7%9D-%D7%95%D7%A2%D7%9E%D7%99%D7%93%D7%95%D7%AA-%D7%94%D7%97%D7%99%D7%A9%D7%95%D7%91"><i class="fas fa-link"></i></a>
+</h2>
+<p>על מנת לפשט את התיאור של אלגוריתמים גאומטריים, במקרים רבים משתמשים בהנחה שנקראת <strong>מצב כללי (general position)</strong>. המשמעות היא שהקלט אינו מכיל מצבים “<strong>מנוונים</strong>” <strong>(degenerate)</strong>, למשל, שתי נקודות עם אותה קואורדינטת x, שלוש נקודות על ישר אחד, או ארבע נקודות על מעגל. המטרה היא להימנע מסרבול האלגוריתם כאשר יש צורך בטיפול ב<strong>מקרי קצה</strong>. לדוגמה, באלגוריתם האינקרמטלי לחישוב הקמור (סריקת גרהם), יש למיין את הנקודות לפי קואורדינטת ה-x שלהן. אך מה עושים אם יש שתי נקודות בעלות אותה קואורדינטת x? נצטרך להחליט מי מהן תופיע ראשונה במיון. אמנם כאן נוכל להוסיף תיאור פשוט יחסית, אך יותר קל להניח שהקלט נמצא במצב כללי, כלומר נניח שאין שתי נקודות בעלות אותה קואורדינטת x. הנחות מסוג זה הן מקובלות באלגוריתמים גאומטריים, ומשתנות בהתאם לצרכי האלגוריתם.</p>
+<p>מצבים מנוונים קשורים בנושא <strong>עמידות החישוב (robustness)</strong>, מכיוון שלעיתים הטיפול בהם כרוך בבדיקה הגוררת חישוב שתוצאתו היא אפס. לדוגמה, במימוש אלגוריתם האינקרמנטלי, אנו נדרשים לבדוק האם שלושת הנקודות האחרונות יוצרות פניה ימינה. כלומר, בהינתן שלוש נקודות, , נרצה לבדוק האם הזוית שהן יוצרות, כלומר הזוית , קטנה מ-. ניתן לעשות זאת על ידי חישוב של הישר העובר דרך  ובדיקה האם  נמצאת מעליו או מתחתיו, או על ידי מכפלה וקטורית כפי שנראה בפרק הבא. אם שלושת הנקודות נמצאות על ישר אחד, נקבל שיוויון, כלומר . כאשר מבצעים חישוב של מספרים ממשיים במחשב, התוצאה תלויה ברמת הדיוק של המחשב, אשר אינה אינסופית, ולכן בדרך כלל לא נקבל מצב של שיוויון מדויק. לכן, אם שלושת הנקודות נמצאות כמעט על אותו ישר, אי דיוק מזערי בחישוב עלול להביא לתוצאה שגויה, מה שמעלה את השאלה של נכונות האלגוריתם במצבים כגון זה, וזוהי בעצם השאלה של עמידות החישוב.</p>
+<div id="קראו-את-סעיף-1.2-בספר-עמודים-810" class="section level4" number="1.4.0.1">
+<h4>
+<span class="header-section-number">1.4.0.1</span> קראו את סעיף 1.2 בספר (עמודים 8–10)<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-1.2-%D7%91%D7%A1%D7%A4%D7%A8-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-810"><i class="fas fa-link"></i></a>
+</h4>
+
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="index.html">לפני שמתחילים</a></div>
+<div class="next"><a href="%D7%9E%D7%A4%D7%95%D7%AA-%D7%9E%D7%99%D7%A9%D7%95%D7%A8%D7%99%D7%95%D7%AA-%D7%95%D7%98%D7%9B%D7%A0%D7%99%D7%A7%D7%AA-%D7%94%D7%99%D7%A9%D7%A8-%D7%94%D7%A1%D7%95%D7%A8%D7%A7.html"><span class="header-section-number">2</span> מפות מישוריות וטכניקת הישר הסורק</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#%D7%9E%D7%91%D7%95%D7%90"><span class="header-section-number">1</span> מבוא</a></li>
+<li>
+<a class="nav-link" href="#%D7%94%D7%A7%D7%93%D7%9E%D7%94"><span class="header-section-number">1.1</span> הקדמה</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#%D7%9E%D7%94%D7%99-%D7%92%D7%90%D7%95%D7%9E%D7%98%D7%A8%D7%99%D7%94-%D7%97%D7%99%D7%A9%D7%95%D7%91%D7%99%D7%AA">מהי גאומטריה חישובית?</a></li>
+<li><a class="nav-link" href="#%D7%9E%D7%90%D7%A4%D7%99%D7%99%D7%A0%D7%99%D7%9D-%D7%97%D7%A9%D7%95%D7%91%D7%99%D7%9D">מאפיינים חשובים</a></li>
+<li><a class="nav-link" href="#%D7%9B%D7%9C%D7%99%D7%9D-%D7%95%D7%9E%D7%A7%D7%95%D7%A8%D7%95%D7%AA-%D7%A0%D7%95%D7%A1%D7%A4%D7%99%D7%9D">כלים ומקורות נוספים</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#%D7%9E%D7%95%D7%A9%D7%92%D7%99-%D7%99%D7%A1%D7%95%D7%93"><span class="header-section-number">1.2</span> מושגי יסוד</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#%D7%90%D7%95%D7%91%D7%99%D7%99%D7%A7%D7%98%D7%99%D7%9D-%D7%92%D7%90%D7%95%D7%9E%D7%98%D7%A8%D7%99%D7%99%D7%9D-%D7%91%D7%A1%D7%99%D7%A1%D7%99%D7%99%D7%9D">אובייקטים גאומטריים בסיסיים</a></li>
+<li><a class="nav-link" href="#%D7%A2%D7%A7%D7%95%D7%9E%D7%99%D7%9D-%D7%95%D7%A4%D7%95%D7%9C%D7%99%D7%92%D7%95%D7%A0%D7%99%D7%9D">עקומים ופוליגונים</a></li>
+<li><a class="nav-link" href="#%D7%A4%D7%95%D7%9C%D7%99%D7%92%D7%95%D7%A0%D7%99%D7%9D-%D7%9E%D7%99%D7%95%D7%97%D7%93%D7%99%D7%9D">פוליגונים מיוחדים</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#%D7%94%D7%A7%D7%9E%D7%95%D7%A8-%D7%A9%D7%9C-%D7%A7%D7%91%D7%95%D7%A6%D7%AA-%D7%A0%D7%A7%D7%95%D7%93%D7%95%D7%AA-%D7%91%D7%9E%D7%99%D7%A9%D7%95%D7%A8"><span class="header-section-number">1.3</span> הקמור של קבוצת נקודות במישור</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#%D7%94%D7%92%D7%93%D7%A8%D7%AA-%D7%94%D7%A7%D7%9E%D7%95%D7%A8"><span class="header-section-number">1.3.1</span> הגדרת הקמור</a></li>
+<li><a class="nav-link" href="#%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D-%D7%A0%D7%90%D7%99%D7%91%D7%99"><span class="header-section-number">1.3.2</span> אלגוריתם נאיבי</a></li>
+<li><a class="nav-link" href="#%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D-%D7%90%D7%99%D7%A0%D7%A7%D7%A8%D7%9E%D7%A0%D7%98%D7%9C%D7%99"><span class="header-section-number">1.3.3</span> אלגוריתם אינקרמנטלי</a></li>
+<li><a class="nav-link" href="#%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D-%D7%A8%D7%92%D7%99%D7%A9-%D7%9C%D7%A4%D7%9C%D7%98"><span class="header-section-number">1.3.4</span> אלגוריתם רגיש לפלט</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#%D7%9E%D7%A6%D7%91%D7%99%D7%9D-%D7%9E%D7%A0%D7%95%D7%95%D7%A0%D7%99%D7%9D-%D7%95%D7%A2%D7%9E%D7%99%D7%93%D7%95%D7%AA-%D7%94%D7%97%D7%99%D7%A9%D7%95%D7%91"><span class="header-section-number">1.4</span> מצבים מנוונים ועמידות החישוב</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/01-intro.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/01-intro.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>גאומטריה חישובית</strong>" was written by עומרית פילצר. It was last built on 2023-08-10.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

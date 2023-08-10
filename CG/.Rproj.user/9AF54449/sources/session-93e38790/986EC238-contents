@@ -1,0 +1,11 @@
+bookdown::bs4_book:
+  css: style.css
+  theme:
+   #primary: "#096B72"
+   primary: "#13805d"  
+   #primary: "#637238"
+  includes:
+      in_header: local_js.html
+  repo: https://github.com/rstudio/bookdown-demo
+
+

@@ -1,0 +1,10 @@
+<script>
+    $(function() {
+        $("#toc h2").html("בפרק זה:");
+    });
+</script>
+<script>
+    $(function() {
+        $("#main-nav h2").html("רשימת הפרקים:");
+    });
+</script>
