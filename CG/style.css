@@ -38,7 +38,12 @@ pre{
   max-width: 1200px !important;
 }
 
-h1, h2, h3, h4 {
+h4{
+  color: #0c7043;
+  font-size: 1.1rem;
+}
+
+h1, h2, h3 {
   color: #15b06a;
 }
 

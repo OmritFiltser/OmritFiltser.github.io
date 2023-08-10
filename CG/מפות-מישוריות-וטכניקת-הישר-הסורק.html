@@ -10,6 +10,7 @@
 <meta name="generator" content="bookdown 0.34 with bs4_book()">
 <meta property="og:title" content="פרק 2 מפות מישוריות וטכניקת הישר הסורק | גאומטריה חישובית">
 <meta property="og:type" content="book">
+<meta property="og:url" content="https://omrit.filtser.com/CG/מפות-מישוריות-וטכניקת-הישר-הסורק.html">
 <meta property="og:description" content="2.1 הקדמה  2.1.1 שכבות מידע במפה  ביחידה זו נתייחס לבעיות הנוגעות לחיתוכי קטעים במישור. דוגמה אחת לבעיה כזו מופיעה בתחום של מערכות מידע גאוגרפיות (GIS - Graphic Information Systems), כאשר רוצים...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="פרק 2 מפות מישוריות וטכניקת הישר הסורק | גאומטריה חישובית">
@@ -73,7 +74,7 @@
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">לפני שמתחילים</a></li>
+<li><a class="" href="index.html">שלום וברוכים הבאים לקורס בגאומטריה חישובית!</a></li>
 <li><a class="" href="%D7%9E%D7%91%D7%95%D7%90.html"><span class="header-section-number">1</span> מבוא</a></li>
 <li><a class="active" href="%D7%9E%D7%A4%D7%95%D7%AA-%D7%9E%D7%99%D7%A9%D7%95%D7%A8%D7%99%D7%95%D7%AA-%D7%95%D7%98%D7%9B%D7%A0%D7%99%D7%A7%D7%AA-%D7%94%D7%99%D7%A9%D7%A8-%D7%94%D7%A1%D7%95%D7%A8%D7%A7.html"><span class="header-section-number">2</span> מפות מישוריות וטכניקת הישר הסורק</a></li>
 <li><a class="" href="parts.html"><span class="header-section-number">3</span> Parts</a></li>
@@ -139,6 +140,10 @@ intersection). בבעיה זו, הקלט הוא אוסף של קטעים במי�
 <div id="צפו-בסרטון-הבא-2" class="section level4 unnumbered">
 <h4>צפו בסרטון הבא:<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90-2"><i class="fas fa-link"></i></a>
 </h4>
+<p align="center" width="100%">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/x1BxalWtFqk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+</p>
 <p>בטכניקת הישר הסורק, הרעיון הוא “לסרוק” את הקטעים בעזרת ישר אופקי <span class="math inline">\(\ell\)</span>
 הנע מלעלה למטה. ה”<strong>סטטוס</strong>” (status) של הישר הוא אוסף הקטעים הנחתכים עם
 הישר במיקומו הנוכחי. את הסטטוס יש לעדכן בזמן שהישר נע מטה, אך הוא אינו
@@ -305,13 +310,21 @@ intersection). בבעיה זו, הקלט הוא אוסף של קטעים במי�
 <span class="header-section-number">2.3.1</span> יצוג של מפה מישורית<a class="anchor" aria-label="anchor" href="#%D7%99%D7%A6%D7%95%D7%92-%D7%A9%D7%9C-%D7%9E%D7%A4%D7%94-%D7%9E%D7%99%D7%A9%D7%95%D7%A8%D7%99%D7%AA"><i class="fas fa-link"></i></a>
 </h3>
 <div class="inline-figure">
-<img src="images/2/thematic_map.jpg" align="left" width="33%">
-בחלק הקודם פתרנו למעשה את בעיית map overlay עבור המקרה הפשוט ביותר, שבו שתי המפות מיוצגות כאוסף של קטעים. בחלק הזה נדבר על מפות מורכבות יותר, כאלו שמחלקות את המישור לאיזורים (למשל, מפה המייצגת גידולים חקלאיים שונים). אך לפני שנוכל לפתור את בעיית map overlay עבור מפות כאלו, נרצה להבין קודם כיצד בכלל ניתן לייצג ולאחסן מפה כזאת באופן יעיל ונוח לשימוש. זהו בעצם מבנה הנתונים הגאומטרי הראשון שנראה במהלך הקורס, והוא נקרא DCEL (Doubly-Connected Edge List).</div>
+<img src="images/2/thematic_map.jpg" align="left" width="33%"> בחלק
+הקודם פתרנו למעשה את בעיית map overlay עבור המקרה הפשוט ביותר, שבו שתי
+המפות מיוצגות כאוסף של קטעים. בחלק הזה נדבר על מפות מורכבות יותר, כאלו
+שמחלקות את המישור לאיזורים (למשל, מפה המייצגת גידולים חקלאיים שונים). אך
+לפני שנוכל לפתור את בעיית map overlay עבור מפות כאלו, נרצה להבין קודם
+כיצד בכלל ניתן לייצג ולאחסן מפה כזאת באופן יעיל ונוח לשימוש. זהו בעצם
+מבנה הנתונים הגאומטרי הראשון שנראה במהלך הקורס, והוא נקרא DCEL
+(Doubly-Connected Edge List).</div>
 <div id="צפו-בסרטון-הבא-3" class="section level4 unnumbered">
 <h4>צפו בסרטון הבא:<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90-3"><i class="fas fa-link"></i></a>
 </h4>
+<p align="center" width="100%">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/HuT0R9LRR9M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 </iframe>
+</p>
 </div>
 <div id="קראו-את-סעיף-2.2-בספר-עמודים-2933" class="section level4 unnumbered">
 <h4>קראו את סעיף 2.2 בספר (עמודים 29–33)<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-2.2-%D7%91%D7%A1%D7%A4%D7%A8-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-2933"><i class="fas fa-link"></i></a>
@@ -322,14 +335,24 @@ intersection). בבעיה זו, הקלט הוא אוסף של קטעים במי�
 <h3>
 <span class="header-section-number">2.3.2</span> בעיית map overlay<a class="anchor" aria-label="anchor" href="#%D7%91%D7%A2%D7%99%D7%99%D7%AA-map-overlay"><i class="fas fa-link"></i></a>
 </h3>
-<p>לאחר שראינו כיצד ניתן לייצג מפה מישורית, בחלק זה נראה כיצד ניתן לחשב את ה-overlay של שתי מפות מישוריות. ה-overlay הוא הייצוג המאוחד של שתי שכבות מפה כאשר הן מונחות זו על גבי זו.</p>
-<p>בהינתן שתי מפות <span class="math inline">\(\mathcal{S_1}\)</span> ו-<span class="math inline">\(\mathcal{S_2}\)</span> המיוצגות על ידי מבני DCEL, נרצה לחשב מבנה DCEL עבור ה-overlay של <span class="math inline">\(\mathcal{S_1}\)</span> ו-
-<span class="math inline">\(\mathcal{S_1}\)</span>, שמסומן <span class="math inline">\(\mathcal{O}=(\mathcal{S_1},\mathcal{S_2})\)</span>. ה-overlay הוא מפה מישורית, שבה לכל זוג פאות <span class="math inline">\(f_1\)</span> מ-<span class="math inline">\(\mathcal{S_1}\)</span> ו-<span class="math inline">\(f_2\)</span> מ-<span class="math inline">\(\mathcal{S_2}\)</span> שהחיתוך שלהן לא ריק, קיימת פאה <span class="math inline">\(f\)</span> שהיא בדיוק אחד מרכיבי הקשירות של <span class="math inline">\(f_1\cap f_2\)</span>. (שימו לב ש-<span class="math inline">\(f_1\)</span> או <span class="math inline">\(f_2\)</span> יכולות להיות הפאה החיצונית שאינה חסומה). בנוסף, נרצה לסמן את הפאה <span class="math inline">\(f\)</span> בסימונים של הפאות <span class="math inline">\(f_1\)</span> ו-<span class="math inline">\(f_2\)</span>, כמו בדוגמה הבאה:</p>
+<p>לאחר שראינו כיצד ניתן לייצג מפה מישורית, בחלק זה נראה כיצד ניתן לחשב את
+ה-overlay של שתי מפות מישוריות. ה-overlay הוא הייצוג המאוחד של שתי שכבות
+מפה כאשר הן מונחות זו על גבי זו.</p>
+<p>בהינתן שתי מפות <span class="math inline">\(\mathcal{S_1}\)</span> ו-<span class="math inline">\(\mathcal{S_2}\)</span> המיוצגות על ידי מבני
+DCEL, נרצה לחשב מבנה DCEL עבור ה-overlay של <span class="math inline">\(\mathcal{S_1}\)</span> ו-
+<span class="math inline">\(\mathcal{S_1}\)</span>, שמסומן <span class="math inline">\(\mathcal{O}=(\mathcal{S_1},\mathcal{S_2})\)</span>.
+ה-overlay הוא מפה מישורית, שבה לכל זוג פאות <span class="math inline">\(f_1\)</span> מ-<span class="math inline">\(\mathcal{S_1}\)</span>
+ו-<span class="math inline">\(f_2\)</span> מ-<span class="math inline">\(\mathcal{S_2}\)</span> שהחיתוך שלהן לא ריק, קיימת פאה <span class="math inline">\(f\)</span> שהיא בדיוק
+אחד מרכיבי הקשירות של <span class="math inline">\(f_1\cap f_2\)</span>. (שימו לב ש-<span class="math inline">\(f_1\)</span> או <span class="math inline">\(f_2\)</span> יכולות
+להיות הפאה החיצונית שאינה חסומה). בנוסף, נרצה לסמן את הפאה <span class="math inline">\(f\)</span> בסימונים
+של הפאות <span class="math inline">\(f_1\)</span> ו-<span class="math inline">\(f_2\)</span>, כמו בדוגמה הבאה:</p>
 <p align="center" width="100%">
 </p>
 <div class="inline-figure"><img src="images/2/overlay.jpg" width="80%"></div>
 
-<p>בפרק 2.3 של ספר הלימוד מתואר אלגוריתם MapOverlay, המחשב את <span class="math inline">\(\mathcal{O}=(\mathcal{S_1},\mathcal{S_2})\)</span> בשיטת הישר הסורק שראינו קודם.</p>
+<p>בפרק 2.3 של ספר הלימוד מתואר אלגוריתם MapOverlay, המחשב את
+<span class="math inline">\(\mathcal{O}=(\mathcal{S_1},\mathcal{S_2})\)</span> בשיטת הישר הסורק שראינו
+קודם.</p>
 <div id="קראו-את-סעיף-2.3-בספר-עמודים-3339" class="section level4 unnumbered">
 <h4>קראו את סעיף 2.3 בספר (עמודים 33–39)<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-2.3-%D7%91%D7%A1%D7%A4%D7%A8-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-3339"><i class="fas fa-link"></i></a>
 </h4>
@@ -339,7 +362,13 @@ intersection). בבעיה זו, הקלט הוא אוסף של קטעים במי�
 <h3>
 <span class="header-section-number">2.3.3</span> פעולות בוליאניות<a class="anchor" aria-label="anchor" href="#%D7%A4%D7%A2%D7%95%D7%9C%D7%95%D7%AA-%D7%91%D7%95%D7%9C%D7%99%D7%90%D7%A0%D7%99%D7%95%D7%AA"><i class="fas fa-link"></i></a>
 </h3>
-<p>אלגוריתם MapOverlay הוא כלי חזק ושימושי במגוון של בעיות. בסעיף 2.4 של ספר הלימוד מופיעה דוגמה אחת לכך: חישוב של פעולות בוליאניות על שני פוליגונים. בהינתן שני פוליגונים <span class="math inline">\(P_1,P_2\)</span>, האלגוריתם מאפשר לנו לחשב את האיחוד, החיתוך, וההפרש שלהם. הרעיון הוא שלאחר חישוב ה-overlay, לכל פאה בייצוג המאוחד יש תווית שקובעת האם פאה זו שייכת ל-<span class="math inline">\(P_1\)</span>, ל-<span class="math inline">\(P_2\)</span>, או לשניהם. לכן בעזרת התוויות נוכל להחליט עבור כל פאה האם היא נמצאת באיחוד, בחיתוך, או בהפרש.</p>
+<p>אלגוריתם MapOverlay הוא כלי חזק ושימושי במגוון של בעיות. בסעיף 2.4 של
+ספר הלימוד מופיעה דוגמה אחת לכך: חישוב של פעולות בוליאניות על שני
+פוליגונים. בהינתן שני פוליגונים <span class="math inline">\(P_1,P_2\)</span>, האלגוריתם מאפשר לנו לחשב את
+האיחוד, החיתוך, וההפרש שלהם. הרעיון הוא שלאחר חישוב ה-overlay, לכל פאה
+בייצוג המאוחד יש תווית שקובעת האם פאה זו שייכת ל-<span class="math inline">\(P_1\)</span>, ל-<span class="math inline">\(P_2\)</span>, או
+לשניהם. לכן בעזרת התוויות נוכל להחליט עבור כל פאה האם היא נמצאת באיחוד,
+בחיתוך, או בהפרש.</p>
 <div id="קראו-את-סעיף-2.4-בספר-הלימוד-עמודים-3940" class="section level4 unnumbered">
 <h4>קראו את סעיף 2.4 בספר הלימוד (עמודים 39–40)<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-2.4-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-3940"><i class="fas fa-link"></i></a>
 </h4>
