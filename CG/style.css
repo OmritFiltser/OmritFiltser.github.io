@@ -62,6 +62,10 @@ h1, h2, h3 {
   display: none;
 }
 
-#search {
-  direction: rtl;
+#book-edit {
+  display: none;
+}
+
+#book-source {
+  display: none;
 }
