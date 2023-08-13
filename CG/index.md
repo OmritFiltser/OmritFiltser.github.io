@@ -1,7 +1,7 @@
 --- 
 title: "גאומטריה חישובית"
 author: "עומרית פילצר"
-date: "2023-08-10"
+date: "2023-08-13"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]

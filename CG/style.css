@@ -57,3 +57,11 @@ h1, h2, h3 {
 .inline-figure {
   border: none !important;
 }
+
+#book-repo {
+  display: none;
+}
+
+#search {
+  direction: rtl;
+}

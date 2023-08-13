@@ -33,6 +33,16 @@ tab:nice-tab
 בעיית-הגלריה-לאמנות
 מודל-גאומטרי-לבעיה
 מהו-המקרה-הגרוע-ביותר
+שמירה-ושילושים
+חלוקה-בעזרת-אלכסונים
+שילוש-של-פוליגונים
+הגרף-הדואלי-לשילוש
+משפט-הגלריה-לאמנות
+לחזרה-קריאה-בספר-הלימוד
+אלגוריתם-לשילוש-של-פוליגון
+איך-נחשב-שילוש
+חלוקה-לפוליגונים-מונוטוניים
+שילוש-של-פוליגון-מונוטוני
 footnotes-and-citations
 footnotes
 citations
@@ -47,3 +57,4 @@ sharing-your-book
 publishing
 pages
 metadata-for-sharing
+cover-image-path-to-the-social-sharing-image-like-imagescover.jpg
