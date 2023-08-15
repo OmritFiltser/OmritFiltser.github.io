@@ -1,4 +1,4 @@
-# מבוא
+# מבוא 
 
 ## הקדמה
 
@@ -65,9 +65,7 @@
 #### כלים מומלצים לשימוש בקורס. {.unnumbered}
 
 -   [**Ipe**](https://ipe.otfried.org/)- כלי חינמי מצוין לציורים גאומטריים שפותח ע"י Otfried Cheong, חוקר בגאומטריה חישובית. מדריך מצוין לכלי זה ניתן למצוא [**כאן**](https://www.youtube.com/watch?v=moM4CATxTgw&ab_channel=V%C3%A1clavBla%C5%BEej).
-
 -   [**Geogebra**](https://www.geogebra.org/geometry)- כלי ליצירת אובייקטים גאומטריים אינטראקטיביים.
-
 -   [**CGAL**](https://www.cgal.org/) - ספריית C++ המכילה מגוון של אלגוריתמים ומבני נתונים גאומטריים.
 
 #### הרצאות מוקלטות וחומרי לימוד נוספים {.unnumbered}
@@ -75,9 +73,7 @@
 למעוניינים בכך, ניתן למצוא חומרי לימוד מצויינים מקורסים דומים הניתנים ברחבי העולם. הנה רשימה חלקית ביותר של הבולטים שבהם:
 
 -   [**CMSC 754 Computational Geometry**](http://www.cs.umd.edu/class/spring2020/cmsc754/Lects/cmsc754-spring2020-lects.pdf), by David M. Mount.
-
 -   [**Geometry: Combinatorics and Algorithms**](https://geometry.inf.ethz.ch/gca18.pdf), by Luis Barba Bernd Gärtner, Michael Hoffmann and Emo Welzl.
-
 -   [**Computational Geometry**](https://www.youtube.com/@PhilippKindermann/playlists?view=50&sort=dd&shelf_id=2), video lectures by Philipp Kindermann.
 
 <hr class="mt-5 mb-5">
