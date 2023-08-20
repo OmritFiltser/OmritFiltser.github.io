@@ -69,3 +69,9 @@ h1, h2, h3 {
 #book-source {
   display: none;
 }
+
+nav[data-toggle="toc"] .nav a.nav-link.active,
+nav[data-toggle="toc"] .nav .nav-link.active > li > a {
+  background-color: #fff;
+  font-weight: bold;
+}

@@ -10,7 +10,7 @@
 <meta name="generator" content="bookdown 0.34 with bs4_book()">
 <meta property="og:title" content="פרק 2 מפות מישוריות וטכניקת הישר הסורק | גאומטריה חישובית">
 <meta property="og:type" content="book">
-<meta property="og:url" content="https://omrit.filtser.com/CG/מפות-מישוריות-וטכניקת-הישר-הסורק.html">
+<meta property="og:url" content="https://omrit.filtser.com/CG/map-overlay.html">
 <meta property="og:description" content="2.1 הקדמה  2.1.1 שכבות מידע במפה  ביחידה זו נתייחס לבעיות הנוגעות לחיתוכי קטעים במישור. דוגמה אחת לבעיה כזו מופיעה בתחום של מערכות מידע גאוגרפיות (GIS - Graphic Information Systems), כאשר רוצים...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="פרק 2 מפות מישוריות וטכניקת הישר הסורק | גאומטריה חישובית">
@@ -28,7 +28,7 @@
 
 <div class="container-fluid">
 <div class="row no-pad">
-  <header class="col-sm-12 col-lg-2 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+  <header class="col-sm-12 col-lg-2 sidebar sidebar-book border-left"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
@@ -46,9 +46,11 @@
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">לפני שמתחילים</a></li>
 <li><a class="" href="intro.html"><span class="header-section-number">1</span> מבוא</a></li>
-<li><a class="active" href="%D7%9E%D7%A4%D7%95%D7%AA-%D7%9E%D7%99%D7%A9%D7%95%D7%A8%D7%99%D7%95%D7%AA-%D7%95%D7%98%D7%9B%D7%A0%D7%99%D7%A7%D7%AA-%D7%94%D7%99%D7%A9%D7%A8-%D7%94%D7%A1%D7%95%D7%A8%D7%A7.html"><span class="header-section-number">2</span> מפות מישוריות וטכניקת הישר הסורק</a></li>
-<li><a class="" href="%D7%A9%D7%99%D7%9C%D7%95%D7%A9%D7%99-%D7%A4%D7%95%D7%9C%D7%99%D7%92%D7%95%D7%A0%D7%99%D7%9D-%D7%95%D7%91%D7%A2%D7%99%D7%99%D7%AA-%D7%94%D7%92%D7%9C%D7%A8%D7%99%D7%94-%D7%9C%D7%90%D7%9E%D7%A0%D7%95%D7%AA.html"><span class="header-section-number">3</span> שילושי פוליגונים ובעיית הגלריה לאמנות</a></li>
+<li><a class="active" href="map-overlay.html"><span class="header-section-number">2</span> מפות מישוריות וטכניקת הישר הסורק</a></li>
+<li><a class="" href="pol-tringle.html"><span class="header-section-number">3</span> שילושי פוליגונים ובעיית הגלריה לאמנות</a></li>
 <li><a class="" href="%D7%AA%D7%9B%D7%A0%D7%95%D7%9F-%D7%9C%D7%99%D7%A0%D7%99%D7%90%D7%A8%D7%99-%D7%95%D7%97%D7%99%D7%AA%D7%95%D7%9A-%D7%A9%D7%9C-%D7%97%D7%A6%D7%90%D7%99-%D7%9E%D7%99%D7%A9%D7%95%D7%A8%D7%99%D7%9D.html"><span class="header-section-number">4</span> תכנון ליניארי וחיתוך של חצאי מישורים</a></li>
+<li><a class="" href="orthogonal-range-seach.html"><span class="header-section-number">5</span> חיפוש בתחומים אורתוגונלים</a></li>
+<li><a class="" href="point-location.html"><span class="header-section-number">6</span> מיקום נקודה ומפה טרפזית</a></li>
 </ul>
 
         <div class="book-extra">
@@ -56,17 +58,17 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7 border-right" id="content"><div id="מפות-מישוריות-וטכניקת-הישר-הסורק" class="section level1" number="2">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="map-overlay" class="section level1" number="2">
 <h1>
-<span class="header-section-number">פרק 2</span> מפות מישוריות וטכניקת הישר הסורק<a class="anchor" aria-label="anchor" href="#%D7%9E%D7%A4%D7%95%D7%AA-%D7%9E%D7%99%D7%A9%D7%95%D7%A8%D7%99%D7%95%D7%AA-%D7%95%D7%98%D7%9B%D7%A0%D7%99%D7%A7%D7%AA-%D7%94%D7%99%D7%A9%D7%A8-%D7%94%D7%A1%D7%95%D7%A8%D7%A7"><i class="fas fa-link"></i></a>
+<span class="header-section-number">פרק 2</span> מפות מישוריות וטכניקת הישר הסורק<a class="anchor" aria-label="anchor" href="#map-overlay"><i class="fas fa-link"></i></a>
 </h1>
-<div id="הקדמה" class="section level2" number="2.1">
+<div id="preface" class="section level2" number="2.1">
 <h2>
-<span class="header-section-number">2.1</span> הקדמה<a class="anchor" aria-label="anchor" href="#%D7%94%D7%A7%D7%93%D7%9E%D7%94"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.1</span> הקדמה<a class="anchor" aria-label="anchor" href="#preface"><i class="fas fa-link"></i></a>
 </h2>
-<div id="שכבות-מידע-במפה" class="section level3" number="2.1.1">
+<div id="them-map" class="section level3" number="2.1.1">
 <h3>
-<span class="header-section-number">2.1.1</span> שכבות מידע במפה<a class="anchor" aria-label="anchor" href="#%D7%A9%D7%9B%D7%91%D7%95%D7%AA-%D7%9E%D7%99%D7%93%D7%A2-%D7%91%D7%9E%D7%A4%D7%94"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.1.1</span> שכבות מידע במפה<a class="anchor" aria-label="anchor" href="#them-map"><i class="fas fa-link"></i></a>
 </h3>
 <div class="inline-figure">
 <img src="images/2/gis_map_overlay.jpg" align="left" width="33%">
@@ -90,13 +92,13 @@ Systems), כאשר רוצים להציג ולנתח שכבות מידע ממספ
 </div>
 </div>
 </div>
-<div id="טכניקת-הישר-הסורק" class="section level2" number="2.2">
+<div id="sweep-line" class="section level2" number="2.2">
 <h2>
-<span class="header-section-number">2.2</span> טכניקת הישר הסורק<a class="anchor" aria-label="anchor" href="#%D7%98%D7%9B%D7%A0%D7%99%D7%A7%D7%AA-%D7%94%D7%99%D7%A9%D7%A8-%D7%94%D7%A1%D7%95%D7%A8%D7%A7"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.2</span> טכניקת הישר הסורק<a class="anchor" aria-label="anchor" href="#sweep-line"><i class="fas fa-link"></i></a>
 </h2>
-<div id="חיתוך-קטעים-במישור" class="section level3" number="2.2.1">
+<div id="line-int" class="section level3" number="2.2.1">
 <h3>
-<span class="header-section-number">2.2.1</span> חיתוך קטעים במישור<a class="anchor" aria-label="anchor" href="#%D7%97%D7%99%D7%AA%D7%95%D7%9A-%D7%A7%D7%98%D7%A2%D7%99%D7%9D-%D7%91%D7%9E%D7%99%D7%A9%D7%95%D7%A8"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.2.1</span> חיתוך קטעים במישור<a class="anchor" aria-label="anchor" href="#line-int"><i class="fas fa-link"></i></a>
 </h3>
 <p>טכניקת הישר הסורק (sweep-line) היא חשובה ושימושית מאוד בגאומטריה
 חישובית. כדי להדגים את השימוש בטכניקה הזו, ולפני שנדבר על מפות מישוריות,
@@ -137,9 +139,9 @@ intersection). בבעיה זו, הקלט הוא אוסף של קטעים במי�
 </div>
 </div>
 </div>
-<div id="טכניקת-הישר-הסורק---מימוש" class="section level3" number="2.2.2">
+<div id="line-sweep-impl" class="section level3" number="2.2.2">
 <h3>
-<span class="header-section-number">2.2.2</span> טכניקת הישר הסורק - מימוש<a class="anchor" aria-label="anchor" href="#%D7%98%D7%9B%D7%A0%D7%99%D7%A7%D7%AA-%D7%94%D7%99%D7%A9%D7%A8-%D7%94%D7%A1%D7%95%D7%A8%D7%A7---%D7%9E%D7%99%D7%9E%D7%95%D7%A9"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.2.2</span> טכניקת הישר הסורק - מימוש<a class="anchor" aria-label="anchor" href="#line-sweep-impl"><i class="fas fa-link"></i></a>
 </h3>
 <p>בסעיף הקודם ראינו סקיצה של אלגוריתם המשתמש בטכניקת הישר הסורק, והסברנו
 באופן אינטואיטיבי מדוע גישה כזו תתן לנו אלגוריתם יעיל שהוא רגיש לפלט,
@@ -176,9 +178,9 @@ intersection). בבעיה זו, הקלט הוא אוסף של קטעים במי�
 </div>
 </div>
 </div>
-<div id="כיצד-נבדוק-האם-זוג-קטעים-נחתכים" class="section level3" number="2.2.3">
+<div id="check-line-int" class="section level3" number="2.2.3">
 <h3>
-<span class="header-section-number">2.2.3</span> כיצד נבדוק האם זוג קטעים נחתכים?<a class="anchor" aria-label="anchor" href="#%D7%9B%D7%99%D7%A6%D7%93-%D7%A0%D7%91%D7%93%D7%95%D7%A7-%D7%94%D7%90%D7%9D-%D7%96%D7%95%D7%92-%D7%A7%D7%98%D7%A2%D7%99%D7%9D-%D7%A0%D7%97%D7%AA%D7%9B%D7%99%D7%9D"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.2.3</span> כיצד נבדוק האם זוג קטעים נחתכים?<a class="anchor" aria-label="anchor" href="#check-line-int"><i class="fas fa-link"></i></a>
 </h3>
 <p>במהלך האלגוריתם הסורק שראינו קודם, אנו נדרשים למצוא את נקודת החיתוך בין
 שני קטעים נתונים. בהינתן שני קטעים, <span class="math inline">\(S=\overline{pq}\)</span> ו-
@@ -274,13 +276,13 @@ intersection). בבעיה זו, הקלט הוא אוסף של קטעים במי�
 </div>
 </div>
 </div>
-<div id="מבנה-dcel" class="section level2" number="2.3">
+<div id="dcel" class="section level2" number="2.3">
 <h2>
-<span class="header-section-number">2.3</span> מבנה DCEL<a class="anchor" aria-label="anchor" href="#%D7%9E%D7%91%D7%A0%D7%94-dcel"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.3</span> מבנה DCEL<a class="anchor" aria-label="anchor" href="#dcel"><i class="fas fa-link"></i></a>
 </h2>
-<div id="יצוג-של-מפה-מישורית" class="section level3" number="2.3.1">
+<div id="plan-map" class="section level3" number="2.3.1">
 <h3>
-<span class="header-section-number">2.3.1</span> יצוג של מפה מישורית<a class="anchor" aria-label="anchor" href="#%D7%99%D7%A6%D7%95%D7%92-%D7%A9%D7%9C-%D7%9E%D7%A4%D7%94-%D7%9E%D7%99%D7%A9%D7%95%D7%A8%D7%99%D7%AA"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.3.1</span> יצוג של מפה מישורית<a class="anchor" aria-label="anchor" href="#plan-map"><i class="fas fa-link"></i></a>
 </h3>
 <div class="inline-figure">
 <img src="images/2/thematic_map.jpg" align="left" width="33%"> בחלק
@@ -304,9 +306,9 @@ intersection). בבעיה זו, הקלט הוא אוסף של קטעים במי�
 </h4>
 </div>
 </div>
-<div id="בעיית-map-overlay" class="section level3" number="2.3.2">
+<div id="problem-def" class="section level3" number="2.3.2">
 <h3>
-<span class="header-section-number">2.3.2</span> בעיית map overlay<a class="anchor" aria-label="anchor" href="#%D7%91%D7%A2%D7%99%D7%99%D7%AA-map-overlay"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.3.2</span> בעיית map overlay<a class="anchor" aria-label="anchor" href="#problem-def"><i class="fas fa-link"></i></a>
 </h3>
 <p>לאחר שראינו כיצד ניתן לייצג מפה מישורית, בחלק זה נראה כיצד ניתן לחשב את
 ה-overlay של שתי מפות מישוריות. ה-overlay הוא הייצוג המאוחד של שתי שכבות
@@ -331,9 +333,9 @@ DCEL, נרצה לחשב מבנה DCEL עבור ה-overlay של <span class="math
 </h4>
 </div>
 </div>
-<div id="פעולות-בוליאניות" class="section level3" number="2.3.3">
+<div id="bool-op" class="section level3" number="2.3.3">
 <h3>
-<span class="header-section-number">2.3.3</span> פעולות בוליאניות<a class="anchor" aria-label="anchor" href="#%D7%A4%D7%A2%D7%95%D7%9C%D7%95%D7%AA-%D7%91%D7%95%D7%9C%D7%99%D7%90%D7%A0%D7%99%D7%95%D7%AA"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.3.3</span> פעולות בוליאניות<a class="anchor" aria-label="anchor" href="#bool-op"><i class="fas fa-link"></i></a>
 </h3>
 <p>אלגוריתם MapOverlay הוא כלי חזק ושימושי במגוון של בעיות. בסעיף 2.4 של
 ספר הלימוד מופיעה דוגמה אחת לכך: חישוב של פעולות בוליאניות על שני
@@ -352,26 +354,26 @@ DCEL, נרצה לחשב מבנה DCEL עבור ה-overlay של <span class="math
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="intro.html"><span class="header-section-number">1</span> מבוא</a></div>
-<div class="next"><a href="%D7%A9%D7%99%D7%9C%D7%95%D7%A9%D7%99-%D7%A4%D7%95%D7%9C%D7%99%D7%92%D7%95%D7%A0%D7%99%D7%9D-%D7%95%D7%91%D7%A2%D7%99%D7%99%D7%AA-%D7%94%D7%92%D7%9C%D7%A8%D7%99%D7%94-%D7%9C%D7%90%D7%9E%D7%A0%D7%95%D7%AA.html"><span class="header-section-number">3</span> שילושי פוליגונים ובעיית הגלריה לאמנות</a></div>
+<div class="next"><a href="pol-tringle.html"><span class="header-section-number">3</span> שילושי פוליגונים ובעיית הגלריה לאמנות</a></div>
 </div></main><div class="col-md-3 col-lg-3 d-none d-md-block sidebar sidebar-chapter border-right">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>בפרק זה:</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#%D7%9E%D7%A4%D7%95%D7%AA-%D7%9E%D7%99%D7%A9%D7%95%D7%A8%D7%99%D7%95%D7%AA-%D7%95%D7%98%D7%9B%D7%A0%D7%99%D7%A7%D7%AA-%D7%94%D7%99%D7%A9%D7%A8-%D7%94%D7%A1%D7%95%D7%A8%D7%A7"><span class="header-section-number">2</span> מפות מישוריות וטכניקת הישר הסורק</a></li>
+<li><a class="nav-link" href="#map-overlay"><span class="header-section-number">2</span> מפות מישוריות וטכניקת הישר הסורק</a></li>
 <li>
-<a class="nav-link" href="#%D7%94%D7%A7%D7%93%D7%9E%D7%94"><span class="header-section-number">2.1</span> הקדמה</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#%D7%A9%D7%9B%D7%91%D7%95%D7%AA-%D7%9E%D7%99%D7%93%D7%A2-%D7%91%D7%9E%D7%A4%D7%94"><span class="header-section-number">2.1.1</span> שכבות מידע במפה</a></li></ul>
+<a class="nav-link" href="#preface"><span class="header-section-number">2.1</span> הקדמה</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#them-map"><span class="header-section-number">2.1.1</span> שכבות מידע במפה</a></li></ul>
 </li>
 <li>
-<a class="nav-link" href="#%D7%98%D7%9B%D7%A0%D7%99%D7%A7%D7%AA-%D7%94%D7%99%D7%A9%D7%A8-%D7%94%D7%A1%D7%95%D7%A8%D7%A7"><span class="header-section-number">2.2</span> טכניקת הישר הסורק</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#%D7%97%D7%99%D7%AA%D7%95%D7%9A-%D7%A7%D7%98%D7%A2%D7%99%D7%9D-%D7%91%D7%9E%D7%99%D7%A9%D7%95%D7%A8"><span class="header-section-number">2.2.1</span> חיתוך קטעים במישור</a></li>
-<li><a class="nav-link" href="#%D7%98%D7%9B%D7%A0%D7%99%D7%A7%D7%AA-%D7%94%D7%99%D7%A9%D7%A8-%D7%94%D7%A1%D7%95%D7%A8%D7%A7---%D7%9E%D7%99%D7%9E%D7%95%D7%A9"><span class="header-section-number">2.2.2</span> טכניקת הישר הסורק - מימוש</a></li>
-<li><a class="nav-link" href="#%D7%9B%D7%99%D7%A6%D7%93-%D7%A0%D7%91%D7%93%D7%95%D7%A7-%D7%94%D7%90%D7%9D-%D7%96%D7%95%D7%92-%D7%A7%D7%98%D7%A2%D7%99%D7%9D-%D7%A0%D7%97%D7%AA%D7%9B%D7%99%D7%9D"><span class="header-section-number">2.2.3</span> כיצד נבדוק האם זוג קטעים נחתכים?</a></li>
+<a class="nav-link" href="#sweep-line"><span class="header-section-number">2.2</span> טכניקת הישר הסורק</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#line-int"><span class="header-section-number">2.2.1</span> חיתוך קטעים במישור</a></li>
+<li><a class="nav-link" href="#line-sweep-impl"><span class="header-section-number">2.2.2</span> טכניקת הישר הסורק - מימוש</a></li>
+<li><a class="nav-link" href="#check-line-int"><span class="header-section-number">2.2.3</span> כיצד נבדוק האם זוג קטעים נחתכים?</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#%D7%9E%D7%91%D7%A0%D7%94-dcel"><span class="header-section-number">2.3</span> מבנה DCEL</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#%D7%99%D7%A6%D7%95%D7%92-%D7%A9%D7%9C-%D7%9E%D7%A4%D7%94-%D7%9E%D7%99%D7%A9%D7%95%D7%A8%D7%99%D7%AA"><span class="header-section-number">2.3.1</span> יצוג של מפה מישורית</a></li>
-<li><a class="nav-link" href="#%D7%91%D7%A2%D7%99%D7%99%D7%AA-map-overlay"><span class="header-section-number">2.3.2</span> בעיית map overlay</a></li>
-<li><a class="nav-link" href="#%D7%A4%D7%A2%D7%95%D7%9C%D7%95%D7%AA-%D7%91%D7%95%D7%9C%D7%99%D7%90%D7%A0%D7%99%D7%95%D7%AA"><span class="header-section-number">2.3.3</span> פעולות בוליאניות</a></li>
+<a class="nav-link" href="#dcel"><span class="header-section-number">2.3</span> מבנה DCEL</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#plan-map"><span class="header-section-number">2.3.1</span> יצוג של מפה מישורית</a></li>
+<li><a class="nav-link" href="#problem-def"><span class="header-section-number">2.3.2</span> בעיית map overlay</a></li>
+<li><a class="nav-link" href="#bool-op"><span class="header-section-number">2.3.3</span> פעולות בוליאניות</a></li>
 </ul>
 </li>
 </ul>
@@ -390,7 +392,7 @@ DCEL, נרצה לחשב מבנה DCEL עבור ה-overlay של <span class="math
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>גאומטריה חישובית</strong>" was written by עומרית פילצר. It was last built on 2023-08-16.</p>
+    <p>"<strong>גאומטריה חישובית</strong>" was written by עומרית פילצר. It was last built on 2023-08-20.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

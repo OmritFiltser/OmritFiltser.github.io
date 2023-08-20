@@ -28,7 +28,7 @@
 
 <div class="container-fluid">
 <div class="row no-pad">
-  <header class="col-sm-12 col-lg-2 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+  <header class="col-sm-12 col-lg-2 sidebar sidebar-book border-left"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
@@ -45,10 +45,12 @@
       <nav aria-label="Table of contents"><h2>רשימת הפרקים:</h2>
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">לפני שמתחילים</a></li>
-<li><a class="" href="%D7%9E%D7%91%D7%95%D7%90.html"><span class="header-section-number">1</span> מבוא</a></li>
-<li><a class="" href="%D7%9E%D7%A4%D7%95%D7%AA-%D7%9E%D7%99%D7%A9%D7%95%D7%A8%D7%99%D7%95%D7%AA-%D7%95%D7%98%D7%9B%D7%A0%D7%99%D7%A7%D7%AA-%D7%94%D7%99%D7%A9%D7%A8-%D7%94%D7%A1%D7%95%D7%A8%D7%A7.html"><span class="header-section-number">2</span> מפות מישוריות וטכניקת הישר הסורק</a></li>
-<li><a class="" href="%D7%A9%D7%99%D7%9C%D7%95%D7%A9%D7%99-%D7%A4%D7%95%D7%9C%D7%99%D7%92%D7%95%D7%A0%D7%99%D7%9D-%D7%95%D7%91%D7%A2%D7%99%D7%99%D7%AA-%D7%94%D7%92%D7%9C%D7%A8%D7%99%D7%94-%D7%9C%D7%90%D7%9E%D7%A0%D7%95%D7%AA.html"><span class="header-section-number">3</span> שילושי פוליגונים ובעיית הגלריה לאמנות</a></li>
+<li><a class="" href="intro.html"><span class="header-section-number">1</span> מבוא</a></li>
+<li><a class="" href="map-overlay.html"><span class="header-section-number">2</span> מפות מישוריות וטכניקת הישר הסורק</a></li>
+<li><a class="" href="pol-tringle.html"><span class="header-section-number">3</span> שילושי פוליגונים ובעיית הגלריה לאמנות</a></li>
 <li><a class="active" href="%D7%AA%D7%9B%D7%A0%D7%95%D7%9F-%D7%9C%D7%99%D7%A0%D7%99%D7%90%D7%A8%D7%99-%D7%95%D7%97%D7%99%D7%AA%D7%95%D7%9A-%D7%A9%D7%9C-%D7%97%D7%A6%D7%90%D7%99-%D7%9E%D7%99%D7%A9%D7%95%D7%A8%D7%99%D7%9D.html"><span class="header-section-number">4</span> תכנון ליניארי וחיתוך של חצאי מישורים</a></li>
+<li><a class="" href="orthogonal-range-seach.html"><span class="header-section-number">5</span> חיפוש בתחומים אורתוגונלים</a></li>
+<li><a class="" href="point-location.html"><span class="header-section-number">6</span> מיקום נקודה ומפה טרפזית</a></li>
 </ul>
 
         <div class="book-extra">
@@ -56,13 +58,13 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7 border-right" id="content"><div id="תכנון-ליניארי-וחיתוך-של-חצאי-מישורים" class="section level1" number="4">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="תכנון-ליניארי-וחיתוך-של-חצאי-מישורים" class="section level1" number="4">
 <h1>
 <span class="header-section-number">פרק 4</span> תכנון ליניארי וחיתוך של חצאי מישורים<a class="anchor" aria-label="anchor" href="#%D7%AA%D7%9B%D7%A0%D7%95%D7%9F-%D7%9C%D7%99%D7%A0%D7%99%D7%90%D7%A8%D7%99-%D7%95%D7%97%D7%99%D7%AA%D7%95%D7%9A-%D7%A9%D7%9C-%D7%97%D7%A6%D7%90%D7%99-%D7%9E%D7%99%D7%A9%D7%95%D7%A8%D7%99%D7%9D"><i class="fas fa-link"></i></a>
 </h1>
-<div id="הקדמה-3" class="section level2" number="4.1">
+<div id="הקדמה" class="section level2" number="4.1">
 <h2>
-<span class="header-section-number">4.1</span> הקדמה<a class="anchor" aria-label="anchor" href="#%D7%94%D7%A7%D7%93%D7%9E%D7%94-3"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.1</span> הקדמה<a class="anchor" aria-label="anchor" href="#%D7%94%D7%A7%D7%93%D7%9E%D7%94"><i class="fas fa-link"></i></a>
 </h2>
 <div id="בעיית-הייצור-באמצעות-תבניות" class="section level3" number="4.1.1">
 <h3>
@@ -74,9 +76,9 @@
 </h4>
 </div>
 </div>
-<div id="מודל-גאומטרי-לבעיה-1" class="section level3" number="4.1.2">
+<div id="מודל-גאומטרי-לבעיה" class="section level3" number="4.1.2">
 <h3>
-<span class="header-section-number">4.1.2</span> מודל גאומטרי לבעיה<a class="anchor" aria-label="anchor" href="#%D7%9E%D7%95%D7%93%D7%9C-%D7%92%D7%90%D7%95%D7%9E%D7%98%D7%A8%D7%99-%D7%9C%D7%91%D7%A2%D7%99%D7%94-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.1.2</span> מודל גאומטרי לבעיה<a class="anchor" aria-label="anchor" href="#%D7%9E%D7%95%D7%93%D7%9C-%D7%92%D7%90%D7%95%D7%9E%D7%98%D7%A8%D7%99-%D7%9C%D7%91%D7%A2%D7%99%D7%94"><i class="fas fa-link"></i></a>
 </h3>
 <p><img src="images/4/mold.jpg" align="left" width="25%"> בהינתן פוליהדרון <span class="math inline">\(P\)</span> בעל <span class="math inline">\(n\)</span> פאות שהן פוליגונים, נרצה לתכנן תבנית שתאפשר לנו לייצר את <span class="math inline">\(P\)</span>. כדי שנוכל לחלץ את <span class="math inline">\(P\)</span> מהתבנית על ידי משיכה בכיוון אחד, נדרוש שבדיוק אחת מהפאות של <span class="math inline">\(P\)</span> תהיה מוכלת בפאה העליונה של התבנית. התבנית חייבת להתאים לצורה של <span class="math inline">\(P\)</span>, אבל את הפאה העליונה נוכל לבחור מתוך <span class="math inline">\(n\)</span> הפאות של <span class="math inline">\(P\)</span>, ולכן יש לכל היותר <span class="math inline">\(n\)</span> תבניות אפשרויות. כמובן שלא כל תבנית תאפשר לנו לחלץ את <span class="math inline">\(P\)</span>.</p>
 <div class="rmdwarning">
@@ -178,9 +180,9 @@
 </h4>
 </div>
 </div>
-<div id="אלגוריתם-אינקרמנטלי-1" class="section level3" number="4.3.2">
+<div id="אלגוריתם-אינקרמנטלי" class="section level3" number="4.3.2">
 <h3>
-<span class="header-section-number">4.3.2</span> אלגוריתם אינקרמנטלי<a class="anchor" aria-label="anchor" href="#%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D-%D7%90%D7%99%D7%A0%D7%A7%D7%A8%D7%9E%D7%A0%D7%98%D7%9C%D7%99-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.3.2</span> אלגוריתם אינקרמנטלי<a class="anchor" aria-label="anchor" href="#%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D-%D7%90%D7%99%D7%A0%D7%A7%D7%A8%D7%9E%D7%A0%D7%98%D7%9C%D7%99"><i class="fas fa-link"></i></a>
 </h3>
 <p>בחלקו השני של סעיף 4.3 בספר הלימוד מתואר אלגוריתם אינקרמנטלי בשם 2DBoundedLP, לפתרון של תוכנית לינארית בשני מימדים. האלגוריתם פועל תחת ההנחה שהתוכנית הלינארית חסומה. לכן, בשלב הזה נניח כי ניתן למצוא ולהוסיף לתוכנית הלינארית שני חצאי מישורים <span class="math inline">\(m_1, m_2\)</span>, שיגרמו לכך שהתוכנית תהיה חסומה בכיוון <span class="math inline">\(\overrightarrow{c}\)</span>, אך לא ישנו את הפתרון האופטימלי במקרה שבו התוכנית חסומה. בהמשך נראה כיצד להימנע מהנחה זו ולקבוע מראש האם התוכנית חסומה או לא.</p>
 <p>האלגוריתם האינקרמנטלי מתחיל מפתרון עבור <span class="math inline">\(C_0 = m_1 \cap m_2\)</span>, ואז מוסיף את יתר חצאי המישורים <span class="math inline">\(h_1, \dots, h_n\)</span> לפי הסדר. בשלב ה-<span class="math inline">\(i\)</span>, האלגוריתם ימצא קודקוד v_i שהוא הנקודה שממקסמת את פונקציית המטרה בחיתוך <span class="math inline">\(C_i = m_1 \cap m_2 \cap h_1 \cap h_2 \cap \dots \cap h_i\)</span>. הרעיון הוא שבכל שלב מצמצמים את התחום הפיזיבילי, ויש שתי אפשרויות עבור <span class="math inline">\(v_i\)</span>:</p>
@@ -248,16 +250,16 @@
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="%D7%A9%D7%99%D7%9C%D7%95%D7%A9%D7%99-%D7%A4%D7%95%D7%9C%D7%99%D7%92%D7%95%D7%A0%D7%99%D7%9D-%D7%95%D7%91%D7%A2%D7%99%D7%99%D7%AA-%D7%94%D7%92%D7%9C%D7%A8%D7%99%D7%94-%D7%9C%D7%90%D7%9E%D7%A0%D7%95%D7%AA.html"><span class="header-section-number">3</span> שילושי פוליגונים ובעיית הגלריה לאמנות</a></div>
-<div class="empty"></div>
+<div class="prev"><a href="pol-tringle.html"><span class="header-section-number">3</span> שילושי פוליגונים ובעיית הגלריה לאמנות</a></div>
+<div class="next"><a href="orthogonal-range-seach.html"><span class="header-section-number">5</span> חיפוש בתחומים אורתוגונלים</a></div>
 </div></main><div class="col-md-3 col-lg-3 d-none d-md-block sidebar sidebar-chapter border-right">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>בפרק זה:</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#%D7%AA%D7%9B%D7%A0%D7%95%D7%9F-%D7%9C%D7%99%D7%A0%D7%99%D7%90%D7%A8%D7%99-%D7%95%D7%97%D7%99%D7%AA%D7%95%D7%9A-%D7%A9%D7%9C-%D7%97%D7%A6%D7%90%D7%99-%D7%9E%D7%99%D7%A9%D7%95%D7%A8%D7%99%D7%9D"><span class="header-section-number">4</span> תכנון ליניארי וחיתוך של חצאי מישורים</a></li>
 <li>
-<a class="nav-link" href="#%D7%94%D7%A7%D7%93%D7%9E%D7%94-3"><span class="header-section-number">4.1</span> הקדמה</a><ul class="nav navbar-nav">
+<a class="nav-link" href="#%D7%94%D7%A7%D7%93%D7%9E%D7%94"><span class="header-section-number">4.1</span> הקדמה</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#%D7%91%D7%A2%D7%99%D7%99%D7%AA-%D7%94%D7%99%D7%99%D7%A6%D7%95%D7%A8-%D7%91%D7%90%D7%9E%D7%A6%D7%A2%D7%95%D7%AA-%D7%AA%D7%91%D7%A0%D7%99%D7%95%D7%AA"><span class="header-section-number">4.1.1</span> בעיית הייצור באמצעות תבניות</a></li>
-<li><a class="nav-link" href="#%D7%9E%D7%95%D7%93%D7%9C-%D7%92%D7%90%D7%95%D7%9E%D7%98%D7%A8%D7%99-%D7%9C%D7%91%D7%A2%D7%99%D7%94-1"><span class="header-section-number">4.1.2</span> מודל גאומטרי לבעיה</a></li>
+<li><a class="nav-link" href="#%D7%9E%D7%95%D7%93%D7%9C-%D7%92%D7%90%D7%95%D7%9E%D7%98%D7%A8%D7%99-%D7%9C%D7%91%D7%A2%D7%99%D7%94"><span class="header-section-number">4.1.2</span> מודל גאומטרי לבעיה</a></li>
 </ul>
 </li>
 <li>
@@ -269,7 +271,7 @@
 <li>
 <a class="nav-link" href="#%D7%AA%D7%9B%D7%A0%D7%95%D7%9F-%D7%9C%D7%99%D7%A0%D7%90%D7%A8%D7%99-%D7%91%D7%9E%D7%99%D7%A9%D7%95%D7%A8"><span class="header-section-number">4.3</span> תכנון לינארי במישור</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#%D7%9E%D7%94%D7%95-%D7%AA%D7%9B%D7%A0%D7%95%D7%9F-%D7%9C%D7%99%D7%A0%D7%90%D7%A8%D7%99"><span class="header-section-number">4.3.1</span> מהו תכנון לינארי?</a></li>
-<li><a class="nav-link" href="#%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D-%D7%90%D7%99%D7%A0%D7%A7%D7%A8%D7%9E%D7%A0%D7%98%D7%9C%D7%99-1"><span class="header-section-number">4.3.2</span> אלגוריתם אינקרמנטלי</a></li>
+<li><a class="nav-link" href="#%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D-%D7%90%D7%99%D7%A0%D7%A7%D7%A8%D7%9E%D7%A0%D7%98%D7%9C%D7%99"><span class="header-section-number">4.3.2</span> אלגוריתם אינקרמנטלי</a></li>
 <li><a class="nav-link" href="#%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D-%D7%A8%D7%A0%D7%93%D7%95%D7%9E%D7%99"><span class="header-section-number">4.3.3</span> אלגוריתם רנדומי</a></li>
 <li><a class="nav-link" href="#%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%AA-%D7%9C%D7%99%D7%A0%D7%90%D7%A8%D7%99%D7%AA-%D7%A9%D7%90%D7%99%D7%A0%D7%94-%D7%97%D7%A1%D7%95%D7%9E%D7%94"><span class="header-section-number">4.3.4</span> תוכנית לינארית שאינה חסומה</a></li>
 </ul>
@@ -290,7 +292,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>גאומטריה חישובית</strong>" was written by עומרית פילצר. It was last built on 2023-08-15.</p>
+    <p>"<strong>גאומטריה חישובית</strong>" was written by עומרית פילצר. It was last built on 2023-08-20.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

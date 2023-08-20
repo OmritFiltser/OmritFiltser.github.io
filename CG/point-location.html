@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>פרק 6 מיקום נקודה ומפה טרפזית | גאומטריה חישובית</title>
+<meta name="author" content="עומרית פילצר">
+<meta name="description" content="6.1 הקדמה  6.1.1 מיקום נקודה במפה  מפה המתארת חלוקה למחוזות, כמו מפת ישראל המופיעה כאן משמאל, היא בעצם גרף מישורי המתואר באמצעות צלעות, פאות, וקודקודים. כל מחוז או איזור במפה מתאים לפאה של הגרף....">
+<meta name="generator" content="bookdown 0.34 with bs4_book()">
+<meta property="og:title" content="פרק 6 מיקום נקודה ומפה טרפזית | גאומטריה חישובית">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://omrit.filtser.com/CG/point-location.html">
+<meta property="og:description" content="6.1 הקדמה  6.1.1 מיקום נקודה במפה  מפה המתארת חלוקה למחוזות, כמו מפת ישראל המופיעה כאן משמאל, היא בעצם גרף מישורי המתואר באמצעות צלעות, פאות, וקודקודים. כל מחוז או איזור במפה מתאים לפאה של הגרף....">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="פרק 6 מיקום נקודה ומפה טרפזית | גאומטריה חישובית">
+<meta name="twitter:description" content="6.1 הקדמה  6.1.1 מיקום נקודה במפה  מפה המתארת חלוקה למחוזות, כמו מפת ישראל המופיעה כאן משמאל, היא בעצם גרף מישורי המתואר באמצעות צלעות, פאות, וקודקודים. כל מחוז או איזור במפה מתאים לפאה של הגרף....">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.0/transition.js"></script><script src="libs/bs3compat-0.5.0/tabs.js"></script><script src="libs/bs3compat-0.5.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row no-pad">
+  <header class="col-sm-12 col-lg-2 sidebar sidebar-book border-left"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">גאומטריה חישובית</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search" dir="rtl">
+        <input id="search" class="form-control" type="search" placeholder="חיפוש" aria-label="Search" dir="rtl">
+</form>
+
+      <nav aria-label="Table of contents"><h2>רשימת הפרקים:</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">לפני שמתחילים</a></li>
+<li><a class="" href="intro.html"><span class="header-section-number">1</span> מבוא</a></li>
+<li><a class="" href="map-overlay.html"><span class="header-section-number">2</span> מפות מישוריות וטכניקת הישר הסורק</a></li>
+<li><a class="" href="pol-tringle.html"><span class="header-section-number">3</span> שילושי פוליגונים ובעיית הגלריה לאמנות</a></li>
+<li><a class="" href="%D7%AA%D7%9B%D7%A0%D7%95%D7%9F-%D7%9C%D7%99%D7%A0%D7%99%D7%90%D7%A8%D7%99-%D7%95%D7%97%D7%99%D7%AA%D7%95%D7%9A-%D7%A9%D7%9C-%D7%97%D7%A6%D7%90%D7%99-%D7%9E%D7%99%D7%A9%D7%95%D7%A8%D7%99%D7%9D.html"><span class="header-section-number">4</span> תכנון ליניארי וחיתוך של חצאי מישורים</a></li>
+<li><a class="" href="orthogonal-range-seach.html"><span class="header-section-number">5</span> חיפוש בתחומים אורתוגונלים</a></li>
+<li><a class="active" href="point-location.html"><span class="header-section-number">6</span> מיקום נקודה ומפה טרפזית</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="point-location" class="section level1" number="6">
+<h1>
+<span class="header-section-number">פרק 6</span> מיקום נקודה ומפה טרפזית<a class="anchor" aria-label="anchor" href="#point-location"><i class="fas fa-link"></i></a>
+</h1>
+<div id="preface" class="section level2" number="6.1">
+<h2>
+<span class="header-section-number">6.1</span> הקדמה<a class="anchor" aria-label="anchor" href="#preface"><i class="fas fa-link"></i></a>
+</h2>
+<div id="point-on-map" class="section level3" number="6.1.1">
+<h3>
+<span class="header-section-number">6.1.1</span> מיקום נקודה במפה<a class="anchor" aria-label="anchor" href="#point-on-map"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-figure">
+<img src="images/6/israel_map.png" align="left" width="20%"> מפה המתארת חלוקה למחוזות, כמו מפת ישראל המופיעה כאן משמאל, היא בעצם גרף מישורי המתואר באמצעות צלעות, פאות, וקודקודים.
+כל מחוז או איזור במפה מתאים לפאה של הגרף.
+ביחידה הזו נעסוק בבעיה הבסיסית הבאה: בהינתן הקואורדינטות של נקודה כלשהי על המפה, לאיזה מחוז היא שייכת?</div>
+<div id="קראו-את-ההקדמה-לפרק-6-בספר-הלימוד-עמודים-121122." class="section level4 unnumbered">
+<h4>קראו את ההקדמה לפרק 6 בספר הלימוד (עמודים 121־122).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%94%D7%94%D7%A7%D7%93%D7%9E%D7%94-%D7%9C%D7%A4%D7%A8%D7%A7-6-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-121122."><i class="fas fa-link"></i></a>
+</h4>
+<hr class="mt-5 mb-5">
+</div>
+</div>
+</div>
+<div id="trapezoidal-map" class="section level2" number="6.2">
+<h2>
+<span class="header-section-number">6.2</span> מפה טרפזית<a class="anchor" aria-label="anchor" href="#trapezoidal-map"><i class="fas fa-link"></i></a>
+</h2>
+<div id="naive-sol" class="section level3" number="6.2.1">
+<h3>
+<span class="header-section-number">6.2.1</span> פתרון נאיבי: חלוקה לרצועות<a class="anchor" aria-label="anchor" href="#naive-sol"><i class="fas fa-link"></i></a>
+</h3>
+<p>תהי <span class="math inline">\(\mathcal{S}\)</span> מפה מישורית, כפי שהגדרנו ביחידה 2 של הקורס: <span class="math inline">\(\mathcal{S}\)</span> היא שיכון של גרף מישורי במישור, כך שכל הצלעות שלו הן קטעים ישרים.
+נרצה לבנות מבנה נתונים שיענה על שאילתות מהסוג הבא: בהינתן נקודה <span class="math inline">\(q\)</span> במישור, מצא את הפאה בה <span class="math inline">\(q\)</span> נמצאת.</p>
+<p><img src="images/6/slabs.jpg" align="left" width="30%"> שימו לב שכדי למצוא את הפאה בה <span class="math inline">\(q\)</span> נמצאת, מספיק לבדוק (למשל) איזו צלע של <span class="math inline">\(\mathcal{S}\)</span> הנקודה <span class="math inline">\(q\)</span> “רואה” מעליה.
+לכן, בחלק הראשון של סעיף 6.1 בספר הלימוד מתואר פתרון נאיבי ופשוט לבעיה, על ידי חלוקה של המפה לרצועות (slabs): נעביר ישר אנכי דרך כל אחד מהקודקודים של .
+האיזור שנמצא בין שני ישרים עוקבים כאלו הוא רצועה אנכית.
+בהינתן שמספר הקודקודים במפה <span class="math inline">\(\mathcal{S}\)</span> הוא n, ניתן למצוא את הרצועה שבה נמצאת נקודה נתונה <span class="math inline">\(q\)</span> בזמן <span class="math inline">\(O (\log n )\)</span> על ידי חיפוש בינארי.
+מכיוון שאין קודקודים של <span class="math inline">\(\mathcal{S}\)</span> בתוך הרצועה, נוכל למצוא את הצלע שהנקודה <span class="math inline">\(q\)</span> “רואה” מעליה על ידי חיפוש בינארי על פני הקטעים שחותכים את הרצועה, כלומר שוב <span class="math inline">\(O (\log n )\)</span>.</p>
+<p>בדרך זו, זמן השאילתה שנקבל הוא <span class="math inline">\(O (\log n )\)</span>, אך מהו גודל המבנה וזמן העיבוד המקדים?
+באיור למטה ניתן לראות דוגמה למקרה בו גודל המבנה יהיה <span class="math inline">\(\Theta ( n^2 )\)</span> (מדוע?).</p>
+<p align="center" width="100%">
+</p>
+<div class="inline-figure"><img src="images/6/slabs_n_squared.jpg" width="70%"></div>
+
+<div id="קראו-את-חלקו-הראשון-של-סעיף-6.1-בספר-הלימוד-עמודים-122124." class="section level4 unnumbered">
+<h4>קראו את חלקו הראשון של סעיף 6.1 בספר הלימוד (עמודים 122–124).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%97%D7%9C%D7%A7%D7%95-%D7%94%D7%A8%D7%90%D7%A9%D7%95%D7%9F-%D7%A9%D7%9C-%D7%A1%D7%A2%D7%99%D7%A3-6.1-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-122124."><i class="fas fa-link"></i></a>
+</h4>
+</div>
+</div>
+<div id="פירוק-לטרפזים" class="section level3" number="6.2.2">
+<h3>
+<span class="header-section-number">6.2.2</span> פירוק לטרפזים<a class="anchor" aria-label="anchor" href="#%D7%A4%D7%99%D7%A8%D7%95%D7%A7-%D7%9C%D7%98%D7%A8%D7%A4%D7%96%D7%99%D7%9D"><i class="fas fa-link"></i></a>
+</h3>
+<p>שימו לב שהחלוקה לרצועות שראינו בעמוד הקודם יוצרת מפה מישורית שבה כל פאה היא טרפז או משולש (או פאה אינסופית דמויית טרפז/משולש).
+המפה היא עידון (refinement) של המפה המקורית , כלומר, כל פאה של מוכלת לחלוטין בפאה של , ולכן אם מצאנו שנקודת השאילתה נמצאת בפאה מסויימת של , נוכל לדעת לאיזו פאה של <span class="math inline">\(\mathcal{S}\)</span> היא שייכת.
+העידון בעזרת חלוקה לרצועות מוביל למבנה נתונים בגודל ריבועי (במקרה הגרוע), ולכן אינו מעשי.
+בחלק זה נראה עידון אחר שסיבוכיות הזיכרון שלו לא תהיה גדולה בהרבה מזו של , ועדיין יאפשר לנו לענות על שאילתות מיקום נקודה בקלות יחסית.</p>
+<div id="צפו-בסרטון-הבא-7" class="section level4 unnumbered">
+<h4>צפו בסרטון הבא:<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90-7"><i class="fas fa-link"></i></a>
+</h4>
+<p>(TBD)</p>
+<div class="rmdwarning">
+<p><img src="images/question.png" align="right" width="10%" style="padding:0px 0px 0px 10px"> מיהי ה-<span class="math inline">\(leftp\)</span> של כל אחד מהטרפזים המסומנים באיור?</p>
+<p align="center" width="100%">
+</p>
+<div class="inline-figure"><img src="images/6/leftp_question.jpg" width="80%"></div>
+
+<details><summary>
+(פתרון)
+</summary><p>(TODO)</p>
+<p align="center" width="100%">
+</p>
+<div class="inline-figure"><img src="images/6/leftp_question.jpg" width="80%"></div>
+
+</details>
+</div>
+</div>
+<div id="הנחת-מצב-כללי." class="section level4 unnumbered">
+<h4>הנחת מצב כללי.<a class="anchor" aria-label="anchor" href="#%D7%94%D7%A0%D7%97%D7%AA-%D7%9E%D7%A6%D7%91-%D7%9B%D7%9C%D7%9C%D7%99."><i class="fas fa-link"></i></a>
+</h4>
+<p>בשיטת הפירוק לטרפזים אנחנו מניחים שבאוסף הקטעים הנתון אין שתי נקודות קצה בעלות אותה קואורדינטת x.
+הנחה זו אינה ריאליסטית, אך כפי שכבר ראינו בעבר, קיימות מספר שיטות המאפשרות לנו לטפל במצב לא כללי - למשל על ידי סיבוב המישור, או קביעת סדר לקסיקוגרפי.
+הדיון בפתרונות אלו עבור המבנה של מפת טרפזים מופיע בפרק 6.3 בספר הלימוד.</p>
+<div class="rmdwarning">
+<div class="inline-figure">
+<img src="images/question.png" align="right" width="10%" style="padding:0px 0px 0px 10px"> במצב לא כללי, כמה טרפזים שכנים יש (לכל היותר) לטרפז במפה הטרפזית?</div>
+<details><summary>
+(פתרון)
+</summary><p><span class="math inline">\(\Theta(n)\)</span></p>
+</details>
+</div>
+</div>
+<div id="לחזרה-קראו-את-חלקו-השני-של-סעיף-6.1-בספר-עמודים-124128." class="section level4 unnumbered">
+<h4>לחזרה: קראו את חלקו השני של סעיף 6.1 בספר (עמודים 124–128).<a class="anchor" aria-label="anchor" href="#%D7%9C%D7%97%D7%96%D7%A8%D7%94-%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%97%D7%9C%D7%A7%D7%95-%D7%94%D7%A9%D7%A0%D7%99-%D7%A9%D7%9C-%D7%A1%D7%A2%D7%99%D7%A3-6.1-%D7%91%D7%A1%D7%A4%D7%A8-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-124128."><i class="fas fa-link"></i></a>
+</h4>
+<hr class="mt-5 mb-5">
+</div>
+</div>
+</div>
+<div id="point-location-queries" class="section level2" number="6.3">
+<h2>
+<span class="header-section-number">6.3</span> שאילתות מיקום נקודה<a class="anchor" aria-label="anchor" href="#point-location-queries"><i class="fas fa-link"></i></a>
+</h2>
+<div id="the-data-structure" class="section level3" number="6.3.1">
+<h3>
+<span class="header-section-number">6.3.1</span> מבנה הנתונים<a class="anchor" aria-label="anchor" href="#the-data-structure"><i class="fas fa-link"></i></a>
+</h3>
+<p>יהי <span class="math inline">\(\mathcal{S}\)</span> אוסף של <span class="math inline">\(n\)</span> קטעים במצב כללי שאינם נחתכים.</p>
+<p>ניתן לבנות את המפה הטרפזית <span class="math inline">\(\mathcal{T}(\mathcal{S})\)</span> בקלות יחסית על ידי שימוש בשיטת הישר הסורק (חישבו, כיצד?).
+הבעיה היא, שבשיטה זו לא נוכל לבנות מבנה נתונים התומך בשאילתות מיקום נקודה, שהוא המטרה המרכזית שלנו ביחידה זו.
+איך יראה מבנה נתונים כזה?</p>
+<p>בחלק זה נתאר את מבנה החיפוש <span class="math inline">\(\mathcal{D}\)</span> שיאפשר לנו לבצע שאילתות מיקום נקודה במפה הטרפזית <span class="math inline">\(\mathcal{D}\)</span>.
+בהמשך, נראה אלגוריתם אינקרמטלי-רנדומי שבונה את המפה הטרפזית <span class="math inline">\(\mathcal{T}(\mathcal{S})\)</span> ומבנה הנתונים <span class="math inline">\(\mathcal{D}\)</span> גם יחד.</p>
+<p>מבנה הנתונים <span class="math inline">\(\mathcal{D}\)</span> יהיה גרף מכוון חסר מעגלים (DAG), עם שלושה סוגים של צמתים:</p>
+<ul>
+<li>צומת (פנימי) x - מתאים לנקודת קצה של קטע מ-<span class="math inline">\(\mathcal{S}\)</span> (מסומן בעיגול לבן).</li>
+<li>צומת (פנימי) y - מתאים לקטע מ-<span class="math inline">\(\mathcal{S}\)</span> (מסומן בעיגול אפור).</li>
+<li>עלה - מתאים לטרפז במפה <span class="math inline">\(\mathcal{T}(\mathcal{S})\)</span> (מסומן בריבוע).</li>
+</ul>
+<p>בנוסף, לגרף יש שורש יחיד, ובדיוק עלה אחד לכל טרפז במפה <span class="math inline">\(\mathcal{D}\)</span>.
+באיור למשל, לעלה של טרפז C יש מצביעים משני קודקודים פנימיים.</p>
+<p>הרעיון בבנייה זו דומה לעצי-kd שראינו ביחידה 5: לכל צומת פנימי, ההסתעפות ימינה או שמאלה תלויה בתשובה לשאלה המתאימה לסוג הצומת.</p>
+<p align="center" width="100%">
+</p>
+<div class="inline-figure"><img src="images/6/ds.jpg" width="80%"></div>
+
+<p>בהינתן נקודת שאילתה q, נתחיל את החיפוש מהשורש עד שנגיע לעלה:</p>
+<ul>
+<li>אם הגענו לצומת-x המתאים לנקודת קצה p, נשאל: “האם <span class="math inline">\(q\)</span> מימין או משמאל לישר האנכי שעובר דרךp?”.
+אם התשובה היא “מימין” - נמשיך ימינה, אחרת שמאלה.</li>
+<li>אם הגענו לצומת-y המתאים לקטע s, נשאל: “האם <span class="math inline">\(q\)</span> מעל או מתחת לקטע s?”.
+אם התשובה היא “מתחת” - נמשיך ימינה, אחרת שמאלה.
+שימו לב שכדי שהשאלה הזו תהיה הגיונית, נצטרך להבטיח שבשלב זה הישר האנכי שעובר דרך <span class="math inline">\(q\)</span> חותך את s.</li>
+</ul>
+<p>כשנגיע לעלה, נבדוק האם הטרפז המתאים לו מכיל אתq.</p>
+<div class="rmdwarning">
+<div class="inline-figure">
+<img src="images/question.png" align="right" width="10%" style="padding:0px 0px 0px 10px">
+בדקו את עצמכם! ענו על השאלות הבאות.
+נתון מבנה החיפוש הבא.</div>
+<p align="center" width="100%">
+</p>
+<div class="inline-figure"><img src="images/6/point_search_question.jpg" width="70%"></div>
+
+<p>ידוע שנקודת שאילתה נמצאת:</p>
+<ul>
+<li>מימין לישר האנכי העובר בנקודה p_1.</li>
+<li>משמאל לישר האנכי העובר בנקודה q_1.</li>
+<li>מתחת לקטע s_1.</li>
+</ul>
+<p>באילו מהטרפזים יתכן שהנקודה נמצאת?</p>
+<p>אם בנוסף ידוע שהנקודה נמצאת:</p>
+<ul>
+<li>משמאל לישר האנכי העובר בנקודה q_2.</li>
+<li>מעל לקטע s_2.</li>
+</ul>
+<p>באילו מהטרפזים יתכן שהנקודה נמצאת?</p>
+<details><summary>
+(פתרון)
+</summary><p>TBD</p>
+</details>
+</div>
+</div>
+<div id="rand-inc-alg" class="section level3" number="6.3.2">
+<h3>
+<span class="header-section-number">6.3.2</span> אלגוריתם אינקרמנטלי רנדומי<a class="anchor" aria-label="anchor" href="#rand-inc-alg"><i class="fas fa-link"></i></a>
+</h3>
+<p>בחלק זה נתאר אלגוריתם אינקרמנטלי לבניית מבנה החיפוש <span class="math inline">\(\mathcal{D}\)</span> והמפה הטרפזית <span class="math inline">\(\mathcal{T}(\mathcal{S})\)</span> גם יחד. האלגוריתם מוסיף את הקטעים מהאוסף <span class="math inline">\(\mathcal{S}\)</span> אחד אחרי השני בסדר רנדומי, ובכל פעם מעדכן את מבנה החיפוש והמפה בהתאם לקטע החדש שנוסף.</p>
+<p>הסיבה לכך שנבחר סדר רנדומי על הקטעים היא שבאופן זה נוכל לצפות לזמני ריצה וסיבוכיות מקום יעילים, בדומה לאלגוריתם האינקרמנטלי-רנדומי לתכנון לינארי במישור שראינו ביחידה 4 של הקורס. נדון בכך בעמוד הבא של חלק זה.</p>
+<div id="צפו-בסרטון-הבא-8" class="section level4 unnumbered">
+<h4>צפו בסרטון הבא:<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90-8"><i class="fas fa-link"></i></a>
+</h4>
+<p>(TBD)</p>
+</div>
+<div id="קראו-את-חלקו-הראשון-של-סעיף-6.2-בספר-עמודים-128133." class="section level4 unnumbered">
+<h4>קראו את חלקו הראשון של סעיף 6.2 בספר (עמודים 128–133).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%97%D7%9C%D7%A7%D7%95-%D7%94%D7%A8%D7%90%D7%A9%D7%95%D7%9F-%D7%A9%D7%9C-%D7%A1%D7%A2%D7%99%D7%A3-6.2-%D7%91%D7%A1%D7%A4%D7%A8-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-128133."><i class="fas fa-link"></i></a>
+</h4>
+<div class="rmdwarning">
+<img src="images/question.png" align="right" width="10%" style="padding:0px 0px 0px 10px">
+התבוננו באיור הבא:
+<p align="center" width="100%">
+</p>
+<div class="inline-figure"><img src="images/6/alg_question1.jpg" width="70%"></div>
+
+<p>מי הם הטרפזים שהאלגוריתם ימצא ויעדכן כאשר נוסיף את s_i?</p>
+<details><summary>
+(פתרון)
+</summary><p align="center" width="100%">
+</p>
+<div class="inline-figure"><img src="images/6/alg_question1-ans.jpg" width="70%"></div>
+
+</details>
+</div>
+<div class="rmdwarning">
+<img src="images/question.png" align="right" width="10%" style="padding:0px 0px 0px 10px">
+התבוננו באיור הבא, והשלימו את מבנה החיפוש.
+<p align="center" width="100%">
+</p>
+<div class="inline-figure"><img src="images/6/alg_question2.jpg" width="70%"></div>
+
+<details><summary>
+(פתרון)
+</summary><p align="center" width="100%">
+</p>
+<div class="inline-figure"><img src="images/6/alg_question2_-_ans.jpg" width="70%"></div>
+
+</details>
+</div>
+</div>
+</div>
+<div id="alg-analysis" class="section level3" number="6.3.3">
+<h3>
+<span class="header-section-number">6.3.3</span> ניתוח האלגוריתם<a class="anchor" aria-label="anchor" href="#alg-analysis"><i class="fas fa-link"></i></a>
+</h3>
+<p>הסדר בו האלגוריתם TrapezoidalMap מוסיף את הקטעים משפיע מאוד על גודל מבנה החיפוש <span class="math inline">\(\mathcal{D}\)</span> ועל זמן השאילתה. למעשה, יתכן סידור שבו האלגוריתם ירוץ בזמן ריבועי, סיבוכיות הזיכרון של <span class="math inline">\(\mathcal{D}\)</span> תהיה ריבועית, וזמן השאילתה יהיה לינארי. לכן, בדומה לאלגוריתם האינקרמנטלי-רנדומי לתכנון לינארי במישור שראינו ביחידה 4 של הקורס, גם כאן האלגוריתם מגריל את סדר הוספת הקטעים מראש, ונוכל להראות שבתוחלת יתקבל מבנה חיפוש עם סיבוכיות זיכרון לינארית, וזמן שאילתה צפוי O (n ).</p>
+<div class="rmdwarning">
+<p><img src="images/question.png" align="right" width="10%" style="padding:0px 0px 0px 10px">
+מהו המקרה הגרוע ביותר?
+נסו לתאר דוגמה לאוסף של <span class="math inline">\(n\)</span> קטעים וסידור שלהם, כך שהאלגוריתם האינקרמנטלי (הלא רנדומי) ירוץ בזמן O ( n^2 ).</p>
+</div>
+<div id="רעיון-ההוכחה-זמן-השאילתה." class="section level4 unnumbered">
+<h4>רעיון ההוכחה (זמן השאילתה).<a class="anchor" aria-label="anchor" href="#%D7%A8%D7%A2%D7%99%D7%95%D7%9F-%D7%94%D7%94%D7%95%D7%9B%D7%97%D7%94-%D7%96%D7%9E%D7%9F-%D7%94%D7%A9%D7%90%D7%99%D7%9C%D7%AA%D7%94."><i class="fas fa-link"></i></a>
+</h4>
+<p>תהי <span class="math inline">\(q\)</span> נקודת שאילתה. נרצה להעריך את תוחלת אורך המסלול שנעבור במבנה <span class="math inline">\(\mathcal{D}\)</span> כאשר נחפש את הטרפז שמכיל את <span class="math inline">\(q\)</span> (מספר הצמתים מהשורש לטרפז). לשם כך, ננסה להבין כיצד משתנה המסלול במהלך ריצת אלגוריתם הבנייה של .</p>
+<p>למשל, ניתן להראות שבכל פעם שקטע חדש נוסף למבנה, אורך המסלול יגדל בלכל היותר 3 צמתים. לפיכך ניתן לומר שאורך המסלול הוא לכל היותר . זהו חסם עבור המקרה הגרוע, אך אנו מעוניינים במקרה הממוצע (על פני כל <span class="math inline">\(n!\)</span> הסידורים האפשריים), ולכן ננסה לחשב את ממוצע מספר הצמתים שנוספו למסלול בכל איטרציה של האלגוריתם.</p>
+<p>נסמן ב-<span class="math inline">\(X_i\)</span> (עבור <span class="math inline">\(1 \le i \le n\)</span>) את מספר הצמתים על המסלול שנוספו באיטרציה ה-<span class="math inline">\(i\)</span> (כלומר, לאחר הוספת הקטע <span class="math inline">\(s_i\)</span>). כלומר, <span class="math inline">\(X_i\)</span> הוא משתנה מקרי התלוי בסדר הוספת הקטעים, ולכן תוחלת אורך המסלול אל הטרפז המכיל את <span class="math inline">\(q\)</span> היא <span class="math inline">\(E[ \sum_{i=1}^{n} X_i ]\)</span> ומלינאריות התוחלת <span class="math inline">\(\sum_{i=1}^{n} E[X_i]\)</span>.</p>
+<p>מכיוון שבכל איטרציה נוספים לכל היותר 3 צמתים למסלול, מתקיים <span class="math inline">\(X_i \le 3\)</span>. לכן, אם נסמן ב-<span class="math inline">\(P_i\)</span> את ההסתברות לכך שקיים צומת במסלול שנוצר באיטרציה ה-<span class="math inline">\(i\)</span>, נקבל <span class="math inline">\(E[ X_i ] \le 3 P_i\)</span>.</p>
+<p>האבחנה המרכזית בהוכחה היא שבאינטרציה ה-<span class="math inline">\(i\)</span> נוסף קודקוד למסלול שלנו רק אם הטרפז שמכיל את <span class="math inline">\(q\)</span> בדיוק לפני הוספת <span class="math inline">\(s_i\)</span> שונה מהטרפז המכיל את <span class="math inline">\(q\)</span> מיד לאחר הוספת <span class="math inline">\(s_i\)</span>. לכן, בדומה להוכחה שראינו ביחידה 4, נוכל לנתח את ההסתברות לכך שהטרפז המכיל את <span class="math inline">\(q\)</span> משתנה בין האיטרציה ה-<span class="math inline">\(i - 1\)</span> לאיטרציה ה-<span class="math inline">\(i\)</span> בשיטת הניתוח לאחור (backward analysis). כלומר, נסתכל על המפה שהתקבלה מיד לאחר הוספת <span class="math inline">\(s_i\)</span>, ונשאל מה ההסתברות לכך שהטרפז <span class="math inline">\(\Delta\)</span> המכיל את <span class="math inline">\(q\)</span> במפה זו יעלם אם נוציא את <span class="math inline">\(s_i\)</span>. שימו לב שהטרפז <span class="math inline">\(\Delta\)</span> יעלם אם ורק אם אחד מהשדות המגדירים אותו (<span class="math inline">\(top(\Delta)\)</span> , <span class="math inline">\(bottom(\Delta)\)</span> , <span class="math inline">\(leftp(\Delta)\)</span> , <span class="math inline">\(rightp(\Delta)\)</span>) יעלם. ההסתברות לכך ש-<span class="math inline">\(s_i\)</span> הוא הקטע שמגדיר את <span class="math inline">\(top(\Delta)\)</span> למשל, היא 1 over i, ובאופן דומה ניתן לחשב זאת עבור <span class="math inline">\(bottom(\Delta)\)</span>, <span class="math inline">\(leftp(\Delta)\)</span> , <span class="math inline">\(rightp(\Delta)\)</span>. לכן, נקבל <span class="math inline">\(P_i \le \frac{4}{i}\)</span>, ונוכל לחשב שתוחלת אורך המסלול היא <span class="math inline">\(O (\log n )\)</span>.</p>
+</div>
+<div id="קראו-את-חלקו-השני-של-סעיף-6.2-בספר-עמודים-133137." class="section level4 unnumbered">
+<h4>קראו את חלקו השני של סעיף 6.2 בספר (עמודים 133–137).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%97%D7%9C%D7%A7%D7%95-%D7%94%D7%A9%D7%A0%D7%99-%D7%A9%D7%9C-%D7%A1%D7%A2%D7%99%D7%A3-6.2-%D7%91%D7%A1%D7%A4%D7%A8-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-133137."><i class="fas fa-link"></i></a>
+</h4>
+
+</div>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="orthogonal-range-seach.html"><span class="header-section-number">5</span> חיפוש בתחומים אורתוגונלים</a></div>
+<div class="empty"></div>
+</div></main><div class="col-md-3 col-lg-3 d-none d-md-block sidebar sidebar-chapter border-right">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>בפרק זה:</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#point-location"><span class="header-section-number">6</span> מיקום נקודה ומפה טרפזית</a></li>
+<li>
+<a class="nav-link" href="#preface"><span class="header-section-number">6.1</span> הקדמה</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#point-on-map"><span class="header-section-number">6.1.1</span> מיקום נקודה במפה</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#trapezoidal-map"><span class="header-section-number">6.2</span> מפה טרפזית</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#naive-sol"><span class="header-section-number">6.2.1</span> פתרון נאיבי: חלוקה לרצועות</a></li>
+<li><a class="nav-link" href="#%D7%A4%D7%99%D7%A8%D7%95%D7%A7-%D7%9C%D7%98%D7%A8%D7%A4%D7%96%D7%99%D7%9D"><span class="header-section-number">6.2.2</span> פירוק לטרפזים</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#point-location-queries"><span class="header-section-number">6.3</span> שאילתות מיקום נקודה</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#the-data-structure"><span class="header-section-number">6.3.1</span> מבנה הנתונים</a></li>
+<li><a class="nav-link" href="#rand-inc-alg"><span class="header-section-number">6.3.2</span> אלגוריתם אינקרמנטלי רנדומי</a></li>
+<li><a class="nav-link" href="#alg-analysis"><span class="header-section-number">6.3.3</span> ניתוח האלגוריתם</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>גאומטריה חישובית</strong>" was written by עומרית פילצר. It was last built on 2023-08-20.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

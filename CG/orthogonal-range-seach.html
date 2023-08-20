@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>פרק 5 חיפוש בתחומים אורתוגונלים | גאומטריה חישובית</title>
+<meta name="author" content="עומרית פילצר">
+<meta name="description" content="5.1 הקדמה  5.1.1 חיפוש במסדי נתונים  מסדי נתונים המאחסנים רשומות בצורה של טבלה הם כלי מרכזי לארגון מידע בישומים רבים. כפי שראינו בהקדמה לקורס, למרות שבמבט ראשון לא נראה שיש קשר בין מסדי נתונים...">
+<meta name="generator" content="bookdown 0.34 with bs4_book()">
+<meta property="og:title" content="פרק 5 חיפוש בתחומים אורתוגונלים | גאומטריה חישובית">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://omrit.filtser.com/CG/orthogonal-range-seach.html">
+<meta property="og:description" content="5.1 הקדמה  5.1.1 חיפוש במסדי נתונים  מסדי נתונים המאחסנים רשומות בצורה של טבלה הם כלי מרכזי לארגון מידע בישומים רבים. כפי שראינו בהקדמה לקורס, למרות שבמבט ראשון לא נראה שיש קשר בין מסדי נתונים...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="פרק 5 חיפוש בתחומים אורתוגונלים | גאומטריה חישובית">
+<meta name="twitter:description" content="5.1 הקדמה  5.1.1 חיפוש במסדי נתונים  מסדי נתונים המאחסנים רשומות בצורה של טבלה הם כלי מרכזי לארגון מידע בישומים רבים. כפי שראינו בהקדמה לקורס, למרות שבמבט ראשון לא נראה שיש קשר בין מסדי נתונים...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.0/transition.js"></script><script src="libs/bs3compat-0.5.0/tabs.js"></script><script src="libs/bs3compat-0.5.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row no-pad">
+  <header class="col-sm-12 col-lg-2 sidebar sidebar-book border-left"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">גאומטריה חישובית</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search" dir="rtl">
+        <input id="search" class="form-control" type="search" placeholder="חיפוש" aria-label="Search" dir="rtl">
+</form>
+
+      <nav aria-label="Table of contents"><h2>רשימת הפרקים:</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">לפני שמתחילים</a></li>
+<li><a class="" href="intro.html"><span class="header-section-number">1</span> מבוא</a></li>
+<li><a class="" href="map-overlay.html"><span class="header-section-number">2</span> מפות מישוריות וטכניקת הישר הסורק</a></li>
+<li><a class="" href="pol-tringle.html"><span class="header-section-number">3</span> שילושי פוליגונים ובעיית הגלריה לאמנות</a></li>
+<li><a class="" href="%D7%AA%D7%9B%D7%A0%D7%95%D7%9F-%D7%9C%D7%99%D7%A0%D7%99%D7%90%D7%A8%D7%99-%D7%95%D7%97%D7%99%D7%AA%D7%95%D7%9A-%D7%A9%D7%9C-%D7%97%D7%A6%D7%90%D7%99-%D7%9E%D7%99%D7%A9%D7%95%D7%A8%D7%99%D7%9D.html"><span class="header-section-number">4</span> תכנון ליניארי וחיתוך של חצאי מישורים</a></li>
+<li><a class="active" href="orthogonal-range-seach.html"><span class="header-section-number">5</span> חיפוש בתחומים אורתוגונלים</a></li>
+<li><a class="" href="point-location.html"><span class="header-section-number">6</span> מיקום נקודה ומפה טרפזית</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="orthogonal-range-seach" class="section level1" number="5">
+<h1>
+<span class="header-section-number">פרק 5</span> חיפוש בתחומים אורתוגונלים<a class="anchor" aria-label="anchor" href="#orthogonal-range-seach"><i class="fas fa-link"></i></a>
+</h1>
+<div id="preface" class="section level2" number="5.1">
+<h2>
+<span class="header-section-number">5.1</span> הקדמה<a class="anchor" aria-label="anchor" href="#preface"><i class="fas fa-link"></i></a>
+</h2>
+<div id="data-bases" class="section level3" number="5.1.1">
+<h3>
+<span class="header-section-number">5.1.1</span> חיפוש במסדי נתונים<a class="anchor" aria-label="anchor" href="#data-bases"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-figure">
+<img src="images/5/database.jpg" align="left" width="40%"> מסדי נתונים המאחסנים רשומות בצורה של טבלה הם כלי מרכזי לארגון מידע בישומים רבים. כפי שראינו בהקדמה לקורס, למרות שבמבט ראשון לא נראה שיש קשר בין מסדי נתונים כאלו לגאומטריה, הקשר הזה אכן קיים עבור סוגים מסויימים של שאילתות.</div>
+<p>הייצוג הגאומטרי של מסד הנתונים יהיה באמצעות אוסף של נקודות במרחב ה-d מימדי: כל רשומה תיוצג באמצעות נקודה במרחב, כאשר כל שדה של הרשומה מתאים לקואורדינטה. עבור שאילתה המבקשת את אוסף הרשומות הנמצאות בתחום מסויים של ערכים (בשדה אחד או יותר), הייצוג הגאומטרי יהיה תחום אורתוגונלי R, כלומר, תיבה d-מימדית מקבילה לצירים. במישור זהו מלבן שצלעותיו מקבילות לצירים, ובשלושה מימדים זוהי קוביה שפאותיה מקבילות לצירים.</p>
+<p>בפרק זה נציג שני מבני נתונים לאחסון אוסף P של נקודות במרחב ה-d מימדי, כך שנוכל לענות ביעילות על שאילתות מהסוג הבא: בהינתן תחום אורתוגונלי R, אילו מהנקודות של R נמצאות בתוך R?</p>
+<div id="קראו-את-ההקדמה-לפרק-5-בספר-הלימוד-עמודים-9596." class="section level4 unnumbered">
+<h4>קראו את ההקדמה לפרק 5 בספר הלימוד (עמודים 95־96).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%94%D7%94%D7%A7%D7%93%D7%9E%D7%94-%D7%9C%D7%A4%D7%A8%D7%A7-5-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-9596."><i class="fas fa-link"></i></a>
+</h4>
+</div>
+</div>
+<div id="on-the-line" class="section level3" number="5.1.2">
+<h3>
+<span class="header-section-number">5.1.2</span> חיפוש בתחומים על הישר<a class="anchor" aria-label="anchor" href="#on-the-line"><i class="fas fa-link"></i></a>
+</h3>
+<p>בעיות רבות בגאומטריה חישובית נעשות פשוטות הרבה יותר כאשר הן נתונות במימד אחד, ובמחקר התאורטי מופיעים לעיתים קרובות פתרונות במימד אחד לבעיות מורכבות, כצעד מקדים לפתרונות במימדים גבוהים יותר. לכן, לפני שניגש לפתרון הבעיה של חיפוש בתחומים בשני מימדים או יותר, ננסה קודם להבין כיצד ניתן לפתור אותה עבור אוסף P של נקודות ממימד אחד, כלומר, אוסף של נקודות שכולן על ישר אחד. שימו לב שהשאילתה על הישר היא פשוט טווח של ערכים, R equals left square bracket x comma x apostrophe right square bracket.</p>
+<p align="center" width="100%">
+</p>
+<div class="inline-figure"><img src="images/5/1d_points.jpg" width="70%"></div>
+
+<p>אפשרות אחת לפתרון היא למיין את נקודות P ולשמור אותן במערך. בהינתן טווח left square bracket x comma x apostrophe right square bracket, נמצא בעזרת חיפוש בינארי את הנקודות הראשונה במערך שגדולה או שווה ל-x, ואז נעבור על תאי המערך לפי הסדר החל מנקודה זו, ונדווח על נקודות כל עוד הן קטנות או שוות ל-x apostrophe. זמן השאילתה יהיה O left parenthesis log n plus k right parenthesis כאשר k הוא מספר הנקודות בפלט. זמן העיבוד המקדים הוא O left parenthesis n log n right parenthesis וסיבוכיות המקום היא O left parenthesis n right parenthesis. לפתרון המשתמש במערך יש שני חסרונות: הוא לא דינאמי (כלומר, לא ניתן לבצע הוספה או מחיקה של נקודות), ולא ניתן להכליל אותו למימדים גבוהים. לכן, פרק 5.1 של ספר הלימוד מתאר פתרון המשתמש בעץ חיפוש בינארי, שבו הנקודות מופיעות בעלים. כל קודקוד פנימי מכיל את הערך המקסימלי של עלה המופיע בתת העץ השמאלי שלו. בהינתן עץ חיפוש T וטווח left square bracket x comma x ’ right square bracket, אלגוריתם השאילתה 1DRangeQuery מוצא את הקודקוד בו המסלולים מהשורש ל-x ו-x ’ מתפצלים, ואז מחזיר את כל הנקודות בעלים שנמצאים מימין להמשך המסלול ל-bold italic x, ואת הנקודות בעלים שנמצאים משמאל להמשך המסלול ל-bold italic x bold apostrophe. אלו בדיוק הערכים בעץ הנמצאים בין x ’ ל-x.</p>
+<p align="center" width="100%">
+</p>
+<div class="inline-figure"><img src="images/5/1d_tree.jpg" width="70%"></div>
+
+<p>בהמשך של יחידה זו, נראה שתי דרכים שונות להכללת פתרון זה עבור מימדים גבוהים.</p>
+<div id="קראו-את-סעיף-5.1-בספר-הלימוד-עמודים-9699." class="section level4 unnumbered">
+<h4>קראו את סעיף 5.1 בספר הלימוד (עמודים 96–99).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-5.1-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-9699."><i class="fas fa-link"></i></a>
+</h4>
+<hr class="mt-5 mb-5">
+</div>
+</div>
+</div>
+<div id="in-the-plane" class="section level2" number="5.2">
+<h2>
+<span class="header-section-number">5.2</span> חיפוש בתחומים במישור<a class="anchor" aria-label="anchor" href="#in-the-plane"><i class="fas fa-link"></i></a>
+</h2>
+<div id="kd-trees" class="section level3" number="5.2.1">
+<h3>
+<span class="header-section-number">5.2.1</span> עצי-kd<a class="anchor" aria-label="anchor" href="#kd-trees"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-figure">
+<img src="images/5/kd-tree.jpg" align="left" width="33%"> עץ KDמבנה הנתונים הראשון שנראה עבור חיפוש בתחומים בשני מימדים, נקרא עץ-kd. העץ הזה הוא הכללה של עץ החיפוש שראינו עבור נקודות במימד אחד, שבו משנים בכל רמה של העץ את הקואורדינטה שלפיה בוחרים את החציון.</div>
+<div id="צפו-בסרטון-הבא-5" class="section level4 unnumbered">
+<h4>צפו בסרטון הבא:<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90-5"><i class="fas fa-link"></i></a>
+</h4>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/17b7i-OTVO8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p>ניתן לבנות עץ-kd עבור אוסף של n נקודות בזמן O left parenthesis n log n right parenthesis. סיבוכיות המקום שלו היא O left parenthesis n right parenthesis, וזמן השאילתה הוא O left parenthesis square root of n plus k right parenthesis, כאשרk הוא גודל הפלט, כלומר מספר הנקודות הנמצאות בתחום הנתון. בסעיף 5.2 מתואר האלגוריתם BuildKdTree שבונה את העץ, ואלגוריתם השאילתה SearchKdTree. קראו בעיון את ניתוח זמן הבניה, סיבוכיות המקום, וזמן השאילתה של עץ ה-kd.</p>
+</div>
+<div id="קראו-את-סעיף-5.2-בספר-עמודים-99105." class="section level4 unnumbered">
+<h4>קראו את סעיף 5.2 בספר (עמודים 99–105).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-5.2-%D7%91%D7%A1%D7%A4%D7%A8-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-99105."><i class="fas fa-link"></i></a>
+</h4>
+<div class="rmdwarning">
+<div class="inline-figure">
+<img src="images/question.png" align="right" width="10%" style="padding:0px 0px 0px 10px">
+זמן הריצה של האלגוריתם הראשון שמתואר בסרטון ומשתמש בשיטת הישר הסורק, הואהתבוננו בקבוצת הנקודות הבאה, והשלימו את עץ ה-kd.</div>
+<p align="center" width="100%">
+</p>
+<div class="inline-figure"><img src="images/5/q1.jpg" width="80%"></div>
+
+<details><summary>
+(פתרון)
+</summary><p>(TODO)</p>
+<p align="center" width="100%">
+</p>
+<div class="inline-figure"><img src="images/5/q1.jpg" width="80%"></div>
+
+</details>
+</div>
+<div class="rmdwarning">
+<img src="images/question.png" align="right" width="10%" style="padding:0px 0px 0px 10px">
+התבוננו בחלוקה שנוצרה עבור עץ ה-kd והתחום המלבני שבאיור, וענו על השאלות הבאות:
+<p align="center" width="100%">
+</p>
+<div class="inline-figure"><img src="images/5/kd_query.jpg" width="60%"></div>
+
+<ol style="list-style-type: decimal">
+<li>אילו מהנקודות יבדקו (אך לא בהכרח ידווחו) בשורה 2 של אלגוריתם SearchKdTree?</li>
+<li>אלו מהנקודות ידווחו על ידי הפרוצדורה ReportSubtree?</li>
+</ol>
+<details><summary>
+(פתרון)
+</summary><p>(TODO)</p>
+</details>
+</div>
+</div>
+<div id="תחומים-שאינם-מלבניים." class="section level4 unnumbered">
+<h4>תחומים שאינם מלבניים.<a class="anchor" aria-label="anchor" href="#%D7%AA%D7%97%D7%95%D7%9E%D7%99%D7%9D-%D7%A9%D7%90%D7%99%D7%A0%D7%9D-%D7%9E%D7%9C%D7%91%D7%A0%D7%99%D7%99%D7%9D."><i class="fas fa-link"></i></a>
+</h4>
+<p>שימו לב שניתן להכליל את אלגוריתם השאילתה גם עבור תחומים שאינם מלבניים. על מנת שהאלגוריתם יהיה יעיל עבור תחום R שאינו מלבני, התחום חייב להיות מתואר בצורה שתאפשר את שתי הפעולות הבאות בזמן קבוע:</p>
+<ol style="list-style-type: decimal">
+<li>לבדוק האם R מכיל נקודה נתונה.</li>
+<li>לבדוק האם R מכיל או נחתך עם תחום מלבני המתאים לצומת כלשהו.</li>
+</ol>
+<p>אם R הוא מצולע קמור בעל c צלעות, כיצד נוכל לבצע את הפעולות האלו? ומה יהיה זמן הריצה? מה אם R הוא עיגול הנתון על ידי המרכז והרדיוס שלו?</p>
+</div>
+</div>
+<div id="range-trees" class="section level3" number="5.2.2">
+<h3>
+<span class="header-section-number">5.2.2</span> עצי תחומים (Range Trees)<a class="anchor" aria-label="anchor" href="#range-trees"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-figure">
+<img src="images/5/range_tree.jpg" align="left" width="33%">
+בחלק זה נראה מבנה נתונים אחר לחיפוש בתחומים במישור הנקרא עץ תחומים, range tree. גם הוא הכללה של עץ החיפוש שראינו עבור נקודות על הישר, אך באופן שונה: כאן כל קודקוד פנימי בעץ הממיין את הנקודות לפי קואורדינטת ה-x, יכיל מצביע לעץ נוסף הממיין את העלים בתת העץ שלו לפי קואורדינטת ה-y.</div>
+<div id="צפו-בסרטון-הבא-6" class="section level4 unnumbered">
+<h4>צפו בסרטון הבא:<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90-6"><i class="fas fa-link"></i></a>
+</h4>
+<p>(TODO)</p>
+<p>מבחינת זמן השאילתה, במקרה הגרוע עץ תחומים יעיל הרבה יותר מעץ-kd - זמן השאילתה שלו הוא O left parenthesis log squared n plus k right parenthesis בלבד, לעומת O left parenthesis square root of n plus k right parenthesis בעצי-kd. השיפור הזה מאלץ אותנו לשלם מעט בסיבוכיות המקום – O left parenthesis n log n right parenthesis לעומת space O left parenthesis n right parenthesis. בסעיף 5.3 של ספר הלימוד מתואר האלגוריתם Build2DRangeTree שבונה את העץ, ואלגוריתם השאילתה 2DRangeQuery. קראו בעיון את ניתוח זמן הבניה, סיבוכיות המקום, וזמן השאילתה של עץ תחומים.</p>
+</div>
+<div id="קראו-את-סעיף-5.3-בספר-עמודים-105109." class="section level4 unnumbered">
+<h4>קראו את סעיף 5.3 בספר (עמודים 105–109).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-5.3-%D7%91%D7%A1%D7%A4%D7%A8-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-105109."><i class="fas fa-link"></i></a>
+</h4>
+</div>
+<div id="שיפור-זמן-השאילתה." class="section level4 unnumbered">
+<h4>שיפור זמן השאילתה.<a class="anchor" aria-label="anchor" href="#%D7%A9%D7%99%D7%A4%D7%95%D7%A8-%D7%96%D7%9E%D7%9F-%D7%94%D7%A9%D7%90%D7%99%D7%9C%D7%AA%D7%94."><i class="fas fa-link"></i></a>
+</h4>
+<p>ניתן לשפר את זמן השאילתה של עץ התחומים בפקטור של log n, בעזרת שיטה הנקראת Fractional Cascading . זוהי שיטה מתקדמת שאינה חלק מחומר הקורס, והיא מתוארת בפרק 5.6 של הספר.</p>
+<hr class="mt-5 mb-5">
+</div>
+</div>
+</div>
+<div id="extensions" class="section level2" number="5.3">
+<h2>
+<span class="header-section-number">5.3</span> הרחבות<a class="anchor" aria-label="anchor" href="#extensions"><i class="fas fa-link"></i></a>
+</h2>
+<div id="higher-dim" class="section level3" number="5.3.1">
+<h3>
+<span class="header-section-number">5.3.1</span> מימדים גבוהים<a class="anchor" aria-label="anchor" href="#higher-dim"><i class="fas fa-link"></i></a>
+</h3>
+<p>בשתי הפסקאות האחרונות של סעיף 5.2 בספר הלימוד מתוארת בקצרה הבנייה של עצי-kd במימד d greater than 2. עבור d קבוע, זמן הבניה נשאר O left parenthesis n log n right parenthesis וסיבוכיות הזיכרון נשארת O left parenthesis n right parenthesis. זמן השאילתה לעומת זאת הוא O left parenthesis n to the power of 1 minus 1 divided by d end exponent plus k right parenthesis, והוא מתקרב ל-O left parenthesis n right parenthesis ככל ש-d גדל. בפרק 5.4 מתוארת הרחבה של עצי תחומים למימד d greater than 2. כאן זמן העיבוד המקדים וסיבוכיות המקום הם O left parenthesis n log to the power of d minus 1 end exponent n right parenthesis, וזמן השאילתה הוא O left parenthesis log to the power of d n plus k right parenthesis.</p>
+<div id="קראו-את-סעיף-5.4-בספר-עמודים-109110." class="section level4 unnumbered">
+<h4>קראו את סעיף 5.4 בספר (עמודים 109–110).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-5.4-%D7%91%D7%A1%D7%A4%D7%A8-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-109110."><i class="fas fa-link"></i></a>
+</h4>
+</div>
+</div>
+<div id="general-pos" class="section level3" number="5.3.2">
+<h3>
+<span class="header-section-number">5.3.2</span> אוסף נקודות כללי<a class="anchor" aria-label="anchor" href="#general-pos"><i class="fas fa-link"></i></a>
+</h3>
+<p>בפרקים 5.1־5.3 של ספר הלימוד אנו מניחים שאין באוסף הנתון שתי נקודות בעלות אותה קואורדינטת x או אותה קואורדינטת y. זוהי הנחה שאינה מתיישבת עם המציאות, מכיוון ששדות בטבלה עשויים לייצג ערכים בעלי מספר קטן של אפשרויות, כמו גיל או תאריך, ולכן סביר שיהיו המון נקודות בעלות ערכים זהים באותה קואורדינטה. למרבה המזל, הכללת מבני הנתונים שראינו עבור קלט כללי היא לא משימה קשה, וניתן לעשות זאת על ידי בחירה של סדר לקסיגורפי מסוים על הנקודות. תוכלו לקרוא על כך בפרק 5.5 של ספר הלימוד.</p>
+<div id="קראו-את-סעיף-5.5-בספר-עמודים-110111." class="section level4 unnumbered">
+<h4>קראו את סעיף 5.5 בספר (עמודים 110–111).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-5.5-%D7%91%D7%A1%D7%A4%D7%A8-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-110111."><i class="fas fa-link"></i></a>
+</h4>
+
+</div>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="%D7%AA%D7%9B%D7%A0%D7%95%D7%9F-%D7%9C%D7%99%D7%A0%D7%99%D7%90%D7%A8%D7%99-%D7%95%D7%97%D7%99%D7%AA%D7%95%D7%9A-%D7%A9%D7%9C-%D7%97%D7%A6%D7%90%D7%99-%D7%9E%D7%99%D7%A9%D7%95%D7%A8%D7%99%D7%9D.html"><span class="header-section-number">4</span> תכנון ליניארי וחיתוך של חצאי מישורים</a></div>
+<div class="next"><a href="point-location.html"><span class="header-section-number">6</span> מיקום נקודה ומפה טרפזית</a></div>
+</div></main><div class="col-md-3 col-lg-3 d-none d-md-block sidebar sidebar-chapter border-right">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>בפרק זה:</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#orthogonal-range-seach"><span class="header-section-number">5</span> חיפוש בתחומים אורתוגונלים</a></li>
+<li>
+<a class="nav-link" href="#preface"><span class="header-section-number">5.1</span> הקדמה</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#data-bases"><span class="header-section-number">5.1.1</span> חיפוש במסדי נתונים</a></li>
+<li><a class="nav-link" href="#on-the-line"><span class="header-section-number">5.1.2</span> חיפוש בתחומים על הישר</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#in-the-plane"><span class="header-section-number">5.2</span> חיפוש בתחומים במישור</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#kd-trees"><span class="header-section-number">5.2.1</span> עצי-kd</a></li>
+<li><a class="nav-link" href="#range-trees"><span class="header-section-number">5.2.2</span> עצי תחומים (Range Trees)</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#extensions"><span class="header-section-number">5.3</span> הרחבות</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#higher-dim"><span class="header-section-number">5.3.1</span> מימדים גבוהים</a></li>
+<li><a class="nav-link" href="#general-pos"><span class="header-section-number">5.3.2</span> אוסף נקודות כללי</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>גאומטריה חישובית</strong>" was written by עומרית פילצר. It was last built on 2023-08-20.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
