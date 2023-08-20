@@ -44,7 +44,7 @@
 
       <nav aria-label="Table of contents"><h2>רשימת הפרקים:</h2>
         <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">לפני שמתחילים</a></li>
+<li><a class="" href="index.html">ברוכים הבאים</a></li>
 <li><a class="" href="intro.html"><span class="header-section-number">1</span> מבוא</a></li>
 <li><a class="" href="map-overlay.html"><span class="header-section-number">2</span> מפות מישוריות וטכניקת הישר הסורק</a></li>
 <li><a class="" href="pol-tringle.html"><span class="header-section-number">3</span> שילושי פוליגונים ובעיית הגלריה לאמנות</a></li>
@@ -71,9 +71,10 @@
 <span class="header-section-number">5.1.1</span> חיפוש במסדי נתונים<a class="anchor" aria-label="anchor" href="#data-bases"><i class="fas fa-link"></i></a>
 </h3>
 <div class="inline-figure">
-<img src="images/5/database.jpg" align="left" width="40%"> מסדי נתונים המאחסנים רשומות בצורה של טבלה הם כלי מרכזי לארגון מידע בישומים רבים. כפי שראינו בהקדמה לקורס, למרות שבמבט ראשון לא נראה שיש קשר בין מסדי נתונים כאלו לגאומטריה, הקשר הזה אכן קיים עבור סוגים מסויימים של שאילתות.</div>
-<p>הייצוג הגאומטרי של מסד הנתונים יהיה באמצעות אוסף של נקודות במרחב ה-d מימדי: כל רשומה תיוצג באמצעות נקודה במרחב, כאשר כל שדה של הרשומה מתאים לקואורדינטה. עבור שאילתה המבקשת את אוסף הרשומות הנמצאות בתחום מסויים של ערכים (בשדה אחד או יותר), הייצוג הגאומטרי יהיה תחום אורתוגונלי R, כלומר, תיבה d-מימדית מקבילה לצירים. במישור זהו מלבן שצלעותיו מקבילות לצירים, ובשלושה מימדים זוהי קוביה שפאותיה מקבילות לצירים.</p>
-<p>בפרק זה נציג שני מבני נתונים לאחסון אוסף P של נקודות במרחב ה-d מימדי, כך שנוכל לענות ביעילות על שאילתות מהסוג הבא: בהינתן תחום אורתוגונלי R, אילו מהנקודות של R נמצאות בתוך R?</p>
+<img src="images/5/database.jpg" align="left" width="40%">
+מסדי נתונים המאחסנים רשומות בצורה של טבלה הם כלי מרכזי לארגון מידע בישומים רבים. כפי שראינו בהקדמה לקורס, למרות שבמבט ראשון לא נראה שיש קשר בין מסדי נתונים כאלו לגאומטריה, הקשר הזה אכן קיים עבור סוגים מסויימים של שאילתות.</div>
+<p>הייצוג הגאומטרי של מסד הנתונים יהיה באמצעות אוסף של נקודות במרחב ה-<span class="math inline">\(d\)</span> מימדי: כל רשומה תיוצג באמצעות נקודה במרחב, כאשר כל שדה של הרשומה מתאים לקואורדינטה. עבור שאילתה המבקשת את אוסף הרשומות הנמצאות בתחום מסויים של ערכים (בשדה אחד או יותר), הייצוג הגאומטרי יהיה תחום אורתוגונלי <span class="math inline">\(R\)</span>, כלומר, תיבה <span class="math inline">\(d\)</span>-מימדית מקבילה לצירים. במישור זהו מלבן שצלעותיו מקבילות לצירים, ובשלושה מימדים זוהי קוביה שפאותיה מקבילות לצירים.</p>
+<p>בפרק זה נציג שני מבני נתונים לאחסון אוסף <span class="math inline">\(P\)</span> של נקודות במרחב ה-<span class="math inline">\(d\)</span> מימדי, כך שנוכל לענות ביעילות על שאילתות מהסוג הבא: בהינתן תחום אורתוגונלי <span class="math inline">\(R\)</span>, אילו מהנקודות של <span class="math inline">\(P\)</span> נמצאות בתוך <span class="math inline">\(R\)</span>?</p>
 <div id="קראו-את-ההקדמה-לפרק-5-בספר-הלימוד-עמודים-9596." class="section level4 unnumbered">
 <h4>קראו את ההקדמה לפרק 5 בספר הלימוד (עמודים 95־96).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%94%D7%94%D7%A7%D7%93%D7%9E%D7%94-%D7%9C%D7%A4%D7%A8%D7%A7-5-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-9596."><i class="fas fa-link"></i></a>
 </h4>
@@ -83,12 +84,12 @@
 <h3>
 <span class="header-section-number">5.1.2</span> חיפוש בתחומים על הישר<a class="anchor" aria-label="anchor" href="#on-the-line"><i class="fas fa-link"></i></a>
 </h3>
-<p>בעיות רבות בגאומטריה חישובית נעשות פשוטות הרבה יותר כאשר הן נתונות במימד אחד, ובמחקר התאורטי מופיעים לעיתים קרובות פתרונות במימד אחד לבעיות מורכבות, כצעד מקדים לפתרונות במימדים גבוהים יותר. לכן, לפני שניגש לפתרון הבעיה של חיפוש בתחומים בשני מימדים או יותר, ננסה קודם להבין כיצד ניתן לפתור אותה עבור אוסף P של נקודות ממימד אחד, כלומר, אוסף של נקודות שכולן על ישר אחד. שימו לב שהשאילתה על הישר היא פשוט טווח של ערכים, R equals left square bracket x comma x apostrophe right square bracket.</p>
+<p>בעיות רבות בגאומטריה חישובית נעשות פשוטות הרבה יותר כאשר הן נתונות במימד אחד, ובמחקר התאורטי מופיעים לעיתים קרובות פתרונות במימד אחד לבעיות מורכבות, כצעד מקדים לפתרונות במימדים גבוהים יותר. לכן, לפני שניגש לפתרון הבעיה של חיפוש בתחומים בשני מימדים או יותר, ננסה קודם להבין כיצד ניתן לפתור אותה עבור אוסף P של נקודות ממימד אחד, כלומר, אוסף של נקודות שכולן על ישר אחד. שימו לב שהשאילתה על הישר היא פשוט טווח של ערכים, R equals left square bracket x comma x’ right square bracket.</p>
 <p align="center" width="100%">
 </p>
 <div class="inline-figure"><img src="images/5/1d_points.jpg" width="70%"></div>
 
-<p>אפשרות אחת לפתרון היא למיין את נקודות P ולשמור אותן במערך. בהינתן טווח left square bracket x comma x apostrophe right square bracket, נמצא בעזרת חיפוש בינארי את הנקודות הראשונה במערך שגדולה או שווה ל-x, ואז נעבור על תאי המערך לפי הסדר החל מנקודה זו, ונדווח על נקודות כל עוד הן קטנות או שוות ל-x apostrophe. זמן השאילתה יהיה O left parenthesis log n plus k right parenthesis כאשר k הוא מספר הנקודות בפלט. זמן העיבוד המקדים הוא O left parenthesis n log n right parenthesis וסיבוכיות המקום היא O left parenthesis n right parenthesis. לפתרון המשתמש במערך יש שני חסרונות: הוא לא דינאמי (כלומר, לא ניתן לבצע הוספה או מחיקה של נקודות), ולא ניתן להכליל אותו למימדים גבוהים. לכן, פרק 5.1 של ספר הלימוד מתאר פתרון המשתמש בעץ חיפוש בינארי, שבו הנקודות מופיעות בעלים. כל קודקוד פנימי מכיל את הערך המקסימלי של עלה המופיע בתת העץ השמאלי שלו. בהינתן עץ חיפוש T וטווח left square bracket x comma x ’ right square bracket, אלגוריתם השאילתה 1DRangeQuery מוצא את הקודקוד בו המסלולים מהשורש ל-x ו-x ’ מתפצלים, ואז מחזיר את כל הנקודות בעלים שנמצאים מימין להמשך המסלול ל-bold italic x, ואת הנקודות בעלים שנמצאים משמאל להמשך המסלול ל-bold italic x bold apostrophe. אלו בדיוק הערכים בעץ הנמצאים בין x ’ ל-x.</p>
+<p>אפשרות אחת לפתרון היא למיין את נקודות P ולשמור אותן במערך. בהינתן טווח left square bracket x comma x’ right square bracket, נמצא בעזרת חיפוש בינארי את הנקודות הראשונה במערך שגדולה או שווה ל-x, ואז נעבור על תאי המערך לפי הסדר החל מנקודה זו, ונדווח על נקודות כל עוד הן קטנות או שוות ל-x’. זמן השאילתה יהיה O( log n plus k) כאשר k הוא מספר הנקודות בפלט. זמן העיבוד המקדים הוא O( n log n) וסיבוכיות המקום היא O( n). לפתרון המשתמש במערך יש שני חסרונות: הוא לא דינאמי (כלומר, לא ניתן לבצע הוספה או מחיקה של נקודות), ולא ניתן להכליל אותו למימדים גבוהים. לכן, פרק 5.1 של ספר הלימוד מתאר פתרון המשתמש בעץ חיפוש בינארי, שבו הנקודות מופיעות בעלים. כל קודקוד פנימי מכיל את הערך המקסימלי של עלה המופיע בתת העץ השמאלי שלו. בהינתן עץ חיפוש T וטווח left square bracket x comma x ’ right square bracket, אלגוריתם השאילתה 1DRangeQuery מוצא את הקודקוד בו המסלולים מהשורש ל-x ו-x ’ מתפצלים, ואז מחזיר את כל הנקודות בעלים שנמצאים מימין להמשך המסלול ל-bold italic x, ואת הנקודות בעלים שנמצאים משמאל להמשך המסלול ל-bold italic x bold’. אלו בדיוק הערכים בעץ הנמצאים בין x ’ ל-x.</p>
 <p align="center" width="100%">
 </p>
 <div class="inline-figure"><img src="images/5/1d_tree.jpg" width="70%"></div>
@@ -116,7 +117,7 @@
 </h4>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/17b7i-OTVO8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 </iframe>
-<p>ניתן לבנות עץ-kd עבור אוסף של n נקודות בזמן O left parenthesis n log n right parenthesis. סיבוכיות המקום שלו היא O left parenthesis n right parenthesis, וזמן השאילתה הוא O left parenthesis square root of n plus k right parenthesis, כאשרk הוא גודל הפלט, כלומר מספר הנקודות הנמצאות בתחום הנתון. בסעיף 5.2 מתואר האלגוריתם BuildKdTree שבונה את העץ, ואלגוריתם השאילתה SearchKdTree. קראו בעיון את ניתוח זמן הבניה, סיבוכיות המקום, וזמן השאילתה של עץ ה-kd.</p>
+<p>ניתן לבנות עץ-kd עבור אוסף של n נקודות בזמן O( n log n). סיבוכיות המקום שלו היא O( n), וזמן השאילתה הוא <span class="math inline">\(O(\sqrt{n}+ k)\)</span>, כאשרk הוא גודל הפלט, כלומר מספר הנקודות הנמצאות בתחום הנתון. בסעיף 5.2 מתואר האלגוריתם BuildKdTree שבונה את העץ, ואלגוריתם השאילתה SearchKdTree. קראו בעיון את ניתוח זמן הבניה, סיבוכיות המקום, וזמן השאילתה של עץ ה-kd.</p>
 </div>
 <div id="קראו-את-סעיף-5.2-בספר-עמודים-99105." class="section level4 unnumbered">
 <h4>קראו את סעיף 5.2 בספר (עמודים 99–105).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-5.2-%D7%91%D7%A1%D7%A4%D7%A8-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-99105."><i class="fas fa-link"></i></a>
@@ -177,7 +178,7 @@
 <h4>צפו בסרטון הבא:<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90-6"><i class="fas fa-link"></i></a>
 </h4>
 <p>(TODO)</p>
-<p>מבחינת זמן השאילתה, במקרה הגרוע עץ תחומים יעיל הרבה יותר מעץ-kd - זמן השאילתה שלו הוא O left parenthesis log squared n plus k right parenthesis בלבד, לעומת O left parenthesis square root of n plus k right parenthesis בעצי-kd. השיפור הזה מאלץ אותנו לשלם מעט בסיבוכיות המקום – O left parenthesis n log n right parenthesis לעומת space O left parenthesis n right parenthesis. בסעיף 5.3 של ספר הלימוד מתואר האלגוריתם Build2DRangeTree שבונה את העץ, ואלגוריתם השאילתה 2DRangeQuery. קראו בעיון את ניתוח זמן הבניה, סיבוכיות המקום, וזמן השאילתה של עץ תחומים.</p>
+<p>מבחינת זמן השאילתה, במקרה הגרוע עץ תחומים יעיל הרבה יותר מעץ-kd - זמן השאילתה שלו הוא O( log^2 n + k) בלבד, לעומת O( +k) בעצי-kd. השיפור הזה מאלץ אותנו לשלם מעט בסיבוכיות המקום – O( n log n) לעומת space O( n). בסעיף 5.3 של ספר הלימוד מתואר האלגוריתם Build2DRangeTree שבונה את העץ, ואלגוריתם השאילתה 2DRangeQuery. קראו בעיון את ניתוח זמן הבניה, סיבוכיות המקום, וזמן השאילתה של עץ תחומים.</p>
 </div>
 <div id="קראו-את-סעיף-5.3-בספר-עמודים-105109." class="section level4 unnumbered">
 <h4>קראו את סעיף 5.3 בספר (עמודים 105–109).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-5.3-%D7%91%D7%A1%D7%A4%D7%A8-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-105109."><i class="fas fa-link"></i></a>
@@ -199,7 +200,7 @@
 <h3>
 <span class="header-section-number">5.3.1</span> מימדים גבוהים<a class="anchor" aria-label="anchor" href="#higher-dim"><i class="fas fa-link"></i></a>
 </h3>
-<p>בשתי הפסקאות האחרונות של סעיף 5.2 בספר הלימוד מתוארת בקצרה הבנייה של עצי-kd במימד d greater than 2. עבור d קבוע, זמן הבניה נשאר O left parenthesis n log n right parenthesis וסיבוכיות הזיכרון נשארת O left parenthesis n right parenthesis. זמן השאילתה לעומת זאת הוא O left parenthesis n to the power of 1 minus 1 divided by d end exponent plus k right parenthesis, והוא מתקרב ל-O left parenthesis n right parenthesis ככל ש-d גדל. בפרק 5.4 מתוארת הרחבה של עצי תחומים למימד d greater than 2. כאן זמן העיבוד המקדים וסיבוכיות המקום הם O left parenthesis n log to the power of d minus 1 end exponent n right parenthesis, וזמן השאילתה הוא O left parenthesis log to the power of d n plus k right parenthesis.</p>
+<p>בשתי הפסקאות האחרונות של סעיף 5.2 בספר הלימוד מתוארת בקצרה הבנייה של עצי-kd במימד d greater than 2. עבור d קבוע, זמן הבניה נשאר O( n log n) וסיבוכיות הזיכרון נשארת O( n). זמן השאילתה לעומת זאת הוא O( n to the power of 1 minus 1 divided by d end exponent plus k), והוא מתקרב ל-O( n) ככל ש-d גדל. בפרק 5.4 מתוארת הרחבה של עצי תחומים למימד d greater than 2. כאן זמן העיבוד המקדים וסיבוכיות המקום הם O( n log to the power of d minus 1 end exponent n), וזמן השאילתה הוא O( log to the power of d n plus k).</p>
 <div id="קראו-את-סעיף-5.4-בספר-עמודים-109110." class="section level4 unnumbered">
 <h4>קראו את סעיף 5.4 בספר (עמודים 109–110).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-5.4-%D7%91%D7%A1%D7%A4%D7%A8-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-109110."><i class="fas fa-link"></i></a>
 </h4>

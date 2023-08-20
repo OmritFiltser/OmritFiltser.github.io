@@ -13,11 +13,14 @@ biblio-style: apalike
 csl: chicago-fullnote-bibliography.csl
 ---
 
-# לפני שמתחילים {.unnumbered}
+# ברוכים הבאים {.unnumbered #before-we-start}
 
-## שלום וברוכים הבאים לקורס בגאומטריה חישובית! {.unnumbered}
+ספר זה נועד ללוות את הלומדים בקורס גאומטריה חישובית לתואר ראשון, המבוסס על הספר Computational Geometry: Algorithms and Applications מאת 
+Mark de Berg, Otfried Cheong, Marc van Kreveld, Mark Overmars.
 
-לפני שנתחיל, הנה מספר דברים שכדאי לדעת:
+## לפני שמתחילים {.unnumbered #welcome}
+
+לפני שנתחיל, הנה מספר פרטים שכדאי לדעת:
 
 -   **למי מיועד הקורס?** תלמידים בשלב מתקדם בתואר הראשון, וכן תלמידי תואר שני, במתימטיקה ומדעי המחשב. הקורס מתאים למי שמעוניין להתנסות בתחום מחקר תיאורטי, וגם למי שמחפש בסיס תיאורטי לישומים מעשיים.
 
@@ -39,3 +42,9 @@ csl: chicago-fullnote-bibliography.csl
 -   **יש נושא ספיציפי שמעניין אתכם? רוצים לראות דוגמאות נוספות?** חומרי עזר לקריאה נוספת והעשרה ינתנו במקומות הרלוונטים. 
 
 -   **מצאתם טעות בחומר הלימוד?** אם מצאתם טעות או בעיה בחומר הלימוד -- בין אם זו שגיאת כתיב, טעות בנוסחה, או חור בהוכחה - אנא כתבו לי.
+
+
+<script>
+title=document.getElementById('before-we-start');
+title.innerHTML = '<img src="images/logo.jpg" width="100%">' + title.innerHTML
+</script>

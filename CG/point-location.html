@@ -44,7 +44,7 @@
 
       <nav aria-label="Table of contents"><h2>רשימת הפרקים:</h2>
         <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">לפני שמתחילים</a></li>
+<li><a class="" href="index.html">ברוכים הבאים</a></li>
 <li><a class="" href="intro.html"><span class="header-section-number">1</span> מבוא</a></li>
 <li><a class="" href="map-overlay.html"><span class="header-section-number">2</span> מפות מישוריות וטכניקת הישר הסורק</a></li>
 <li><a class="" href="pol-tringle.html"><span class="header-section-number">3</span> שילושי פוליגונים ובעיית הגלריה לאמנות</a></li>
@@ -92,8 +92,7 @@
 <p>תהי <span class="math inline">\(\mathcal{S}\)</span> מפה מישורית, כפי שהגדרנו ביחידה 2 של הקורס: <span class="math inline">\(\mathcal{S}\)</span> היא שיכון של גרף מישורי במישור, כך שכל הצלעות שלו הן קטעים ישרים.
 נרצה לבנות מבנה נתונים שיענה על שאילתות מהסוג הבא: בהינתן נקודה <span class="math inline">\(q\)</span> במישור, מצא את הפאה בה <span class="math inline">\(q\)</span> נמצאת.</p>
 <p><img src="images/6/slabs.jpg" align="left" width="30%"> שימו לב שכדי למצוא את הפאה בה <span class="math inline">\(q\)</span> נמצאת, מספיק לבדוק (למשל) איזו צלע של <span class="math inline">\(\mathcal{S}\)</span> הנקודה <span class="math inline">\(q\)</span> “רואה” מעליה.
-לכן, בחלק הראשון של סעיף 6.1 בספר הלימוד מתואר פתרון נאיבי ופשוט לבעיה, על ידי חלוקה של המפה לרצועות (slabs): נעביר ישר אנכי דרך כל אחד מהקודקודים של .
-האיזור שנמצא בין שני ישרים עוקבים כאלו הוא רצועה אנכית.
+לכן, בחלק הראשון של סעיף 6.1 בספר הלימוד מתואר פתרון נאיבי ופשוט לבעיה, על ידי חלוקה של המפה לרצועות (slabs): נעביר ישר אנכי דרך כל אחד מהקודקודים של . האיזור שנמצא בין שני ישרים עוקבים כאלו הוא רצועה אנכית.
 בהינתן שמספר הקודקודים במפה <span class="math inline">\(\mathcal{S}\)</span> הוא n, ניתן למצוא את הרצועה שבה נמצאת נקודה נתונה <span class="math inline">\(q\)</span> בזמן <span class="math inline">\(O (\log n )\)</span> על ידי חיפוש בינארי.
 מכיוון שאין קודקודים של <span class="math inline">\(\mathcal{S}\)</span> בתוך הרצועה, נוכל למצוא את הצלע שהנקודה <span class="math inline">\(q\)</span> “רואה” מעליה על ידי חיפוש בינארי על פני הקטעים שחותכים את הרצועה, כלומר שוב <span class="math inline">\(O (\log n )\)</span>.</p>
 <p>בדרך זו, זמן השאילתה שנקבל הוא <span class="math inline">\(O (\log n )\)</span>, אך מהו גודל המבנה וזמן העיבוד המקדים?
@@ -186,17 +185,14 @@
 
 <p>בהינתן נקודת שאילתה q, נתחיל את החיפוש מהשורש עד שנגיע לעלה:</p>
 <ul>
-<li>אם הגענו לצומת-x המתאים לנקודת קצה p, נשאל: “האם <span class="math inline">\(q\)</span> מימין או משמאל לישר האנכי שעובר דרךp?”.
-אם התשובה היא “מימין” - נמשיך ימינה, אחרת שמאלה.</li>
-<li>אם הגענו לצומת-y המתאים לקטע s, נשאל: “האם <span class="math inline">\(q\)</span> מעל או מתחת לקטע s?”.
-אם התשובה היא “מתחת” - נמשיך ימינה, אחרת שמאלה.
-שימו לב שכדי שהשאלה הזו תהיה הגיונית, נצטרך להבטיח שבשלב זה הישר האנכי שעובר דרך <span class="math inline">\(q\)</span> חותך את s.</li>
+<li>אם הגענו לצומת-x המתאים לנקודת קצה p, נשאל: “האם <span class="math inline">\(q\)</span> מימין או משמאל לישר האנכי שעובר דרךp?”. אם התשובה היא “מימין” - נמשיך ימינה, אחרת שמאלה.</li>
+<li>אם הגענו לצומת-y המתאים לקטע s, נשאל: “האם <span class="math inline">\(q\)</span> מעל או מתחת לקטע s?”. אם התשובה היא “מתחת” - נמשיך ימינה, אחרת שמאלה. שימו לב שכדי שהשאלה הזו תהיה הגיונית, נצטרך להבטיח שבשלב זה הישר האנכי שעובר דרך <span class="math inline">\(q\)</span> חותך את s.</li>
 </ul>
 <p>כשנגיע לעלה, נבדוק האם הטרפז המתאים לו מכיל אתq.</p>
 <div class="rmdwarning">
 <div class="inline-figure">
-<img src="images/question.png" align="right" width="10%" style="padding:0px 0px 0px 10px">
-בדקו את עצמכם! ענו על השאלות הבאות.
+<img src="images/question.png" align="right" width="10%" style="padding:0px 0px 0px 10px"> בדקו את עצמכם!
+ענו על השאלות הבאות.
 נתון מבנה החיפוש הבא.</div>
 <p align="center" width="100%">
 </p>
@@ -225,8 +221,10 @@
 <h3>
 <span class="header-section-number">6.3.2</span> אלגוריתם אינקרמנטלי רנדומי<a class="anchor" aria-label="anchor" href="#rand-inc-alg"><i class="fas fa-link"></i></a>
 </h3>
-<p>בחלק זה נתאר אלגוריתם אינקרמנטלי לבניית מבנה החיפוש <span class="math inline">\(\mathcal{D}\)</span> והמפה הטרפזית <span class="math inline">\(\mathcal{T}(\mathcal{S})\)</span> גם יחד. האלגוריתם מוסיף את הקטעים מהאוסף <span class="math inline">\(\mathcal{S}\)</span> אחד אחרי השני בסדר רנדומי, ובכל פעם מעדכן את מבנה החיפוש והמפה בהתאם לקטע החדש שנוסף.</p>
-<p>הסיבה לכך שנבחר סדר רנדומי על הקטעים היא שבאופן זה נוכל לצפות לזמני ריצה וסיבוכיות מקום יעילים, בדומה לאלגוריתם האינקרמנטלי-רנדומי לתכנון לינארי במישור שראינו ביחידה 4 של הקורס. נדון בכך בעמוד הבא של חלק זה.</p>
+<p>בחלק זה נתאר אלגוריתם אינקרמנטלי לבניית מבנה החיפוש <span class="math inline">\(\mathcal{D}\)</span> והמפה הטרפזית <span class="math inline">\(\mathcal{T}(\mathcal{S})\)</span> גם יחד.
+האלגוריתם מוסיף את הקטעים מהאוסף <span class="math inline">\(\mathcal{S}\)</span> אחד אחרי השני בסדר רנדומי, ובכל פעם מעדכן את מבנה החיפוש והמפה בהתאם לקטע החדש שנוסף.</p>
+<p>הסיבה לכך שנבחר סדר רנדומי על הקטעים היא שבאופן זה נוכל לצפות לזמני ריצה וסיבוכיות מקום יעילים, בדומה לאלגוריתם האינקרמנטלי-רנדומי לתכנון לינארי במישור שראינו ביחידה 4 של הקורס.
+נדון בכך בעמוד הבא של חלק זה.</p>
 <div id="צפו-בסרטון-הבא-8" class="section level4 unnumbered">
 <h4>צפו בסרטון הבא:<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90-8"><i class="fas fa-link"></i></a>
 </h4>
@@ -236,8 +234,8 @@
 <h4>קראו את חלקו הראשון של סעיף 6.2 בספר (עמודים 128–133).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%97%D7%9C%D7%A7%D7%95-%D7%94%D7%A8%D7%90%D7%A9%D7%95%D7%9F-%D7%A9%D7%9C-%D7%A1%D7%A2%D7%99%D7%A3-6.2-%D7%91%D7%A1%D7%A4%D7%A8-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-128133."><i class="fas fa-link"></i></a>
 </h4>
 <div class="rmdwarning">
-<img src="images/question.png" align="right" width="10%" style="padding:0px 0px 0px 10px">
-התבוננו באיור הבא:
+<div class="inline-figure">
+<img src="images/question.png" align="right" width="10%" style="padding:0px 0px 0px 10px"> התבוננו באיור הבא:</div>
 <p align="center" width="100%">
 </p>
 <div class="inline-figure"><img src="images/6/alg_question1.jpg" width="70%"></div>
@@ -252,8 +250,8 @@
 </details>
 </div>
 <div class="rmdwarning">
-<img src="images/question.png" align="right" width="10%" style="padding:0px 0px 0px 10px">
-התבוננו באיור הבא, והשלימו את מבנה החיפוש.
+<div class="inline-figure">
+<img src="images/question.png" align="right" width="10%" style="padding:0px 0px 0px 10px"> התבוננו באיור הבא, והשלימו את מבנה החיפוש.</div>
 <p align="center" width="100%">
 </p>
 <div class="inline-figure"><img src="images/6/alg_question2.jpg" width="70%"></div>
@@ -272,20 +270,32 @@
 <h3>
 <span class="header-section-number">6.3.3</span> ניתוח האלגוריתם<a class="anchor" aria-label="anchor" href="#alg-analysis"><i class="fas fa-link"></i></a>
 </h3>
-<p>הסדר בו האלגוריתם TrapezoidalMap מוסיף את הקטעים משפיע מאוד על גודל מבנה החיפוש <span class="math inline">\(\mathcal{D}\)</span> ועל זמן השאילתה. למעשה, יתכן סידור שבו האלגוריתם ירוץ בזמן ריבועי, סיבוכיות הזיכרון של <span class="math inline">\(\mathcal{D}\)</span> תהיה ריבועית, וזמן השאילתה יהיה לינארי. לכן, בדומה לאלגוריתם האינקרמנטלי-רנדומי לתכנון לינארי במישור שראינו ביחידה 4 של הקורס, גם כאן האלגוריתם מגריל את סדר הוספת הקטעים מראש, ונוכל להראות שבתוחלת יתקבל מבנה חיפוש עם סיבוכיות זיכרון לינארית, וזמן שאילתה צפוי O (n ).</p>
+<p>הסדר בו האלגוריתם TrapezoidalMap מוסיף את הקטעים משפיע מאוד על גודל מבנה החיפוש <span class="math inline">\(\mathcal{D}\)</span> ועל זמן השאילתה.
+למעשה, יתכן סידור שבו האלגוריתם ירוץ בזמן ריבועי, סיבוכיות הזיכרון של <span class="math inline">\(\mathcal{D}\)</span> תהיה ריבועית, וזמן השאילתה יהיה לינארי.
+לכן, בדומה לאלגוריתם האינקרמנטלי-רנדומי לתכנון לינארי במישור שראינו ביחידה 4 של הקורס, גם כאן האלגוריתם מגריל את סדר הוספת הקטעים מראש, ונוכל להראות שבתוחלת יתקבל מבנה חיפוש עם סיבוכיות זיכרון לינארית, וזמן שאילתה צפוי O (n ).</p>
 <div class="rmdwarning">
-<p><img src="images/question.png" align="right" width="10%" style="padding:0px 0px 0px 10px">
-מהו המקרה הגרוע ביותר?
+<p><img src="images/question.png" align="right" width="10%" style="padding:0px 0px 0px 10px"> מהו המקרה הגרוע ביותר?
 נסו לתאר דוגמה לאוסף של <span class="math inline">\(n\)</span> קטעים וסידור שלהם, כך שהאלגוריתם האינקרמנטלי (הלא רנדומי) ירוץ בזמן O ( n^2 ).</p>
 </div>
 <div id="רעיון-ההוכחה-זמן-השאילתה." class="section level4 unnumbered">
 <h4>רעיון ההוכחה (זמן השאילתה).<a class="anchor" aria-label="anchor" href="#%D7%A8%D7%A2%D7%99%D7%95%D7%9F-%D7%94%D7%94%D7%95%D7%9B%D7%97%D7%94-%D7%96%D7%9E%D7%9F-%D7%94%D7%A9%D7%90%D7%99%D7%9C%D7%AA%D7%94."><i class="fas fa-link"></i></a>
 </h4>
-<p>תהי <span class="math inline">\(q\)</span> נקודת שאילתה. נרצה להעריך את תוחלת אורך המסלול שנעבור במבנה <span class="math inline">\(\mathcal{D}\)</span> כאשר נחפש את הטרפז שמכיל את <span class="math inline">\(q\)</span> (מספר הצמתים מהשורש לטרפז). לשם כך, ננסה להבין כיצד משתנה המסלול במהלך ריצת אלגוריתם הבנייה של .</p>
-<p>למשל, ניתן להראות שבכל פעם שקטע חדש נוסף למבנה, אורך המסלול יגדל בלכל היותר 3 צמתים. לפיכך ניתן לומר שאורך המסלול הוא לכל היותר . זהו חסם עבור המקרה הגרוע, אך אנו מעוניינים במקרה הממוצע (על פני כל <span class="math inline">\(n!\)</span> הסידורים האפשריים), ולכן ננסה לחשב את ממוצע מספר הצמתים שנוספו למסלול בכל איטרציה של האלגוריתם.</p>
-<p>נסמן ב-<span class="math inline">\(X_i\)</span> (עבור <span class="math inline">\(1 \le i \le n\)</span>) את מספר הצמתים על המסלול שנוספו באיטרציה ה-<span class="math inline">\(i\)</span> (כלומר, לאחר הוספת הקטע <span class="math inline">\(s_i\)</span>). כלומר, <span class="math inline">\(X_i\)</span> הוא משתנה מקרי התלוי בסדר הוספת הקטעים, ולכן תוחלת אורך המסלול אל הטרפז המכיל את <span class="math inline">\(q\)</span> היא <span class="math inline">\(E[ \sum_{i=1}^{n} X_i ]\)</span> ומלינאריות התוחלת <span class="math inline">\(\sum_{i=1}^{n} E[X_i]\)</span>.</p>
-<p>מכיוון שבכל איטרציה נוספים לכל היותר 3 צמתים למסלול, מתקיים <span class="math inline">\(X_i \le 3\)</span>. לכן, אם נסמן ב-<span class="math inline">\(P_i\)</span> את ההסתברות לכך שקיים צומת במסלול שנוצר באיטרציה ה-<span class="math inline">\(i\)</span>, נקבל <span class="math inline">\(E[ X_i ] \le 3 P_i\)</span>.</p>
-<p>האבחנה המרכזית בהוכחה היא שבאינטרציה ה-<span class="math inline">\(i\)</span> נוסף קודקוד למסלול שלנו רק אם הטרפז שמכיל את <span class="math inline">\(q\)</span> בדיוק לפני הוספת <span class="math inline">\(s_i\)</span> שונה מהטרפז המכיל את <span class="math inline">\(q\)</span> מיד לאחר הוספת <span class="math inline">\(s_i\)</span>. לכן, בדומה להוכחה שראינו ביחידה 4, נוכל לנתח את ההסתברות לכך שהטרפז המכיל את <span class="math inline">\(q\)</span> משתנה בין האיטרציה ה-<span class="math inline">\(i - 1\)</span> לאיטרציה ה-<span class="math inline">\(i\)</span> בשיטת הניתוח לאחור (backward analysis). כלומר, נסתכל על המפה שהתקבלה מיד לאחר הוספת <span class="math inline">\(s_i\)</span>, ונשאל מה ההסתברות לכך שהטרפז <span class="math inline">\(\Delta\)</span> המכיל את <span class="math inline">\(q\)</span> במפה זו יעלם אם נוציא את <span class="math inline">\(s_i\)</span>. שימו לב שהטרפז <span class="math inline">\(\Delta\)</span> יעלם אם ורק אם אחד מהשדות המגדירים אותו (<span class="math inline">\(top(\Delta)\)</span> , <span class="math inline">\(bottom(\Delta)\)</span> , <span class="math inline">\(leftp(\Delta)\)</span> , <span class="math inline">\(rightp(\Delta)\)</span>) יעלם. ההסתברות לכך ש-<span class="math inline">\(s_i\)</span> הוא הקטע שמגדיר את <span class="math inline">\(top(\Delta)\)</span> למשל, היא 1 over i, ובאופן דומה ניתן לחשב זאת עבור <span class="math inline">\(bottom(\Delta)\)</span>, <span class="math inline">\(leftp(\Delta)\)</span> , <span class="math inline">\(rightp(\Delta)\)</span>. לכן, נקבל <span class="math inline">\(P_i \le \frac{4}{i}\)</span>, ונוכל לחשב שתוחלת אורך המסלול היא <span class="math inline">\(O (\log n )\)</span>.</p>
+<p>תהי <span class="math inline">\(q\)</span> נקודת שאילתה.
+נרצה להעריך את תוחלת אורך המסלול שנעבור במבנה <span class="math inline">\(\mathcal{D}\)</span> כאשר נחפש את הטרפז שמכיל את <span class="math inline">\(q\)</span> (מספר הצמתים מהשורש לטרפז).
+לשם כך, ננסה להבין כיצד משתנה המסלול במהלך ריצת אלגוריתם הבנייה של .</p>
+<p>למשל, ניתן להראות שבכל פעם שקטע חדש נוסף למבנה, אורך המסלול יגדל בלכל היותר 3 צמתים.
+לפיכך ניתן לומר שאורך המסלול הוא לכל היותר .
+זהו חסם עבור המקרה הגרוע, אך אנו מעוניינים במקרה הממוצע (על פני כל <span class="math inline">\(n!\)</span> הסידורים האפשריים), ולכן ננסה לחשב את ממוצע מספר הצמתים שנוספו למסלול בכל איטרציה של האלגוריתם.</p>
+<p>נסמן ב-<span class="math inline">\(X_i\)</span> (עבור <span class="math inline">\(1 \le i \le n\)</span>) את מספר הצמתים על המסלול שנוספו באיטרציה ה-<span class="math inline">\(i\)</span> (כלומר, לאחר הוספת הקטע <span class="math inline">\(s_i\)</span>).
+כלומר, <span class="math inline">\(X_i\)</span> הוא משתנה מקרי התלוי בסדר הוספת הקטעים, ולכן תוחלת אורך המסלול אל הטרפז המכיל את <span class="math inline">\(q\)</span> היא <span class="math inline">\(E[ \sum_{i=1}^{n} X_i ]\)</span> ומלינאריות התוחלת <span class="math inline">\(\sum_{i=1}^{n} E[X_i]\)</span>.</p>
+<p>מכיוון שבכל איטרציה נוספים לכל היותר 3 צמתים למסלול, מתקיים <span class="math inline">\(X_i \le 3\)</span>.
+לכן, אם נסמן ב-<span class="math inline">\(P_i\)</span> את ההסתברות לכך שקיים צומת במסלול שנוצר באיטרציה ה-<span class="math inline">\(i\)</span>, נקבל <span class="math inline">\(E[ X_i ] \le 3 P_i\)</span>.</p>
+<p>האבחנה המרכזית בהוכחה היא שבאינטרציה ה-<span class="math inline">\(i\)</span> נוסף קודקוד למסלול שלנו רק אם הטרפז שמכיל את <span class="math inline">\(q\)</span> בדיוק לפני הוספת <span class="math inline">\(s_i\)</span> שונה מהטרפז המכיל את <span class="math inline">\(q\)</span> מיד לאחר הוספת <span class="math inline">\(s_i\)</span>.
+לכן, בדומה להוכחה שראינו ביחידה 4, נוכל לנתח את ההסתברות לכך שהטרפז המכיל את <span class="math inline">\(q\)</span> משתנה בין האיטרציה ה-<span class="math inline">\(i - 1\)</span> לאיטרציה ה-<span class="math inline">\(i\)</span> בשיטת הניתוח לאחור (backward analysis).
+כלומר, נסתכל על המפה שהתקבלה מיד לאחר הוספת <span class="math inline">\(s_i\)</span>, ונשאל מה ההסתברות לכך שהטרפז <span class="math inline">\(\Delta\)</span> המכיל את <span class="math inline">\(q\)</span> במפה זו יעלם אם נוציא את <span class="math inline">\(s_i\)</span>.
+שימו לב שהטרפז <span class="math inline">\(\Delta\)</span> יעלם אם ורק אם אחד מהשדות המגדירים אותו (<span class="math inline">\(top(\Delta)\)</span> , <span class="math inline">\(bottom(\Delta)\)</span> , <span class="math inline">\(leftp(\Delta)\)</span> , <span class="math inline">\(rightp(\Delta)\)</span>) יעלם.
+ההסתברות לכך ש-<span class="math inline">\(s_i\)</span> הוא הקטע שמגדיר את <span class="math inline">\(top(\Delta)\)</span> למשל, היא 1 over i, ובאופן דומה ניתן לחשב זאת עבור <span class="math inline">\(bottom(\Delta)\)</span>, <span class="math inline">\(leftp(\Delta)\)</span> , <span class="math inline">\(rightp(\Delta)\)</span>.
+לכן, נקבל <span class="math inline">\(P_i \le \frac{4}{i}\)</span>, ונוכל לחשב שתוחלת אורך המסלול היא <span class="math inline">\(O (\log n )\)</span>.</p>
 </div>
 <div id="קראו-את-חלקו-השני-של-סעיף-6.2-בספר-עמודים-133137." class="section level4 unnumbered">
 <h4>קראו את חלקו השני של סעיף 6.2 בספר (עמודים 133–137).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%97%D7%9C%D7%A7%D7%95-%D7%94%D7%A9%D7%A0%D7%99-%D7%A9%D7%9C-%D7%A1%D7%A2%D7%99%D7%A3-6.2-%D7%91%D7%A1%D7%A4%D7%A8-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-133137."><i class="fas fa-link"></i></a>
