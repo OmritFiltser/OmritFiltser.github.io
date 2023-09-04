@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>פרק 5 חיפוש בתחומים אורתוגונלים | גאומטריה חישובית</title>
-<meta name="author" content="עומרית פילצר">
+<title>יחידה 5 חיפוש בתחומים אורתוגונלים | גאומטריה חישובית</title>
+<meta name="author" content="ד’’ר עומרית פילצר">
 <meta name="description" content="5.1 הקדמה  5.1.1 חיפוש במסדי נתונים  מסדי נתונים המאחסנים רשומות בצורה של טבלה הם כלי מרכזי לארגון מידע בישומים רבים. כפי שראינו בהקדמה לקורס, למרות שבמבט ראשון לא נראה שיש קשר בין מסדי נתונים...">
 <meta name="generator" content="bookdown 0.34 with bs4_book()">
-<meta property="og:title" content="פרק 5 חיפוש בתחומים אורתוגונלים | גאומטריה חישובית">
+<meta property="og:title" content="יחידה 5 חיפוש בתחומים אורתוגונלים | גאומטריה חישובית">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://omrit.filtser.com/CG/orthogonal-range-seach.html">
 <meta property="og:description" content="5.1 הקדמה  5.1.1 חיפוש במסדי נתונים  מסדי נתונים המאחסנים רשומות בצורה של טבלה הם כלי מרכזי לארגון מידע בישומים רבים. כפי שראינו בהקדמה לקורס, למרות שבמבט ראשון לא נראה שיש קשר בין מסדי נתונים...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="פרק 5 חיפוש בתחומים אורתוגונלים | גאומטריה חישובית">
+<meta name="twitter:title" content="יחידה 5 חיפוש בתחומים אורתוגונלים | גאומטריה חישובית">
 <meta name="twitter:description" content="5.1 הקדמה  5.1.1 חיפוש במסדי נתונים  מסדי נתונים המאחסנים רשומות בצורה של טבלה הם כלי מרכזי לארגון מידע בישומים רבים. כפי שראינו בהקדמה לקורס, למרות שבמבט ראשון לא נראה שיש קשר בין מסדי נתונים...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -42,15 +42,16 @@
         <input id="search" class="form-control" type="search" placeholder="חיפוש" aria-label="Search" dir="rtl">
 </form>
 
-      <nav aria-label="Table of contents"><h2>רשימת הפרקים:</h2>
+      <nav aria-label="Table of contents"><h2>יחידות הלימוד:</h2>
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">ברוכים הבאים</a></li>
 <li><a class="" href="intro.html"><span class="header-section-number">1</span> מבוא</a></li>
 <li><a class="" href="map-overlay.html"><span class="header-section-number">2</span> מפות מישוריות וטכניקת הישר הסורק</a></li>
 <li><a class="" href="pol-tringle.html"><span class="header-section-number">3</span> שילושי פוליגונים ובעיית הגלריה לאמנות</a></li>
-<li><a class="" href="%D7%AA%D7%9B%D7%A0%D7%95%D7%9F-%D7%9C%D7%99%D7%A0%D7%99%D7%90%D7%A8%D7%99-%D7%95%D7%97%D7%99%D7%AA%D7%95%D7%9A-%D7%A9%D7%9C-%D7%97%D7%A6%D7%90%D7%99-%D7%9E%D7%99%D7%A9%D7%95%D7%A8%D7%99%D7%9D.html"><span class="header-section-number">4</span> תכנון ליניארי וחיתוך של חצאי מישורים</a></li>
+<li><a class="" href="linear-prog.html"><span class="header-section-number">4</span> תכנון ליניארי וחיתוך של חצאי מישורים</a></li>
 <li><a class="active" href="orthogonal-range-seach.html"><span class="header-section-number">5</span> חיפוש בתחומים אורתוגונלים</a></li>
 <li><a class="" href="point-location.html"><span class="header-section-number">6</span> מיקום נקודה ומפה טרפזית</a></li>
+<li><a class="" href="voronoi.html"><span class="header-section-number">7</span> דיאגרמת וורונוי</a></li>
 </ul>
 
         <div class="book-extra">
@@ -60,7 +61,7 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="orthogonal-range-seach" class="section level1" number="5">
 <h1>
-<span class="header-section-number">פרק 5</span> חיפוש בתחומים אורתוגונלים<a class="anchor" aria-label="anchor" href="#orthogonal-range-seach"><i class="fas fa-link"></i></a>
+<span class="header-section-number">יחידה 5</span> חיפוש בתחומים אורתוגונלים<a class="anchor" aria-label="anchor" href="#orthogonal-range-seach"><i class="fas fa-link"></i></a>
 </h1>
 <div id="preface" class="section level2" number="5.1">
 <h2>
@@ -178,7 +179,7 @@
 <h4>צפו בסרטון הבא:<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90-6"><i class="fas fa-link"></i></a>
 </h4>
 <p>(TODO)</p>
-<p>מבחינת זמן השאילתה, במקרה הגרוע עץ תחומים יעיל הרבה יותר מעץ-kd - זמן השאילתה שלו הוא O( log^2 n + k) בלבד, לעומת O( +k) בעצי-kd. השיפור הזה מאלץ אותנו לשלם מעט בסיבוכיות המקום – O( n log n) לעומת space O( n). בסעיף 5.3 של ספר הלימוד מתואר האלגוריתם Build2DRangeTree שבונה את העץ, ואלגוריתם השאילתה 2DRangeQuery. קראו בעיון את ניתוח זמן הבניה, סיבוכיות המקום, וזמן השאילתה של עץ תחומים.</p>
+<p>מבחינת זמן השאילתה, במקרה הגרוע עץ תחומים יעיל הרבה יותר מעץ-kd - זמן השאילתה שלו הוא <span class="math inline">\(O( log^2 n + k)\)</span> בלבד, לעומת <span class="math inline">\(O( \sqrt{n}+k)\)</span> בעצי-kd. השיפור הזה מאלץ אותנו לשלם מעט בסיבוכיות המקום – <span class="math inline">\(O( n log n)\)</span> לעומת <span class="math inline">\(O( n)\)</span>. בסעיף 5.3 של ספר הלימוד מתואר האלגוריתם Build2DRangeTree שבונה את העץ, ואלגוריתם השאילתה 2DRangeQuery. קראו בעיון את ניתוח זמן הבניה, סיבוכיות המקום, וזמן השאילתה של עץ תחומים.</p>
 </div>
 <div id="קראו-את-סעיף-5.3-בספר-עמודים-105109." class="section level4 unnumbered">
 <h4>קראו את סעיף 5.3 בספר (עמודים 105–109).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-5.3-%D7%91%D7%A1%D7%A4%D7%A8-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-105109."><i class="fas fa-link"></i></a>
@@ -200,7 +201,7 @@
 <h3>
 <span class="header-section-number">5.3.1</span> מימדים גבוהים<a class="anchor" aria-label="anchor" href="#higher-dim"><i class="fas fa-link"></i></a>
 </h3>
-<p>בשתי הפסקאות האחרונות של סעיף 5.2 בספר הלימוד מתוארת בקצרה הבנייה של עצי-kd במימד d greater than 2. עבור d קבוע, זמן הבניה נשאר O( n log n) וסיבוכיות הזיכרון נשארת O( n). זמן השאילתה לעומת זאת הוא O( n to the power of 1 minus 1 divided by d end exponent plus k), והוא מתקרב ל-O( n) ככל ש-d גדל. בפרק 5.4 מתוארת הרחבה של עצי תחומים למימד d greater than 2. כאן זמן העיבוד המקדים וסיבוכיות המקום הם O( n log to the power of d minus 1 end exponent n), וזמן השאילתה הוא O( log to the power of d n plus k).</p>
+<p>בשתי הפסקאות האחרונות של סעיף 5.2 בספר הלימוד מתוארת בקצרה הבנייה של עצי-kd במימד <span class="math inline">\(d&gt;2\)</span>. עבור <span class="math inline">\(d\)</span> קבוע, זמן הבניה נשאר <span class="math inline">\(O( n \log n)\)</span> וסיבוכיות הזיכרון נשארת <span class="math inline">\(O( n)\)</span>. זמן השאילתה לעומת זאת הוא <span class="math inline">\(O( n^{1-\frac{1}{d}}+k)\)</span>, והוא מתקרב ל-<span class="math inline">\(O( n)\)</span> ככל ש-<span class="math inline">\(d\)</span> גדל. בפרק 5.4 מתוארת הרחבה של עצי תחומים למימד <span class="math inline">\(d&gt;2\)</span>. כאן זמן העיבוד המקדים וסיבוכיות המקום הם <span class="math inline">\(O( n \log^{d-1} n)\)</span>, וזמן השאילתה הוא <span class="math inline">\(O( \log^d n +k)\)</span>.</p>
 <div id="קראו-את-סעיף-5.4-בספר-עמודים-109110." class="section level4 unnumbered">
 <h4>קראו את סעיף 5.4 בספר (עמודים 109–110).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-5.4-%D7%91%D7%A1%D7%A4%D7%A8-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-109110."><i class="fas fa-link"></i></a>
 </h4>
@@ -210,7 +211,7 @@
 <h3>
 <span class="header-section-number">5.3.2</span> אוסף נקודות כללי<a class="anchor" aria-label="anchor" href="#general-pos"><i class="fas fa-link"></i></a>
 </h3>
-<p>בפרקים 5.1־5.3 של ספר הלימוד אנו מניחים שאין באוסף הנתון שתי נקודות בעלות אותה קואורדינטת x או אותה קואורדינטת y. זוהי הנחה שאינה מתיישבת עם המציאות, מכיוון ששדות בטבלה עשויים לייצג ערכים בעלי מספר קטן של אפשרויות, כמו גיל או תאריך, ולכן סביר שיהיו המון נקודות בעלות ערכים זהים באותה קואורדינטה. למרבה המזל, הכללת מבני הנתונים שראינו עבור קלט כללי היא לא משימה קשה, וניתן לעשות זאת על ידי בחירה של סדר לקסיגורפי מסוים על הנקודות. תוכלו לקרוא על כך בפרק 5.5 של ספר הלימוד.</p>
+<p>בפרקים 5.1־5.3 של ספר הלימוד אנו מניחים שאין באוסף הנתון שתי נקודות בעלות אותה קואורדינטת <span class="math inline">\(x\)</span> או אותה קואורדינטת <span class="math inline">\(y\)</span>. זוהי הנחה שאינה מתיישבת עם המציאות, מכיוון ששדות בטבלה עשויים לייצג ערכים בעלי מספר קטן של אפשרויות, כמו גיל או תאריך, ולכן סביר שיהיו המון נקודות בעלות ערכים זהים באותה קואורדינטה. למרבה המזל, הכללת מבני הנתונים שראינו עבור קלט כללי היא לא משימה קשה, וניתן לעשות זאת על ידי בחירה של סדר לקסיגורפי מסוים על הנקודות. תוכלו לקרוא על כך בפרק 5.5 של ספר הלימוד.</p>
 <div id="קראו-את-סעיף-5.5-בספר-עמודים-110111." class="section level4 unnumbered">
 <h4>קראו את סעיף 5.5 בספר (עמודים 110–111).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-5.5-%D7%91%D7%A1%D7%A4%D7%A8-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-110111."><i class="fas fa-link"></i></a>
 </h4>
@@ -220,10 +221,10 @@
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="%D7%AA%D7%9B%D7%A0%D7%95%D7%9F-%D7%9C%D7%99%D7%A0%D7%99%D7%90%D7%A8%D7%99-%D7%95%D7%97%D7%99%D7%AA%D7%95%D7%9A-%D7%A9%D7%9C-%D7%97%D7%A6%D7%90%D7%99-%D7%9E%D7%99%D7%A9%D7%95%D7%A8%D7%99%D7%9D.html"><span class="header-section-number">4</span> תכנון ליניארי וחיתוך של חצאי מישורים</a></div>
+<div class="prev"><a href="linear-prog.html"><span class="header-section-number">4</span> תכנון ליניארי וחיתוך של חצאי מישורים</a></div>
 <div class="next"><a href="point-location.html"><span class="header-section-number">6</span> מיקום נקודה ומפה טרפזית</a></div>
 </div></main><div class="col-md-3 col-lg-3 d-none d-md-block sidebar sidebar-chapter border-right">
-    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>בפרק זה:</h2>
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>ביחידה זו:</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#orthogonal-range-seach"><span class="header-section-number">5</span> חיפוש בתחומים אורתוגונלים</a></li>
 <li>
@@ -260,7 +261,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>גאומטריה חישובית</strong>" was written by עומרית פילצר. It was last built on 2023-08-20.</p>
+    <p dir="rtl" style="text-align:right;">הספר "<strong>גאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2023-09-04.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

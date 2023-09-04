@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>פרק 7 דיאגרמת וורונוי | גאומטריה חישובית</title>
+<meta name="author" content="ד’’ר עומרית פילצר">
+<meta name="description" content="7.1 הקדמה  7.1.1 בעיית השכן הקרוב ביותר (או: בעיית מיקום הסניפים) נתון אוסף של מיקומי סניפים (נקודות במישור), ונניח שהלקוחות בוחרים להגיע לסניף הקרוב ביותר אליהם (לפי מרחק אוקלידי). לאיזה סניף...">
+<meta name="generator" content="bookdown 0.34 with bs4_book()">
+<meta property="og:title" content="פרק 7 דיאגרמת וורונוי | גאומטריה חישובית">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://omrit.filtser.com/CG/דיאגרמת-וורונוי.html">
+<meta property="og:description" content="7.1 הקדמה  7.1.1 בעיית השכן הקרוב ביותר (או: בעיית מיקום הסניפים) נתון אוסף של מיקומי סניפים (נקודות במישור), ונניח שהלקוחות בוחרים להגיע לסניף הקרוב ביותר אליהם (לפי מרחק אוקלידי). לאיזה סניף...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="פרק 7 דיאגרמת וורונוי | גאומטריה חישובית">
+<meta name="twitter:description" content="7.1 הקדמה  7.1.1 בעיית השכן הקרוב ביותר (או: בעיית מיקום הסניפים) נתון אוסף של מיקומי סניפים (נקודות במישור), ונניח שהלקוחות בוחרים להגיע לסניף הקרוב ביותר אליהם (לפי מרחק אוקלידי). לאיזה סניף...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.0/transition.js"></script><script src="libs/bs3compat-0.5.0/tabs.js"></script><script src="libs/bs3compat-0.5.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row no-pad">
+  <header class="col-sm-12 col-lg-2 sidebar sidebar-book border-left"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">גאומטריה חישובית</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search" dir="rtl">
+        <input id="search" class="form-control" type="search" placeholder="חיפוש" aria-label="Search" dir="rtl">
+</form>
+
+      <nav aria-label="Table of contents"><h2>רשימת הפרקים:</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">ברוכים הבאים</a></li>
+<li><a class="" href="intro.html"><span class="header-section-number">1</span> מבוא</a></li>
+<li><a class="" href="map-overlay.html"><span class="header-section-number">2</span> מפות מישוריות וטכניקת הישר הסורק</a></li>
+<li><a class="" href="pol-tringle.html"><span class="header-section-number">3</span> שילושי פוליגונים ובעיית הגלריה לאמנות</a></li>
+<li><a class="" href="%D7%AA%D7%9B%D7%A0%D7%95%D7%9F-%D7%9C%D7%99%D7%A0%D7%99%D7%90%D7%A8%D7%99-%D7%95%D7%97%D7%99%D7%AA%D7%95%D7%9A-%D7%A9%D7%9C-%D7%97%D7%A6%D7%90%D7%99-%D7%9E%D7%99%D7%A9%D7%95%D7%A8%D7%99%D7%9D.html"><span class="header-section-number">4</span> תכנון ליניארי וחיתוך של חצאי מישורים</a></li>
+<li><a class="" href="orthogonal-range-seach.html"><span class="header-section-number">5</span> חיפוש בתחומים אורתוגונלים</a></li>
+<li><a class="" href="point-location.html"><span class="header-section-number">6</span> מיקום נקודה ומפה טרפזית</a></li>
+<li><a class="active" href="%D7%93%D7%99%D7%90%D7%92%D7%A8%D7%9E%D7%AA-%D7%95%D7%95%D7%A8%D7%95%D7%A0%D7%95%D7%99.html"><span class="header-section-number">7</span> דיאגרמת וורונוי</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="דיאגרמת-וורונוי" class="section level1" number="7">
+<h1>
+<span class="header-section-number">פרק 7</span> דיאגרמת וורונוי<a class="anchor" aria-label="anchor" href="#%D7%93%D7%99%D7%90%D7%92%D7%A8%D7%9E%D7%AA-%D7%95%D7%95%D7%A8%D7%95%D7%A0%D7%95%D7%99"><i class="fas fa-link"></i></a>
+</h1>
+<div id="הקדמה-1" class="section level2" number="7.1">
+<h2>
+<span class="header-section-number">7.1</span> הקדמה<a class="anchor" aria-label="anchor" href="#%D7%94%D7%A7%D7%93%D7%9E%D7%94-1"><i class="fas fa-link"></i></a>
+</h2>
+<div id="בעיית-השכן-הקרוב-ביותר-או-בעיית-מיקום-הסניפים" class="section level3" number="7.1.1">
+<h3>
+<span class="header-section-number">7.1.1</span> בעיית השכן הקרוב ביותר (או: בעיית מיקום הסניפים)<a class="anchor" aria-label="anchor" href="#%D7%91%D7%A2%D7%99%D7%99%D7%AA-%D7%94%D7%A9%D7%9B%D7%9F-%D7%94%D7%A7%D7%A8%D7%95%D7%91-%D7%91%D7%99%D7%95%D7%AA%D7%A8-%D7%90%D7%95-%D7%91%D7%A2%D7%99%D7%99%D7%AA-%D7%9E%D7%99%D7%A7%D7%95%D7%9D-%D7%94%D7%A1%D7%A0%D7%99%D7%A4%D7%99%D7%9D"><i class="fas fa-link"></i></a>
+</h3>
+<p>נתון אוסף של מיקומי סניפים (נקודות במישור), ונניח שהלקוחות בוחרים להגיע לסניף הקרוב ביותר אליהם (לפי מרחק אוקלידי). לאיזה סניף יגיע כל לקוח? מהו הסניף הרווחי ביותר? היכן כדאי לנו למקם סניף נוסף כך שיהיה רווחי? דיאגרמת וורונוי (Voronoi diagram) היא מבנה גאומטרי בסיסי וחשוב ביותר, בעזרתו נוכל לענות על שאלות אלו, ועוד. זוהי בעצם חלוקה של המישור לתאים, תא אחד לכל סניף (נקודה במישור), כך שכל תא מכיל בדיוק את אוסף הנקודות במישור הקרובות לסניף שלו יותר מאשר לכל אחד מהסניפים האחרים.</p>
+<div class="rmdnote">
+<p><strong>מעניין לדעת</strong>: לדיאגרמת וורונוי יש שימושים רבים ומגוונים, ופרט לתחום החברתי-כלכלי ניתן למצוא אותה בתחומים כמו גרפיקה ממוחשבת, רובוטיקה, פיזיקה, וביולוגיה, וכן במגוון צורות בטבע, כפי שניתן לראות למשל בתמונות הבאות. TODO</p>
+</div>
+<div id="קראו-את-ההקדמה-לפרק-7-בספר-הלימוד-עמודים-147148." class="section level4 unnumbered">
+<h4>קראו את ההקדמה לפרק 7 בספר הלימוד (עמודים 147־148).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%94%D7%94%D7%A7%D7%93%D7%9E%D7%94-%D7%9C%D7%A4%D7%A8%D7%A7-7-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-147148."><i class="fas fa-link"></i></a>
+</h4>
+</div>
+</div>
+</div>
+<div id="הגדרה-ותכונות-בסיסיות" class="section level2" number="7.2">
+<h2>
+<span class="header-section-number">7.2</span> הגדרה ותכונות בסיסיות<a class="anchor" aria-label="anchor" href="#%D7%94%D7%92%D7%93%D7%A8%D7%94-%D7%95%D7%AA%D7%9B%D7%95%D7%A0%D7%95%D7%AA-%D7%91%D7%A1%D7%99%D7%A1%D7%99%D7%95%D7%AA"><i class="fas fa-link"></i></a>
+</h2>
+<div id="הגדרה" class="section level3" number="7.2.1">
+<h3>
+<span class="header-section-number">7.2.1</span> הגדרה<a class="anchor" aria-label="anchor" href="#%D7%94%D7%92%D7%93%D7%A8%D7%94"><i class="fas fa-link"></i></a>
+</h3>
+<p>תהי <span class="math inline">\(P=(p_1,\dots,p_n)\)</span> קבוצה של <span class="math inline">\(n\)</span> נקודות במישור.</p>
+<div class="rmdimportant">
+<p><u><strong>הגדרה</strong>: דיאגרמת וורונוי</u><br>
+דיאגרמת וורונוי של הקבוצה <span class="math inline">\(P\)</span> היא חלוקה של המישור ל-<span class="math inline">\(n\)</span> תאים, אחד לכל נקודה של <span class="math inline">\(P\)</span>, כך שנקודה <span class="math inline">\(q\)</span> שייכת לתא שמתאים לנקודה <span class="math inline">\(p_i\)</span> אם ורק אם <span class="math inline">\(\|p_i-q\|&lt;\|p_j-q\|\)</span> לכל <span class="math inline">\(p_j\in P\)</span>, <span class="math inline">\(j\neq i\)</span>.</p>
+</div>
+<p>נסמן ב-<span class="math inline">\(\text{Vor(P)}\)</span> את דיאגרמת וורונוי של הקבוצה <span class="math inline">\(P\)</span>, ועבור נקודה <span class="math inline">\(p_i\in P\)</span> נסמן ב-<span class="math inline">\(\mathcal{V}(p_i)\)</span> את התא בדיאגרמה המתאים ל-<span class="math inline">\(p_i\)</span>.</p>
+<p>נניח שנתונות לנו שתי נקודות בלבד, <span class="math inline">\(p_1,p_2\)</span>. כיצד תראה הדיאגרמה במקרה זה?</p>
+<p>נתבונן באנך האמצעי לקטע <span class="math inline">\(\overline{p_1p_2}\)</span>. אנך זה נקרא ה-bisector של <span class="math inline">\(p_1\)</span> ו-<span class="math inline">\(p_2\)</span>. כל נקודה הנמצאת על ה-bisector היא במרחק שווה מ-<span class="math inline">\(p_1\)</span> ו-<span class="math inline">\(p_2\)</span>.</p>
+<p>ה-bisector של <span class="math inline">\(p_1\)</span> ו-<span class="math inline">\(p_2\)</span> מחלק את המישור לשני חצאי מישור. נסמן ב-<span class="math inline">\(h(p_1,p_2)\)</span> את חצי המישור הפתוח שמכיל את <span class="math inline">\(p_1\)</span>. כל נקודה הנמצאת ב-<span class="math inline">\(h(p_1,p_2)\)</span>, קרובה יותר ל-<span class="math inline">\(p_1\)</span> מאשר ל-<span class="math inline">\(p_2\)</span>.</p>
+</div>
+<div id="תכונות-הדיאגרמה" class="section level3" number="7.2.2">
+<h3>
+<span class="header-section-number">7.2.2</span> תכונות הדיאגרמה<a class="anchor" aria-label="anchor" href="#%D7%AA%D7%9B%D7%95%D7%A0%D7%95%D7%AA-%D7%94%D7%93%D7%99%D7%90%D7%92%D7%A8%D7%9E%D7%94"><i class="fas fa-link"></i></a>
+</h3>
+<div id="כיצד-נראה-תא-וורונוי" class="section level4 unnumbered">
+<h4>כיצד נראה תא וורונוי?<a class="anchor" aria-label="anchor" href="#%D7%9B%D7%99%D7%A6%D7%93-%D7%A0%D7%A8%D7%90%D7%94-%D7%AA%D7%90-%D7%95%D7%95%D7%A8%D7%95%D7%A0%D7%95%D7%99"><i class="fas fa-link"></i></a>
+</h4>
+<p>האבחנות שראינו למעלה מובילות אותנו לאבחנה הבאה לגבי המבנה של תא בדיאגרמת וורונוי:</p>
+<div class="rmdimportant">
+<p><u><strong>אבחנה</strong>:</u> תא וורונוי <span class="math inline">\(\mathcal{V}(p_i)\)</span> מתקבל על ידי חיתוך של <span class="math inline">\(n-1\)</span> חצאי מישורים, ולכן הוא פוליגון קמור (יתכן שאינו חסום) בעל לכל היותר <span class="math inline">\(n-1\)</span> קודקודים ו-<span class="math inline">\(n-1\)</span> צלעות.</p>
+</div>
+</div>
+<div id="כיצד-נראית-הדיאגרמה-כולה" class="section level4 unnumbered">
+<h4>כיצד נראית הדיאגרמה כולה?<a class="anchor" aria-label="anchor" href="#%D7%9B%D7%99%D7%A6%D7%93-%D7%A0%D7%A8%D7%90%D7%99%D7%AA-%D7%94%D7%93%D7%99%D7%90%D7%92%D7%A8%D7%9E%D7%94-%D7%9B%D7%95%D7%9C%D7%94"><i class="fas fa-link"></i></a>
+</h4>
+<p>מכיוון שכל תא בדיאגרמה הוא חיתוך של חצאי מישורים, דיאגרמת וורונוי תהיה חלוקה של המישור שהצלעות שלה הן ישרים, חצאי ישרים, או קטעים. צלעות שהן ישרים (כלומר כאלו שאינן חסומות משני הצדדים) יתקבלו רק במקרה בו כל הנקודות נמצאות על ישר אחד. בספר תראו את ההוכחה המלאה למשפט הבא:</p>
+<div class="rmdimportant">
+<p><u><strong>משפט</strong>:</u> אם כל נקודות <span class="math inline">\(P\)</span> נמצאות על ישר אחד אז <span class="math inline">\(\text{Vor(P)}\)</span> מורכבת מ-<span class="math inline">\(n-1\)</span> ישרים מקבילים. אחרת, <span class="math inline">\(\text{Vor(P)}\)</span> היא גרף קשיר, והצלעות שלה הן קטעים או חצאי ישרים (קרניים).</p>
+</div>
+</div>
+<div id="סיבוכיות-הדיאגרמה." class="section level4 unnumbered">
+<h4>סיבוכיות הדיאגרמה.<a class="anchor" aria-label="anchor" href="#%D7%A1%D7%99%D7%91%D7%95%D7%9B%D7%99%D7%95%D7%AA-%D7%94%D7%93%D7%99%D7%90%D7%92%D7%A8%D7%9E%D7%94."><i class="fas fa-link"></i></a>
+</h4>
+<p>שימו לב שהסיבוכיות של תא בודד בדיאגרמה עשויה להיות <span class="math inline">\(\Theta(n)\)</span>, כמו למשל באיור הבא.</p>
+<p>מה הסיבוכיות של כל הדיאגרמה? על ידי שימוש בנוסחת אוילר, והעובדה שהדרגה המינימלית של קודקוד בדיאגרמה היא 3, ניתן להוכיח שהסיבוכיות של <span class="math inline">\(\text{Vor}(P)\)</span> היא <span class="math inline">\(O(n)\)</span> (ההוכחה המלאה מופיעה בספר הלימוד).</p>
+<div class="rmdimportant">
+<p><u><strong>משפט</strong>:</u> הסיבוכיות של <span class="math inline">\(\text{Vor(P)}\)</span> היא <span class="math inline">\(O(n)\)</span>.</p>
+</div>
+</div>
+<div id="תכונת-המעגל-הריק." class="section level4 unnumbered">
+<h4>תכונת המעגל הריק.<a class="anchor" aria-label="anchor" href="#%D7%AA%D7%9B%D7%95%D7%A0%D7%AA-%D7%94%D7%9E%D7%A2%D7%92%D7%9C-%D7%94%D7%A8%D7%99%D7%A7."><i class="fas fa-link"></i></a>
+</h4>
+<p>תכונת המעגל הריק מאפשרת לנו להבין טוב יותר מיהם האנכים האמצעיים שנקודת החיתוך ביניהם היא קודקוד של הדיאגרמה. עבור נקודה <span class="math inline">\(q\)</span>, נגדיר את <span class="math inline">\(C_P(q)\)</span> להיות המעגל הגדול ביותר שמרכזו ב-<span class="math inline">\(q\)</span> והוא ריק (בפנימו) מנקודות <span class="math inline">\(P\)</span>. המשפט הבא הוא אפיון חשוב של דיאגרמת וורונוי, שיאפשר לנו בהמשך לבנות אותה ביעילות. ההוכחה המלאה מופיעה כמובן בספר הלימוד.</p>
+<div class="rmdimportant">
+<p><u><strong>משפט</strong>:</u></p>
+<ol style="list-style-type: decimal">
+<li>נקודה <span class="math inline">\(q\)</span> היא קודקוד של <span class="math inline">\(\text{Vor(P)}\)</span> אם ורק אם <span class="math inline">\(C_P(q)\)</span> מכיל לפחות שלוש נקודות של <span class="math inline">\(P\)</span> על שפתו.</li>
+<li>ה-bisector של <span class="math inline">\(p_i\)</span> ו-<span class="math inline">\(p_j\)</span> מגדיר צלע של <span class="math inline">\(\text{Vor(P)}\)</span> אם ורק אם קיימת נקודה <span class="math inline">\(q\)</span> על ה-bisector כך ש-<span class="math inline">\(C_P(q)\)</span> מכיל את <span class="math inline">\(p_i\)</span> ו-<span class="math inline">\(p_j\)</span> על שפתו, ואינו מכיל אף נקודה אחרת של <span class="math inline">\(P\)</span> על שפתו.</li>
+</ol>
+</div>
+<div class="rmdwarning">
+<img src="images/question.png" align="right" width="10%" style="padding:0px 0px 0px 10px"> לפני שתעברו לחלק הבא, נסו לחשוב בעצמכם על אלגוריתם פשוט לבניית דיאגרמת וורונוי.
+<details><summary>
+(רמז)
+</summary>
+ניתן להשתמש באבחנה לגבי המבנה של תא וורונוי.
+</details>
+</div>
+</div>
+<div id="קראו-את-סעיף-7.1-בספר-הלימוד-עמודים-148151." class="section level4 unnumbered">
+<h4>קראו את סעיף 7.1 בספר הלימוד (עמודים 148־151).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-7.1-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-148151."><i class="fas fa-link"></i></a>
+</h4>
+</div>
+</div>
+</div>
+<div id="חישוב-הדיאגרמה" class="section level2" number="7.3">
+<h2>
+<span class="header-section-number">7.3</span> חישוב הדיאגרמה<a class="anchor" aria-label="anchor" href="#%D7%97%D7%99%D7%A9%D7%95%D7%91-%D7%94%D7%93%D7%99%D7%90%D7%92%D7%A8%D7%9E%D7%94"><i class="fas fa-link"></i></a>
+</h2>
+<div id="סריקת-קו-החוף" class="section level3" number="7.3.1">
+<h3>
+<span class="header-section-number">7.3.1</span> סריקת קו החוף<a class="anchor" aria-label="anchor" href="#%D7%A1%D7%A8%D7%99%D7%A7%D7%AA-%D7%A7%D7%95-%D7%94%D7%97%D7%95%D7%A3"><i class="fas fa-link"></i></a>
+</h3>
+<p>האבחנה שראינו בחלק הקודם לגבי המבנה של תא וורונוי מובילה לאלגוריתם פשוט למדי לחישוב הדיאגרמה. נוכל לחשב לכל אתר <span class="math inline">\(p_i\)</span> את החיתוך של חצאי המישורים <span class="math inline">\(h(p_i,p_j)\)</span> לכל <span class="math inline">\(j\neq i\)</span> בעזרת האלגוריתם שראינו בפרק 4, וכך נקבל את התא המתאים ל-<span class="math inline">\(p_i\)</span>. כך החישוב של כל תא יהיה בזמן <span class="math inline">\(O(n\log n)\)</span>, וסך כל זמן הריצה יהיה <span class="math inline">\(O(n^2 \log n)\)</span>. האם ניתן להשיג זמן טוב יותר? אחרי הכל, הסיבוכיות של דיאגרמת וורונוי היא לינארית….
+בסרטון הבא נראה איך ניתן לחשב את דיאגרמת וורונוי בזמן <span class="math inline">\(O(n\log n)\)</span> בלבד, בעזרת אלגוריתם סורק.</p>
+<div id="צפו-בסרטון-הבא.-5" class="section level4" number="7.3.1.1">
+<h4>
+<span class="header-section-number">7.3.1.1</span> צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-5"><i class="fas fa-link"></i></a>
+</h4>
+</div>
+</div>
+<div id="האלגוריתם-הסורק-של-fortune" class="section level3" number="7.3.2">
+<h3>
+<span class="header-section-number">7.3.2</span> האלגוריתם הסורק של Fortune<a class="anchor" aria-label="anchor" href="#%D7%94%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D-%D7%94%D7%A1%D7%95%D7%A8%D7%A7-%D7%A9%D7%9C-fortune"><i class="fas fa-link"></i></a>
+</h3>
+<p>בסעיף 7.2 של ספר הלימוד מתואר בפירוט האלגוריתם הסורק של Fortune לבניית דיאגרמת וורונוי. זהו אלגוריתם בסיסי וחשוב ביותר בתחום הגאומטריה חישובית. בקורס זה לא ניכנס לפרטים של האלגוריתם, ונסתפק בתיאור הרעיון הכללי שראינו קודם, ובציטוט המשפט הבא:</p>
+<div class="rmdimportant">
+<p><u><strong>משפט</strong>:</u> ניתן לחשב את דיאגרמת וורונוי של קבוצת נקודות בגודל <span class="math inline">\(n\)</span> בזמן <span class="math inline">\(O(n\log(n)\)</span>.</p>
+</div>
+<div id="הדגמה." class="section level4 unnumbered">
+<h4>הדגמה.<a class="anchor" aria-label="anchor" href="#%D7%94%D7%93%D7%92%D7%9E%D7%94."><i class="fas fa-link"></i></a>
+</h4>
+<p>הסרטון הבא (מאת Kevin Schaal) מציג אנימציה המדגימה את פעולת האלגוריתם:
+<iframe width="560" height="315" src="https://www.youtube.com/embed/k2P9yWSMaXE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></p>
+</div>
+<div id="למעוניינים-בפרטי-האלגוריתם-קראו-את-סעיף-7.2-בספר-הלימוד-עמודים-151159." class="section level4 unnumbered">
+<h4>למעוניינים בפרטי האלגוריתם: קראו את סעיף 7.2 בספר הלימוד (עמודים 151־159).<a class="anchor" aria-label="anchor" href="#%D7%9C%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%A0%D7%99%D7%9D-%D7%91%D7%A4%D7%A8%D7%98%D7%99-%D7%94%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D-%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-7.2-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-151159."><i class="fas fa-link"></i></a>
+</h4>
+</div>
+</div>
+</div>
+<div id="הרחבות" class="section level2" number="7.4">
+<h2>
+<span class="header-section-number">7.4</span> הרחבות<a class="anchor" aria-label="anchor" href="#%D7%94%D7%A8%D7%97%D7%91%D7%95%D7%AA"><i class="fas fa-link"></i></a>
+</h2>
+<p>בחלקים הקודמים הגדרנו את דיאגרמת וורונוי עבור אוסף של נקודות במישור תחת מטריקת <span class="math inline">\(L_2\)</span>, כלומר, המרחק האוקלידי. אך הרעיון של דיאגרמת וורונוי הוא הרבה יותר כללי ומופשט: זוהי דיאגרמה המתארת חלוקה של המרחב לתאים לפי המרחק לאובייקטים מאוסף נתון. בחלק זה נציג בקצרה מספר הכללות והרחבות ידועות של דיאגרמת וורונוי.</p>
+<div id="מטריקות-אחרות" class="section level4" number="7.4.0.1">
+<h4>
+<span class="header-section-number">7.4.0.1</span> מטריקות אחרות<a class="anchor" aria-label="anchor" href="#%D7%9E%D7%98%D7%A8%D7%99%D7%A7%D7%95%D7%AA-%D7%90%D7%97%D7%A8%D7%95%D7%AA"><i class="fas fa-link"></i></a>
+</h4>
+<p>מטריקה כללית
+למשל מטריקת L_1</p>
+</div>
+<div id="אובייקטים-אחרים" class="section level4" number="7.4.0.2">
+<h4>
+<span class="header-section-number">7.4.0.2</span> אובייקטים אחרים<a class="anchor" aria-label="anchor" href="#%D7%90%D7%95%D7%91%D7%99%D7%99%D7%A7%D7%98%D7%99%D7%9D-%D7%90%D7%97%D7%A8%D7%99%D7%9D"><i class="fas fa-link"></i></a>
+</h4>
+<p>למשל מימדים גבוהים יותר
+דיאגרמות וורונוי של קטעים</p>
+</div>
+<div id="הגדרות-אחרות" class="section level4" number="7.4.0.3">
+<h4>
+<span class="header-section-number">7.4.0.3</span> הגדרות אחרות<a class="anchor" aria-label="anchor" href="#%D7%94%D7%92%D7%93%D7%A8%D7%95%D7%AA-%D7%90%D7%97%D7%A8%D7%95%D7%AA"><i class="fas fa-link"></i></a>
+</h4>
+<p>דיאגרמת וורונוי מסדר- k (והנקודה הרחוקה ביותר)
+דיאגרמת וורונוי ממושקלת</p>
+
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="point-location.html"><span class="header-section-number">6</span> מיקום נקודה ומפה טרפזית</a></div>
+<div class="empty"></div>
+</div></main><div class="col-md-3 col-lg-3 d-none d-md-block sidebar sidebar-chapter border-right">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>בפרק זה:</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#%D7%93%D7%99%D7%90%D7%92%D7%A8%D7%9E%D7%AA-%D7%95%D7%95%D7%A8%D7%95%D7%A0%D7%95%D7%99"><span class="header-section-number">7</span> דיאגרמת וורונוי</a></li>
+<li>
+<a class="nav-link" href="#%D7%94%D7%A7%D7%93%D7%9E%D7%94-1"><span class="header-section-number">7.1</span> הקדמה</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#%D7%91%D7%A2%D7%99%D7%99%D7%AA-%D7%94%D7%A9%D7%9B%D7%9F-%D7%94%D7%A7%D7%A8%D7%95%D7%91-%D7%91%D7%99%D7%95%D7%AA%D7%A8-%D7%90%D7%95-%D7%91%D7%A2%D7%99%D7%99%D7%AA-%D7%9E%D7%99%D7%A7%D7%95%D7%9D-%D7%94%D7%A1%D7%A0%D7%99%D7%A4%D7%99%D7%9D"><span class="header-section-number">7.1.1</span> בעיית השכן הקרוב ביותר (או: בעיית מיקום הסניפים)</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#%D7%94%D7%92%D7%93%D7%A8%D7%94-%D7%95%D7%AA%D7%9B%D7%95%D7%A0%D7%95%D7%AA-%D7%91%D7%A1%D7%99%D7%A1%D7%99%D7%95%D7%AA"><span class="header-section-number">7.2</span> הגדרה ותכונות בסיסיות</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#%D7%94%D7%92%D7%93%D7%A8%D7%94"><span class="header-section-number">7.2.1</span> הגדרה</a></li>
+<li><a class="nav-link" href="#%D7%AA%D7%9B%D7%95%D7%A0%D7%95%D7%AA-%D7%94%D7%93%D7%99%D7%90%D7%92%D7%A8%D7%9E%D7%94"><span class="header-section-number">7.2.2</span> תכונות הדיאגרמה</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#%D7%97%D7%99%D7%A9%D7%95%D7%91-%D7%94%D7%93%D7%99%D7%90%D7%92%D7%A8%D7%9E%D7%94"><span class="header-section-number">7.3</span> חישוב הדיאגרמה</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#%D7%A1%D7%A8%D7%99%D7%A7%D7%AA-%D7%A7%D7%95-%D7%94%D7%97%D7%95%D7%A3"><span class="header-section-number">7.3.1</span> סריקת קו החוף</a></li>
+<li><a class="nav-link" href="#%D7%94%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D-%D7%94%D7%A1%D7%95%D7%A8%D7%A7-%D7%A9%D7%9C-fortune"><span class="header-section-number">7.3.2</span> האלגוריתם הסורק של Fortune</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#%D7%94%D7%A8%D7%97%D7%91%D7%95%D7%AA"><span class="header-section-number">7.4</span> הרחבות</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p dir="rtl" style="text-align:right;">הספר "<strong>גאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2023-08-24.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

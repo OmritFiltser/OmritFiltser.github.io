@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>פרק 2 מפות מישוריות וטכניקת הישר הסורק | גאומטריה חישובית</title>
-<meta name="author" content="עומרית פילצר">
+<title>יחידה 2 מפות מישוריות וטכניקת הישר הסורק | גאומטריה חישובית</title>
+<meta name="author" content="ד’’ר עומרית פילצר">
 <meta name="description" content="2.1 הקדמה  2.1.1 שכבות מידע במפה  ביחידה זו נתייחס לבעיות הנוגעות לחיתוכי קטעים במישור. דוגמה אחת לבעיה כזו מופיעה בתחום של מערכות מידע גאוגרפיות (GIS - Graphic Information Systems), כאשר רוצים...">
 <meta name="generator" content="bookdown 0.34 with bs4_book()">
-<meta property="og:title" content="פרק 2 מפות מישוריות וטכניקת הישר הסורק | גאומטריה חישובית">
+<meta property="og:title" content="יחידה 2 מפות מישוריות וטכניקת הישר הסורק | גאומטריה חישובית">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://omrit.filtser.com/CG/map-overlay.html">
 <meta property="og:description" content="2.1 הקדמה  2.1.1 שכבות מידע במפה  ביחידה זו נתייחס לבעיות הנוגעות לחיתוכי קטעים במישור. דוגמה אחת לבעיה כזו מופיעה בתחום של מערכות מידע גאוגרפיות (GIS - Graphic Information Systems), כאשר רוצים...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="פרק 2 מפות מישוריות וטכניקת הישר הסורק | גאומטריה חישובית">
+<meta name="twitter:title" content="יחידה 2 מפות מישוריות וטכניקת הישר הסורק | גאומטריה חישובית">
 <meta name="twitter:description" content="2.1 הקדמה  2.1.1 שכבות מידע במפה  ביחידה זו נתייחס לבעיות הנוגעות לחיתוכי קטעים במישור. דוגמה אחת לבעיה כזו מופיעה בתחום של מערכות מידע גאוגרפיות (GIS - Graphic Information Systems), כאשר רוצים...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -42,15 +42,16 @@
         <input id="search" class="form-control" type="search" placeholder="חיפוש" aria-label="Search" dir="rtl">
 </form>
 
-      <nav aria-label="Table of contents"><h2>רשימת הפרקים:</h2>
+      <nav aria-label="Table of contents"><h2>יחידות הלימוד:</h2>
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">ברוכים הבאים</a></li>
 <li><a class="" href="intro.html"><span class="header-section-number">1</span> מבוא</a></li>
 <li><a class="active" href="map-overlay.html"><span class="header-section-number">2</span> מפות מישוריות וטכניקת הישר הסורק</a></li>
 <li><a class="" href="pol-tringle.html"><span class="header-section-number">3</span> שילושי פוליגונים ובעיית הגלריה לאמנות</a></li>
-<li><a class="" href="%D7%AA%D7%9B%D7%A0%D7%95%D7%9F-%D7%9C%D7%99%D7%A0%D7%99%D7%90%D7%A8%D7%99-%D7%95%D7%97%D7%99%D7%AA%D7%95%D7%9A-%D7%A9%D7%9C-%D7%97%D7%A6%D7%90%D7%99-%D7%9E%D7%99%D7%A9%D7%95%D7%A8%D7%99%D7%9D.html"><span class="header-section-number">4</span> תכנון ליניארי וחיתוך של חצאי מישורים</a></li>
+<li><a class="" href="linear-prog.html"><span class="header-section-number">4</span> תכנון ליניארי וחיתוך של חצאי מישורים</a></li>
 <li><a class="" href="orthogonal-range-seach.html"><span class="header-section-number">5</span> חיפוש בתחומים אורתוגונלים</a></li>
 <li><a class="" href="point-location.html"><span class="header-section-number">6</span> מיקום נקודה ומפה טרפזית</a></li>
+<li><a class="" href="voronoi.html"><span class="header-section-number">7</span> דיאגרמת וורונוי</a></li>
 </ul>
 
         <div class="book-extra">
@@ -60,7 +61,7 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="map-overlay" class="section level1" number="2">
 <h1>
-<span class="header-section-number">פרק 2</span> מפות מישוריות וטכניקת הישר הסורק<a class="anchor" aria-label="anchor" href="#map-overlay"><i class="fas fa-link"></i></a>
+<span class="header-section-number">יחידה 2</span> מפות מישוריות וטכניקת הישר הסורק<a class="anchor" aria-label="anchor" href="#map-overlay"><i class="fas fa-link"></i></a>
 </h1>
 <div id="preface" class="section level2" number="2.1">
 <h2>
@@ -154,8 +155,8 @@ intersection). בבעיה זו, הקלט הוא אוסף של קטעים במי�
 <h4>קראו בעיון את סעיף 2.1 בספר הלימוד (עמודים 20–29)<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%91%D7%A2%D7%99%D7%95%D7%9F-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-2.1-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-2029"><i class="fas fa-link"></i></a>
 </h4>
 </div>
-<div id="נוסחת-אוילר" class="section level4 unnumbered">
-<h4>נוסחת אוילר<a class="anchor" aria-label="anchor" href="#%D7%A0%D7%95%D7%A1%D7%97%D7%AA-%D7%90%D7%95%D7%99%D7%9C%D7%A8"><i class="fas fa-link"></i></a>
+<div id="euiler" class="section level4 unnumbered">
+<h4>נוסחת אוילר<a class="anchor" aria-label="anchor" href="#euiler"><i class="fas fa-link"></i></a>
 </h4>
 <p>בסעיף 2.1 בספר הלימוד, יש שימוש בנוסחת אוילר להשגת חסם על מספר המאורעות.</p>
 <p>עבור גרף מישורי עם <span class="math inline">\(n_v\)</span> קודקודים, <span class="math inline">\(n_e\)</span> צלעות, ו-<span class="math inline">\(n_f\)</span> פאות, נוסחת
@@ -356,7 +357,7 @@ DCEL, נרצה לחשב מבנה DCEL עבור ה-overlay של <span class="math
 <div class="prev"><a href="intro.html"><span class="header-section-number">1</span> מבוא</a></div>
 <div class="next"><a href="pol-tringle.html"><span class="header-section-number">3</span> שילושי פוליגונים ובעיית הגלריה לאמנות</a></div>
 </div></main><div class="col-md-3 col-lg-3 d-none d-md-block sidebar sidebar-chapter border-right">
-    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>בפרק זה:</h2>
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>ביחידה זו:</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#map-overlay"><span class="header-section-number">2</span> מפות מישוריות וטכניקת הישר הסורק</a></li>
 <li>
@@ -392,7 +393,7 @@ DCEL, נרצה לחשב מבנה DCEL עבור ה-overlay של <span class="math
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>גאומטריה חישובית</strong>" was written by עומרית פילצר. It was last built on 2023-08-20.</p>
+    <p dir="rtl" style="text-align:right;">הספר "<strong>גאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2023-09-04.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

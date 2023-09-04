@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>פרק 4 תכנון ליניארי וחיתוך של חצאי מישורים | גאומטריה חישובית</title>
+<title>יחידה 4 תכנון ליניארי וחיתוך של חצאי מישורים | גאומטריה חישובית</title>
 <meta name="author" content="ד’’ר עומרית פילצר">
 <meta name="description" content="4.1 הקדמה  4.1.1 בעיית הייצור באמצעות תבניות  חפצים רבים שאנו משתמשים בהם באופן יום-יומי מיוצרים בתהליך אוטומטי, שבו יוצקים נוזל לתבנית רב פעמית, ולאחר שהוא מתמצק שולפים אותו החוצה מבלי לפגוע...">
 <meta name="generator" content="bookdown 0.34 with bs4_book()">
-<meta property="og:title" content="פרק 4 תכנון ליניארי וחיתוך של חצאי מישורים | גאומטריה חישובית">
+<meta property="og:title" content="יחידה 4 תכנון ליניארי וחיתוך של חצאי מישורים | גאומטריה חישובית">
 <meta property="og:type" content="book">
-<meta property="og:url" content="https://omrit.filtser.com/CG/תכנון-ליניארי-וחיתוך-של-חצאי-מישורים.html">
+<meta property="og:url" content="https://omrit.filtser.com/CG/linear-prog.html">
 <meta property="og:description" content="4.1 הקדמה  4.1.1 בעיית הייצור באמצעות תבניות  חפצים רבים שאנו משתמשים בהם באופן יום-יומי מיוצרים בתהליך אוטומטי, שבו יוצקים נוזל לתבנית רב פעמית, ולאחר שהוא מתמצק שולפים אותו החוצה מבלי לפגוע...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="פרק 4 תכנון ליניארי וחיתוך של חצאי מישורים | גאומטריה חישובית">
+<meta name="twitter:title" content="יחידה 4 תכנון ליניארי וחיתוך של חצאי מישורים | גאומטריה חישובית">
 <meta name="twitter:description" content="4.1 הקדמה  4.1.1 בעיית הייצור באמצעות תבניות  חפצים רבים שאנו משתמשים בהם באופן יום-יומי מיוצרים בתהליך אוטומטי, שבו יוצקים נוזל לתבנית רב פעמית, ולאחר שהוא מתמצק שולפים אותו החוצה מבלי לפגוע...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -42,16 +42,16 @@
         <input id="search" class="form-control" type="search" placeholder="חיפוש" aria-label="Search" dir="rtl">
 </form>
 
-      <nav aria-label="Table of contents"><h2>רשימת הפרקים:</h2>
+      <nav aria-label="Table of contents"><h2>יחידות הלימוד:</h2>
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">ברוכים הבאים</a></li>
 <li><a class="" href="intro.html"><span class="header-section-number">1</span> מבוא</a></li>
 <li><a class="" href="map-overlay.html"><span class="header-section-number">2</span> מפות מישוריות וטכניקת הישר הסורק</a></li>
 <li><a class="" href="pol-tringle.html"><span class="header-section-number">3</span> שילושי פוליגונים ובעיית הגלריה לאמנות</a></li>
-<li><a class="active" href="%D7%AA%D7%9B%D7%A0%D7%95%D7%9F-%D7%9C%D7%99%D7%A0%D7%99%D7%90%D7%A8%D7%99-%D7%95%D7%97%D7%99%D7%AA%D7%95%D7%9A-%D7%A9%D7%9C-%D7%97%D7%A6%D7%90%D7%99-%D7%9E%D7%99%D7%A9%D7%95%D7%A8%D7%99%D7%9D.html"><span class="header-section-number">4</span> תכנון ליניארי וחיתוך של חצאי מישורים</a></li>
+<li><a class="active" href="linear-prog.html"><span class="header-section-number">4</span> תכנון ליניארי וחיתוך של חצאי מישורים</a></li>
 <li><a class="" href="orthogonal-range-seach.html"><span class="header-section-number">5</span> חיפוש בתחומים אורתוגונלים</a></li>
 <li><a class="" href="point-location.html"><span class="header-section-number">6</span> מיקום נקודה ומפה טרפזית</a></li>
-<li><a class="" href="%D7%93%D7%99%D7%90%D7%92%D7%A8%D7%9E%D7%AA-%D7%95%D7%95%D7%A8%D7%95%D7%A0%D7%95%D7%99.html"><span class="header-section-number">7</span> דיאגרמת וורונוי</a></li>
+<li><a class="" href="voronoi.html"><span class="header-section-number">7</span> דיאגרמת וורונוי</a></li>
 </ul>
 
         <div class="book-extra">
@@ -59,17 +59,17 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="תכנון-ליניארי-וחיתוך-של-חצאי-מישורים" class="section level1" number="4">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="linear-prog" class="section level1" number="4">
 <h1>
-<span class="header-section-number">פרק 4</span> תכנון ליניארי וחיתוך של חצאי מישורים<a class="anchor" aria-label="anchor" href="#%D7%AA%D7%9B%D7%A0%D7%95%D7%9F-%D7%9C%D7%99%D7%A0%D7%99%D7%90%D7%A8%D7%99-%D7%95%D7%97%D7%99%D7%AA%D7%95%D7%9A-%D7%A9%D7%9C-%D7%97%D7%A6%D7%90%D7%99-%D7%9E%D7%99%D7%A9%D7%95%D7%A8%D7%99%D7%9D"><i class="fas fa-link"></i></a>
+<span class="header-section-number">יחידה 4</span> תכנון ליניארי וחיתוך של חצאי מישורים<a class="anchor" aria-label="anchor" href="#linear-prog"><i class="fas fa-link"></i></a>
 </h1>
-<div id="הקדמה" class="section level2" number="4.1">
+<div id="preface" class="section level2" number="4.1">
 <h2>
-<span class="header-section-number">4.1</span> הקדמה<a class="anchor" aria-label="anchor" href="#%D7%94%D7%A7%D7%93%D7%9E%D7%94"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.1</span> הקדמה<a class="anchor" aria-label="anchor" href="#preface"><i class="fas fa-link"></i></a>
 </h2>
-<div id="בעיית-הייצור-באמצעות-תבניות" class="section level3" number="4.1.1">
+<div id="molding-prob" class="section level3" number="4.1.1">
 <h3>
-<span class="header-section-number">4.1.1</span> בעיית הייצור באמצעות תבניות<a class="anchor" aria-label="anchor" href="#%D7%91%D7%A2%D7%99%D7%99%D7%AA-%D7%94%D7%99%D7%99%D7%A6%D7%95%D7%A8-%D7%91%D7%90%D7%9E%D7%A6%D7%A2%D7%95%D7%AA-%D7%AA%D7%91%D7%A0%D7%99%D7%95%D7%AA"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.1.1</span> בעיית הייצור באמצעות תבניות<a class="anchor" aria-label="anchor" href="#molding-prob"><i class="fas fa-link"></i></a>
 </h3>
 <p><img src="images/4/molding-casting.jpg" align="left" width="33%"> חפצים רבים שאנו משתמשים בהם באופן יום-יומי מיוצרים בתהליך אוטומטי, שבו יוצקים נוזל לתבנית רב פעמית, ולאחר שהוא מתמצק שולפים אותו החוצה מבלי לפגוע בתבנית. כמובן שלא כל צורה תלת מימדית ניתנת לייצור באופן הזה, למשל צורה שהיא כדורית. נניח שנתון לנו <strong>פוליהדרון</strong> (גוף תלת מימדי המורכב מפאות שהן פוליגונים, צלעות שהן קוים ישרים, וקודקודים שהם נקודות), איך נדע האם ניתן לייצר אותו על ידי יציקה לתבנית רב פעמית?</p>
 <div id="קראו-את-ההקדמה-לפרק-4-עמודים-63-64." class="section level4 unnumbered">
@@ -77,9 +77,9 @@
 </h4>
 </div>
 </div>
-<div id="מודל-גאומטרי-לבעיה" class="section level3" number="4.1.2">
+<div id="geom-model" class="section level3" number="4.1.2">
 <h3>
-<span class="header-section-number">4.1.2</span> מודל גאומטרי לבעיה<a class="anchor" aria-label="anchor" href="#%D7%9E%D7%95%D7%93%D7%9C-%D7%92%D7%90%D7%95%D7%9E%D7%98%D7%A8%D7%99-%D7%9C%D7%91%D7%A2%D7%99%D7%94"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.1.2</span> מודל גאומטרי לבעיה<a class="anchor" aria-label="anchor" href="#geom-model"><i class="fas fa-link"></i></a>
 </h3>
 <p><img src="images/4/mold.jpg" align="left" width="25%"> בהינתן פוליהדרון <span class="math inline">\(P\)</span> בעל <span class="math inline">\(n\)</span> פאות שהן פוליגונים, נרצה לתכנן תבנית שתאפשר לנו לייצר את <span class="math inline">\(P\)</span>. כדי שנוכל לחלץ את <span class="math inline">\(P\)</span> מהתבנית על ידי משיכה בכיוון אחד, נדרוש שבדיוק אחת מהפאות של <span class="math inline">\(P\)</span> תהיה מוכלת בפאה העליונה של התבנית. התבנית חייבת להתאים לצורה של <span class="math inline">\(P\)</span>, אבל את הפאה העליונה נוכל לבחור מתוך <span class="math inline">\(n\)</span> הפאות של <span class="math inline">\(P\)</span>, ולכן יש לכל היותר <span class="math inline">\(n\)</span> תבניות אפשרויות. כמובן שלא כל תבנית תאפשר לנו לחלץ את <span class="math inline">\(P\)</span>.</p>
 <div class="rmdwarning">
@@ -103,13 +103,13 @@
 </div>
 </div>
 </div>
-<div id="חיתוך-של-חצאי-מישורים" class="section level2" number="4.2">
+<div id="line-int" class="section level2" number="4.2">
 <h2>
-<span class="header-section-number">4.2</span> חיתוך של חצאי מישורים<a class="anchor" aria-label="anchor" href="#%D7%97%D7%99%D7%AA%D7%95%D7%9A-%D7%A9%D7%9C-%D7%97%D7%A6%D7%90%D7%99-%D7%9E%D7%99%D7%A9%D7%95%D7%A8%D7%99%D7%9D"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.2</span> חיתוך של חצאי מישורים<a class="anchor" aria-label="anchor" href="#line-int"><i class="fas fa-link"></i></a>
 </h2>
-<div id="אלגוריתם-בשיטת-הפרד-ומשול" class="section level3" number="4.2.1">
+<div id="div-con-alg" class="section level3" number="4.2.1">
 <h3>
-<span class="header-section-number">4.2.1</span> אלגוריתם בשיטת הפרד ומשול<a class="anchor" aria-label="anchor" href="#%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D-%D7%91%D7%A9%D7%99%D7%98%D7%AA-%D7%94%D7%A4%D7%A8%D7%93-%D7%95%D7%9E%D7%A9%D7%95%D7%9C"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.2.1</span> אלגוריתם בשיטת הפרד ומשול<a class="anchor" aria-label="anchor" href="#div-con-alg"><i class="fas fa-link"></i></a>
 </h3>
 <p>בחלק הקודם ראינו כיצד ניתן להמיר את הבעיה של ייצור באמצעות תבניות לבעיה של מציאת נקודה כלשהי המספקת אוסף של אילוצים לינאריים בשני משתנים, או לחילופין, לבעיה הגאומטרית של מציאת נקודה כלשהי בחיתוך של אוסף חצאי מישורים. החיתוך של אוסף חצאי מישורים הוא תחום קמור, אך הוא אינו חייב להיות חסום. הנה דוגמה לתחום קמור שאינו חסום (מימין), ותחום קמור חסום (משמאל).</p>
 <p align="center" width="100%">
@@ -123,9 +123,9 @@
 </h4>
 </div>
 </div>
-<div id="חיתוך-של-פוליגונים-קמורים" class="section level3" number="4.2.2">
+<div id="convex-int" class="section level3" number="4.2.2">
 <h3>
-<span class="header-section-number">4.2.2</span> חיתוך של פוליגונים קמורים<a class="anchor" aria-label="anchor" href="#%D7%97%D7%99%D7%AA%D7%95%D7%9A-%D7%A9%D7%9C-%D7%A4%D7%95%D7%9C%D7%99%D7%92%D7%95%D7%A0%D7%99%D7%9D-%D7%A7%D7%9E%D7%95%D7%A8%D7%99%D7%9D"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.2.2</span> חיתוך של פוליגונים קמורים<a class="anchor" aria-label="anchor" href="#convex-int"><i class="fas fa-link"></i></a>
 </h3>
 <p>בחלק השלישי של יחידה 2 (המדבר על פעולות בוליאניות), ראינו שניתן לחשב את החיתוך של שני פוליגונים (לא בהכרח קמורים) בזמן O ( ( n + k ) log n ), כאשר k הוא מספר נקודות חיתוך, בעזרת האלגוריתם MapOverlay.</p>
 <div class="rmdwarning">
@@ -161,13 +161,13 @@
 </div>
 </div>
 </div>
-<div id="תכנון-לינארי-במישור" class="section level2" number="4.3">
+<div id="planar-LP" class="section level2" number="4.3">
 <h2>
-<span class="header-section-number">4.3</span> תכנון לינארי במישור<a class="anchor" aria-label="anchor" href="#%D7%AA%D7%9B%D7%A0%D7%95%D7%9F-%D7%9C%D7%99%D7%A0%D7%90%D7%A8%D7%99-%D7%91%D7%9E%D7%99%D7%A9%D7%95%D7%A8"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.3</span> תכנון לינארי במישור<a class="anchor" aria-label="anchor" href="#planar-LP"><i class="fas fa-link"></i></a>
 </h2>
-<div id="מהו-תכנון-לינארי" class="section level3" number="4.3.1">
+<div id="what-is-LP" class="section level3" number="4.3.1">
 <h3>
-<span class="header-section-number">4.3.1</span> מהו תכנון לינארי?<a class="anchor" aria-label="anchor" href="#%D7%9E%D7%94%D7%95-%D7%AA%D7%9B%D7%A0%D7%95%D7%9F-%D7%9C%D7%99%D7%A0%D7%90%D7%A8%D7%99"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.3.1</span> מהו תכנון לינארי?<a class="anchor" aria-label="anchor" href="#what-is-LP"><i class="fas fa-link"></i></a>
 </h3>
 <p>תכנון לינארי היא בעיית אופטימיזציה של ביטוי לינארי, תחת אוסף של אילוצים לינאריים. זוהי בעייה מרכזית בתחום של חקר ביצועים, שבו בעיות אופטימיזציה רבות ניתנות לתאור באמצעות תוכנית לינארית. הבעיה צברה פופולריות רבה משום שהיא שימושית בתחומים רבים נוספים, ולכן במשך השנים נעשו מאמצים רבים למציאת פתרונות יעילים ומהירים עבורה. בסרטון הבא נראה דוגמה לתוכנית כזאת, נזכיר חלק מהכלים הקיימים כיום לפתרון בעיות תכנון לינארי, ונדבר על הקשר בין תכנון לינארי במישור לבעיית החיתוך של חצאי מישורים.</p>
 <div id="צפו-בסרטון-הבא-3" class="section level4 unnumbered">
@@ -181,9 +181,9 @@
 </h4>
 </div>
 </div>
-<div id="אלגוריתם-אינקרמנטלי" class="section level3" number="4.3.2">
+<div id="inc-alg" class="section level3" number="4.3.2">
 <h3>
-<span class="header-section-number">4.3.2</span> אלגוריתם אינקרמנטלי<a class="anchor" aria-label="anchor" href="#%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D-%D7%90%D7%99%D7%A0%D7%A7%D7%A8%D7%9E%D7%A0%D7%98%D7%9C%D7%99"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.3.2</span> אלגוריתם אינקרמנטלי<a class="anchor" aria-label="anchor" href="#inc-alg"><i class="fas fa-link"></i></a>
 </h3>
 <p>בחלקו השני של סעיף 4.3 בספר הלימוד מתואר אלגוריתם אינקרמנטלי בשם 2DBoundedLP, לפתרון של תוכנית לינארית בשני מימדים. האלגוריתם פועל תחת ההנחה שהתוכנית הלינארית חסומה. לכן, בשלב הזה נניח כי ניתן למצוא ולהוסיף לתוכנית הלינארית שני חצאי מישורים <span class="math inline">\(m_1, m_2\)</span>, שיגרמו לכך שהתוכנית תהיה חסומה בכיוון <span class="math inline">\(\overrightarrow{c}\)</span>, אך לא ישנו את הפתרון האופטימלי במקרה שבו התוכנית חסומה. בהמשך נראה כיצד להימנע מהנחה זו ולקבוע מראש האם התוכנית חסומה או לא.</p>
 <p>האלגוריתם האינקרמנטלי מתחיל מפתרון עבור <span class="math inline">\(C_0 = m_1 \cap m_2\)</span>, ואז מוסיף את יתר חצאי המישורים <span class="math inline">\(h_1, \dots, h_n\)</span> לפי הסדר. בשלב ה-<span class="math inline">\(i\)</span>, האלגוריתם ימצא קודקוד v_i שהוא הנקודה שממקסמת את פונקציית המטרה בחיתוך <span class="math inline">\(C_i = m_1 \cap m_2 \cap h_1 \cap h_2 \cap \dots \cap h_i\)</span>. הרעיון הוא שבכל שלב מצמצמים את התחום הפיזיבילי, ויש שתי אפשרויות עבור <span class="math inline">\(v_i\)</span>:</p>
@@ -203,16 +203,15 @@
 </h4>
 </div>
 </div>
-<div id="אלגוריתם-רנדומי" class="section level3" number="4.3.3">
+<div id="rand-alg" class="section level3" number="4.3.3">
 <h3>
-<span class="header-section-number">4.3.3</span> אלגוריתם רנדומי<a class="anchor" aria-label="anchor" href="#%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D-%D7%A8%D7%A0%D7%93%D7%95%D7%9E%D7%99"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.3.3</span> אלגוריתם רנדומי<a class="anchor" aria-label="anchor" href="#rand-alg"><i class="fas fa-link"></i></a>
 </h3>
 <p>כמו שהובטח בחלקים הקודמים, תכנון לינארי במישור אכן ניתן לפיתרון בזמן צפוי של <span class="math inline">\(O( n )\)</span>, על ידי האלגוריתם
 2DRandomizedBoundedLP אותו נציג בחלק זה. זהו כמובן אלגוריתם רנדומי, והוא זהה כמעט לחלוטין לאלגוריתם האינקרמטלי שהוצג בסעיף הקודם: ההבדל היחידי הוא בשורה השנייה של האלגוריתם, שם מחשבים פרמוטציה אקראית של חצאי המישורים בעזרת פרוצדורה בשם RandomPermutation.</p>
 <p>בסרטון הבא נראה כיצד שינוי זה, שנראה לכאורה כאילו אינו משפיע על האלגוריתם, מוביל לתופעה מעניינת ביותר: תוחלת זמן ריצה תהיה לינארית. כלומר, כאשר מגרילים את הסדר בו האלגוריתם האינקמנטלי בוחן את חצאי המישורים, מקבלים שבממוצע על פני כל הפרמוטציות האפשריות, זמן הריצה הוא <span class="math inline">\(O( n )\)</span>.</p>
-<div id="צפו-בסרטון-הבא-4" class="section level4" number="4.3.3.1">
-<h4>
-<span class="header-section-number">4.3.3.1</span> צפו בסרטון הבא:<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90-4"><i class="fas fa-link"></i></a>
+<div id="צפו-בסרטון-הבא-4" class="section level4 unnumbered">
+<h4>צפו בסרטון הבא:<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90-4"><i class="fas fa-link"></i></a>
 </h4>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/f8OanQaN_D0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 </iframe>
@@ -222,9 +221,9 @@
 </h4>
 </div>
 </div>
-<div id="תוכנית-לינארית-שאינה-חסומה" class="section level3" number="4.3.4">
+<div id="unbounded-LP" class="section level3" number="4.3.4">
 <h3>
-<span class="header-section-number">4.3.4</span> תוכנית לינארית שאינה חסומה<a class="anchor" aria-label="anchor" href="#%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%AA-%D7%9C%D7%99%D7%A0%D7%90%D7%A8%D7%99%D7%AA-%D7%A9%D7%90%D7%99%D7%A0%D7%94-%D7%97%D7%A1%D7%95%D7%9E%D7%94"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.3.4</span> תוכנית לינארית שאינה חסומה<a class="anchor" aria-label="anchor" href="#unbounded-LP"><i class="fas fa-link"></i></a>
 </h3>
 <p>בסעיפים הקודמים נמנענו מהטיפול במקרה בו התוכנית הלינארית אינה חסומה, על ידי הוספת שני אילוצים מלאכותיים, <span class="math inline">\(m_1,m_2\)</span>. בחלק זה נראה כיצד ניתן לבדוק האם תוכנית לינארית היא חסומה, ואם היא לא חסומה, נראה כיצד למצוא שני אילוצים <span class="math inline">\(h_1,h_2\)</span> שישמשו אותנו לאתחול האלגוריתם במקום <span class="math inline">\(m_1,m_2\)</span>.</p>
 <p>אם התוכנית הלינארית אינה חסומה, אז קיימת קרן <span class="math inline">\(\rho\)</span> המוכלת כולה באיזור הפיזיבילי <span class="math inline">\(C\)</span>. הקרן הזו מוגדרת על ידי נקודה p וכיוון <span class="math inline">\(\overrightarrow{d}\)</span>. נשים לב שפונקציית המטרה מקבלת ערכים הולכים וגדלים לאורך הקרן rho אם ורק אם הזווית הקטנה בין הוקטור <span class="math inline">\(\overrightarrow{d}\)</span> לוקטור המטרה <span class="math inline">\(\overrightarrow{c}\)</span> קטנה מ-<span class="math inline">\(90 ^\circ\)</span>. בנוסף, לכל חצי מישור <span class="math inline">\(h\)</span>, הזוית בין <span class="math inline">\(\overrightarrow{d}\)</span> לנורמל <span class="math inline">\(\overrightarrow{\mu}( h )\)</span> של h (בכיוון הצד הפיזיבילי) היא לכל היותר . ניתן לראות דוגמה לכך בציור מטה. נוסף לכך, אוסף האילוצים עבורם <span class="math inline">\(\overrightarrow{\mu}( h )\)</span> בדיוק מאונך ל-<span class="math inline">\(\overrightarrow{d}\)</span> (<span class="math inline">\(h_1, h_5\)</span> באיור), חייב להיות פיזיבילי.</p>
@@ -254,27 +253,27 @@
 <div class="prev"><a href="pol-tringle.html"><span class="header-section-number">3</span> שילושי פוליגונים ובעיית הגלריה לאמנות</a></div>
 <div class="next"><a href="orthogonal-range-seach.html"><span class="header-section-number">5</span> חיפוש בתחומים אורתוגונלים</a></div>
 </div></main><div class="col-md-3 col-lg-3 d-none d-md-block sidebar sidebar-chapter border-right">
-    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>בפרק זה:</h2>
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>ביחידה זו:</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#%D7%AA%D7%9B%D7%A0%D7%95%D7%9F-%D7%9C%D7%99%D7%A0%D7%99%D7%90%D7%A8%D7%99-%D7%95%D7%97%D7%99%D7%AA%D7%95%D7%9A-%D7%A9%D7%9C-%D7%97%D7%A6%D7%90%D7%99-%D7%9E%D7%99%D7%A9%D7%95%D7%A8%D7%99%D7%9D"><span class="header-section-number">4</span> תכנון ליניארי וחיתוך של חצאי מישורים</a></li>
+<li><a class="nav-link" href="#linear-prog"><span class="header-section-number">4</span> תכנון ליניארי וחיתוך של חצאי מישורים</a></li>
 <li>
-<a class="nav-link" href="#%D7%94%D7%A7%D7%93%D7%9E%D7%94"><span class="header-section-number">4.1</span> הקדמה</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#%D7%91%D7%A2%D7%99%D7%99%D7%AA-%D7%94%D7%99%D7%99%D7%A6%D7%95%D7%A8-%D7%91%D7%90%D7%9E%D7%A6%D7%A2%D7%95%D7%AA-%D7%AA%D7%91%D7%A0%D7%99%D7%95%D7%AA"><span class="header-section-number">4.1.1</span> בעיית הייצור באמצעות תבניות</a></li>
-<li><a class="nav-link" href="#%D7%9E%D7%95%D7%93%D7%9C-%D7%92%D7%90%D7%95%D7%9E%D7%98%D7%A8%D7%99-%D7%9C%D7%91%D7%A2%D7%99%D7%94"><span class="header-section-number">4.1.2</span> מודל גאומטרי לבעיה</a></li>
+<a class="nav-link" href="#preface"><span class="header-section-number">4.1</span> הקדמה</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#molding-prob"><span class="header-section-number">4.1.1</span> בעיית הייצור באמצעות תבניות</a></li>
+<li><a class="nav-link" href="#geom-model"><span class="header-section-number">4.1.2</span> מודל גאומטרי לבעיה</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#%D7%97%D7%99%D7%AA%D7%95%D7%9A-%D7%A9%D7%9C-%D7%97%D7%A6%D7%90%D7%99-%D7%9E%D7%99%D7%A9%D7%95%D7%A8%D7%99%D7%9D"><span class="header-section-number">4.2</span> חיתוך של חצאי מישורים</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D-%D7%91%D7%A9%D7%99%D7%98%D7%AA-%D7%94%D7%A4%D7%A8%D7%93-%D7%95%D7%9E%D7%A9%D7%95%D7%9C"><span class="header-section-number">4.2.1</span> אלגוריתם בשיטת הפרד ומשול</a></li>
-<li><a class="nav-link" href="#%D7%97%D7%99%D7%AA%D7%95%D7%9A-%D7%A9%D7%9C-%D7%A4%D7%95%D7%9C%D7%99%D7%92%D7%95%D7%A0%D7%99%D7%9D-%D7%A7%D7%9E%D7%95%D7%A8%D7%99%D7%9D"><span class="header-section-number">4.2.2</span> חיתוך של פוליגונים קמורים</a></li>
+<a class="nav-link" href="#line-int"><span class="header-section-number">4.2</span> חיתוך של חצאי מישורים</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#div-con-alg"><span class="header-section-number">4.2.1</span> אלגוריתם בשיטת הפרד ומשול</a></li>
+<li><a class="nav-link" href="#convex-int"><span class="header-section-number">4.2.2</span> חיתוך של פוליגונים קמורים</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#%D7%AA%D7%9B%D7%A0%D7%95%D7%9F-%D7%9C%D7%99%D7%A0%D7%90%D7%A8%D7%99-%D7%91%D7%9E%D7%99%D7%A9%D7%95%D7%A8"><span class="header-section-number">4.3</span> תכנון לינארי במישור</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#%D7%9E%D7%94%D7%95-%D7%AA%D7%9B%D7%A0%D7%95%D7%9F-%D7%9C%D7%99%D7%A0%D7%90%D7%A8%D7%99"><span class="header-section-number">4.3.1</span> מהו תכנון לינארי?</a></li>
-<li><a class="nav-link" href="#%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D-%D7%90%D7%99%D7%A0%D7%A7%D7%A8%D7%9E%D7%A0%D7%98%D7%9C%D7%99"><span class="header-section-number">4.3.2</span> אלגוריתם אינקרמנטלי</a></li>
-<li><a class="nav-link" href="#%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D-%D7%A8%D7%A0%D7%93%D7%95%D7%9E%D7%99"><span class="header-section-number">4.3.3</span> אלגוריתם רנדומי</a></li>
-<li><a class="nav-link" href="#%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%AA-%D7%9C%D7%99%D7%A0%D7%90%D7%A8%D7%99%D7%AA-%D7%A9%D7%90%D7%99%D7%A0%D7%94-%D7%97%D7%A1%D7%95%D7%9E%D7%94"><span class="header-section-number">4.3.4</span> תוכנית לינארית שאינה חסומה</a></li>
+<a class="nav-link" href="#planar-LP"><span class="header-section-number">4.3</span> תכנון לינארי במישור</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#what-is-LP"><span class="header-section-number">4.3.1</span> מהו תכנון לינארי?</a></li>
+<li><a class="nav-link" href="#inc-alg"><span class="header-section-number">4.3.2</span> אלגוריתם אינקרמנטלי</a></li>
+<li><a class="nav-link" href="#rand-alg"><span class="header-section-number">4.3.3</span> אלגוריתם רנדומי</a></li>
+<li><a class="nav-link" href="#unbounded-LP"><span class="header-section-number">4.3.4</span> תוכנית לינארית שאינה חסומה</a></li>
 </ul>
 </li>
 </ul>
@@ -293,7 +292,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p dir="rtl" style="text-align:right;">הספר "<strong>גאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2023-08-24.</p>
+    <p dir="rtl" style="text-align:right;">הספר "<strong>גאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2023-09-04.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
