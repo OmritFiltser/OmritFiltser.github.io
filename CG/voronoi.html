@@ -52,6 +52,11 @@
 <li><a class="" href="orthogonal-range-seach.html"><span class="header-section-number">5</span> חיפוש בתחומים אורתוגונלים</a></li>
 <li><a class="" href="point-location.html"><span class="header-section-number">6</span> מיקום נקודה ומפה טרפזית</a></li>
 <li><a class="active" href="voronoi.html"><span class="header-section-number">7</span> דיאגרמת וורונוי</a></li>
+<li><a class="" href="duality-arrangements.html"><span class="header-section-number">8</span> מערכים ודואליות</a></li>
+<li><a class="" href="Delaunay-triangulation.html"><span class="header-section-number">9</span> שילושי דלוני</a></li>
+<li><a class="" href="motion-planning.html"><span class="header-section-number">10</span> תכנון תנועה</a></li>
+<li><a class="" href="WSPD-spanners.html"><span class="header-section-number">11</span> פורשים גאומטריים וקבוצות מופרדות היטב</a></li>
+<li><a class="" href="curve-similarity.html"><span class="header-section-number">12</span> דמיון בין עקומים</a></li>
 </ul>
 
         <div class="book-extra">
@@ -92,6 +97,8 @@
 <div id="צפו-בסרטון-הבא.-5" class="section level4 unnumbered">
 <h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-5"><i class="fas fa-link"></i></a>
 </h4>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Ofp5zWt8nTc?si=F0XW4UQFPIZZn5Os" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
 <div class="rmdnote">
 <strong>מעניין לדעת</strong>: לדיאגרמת וורונוי יש שימושים רבים ומגוונים, ופרט לתחום החברתי-כלכלי (שהוזכר בהקדמה) ניתן למצוא אותה בתחומים כמו גרפיקה ממוחשבת, רובוטיקה, פיזיקה, וביולוגיה, וכן במגוון צורות בטבע, כפי שניתן לראות למשל בתמונות הבאות (מתוך המאמר <a href="https://www.sciencedirect.com/science/article/abs/pii/S0167732221012770">הזה</a>).
 <p align="center" width="100%">
@@ -143,7 +150,7 @@
 </h4>
 <p>מכיוון שכל תא בדיאגרמה הוא חיתוך של חצאי מישורים, דיאגרמת וורונוי תהיה חלוקה של המישור שהצלעות שלה הן ישרים, חצאי ישרים, או קטעים. צלעות שהן ישרים (כלומר כאלו שאינן חסומות משני הצדדים) יתקבלו רק במקרה בו כל הנקודות נמצאות על ישר אחד. בספר תראו את ההוכחה המלאה למשפט הבא:</p>
 <div class="rmdimportant">
-<p><u><strong>משפט</strong>:</u> אם כל נקודות <span class="math inline">\(P\)</span> נמצאות על ישר אחד אז <span class="math inline">\(\text{Vor(P)}\)</span> מורכבת מ-<span class="math inline">\(n-1\)</span> ישרים מקבילים. אחרת, <span class="math inline">\(\text{Vor(P)}\)</span> היא גרף קשיר, והצלעות שלה הן קטעים או חצאי ישרים (קרניים).</p>
+<p><u><strong>משפט</strong>:</u> אם כל נקודות <span class="math inline">\(P\)</span> נמצאות על ישר אחד אז <span class="math inline">\(\text{Vor(P)}\)</span> מורכבת מ-<span class="math inline">\(n-1\)</span> ישרים מקבילים. אחרת, <span class="math inline">\(\text{Vor(P)}\)</span> קשירה, והצלעות שלה הן קטעים או חצאי ישרים (קרניים).</p>
 <div align="center" width="100%" class="inline-figure">
 <img src="images/7/vor-diam.jpg" width="100%">
 </div>
@@ -211,6 +218,8 @@
 <h4>
 <span class="header-section-number">7.3.1.1</span> צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-6"><i class="fas fa-link"></i></a>
 </h4>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/T4QqrteIy7s?si=CclpxQG3dWJzMQ55" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
 </div>
 </div>
 <div id="Fortune-alg" class="section level3" number="7.3.2">
@@ -298,7 +307,7 @@
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="point-location.html"><span class="header-section-number">6</span> מיקום נקודה ומפה טרפזית</a></div>
-<div class="empty"></div>
+<div class="next"><a href="duality-arrangements.html"><span class="header-section-number">8</span> מערכים ודואליות</a></div>
 </div></main><div class="col-md-3 col-lg-3 d-none d-md-block sidebar sidebar-chapter border-right">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>ביחידה זו:</h2>
       <ul class="nav navbar-nav">
@@ -344,7 +353,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p dir="rtl" style="text-align:right;">הספר "<strong>גאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2023-09-04.</p>
+    <p dir="rtl" style="text-align:right;">הספר "<strong>גאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2023-09-07.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

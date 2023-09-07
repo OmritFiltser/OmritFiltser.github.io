@@ -77,3 +77,8 @@ beyond-Euclid
 other-defs
 voronoi-game
 משחק-וורונוי-על-ריבוע
+duality-arrangements
+Delaunay-triangulation
+motion-planning
+WSPD-spanners
+curve-similarity

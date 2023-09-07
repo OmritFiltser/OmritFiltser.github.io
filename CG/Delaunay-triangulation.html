@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>ברוכים הבאים | גאומטריה חישובית</title>
+<title>יחידה 9 שילושי דלוני | גאומטריה חישובית</title>
 <meta name="author" content="ד’’ר עומרית פילצר">
 <meta name="description" content="A course in computational geometry.">
 <meta name="generator" content="bookdown 0.34 with bs4_book()">
-<meta property="og:title" content="ברוכים הבאים | גאומטריה חישובית">
+<meta property="og:title" content="יחידה 9 שילושי דלוני | גאומטריה חישובית">
 <meta property="og:type" content="book">
-<meta property="og:url" content="https://omrit.filtser.com/CG/">
+<meta property="og:url" content="https://omrit.filtser.com/CG/Delaunay-triangulation.html">
 <meta property="og:description" content="A course in computational geometry.">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ברוכים הבאים | גאומטריה חישובית">
+<meta name="twitter:title" content="יחידה 9 שילושי דלוני | גאומטריה חישובית">
 <meta name="twitter:description" content="A course in computational geometry.">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -44,7 +44,7 @@
 
       <nav aria-label="Table of contents"><h2>יחידות הלימוד:</h2>
         <ul class="book-toc list-unstyled">
-<li><a class="active" href="index.html">ברוכים הבאים</a></li>
+<li><a class="" href="index.html">ברוכים הבאים</a></li>
 <li><a class="" href="intro.html"><span class="header-section-number">1</span> מבוא</a></li>
 <li><a class="" href="map-overlay.html"><span class="header-section-number">2</span> מפות מישוריות וטכניקת הישר הסורק</a></li>
 <li><a class="" href="pol-tringle.html"><span class="header-section-number">3</span> שילושי פוליגונים ובעיית הגלריה לאמנות</a></li>
@@ -53,7 +53,7 @@
 <li><a class="" href="point-location.html"><span class="header-section-number">6</span> מיקום נקודה ומפה טרפזית</a></li>
 <li><a class="" href="voronoi.html"><span class="header-section-number">7</span> דיאגרמת וורונוי</a></li>
 <li><a class="" href="duality-arrangements.html"><span class="header-section-number">8</span> מערכים ודואליות</a></li>
-<li><a class="" href="Delaunay-triangulation.html"><span class="header-section-number">9</span> שילושי דלוני</a></li>
+<li><a class="active" href="Delaunay-triangulation.html"><span class="header-section-number">9</span> שילושי דלוני</a></li>
 <li><a class="" href="motion-planning.html"><span class="header-section-number">10</span> תכנון תנועה</a></li>
 <li><a class="" href="WSPD-spanners.html"><span class="header-section-number">11</span> פורשים גאומטריים וקבוצות מופרדות היטב</a></li>
 <li><a class="" href="curve-similarity.html"><span class="header-section-number">12</span> דמיון בין עקומים</a></li>
@@ -64,47 +64,18 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><!--bookdown:title:end--><!--bookdown:title:start--><div id="before-we-start" class="section level1 unnumbered">
-<h1>ברוכים הבאים<a class="anchor" aria-label="anchor" href="#before-we-start"><i class="fas fa-link"></i></a>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="Delaunay-triangulation" class="section level1" number="9">
+<h1>
+<span class="header-section-number">יחידה 9</span> שילושי דלוני<a class="anchor" aria-label="anchor" href="#Delaunay-triangulation"><i class="fas fa-link"></i></a>
 </h1>
-<p>ספר זה נועד ללוות את הלומדים בקורס גאומטריה חישובית לתואר ראשון, המבוסס על הספר Computational Geometry: Algorithms and Applications מאת
-Mark de Berg, Otfried Cheong, Marc van Kreveld, Mark Overmars.</p>
-<div id="welcome" class="section level2 unnumbered">
-<h2>לפני שמתחילים<a class="anchor" aria-label="anchor" href="#welcome"><i class="fas fa-link"></i></a>
-</h2>
-<p>לפני שנתחיל, הנה מספר פרטים שכדאי לדעת:</p>
-<ul>
-<li><p><strong>למי מיועד הקורס?</strong> תלמידים בשלב מתקדם בתואר הראשון, וכן תלמידי תואר שני, במתימטיקה ומדעי המחשב. הקורס מתאים למי שמעוניין להתנסות בתחום מחקר תיאורטי, וגם למי שמחפש בסיס תיאורטי לישומים מעשיים.</p></li>
-<li><p><strong>למה לי בכלל ללמוד גאומטריה חישובית?</strong> לאלגוריתמים ומבני הנתונים שנלמד יש אינספור יישומים מעשיים חשובים במגוון של תחומים רלוונטיים, כמו גרפיקה וראייה מומחשבת, מערכות מידע גאוגרפיות, ניתוח מידע רב, ועוד. תוכלו לרכוש לעצמכם אוסף של כלים, מודלים, וטכניקות, המוכנים לשליפה ומימוש במגוון של בעיות אלגוריתמיות. נוסף על כך, יש בהם גם יופי מרתק, שנמצא בתכונות הגיאומטריות, בהגדרה הנקיה של הבעיות, ובאופי האסתטי של הפתרונות. בקורס הזה נלמד בעיקר את הטכניקות והאלגוריתמים המהווים בסיס רעיוני למימושים נפוצים, אך גם נושאים הנמצאים בחזית המחקר היום.</p></li>
-</ul>
-<div id="אופן-הלימוד-בקורס" class="section level4 unnumbered">
-<h4>אופן הלימוד בקורס<a class="anchor" aria-label="anchor" href="#%D7%90%D7%95%D7%A4%D7%9F-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%91%D7%A7%D7%95%D7%A8%D7%A1"><i class="fas fa-link"></i></a>
-</h4>
-<ul>
-<li><p><strong>מבנה הקורס:</strong> בקורס 12 יחידות, כל יחידה תתחיל בהצגה של בעיה חדשה (או אוסף חדש של בעיות), ולאחר מכן יוצגו הכלים (מבני נתונים, אלגוריתמים, מודלים) המתאימים לפתרון.</p></li>
-<li><p><strong>ספרי הלימוד:</strong> הספר המרכזי של הקורס, אשר ישמש אותנו ביחידות 1-10, הוא <br><a href="http://www.cs.uu.nl/geobook/"><strong>Computational Geometry: Algorithms and Applications</strong></a>.<br>
-שני הפרקים האחרונים בקורס יבוססו על שני פרקים בספר<br><a href="https://sarielhp.org/book/"><strong>Geometric Approximation Algorithms</strong></a>.</p></li>
-<li><p><strong>ידע קודם:</strong> בקורס נדרש ידע בנושאים של סיבוכיות אסימפטוטית, אלגוריתמים ומבני נתונים בסיסיים.</p></li>
-<li><p><strong>שאלות עזר מנחות:</strong> במהלך כל אחת מיחידות הלימוד יופיעו שאלות הבנה פשוטות (ללא ציון), שיעזרו לכם לוודא שהבנתם באופן בסיסי את ההגדרות והרעיונות של הפרק.</p></li>
-<li><p><strong>יש נושא ספיציפי שמעניין אתכם? רוצים לראות דוגמאות נוספות?</strong> חומרי עזר לקריאה נוספת והעשרה ינתנו במקומות הרלוונטים. </p></li>
-<li><p><strong>מצאתם טעות בחומר הלימוד?</strong> אם מצאתם טעות או בעיה בחומר הלימוד – בין אם זו שגיאת כתיב, טעות בנוסחה, או חור בהוכחה - אנא כתבו לי.</p></li>
-</ul>
-<script>
-title=document.getElementById('before-we-start');
-title.innerHTML = '<img src="images/logo.jpg" width="100%">' + title.innerHTML
-</script>
-</div>
-</div>
+
 </div>
   <div class="chapter-nav">
-<div class="empty"></div>
-<div class="next"><a href="intro.html"><span class="header-section-number">1</span> מבוא</a></div>
+<div class="prev"><a href="duality-arrangements.html"><span class="header-section-number">8</span> מערכים ודואליות</a></div>
+<div class="next"><a href="motion-planning.html"><span class="header-section-number">10</span> תכנון תנועה</a></div>
 </div></main><div class="col-md-3 col-lg-3 d-none d-md-block sidebar sidebar-chapter border-right">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>ביחידה זו:</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#before-we-start">ברוכים הבאים</a></li>
-<li><a class="nav-link" href="#welcome">לפני שמתחילים</a></li>
-</ul>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#Delaunay-triangulation"><span class="header-section-number">9</span> שילושי דלוני</a></li></ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">

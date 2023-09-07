@@ -4,9 +4,9 @@
 
 ### מיקום נקודה במפה {#point-on-map}
 
-<img src="images/6/israel_map.png" align="left" width="20%"/> מפה המתארת חלוקה למחוזות, כמו מפת ישראל המופיעה כאן משמאל, היא בעצם גרף מישורי המתואר באמצעות צלעות, פאות, וקודקודים.
-כל מחוז או איזור במפה מתאים לפאה של הגרף.
-ביחידה הזו נעסוק בבעיה הבסיסית הבאה: בהינתן הקואורדינטות של נקודה כלשהי על המפה, לאיזה מחוז היא שייכת?
+<img src="images/6/us-map.png" align="left" width="50%"/> מפה המתארת חלוקה למדינות, כמו מפת ארצות הברית המופיעה כאן משמאל, היא בעצם גרף מישורי המתואר באמצעות צלעות, פאות, וקודקודים.
+כל מדינה או איזור במפה מתאים לפאה של הגרף.
+ביחידה הזו נעסוק בבעיה הבסיסית הבאה: בהינתן הקואורדינטות של נקודה כלשהי על המפה, לאיזו מדינה היא שייכת?
 
 #### קראו את ההקדמה לפרק 6 בספר הלימוד (עמודים 121־122). {.unnumbered}
 
@@ -43,8 +43,7 @@
 בחלק זה נראה עידון אחר שסיבוכיות הזיכרון שלו לא תהיה גדולה בהרבה מזו של $\mathcal{S}$, ועדיין יאפשר לנו לענות על שאילתות מיקום נקודה בקלות יחסית.
 
 #### צפו בסרטון הבא: {.unnumbered}
-
-(TBD)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1ISWNiNI05c?si=DrbWnrZYTK0YMDu8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ::: rmdwarning
 <img src="images/question.png" align="right" width="10%" style="padding:0px 0px 0px 10px"/> מיהי ה-$leftp$ של כל אחד מהטרפזים המסומנים באיור?
@@ -173,8 +172,7 @@ TBD
 נדון בכך בעמוד הבא של חלק זה.
 
 #### צפו בסרטון הבא: {.unnumbered}
-
-(TBD)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3_6Uu1jYBcA?si=dgWhrulyuSIfHmhd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 #### קראו את חלקו הראשון של סעיף 6.2 בספר (עמודים 128--133). {.unnumbered}
 

@@ -17,7 +17,7 @@
 בסרטון הבא נגדיר את דיאגרמת וורונוי באופן פורמלי, ונתאר מספר תכונות שלה. בסעיפים הבאים של חלק זה תוכלו למצוא את כל ההגדרות, האבחנות, והמשפטים המופיעים בסרטון, כך שתוכלו לחזור אליהם בעת הצורך.
 
 #### צפו בסרטון הבא. {.unnumbered}
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Ofp5zWt8nTc?si=F0XW4UQFPIZZn5Os" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 
 ::: rmdnote
@@ -72,7 +72,7 @@
 מכיוון שכל תא בדיאגרמה הוא חיתוך של חצאי מישורים, דיאגרמת וורונוי תהיה חלוקה של המישור שהצלעות שלה הן ישרים, חצאי ישרים, או קטעים. צלעות שהן ישרים (כלומר כאלו שאינן חסומות משני הצדדים) יתקבלו רק במקרה בו כל הנקודות נמצאות על ישר אחד. בספר תראו את ההוכחה המלאה למשפט הבא: 
 
 ::: rmdimportant 
-[**משפט**:]{.underline} אם כל נקודות $P$ נמצאות על ישר אחד אז $\text{Vor(P)}$ מורכבת מ-$n-1$ ישרים מקבילים. אחרת, $\text{Vor(P)}$ היא גרף קשיר, והצלעות שלה הן קטעים או חצאי ישרים (קרניים). 
+[**משפט**:]{.underline} אם כל נקודות $P$ נמצאות על ישר אחד אז $\text{Vor(P)}$ מורכבת מ-$n-1$ ישרים מקבילים. אחרת, $\text{Vor(P)}$ קשירה, והצלעות שלה הן קטעים או חצאי ישרים (קרניים). 
 
 <p align="center" width="100%">
 <img src="images/7/vor-diam.jpg" width="100%"/>
@@ -134,6 +134,7 @@
 בסרטון הבא נתאר רעיון לחישוב דיאגרמת וורונוי בעזרת אלגוריתם סורק.
 
 #### צפו בסרטון הבא.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/T4QqrteIy7s?si=CclpxQG3dWJzMQ55" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### האלגוריתם הסורק של Fortune {#Fortune-alg}
 בסעיף 7.2 של ספר הלימוד מתואר בפירוט האלגוריתם הסורק של Fortune לבניית דיאגרמת וורונוי. זהו אלגוריתם בסיסי וחשוב ביותר בתחום הגאומטריה חישובית. זמן הריצה שלו הוא $O(n\log(n)$ בלבד, והוא אופטימלי. בקורס זה נדלג על הפרטים והמימוש של האלגוריתם, ונסתפק בתיאור הרעיון הכללי שראינו בסעיף הקודם, ובציטוט המשפט הבא:
