@@ -79,7 +79,7 @@
 <div class="inline-figure">
 <img src="images/5/database.jpg" align="left" width="40%">
 מסדי נתונים המאחסנים רשומות בצורה של טבלה הם כלי מרכזי לארגון מידע בישומים רבים. כפי שראינו בהקדמה לקורס, למרות שבמבט ראשון לא נראה שיש קשר בין מסדי נתונים כאלו לגאומטריה, הקשר הזה אכן קיים עבור סוגים מסויימים של שאילתות.</div>
-<p>הייצוג הגאומטרי של מסד הנתונים יהיה באמצעות אוסף של נקודות במרחב ה-<span class="math inline">\(d\)</span> מימדי: כל רשומה תיוצג באמצעות נקודה במרחב, כאשר כל שדה של הרשומה מתאים לקואורדינטה. עבור שאילתה המבקשת את אוסף הרשומות הנמצאות בתחום מסויים של ערכים (בשדה אחד או יותר), הייצוג הגאומטרי יהיה תחום אורתוגונלי <span class="math inline">\(R\)</span>, כלומר, תיבה <span class="math inline">\(d\)</span>-מימדית מקבילה לצירים. במישור זהו מלבן שצלעותיו מקבילות לצירים, ובשלושה מימדים זוהי קוביה שפאותיה מקבילות לצירים.</p>
+<p>הייצוג הגאומטרי של מסד הנתונים יהיה באמצעות אוסף של נקודות במרחב ה-<span class="math inline">\(d\)</span> מימדי: כל רשומה תיוצג באמצעות נקודה במרחב, כאשר כל שדה של הרשומה מתאים לקואורדינטה. עבור שאילתה המבקשת את אוסף הרשומות הנמצאות בתחום מסויים של ערכים (בשדה אחד או יותר), הייצוג הגאומטרי יהיה תחום אורתוגונלי <span class="math inline">\(R\)</span>, כלומר, תיבה <span class="math inline">\(d\)</span>-מימדית מקבילה לצירים. במישור זהו מלבן שצלעותיו מקבילות לצירים, ובשלושה מימדים זוהי תיבה שפאותיה מקבילות לצירים.</p>
 <p>בפרק זה נציג שני מבני נתונים לאחסון אוסף <span class="math inline">\(P\)</span> של נקודות במרחב ה-<span class="math inline">\(d\)</span> מימדי, כך שנוכל לענות ביעילות על שאילתות מהסוג הבא: בהינתן תחום אורתוגונלי <span class="math inline">\(R\)</span>, אילו מהנקודות של <span class="math inline">\(P\)</span> נמצאות בתוך <span class="math inline">\(R\)</span>?</p>
 <div id="קראו-את-ההקדמה-לפרק-5-בספר-הלימוד-עמודים-9596." class="section level4 unnumbered">
 <h4>קראו את ההקדמה לפרק 5 בספר הלימוד (עמודים 95־96).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%94%D7%94%D7%A7%D7%93%D7%9E%D7%94-%D7%9C%D7%A4%D7%A8%D7%A7-5-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-9596."><i class="fas fa-link"></i></a>
@@ -90,12 +90,12 @@
 <h3>
 <span class="header-section-number">5.1.2</span> חיפוש בתחומים על הישר<a class="anchor" aria-label="anchor" href="#on-the-line"><i class="fas fa-link"></i></a>
 </h3>
-<p>בעיות רבות בגאומטריה חישובית נעשות פשוטות הרבה יותר כאשר הן נתונות במימד אחד, ובמחקר התאורטי מופיעים לעיתים קרובות פתרונות במימד אחד לבעיות מורכבות, כצעד מקדים לפתרונות במימדים גבוהים יותר. לכן, לפני שניגש לפתרון הבעיה של חיפוש בתחומים בשני מימדים או יותר, ננסה קודם להבין כיצד ניתן לפתור אותה עבור אוסף P של נקודות ממימד אחד, כלומר, אוסף של נקודות שכולן על ישר אחד. שימו לב שהשאילתה על הישר היא פשוט טווח של ערכים, R equals left square bracket x comma x’ right square bracket.</p>
+<p>בעיות רבות בגאומטריה חישובית נעשות פשוטות הרבה יותר כאשר הן נתונות במימד אחד, ובמחקר התאורטי מופיעים לעיתים קרובות פתרונות במימד אחד לבעיות מורכבות, כצעד מקדים לפתרונות במימדים גבוהים יותר. לכן, לפני שניגש לפתרון הבעיה של חיפוש בתחומים בשני מימדים או יותר, ננסה קודם להבין כיצד ניתן לפתור אותה עבור אוסף <span class="math inline">\(P\)</span> של נקודות ממימד אחד, כלומר, אוסף של נקודות שכולן על ישר אחד. שימו לב שהשאילתה על הישר היא פשוט טווח של ערכים, <span class="math inline">\(R=[x,x']\)</span>.</p>
 <p align="center" width="100%">
 </p>
 <div class="inline-figure"><img src="images/5/1d_points.jpg" width="70%"></div>
 
-<p>אפשרות אחת לפתרון היא למיין את נקודות P ולשמור אותן במערך. בהינתן טווח left square bracket x comma x’ right square bracket, נמצא בעזרת חיפוש בינארי את הנקודות הראשונה במערך שגדולה או שווה ל-x, ואז נעבור על תאי המערך לפי הסדר החל מנקודה זו, ונדווח על נקודות כל עוד הן קטנות או שוות ל-x’. זמן השאילתה יהיה O( log n plus k) כאשר k הוא מספר הנקודות בפלט. זמן העיבוד המקדים הוא O( n log n) וסיבוכיות המקום היא O( n). לפתרון המשתמש במערך יש שני חסרונות: הוא לא דינאמי (כלומר, לא ניתן לבצע הוספה או מחיקה של נקודות), ולא ניתן להכליל אותו למימדים גבוהים. לכן, פרק 5.1 של ספר הלימוד מתאר פתרון המשתמש בעץ חיפוש בינארי, שבו הנקודות מופיעות בעלים. כל קודקוד פנימי מכיל את הערך המקסימלי של עלה המופיע בתת העץ השמאלי שלו. בהינתן עץ חיפוש T וטווח left square bracket x comma x ’ right square bracket, אלגוריתם השאילתה 1DRangeQuery מוצא את הקודקוד בו המסלולים מהשורש ל-x ו-x ’ מתפצלים, ואז מחזיר את כל הנקודות בעלים שנמצאים מימין להמשך המסלול ל-bold italic x, ואת הנקודות בעלים שנמצאים משמאל להמשך המסלול ל-bold italic x bold’. אלו בדיוק הערכים בעץ הנמצאים בין x ’ ל-x.</p>
+<p>אפשרות אחת לפתרון היא למיין את נקודות <span class="math inline">\(P\)</span> ולשמור אותן במערך. בהינתן טווח <span class="math inline">\([x,x']\)</span>, נמצא בעזרת חיפוש בינארי את הנקודות הראשונה במערך שגדולה או שווה ל-<span class="math inline">\(x\)</span>, ואז נעבור על תאי המערך לפי הסדר החל מנקודה זו, ונדווח על נקודות כל עוד הן קטנות או שוות ל-<span class="math inline">\(x'\)</span>. זמן השאילתה יהיה <span class="math inline">\(O(\log n + k)\)</span> כאשר <span class="math inline">\(k\)</span> הוא מספר הנקודות בפלט. זמן העיבוד המקדים הוא <span class="math inline">\(O( n \log n)\)</span> וסיבוכיות המקום היא <span class="math inline">\(O(n)\)</span>. לפתרון המשתמש במערך יש שני חסרונות: הוא לא דינאמי (כלומר, לא ניתן לבצע הוספה או מחיקה של נקודות), ולא ניתן להכליל אותו למימדים גבוהים. לכן, פרק 5.1 של ספר הלימוד מתאר פתרון המשתמש בעץ חיפוש בינארי, שבו הנקודות מופיעות בעלים. כל קודקוד פנימי מכיל את הערך המקסימלי של עלה המופיע בתת העץ השמאלי שלו. בהינתן עץ חיפוש <span class="math inline">\(T\)</span> וטווח <span class="math inline">\([x,x']\)</span>, אלגוריתם השאילתה 1DRangeQuery מוצא את הקודקוד בו המסלולים מהשורש ל-<span class="math inline">\(x\)</span> ו-<span class="math inline">\(x'\)</span> מתפצלים, ואז מחזיר את כל הנקודות בעלים שנמצאים <strong>מימין</strong> להמשך המסלול ל-<span class="math inline">\(x\)</span>, ואת הנקודות בעלים שנמצאים <strong>משמאל</strong> להמשך המסלול ל-<span class="math inline">\(x'\)</span>. אלו בדיוק הערכים בעץ הנמצאים בין <span class="math inline">\(x'\)</span> ל-<span class="math inline">\(x\)</span>.</p>
 <p align="center" width="100%">
 </p>
 <div class="inline-figure"><img src="images/5/1d_tree.jpg" width="70%"></div>
@@ -123,14 +123,14 @@
 </h4>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/17b7i-OTVO8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 </iframe>
-<p>ניתן לבנות עץ-kd עבור אוסף של n נקודות בזמן O( n log n). סיבוכיות המקום שלו היא O( n), וזמן השאילתה הוא <span class="math inline">\(O(\sqrt{n}+ k)\)</span>, כאשרk הוא גודל הפלט, כלומר מספר הנקודות הנמצאות בתחום הנתון. בסעיף 5.2 מתואר האלגוריתם BuildKdTree שבונה את העץ, ואלגוריתם השאילתה SearchKdTree. קראו בעיון את ניתוח זמן הבניה, סיבוכיות המקום, וזמן השאילתה של עץ ה-kd.</p>
+<p>ניתן לבנות עץ-kd עבור אוסף של <span class="math inline">\(n\)</span> נקודות בזמן <span class="math inline">\(O(n\log n)\)</span>. סיבוכיות המקום שלו היא <span class="math inline">\(O(n)\)</span>, וזמן השאילתה הוא <span class="math inline">\(O(\sqrt{n}+ k)\)</span>, כאשר<span class="math inline">\(k\)</span> הוא גודל הפלט, כלומר מספר הנקודות הנמצאות בתחום הנתון. בסעיף 5.2 מתואר האלגוריתם BuildKdTree שבונה את העץ, ואלגוריתם השאילתה SearchKdTree. קראו בעיון את ניתוח זמן הבניה, סיבוכיות המקום, וזמן השאילתה של עץ ה-kd.</p>
 </div>
 <div id="קראו-את-סעיף-5.2-בספר-עמודים-99105." class="section level4 unnumbered">
 <h4>קראו את סעיף 5.2 בספר (עמודים 99–105).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-5.2-%D7%91%D7%A1%D7%A4%D7%A8-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-99105."><i class="fas fa-link"></i></a>
 </h4>
 <div class="rmdwarning">
 <div class="inline-figure">
-<img src="images/question.png" align="right" width="10%" style="padding:0px 0px 0px 10px">
+<img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px">
 זמן הריצה של האלגוריתם הראשון שמתואר בסרטון ומשתמש בשיטת הישר הסורק, הואהתבוננו בקבוצת הנקודות הבאה, והשלימו את עץ ה-kd.</div>
 <p align="center" width="100%">
 </p>
@@ -146,7 +146,7 @@
 </details>
 </div>
 <div class="rmdwarning">
-<img src="images/question.png" align="right" width="10%" style="padding:0px 0px 0px 10px">
+<img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px">
 התבוננו בחלוקה שנוצרה עבור עץ ה-kd והתחום המלבני שבאיור, וענו על השאלות הבאות:
 <p align="center" width="100%">
 </p>
@@ -165,26 +165,25 @@
 <div id="תחומים-שאינם-מלבניים." class="section level4 unnumbered">
 <h4>תחומים שאינם מלבניים.<a class="anchor" aria-label="anchor" href="#%D7%AA%D7%97%D7%95%D7%9E%D7%99%D7%9D-%D7%A9%D7%90%D7%99%D7%A0%D7%9D-%D7%9E%D7%9C%D7%91%D7%A0%D7%99%D7%99%D7%9D."><i class="fas fa-link"></i></a>
 </h4>
-<p>שימו לב שניתן להכליל את אלגוריתם השאילתה גם עבור תחומים שאינם מלבניים. על מנת שהאלגוריתם יהיה יעיל עבור תחום R שאינו מלבני, התחום חייב להיות מתואר בצורה שתאפשר את שתי הפעולות הבאות בזמן קבוע:</p>
+<p>שימו לב שניתן להכליל את אלגוריתם השאילתה גם עבור תחומים שאינם מלבניים. על מנת שהאלגוריתם יהיה יעיל עבור תחום <span class="math inline">\(R\)</span> שאינו מלבני, התחום חייב להיות מתואר בצורה שתאפשר את שתי הפעולות הבאות בזמן קבוע:</p>
 <ol style="list-style-type: decimal">
-<li>לבדוק האם R מכיל נקודה נתונה.</li>
-<li>לבדוק האם R מכיל או נחתך עם תחום מלבני המתאים לצומת כלשהו.</li>
+<li>לבדוק האם <span class="math inline">\(R\)</span> מכיל נקודה נתונה.</li>
+<li>לבדוק האם <span class="math inline">\(R\)</span> מכיל או נחתך עם תחום מלבני המתאים לצומת כלשהו.</li>
 </ol>
-<p>אם R הוא מצולע קמור בעל c צלעות, כיצד נוכל לבצע את הפעולות האלו? ומה יהיה זמן הריצה? מה אם R הוא עיגול הנתון על ידי המרכז והרדיוס שלו?</p>
+<p>אם <span class="math inline">\(R\)</span> הוא מצולע קמור בעל <span class="math inline">\(c\)</span> צלעות, כיצד נוכל לבצע את הפעולות האלו? ומה יהיה זמן הריצה? מה אם <span class="math inline">\(R\)</span> הוא עיגול הנתון על ידי המרכז והרדיוס שלו?</p>
 </div>
 </div>
 <div id="range-trees" class="section level3" number="5.2.2">
 <h3>
 <span class="header-section-number">5.2.2</span> עצי תחומים (Range Trees)<a class="anchor" aria-label="anchor" href="#range-trees"><i class="fas fa-link"></i></a>
 </h3>
-<div class="inline-figure">
-<img src="images/5/range_tree.jpg" align="left" width="33%">
-בחלק זה נראה מבנה נתונים אחר לחיפוש בתחומים במישור הנקרא עץ תחומים, range tree. גם הוא הכללה של עץ החיפוש שראינו עבור נקודות על הישר, אך באופן שונה: כאן כל קודקוד פנימי בעץ הממיין את הנקודות לפי קואורדינטת ה-x, יכיל מצביע לעץ נוסף הממיין את העלים בתת העץ שלו לפי קואורדינטת ה-y.</div>
+<p><img src="images/5/range_tree.jpg" align="left" width="33%">
+בחלק זה נראה מבנה נתונים אחר לחיפוש בתחומים במישור הנקרא עץ תחומים, range tree. גם הוא הכללה של עץ החיפוש שראינו עבור נקודות על הישר, אך באופן שונה: כאן כל קודקוד פנימי בעץ הממיין את הנקודות לפי קואורדינטת ה-<span class="math inline">\(x\)</span>, יכיל מצביע לעץ נוסף הממיין את העלים בתת העץ שלו לפי קואורדינטת ה-<span class="math inline">\(y\)</span>.</p>
 <div id="צפו-בסרטון-הבא-6" class="section level4 unnumbered">
 <h4>צפו בסרטון הבא:<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90-6"><i class="fas fa-link"></i></a>
 </h4>
 <p>(TODO)</p>
-<p>מבחינת זמן השאילתה, במקרה הגרוע עץ תחומים יעיל הרבה יותר מעץ-kd - זמן השאילתה שלו הוא <span class="math inline">\(O( log^2 n + k)\)</span> בלבד, לעומת <span class="math inline">\(O( \sqrt{n}+k)\)</span> בעצי-kd. השיפור הזה מאלץ אותנו לשלם מעט בסיבוכיות המקום – <span class="math inline">\(O( n log n)\)</span> לעומת <span class="math inline">\(O( n)\)</span>. בסעיף 5.3 של ספר הלימוד מתואר האלגוריתם Build2DRangeTree שבונה את העץ, ואלגוריתם השאילתה 2DRangeQuery. קראו בעיון את ניתוח זמן הבניה, סיבוכיות המקום, וזמן השאילתה של עץ תחומים.</p>
+<p>מבחינת זמן השאילתה, במקרה הגרוע עץ תחומים יעיל הרבה יותר מעץ-kd - זמן השאילתה שלו הוא <span class="math inline">\(O( \log^2 n + k)\)</span> בלבד, לעומת <span class="math inline">\(O( \sqrt{n}+k)\)</span> בעצי-kd. השיפור הזה מאלץ אותנו לשלם מעט בסיבוכיות המקום – <span class="math inline">\(O( n \log n)\)</span> לעומת <span class="math inline">\(O( n)\)</span>. בסעיף 5.3 של ספר הלימוד מתואר האלגוריתם Build2DRangeTree שבונה את העץ, ואלגוריתם השאילתה 2DRangeQuery. קראו בעיון את ניתוח זמן הבניה, סיבוכיות המקום, וזמן השאילתה של עץ תחומים.</p>
 </div>
 <div id="קראו-את-סעיף-5.3-בספר-עמודים-105109." class="section level4 unnumbered">
 <h4>קראו את סעיף 5.3 בספר (עמודים 105–109).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-5.3-%D7%91%D7%A1%D7%A4%D7%A8-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-105109."><i class="fas fa-link"></i></a>
@@ -193,7 +192,7 @@
 <div id="שיפור-זמן-השאילתה." class="section level4 unnumbered">
 <h4>שיפור זמן השאילתה.<a class="anchor" aria-label="anchor" href="#%D7%A9%D7%99%D7%A4%D7%95%D7%A8-%D7%96%D7%9E%D7%9F-%D7%94%D7%A9%D7%90%D7%99%D7%9C%D7%AA%D7%94."><i class="fas fa-link"></i></a>
 </h4>
-<p>ניתן לשפר את זמן השאילתה של עץ התחומים בפקטור של log n, בעזרת שיטה הנקראת Fractional Cascading . זוהי שיטה מתקדמת שאינה חלק מחומר הקורס, והיא מתוארת בפרק 5.6 של הספר.</p>
+<p>ניתן לשפר את זמן השאילתה של עץ התחומים בפקטור של <span class="math inline">\(\log n\)</span>, בעזרת שיטה הנקראת Fractional Cascading . זוהי שיטה מתקדמת שאינה חלק מחומר הקורס, והיא מתוארת בפרק 5.6 של הספר.</p>
 <hr class="mt-5 mb-5">
 </div>
 </div>
@@ -266,7 +265,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p dir="rtl" style="text-align:right;">הספר "<strong>גאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2023-09-07.</p>
+    <p dir="rtl" style="text-align:right;">הספר "<strong>גאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2023-09-11.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -89,7 +89,7 @@
 <p><img src="images/4/mold.jpg" align="left" width="25%"> בהינתן פוליהדרון <span class="math inline">\(P\)</span> בעל <span class="math inline">\(n\)</span> פאות שהן פוליגונים, נרצה לתכנן תבנית שתאפשר לנו לייצר את <span class="math inline">\(P\)</span>. כדי שנוכל לחלץ את <span class="math inline">\(P\)</span> מהתבנית על ידי משיכה בכיוון אחד, נדרוש שבדיוק אחת מהפאות של <span class="math inline">\(P\)</span> תהיה מוכלת בפאה העליונה של התבנית. התבנית חייבת להתאים לצורה של <span class="math inline">\(P\)</span>, אבל את הפאה העליונה נוכל לבחור מתוך <span class="math inline">\(n\)</span> הפאות של <span class="math inline">\(P\)</span>, ולכן יש לכל היותר <span class="math inline">\(n\)</span> תבניות אפשרויות. כמובן שלא כל תבנית תאפשר לנו לחלץ את <span class="math inline">\(P\)</span>.</p>
 <div class="rmdwarning">
 <div class="inline-figure">
-<img src="images/question.png" align="right" width="10%" style="padding:0px 0px 0px 10px"> בדיקת שפיות! ענו על השאלה הבאה: באילו מהתבניות הבאות ניתן לחלץ את הפוליהדרון שיצקו בהן על ידי משיכה בכיוון אחד?</div>
+<img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> בדיקת שפיות! ענו על השאלה הבאה: באילו מהתבניות הבאות ניתן לחלץ את הפוליהדרון שיצקו בהן על ידי משיכה בכיוון אחד?</div>
 <p>(לשם הפשטות, האיורים מציגים חתך עומק של התבנית והפוליהדרון בדו-מימד. הניחו שכל חתכי העומק של הפוליהדרון זהים לזה שבאיור.)</p>
 <p><img src="images/4/mold1.jpg" width="20%"><img src="images/4/mold2.jpg" width="20%"><img src="images/4/mold3.jpg" width="20%"><img src="images/4/mold4.jpg" width="20%"><img src="images/4/mold5.jpg" width="20%"></p>
 <details><summary>
@@ -132,14 +132,12 @@
 <h3>
 <span class="header-section-number">4.2.2</span> חיתוך של פוליגונים קמורים<a class="anchor" aria-label="anchor" href="#convex-int"><i class="fas fa-link"></i></a>
 </h3>
-<p>בחלק השלישי של יחידה 2 (המדבר על פעולות בוליאניות), ראינו שניתן לחשב את החיתוך של שני פוליגונים (לא בהכרח קמורים) בזמן O ( ( n + k ) log n ), כאשר k הוא מספר נקודות חיתוך, בעזרת האלגוריתם MapOverlay.</p>
+<p>בחלק השלישי של יחידה 2 (המדבר על פעולות בוליאניות), ראינו שניתן לחשב את החיתוך של שני פוליגונים (לא בהכרח קמורים) בזמן <span class="math inline">\(O((n+k)\log n)\)</span>, כאשר <span class="math inline">\(k\)</span> הוא מספר נקודות חיתוך, בעזרת האלגוריתם MapOverlay.</p>
 <div class="rmdwarning">
-<p><img src="images/question.png" align="right" width="10%" style="padding:0px 0px 0px 10px"><img src="images/4/question.jpg" align="left" width="30%"> מהו המספר המקסימלי האפשרי של נקודות חיתוך בין צלעות של שני פוליגונים קמורים בעלי <span class="math inline">\(n\)</span> קודקודים כל אחד? נסו לצייר שני פוליגונים קמורים עם מספר מקסימלי של נקודות חיתוך.</p>
+<p><img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><img src="images/4/question.jpg" align="left" width="30%"> מהו המספר המקסימלי האפשרי של נקודות חיתוך בין צלעות של שני פוליגונים קמורים בעלי <span class="math inline">\(n\)</span> קודקודים כל אחד? נסו לצייר שני פוליגונים קמורים עם מספר מקסימלי של נקודות חיתוך.</p>
 <details><summary>
 (פתרון)
-</summary><p>המספר המקסימלי האפשרי של נקודות חיתוך בין שני פוליגונים קמורים <span class="math inline">\(C_1\)</span> ו-<span class="math inline">\(C_2\)</span> בעלי
-<span class="math inline">\(n\)</span> נקודות כל אחד, הוא
-<span class="math inline">\(2 n\)</span>. הסיבה היא שכל צלע <span class="math inline">\(e\)</span> של <span class="math inline">\(C_1\)</span> יכולה להחתך עם לכל היותר שתי צלעות של <span class="math inline">\(C_2\)</span>: אם <span class="math inline">\(e\)</span> היתה נחתכת עם יותר משתי צלעות של <span class="math inline">\(C_2\)</span>, אז <span class="math inline">\(C_2\)</span> לא היה יכול להיות קמור.</p>
+</summary><p>המספר המקסימלי האפשרי של נקודות חיתוך בין שני פוליגונים קמורים <span class="math inline">\(C_1\)</span> ו-<span class="math inline">\(C_2\)</span> בעלי <span class="math inline">\(n\)</span> נקודות כל אחד, הוא <span class="math inline">\(2 n\)</span>. הסיבה היא שכל צלע <span class="math inline">\(e\)</span> של <span class="math inline">\(C_1\)</span> יכולה להחתך עם לכל היותר שתי צלעות של <span class="math inline">\(C_2\)</span>: אם <span class="math inline">\(e\)</span> היתה נחתכת עם יותר משתי צלעות של <span class="math inline">\(C_2\)</span>, אז <span class="math inline">\(C_2\)</span> לא היה יכול להיות קמור.</p>
 <p align="center" width="100%">
 </p>
 <div class="inline-figure"><img src="images/4/convex_intersection.jpg" width="40%"></div>
@@ -199,7 +197,7 @@
 
 <p>באופן די מאכזב, זמן הריצה המתקבל מאלגוריתם זה הוא <span class="math inline">\(O(n^2)\)</span>, מכיון שבמקרה השני נצטרך לחשב את החיתוך של <span class="math inline">\(\ell_i\)</span> עם חצאי המישורים <span class="math inline">\(m_1, m_2, h_1, \dots, h_{i-1}\)</span>. לכן, במקרה הגרוע, זמן הריצה עבור השלב ה-<span class="math inline">\(i\)</span> יהיה <span class="math inline">\(O(i)\)</span>.</p>
 <div class="rmdwarning">
-<p><img src="images/question.png" align="right" width="10%" style="padding:0px 0px 0px 10px"> כמה פעמים יתעדכן הפתרון? נסו לחשוב על המקרה הגרוע ביותר: כמה פעמים לכל היותר יכול לקרות המקרה השני, בו נצטרך לעדכן את <span class="math inline">\(v_i\)</span> בזמן <span class="math inline">\(O(i)\)</span>?</p>
+<p><img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> כמה פעמים יתעדכן הפתרון? נסו לחשוב על המקרה הגרוע ביותר: כמה פעמים לכל היותר יכול לקרות המקרה השני, בו נצטרך לעדכן את <span class="math inline">\(v_i\)</span> בזמן <span class="math inline">\(O(i)\)</span>?</p>
 <p>(התשובה נמצאת בפסקה האחרונה של סעיף 4.3 בספר הלימוד)</p>
 </div>
 <p>בהמשך נראה כיצד בחירה רנדומית של הסדר בו מוסיף האלגוריתם את חצאי המישורים, מובילה לתוחלת זמן ריצה לינארית.</p>
@@ -212,9 +210,8 @@
 <h3>
 <span class="header-section-number">4.3.3</span> אלגוריתם רנדומי<a class="anchor" aria-label="anchor" href="#rand-alg"><i class="fas fa-link"></i></a>
 </h3>
-<p>כמו שהובטח בחלקים הקודמים, תכנון לינארי במישור אכן ניתן לפיתרון בזמן צפוי של <span class="math inline">\(O( n )\)</span>, על ידי האלגוריתם
-2DRandomizedBoundedLP אותו נציג בחלק זה. זהו כמובן אלגוריתם רנדומי, והוא זהה כמעט לחלוטין לאלגוריתם האינקרמטלי שהוצג בסעיף הקודם: ההבדל היחידי הוא בשורה השנייה של האלגוריתם, שם מחשבים פרמוטציה אקראית של חצאי המישורים בעזרת פרוצדורה בשם RandomPermutation.</p>
-<p>בסרטון הבא נראה כיצד שינוי זה, שנראה לכאורה כאילו אינו משפיע על האלגוריתם, מוביל לתופעה מעניינת ביותר: תוחלת זמן ריצה תהיה לינארית. כלומר, כאשר מגרילים את הסדר בו האלגוריתם האינקמנטלי בוחן את חצאי המישורים, מקבלים שבממוצע על פני כל הפרמוטציות האפשריות, זמן הריצה הוא <span class="math inline">\(O( n )\)</span>.</p>
+<p>כמו שהובטח בחלקים הקודמים, תכנון לינארי במישור אכן ניתן לפיתרון בזמן צפוי של <span class="math inline">\(O( n )\)</span>, על ידי האלגוריתם 2DRandomizedBoundedLP אותו נציג בחלק זה. זהו כמובן אלגוריתם רנדומי, והוא זהה כמעט לחלוטין לאלגוריתם האינקרמטלי שהוצג בסעיף הקודם: ההבדל היחידי הוא בשורה השנייה של האלגוריתם, שם מחשבים פרמוטציה אקראית של חצאי המישורים בעזרת פרוצדורה בשם RandomPermutation.</p>
+<p>בסרטון הבא נראה כיצד שינוי זה, שנראה לכאורה כאילו אינו משפיע על האלגוריתם, מוביל לתופעה מעניינת ביותר: תוחלת זמן ריצה תהיה לינארית. כלומר, כאשר מגרילים את הסדר בו האלגוריתם האינקרמנטלי בוחן את חצאי המישורים, מקבלים שבממוצע על פני כל הפרמוטציות האפשריות, זמן הריצה הוא <span class="math inline">\(O( n )\)</span>.</p>
 <div id="צפו-בסרטון-הבא-4" class="section level4 unnumbered">
 <h4>צפו בסרטון הבא:<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90-4"><i class="fas fa-link"></i></a>
 </h4>
@@ -231,7 +228,7 @@
 <span class="header-section-number">4.3.4</span> תוכנית לינארית שאינה חסומה<a class="anchor" aria-label="anchor" href="#unbounded-LP"><i class="fas fa-link"></i></a>
 </h3>
 <p>בסעיפים הקודמים נמנענו מהטיפול במקרה בו התוכנית הלינארית אינה חסומה, על ידי הוספת שני אילוצים מלאכותיים, <span class="math inline">\(m_1,m_2\)</span>. בחלק זה נראה כיצד ניתן לבדוק האם תוכנית לינארית היא חסומה, ואם היא לא חסומה, נראה כיצד למצוא שני אילוצים <span class="math inline">\(h_1,h_2\)</span> שישמשו אותנו לאתחול האלגוריתם במקום <span class="math inline">\(m_1,m_2\)</span>.</p>
-<p>אם התוכנית הלינארית אינה חסומה, אז קיימת קרן <span class="math inline">\(\rho\)</span> המוכלת כולה באיזור הפיזיבילי <span class="math inline">\(C\)</span>. הקרן הזו מוגדרת על ידי נקודה p וכיוון <span class="math inline">\(\overrightarrow{d}\)</span>. נשים לב שפונקציית המטרה מקבלת ערכים הולכים וגדלים לאורך הקרן rho אם ורק אם הזווית הקטנה בין הוקטור <span class="math inline">\(\overrightarrow{d}\)</span> לוקטור המטרה <span class="math inline">\(\overrightarrow{c}\)</span> קטנה מ-<span class="math inline">\(90 ^\circ\)</span>. בנוסף, לכל חצי מישור <span class="math inline">\(h\)</span>, הזוית בין <span class="math inline">\(\overrightarrow{d}\)</span> לנורמל <span class="math inline">\(\overrightarrow{\mu}( h )\)</span> של h (בכיוון הצד הפיזיבילי) היא לכל היותר . ניתן לראות דוגמה לכך בציור מטה. נוסף לכך, אוסף האילוצים עבורם <span class="math inline">\(\overrightarrow{\mu}( h )\)</span> בדיוק מאונך ל-<span class="math inline">\(\overrightarrow{d}\)</span> (<span class="math inline">\(h_1, h_5\)</span> באיור), חייב להיות פיזיבילי.</p>
+<p>אם התוכנית הלינארית אינה חסומה, אז קיימת קרן <span class="math inline">\(\rho\)</span> המוכלת כולה באיזור הפיזיבילי <span class="math inline">\(C\)</span>. הקרן הזו מוגדרת על ידי נקודה p וכיוון <span class="math inline">\(\overrightarrow{d}\)</span>. נשים לב שפונקציית המטרה מקבלת ערכים הולכים וגדלים לאורך הקרן rho אם ורק אם הזווית (הקטנה) בין הוקטור <span class="math inline">\(\overrightarrow{d}\)</span> לוקטור המטרה <span class="math inline">\(\overrightarrow{c}\)</span> קטנה מ-<span class="math inline">\(90 ^\circ\)</span>. בנוסף, לכל חצי מישור <span class="math inline">\(h\)</span>, הזוית בין <span class="math inline">\(\overrightarrow{d}\)</span> לנורמל <span class="math inline">\(\overrightarrow{\mu}( h )\)</span> של h (בכיוון הצד הפיזיבילי) היא לכל היותר . ניתן לראות דוגמה לכך בציור מטה. נוסף לכך, אוסף האילוצים עבורם <span class="math inline">\(\overrightarrow{\mu}( h )\)</span> בדיוק מאונך ל-<span class="math inline">\(\overrightarrow{d}\)</span> (<span class="math inline">\(h_1, h_5\)</span> באיור), חייב להיות פיזיבילי.</p>
 <p align="center" width="100%">
 </p>
 <div class="inline-figure"><img src="images/4/unboundedLP.jpg" width="40%"></div>
@@ -241,13 +238,12 @@
 <h4>קראו את סעיף 4.4 בספר הלימוד (עמודים 79–82).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-4.4-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-7982."><i class="fas fa-link"></i></a>
 </h4>
 <div class="rmdnote">
-<p><strong>פתרון אלטרנטיבי</strong>:</p>
-<p><img src="images/4/unbounded-alg-1.jpg" align="left" width="33%"> דרך אחרת למציאת הקרן <span class="math inline">\(\rho\)</span>, היא להתבונן בחצי המישור <span class="math inline">\(h_i\)</span> עבורו הזווית הקטנה בין <span class="math inline">\(\overrightarrow{c}\)</span> ל-<span class="math inline">\(\overrightarrow{\mu}( h_i )\)</span> היא הגדולה ביותר.</p>
+<p><img src="images/extra.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><strong>פתרון אלטרנטיבי</strong>:</p>
+<p><img src="images/4/unbounded-alg-1.jpg" align="left" width="33%"> דרך אחרת למציאת הקרן <span class="math inline">\(\rho\)</span>, היא להתבונן בחצי המישור <span class="math inline">\(h_i\)</span> עבורו הזווית בין <span class="math inline">\(\overrightarrow{c}\)</span> ל-<span class="math inline">\(\overrightarrow{\mu}( h_i )\)</span> היא הגדולה ביותר.</p>
 <p> <br>
  </p>
-<p><img src="images/4/unbounded-alg-2.jpg" align="left" width="33%"> החיתוך בין הישר לבין חצי מישור אחר <span class="math inline">\(h_j\)</span> הוא קרן <span class="math inline">\(\rho\)</span> על . אם לכל <span class="math inline">\(j \neq i\)</span> הזוית הקטנה בין הקרן <span class="math inline">\(\rho\)</span> שמוגדרת על ידי <span class="math inline">\(\ell_1 \cap h_j\)</span> לבין <span class="math inline">\(\overrightarrow{c}\)</span> קטנה או שווה ל-, אז הקרן שראשיתה בנקודה הקיצונית ביותר בכיוון <span class="math inline">\(\overrightarrow{c}\)</span> היא העדות לכך ש-C אינו חסום ביחס ל-<span class="math inline">\(\overrightarrow{c}\)</span>.</p>
-<p><img src="images/4/unbounded-alg-3.jpg" align="left" width="33%"> אחרת, אם עבור <span class="math inline">\(h_j\)</span> כלשהו הזוית הקטנה בין <span class="math inline">\(\rho\)</span> ל-<span class="math inline">\(\overrightarrow{c}\)</span> גדולה מ-, אז חצאי המישורים <span class="math inline">\(h_i\)</span> ו-<span class="math inline">\(h_j\)</span> הם ההוכחה לכך ש-<span class="math inline">\(C\)</span> חסום ביחס ל-<span class="math inline">\(\overrightarrow{c}\)</span>. הסיבה לכך היא שהזווית בין <span class="math inline">\(\overrightarrow{c}\)</span> ל-<span class="math inline">\(\overrightarrow{\mu}( h_j )\)</span> קטנה יותר מהזווית בין <span class="math inline">\(\overrightarrow{c}\)</span> ל-<span class="math inline">\(\overrightarrow{\mu}( h_i )\)</span>, ולכן הזוית בין <span class="math inline">\(h_j\)</span> ל-<span class="math inline">\(\overrightarrow{c}\)</span> גדולה מ-<span class="math inline">\(90^\circ\)</span>.
- </p>
+<p><img src="images/4/unbounded-alg-2.jpg" align="left" width="33%"> החיתוך בין הישר לבין חצי מישור אחר <span class="math inline">\(h_j\)</span> הוא קרן <span class="math inline">\(\rho\)</span> על . אם לכל <span class="math inline">\(j \neq i\)</span> הזוית בין הקרן <span class="math inline">\(\rho\)</span> שמוגדרת על ידי <span class="math inline">\(\ell_1 \cap h_j\)</span> לבין <span class="math inline">\(\overrightarrow{c}\)</span> קטנה או שווה ל-, אז הקרן שראשיתה בנקודה הקיצונית ביותר בכיוון <span class="math inline">\(\overrightarrow{c}\)</span> היא העדות לכך ש-C אינו חסום ביחס ל-<span class="math inline">\(\overrightarrow{c}\)</span>.</p>
+<p><img src="images/4/unbounded-alg-3.jpg" align="left" width="33%"> אחרת, אם עבור <span class="math inline">\(h_j\)</span> כלשהו הזוית בין <span class="math inline">\(\rho\)</span> ל-<span class="math inline">\(\overrightarrow{c}\)</span> גדולה מ-, אז חצאי המישורים <span class="math inline">\(h_i\)</span> ו-<span class="math inline">\(h_j\)</span> הם ההוכחה לכך ש-<span class="math inline">\(C\)</span> חסום ביחס ל-<span class="math inline">\(\overrightarrow{c}\)</span>. הסיבה לכך היא שהזווית בין <span class="math inline">\(\overrightarrow{c}\)</span> ל-<span class="math inline">\(\overrightarrow{\mu}( h_j )\)</span> קטנה יותר מהזווית בין <span class="math inline">\(\overrightarrow{c}\)</span> ל-<span class="math inline">\(\overrightarrow{\mu}( h_i )\)</span>, ולכן הזוית בין <span class="math inline">\(h_j\)</span> ל-<span class="math inline">\(\overrightarrow{c}\)</span> גדולה מ-<span class="math inline">\(90^\circ\)</span>.  </p>
 </div>
 
 </div>
@@ -297,7 +293,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p dir="rtl" style="text-align:right;">הספר "<strong>גאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2023-09-07.</p>
+    <p dir="rtl" style="text-align:right;">הספר "<strong>גאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2023-09-11.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

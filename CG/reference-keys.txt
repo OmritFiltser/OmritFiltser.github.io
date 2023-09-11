@@ -30,8 +30,8 @@ worst-case
 guarding
 diagonals
 triangulation
-dual-graph
 agp-thm
+dual-graph
 לחזרה-קריאה-בספר-הלימוד
 אלגוריתם-לשילוש-של-פוליגון
 איך-נחשב-שילוש
@@ -78,6 +78,7 @@ other-defs
 voronoi-game
 משחק-וורונוי-על-ריבוע
 duality-arrangements
+section
 Delaunay-triangulation
 motion-planning
 WSPD-spanners

@@ -128,10 +128,11 @@ intersection). בבעיה זו, הקלט הוא אוסף של קטעים במי�
 האלגוריתם. בכל פעם שהישר מגיע למאורע, יש לעדכן את הסטטוס ואת תור
 המאורעות, ולבצע בדיקות של חיתוכים בין הקטעים בסטטוס.</p>
 <div class="rmdwarning">
-<p><img src="images/question.png" align="right" width="10%" style="padding:0px 0px 0px 10px">
+<p><img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px">
 זמן הריצה של האלגוריתם הראשון שמתואר בסרטון ומשתמש בשיטת הישר הסורק, הוא
 <span class="math inline">\(O(n^2)\)</span>. האם קיים אוסף של קטעים ללא נקודות חיתוך כלל, שעבורו זמן הריצה
-של האלגוריתם הזה יהיה <span class="math inline">\(\Theta(n^2)\)</span>?</p>
+של האלגוריתם הזה יהיה <span class="math inline">\(\Theta(n^2)\)</span>? אם לא, הסבירו מדוע. אם כן, ציירו
+דוגמה לאוסף כזה.</p>
 <details><summary>
 (פתרון)
 </summary><p>באוסף הקטעים שבאיור למטה אין נקודות חיתוך, אך בשלב שבו הקטע ה- <span class="math inline">\(i\)</span> נוסף
@@ -153,33 +154,33 @@ intersection). בבעיה זו, הקלט הוא אוסף של קטעים במי�
 באופן אינטואיטיבי מדוע גישה כזו תתן לנו אלגוריתם יעיל שהוא רגיש לפלט,
 ושאינו בודק חיתוכים בין כל זוג קטעים.</p>
 <p>כיצד מממשים אלגוריתם כזה ביעילות? בסעיף 2.1 בספר הלימוד מתואר בפירוט
-האלגוריתם FindIntersections, מבני הנתונים להם נזדקק עבור תור המאורעות
-והסטטוס, והפרוצדורה HandleEvenPoint לטיפול במאורעות. זמן הריצה של
-האלגוריתם הוא <span class="math inline">\(O((n+k)\log n)\)</span>, כאשר <span class="math inline">\(k\)</span> הוא מספר נקודות החיתוך.</p>
+האלגוריתם <strong>FindIntersections</strong>, מבני הנתונים להם נזדקק עבור תור
+המאורעות והסטטוס, והפרוצדורה <strong>HandleEvenPoint</strong> לטיפול במאורעות. זמן
+הריצה של האלגוריתם הוא <span class="math inline">\(O((n+k)\log n)\)</span>, כאשר <span class="math inline">\(k\)</span> הוא מספר נקודות
+החיתוך.</p>
 <div id="קראו-בעיון-את-סעיף-2.1-בספר-הלימוד-עמודים-2029" class="section level4 unnumbered">
 <h4>קראו בעיון את סעיף 2.1 בספר הלימוד (עמודים 20–29)<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%91%D7%A2%D7%99%D7%95%D7%9F-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-2.1-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-2029"><i class="fas fa-link"></i></a>
 </h4>
 </div>
 <div id="euiler" class="section level4 unnumbered">
-<h4>נוסחת אוילר<a class="anchor" aria-label="anchor" href="#euiler"><i class="fas fa-link"></i></a>
+<h4>נוסחת אוילר.<a class="anchor" aria-label="anchor" href="#euiler"><i class="fas fa-link"></i></a>
 </h4>
 <p>בסעיף 2.1 בספר הלימוד, יש שימוש בנוסחת אוילר להשגת חסם על מספר המאורעות.</p>
 <p>עבור גרף מישורי עם <span class="math inline">\(n_v\)</span> קודקודים, <span class="math inline">\(n_e\)</span> צלעות, ו-<span class="math inline">\(n_f\)</span> פאות, נוסחת
 אוילר מתארת את הקשר ביניהם, באופן הבא.</p>
 <div class="rmdimportant">
-<p><strong>נוסחת אוילר</strong>: <span class="math inline">\(n_v-n_e+n_f\ge 2\)</span>.</p>
+<p><img src="images/definition.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><strong>נוסחת אוילר</strong>: <span class="math inline">\(n_v-n_e+n_f\ge 2\)</span>.</p>
 </div>
 <p>זוהי נוסחה חשובה ביותר, ונעשה בה שימוש גם בהמשך הקורס.</p>
 <div class="rmdwarning">
 <div class="inline-figure">
-<img src="images/question.png" align="right" width="10%" style="padding:0px 0px 0px 10px">
+<img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px">
 נסו לחשוב על אלגוריתם המקבל אוסף של קטעים במישור, ובודק האם קיים זוג
 קטעים שנחתכים. איזה זמן ריצה ניתן להשיג?</div>
 <details><summary>
 (פתרון)
-</summary>
-שימו לב שניתן להשתמש באותו אלגוריתם שראינו למציאת כל נקודות החיתוך, אך לעצור מייד עם מציאת נקודת החיתוך הראשונה.
-נקבל זמן ריצה של <span class="math inline">\(O(n\log n)\)</span>.
+</summary><p>שימו לב שניתן להשתמש באותו אלגוריתם שראינו למציאת כל נקודות החיתוך, אך
+לעצור מייד עם מציאת נקודת החיתוך הראשונה. נקבל זמן ריצה של <span class="math inline">\(O(n\log n)\)</span>.</p>
 </details>
 </div>
 </div>
@@ -193,15 +194,19 @@ intersection). בבעיה זו, הקלט הוא אוסף של קטעים במי�
 <span class="math inline">\(S'=\overline{p'q'}\)</span>, כיצד נבדוק האם הם נחתכים?</p>
 <p align="center" width="100%">
 </p>
-<div class="inline-figure"><img src="images/2/segments.jpg" width="80%"></div>
+<div class="inline-figure"><img src="images/2/segments.jpg" width="100%"></div>
 
-<div id="גישה-ראשונה-חישוב-הישרים-המכילים-את-הקטעים" class="section level4 unnumbered">
-<h4>גישה ראשונה: חישוב הישרים המכילים את הקטעים<a class="anchor" aria-label="anchor" href="#%D7%92%D7%99%D7%A9%D7%94-%D7%A8%D7%90%D7%A9%D7%95%D7%A0%D7%94-%D7%97%D7%99%D7%A9%D7%95%D7%91-%D7%94%D7%99%D7%A9%D7%A8%D7%99%D7%9D-%D7%94%D7%9E%D7%9B%D7%99%D7%9C%D7%99%D7%9D-%D7%90%D7%AA-%D7%94%D7%A7%D7%98%D7%A2%D7%99%D7%9D"><i class="fas fa-link"></i></a>
+<div id="גישה-ראשונה-חישוב-הישרים-המכילים-את-הקטעים." class="section level4 unnumbered">
+<h4>גישה ראשונה: חישוב הישרים המכילים את הקטעים.<a class="anchor" aria-label="anchor" href="#%D7%92%D7%99%D7%A9%D7%94-%D7%A8%D7%90%D7%A9%D7%95%D7%A0%D7%94-%D7%97%D7%99%D7%A9%D7%95%D7%91-%D7%94%D7%99%D7%A9%D7%A8%D7%99%D7%9D-%D7%94%D7%9E%D7%9B%D7%99%D7%9C%D7%99%D7%9D-%D7%90%D7%AA-%D7%94%D7%A7%D7%98%D7%A2%D7%99%D7%9D."><i class="fas fa-link"></i></a>
 </h4>
-<p>ישר המכיל קטע.נחשב את הישר <span class="math inline">\(\ell\)</span> המכיל את הקטע <span class="math inline">\(S\)</span>, ואת הישר <span class="math inline">\(\ell'\)</span>
-המכיל את הקטע <span class="math inline">\(S'\)</span>. נחשב את נקודת החיתוך <span class="math inline">\(t\)</span> בין הישרים <span class="math inline">\(\ell\)</span>
-ו-<span class="math inline">\(\ell'\)</span>. נבדוק האם <span class="math inline">\(t\)</span> שייכת לשני הקטעים <span class="math inline">\(S\)</span> ו-<span class="math inline">\(S'\)</span>. בשיטה זו אנו
-מוצאים את נקודת החיתוך, אם היא קיימת.</p>
+<ol style="list-style-type: decimal">
+<li>
+<img src="images/2/line.jpg" align="left" width="33%"> נחשב את הישר
+<span class="math inline">\(\ell\)</span> המכיל את הקטע <span class="math inline">\(S\)</span>, ואת הישר <span class="math inline">\(\ell'\)</span> המכיל את הקטע <span class="math inline">\(S'\)</span>.</li>
+<li>נחשב את נקודת החיתוך <span class="math inline">\(t\)</span> בין הישרים <span class="math inline">\(\ell\)</span> ו-<span class="math inline">\(\ell'\)</span>.</li>
+<li>נבדוק האם <span class="math inline">\(t\)</span> שייכת לשני הקטעים <span class="math inline">\(S\)</span> ו-<span class="math inline">\(S'\)</span>.</li>
+</ol>
+<p>בשיטה זו אנו מוצאים את נקודת החיתוך, אם היא קיימת.</p>
 </div>
 <div id="מציאת-הישר-המכיל-קטע" class="section level4 unnumbered">
 <h4>מציאת הישר המכיל קטע:<a class="anchor" aria-label="anchor" href="#%D7%9E%D7%A6%D7%99%D7%90%D7%AA-%D7%94%D7%99%D7%A9%D7%A8-%D7%94%D7%9E%D7%9B%D7%99%D7%9C-%D7%A7%D7%98%D7%A2"><i class="fas fa-link"></i></a>
@@ -228,7 +233,7 @@ intersection). בבעיה זו, הקלט הוא אוסף של קטעים במי�
 <span class="math inline">\(\overline{p q}\)</span> אם <span class="math inline">\(t_x\in [p_x, q_y]\)</span>, <span class="math inline">\(t_y\in[p_y, q_y]\)</span>.</p>
 <div class="rmdwarning">
 <div class="inline-figure">
-<img src="images/question.png" align="right" width="10%" style="padding:0px 0px 0px 10px">
+<img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px">
 בשלב השלישי, האם מספיק לבדוק שנקודת החיתוך שייכת לאחד הקטעים?</div>
 <details><summary>
 (פתרון)
@@ -247,12 +252,12 @@ intersection). בבעיה זו, הקלט הוא אוסף של קטעים במי�
 <p>שימו לב שבגישה הראשונה התעלמנו ממספר מצבים מיוחדים של הקלט, למשל כאשר
 הקטעים הם אנכיים. נסו לבדוק בעצמכם מהם מצבי הקלט מהם אנחנו מתעלמים,
 וחישבו כיצד ניתן לטפל בהם.</p>
-<p>ביחידה הראשונה של הקורס דנו בנושא של מצבים מנוונים. ראינו שניתן לטפל
+<p>ביחידה הראשונה של הקורס דנו בנושא של <strong>מצבים מנוונים</strong>. ראינו שניתן לטפל
 במצבים מנוונים על ידי חלוקה למקרים נפרדים, אך חלוקה כזו היא בדרך כלל
 מתישה ומועדת לטעויות. דרך נוספת לטיפול במצבים כאלו היא למצוא מערכת
 גאומטרית אחרת בה המקרים ההמיוחדים נעלמים, למשל על ידי סיבוב מערכת
-הצירים, אך פעולה זו לא תמיד אפשרית. אפשרות אחרת היא להשתמש בהנחת מצב
-כללי: מניחים שהקלט אינו מכיל מצבים מנוונים.</p>
+הצירים, אך פעולה זו לא תמיד אפשרית. אפשרות אחרת היא להשתמש ב<strong>הנחת מצב
+כללי</strong>: מניחים שהקלט אינו מכיל מצבים מנוונים.</p>
 <p>במקרה של חיתוך ישרים, ניתן למצוא פתרון אחר שבו המקרים המיוחדים אינם
 דורשים טיפול נפרד, כמו בגישה הבאה.</p>
 </div>
@@ -326,7 +331,7 @@ DCEL, נרצה לחשב מבנה DCEL עבור ה-overlay של <span class="math
 ו-<span class="math inline">\(f_2\)</span> מ-<span class="math inline">\(\mathcal{S_2}\)</span> שהחיתוך שלהן לא ריק, קיימת פאה <span class="math inline">\(f\)</span> שהיא בדיוק
 אחד מרכיבי הקשירות של <span class="math inline">\(f_1\cap f_2\)</span>. (שימו לב ש-<span class="math inline">\(f_1\)</span> או <span class="math inline">\(f_2\)</span> יכולות
 להיות הפאה החיצונית שאינה חסומה). בנוסף, נרצה לסמן את הפאה <span class="math inline">\(f\)</span> בסימונים
-של הפאות <span class="math inline">\(f_1\)</span> ו-<span class="math inline">\(f_2\)</span>, כמו בדוגמה הבאה:</p>
+של הפאות <span class="math inline">\(f_1\)</span> ו-<span class="math inline">\(f_2\)</span>. למשל, נוכל לסמן <span class="math inline">\(f=f_1f_2\)</span>, כמו בדוגמה הבאה:</p>
 <p align="center" width="100%">
 </p>
 <div class="inline-figure"><img src="images/2/overlay.jpg" width="80%"></div>
@@ -398,7 +403,7 @@ DCEL, נרצה לחשב מבנה DCEL עבור ה-overlay של <span class="math
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p dir="rtl" style="text-align:right;">הספר "<strong>גאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2023-09-07.</p>
+    <p dir="rtl" style="text-align:right;">הספר "<strong>גאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2023-09-11.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
