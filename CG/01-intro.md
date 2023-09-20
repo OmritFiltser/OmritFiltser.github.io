@@ -151,11 +151,7 @@
 ::: rmdwarning
 <img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"/> אילו מהעקומים באיור סגורים? אילו פשוטים?
 
-<p align="center" width="100%">
-
-<img src="images/1/curves.jpg" width="100%"/>
-
-</p>
+<center>![](images/1/curves.jpg){width="100%"}</center>
 
 <details>
 
@@ -206,11 +202,7 @@
 
 ההבחנה בין הפנים לחוץ של פוליגון היא עקרונית להגדרה של פוליגון, ולכן הדרישה ששפת הפוליגון תהווה עקום פשוט היא הכרחית. התבוננו שוב באוסף הדוגמאות שראינו קודם:
 
-<p align="center" width="100%">
-
-<img src="images/1/polygons.jpg" width="100%"/>
-
-</p>
+<center>![](images/1/polygons.jpg){width="100%"}</center>
 
 באיור ב' קיימים מספר איזורים שלא ניתן להחליט האם הם שייכם לפנים הפוליגון, או נמצאים מחוצה לו. גם באיור ו' לא ברור לאן שייכים האיזורים הפנימיים. עם זאת, קיימות מספר הגדרות כלליות יותר לפוליגונים שמתאימות לשאר הדוגמאות שבאיור. נדון כאן רק בזו המתאימה לאיור ד'.
 
@@ -227,11 +219,7 @@
 [**דוגמה**:\
 ]{.underline}הפוליגון באיור הבא מורכב מפוליגון פשוט המכיל שלושה חורים המוצללים באפור. שימו לב שהחורים אינם נחתכים זה עם זה או עם שפת הפוליגון.
 
-<p align="center" width="80%">
-
-<img src="images/1/holes.jpg" width="80%"/>
-
-</p>
+<center>![](images/1/holes.jpg){width="70%"}</center>
 :::
 
 ### פוליגונים מיוחדים {#special-polygons}
@@ -259,11 +247,7 @@
 הפוליגון האמצעי אינו קמור מכיוון שקיימות שתי נקודות שהקטע המוגדר עליהן אינו מוכל בפוליגון.\
 הפוליגון משמאל הוא **כוכבי**, מכיוון שהנקודה המסומנת מקיימת את תנאי ההגדרה.
 
-<p align="center" width="100%">
-
-<img src="images/1/convex_star-shaped.jpg" width="100%"/>
-
-</p>
+<center>![](images/1/convex_star-shaped.jpg){width="100%"}</center>
 :::
 
 ::: rmdwarning
@@ -321,13 +305,13 @@
 
 #### צפו בסרטון הבא. {.unnumbered}
 
-<p align="center" width="100%">
+<center>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/qCTU2jxXfs0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 
 </iframe>
 
-</p>
+</center>
 
 ::: rmdimportant
 <img src="images/definition.png" align="left" width="10%" style="padding:0px 0px 0px 10px"/>
@@ -365,13 +349,13 @@
 
 #### צפו בסרטון הבא: {.unnumbered}
 
-<p align="center" width="100%">
+<center>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/RgGhwKWO2F4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 
 </iframe>
 
-</p>
+</center>
 
 #### קראו את חלקו השני של סעיף 1.1 בספר הלימוד (עמודים 6--8). {.unnumbered}
 
@@ -381,13 +365,13 @@
 
 #### צפו בסרטון הבא. {.unnumbered}
 
-<p align="center" width="100%">
+<center>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/6eZmX1bAC_w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 
 </iframe>
 
-</p>
+</center>
 
 ------------------------------------------------------------------------
 

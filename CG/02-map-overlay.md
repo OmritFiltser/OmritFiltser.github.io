@@ -28,7 +28,7 @@ Systems), כאשר רוצים להציג ולנתח שכבות מידע ממספ
 
 #### קראו את ההקדמה לפרק 2 (עמודים 19--20). {.unnumbered}
 
-<hr class="mt-5 mb-5"/>
+------------------------------------------------------------------------
 
 ## טכניקת הישר הסורק {#sweep-line}
 
@@ -41,15 +41,15 @@ intersection). בבעיה זו, הקלט הוא אוסף של קטעים במי�
 את כל נקודות החיתוך בין קטעים. בסרטון הבא נתאר את רעיון השימוש בישר
 הסורק עבור בעיית חיתוך קטעים במישור.
 
-#### צפו בסרטון הבא: {.unnumbered}
+#### צפו בסרטון הבא. {.unnumbered}
 
-<p align="center" width="100%">
+<center>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/x1BxalWtFqk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 
 </iframe>
 
-</p>
+</center>
 
 בטכניקת הישר הסורק, הרעיון הוא "לסרוק" את הקטעים בעזרת ישר אופקי $\ell$
 הנע מלעלה למטה. ה"**סטטוס**" (status) של הישר הוא אוסף הקטעים הנחתכים עם
@@ -96,7 +96,7 @@ $O(n^2)$. האם קיים אוסף של קטעים ללא נקודות חיתו�
 הריצה של האלגוריתם הוא $O((n+k)\log n)$, כאשר $k$ הוא מספר נקודות
 החיתוך.
 
-#### קראו בעיון את סעיף 2.1 בספר הלימוד (עמודים 20--29) {.unnumbered}
+#### קראו בעיון את סעיף 2.1 בספר הלימוד (עמודים 20--29). {.unnumbered}
 
 #### נוסחת אוילר. {#euiler .unnumbered}
 
@@ -148,7 +148,7 @@ $S'=\overline{p'q'}$, כיצד נבדוק האם הם נחתכים?
 
 בשיטה זו אנו מוצאים את נקודת החיתוך, אם היא קיימת.
 
-#### מציאת הישר המכיל קטע: {.unnumbered}
+#### מציאת הישר המכיל קטע. {.unnumbered}
 
 מציבים את שתי נקודות הקצה של הקטע במשוואת הישר $y=m x + c$, ולאחר מכן
 פותרים מערכת של שתי משוואות כדי למצוא את $m$.
@@ -160,7 +160,7 @@ $m=\frac{q_y-p_y}{q_x-p_x}$.
 
 שימו לב שאם הקטע $\overline{p q}$ הוא אנכי, אז המכנה של $m$ מתאפס.
 
-#### מציאת נקודת החיתוך בין שני ישרים: {.unnumbered}
+#### מציאת נקודת החיתוך בין שני ישרים. {.unnumbered}
 
 בהינתן שני ישרים לא אנכיים,$\ell: y= m x + c$ ו-$\ell': y= m'x+ c'$,
 נציב את נקודת החיתוך $t=(t_x,t_y)$ בשתי המשוואות. נפתור ונקבל:
@@ -168,7 +168,7 @@ $t_x=\frac{c-c'}{m'-m}$, $t_y=\frac{cm'-c'm}{m'-m}$.
 
 גם כאן נשים לב שהמכנה מתאפס אם הישרים אנכיים או מקבילים.
 
-#### בדיקה האם נקודת החיתוך שייכת לקטע: {.unnumbered}
+#### בדיקה האם נקודת החיתוך שייכת לקטע. {.unnumbered}
 
 נניח שמתקיים $p_x\le q_x$, $p_y\le q_y$. אז נקודת החיתוך $t$ שייכת לקטע
 $\overline{p q}$ אם $t_x\in [p_x, q_y]$, $t_y\in[p_y, q_y]$.
@@ -184,11 +184,7 @@ $\overline{p q}$ אם $t_x\in [p_x, q_y]$, $t_y\in[p_y, q_y]$.
 בדוגמה המופיעה כאן, הקטעים אינם נחתכים, אך נקודת החיתוך בין הישרים
 המכילים אותם מופיעה על אחד הקטעים.
 
-<p align="center" width="100%">
-
-<img src="images/2/line_intersection.jpg" width="50%"/>
-
-</p>
+<center>![](images/2/line_intersection.jpg){width="50%"}</center>
 
 </details>
 :::
@@ -236,7 +232,7 @@ $\ell$ המכיל את $\overline{pq}$, על ידי חישוב של שתי הד�
 המתאימות. לאחר מכן נוכל לבדוק האם הנקודות $p$ ו-$q$ נמצאות בשני צדדים
 שונים של הישר $\ell'$ המכיל את $\overline{p'q'}$.
 
-<hr class="mt-5 mb-5"/>
+------------------------------------------------------------------------
 
 ## מבנה DCEL {#dcel}
 
@@ -251,17 +247,17 @@ $\ell$ המכיל את $\overline{pq}$, על ידי חישוב של שתי הד�
 מבנה הנתונים הגאומטרי הראשון שנראה במהלך הקורס, והוא נקרא DCEL
 (Doubly-Connected Edge List).
 
-#### צפו בסרטון הבא: {.unnumbered}
+#### צפו בסרטון הבא. {.unnumbered}
 
-<p align="center" width="100%">
+<center>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/HuT0R9LRR9M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 
 </iframe>
 
-</p>
+</center>
 
-#### קראו את סעיף 2.2 בספר (עמודים 29--33) {.unnumbered}
+#### קראו את סעיף 2.2 בספר (עמודים 29--33). {.unnumbered}
 
 ### בעיית map overlay {#problem-def}
 
@@ -278,17 +274,13 @@ $\mathcal{S_1}$, שמסומן $\mathcal{O}=(\mathcal{S_1},\mathcal{S_2})$.
 להיות הפאה החיצונית שאינה חסומה). בנוסף, נרצה לסמן את הפאה $f$ בסימונים
 של הפאות $f_1$ ו-$f_2$. למשל, נוכל לסמן $f=f_1f_2$, כמו בדוגמה הבאה:
 
-<p align="center" width="100%">
-
-<img src="images/2/overlay.jpg" width="80%"/>
-
-</p>
+<center>![](images/2/overlay.jpg){width="80%"}</center>
 
 בפרק 2.3 של ספר הלימוד מתואר אלגוריתם MapOverlay, המחשב את
 $\mathcal{O}=(\mathcal{S_1},\mathcal{S_2})$ בשיטת הישר הסורק שראינו
 קודם.
 
-#### קראו את סעיף 2.3 בספר (עמודים 33--39) {.unnumbered}
+#### קראו את סעיף 2.3 בספר (עמודים 33--39). {.unnumbered}
 
 ### פעולות בוליאניות {#bool-op}
 
@@ -300,4 +292,4 @@ $\mathcal{O}=(\mathcal{S_1},\mathcal{S_2})$ בשיטת הישר הסורק שר�
 לשניהם. לכן בעזרת התוויות נוכל להחליט עבור כל פאה האם היא נמצאת באיחוד,
 בחיתוך, או בהפרש.
 
-#### קראו את סעיף 2.4 בספר הלימוד (עמודים 39--40) {.unnumbered}
+#### קראו את סעיף 2.4 בספר הלימוד (עמודים 39--40). {.unnumbered}

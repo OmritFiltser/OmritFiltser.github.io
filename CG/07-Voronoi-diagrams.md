@@ -8,8 +8,7 @@
 
 #### קראו את ההקדמה לפרק 7 בספר הלימוד (עמודים 147־148). {.unnumbered}
 
-
-<hr class="mt-5 mb-5"/>
+------------------------------------------------------------------------
 
 ## הגדרה ותכונות בסיסיות {#basic-prop}
 
@@ -17,17 +16,16 @@
 בסרטון הבא נגדיר את דיאגרמת וורונוי באופן פורמלי, ונתאר מספר תכונות שלה. בסעיפים הבאים של חלק זה תוכלו למצוא את כל ההגדרות, האבחנות, והמשפטים המופיעים בסרטון, כך שתוכלו לחזור אליהם בעת הצורך.
 
 #### צפו בסרטון הבא. {.unnumbered}
+<center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Ofp5zWt8nTc?si=F0XW4UQFPIZZn5Os" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
+</center>
 
 ::: rmdnote
 <img src="images/extra.png" align="left" width="10%" style="padding:0px 0px 0px 10px"/>
 **מעניין לדעת**: לדיאגרמת וורונוי יש שימושים רבים ומגוונים, ופרט לתחום החברתי-כלכלי (שהוזכר בהקדמה) ניתן למצוא אותה בתחומים כמו גרפיקה ממוחשבת, רובוטיקה, פיזיקה, וביולוגיה, וכן במגוון צורות בטבע, כפי שניתן לראות למשל בתמונות הבאות (מתוך המאמר <a href="https://www.sciencedirect.com/science/article/abs/pii/S0167732221012770">הזה</a>).
-<p align="center" width="100%">
-<a href="https://www.sciencedirect.com/science/article/abs/pii/S0167732221012770">
-<img src="images/7/nature.jpg" width="80%"/>
-</a>
-</p>
+
+
+<center>![](images/7/nature.jpg){width="80%"}</center>
 :::
 
 ### הגדרות {#def}
@@ -39,9 +37,7 @@
 דיאגרמת וורונוי של הקבוצה $P$ היא חלוקה של המישור ל-$n$ תאים, אחד לכל נקודה של $P$, כך שנקודה $q$ שייכת לתא שמתאים לנקודה $p_i$ אם ורק אם $\|p_i-q\|<\|p_j-q\|$ לכל $p_j\in P$, $j\neq i$.
 :::
 
-<p align="center" width="100%">
-<img src="images/7/voronoi-cells.jpg" width="70%"/>
-</p>
+<center>![](images/7/voronoi-cells.jpg){width="70%"}</center>
 
 נסמן ב-$\text{Vor(P)}$ את דיאגרמת וורונוי של הקבוצה $P$, ועבור נקודה $p_i\in P$ נסמן ב-$\mathcal{V}(p_i)$ את התא בדיאגרמה המתאים ל-$p_i$.
 
@@ -52,6 +48,7 @@
 [**הגדרה**: bisector]{.underline}\
 עבור שתי נקודות $p_1$ ו-$p_2$, האנך האמצעי לקטע $\overline{p_1p_2}$ נקרא ה-bisector של $p_1$ ו-$p_2$. 
 :::
+
 <img src="images/7/2-sites.jpg" align="left" width="30%"/>
 שימו לב שכל נקודה שנמצאת על ה-bisector היא במרחק שווה מ-$p_1$ ו-$p_2$ (חישבו, מדוע?).
 
@@ -66,9 +63,9 @@
 ::: rmdimportant
 <img src="images/definition.png" align="left" width="10%" style="padding:0px 0px 0px 10px"/>
 [**אבחנה**:]{.underline} תא וורונוי $\mathcal{V}(p_i)$ מתקבל על ידי חיתוך של $n-1$ חצאי מישורים, ולכן הוא פוליגון קמור (יתכן שאינו חסום) בעל לכל היותר $n-1$ קודקודים ו-$n-1$ צלעות.
-<p align="center" width="100%">
-<img src="images/7/vor-cell.jpg" width="30%"/>
-</p>
+
+<center>![](images/7/vor-cell.jpg){width="30%"}</center>
+
 :::
 
 #### כיצד נראית הדיאגרמה כולה? {.unnumbered}
@@ -79,18 +76,15 @@
 <img src="images/definition.png" align="left" width="10%" style="padding:0px 0px 0px 10px"/>
 [**משפט**:]{.underline} אם כל נקודות $P$ נמצאות על ישר אחד אז $\text{Vor(P)}$ מורכבת מ-$n-1$ ישרים מקבילים. אחרת, $\text{Vor(P)}$ קשירה, והצלעות שלה הן קטעים או חצאי ישרים (קרניים). 
 
-<p align="center" width="100%">
-<img src="images/7/vor-diam.jpg" width="100%"/>
-</p>
+<center>![](images/7/vor-diam.jpg){width="100%"}</center>
+
 :::
 
 #### סיבוכיות הדיאגרמה. {.unnumbered}
 
 שימו לב שהסיבוכיות של תא בודד בדיאגרמה עשויה להיות $\Theta(n)$, כמו למשל באיור הבא.
 
-<p align="center" width="100%">
-<img src="images/7/n-cell.jpg" width="30%"/>
-</p>
+<center>![](images/7/n-cell.jpg){width="30%"}</center>
 
 מה הסיבוכיות של כל הדיאגרמה? על ידי שימוש ב[נוסחת אוילר](#euiler), והעובדה שהדרגה המינימלית של קודקוד בדיאגרמה היא 3, ניתן להוכיח שהסיבוכיות של $\text{Vor}(P)$ היא $O(n)$ (ההוכחה המלאה מופיעה בספר הלימוד).
 
@@ -117,9 +111,8 @@
 ]{.underline}
 באיור הבא, הנקודות הירוקות $q_1$ ו-$q_3$ הן קודקודים של הדיאגרמה $\text{Vor(P)}$: המעגל $C_P(q_1)$ מכיל 4 נקודות של $P$ על שפתו, והמעגל $C_p(q_3)$ מכיל 3 נקודות של $P$ על שפתו. 
 הנקודה האדומה $q_2$ נמצאת על ה-bisector של $p_i$ ו-$p_j$, והמעגל $C_P(q_2)$ מכיל את $p_i$ ו-$p_j$ על שפתו, ואינו מכיל אף נקודה אחרת של $P$ על שפתו. לכן ה-bisector של $p_i$ ו-$p_j$ מגדיר צלע של $\text{Vor(P)}$.
-<p align="center" width="100%">
-<img src="images/7/circles.jpg" width="100%"/>
-</p>
+
+<center>![](images/7/circles.jpg){width="100%"}</center>
 :::
 
 ::: rmdwarning
@@ -132,7 +125,7 @@
 
 #### קראו את סעיף 7.1 בספר הלימוד (עמודים 148־151). {.unnumbered}
 
-<hr class="mt-5 mb-5"/>
+------------------------------------------------------------------------
 
 ## חישוב הדיאגרמה {#computing-VD}
 
@@ -141,8 +134,18 @@
 האבחנה שראינו בחלק הקודם לגבי המבנה של תא וורונוי מובילה לאלגוריתם פשוט למדי לחישוב הדיאגרמה. נוכל לחשב לכל אתר $p_i$ את החיתוך של חצאי המישורים $h(p_i,p_j)$ לכל $j\neq i$ בעזרת האלגוריתם שראינו בפרק 4, וכך נקבל את התא המתאים ל-$p_i$. כך החישוב של כל תא יהיה בזמן $O(n\log n)$, וסך כל זמן הריצה יהיה $O(n^2 \log n)$. האם ניתן להשיג זמן טוב יותר? אחרי הכל, הסיבוכיות של דיאגרמת וורונוי היא לינארית....
 בסרטון הבא נתאר רעיון לחישוב דיאגרמת וורונוי בעזרת אלגוריתם סורק.
 
-#### צפו בסרטון הבא.
+#### צפו בסרטון הבא. {.unnumbered}
+<center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/T4QqrteIy7s?si=CclpxQG3dWJzMQ55" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</center>
+
+#### הדגמה. {.unnumbered}
+ביישומון הבא מאת [Philipp Kindermann](https://www.youtube.com/@PhilippKindermann), תוכלו לראות בעצמכם כיצד נראה קו החוף ביחס לדיאגרמה.
+הזיזו את קו החוף מעלה ומטה, ושימו לב מתי נוספות קשתות חדשות, וכיצד נקודות החיבור בין הקשתות של קו החוף "משרטטות" את צלעות הדיאגרמה כאשר הישר הסורק מתקדם מטה.
+
+<center>
+<iframe src="https://www.desmos.com/calculator/dcdpn6w8ua?embed" width="100%" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
+</center>
 
 ### האלגוריתם הסורק של Fortune {#Fortune-alg}
 בסעיף 7.2 של ספר הלימוד מתואר בפירוט האלגוריתם הסורק של Fortune לבניית דיאגרמת וורונוי. זהו אלגוריתם בסיסי וחשוב ביותר בתחום הגאומטריה חישובית. זמן הריצה שלו הוא $O(n\log(n)$ בלבד, והוא אופטימלי. בקורס זה נדלג על הפרטים והמימוש של האלגוריתם, ונסתפק בתיאור הרעיון הכללי שראינו בסעיף הקודם, ובציטוט המשפט הבא:
@@ -154,12 +157,15 @@
 
 #### הדגמה.  {.unnumbered}
 הסרטון הבא (מאת Kevin Schaal) מציג אנימציה נהדרת הממחישה את אופן פעולת האלגוריתם:
+
+<center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/k2P9yWSMaXE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</center>
 
 
 #### למעוניינים בפרטי האלגוריתם, הוכחות מלאות, ואופן המימוש: קראו את סעיף 7.2 בספר הלימוד (עמודים 151־159). {.unnumbered}
 
-<hr class="mt-5 mb-5"/>
+------------------------------------------------------------------------
 
 ## הכללות והרחבות {#extensions}
 ### מֵעֵבֶר למישור האוקלידי {#beyond-Euclid}
@@ -193,13 +199,12 @@ $\{p_{i_1},\dots,p_{i_k}\}$
 
 מקרה מעניין במיוחד הוא עבור $k=n-1$: במקרה זה כל תא מזוהה עם $n-1$ נקודות, ובאופן שקול, כל תא מזוהה עם נקודה אחת (היחידה שאינה בקבוצה), ונקודה $q$ שייכת לתא של $p_i$ אם $p_i$ היא הנקודה הרחוקה ביותר ממנה מבין נקודות $P$. בהתאם, המקרה הזה נקרא Farthest-Point Voronoi Diagram, או בקיצור דיאגרמת FPV. באיור למטה, ניתן לראות דוגמה לדיאגרמת FPV של קבוצת נקודות. האם תצליחו לזהות איזה תא מתאים לאיזו נקודה?
 
-<p align="center" width="100%">
-<img src="images/7/fpv.jpg" width="35%"/>
-</p>
+<center>![](images/7/fpv.jpg){width="35%"}</center>
+
 תוכלו לקרוא עוד על דיאגרמת FPV בסעיף 7.4 בספר הלימוד.
 
+------------------------------------------------------------------------
 
-<hr class="mt-5 mb-5"/>
 ## בונוס: משחק וורונוי {#voronoi-game}
 ### משחק וורונוי על ריבוע
 <img src="images/7/vor-game.jpg" width="35%" align="left"/>

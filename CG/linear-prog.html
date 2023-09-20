@@ -91,7 +91,9 @@
 <div class="inline-figure">
 <img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> בדיקת שפיות! ענו על השאלה הבאה: באילו מהתבניות הבאות ניתן לחלץ את הפוליהדרון שיצקו בהן על ידי משיכה בכיוון אחד?</div>
 <p>(לשם הפשטות, האיורים מציגים חתך עומק של התבנית והפוליהדרון בדו-מימד. הניחו שכל חתכי העומק של הפוליהדרון זהים לזה שבאיור.)</p>
-<p><img src="images/4/mold1.jpg" width="20%"><img src="images/4/mold2.jpg" width="20%"><img src="images/4/mold3.jpg" width="20%"><img src="images/4/mold4.jpg" width="20%"><img src="images/4/mold5.jpg" width="20%"></p>
+<center>
+<img src="images/4/mold1.jpg" style="width:20.0%"><img src="images/4/mold2.jpg" style="width:20.0%"><img src="images/4/mold3.jpg" style="width:20.0%"><img src="images/4/mold4.jpg" style="width:20.0%"><img src="images/4/mold5.jpg" style="width:20.0%">
+</center>
 <details><summary>
 (פתרון)
 </summary><p>שלושת התבניות הראשונות משמאל.</p>
@@ -104,7 +106,7 @@
 <div id="קראו-את-סעיף-4.1-בספר-עמודים-64-66." class="section level4 unnumbered">
 <h4>קראו את סעיף 4.1 בספר (עמודים 64-66).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-4.1-%D7%91%D7%A1%D7%A4%D7%A8-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-64-66."><i class="fas fa-link"></i></a>
 </h4>
-<hr class="mt-5 mb-5">
+<hr>
 </div>
 </div>
 </div>
@@ -117,10 +119,9 @@
 <span class="header-section-number">4.2.1</span> אלגוריתם בשיטת הפרד ומשול<a class="anchor" aria-label="anchor" href="#div-con-alg"><i class="fas fa-link"></i></a>
 </h3>
 <p>בחלק הקודם ראינו כיצד ניתן להמיר את הבעיה של ייצור באמצעות תבניות לבעיה של מציאת נקודה כלשהי המספקת אוסף של אילוצים לינאריים בשני משתנים, או לחילופין, לבעיה הגאומטרית של מציאת נקודה כלשהי בחיתוך של אוסף חצאי מישורים. החיתוך של אוסף חצאי מישורים הוא תחום קמור, אך הוא אינו חייב להיות חסום. הנה דוגמה לתחום קמור שאינו חסום (מימין), ותחום קמור חסום (משמאל).</p>
-<p align="center" width="100%">
-</p>
-<div class="inline-figure"><img src="images/4/bounded_and_unbounded.jpg" width="70%"></div>
-
+<center>
+<img src="images/4/bounded_and_unbounded.jpg" style="width:70.0%">
+</center>
 <p>לפני שנדבר על הבעיה של מציאת נקודה כלשהי בחיתוך, נראה קודם כיצד ניתן למצוא את קבוצת כל הנקודות בחיתוך. בחלקו הראשון של סעיף 4.2 בספר הלימוד תקראו על אלגוריתם IntersectHalfPlanes, המקבל כקלט אוסף <span class="math inline">\(H\)</span> של חצאי מישורים, ומחשב את התחום הקמור שהוא החיתוך שלהם. זהו אלגוריתם הפועל בשיטת הפרד ומשול: הוא מחלק את הקבוצה <span class="math inline">\(H\)</span> באופן שרירותי לשתי קבוצות, מחשב את החיתוך של כל אחת מהן באופן רקורסיבי, ולאחר מכן מחשב את החיתוך של שני התחומים הקמורים שהתקבלו בעזרת פרוצדורה נוספת בשם IntesectConvexRegions.</p>
 <p>את אלגוריתם IntersectConvexRegions לחישוב החיתוך בין תחומים קמורים נתאר בהמשך החלק הזה.</p>
 <div id="קראו-את-חלקו-הראשון-של-סעיף-4.2-בספר-הלימוד-עמודים-6668." class="section level4 unnumbered">
@@ -138,29 +139,26 @@
 <details><summary>
 (פתרון)
 </summary><p>המספר המקסימלי האפשרי של נקודות חיתוך בין שני פוליגונים קמורים <span class="math inline">\(C_1\)</span> ו-<span class="math inline">\(C_2\)</span> בעלי <span class="math inline">\(n\)</span> נקודות כל אחד, הוא <span class="math inline">\(2 n\)</span>. הסיבה היא שכל צלע <span class="math inline">\(e\)</span> של <span class="math inline">\(C_1\)</span> יכולה להחתך עם לכל היותר שתי צלעות של <span class="math inline">\(C_2\)</span>: אם <span class="math inline">\(e\)</span> היתה נחתכת עם יותר משתי צלעות של <span class="math inline">\(C_2\)</span>, אז <span class="math inline">\(C_2\)</span> לא היה יכול להיות קמור.</p>
-<p align="center" width="100%">
-</p>
-<div class="inline-figure"><img src="images/4/convex_intersection.jpg" width="40%"></div>
-
+<center>
+<img src="images/4/convex_intersection.jpg" style="width:40.0%">
+</center>
 <p>הנה דוגמה למשפחה של זוגות פוליגונים קמורים <span class="math inline">\(C_1\)</span> ו-<span class="math inline">\(C_2\)</span> כך שכל צלע של <span class="math inline">\(C_1\)</span> נחתכת עם בדיוק שתי צלעות של <span class="math inline">\(C_2\)</span>: אלו זוגות של פוליגונים משוכללים בעלי <span class="math inline">\(n\)</span> צלעות המסובבים בזוית שונה שונה סביב המרכז.</p>
-<p align="center" width="100%">
-</p>
-<div class="inline-figure"><img src="images/4/max_convex_intersection.jpg" width="70%"></div>
-
+<center>
+<img src="images/4/max_convex_intersection.jpg" style="width:70.0%">
+</center>
 </details>
 </div>
 <p>אם נשתמש באלגוריתם MapOverlay עבור מציאת החיתוך בין פוליגונים קמורים, זמן הריצה יהיה <span class="math inline">\(O ( n \log n )\)</span>, כי כמו שראינו בשאלה למעלה, <span class="math inline">\(k \le 2 n\)</span>. לכן, לפי שיטת האב (Master Theorem), זמן הריצה הכולל עבור אלגוריתם IntersectHalfPlanes יהיה <span class="math inline">\(O ( n \log^2 n )\)</span>. האם בכל זאת ניתן לחשב את החיתוך באופן יעיל יותר עבור תחומים קמורים? התשובה היא כן! (זכרו שתמיד נשאף לזמן ריצה לינארי, או <span class="math inline">\(O ( n \log n )\)</span>…)</p>
 <p>אלגוריתם MapOverlay משתמש בשיטת הישר הסורק, ולזמן הריצה שלו יש שני גורמים. הגורם הראשון הוא <span class="math inline">\(( n + k )\)</span> – מספר המאורעות. הגורם השני הוא <span class="math inline">\(\log n\)</span> – הזמן לטיפול במאורע, כלומר, עדכון הסטטוס (שיכול להכיל <span class="math inline">\(O ( n )\)</span> קטעים), והוספת מאורע לתור המאורעות בכל פעם שמצאנו נקודת חיתוך. אך האם זהו המצב גם עבור פוליגונים קמורים?</p>
 <p>למעשה, עבור פוליגונים קמורים יהיו לכל היותר 4 צלעות שחותכות את הישר הסורק בכל רגע נתון. נוכל לראות זאת אם נחלק כל פוליגון לשרשרת ימנית ושרשרת שמאלית (מהקודקד הגבוה ביותר לקודקוד הנמוך ביותר). כל שרשרת כזאת היא <span class="math inline">\(y\)</span>-מונוטונית, ולכן חותכת את הישר הסורק (האופקי) פעם אחת בלבד.</p>
-<p align="center" width="100%">
-</p>
-<div class="inline-figure"><img src="images/4/convex_intersection_left_right.jpg" width="70%"></div>
-
+<center>
+<img src="images/4/convex_intersection_left_right.jpg" style="width:70.0%">
+</center>
 <p>עובדה זו מובילה לכך שהטיפול בכל מאורע יתבצע בזמן קבוע, וכבר לא יהיה לנו צורך במאורעות שהם נקודות חיתוך. באופן זה נקבל אלגוריתם למציאת חיתוך של פוליגונים קמורים עם זמן ריצה של <span class="math inline">\(O ( n )\)</span> בלבד, ובכך נשפר את זמן הריצה עבור חיתוך חצאי מישורים ל-<span class="math inline">\(O ( n \log n )\)</span>.</p>
 <div id="קראו-את-חלקו-השני-של-סעיף-4.2-בספר-הלימוד-עמודים-7168." class="section level4 unnumbered">
 <h4>קראו את חלקו השני של סעיף 4.2 בספר הלימוד (עמודים 71–68).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%97%D7%9C%D7%A7%D7%95-%D7%94%D7%A9%D7%A0%D7%99-%D7%A9%D7%9C-%D7%A1%D7%A2%D7%99%D7%A3-4.2-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-7168."><i class="fas fa-link"></i></a>
 </h4>
-<hr class="mt-5 mb-5">
+<hr>
 </div>
 </div>
 </div>
@@ -173,11 +171,13 @@
 <span class="header-section-number">4.3.1</span> מהו תכנון לינארי?<a class="anchor" aria-label="anchor" href="#what-is-LP"><i class="fas fa-link"></i></a>
 </h3>
 <p>תכנון לינארי היא בעיית אופטימיזציה של ביטוי לינארי, תחת אוסף של אילוצים לינאריים. זוהי בעייה מרכזית בתחום של חקר ביצועים, שבו בעיות אופטימיזציה רבות ניתנות לתאור באמצעות תוכנית לינארית. הבעיה צברה פופולריות רבה משום שהיא שימושית בתחומים רבים נוספים, ולכן במשך השנים נעשו מאמצים רבים למציאת פתרונות יעילים ומהירים עבורה. בסרטון הבא נראה דוגמה לתוכנית כזאת, נזכיר חלק מהכלים הקיימים כיום לפתרון בעיות תכנון לינארי, ונדבר על הקשר בין תכנון לינארי במישור לבעיית החיתוך של חצאי מישורים.</p>
-<div id="צפו-בסרטון-הבא-3" class="section level4 unnumbered">
-<h4>צפו בסרטון הבא:<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90-3"><i class="fas fa-link"></i></a>
+<div id="צפו-בסרטון-הבא-1" class="section level4 unnumbered">
+<h4>צפו בסרטון הבא:<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90-1"><i class="fas fa-link"></i></a>
 </h4>
+<center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/r5vnvtTYiEY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 </iframe>
+</center>
 </div>
 <div id="קראו-את-חלקו-הראשון-של-סעיף-4.3-בספר-הלימוד-עמודים-7172." class="section level4 unnumbered">
 <h4>קראו את חלקו הראשון של סעיף 4.3 בספר הלימוד (עמודים 71–72).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%97%D7%9C%D7%A7%D7%95-%D7%94%D7%A8%D7%90%D7%A9%D7%95%D7%9F-%D7%A9%D7%9C-%D7%A1%D7%A2%D7%99%D7%A3-4.3-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-7172."><i class="fas fa-link"></i></a>
@@ -191,10 +191,9 @@
 <p>בחלקו השני של סעיף 4.3 בספר הלימוד מתואר אלגוריתם אינקרמנטלי בשם 2DBoundedLP, לפתרון של תוכנית לינארית בשני מימדים. האלגוריתם פועל תחת ההנחה שהתוכנית הלינארית חסומה. לכן, בשלב הזה נניח כי ניתן למצוא ולהוסיף לתוכנית הלינארית שני חצאי מישורים <span class="math inline">\(m_1, m_2\)</span>, שיגרמו לכך שהתוכנית תהיה חסומה בכיוון <span class="math inline">\(\overrightarrow{c}\)</span>, אך לא ישנו את הפתרון האופטימלי במקרה שבו התוכנית חסומה. בהמשך נראה כיצד להימנע מהנחה זו ולקבוע מראש האם התוכנית חסומה או לא.</p>
 <p>האלגוריתם האינקרמנטלי מתחיל מפתרון עבור <span class="math inline">\(C_0 = m_1 \cap m_2\)</span>, ואז מוסיף את יתר חצאי המישורים <span class="math inline">\(h_1, \dots, h_n\)</span> לפי הסדר. בשלב ה-<span class="math inline">\(i\)</span>, האלגוריתם ימצא קודקוד v_i שהוא הנקודה שממקסמת את פונקציית המטרה בחיתוך <span class="math inline">\(C_i = m_1 \cap m_2 \cap h_1 \cap h_2 \cap \dots \cap h_i\)</span>. הרעיון הוא שבכל שלב מצמצמים את התחום הפיזיבילי, ויש שתי אפשרויות עבור <span class="math inline">\(v_i\)</span>:</p>
 <p>אם <span class="math inline">\(v_{i-1}\in h_i\)</span> (כמו באיור הימני למטה), אז <span class="math inline">\(h_i\)</span> לא שינה את הפתרון האופטימלי ולכן <span class="math inline">\(v_i = v_{i-1}\)</span>. אחרת, <span class="math inline">\(h_i\)</span> גרם לכך ש-<span class="math inline">\(C_i\)</span> כבר לא כולל את <span class="math inline">\(v_{i-1}\)</span> (כמו באיור השמאלי למטה). בספר תראו הוכחה לכך שבמקרה זה, אם <span class="math inline">\(C_i\)</span> לא ריק, אז <span class="math inline">\(v_i\)</span> בהכרח נמצא על הישר <span class="math inline">\(\ell_i\)</span> המגדיר את חצי המישור <span class="math inline">\(h_i\)</span>.</p>
-<p align="center" width="100%">
-</p>
-<p><img src="images/4/incremental_case1.jpg" width="40%"><img src="images/4/incremental_case2.jpg" width="40%"></p>
-
+<center>
+<img src="images/4/incremental_case1.jpg" style="width:40.0%">     <img src="images/4/incremental_case2.jpg" style="width:40.0%">
+</center>
 <p>באופן די מאכזב, זמן הריצה המתקבל מאלגוריתם זה הוא <span class="math inline">\(O(n^2)\)</span>, מכיון שבמקרה השני נצטרך לחשב את החיתוך של <span class="math inline">\(\ell_i\)</span> עם חצאי המישורים <span class="math inline">\(m_1, m_2, h_1, \dots, h_{i-1}\)</span>. לכן, במקרה הגרוע, זמן הריצה עבור השלב ה-<span class="math inline">\(i\)</span> יהיה <span class="math inline">\(O(i)\)</span>.</p>
 <div class="rmdwarning">
 <p><img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> כמה פעמים יתעדכן הפתרון? נסו לחשוב על המקרה הגרוע ביותר: כמה פעמים לכל היותר יכול לקרות המקרה השני, בו נצטרך לעדכן את <span class="math inline">\(v_i\)</span> בזמן <span class="math inline">\(O(i)\)</span>?</p>
@@ -212,11 +211,13 @@
 </h3>
 <p>כמו שהובטח בחלקים הקודמים, תכנון לינארי במישור אכן ניתן לפיתרון בזמן צפוי של <span class="math inline">\(O( n )\)</span>, על ידי האלגוריתם 2DRandomizedBoundedLP אותו נציג בחלק זה. זהו כמובן אלגוריתם רנדומי, והוא זהה כמעט לחלוטין לאלגוריתם האינקרמטלי שהוצג בסעיף הקודם: ההבדל היחידי הוא בשורה השנייה של האלגוריתם, שם מחשבים פרמוטציה אקראית של חצאי המישורים בעזרת פרוצדורה בשם RandomPermutation.</p>
 <p>בסרטון הבא נראה כיצד שינוי זה, שנראה לכאורה כאילו אינו משפיע על האלגוריתם, מוביל לתופעה מעניינת ביותר: תוחלת זמן ריצה תהיה לינארית. כלומר, כאשר מגרילים את הסדר בו האלגוריתם האינקרמנטלי בוחן את חצאי המישורים, מקבלים שבממוצע על פני כל הפרמוטציות האפשריות, זמן הריצה הוא <span class="math inline">\(O( n )\)</span>.</p>
-<div id="צפו-בסרטון-הבא-4" class="section level4 unnumbered">
-<h4>צפו בסרטון הבא:<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90-4"><i class="fas fa-link"></i></a>
+<div id="צפו-בסרטון-הבא-2" class="section level4 unnumbered">
+<h4>צפו בסרטון הבא:<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90-2"><i class="fas fa-link"></i></a>
 </h4>
+<center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/f8OanQaN_D0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 </iframe>
+</center>
 </div>
 <div id="קראו-את-סעיף-4.3-בספר-הלימוד-עמודים-6668." class="section level4 unnumbered">
 <h4>קראו את סעיף 4.3 בספר הלימוד (עמודים 66–68).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-4.3-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-6668."><i class="fas fa-link"></i></a>
@@ -229,10 +230,9 @@
 </h3>
 <p>בסעיפים הקודמים נמנענו מהטיפול במקרה בו התוכנית הלינארית אינה חסומה, על ידי הוספת שני אילוצים מלאכותיים, <span class="math inline">\(m_1,m_2\)</span>. בחלק זה נראה כיצד ניתן לבדוק האם תוכנית לינארית היא חסומה, ואם היא לא חסומה, נראה כיצד למצוא שני אילוצים <span class="math inline">\(h_1,h_2\)</span> שישמשו אותנו לאתחול האלגוריתם במקום <span class="math inline">\(m_1,m_2\)</span>.</p>
 <p>אם התוכנית הלינארית אינה חסומה, אז קיימת קרן <span class="math inline">\(\rho\)</span> המוכלת כולה באיזור הפיזיבילי <span class="math inline">\(C\)</span>. הקרן הזו מוגדרת על ידי נקודה p וכיוון <span class="math inline">\(\overrightarrow{d}\)</span>. נשים לב שפונקציית המטרה מקבלת ערכים הולכים וגדלים לאורך הקרן rho אם ורק אם הזווית (הקטנה) בין הוקטור <span class="math inline">\(\overrightarrow{d}\)</span> לוקטור המטרה <span class="math inline">\(\overrightarrow{c}\)</span> קטנה מ-<span class="math inline">\(90 ^\circ\)</span>. בנוסף, לכל חצי מישור <span class="math inline">\(h\)</span>, הזוית בין <span class="math inline">\(\overrightarrow{d}\)</span> לנורמל <span class="math inline">\(\overrightarrow{\mu}( h )\)</span> של h (בכיוון הצד הפיזיבילי) היא לכל היותר . ניתן לראות דוגמה לכך בציור מטה. נוסף לכך, אוסף האילוצים עבורם <span class="math inline">\(\overrightarrow{\mu}( h )\)</span> בדיוק מאונך ל-<span class="math inline">\(\overrightarrow{d}\)</span> (<span class="math inline">\(h_1, h_5\)</span> באיור), חייב להיות פיזיבילי.</p>
-<p align="center" width="100%">
-</p>
-<div class="inline-figure"><img src="images/4/unboundedLP.jpg" width="40%"></div>
-
+<center>
+<img src="images/4/unboundedLP.jpg" style="width:40.0%">
+</center>
 <p>שימו לב שהבעיה של מציאת הקרן <span class="math inline">\(\rho\)</span> דומה לבעיית הייצור באמצעות תבניות שראינו בחלק הראשון של יחידה זו. מכיוון שכאן הבעיה מוגדרת בשני מימדים, נוכל לפתור אותה על ידי תכנון לינארי במימד אחד, בזמן <span class="math inline">\(O( n )\)</span>. בסעיף 4.5 של ספר תוכלו לקרוא תיאור מפורט של פתרון זה.</p>
 <div id="קראו-את-סעיף-4.4-בספר-הלימוד-עמודים-7982." class="section level4 unnumbered">
 <h4>קראו את סעיף 4.4 בספר הלימוד (עמודים 79–82).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-4.4-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-7982."><i class="fas fa-link"></i></a>
@@ -293,7 +293,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p dir="rtl" style="text-align:right;">הספר "<strong>גאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2023-09-11.</p>
+    <p dir="rtl" style="text-align:right;">הספר "<strong>גאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2023-09-20.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

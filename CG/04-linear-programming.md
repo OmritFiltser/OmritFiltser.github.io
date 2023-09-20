@@ -17,7 +17,7 @@
 
 (לשם הפשטות, האיורים מציגים חתך עומק של התבנית והפוליהדרון בדו-מימד. הניחו שכל חתכי העומק של הפוליהדרון זהים לזה שבאיור.)
 
-<img src="images/4/mold1.jpg" width="20%"/> <img src="images/4/mold2.jpg" width="20%"/> <img src="images/4/mold3.jpg" width="20%"/> <img src="images/4/mold4.jpg" width="20%"/> <img src="images/4/mold5.jpg" width="20%"/>
+<center>![](images/4/mold1.jpg){width="20%"} ![](images/4/mold2.jpg){width="20%"} ![](images/4/mold3.jpg){width="20%"} ![](images/4/mold4.jpg){width="20%"} ![](images/4/mold5.jpg){width="20%"}</center>
 
 <details>
 
@@ -38,7 +38,7 @@
 
 #### קראו את סעיף 4.1 בספר (עמודים 64-66). {.unnumbered}
 
-<hr class="mt-5 mb-5"/>
+------------------------------------------------------------------------
 
 ## חיתוך של חצאי מישורים {#line-int}
 
@@ -46,11 +46,7 @@
 
 בחלק הקודם ראינו כיצד ניתן להמיר את הבעיה של ייצור באמצעות תבניות לבעיה של מציאת נקודה כלשהי המספקת אוסף של אילוצים לינאריים בשני משתנים, או לחילופין, לבעיה הגאומטרית של מציאת נקודה כלשהי בחיתוך של אוסף חצאי מישורים. החיתוך של אוסף חצאי מישורים הוא תחום קמור, אך הוא אינו חייב להיות חסום. הנה דוגמה לתחום קמור שאינו חסום (מימין), ותחום קמור חסום (משמאל).
 
-<p align="center" width="100%">
-
-<img src="images/4/bounded_and_unbounded.jpg" width="70%"/>
-
-</p>
+<center>![](images/4/bounded_and_unbounded.jpg){width="70%"}</center>
 
 לפני שנדבר על הבעיה של מציאת נקודה כלשהי בחיתוך, נראה קודם כיצד ניתן למצוא את קבוצת כל הנקודות בחיתוך. בחלקו הראשון של סעיף 4.2 בספר הלימוד תקראו על אלגוריתם IntersectHalfPlanes, המקבל כקלט אוסף $H$ של חצאי מישורים, ומחשב את התחום הקמור שהוא החיתוך שלהם. זהו אלגוריתם הפועל בשיטת הפרד ומשול: הוא מחלק את הקבוצה $H$ באופן שרירותי לשתי קבוצות, מחשב את החיתוך של כל אחת מהן באופן רקורסיבי, ולאחר מכן מחשב את החיתוך של שני התחומים הקמורים שהתקבלו בעזרת פרוצדורה נוספת בשם IntesectConvexRegions.
 
@@ -71,19 +67,11 @@
 
 המספר המקסימלי האפשרי של נקודות חיתוך בין שני פוליגונים קמורים $C_1$ ו-$C_2$ בעלי $n$ נקודות כל אחד, הוא $2 n$. הסיבה היא שכל צלע $e$ של $C_1$ יכולה להחתך עם לכל היותר שתי צלעות של $C_2$: אם $e$ היתה נחתכת עם יותר משתי צלעות של $C_2$, אז $C_2$ לא היה יכול להיות קמור.
 
-<p align="center" width="100%">
-
-<img src="images/4/convex_intersection.jpg" width="40%"/>
-
-</p>
+<center>![](images/4/convex_intersection.jpg){width="40%"}</center>
 
 הנה דוגמה למשפחה של זוגות פוליגונים קמורים $C_1$ ו-$C_2$ כך שכל צלע של $C_1$ נחתכת עם בדיוק שתי צלעות של $C_2$: אלו זוגות של פוליגונים משוכללים בעלי $n$ צלעות המסובבים בזוית שונה שונה סביב המרכז.
 
-<p align="center" width="100%">
-
-<img src="images/4/max_convex_intersection.jpg" width="70%"/>
-
-</p>
+<center>![](images/4/max_convex_intersection.jpg){width="70%"}</center>
 
 </details>
 :::
@@ -94,17 +82,13 @@
 
 למעשה, עבור פוליגונים קמורים יהיו לכל היותר 4 צלעות שחותכות את הישר הסורק בכל רגע נתון. נוכל לראות זאת אם נחלק כל פוליגון לשרשרת ימנית ושרשרת שמאלית (מהקודקד הגבוה ביותר לקודקוד הנמוך ביותר). כל שרשרת כזאת היא $y$-מונוטונית, ולכן חותכת את הישר הסורק (האופקי) פעם אחת בלבד.
 
-<p align="center" width="100%">
-
-<img src="images/4/convex_intersection_left_right.jpg" width="70%"/>
-
-</p>
+<center>![](images/4/convex_intersection_left_right.jpg){width="70%"}</center>
 
 עובדה זו מובילה לכך שהטיפול בכל מאורע יתבצע בזמן קבוע, וכבר לא יהיה לנו צורך במאורעות שהם נקודות חיתוך. באופן זה נקבל אלגוריתם למציאת חיתוך של פוליגונים קמורים עם זמן ריצה של $O ( n )$ בלבד, ובכך נשפר את זמן הריצה עבור חיתוך חצאי מישורים ל-$O ( n \log n )$.
 
 #### קראו את חלקו השני של סעיף 4.2 בספר הלימוד (עמודים 71--68). {.unnumbered}
 
-<hr class="mt-5 mb-5"/>
+------------------------------------------------------------------------
 
 ## תכנון לינארי במישור {#planar-LP}
 
@@ -114,9 +98,13 @@
 
 #### צפו בסרטון הבא: {.unnumbered}
 
+<center>
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/r5vnvtTYiEY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 
 </iframe>
+
+</center>
 
 #### קראו את חלקו הראשון של סעיף 4.3 בספר הלימוד (עמודים 71--72). {.unnumbered}
 
@@ -128,11 +116,7 @@
 
 אם $v_{i-1}\in h_i$ (כמו באיור הימני למטה), אז $h_i$ לא שינה את הפתרון האופטימלי ולכן $v_i = v_{i-1}$. אחרת, $h_i$ גרם לכך ש-$C_i$ כבר לא כולל את $v_{i-1}$ (כמו באיור השמאלי למטה). בספר תראו הוכחה לכך שבמקרה זה, אם $C_i$ לא ריק, אז $v_i$ בהכרח נמצא על הישר $\ell_i$ המגדיר את חצי המישור $h_i$.
 
-<p align="center" width="100%">
-
-<img src="images/4/incremental_case1.jpg" width="40%"/> <img src="images/4/incremental_case2.jpg" width="40%"/>
-
-</p>
+<center>![](images/4/incremental_case1.jpg){width="40%"}     ![](images/4/incremental_case2.jpg){width="40%"}</center>
 
 באופן די מאכזב, זמן הריצה המתקבל מאלגוריתם זה הוא $O(n^2)$, מכיון שבמקרה השני נצטרך לחשב את החיתוך של $\ell_i$ עם חצאי המישורים $m_1, m_2, h_1, \dots, h_{i-1}$. לכן, במקרה הגרוע, זמן הריצה עבור השלב ה-$i$ יהיה $O(i)$.
 
@@ -154,9 +138,13 @@
 
 #### צפו בסרטון הבא: {.unnumbered}
 
+<center>
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/f8OanQaN_D0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 
 </iframe>
+
+</center>
 
 #### קראו את סעיף 4.3 בספר הלימוד (עמודים 66--68). {.unnumbered}
 
@@ -166,11 +154,7 @@
 
 אם התוכנית הלינארית אינה חסומה, אז קיימת קרן $\rho$ המוכלת כולה באיזור הפיזיבילי $C$. הקרן הזו מוגדרת על ידי נקודה p וכיוון $\overrightarrow{d}$. נשים לב שפונקציית המטרה מקבלת ערכים הולכים וגדלים לאורך הקרן rho אם ורק אם הזווית (הקטנה) בין הוקטור $\overrightarrow{d}$ לוקטור המטרה $\overrightarrow{c}$ קטנה מ-$90 ^\circ$. בנוסף, לכל חצי מישור $h$, הזוית בין $\overrightarrow{d}$ לנורמל $\overrightarrow{\mu}( h )$ של h (בכיוון הצד הפיזיבילי) היא לכל היותר . ניתן לראות דוגמה לכך בציור מטה. נוסף לכך, אוסף האילוצים עבורם $\overrightarrow{\mu}( h )$ בדיוק מאונך ל-$\overrightarrow{d}$ ($h_1, h_5$ באיור), חייב להיות פיזיבילי.
 
-<p align="center" width="100%">
-
-<img src="images/4/unboundedLP.jpg" width="40%"/>
-
-</p>
+<center>![](images/4/unboundedLP.jpg){width="40%"}</center>
 
 שימו לב שהבעיה של מציאת הקרן $\rho$ דומה לבעיית הייצור באמצעות תבניות שראינו בחלק הראשון של יחידה זו. מכיוון שכאן הבעיה מוגדרת בשני מימדים, נוכל לפתור אותה על ידי תכנון לינארי במימד אחד, בזמן $O( n )$. בסעיף 4.5 של ספר תוכלו לקרוא תיאור מפורט של פתרון זה.
 

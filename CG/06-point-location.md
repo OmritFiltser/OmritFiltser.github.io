@@ -8,7 +8,7 @@
 
 #### קראו את ההקדמה לפרק 6 בספר הלימוד (עמודים 121־122). {.unnumbered}
 
-<hr class="mt-5 mb-5"/>
+------------------------------------------------------------------------
 
 ## מפה טרפזית {#trapezoidal-map}
 
@@ -20,11 +20,7 @@
 
 בדרך זו, זמן השאילתה שנקבל הוא $O (\log n )$, אך מהו גודל המבנה וזמן העיבוד המקדים? באיור למטה ניתן לראות דוגמה למקרה בו גודל המבנה יהיה $\Theta ( n^2 )$ (מדוע?).
 
-<p align="center" width="100%">
-
-<img src="images/6/slabs_n_squared.jpg" width="60%"/>
-
-</p>
+<center>![](images/6/slabs_n_squared.jpg){width="60%"}</center>
 
 #### קראו את חלקו הראשון של סעיף 6.1 בספר הלימוד (עמודים 122--124). {.unnumbered}
 
@@ -41,11 +37,7 @@
 ::: rmdwarning
 <img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"/> מיהי ה-$leftp$ של כל אחד מהטרפזים המסומנים באיור?
 
-<p align="center" width="100%">
-
-<img src="images/6/leftp_question.jpg" width="80%"/>
-
-</p>
+<center>![](images/6/leftp_question.jpg){width="80%"}</center>
 
 <details>
 
@@ -53,11 +45,7 @@
 
 (TODO)
 
-<p align="center" width="100%">
-
-<img src="images/6/leftp_question.jpg" width="80%"/>
-
-</p>
+<center>![](images/6/leftp_question.jpg){width="80%"}</center>
 
 </details>
 :::
@@ -80,7 +68,7 @@ $\Theta(n)$
 
 #### לחזרה: קראו את חלקו השני של סעיף 6.1 בספר (עמודים 124--128). {.unnumbered}
 
-<hr class="mt-5 mb-5"/>
+------------------------------------------------------------------------
 
 ## שאילתות מיקום נקודה {#point-location-queries}
 
@@ -102,11 +90,7 @@ $\Theta(n)$
 
 הרעיון בבנייה זו דומה לעצי-kd שראינו ביחידה 5: לכל צומת פנימי, ההסתעפות ימינה או שמאלה תלויה בתשובה לשאלה המתאימה לסוג הצומת.
 
-<p align="center" width="100%">
-
-<img src="images/6/ds.jpg" width="100%"/>
-
-</p>
+<center>![](images/6/גד.jpg){width="100%"}</center>
 
 בהינתן נקודת שאילתה q, נתחיל את החיפוש מהשורש עד שנגיע לעלה:
 
@@ -118,11 +102,7 @@ $\Theta(n)$
 ::: rmdwarning
 <img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"/> בדקו את עצמכם! ענו על השאלות הבאות. נתון מבנה החיפוש הבא.
 
-<p align="center" width="100%">
-
-<img src="images/6/point_search_question.jpg" width="70%"/>
-
-</p>
+<center>![](images/6/point_search_question.jpg){width="70%"}</center>
 
 ידוע שנקודת שאילתה נמצאת:
 
@@ -143,7 +123,7 @@ $\Theta(n)$
 
 <summary>(פתרון)</summary>
 
-TBD
+TODO
 
 </details>
 :::
@@ -156,20 +136,20 @@ TBD
 
 #### צפו בסרטון הבא: {.unnumbered}
 
+<center>
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/3_6Uu1jYBcA?si=dgWhrulyuSIfHmhd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 
 </iframe>
+
+</center>
 
 #### קראו את חלקו הראשון של סעיף 6.2 בספר (עמודים 128--133). {.unnumbered}
 
 ::: rmdwarning
 <img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"/> התבוננו באיור הבא:
 
-<p align="center" width="100%">
-
-<img src="images/6/alg_question1.jpg" width="100%"/>
-
-</p>
+<center>![](images/6/alg_question1.jpg){width="100%"}</center>
 
 מי הם הטרפזים שהאלגוריתם ימצא ויעדכן כאשר נוסיף את s_i?
 
@@ -177,11 +157,7 @@ TBD
 
 <summary>(פתרון)</summary>
 
-<p align="center" width="100%">
-
-<img src="images/6/alg_question1-ans.jpg" width="100%"/>
-
-</p>
+<center>![](images/6/alg_question1-ans.jpg){width="100%"}</center>
 
 </details>
 :::
@@ -189,21 +165,13 @@ TBD
 ::: rmdwarning
 <img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"/> התבוננו באיור הבא, והשלימו את מבנה החיפוש.
 
-<p align="center" width="100%">
-
-<img src="images/6/alg_question2.jpg" width="100%"/>
-
-</p>
+<center>![](images/6/alg_question2.jpg){width="100%"}</center>
 
 <details>
 
 <summary>(פתרון)</summary>
 
-<p align="center" width="100%">
-
-<img src="images/6/alg_question2_-_ans.jpg" width="70%"/>
-
-</p>
+<center>![](images/6/alg_question2_ans.jpg){width="100%"}</center>
 
 </details>
 :::
