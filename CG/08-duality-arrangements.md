@@ -156,7 +156,9 @@
 
 #### צפו בסרטון הבא. {.unnumbered}
 
-TODO
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Ou4zdkMlgoI?si=qpbcGcV6AeENuL-s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</center>
 
 ראינו שהטרנספורמציה הדואלית מקיימת את התכונות הבאות:
 
@@ -165,7 +167,7 @@ TODO
 
 תהי $p$ נקודה ו-$\ell$ ישר לא אנכי, שניהם במישור. הטרנספורמציה הדואלית $o\rightarrow o^*$ מקיימת את התכונות הבאות:
 
-1.  משמרת יחס שכנות (incidence preserving): $p\in \ell$ אם ורק אם $\ell^*\in p*$.
+1.  משמרת שכנות (incidence preserving): $p\in \ell$ אם ורק אם $\ell^*\in p*$.
 2.  משמרת סדר (order preserving): $p$ מעל $\ell$ אם ורק אם $\ell^*$ מעל $p^*$.
 
 <center>![](images/8/dual-primal.jpg){width="80%"}</center>
@@ -181,6 +183,9 @@ TODO
 
 </center>
 
+::: rmdnote
+<img src="images/extra.png" align="left" width="10%" style="padding:0px 0px 0px 10px"/>
+**הגדרה שקולה.**\
 בסעיף 8.2 בספר הלימוד מתוארת דרך אחרת לחשוב על הטרנספורמציה הדואלית - בעזרת הפרבולה $\mathcal{U}:~ y=x^2/2$. עבור נקודה $p$ שנמצאת על הפרבולה, הישר הדואלי $p^*$ הוא בדיוק הישר המשיק לפרבולה בנקודה $p$. עבור נקודה $q$ שלא נמצאת על הפרבולה, ויש לה אותה קוארדינטת $x$ כמו ל-$p$, השיפוע של $q^*$ הוא בדיוק השיפוע של $p^*$, אך $q^*$ מוזז לפי ההפרש בקוארדינטת ה-$y$. תוכלו לראות את הקשר הזה בעזרת היישומון הבא.
 
 <center>
@@ -190,6 +195,7 @@ TODO
 </iframe>
 
 </center>
+:::
 
 החלק האחרון של סעיף 8.2 מתאר כיצד ניתן להשתמש בדואליות כדי לחשב את ה-discrepancy של קבוצת נקודות. אנו נחזור לכך בהמשך, לאחר שנדבר על מערכים של ישרים במישור.
 
@@ -223,7 +229,9 @@ TODO
 
 #### צפו בסרטון הבא. {.unnumbered}
 
-TODO
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/AuoNQrgeHT0?si=EZW3CmU270MloKEa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</center>
 
 ראינו שלמערך $\mathcal{A}(L)$ של ישרים במישור יש שלושה סוגי רכיבים:
 

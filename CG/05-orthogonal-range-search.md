@@ -93,8 +93,9 @@
 <img src="images/5/range_tree.jpg" align="left" width="33%"/> בחלק זה נראה מבנה נתונים אחר לחיפוש בתחומים במישור הנקרא עץ תחומים, range tree. גם הוא הכללה של עץ החיפוש שראינו עבור נקודות על הישר, אך באופן שונה: כאן כל קודקוד פנימי בעץ הממיין את הנקודות לפי קואורדינטת ה-$x$, יכיל מצביע לעץ נוסף הממיין את העלים בתת העץ שלו לפי קואורדינטת ה-$y$.
 
 #### צפו בסרטון הבא: {.unnumbered}
-
-(TODO)
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Aiy7igqoQCQ?si=EmDfmC6mkx1-Vcnb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</center>
 
 מבחינת זמן השאילתה, במקרה הגרוע עץ תחומים יעיל הרבה יותר מעץ-kd - זמן השאילתה שלו הוא $O( \log^2 n + k)$ בלבד, לעומת $O( \sqrt{n}+k)$ בעצי-kd. השיפור הזה מאלץ אותנו לשלם מעט בסיבוכיות המקום -- $O( n \log n)$ לעומת $O( n)$. בסעיף 5.3 של ספר הלימוד מתואר האלגוריתם Build2DRangeTree שבונה את העץ, ואלגוריתם השאילתה 2DRangeQuery. קראו בעיון את ניתוח זמן הבניה, סיבוכיות המקום, וזמן השאילתה של עץ תחומים.
 
