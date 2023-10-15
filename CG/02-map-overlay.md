@@ -1,12 +1,6 @@
----
-editor_options: 
-  markdown: 
-    wrap: 72
----
-
 # מפות מישוריות וטכניקת הישר הסורק {#map-overlay}
 
-## הקדמה {#preface}
+## הקדמה {#preface-2}
 
 ### שכבות מידע במפה {#them-map}
 

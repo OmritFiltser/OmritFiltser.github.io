@@ -1,6 +1,6 @@
 # חיפוש בתחומים אורתוגונלים {#orthogonal-range-seach}
 
-## הקדמה {#preface}
+## הקדמה {#preface-5}
 
 ### חיפוש במסדי נתונים {#data-bases}
 
@@ -49,7 +49,8 @@
 #### קראו את סעיף 5.2 בספר (עמודים 99--105). {.unnumbered}
 
 ::: rmdwarning
-<img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"/> זמן הריצה של האלגוריתם הראשון שמתואר בסרטון ומשתמש בשיטת הישר הסורק, הואהתבוננו בקבוצת הנקודות הבאה, והשלימו את עץ ה-kd.
+<img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"/>
+ התבוננו בקבוצת הנקודות הבאה, והשלימו את עץ ה-kd.
 
 <center>![](images/5/q1.jpg){width="80%"}</center>
 

@@ -1,5 +1,5 @@
 intro
-preface
+preface-1
 what-is-cg
 basic-prop
 more-tools
@@ -14,6 +14,7 @@ incremental-alg
 output-sens
 deg-robust
 map-overlay
+preface-2
 them-map
 sweep-line
 line-int
@@ -24,6 +25,7 @@ plan-map
 problem-def
 bool-op
 pol-tringle
+preface-3
 agp
 geom-model
 worst-case
@@ -38,6 +40,7 @@ dual-graph
 חלוקה-לפוליגונים-מונוטוניים
 שילוש-של-פוליגון-מונוטוני
 linear-prog
+preface-4
 molding-prob
 div-con-alg
 convex-int
@@ -47,6 +50,7 @@ inc-alg
 rand-alg
 unbounded-LP
 orthogonal-range-seach
+preface-5
 data-bases
 on-the-line
 in-the-plane
@@ -56,6 +60,7 @@ extensions
 higher-dim
 general-pos
 point-location
+preface-6
 point-on-map
 trapezoidal-map
 naive-sol
@@ -65,6 +70,7 @@ the-data-structure
 rand-inc-alg
 alg-analysis
 voronoi
+preface-7
 nns
 Voronoi-vid
 def
@@ -77,6 +83,7 @@ other-defs
 voronoi-game
 משחק-וורונוי-על-ריבוע
 duality-arrangements
+preface-8
 geometric-sampling
 discrepancy
 point-line-duality
@@ -90,6 +97,19 @@ vertex-level
 קראו-את-סעיף-8.4-בספר-הלימוד-עמודים-185186
 exercises
 Delaunay-triangulation
+preface-9
+terrains
+point-set-triangulation
+מהו-שילוש-של-קבוצת-נקודות
+כיצד-נגדיר-שילוש-טוב
+השילוש-של-דלוני
+גרף-דלוני
+שילוש-דלוני
+אלגוריתם-לבניית-שילוש-דלוני
+תרגילים-נוספים
+ה-mst
+gabriel-graph
+rng
 motion-planning
 WSPD-spanners
 curve-similarity

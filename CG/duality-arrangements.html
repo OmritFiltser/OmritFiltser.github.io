@@ -68,23 +68,23 @@
 <h1>
 <span class="header-section-number">יחידה 8</span> מערכים ודואליות<a class="anchor" aria-label="anchor" href="#duality-arrangements"><i class="fas fa-link"></i></a>
 </h1>
-<div id="preface" class="section level2" number="8.1">
+<div id="preface-8" class="section level2" number="8.1">
 <h2>
-<span class="header-section-number">8.1</span> הקדמה<a class="anchor" aria-label="anchor" href="#preface"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.1</span> הקדמה<a class="anchor" aria-label="anchor" href="#preface-8"><i class="fas fa-link"></i></a>
 </h2>
 <div id="geometric-sampling" class="section level3" number="8.1.1">
 <h3>
 <span class="header-section-number">8.1.1</span> דגימה גאומטרית טובה<a class="anchor" aria-label="anchor" href="#geometric-sampling"><i class="fas fa-link"></i></a>
 </h3>
-<p>ההתמודדות עם נתוני עתק (Big Data) מהווה אתגר עצום בתחום טכנולוגית המידע, ואחת הדרכים להתמודד עם היקף מאסיבי של נתונים היא על ידי דגימה (sampling). למשל, בהינתן אוסף גדול מאוד של נקודות, ניתן לדגום מתוכן אוסף קטן יותר שיהווה ייצוג קומפקטי של האוסף המקורי, ועליו ניתן לבצע חישובים ביעילות. גם כאשר רוצים למדל אובייקט רציף במחשב, משתמשים בדרך כלל באוסף סופי של נקודות או פיקסלים; למשל, כדי לייצג את פני השטח במפה טופוגרפית, לוקחים מדידות של גובה בנקודות אקראיות (התמונה הבאה למשל, לקוחה <a href="https://www.researchgate.net/figure/Figure-Topographic-map-of-High-Mountain-Asia-HMA-based-on-SRTM-VV-data-with_fig7_323301551">מהמאמר הזה</a>).</p>
+<p>ההתמודדות עם נתוני עתק (Big Data) מהווה אתגר עצום בתחום טכנולוגית המידע, ואחת הדרכים להתמודד עם היקף מאסיבי של נתונים היא על ידי דגימה (sampling). למשל, בהינתן אוסף גדול מאוד של נקודות, ניתן לדגום מתוכן אוסף קטן יותר שיהווה ייצוג קומפקטי של האוסף המקורי, ועליו ניתן לבצע חישובים ביעילות. גם כאשר רוצים למדל אובייקט רציף במחשב, משתמשים בדרך כלל באוסף סופי של נקודות או פיקסלים; למשל, כדי לייצג את פני השטח במפה טופוגרפית, לוקחים מדידות של גובה בנקודות אקראיות (האיור למטה לקוח <a href="https://www.researchgate.net/figure/Figure-Topographic-map-of-High-Mountain-Asia-HMA-based-on-SRTM-VV-data-with_fig7_323301551">מהמאמר הזה</a>, ומציג מפה טופוגרפית של איזור הררי באסיה, עם 2500 נקודות שנבחרו בדגימה מקרית).</p>
 <center>
-<img src="images/8/Topographic-map.png" style="width:70.0%">
+<div class="inline-figure"><img src="images/8/Topographic-map.png" style="width:70.0%"></div>
 </center>
 <p>הבחירה בדגימה מקרית של נקודות לעומת דגימה תבניתית יכולה לנבוע מכמה סיבות:</p>
 <ul>
 <li>דגימה מקרית מאפשרת הוכחה של חסמים הסתברותיים (חסמים על התוחלת).</li>
-<li>לפעמים דגימה מקרית נראית טבעית יותר לעין האנושית.</li>
-<li>האובייקט שאותו ממדלים עלול “להתאים” לתבנית באופן כזה שאוסף הנקודות לא ישקף את המציאות.</li>
+<li>לפעמים דגימה מקרית נראית טבעית יותר לעין האנושית. <!-- -   האובייקט שאותו ממדלים עלול "להתאים" לתבנית באופן כזה שאוסף הנקודות לא ישקף את המציאות. -->
+</li>
 </ul>
 <div class="inline-figure"><img src="08-duality-arrangements_files/figure-html/unnamed-chunk-1-1.png" width="60%" style="display: block; margin: auto;"></div>
 <p>מצד שני, לא כל דגימה מקרית תהיה “טובה”, כלומר, היינו רוצים שפיזור הנקודות שנדגמו יהיה פחות או יותר אחיד, על מנת שישקף את המצב המקורי. נסביר זאת על ידי דוגמה.</p>
@@ -97,7 +97,8 @@
 <img src="images/8/example.jpg" style="width:30.0%">
 </center>
 </div>
-<p>נסמן ב-<span class="math inline">\(\mathcal{H}\)</span> את אוסף כל חצאי המישורים. מדד ה-discrepancy של הקבוצה <span class="math inline">\(S\)</span> ביחס לחצאי מישור מוגדר להיות: <span class="math display">\[\Delta_\mathcal{H}(S)=\sup_{h\in\mathcal{H}}\Delta_S(h).\]</span> במילים אחרות, זהו חצי המישור ה”<strong>גרוע ביותר</strong>”, כלומר, זה שעבורו מדד ה-discrepancy הוא <strong>מקסימלי</strong>. אינטואיטיבית, ככל שמדד ה-discrepancy מתקרב ל-0, כך הדגימה <span class="math inline">\(S\)</span> טובה יותר, כלומר מפוזרת באופן אחיד יותר על פני <span class="math inline">\(U\)</span>.</p>
+<p>נסמן ב-<span class="math inline">\(\mathcal{H}\)</span> את אוסף כל חצאי המישורים. מדד ה-discrepancy של הקבוצה <span class="math inline">\(S\)</span> ביחס לחצאי מישור מוגדר להיות: <span class="math display">\[\Delta_S(\mathcal{H})=\sup_{h\in\mathcal{H}}\Delta_S(h).\]</span> במילים אחרות, זהו חצי המישור ה”<strong>גרוע ביותר</strong>”, כלומר, זה שעבורו מדד ה-discrepancy הוא <strong>מקסימלי</strong>. אינטואיטיבית, ככל שמדד ה-discrepancy מתקרב ל-0, כך הדגימה <span class="math inline">\(S\)</span> טובה יותר, כלומר מפוזרת באופן אחיד יותר על פני <span class="math inline">\(U\)</span>.</p>
+<p>(הערה: בסעיף 8.1 של ספר הלימוד, הסימון למדד ה-discrepancy של קבוצה <span class="math inline">\(S\)</span> ביחס לחצאי מישור הוא <span class="math inline">\(\Delta_\mathcal{H}(S)\)</span>, אך זוהי ככל הנראה שגיאת דפוס.)</p>
 <div class="rmdwarning">
 <p><img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> התבוננו באיור הבא שבו קבוצה <span class="math inline">\(S\)</span> של נקודות (כחולות) בתוך ריבוע היחידה <span class="math inline">\(U\)</span>, וחצי מישור <span class="math inline">\(h\)</span>.</p>
 <center>
@@ -123,9 +124,9 @@
 <h3>
 <span class="header-section-number">8.1.2</span> חישוב ה-discrepancy של קבוצת נקודות<a class="anchor" aria-label="anchor" href="#discrepancy"><i class="fas fa-link"></i></a>
 </h3>
-<p>עכשיו נוכל לשאול: כיצד ניתן לחשב את <span class="math inline">\(\Delta_\mathcal{H}(S)\)</span>? בעצם אנחנו מחפשים חצי מישור <span class="math inline">\(\hat{h}\)</span> שעבורו <span class="math inline">\(\Delta_\mathcal{H}(S)=\Delta_S(\hat{h})\)</span> , כלומר לכל <span class="math inline">\(h\in\mathcal{H}\)</span> מתקיים <span class="math inline">\(\Delta_S(\hat{h})\ge \Delta_S(h)\)</span>.</p>
+<p>עכשיו נוכל לשאול: כיצד ניתן לחשב את <span class="math inline">\(\Delta_S(\mathcal{H})\)</span>? בעצם אנחנו מחפשים חצי מישור <span class="math inline">\(\hat{h}\)</span> שעבורו <span class="math inline">\(\Delta_S(\mathcal{H})=\Delta_S(\hat{h})\)</span> , כלומר לכל <span class="math inline">\(h\in\mathcal{H}\)</span> מתקיים <span class="math inline">\(\Delta_S(\hat{h})\ge \Delta_S(h)\)</span>.</p>
 <p><img src="images/8/discrepancy-obs.jpg" align="left" width="30%"> אבחנה מיידית ראשונה היא שהישר שמגדיר את <span class="math inline">\(\hat{h}\)</span> חייב לעבור דרך לפחות נקודה אחת מ-<span class="math inline">\(S\)</span>: אם זה לא המצב, אז נוכל להזיז מעט את הישר המגדיר את <span class="math inline">\(\hat{h}\)</span> לעבר הנקודה הקרובה ביותר אליו מאחד הצדדים, מבלי לשנות את המידה הדיסקרטית שלו. המידה הרציפה תגדל או תקטן, ובאחד הצדדים נקבל מדד discrepancy גדול יותר.</p>
-<p>כדי לחשב את <span class="math inline">\(\Delta_\mathcal{H}(S)\)</span>, היינו רוצים למצוא מספר סופי של מועמדים להיות <span class="math inline">\(\hat{h}\)</span>. בסעיף 8.1 של ספר הלימוד מוכיחים את הטענה הבאה:</p>
+<p>כדי לחשב את <span class="math inline">\(\Delta_S(\mathcal{H})\)</span>, היינו רוצים למצוא מספר סופי של מועמדים להיות <span class="math inline">\(\hat{h}\)</span>. בסעיף 8.1 של ספר הלימוד מוכיחים את הטענה הבאה:</p>
 <div class="rmdimportant">
 <p><img src="images/definition.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><u><strong>טענה</strong>:</u></p>
 <p>חצי מישור <span class="math inline">\(h\)</span> עבורו <span class="math inline">\(\Delta_S(h)\)</span> מקסימלי, הוא אחד משני הסוגים הבאים:</p>
@@ -136,7 +137,7 @@
 <p>בנוסף, מספר המועמדים מהסוג הראשון הוא <span class="math inline">\(O(n)\)</span>, וניתן למצוא אותם בזמן <span class="math inline">\(O(n)\)</span>.</p>
 </div>
 <p>בהינתן מועמד <span class="math inline">\(h\)</span>, נוכל לחשב את המידה הרציפה שלו בזמן קבוע, ואת המידה הדיסקרטית שלו בזמן <span class="math inline">\(O(n)\)</span>. מכיוון שמספר המועמדים מהסוג הראשון הוא <span class="math inline">\(O(n)\)</span> וגם ניתן למצוא אותם בזמן <span class="math inline">\(O(n)\)</span>, סך כל הזמן שיקח לנו לחשב את <span class="math inline">\(\Delta_S(h)\)</span> עבור כל המועמדים מהסוג הזה הוא <span class="math inline">\(O(n^2)\)</span>.</p>
-<p>מה לגבי המועמדים מהסוג השני? מכיוון שיש <span class="math inline">\(O(n^2)\)</span> כאלה, נצטרך לבצע את חישוב המידה הדיסקרטית שלהם באופן אחר. בהמשך היחידה, נלמד טכניקה חשובה ומרתקת שתאפשר לנו לעשות זאת בזמן <span class="math inline">\(O(n^2)\)</span> בסך הכל! לטכניקה הזו קוראים דואליות של נקודה וישר.</p>
+<p>מה לגבי המועמדים מהסוג השני? מכיוון שיש <span class="math inline">\(O(n^2)\)</span> כאלה, נצטרך לבצע את חישוב המידה הדיסקרטית שלהם באופן אחר. בהמשך היחידה, נלמד טכניקה חשובה ומרתקת שתאפשר לנו לעשות זאת בזמן <span class="math inline">\(O(n^2)\)</span> בסך הכל! לטכניקה הזו קוראים <strong>דואליות של נקודה וישר</strong>.</p>
 <p>הערה: ביחידה זו נדלג על ההקדמה לפרק 8 בספר הלימוד, וכן על סעיף 8.1. כמו כן, לא נוכיח את הטענה לעיל, ורק נראה כיצד ניתן להשתמש בה על מנת לחשב את ה-discrepancy.</p>
 <div class="rmdwarning">
 <p><img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> באיור למטה מופיעים ארבעה חצאי מישור, <span class="math inline">\(h_1,h_2,h_3,h_4\)</span>, כולם עוברים דרך אותה נקודה מ-<span class="math inline">\(S\)</span>. שימו לב ש-<span class="math inline">\(h_i\)</span> מתקבל מ-<span class="math inline">\(h_{i-1}\)</span> על ידי סיבוב של הישר המגדיר אותו נגד כיוון השעון. כל חצאי המישורים מכילים בדיוק את אותה קבוצת נקודות מ-<span class="math inline">\(S\)</span>. למי מהם <span class="math inline">\(\Delta_S\)</span> מקסימלי? למי מינימלי?</p>
@@ -214,8 +215,10 @@
 <p><img src="images/definition.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><u><strong>אבחנה</strong>:</u></p>
 <p>תהי <span class="math inline">\(p\)</span> נקודה ו-<span class="math inline">\(\ell\)</span> ישר לא אנכי, שניהם במישור. הטרנספורמציה הדואלית <span class="math inline">\(o\rightarrow o^*\)</span> מקיימת את התכונות הבאות:</p>
 <ol style="list-style-type: decimal">
-<li>משמרת שכנות (incidence preserving): <span class="math inline">\(p\in \ell\)</span> אם ורק אם <span class="math inline">\(\ell^*\in p*\)</span>.</li>
-<li>משמרת סדר (order preserving): <span class="math inline">\(p\)</span> מעל <span class="math inline">\(\ell\)</span> אם ורק אם <span class="math inline">\(\ell^*\)</span> מעל <span class="math inline">\(p^*\)</span>.</li>
+<li>
+<strong>משמרת יחס חילה</strong> (incidence preserving): <span class="math inline">\(p\in \ell\)</span> אם ורק אם <span class="math inline">\(\ell^*\in p*\)</span>.</li>
+<li>
+<strong>משמרת סדר</strong> (order preserving): <span class="math inline">\(p\)</span> מעל <span class="math inline">\(\ell\)</span> אם ורק אם <span class="math inline">\(\ell^*\)</span> מעל <span class="math inline">\(p^*\)</span>.</li>
 </ol>
 <center>
 <img src="images/8/dual-primal.jpg" style="width:80.0%">
@@ -228,17 +231,17 @@
 </center>
 <div class="rmdnote">
 <p><img src="images/extra.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><strong>הגדרה שקולה.</strong><br>
-בסעיף 8.2 בספר הלימוד מתוארת דרך אחרת לחשוב על הטרנספורמציה הדואלית - בעזרת הפרבולה <span class="math inline">\(\mathcal{U}:~ y=x^2/2\)</span>. עבור נקודה <span class="math inline">\(p\)</span> שנמצאת על הפרבולה, הישר הדואלי <span class="math inline">\(p^*\)</span> הוא בדיוק הישר המשיק לפרבולה בנקודה <span class="math inline">\(p\)</span>. עבור נקודה <span class="math inline">\(q\)</span> שלא נמצאת על הפרבולה, ויש לה אותה קוארדינטת <span class="math inline">\(x\)</span> כמו ל-<span class="math inline">\(p\)</span>, השיפוע של <span class="math inline">\(q^*\)</span> הוא בדיוק השיפוע של <span class="math inline">\(p^*\)</span>, אך <span class="math inline">\(q^*\)</span> מוזז לפי ההפרש בקוארדינטת ה-<span class="math inline">\(y\)</span>. תוכלו לראות את הקשר הזה בעזרת היישומון הבא.</p>
+בסעיף 8.2 בספר הלימוד מתוארת דרך אחרת לחשוב על הטרנספורמציה הדואלית - בעזרת הפרבולה <span class="math inline">\(\mathcal{U}:~ y=x^2/2\)</span>. עבור נקודה <span class="math inline">\(p\)</span> שנמצאת על הפרבולה, הישר הדואלי <span class="math inline">\(p^*\)</span> הוא בדיוק הישר המשיק לפרבולה בנקודה <span class="math inline">\(p\)</span>. עבור נקודה <span class="math inline">\(q\)</span> שלא נמצאת על הפרבולה, ויש לה אותה קוארדינטת <span class="math inline">\(x\)</span> כמו ל-<span class="math inline">\(p\)</span>, השיפוע של <span class="math inline">\(q^*\)</span> הוא בדיוק השיפוע של <span class="math inline">\(p^*\)</span>, אך <span class="math inline">\(q^*\)</span> מוזז לפי ההפרש בקוארדינטת ה-<span class="math inline">\(y\)</span>. כלומר, <span class="math inline">\(q^*\)</span> הוא הישר המקביל ל-<span class="math inline">\(p^*\)</span> ועובר דרך נקודה <span class="math inline">\(q'\)</span>, שהיא תמונת מראה של <span class="math inline">\(q\)</span> ביחס לישר האופקי העובר דרך <span class="math inline">\(p\)</span>. תוכלו לראות את הקשר הזה בעזרת היישומון הבא.</p>
 <center>
 <iframe src="https://www.desmos.com/calculator/ntcunrsyha?embed" width="100%" height="500" style="border: 1px solid #ccc" frameborder="0">
 </iframe>
 </center>
 </div>
-<p>החלק האחרון של סעיף 8.2 מתאר כיצד ניתן להשתמש בדואליות כדי לחשב את ה-discrepancy של קבוצת נקודות. אנו נחזור לכך בהמשך, לאחר שנדבר על מערכים של ישרים במישור.</p>
 </div>
 <div id="קראו-את-סעיף-8.2-בספר-הלימוד-עמודים-177179." class="section level4 unnumbered">
 <h4>קראו את סעיף 8.2 בספר הלימוד (עמודים 177־179).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-8.2-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-177179."><i class="fas fa-link"></i></a>
 </h4>
+<p>החלק האחרון של סעיף 8.2 מתאר כיצד ניתן להשתמש בדואליות כדי לחשב את ה-discrepancy של קבוצת נקודות. אנו נחזור לכך בהמשך, לאחר שנדבר על מערכים של ישרים במישור, ולכן דלגו בשלב זה על שתי הפסקאות האחרונות של סעיף 8.2.</p>
 <div class="rmdwarning">
 <div class="inline-figure">
 <img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> איך נראית הטרנספורמציה הדואלית של:</div>
@@ -380,6 +383,7 @@
 <img src="images/8/dual-discrepancy.jpg" style="width:80.0%">
 </center>
 <p>שימו לב שבמישור הדואלי, <span class="math inline">\(S\)</span> היא קבוצה <span class="math inline">\(S^*\)</span> של ישרים, שמהווה מערך של ישרים. מכאן, שמספר הנקודות מ-<span class="math inline">\(S\)</span> שנמצאות בחצי המישור הפתוח שמוגדר על ידי <span class="math inline">\(\ell(p,q)\)</span> ונמצא מתחתיו, שווה למספר הישרים במישור הדואלי שעוברים מעל הנקודה <span class="math inline">\(\ell(p,q)^*\)</span>. זוהי בדיוק הרמה של הקודקוד <span class="math inline">\(\ell(p,q)^*\)</span> במערך הישרים <span class="math inline">\(\mathcal{A}(S^*)\)</span>.</p>
+<p>כמו שראינו בחלק הקודם, ניתן לחשב את הרמות של כל הקודקודים במערך ישרים בזמן <span class="math inline">\(O(n^2)\)</span>, ולכן נוכל לחשב את ה-discrepancy של <span class="math inline">\(S\)</span> בזמן <span class="math inline">\(O(n^2)\)</span>.</p>
 </div>
 <div id="קראו-את-סעיף-8.4-בספר-הלימוד-עמודים-185186" class="section level4" number="8.3.3.2">
 <h4>
@@ -425,7 +429,7 @@
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#duality-arrangements"><span class="header-section-number">8</span> מערכים ודואליות</a></li>
 <li>
-<a class="nav-link" href="#preface"><span class="header-section-number">8.1</span> הקדמה</a><ul class="nav navbar-nav">
+<a class="nav-link" href="#preface-8"><span class="header-section-number">8.1</span> הקדמה</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#geometric-sampling"><span class="header-section-number">8.1.1</span> דגימה גאומטרית טובה</a></li>
 <li><a class="nav-link" href="#discrepancy"><span class="header-section-number">8.1.2</span> חישוב ה-discrepancy של קבוצת נקודות</a></li>
 </ul>
@@ -460,7 +464,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p dir="rtl" style="text-align:right;">הספר "<strong>גאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2023-10-02.</p>
+    <p dir="rtl" style="text-align:right;">הספר "<strong>גאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2023-10-15.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

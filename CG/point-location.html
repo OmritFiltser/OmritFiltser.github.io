@@ -68,9 +68,9 @@
 <h1>
 <span class="header-section-number">יחידה 6</span> מיקום נקודה ומפה טרפזית<a class="anchor" aria-label="anchor" href="#point-location"><i class="fas fa-link"></i></a>
 </h1>
-<div id="preface" class="section level2" number="6.1">
+<div id="preface-6" class="section level2" number="6.1">
 <h2>
-<span class="header-section-number">6.1</span> הקדמה<a class="anchor" aria-label="anchor" href="#preface"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.1</span> הקדמה<a class="anchor" aria-label="anchor" href="#preface-6"><i class="fas fa-link"></i></a>
 </h2>
 <div id="point-on-map" class="section level3" number="6.1.1">
 <h3>
@@ -115,7 +115,7 @@
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1ISWNiNI05c?si=DrbWnrZYTK0YMDu8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 </iframe>
 <div class="rmdwarning">
-<p><img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> מיהי ה-<span class="math inline">\(leftp\)</span> של כל אחד מהטרפזים המסומנים באיור?</p>
+<p><img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> מי ה-<span class="math inline">\(leftp\)</span> של כל אחד מהטרפזים המסומנים באיור?</p>
 <center>
 <img src="images/6/leftp_question.jpg" style="width:80.0%">
 </center>
@@ -131,7 +131,7 @@
 <div id="הנחת-מצב-כללי." class="section level4 unnumbered">
 <h4>הנחת מצב כללי.<a class="anchor" aria-label="anchor" href="#%D7%94%D7%A0%D7%97%D7%AA-%D7%9E%D7%A6%D7%91-%D7%9B%D7%9C%D7%9C%D7%99."><i class="fas fa-link"></i></a>
 </h4>
-<p>בשיטת הפירוק לטרפזים אנחנו מניחים שבאוסף הקטעים הנתון אין שתי נקודות קצה בעלות אותה קואורדינטת <span class="math inline">\(x\)</span>. הנחה זו אינה ריאליסטית, אך כפי שכבר ראינו בעבר, קיימות מספר שיטות המאפשרות לנו לטפל במצב לא כללי - למשל על ידי סיבוב המישור, או קביעת סדר לקסיקוגרפי. הדיון בפתרונות אלו עבור המבנה של מפת טרפזים מופיע בפרק 6.3 בספר הלימוד.</p>
+<p>בשיטת הפירוק לטרפזים אנחנו מניחים שבאוסף הקטעים הנתון אין שתי נקודות קצה בעלות אותה קואורדינטת <span class="math inline">\(x\)</span>. הנחה זו אינה ריאלית, אך כפי שכבר ראינו בעבר, קיימות מספר שיטות המאפשרות לנו לטפל במצב לא כללי - למשל על ידי סיבוב המישור, או קביעת סדר לקסיקוגרפי. הדיון בפתרונות אלו עבור המבנה של מפת טרפזים מופיע בפרק 6.3 בספר הלימוד.</p>
 <div class="rmdwarning">
 <div class="inline-figure">
 <img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> במצב לא כללי, כמה טרפזים שכנים יש (לכל היותר) לטרפז במפה הטרפזית?</div>
@@ -168,7 +168,7 @@
 <p>בנוסף, לגרף יש שורש יחיד, ובדיוק עלה אחד לכל טרפז במפה <span class="math inline">\(\mathcal{D}\)</span>. באיור למשל, לעלה של טרפז C יש מצביעים משני קודקודים פנימיים.</p>
 <p>הרעיון בבנייה זו דומה לעצי-kd שראינו ביחידה 5: לכל צומת פנימי, ההסתעפות ימינה או שמאלה תלויה בתשובה לשאלה המתאימה לסוג הצומת.</p>
 <center>
-<img src="images/6/%D7%92%D7%93.jpg" style="width:100.0%">
+<img src="images/6/ds.jpg" style="width:100.0%">
 </center>
 <p>בהינתן נקודת שאילתה q, נתחיל את החיפוש מהשורש עד שנגיע לעלה:</p>
 <ul>
@@ -251,7 +251,7 @@
 <h3>
 <span class="header-section-number">6.3.3</span> ניתוח האלגוריתם<a class="anchor" aria-label="anchor" href="#alg-analysis"><i class="fas fa-link"></i></a>
 </h3>
-<p>הסדר בו האלגוריתם TrapezoidalMap מוסיף את הקטעים משפיע מאוד על גודל מבנה החיפוש <span class="math inline">\(\mathcal{D}\)</span> ועל זמן השאילתה. למעשה, יתכן סידור שבו האלגוריתם ירוץ בזמן ריבועי, סיבוכיות הזיכרון של <span class="math inline">\(\mathcal{D}\)</span> תהיה ריבועית, וזמן השאילתה יהיה לינארי. לכן, בדומה לאלגוריתם האינקרמנטלי-רנדומי לתכנון לינארי במישור שראינו ביחידה 4 של הקורס, גם כאן האלגוריתם מגריל את סדר הוספת הקטעים מראש, ונוכל להראות שבתוחלת יתקבל מבנה חיפוש עם סיבוכיות זיכרון לינארית, וזמן שאילתה צפוי <span class="math inline">\(O (\log n )\)</span>.</p>
+<p>הסדר בו האלגוריתם TrapezoidalMap מוסיף את הקטעים משפיע מאוד על גודל מבנה החיפוש <span class="math inline">\(\mathcal{D}\)</span> ועל זמן השאילתה. למעשה, יתכן סידור שבו האלגוריתם ירוץ בזמן ריבועי, סיבוכיות הזיכרון של <span class="math inline">\(\mathcal{D}\)</span> תהיה ריבועית, וזמן השאילתה יהיה לינארי. לכן, בדומה לאלגוריתם האינקרמנטלי-רנדומי לתכנון לינארי במישור שראינו ביחידה 4 של הקורס, גם כאן האלגוריתם מגריל את סדר הוספת הקטעים מראש, ונוכל להראות שבתוחלת יתקבל מבנה חיפוש עם סיבוכיות זיכרון לינארית, ותוחלת זמן השאילתה תהיה <span class="math inline">\(O (\log n )\)</span>.</p>
 <div class="rmdwarning">
 <p><img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> מהו המקרה הגרוע ביותר? נסו לתאר דוגמה לאוסף של <span class="math inline">\(n\)</span> קטעים וסידור שלהם, כך שהאלגוריתם האינקרמנטלי (הלא רנדומי) ירוץ בזמן <span class="math inline">\(O ( n^2 )\)</span>.</p>
 </div>
@@ -280,7 +280,7 @@
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#point-location"><span class="header-section-number">6</span> מיקום נקודה ומפה טרפזית</a></li>
 <li>
-<a class="nav-link" href="#preface"><span class="header-section-number">6.1</span> הקדמה</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#point-on-map"><span class="header-section-number">6.1.1</span> מיקום נקודה במפה</a></li></ul>
+<a class="nav-link" href="#preface-6"><span class="header-section-number">6.1</span> הקדמה</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#point-on-map"><span class="header-section-number">6.1.1</span> מיקום נקודה במפה</a></li></ul>
 </li>
 <li>
 <a class="nav-link" href="#trapezoidal-map"><span class="header-section-number">6.2</span> מפה טרפזית</a><ul class="nav navbar-nav">
@@ -311,7 +311,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p dir="rtl" style="text-align:right;">הספר "<strong>גאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2023-10-02.</p>
+    <p dir="rtl" style="text-align:right;">הספר "<strong>גאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2023-10-15.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>יחידה 9 שילושי דלוני | גאומטריה חישובית</title>
 <meta name="author" content="ד’’ר עומרית פילצר">
-<meta name="description" content="A course in computational geometry.">
+<meta name="description" content="9.1 הקדמה  9.1.1 אינטרפולציה של גבהים  ייצוג תלת מימדי של פני שטח (terrain) נעשה בדרך כלל על ידי לקיחה דגימות של גובה בנקודות מסויימות, ואז קביעת הגובה בנקודות שלא נמדדו על ידי אינטרפולציה כלשהי...">
 <meta name="generator" content="bookdown 0.34 with bs4_book()">
 <meta property="og:title" content="יחידה 9 שילושי דלוני | גאומטריה חישובית">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://omrit.filtser.com/CG/Delaunay-triangulation.html">
-<meta property="og:description" content="A course in computational geometry.">
+<meta property="og:description" content="9.1 הקדמה  9.1.1 אינטרפולציה של גבהים  ייצוג תלת מימדי של פני שטח (terrain) נעשה בדרך כלל על ידי לקיחה דגימות של גובה בנקודות מסויימות, ואז קביעת הגובה בנקודות שלא נמדדו על ידי אינטרפולציה כלשהי...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="יחידה 9 שילושי דלוני | גאומטריה חישובית">
-<meta name="twitter:description" content="A course in computational geometry.">
+<meta name="twitter:description" content="9.1 הקדמה  9.1.1 אינטרפולציה של גבהים  ייצוג תלת מימדי של פני שטח (terrain) נעשה בדרך כלל על ידי לקיחה דגימות של גובה בנקודות מסויימות, ואז קביעת הגובה בנקודות שלא נמדדו על ידי אינטרפולציה כלשהי...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.0/transition.js"></script><script src="libs/bs3compat-0.5.0/tabs.js"></script><script src="libs/bs3compat-0.5.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -68,14 +68,261 @@
 <h1>
 <span class="header-section-number">יחידה 9</span> שילושי דלוני<a class="anchor" aria-label="anchor" href="#Delaunay-triangulation"><i class="fas fa-link"></i></a>
 </h1>
+<div id="preface-9" class="section level2" number="9.1">
+<h2>
+<span class="header-section-number">9.1</span> הקדמה<a class="anchor" aria-label="anchor" href="#preface-9"><i class="fas fa-link"></i></a>
+</h2>
+<div id="terrains" class="section level3" number="9.1.1">
+<h3>
+<span class="header-section-number">9.1.1</span> אינטרפולציה של גבהים<a class="anchor" aria-label="anchor" href="#terrains"><i class="fas fa-link"></i></a>
+</h3>
+<p><img src="images/9/terrain.jpg" align="left" width="55%"> ייצוג תלת מימדי של פני שטח (terrain) נעשה בדרך כלל על ידי לקיחה דגימות של גובה בנקודות מסויימות, ואז קביעת הגובה בנקודות שלא נמדדו על ידי אינטרפולציה כלשהי של נקודות הדגימה. הדרך המקובלת לעשות זאת היא בעזרת שילוש של קבוצת הנקודות, כלומר, חלוקה של המישור למשולשים שקודקודיהם הם נקודות הדגימה. הגובה של נקודה <span class="math inline">\(q\)</span> שלא נמדדה יתקבל באופן הבא: נמצא את המשולש <span class="math inline">\(\triangle abc\)</span> שהנקודה <span class="math inline">\(q\)</span> נמצאת בתוכו. הנקודות <span class="math inline">\(a,b,c\)</span> עם מדידות הגובה שלהן הן נקודות תלת מימדיות, ולכן מגדירות מישור בתלת מימד. נטיל את <span class="math inline">\(q\)</span> על המישור הזה, וקוארדינטת ה-<span class="math inline">\(z\)</span> שהתקבלה תהיה הגובה של <span class="math inline">\(q\)</span>.</p>
+<p>לא כל השילושים יראו לנו “טובים” או “טבעיים” באותה המידה. התבוננו למשל בשני השילושים באיור למטה. אלו שני שילושים שונים של אותה קבוצת נקודות, יחד עם הגבהים המתאימים להן. איזה מהשילושים סביר שיתאר את המציאות באופן מהימן יותר?</p>
+<center>
+<img src="images/9/good_triangulation.jpg" style="width:80.0%">
+</center>
+<p>ביחידה זו ננסה להבין כיצד להגדיר שילוש שמשקף את התפיסה האינטואיביטיבית שלנו לגבי מהו שילוש “טוב”, וכן איך ניתן לחשב שילוש כזה.</p>
+<div id="קראו-את-ההקדמה-לפרק-9-בספר-הלימוד-עמודים-191193." class="section level4 unnumbered">
+<h4>קראו את ההקדמה לפרק 9 בספר הלימוד (עמודים 191־193).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%94%D7%94%D7%A7%D7%93%D7%9E%D7%94-%D7%9C%D7%A4%D7%A8%D7%A7-9-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-191193."><i class="fas fa-link"></i></a>
+</h4>
+<hr>
+</div>
+</div>
+</div>
+<div id="point-set-triangulation" class="section level2" number="9.2">
+<h2>
+<span class="header-section-number">9.2</span> שילוש של קבוצת נקודות במישור<a class="anchor" aria-label="anchor" href="#point-set-triangulation"><i class="fas fa-link"></i></a>
+</h2>
+<div id="מהו-שילוש-של-קבוצת-נקודות" class="section level3" number="9.2.1">
+<h3>
+<span class="header-section-number">9.2.1</span> מהו שילוש של קבוצת נקודות?<a class="anchor" aria-label="anchor" href="#%D7%9E%D7%94%D7%95-%D7%A9%D7%99%D7%9C%D7%95%D7%A9-%D7%A9%D7%9C-%D7%A7%D7%91%D7%95%D7%A6%D7%AA-%D7%A0%D7%A7%D7%95%D7%93%D7%95%D7%AA"><i class="fas fa-link"></i></a>
+</h3>
+<p>ביחידה 3 של הקורס דיברנו על שילוש של פוליגונים - חלוקה של פוליגון למשלושים על ידי מספר מקסימלי של אלכסונים שאינם נחתכים. ביחידה זו, נעסוק בשילושים של קבוצות של נקודות במישור. לשם כך נגדיר קודם את המושג של מפה מישורית מקסימלית (יחידה 2 של הקורס עוסקת במפות מישוריות שאינן בהכרח מקסימליות).</p>
+<div class="rmdimportant">
+<p><img src="images/definition.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><u><strong>הגדרה</strong>: מפה מישורית מקסימלית</u><br>
+מפה מישורית מקסימלית היא מפה מישורית שלא ניתן להוסיף לה צלעות - כלומר כל צלע שנוסיף בין שני קודקודים תחתוך צלע אחרת.</p>
+</div>
+<div class="rmdimportant">
+<p><img src="images/definition.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><u><strong>הגדרה</strong>: שילוש של קבוצת נקודות במישור</u><br>
+בהינתן קבוצה <span class="math inline">\(P\)</span> של <span class="math inline">\(n\)</span> נקודות במישור, שילוש של <span class="math inline">\(P\)</span> הוא חלוקה מישורית מקסימלית שהקודקודים שלה הם נקודות <span class="math inline">\(P\)</span>.</p>
+</div>
+<p>שימו לב, יתכן שקיים יותר משילוש אחד לקבוצה נתונה של נקודות!</p>
+<div class="rmdwarning">
+<div class="inline-figure">
+<img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> מי מהמפות המישוריות הבאות היא שילוש של קבוצת הנקודות הנתונה?</div>
+<center>
+<img src="images/9/map_q.jpg" style="width:100.0%">
+</center>
+<details><summary>
+(פתרון)
+</summary><p>שלושת המפות התחתונות בלבד.</p>
+</details>
+</div>
+<div id="תכונות-השילוש." class="section level4 unnumbered">
+<h4>תכונות השילוש.<a class="anchor" aria-label="anchor" href="#%D7%AA%D7%9B%D7%95%D7%A0%D7%95%D7%AA-%D7%94%D7%A9%D7%99%D7%9C%D7%95%D7%A9."><i class="fas fa-link"></i></a>
+</h4>
+<p>שתי תכונות עיקריות:</p>
+<ul>
+<li><p>הפאות של מפה מישורית מקסימלית חייבות להיות משולשים: אם יש פאה שהיא לא משולש, אז ניתן לשלש אותה על ידי הוספת אלכסונים - כפי שראינו ביחידה 3 של הקורס.</p></li>
+<li><p>כל צלעות הקמור של <span class="math inline">\(P\)</span> מופיעות בשילוש (והן הצלעות של הפאה הלא חסומה): לא תתכן צלע שיוצאת החוצה מהקמור, ולכן הצלעות של פוליגון הקמור לא יחתכו שום צלע אחרת, וניתן יהיה להוסיף אותן לשילוש.</p></li>
+</ul>
+<div class="rmdwarning">
+<div class="inline-figure">
+<img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> כמה שילושים שונים תוכלו למצוא עבור קבוצת הנקודות הבאה?</div>
+<center>
+<img src="images/9/triang_q.jpg" style="width:20.0%">
+</center>
+<details><summary>
+(פתרון)
+</summary><p>זיכרו שצלעות הקמור חייבות להיות בשילוש.</p>
+<center>
+<img src="images/9/triang_ans.jpg" style="width:80.0%">
+</center>
+</details>
+</div>
+</div>
+<div id="גודל-השילוש." class="section level4 unnumbered">
+<h4>גודל השילוש.<a class="anchor" aria-label="anchor" href="#%D7%92%D7%95%D7%93%D7%9C-%D7%94%D7%A9%D7%99%D7%9C%D7%95%D7%A9."><i class="fas fa-link"></i></a>
+</h4>
+<p>באופן מעניין למדי, לכל השילושים האפשריים של קבוצה <span class="math inline">\(P\)</span> של <span class="math inline">\(n\)</span> נקודות יש גודל זהה, כלומר מספר זהה של משולשים וצלעות. גודל השילוש תלוי במספר הנקודות שמופיעות על השפה של <span class="math inline">\(CH(P)\)</span> (שפת הקמור של <span class="math inline">\(P\)</span>).</p>
+<div class="rmdimportant">
+<p><img src="images/definition.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><u><strong>משפט</strong>:</u> תהי <span class="math inline">\(P\)</span> קבוצה של <span class="math inline">\(n\)</span> נקודות במישור, שלא כולן על ישר אחד. נסמן ב-<span class="math inline">\(k\)</span> את מספר הנקודות על השפה של <span class="math inline">\(CH(P)\)</span>. אז בכל שילוש של <span class="math inline">\(P\)</span> יש <span class="math inline">\(2n-2-k\)</span> משולשים ו-<span class="math inline">\(3n-3-k\)</span> צלעות.</p>
+</div>
+<p>ההוכחה למשפט מופיעה בסעיף 9.1 בספר הלימוד, והיא משתמשת בנוסחת אוילר, שכבר ראינו מספר פעמים בעבר.</p>
+<div class="rmdwarning">
+<div class="inline-figure">
+<img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> לפני שתקראו את ההוכחה המופיעה בספר, נסו להוכיח בעצמכם את המשפט לגבי גודל השילוש.</div>
+</div>
+</div>
+</div>
+<div id="כיצד-נגדיר-שילוש-טוב" class="section level3" number="9.2.2">
+<h3>
+<span class="header-section-number">9.2.2</span> כיצד נגדיר שילוש טוב?<a class="anchor" aria-label="anchor" href="#%D7%9B%D7%99%D7%A6%D7%93-%D7%A0%D7%92%D7%93%D7%99%D7%A8-%D7%A9%D7%99%D7%9C%D7%95%D7%A9-%D7%98%D7%95%D7%91"><i class="fas fa-link"></i></a>
+</h3>
+<div id="צפו-בסרטון-הבא.-11" class="section level4 unnumbered">
+<h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-11"><i class="fas fa-link"></i></a>
+</h4>
+</div>
+<div id="וקטור-הזויות." class="section level4 unnumbered">
+<h4>וקטור הזויות.<a class="anchor" aria-label="anchor" href="#%D7%95%D7%A7%D7%98%D7%95%D7%A8-%D7%94%D7%96%D7%95%D7%99%D7%95%D7%AA."><i class="fas fa-link"></i></a>
+</h4>
+</div>
+<div id="שילוש-אופטימלי." class="section level4 unnumbered">
+<h4>שילוש אופטימלי.<a class="anchor" aria-label="anchor" href="#%D7%A9%D7%99%D7%9C%D7%95%D7%A9-%D7%90%D7%95%D7%A4%D7%98%D7%99%D7%9E%D7%9C%D7%99."><i class="fas fa-link"></i></a>
+</h4>
+</div>
+<div id="צלעות-חוקיות-ופעולת-ההיפוך." class="section level4 unnumbered">
+<h4>צלעות חוקיות ופעולת ההיפוך.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%9C%D7%A2%D7%95%D7%AA-%D7%97%D7%95%D7%A7%D7%99%D7%95%D7%AA-%D7%95%D7%A4%D7%A2%D7%95%D7%9C%D7%AA-%D7%94%D7%94%D7%99%D7%A4%D7%95%D7%9A."><i class="fas fa-link"></i></a>
+</h4>
+</div>
+<div id="משפט-תלס." class="section level4 unnumbered">
+<h4>משפט תלס.<a class="anchor" aria-label="anchor" href="#%D7%9E%D7%A9%D7%A4%D7%98-%D7%AA%D7%9C%D7%A1."><i class="fas fa-link"></i></a>
+</h4>
+<center>
+<iframe src="https://www.desmos.com/calculator/yknwki8nqa?embed" width="100%" height="500" style="border: 1px solid #ccc" frameborder="0">
+</iframe>
+</center>
+</div>
+<div id="שילוש-חוקי." class="section level4 unnumbered">
+<h4>שילוש חוקי.<a class="anchor" aria-label="anchor" href="#%D7%A9%D7%99%D7%9C%D7%95%D7%A9-%D7%97%D7%95%D7%A7%D7%99."><i class="fas fa-link"></i></a>
+</h4>
+<p>כל שילוש אופטימלי הוא חוקי</p>
+</div>
+<div id="קראו-את-סעיף-9.1-בספר-הלימוד-עמודים-193195." class="section level4 unnumbered">
+<h4>קראו את סעיף 9.1 בספר הלימוד (עמודים 193־195).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-9.1-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-193195."><i class="fas fa-link"></i></a>
+</h4>
+<hr>
+</div>
+</div>
+</div>
+<div id="השילוש-של-דלוני" class="section level2" number="9.3">
+<h2>
+<span class="header-section-number">9.3</span> השילוש של דלוני<a class="anchor" aria-label="anchor" href="#%D7%94%D7%A9%D7%99%D7%9C%D7%95%D7%A9-%D7%A9%D7%9C-%D7%93%D7%9C%D7%95%D7%A0%D7%99"><i class="fas fa-link"></i></a>
+</h2>
+<div id="גרף-דלוני" class="section level3" number="9.3.1">
+<h3>
+<span class="header-section-number">9.3.1</span> גרף דלוני<a class="anchor" aria-label="anchor" href="#%D7%92%D7%A8%D7%A3-%D7%93%D7%9C%D7%95%D7%A0%D7%99"><i class="fas fa-link"></i></a>
+</h3>
+<div id="צפו-בסרטון-הבא.-12" class="section level4 unnumbered">
+<h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-12"><i class="fas fa-link"></i></a>
+</h4>
+</div>
+<div id="תכונות-של-גרף-דלוני." class="section level4 unnumbered">
+<h4>תכונות של גרף דלוני.<a class="anchor" aria-label="anchor" href="#%D7%AA%D7%9B%D7%95%D7%A0%D7%95%D7%AA-%D7%A9%D7%9C-%D7%92%D7%A8%D7%A3-%D7%93%D7%9C%D7%95%D7%A0%D7%99."><i class="fas fa-link"></i></a>
+</h4>
+</div>
+</div>
+<div id="שילוש-דלוני" class="section level3" number="9.3.2">
+<h3>
+<span class="header-section-number">9.3.2</span> שילוש דלוני<a class="anchor" aria-label="anchor" href="#%D7%A9%D7%99%D7%9C%D7%95%D7%A9-%D7%93%D7%9C%D7%95%D7%A0%D7%99"><i class="fas fa-link"></i></a>
+</h3>
+<p>שילוש הוא חוקי אמ”מ הוא דלוני</p>
+<p>שילוש אופטימלי הוא חוקי, ולכן הוא דלוני</p>
+<p>אם הנקודות במצב כללי - שילוש דלוני הוא יחיד, ולכן יש רק שילוש חוקי אחד, והוא השילוש האופטימלי היחיד.</p>
+<p>אם הנקודות לא במצב כללי - עדיין שילוש דלוני הוא חוקי, אבל לא בהכרח אופטימלי. עם זאת, אפשר להראות בעזרת משפט תלס שלכל שילוש דלוני יש אותה זוית מינימלית. לכן לכל השילושים החוקיים יש אותה זוית מינימלי, ובפרט זוהי גם הזוית המינימלית בשילוש אופטימלי. לכן, הזוית המינימלית בשילוש דלוני היא המקסימלית האפשרית על פני כל השילושים של <span class="math inline">\(P\)</span>.</p>
+<div id="קראו-את-סעיף-9.2-בספר-הלימוד-עמודים-196199." class="section level4 unnumbered">
+<h4>קראו את סעיף 9.2 בספר הלימוד (עמודים 196־199).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-9.2-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-196199."><i class="fas fa-link"></i></a>
+</h4>
+</div>
+</div>
+<div id="אלגוריתם-לבניית-שילוש-דלוני" class="section level3" number="9.3.3">
+<h3>
+<span class="header-section-number">9.3.3</span> אלגוריתם לבניית שילוש דלוני<a class="anchor" aria-label="anchor" href="#%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D-%D7%9C%D7%91%D7%A0%D7%99%D7%99%D7%AA-%D7%A9%D7%99%D7%9C%D7%95%D7%A9-%D7%93%D7%9C%D7%95%D7%A0%D7%99"><i class="fas fa-link"></i></a>
+</h3>
+<p>ניתן לחשב את שילוש דלוני של קבוצת נקודות <span class="math inline">\(P\)</span> במישור בעזרת דיאגמת וורונוי של <span class="math inline">\(P\)</span>:</p>
+<ol style="list-style-type: decimal">
+<li>נחשב את <span class="math inline">\(Vor(P)\)</span>.</li>
+<li>נבנה את הגרף הדואלי לדיאגרמה (כלומר גרף דלוני).</li>
+<li>לבסוף, אם יש פאה בגרף שהיא לא משולש, נשלש אותה (ראינו אלגוריתם לשילוש של פוליגון ביחידה 3 של הקורס).</li>
+</ol>
+<p>זמן הריצה הכולל יהיה <span class="math inline">\(O(n\log n)\)</span>.</p>
+<div id="אלגוריתם-אינקרמנטלי-רנדומי." class="section level4 unnumbered">
+<h4>אלגוריתם אינקרמנטלי רנדומי.<a class="anchor" aria-label="anchor" href="#%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D-%D7%90%D7%99%D7%A0%D7%A7%D7%A8%D7%9E%D7%A0%D7%98%D7%9C%D7%99-%D7%A8%D7%A0%D7%93%D7%95%D7%9E%D7%99."><i class="fas fa-link"></i></a>
+</h4>
+<p>דרך אחרת לחישוב שילוש דלוני היא בעזרת האלגורתם האינקרמנטלי-רנדומי <strong>DelaunayTriangulation</strong> המתואר בסעיף 9.3 של ספר הלימוד.</p>
+<p>הרעיון המרכזי באלגוריתם הוא לבנות משולש כלשהו גדול מספיק שמכיל את כל הנקודות של הקבוצה <span class="math inline">\(P\)</span> בפנימו, ואז להוסיף את נקודות <span class="math inline">\(P\)</span> בזו אחר זו בסדר אקראי, ובכל פעם לעדכן את השילוש.</p>
+<p>נסמן את נקודות <span class="math inline">\(P\)</span> לפי הסדר האקראי ב-<span class="math inline">\(p_1,p_2,\dots,p_n\)</span>, ואת קודקודי המשולש ההתחלתי ב-<span class="math inline">\(p_{-1},p_{-2},p_{-3}\)</span>. נניח שחישבנו את שילוש דלוני של <span class="math inline">\(p_{-1},p_{-2},p_{-3},p_1,p_2,\dots,p_{r-1}\)</span>, ואנחנו רוצים להוסיף עכשיו את <span class="math inline">\(p_r\)</span>. יש שני מקרים:</p>
+<ol style="list-style-type: decimal">
+<li>אם הנקודה <span class="math inline">\(p_r\)</span> נמצאת בפנים של משולש <span class="math inline">\(\triangle p_ip_jp_k\)</span>: נוסיף צלעות מ-<span class="math inline">\(p_r\)</span> לכל אחד מקודקודי המשולש.</li>
+<li>אם הנקודה <span class="math inline">\(p_r\)</span> נמצאת על צלע <span class="math inline">\(\overline{p_ip_j}\)</span> שמשותפת לשני משולשים, <span class="math inline">\(\triangle p_ip_jp_k\)</span> ו-<span class="math inline">\(\triangle p_ip_jp_l\)</span>: נוסיף צלעות מ-<span class="math inline">\(p_r\)</span> לקודקודים <span class="math inline">\(p_k\)</span> ו-<span class="math inline">\(p_l\)</span>.</li>
+</ol>
+<p>בשני המקרים קיבלנו שילוש, אך זהו לא בהכרח שילוש דלוני. כדי לתקן את השילוש במקרה הצורך, האלגוריתם קורא לפרוצדורה נוספת בשם <strong>LegalizeEdge</strong>, שמקבלת שילוש, את הקודקוד <span class="math inline">\(p_r\)</span>, וצלע במשולש שיתכן ויש צורך לבצע פעולת היפוך עבורה. במקרה הראשון למשל, האלגוריתם יקרא לפרוצדורה הזאת עבור כל אחת מצלעות המשולש <span class="math inline">\(\triangle p_ip_jp_k\)</span>. אם הצלע אינה חוקית, הפרוצדורה תבצע היפוך שלה, ואז תמשיך לבדוק באופן רקורסיבי את צלעות המשולשים החדשים שנוצרו.</p>
+<p>במהלק הקריאה בסעיף 9.3, נסו לענות על השאלות הבאות (כל התשובות מופיעות בספר):</p>
+<ol style="list-style-type: decimal">
+<li>מדוע התהליך הרקורסיבי בשיטה LegalizeEdge הוא סופי?</li>
+<li>מדוע הצלעות שמוסיפים מ-<span class="math inline">\(p_r\)</span> לקודקודי המשולש שהוא נמצא בו הן בהכרח צלעות של שילוש דלוני?</li>
+<li>כיצד האלגוריתם מוצא את המשולש שמכיל את <span class="math inline">\(p_r\)</span>?</li>
+</ol>
+</div>
+<div id="קראו-את-סעיף-9.3-בספר-הלימוד-עמודים-199204." class="section level4 unnumbered">
+<h4>קראו את סעיף 9.3 בספר הלימוד (עמודים 199־204).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-9.3-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-199204."><i class="fas fa-link"></i></a>
+</h4>
+<p>קראו עד הפסקה הראשונה בעמוד 204.</p>
+</div>
+<div id="ניתוח-האלגוריתם." class="section level4 unnumbered">
+<h4>ניתוח האלגוריתם.<a class="anchor" aria-label="anchor" href="#%D7%A0%D7%99%D7%AA%D7%95%D7%97-%D7%94%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D."><i class="fas fa-link"></i></a>
+</h4>
+<p>ניתוח זמן הריצה של האלגוריתם משתמש בטכניקה שכבר ראינו ביחידות 4 ו-6: אנליזה לאחור. ביחידה זו לא נתעמק בפרטי ההוכחה ונסתפק בציטוט המשפט הבא:</p>
+<div class="rmdimportant">
+<p><img src="images/definition.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><u><strong>משפט</strong>:</u> ניתן לחשב שילוש דלוני של קבוצה <span class="math inline">\(P\)</span> של <span class="math inline">\(n\)</span> נקודות במישור בזמן צפוי <span class="math inline">\(O(n \log n)\)</span>, תוך שימוש בזיכרון צפוי <span class="math inline">\(O(n)\)</span>.</p>
+</div>
+<p>למעוניינים בכך, ניתן לקרוא את סעיף 9.4 בספר הלימוד, המתאר בפירוט את ניתוח זמן הריצה וסיבוכיות המקום של אלגוריתם DelaunayTriangulation.</p>
+</div>
+</div>
+</div>
+<div id="תרגילים-נוספים" class="section level2" number="9.4">
+<h2>
+<span class="header-section-number">9.4</span> תרגילים נוספים<a class="anchor" aria-label="anchor" href="#%D7%AA%D7%A8%D7%92%D7%99%D7%9C%D7%99%D7%9D-%D7%A0%D7%95%D7%A1%D7%A4%D7%99%D7%9D"><i class="fas fa-link"></i></a>
+</h2>
+<div id="ה-mst" class="section level3" number="9.4.1">
+<h3>
+<span class="header-section-number">9.4.1</span> ה-MST<a class="anchor" aria-label="anchor" href="#%D7%94-mst"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="gabriel-graph" class="section level3" number="9.4.2">
+<h3>
+<span class="header-section-number">9.4.2</span> Gabriel Graph<a class="anchor" aria-label="anchor" href="#gabriel-graph"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="rng" class="section level3" number="9.4.3">
+<h3>
+<span class="header-section-number">9.4.3</span> RNG<a class="anchor" aria-label="anchor" href="#rng"><i class="fas fa-link"></i></a>
+</h3>
 
+</div>
+</div>
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="duality-arrangements.html"><span class="header-section-number">8</span> מערכים ודואליות</a></div>
 <div class="next"><a href="motion-planning.html"><span class="header-section-number">10</span> תכנון תנועה</a></div>
 </div></main><div class="col-md-3 col-lg-3 d-none d-md-block sidebar sidebar-chapter border-right">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>ביחידה זו:</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#Delaunay-triangulation"><span class="header-section-number">9</span> שילושי דלוני</a></li></ul>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#Delaunay-triangulation"><span class="header-section-number">9</span> שילושי דלוני</a></li>
+<li>
+<a class="nav-link" href="#preface-9"><span class="header-section-number">9.1</span> הקדמה</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#terrains"><span class="header-section-number">9.1.1</span> אינטרפולציה של גבהים</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#point-set-triangulation"><span class="header-section-number">9.2</span> שילוש של קבוצת נקודות במישור</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#%D7%9E%D7%94%D7%95-%D7%A9%D7%99%D7%9C%D7%95%D7%A9-%D7%A9%D7%9C-%D7%A7%D7%91%D7%95%D7%A6%D7%AA-%D7%A0%D7%A7%D7%95%D7%93%D7%95%D7%AA"><span class="header-section-number">9.2.1</span> מהו שילוש של קבוצת נקודות?</a></li>
+<li><a class="nav-link" href="#%D7%9B%D7%99%D7%A6%D7%93-%D7%A0%D7%92%D7%93%D7%99%D7%A8-%D7%A9%D7%99%D7%9C%D7%95%D7%A9-%D7%98%D7%95%D7%91"><span class="header-section-number">9.2.2</span> כיצד נגדיר שילוש טוב?</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#%D7%94%D7%A9%D7%99%D7%9C%D7%95%D7%A9-%D7%A9%D7%9C-%D7%93%D7%9C%D7%95%D7%A0%D7%99"><span class="header-section-number">9.3</span> השילוש של דלוני</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#%D7%92%D7%A8%D7%A3-%D7%93%D7%9C%D7%95%D7%A0%D7%99"><span class="header-section-number">9.3.1</span> גרף דלוני</a></li>
+<li><a class="nav-link" href="#%D7%A9%D7%99%D7%9C%D7%95%D7%A9-%D7%93%D7%9C%D7%95%D7%A0%D7%99"><span class="header-section-number">9.3.2</span> שילוש דלוני</a></li>
+<li><a class="nav-link" href="#%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D-%D7%9C%D7%91%D7%A0%D7%99%D7%99%D7%AA-%D7%A9%D7%99%D7%9C%D7%95%D7%A9-%D7%93%D7%9C%D7%95%D7%A0%D7%99"><span class="header-section-number">9.3.3</span> אלגוריתם לבניית שילוש דלוני</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#%D7%AA%D7%A8%D7%92%D7%99%D7%9C%D7%99%D7%9D-%D7%A0%D7%95%D7%A1%D7%A4%D7%99%D7%9D"><span class="header-section-number">9.4</span> תרגילים נוספים</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#%D7%94-mst"><span class="header-section-number">9.4.1</span> ה-MST</a></li>
+<li><a class="nav-link" href="#gabriel-graph"><span class="header-section-number">9.4.2</span> Gabriel Graph</a></li>
+<li><a class="nav-link" href="#rng"><span class="header-section-number">9.4.3</span> RNG</a></li>
+</ul>
+</li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
@@ -91,7 +338,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p dir="rtl" style="text-align:right;">הספר "<strong>גאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2023-10-02.</p>
+    <p dir="rtl" style="text-align:right;">הספר "<strong>גאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2023-10-15.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
