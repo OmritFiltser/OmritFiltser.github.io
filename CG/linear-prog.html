@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>יחידה 4 תכנון ליניארי וחיתוך של חצאי מישורים | גאומטריה חישובית</title>
 <meta name="author" content="ד’’ר עומרית פילצר">
-<meta name="description" content="4.1 הקדמה  4.1.1 בעיית הייצור באמצעות תבניות  חפצים רבים שאנו משתמשים בהם באופן יום-יומי מיוצרים בתהליך אוטומטי, שבו יוצקים נוזל לתבנית רב פעמית, ולאחר שהוא מתמצק שולפים אותו החוצה מבלי לפגוע...">
+<meta name="description" content="4.1 הקדמה  4.1.1 מה ביחידה? יחידה זו מקבילה לפרק הרביעי בספר הלימוד. המושגים והרעיונות העיקריים שילמדו ביחידה: מציאת החיתוך של חצאי מישורים. בעיית תכנון לינארי המישור. אלגוריתם אינקרמנטלי-רנדומי,...">
 <meta name="generator" content="bookdown 0.34 with bs4_book()">
 <meta property="og:title" content="יחידה 4 תכנון ליניארי וחיתוך של חצאי מישורים | גאומטריה חישובית">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://omrit.filtser.com/CG/linear-prog.html">
-<meta property="og:description" content="4.1 הקדמה  4.1.1 בעיית הייצור באמצעות תבניות  חפצים רבים שאנו משתמשים בהם באופן יום-יומי מיוצרים בתהליך אוטומטי, שבו יוצקים נוזל לתבנית רב פעמית, ולאחר שהוא מתמצק שולפים אותו החוצה מבלי לפגוע...">
+<meta property="og:description" content="4.1 הקדמה  4.1.1 מה ביחידה? יחידה זו מקבילה לפרק הרביעי בספר הלימוד. המושגים והרעיונות העיקריים שילמדו ביחידה: מציאת החיתוך של חצאי מישורים. בעיית תכנון לינארי המישור. אלגוריתם אינקרמנטלי-רנדומי,...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="יחידה 4 תכנון ליניארי וחיתוך של חצאי מישורים | גאומטריה חישובית">
-<meta name="twitter:description" content="4.1 הקדמה  4.1.1 בעיית הייצור באמצעות תבניות  חפצים רבים שאנו משתמשים בהם באופן יום-יומי מיוצרים בתהליך אוטומטי, שבו יוצקים נוזל לתבנית רב פעמית, ולאחר שהוא מתמצק שולפים אותו החוצה מבלי לפגוע...">
+<meta name="twitter:description" content="4.1 הקדמה  4.1.1 מה ביחידה? יחידה זו מקבילה לפרק הרביעי בספר הלימוד. המושגים והרעיונות העיקריים שילמדו ביחידה: מציאת החיתוך של חצאי מישורים. בעיית תכנון לינארי המישור. אלגוריתם אינקרמנטלי-רנדומי,...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.0/transition.js"></script><script src="libs/bs3compat-0.5.0/tabs.js"></script><script src="libs/bs3compat-0.5.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -72,9 +72,22 @@
 <h2>
 <span class="header-section-number">4.1</span> הקדמה<a class="anchor" aria-label="anchor" href="#preface-4"><i class="fas fa-link"></i></a>
 </h2>
-<div id="molding-prob" class="section level3" number="4.1.1">
+<div id="contents-4" class="section level3" number="4.1.1">
 <h3>
-<span class="header-section-number">4.1.1</span> בעיית הייצור באמצעות תבניות<a class="anchor" aria-label="anchor" href="#molding-prob"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.1.1</span> מה ביחידה?<a class="anchor" aria-label="anchor" href="#contents-4"><i class="fas fa-link"></i></a>
+</h3>
+<p>יחידה זו מקבילה לפרק הרביעי בספר הלימוד.</p>
+<p>המושגים והרעיונות העיקריים שילמדו ביחידה:</p>
+<ul>
+<li>מציאת החיתוך של חצאי מישורים.</li>
+<li>בעיית תכנון לינארי המישור.</li>
+<li>אלגוריתם אינקרמנטלי-רנדומי, וניתוחו בשיטת אנליזה לאחור.</li>
+</ul>
+<p>למידה מהנה!</p>
+</div>
+<div id="molding-prob" class="section level3" number="4.1.2">
+<h3>
+<span class="header-section-number">4.1.2</span> בעיית הייצור באמצעות תבניות<a class="anchor" aria-label="anchor" href="#molding-prob"><i class="fas fa-link"></i></a>
 </h3>
 <p><img src="images/4/molding-casting.jpg" align="left" width="33%"> חפצים רבים שאנו משתמשים בהם באופן יום-יומי מיוצרים בתהליך אוטומטי, שבו יוצקים נוזל לתבנית רב פעמית, ולאחר שהוא מתמצק שולפים אותו החוצה מבלי לפגוע בתבנית. כמובן שלא כל צורה תלת מימדית ניתנת לייצור באופן הזה, למשל צורה שהיא כדורית. נניח שנתון לנו <strong>פוליהדרון</strong> (גוף תלת מימדי המורכב מפאות שהן פוליגונים, צלעות שהן קוים ישרים, וקודקודים שהם נקודות), איך נדע האם ניתן לייצר אותו על ידי יציקה לתבנית רב פעמית?</p>
 <div id="קראו-את-ההקדמה-לפרק-4-עמודים-63-64." class="section level4 unnumbered">
@@ -82,9 +95,9 @@
 </h4>
 </div>
 </div>
-<div id="geom-model" class="section level3" number="4.1.2">
+<div id="geom-model" class="section level3" number="4.1.3">
 <h3>
-<span class="header-section-number">4.1.2</span> מודל גאומטרי לבעיה<a class="anchor" aria-label="anchor" href="#geom-model"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.1.3</span> מודל גאומטרי לבעיה<a class="anchor" aria-label="anchor" href="#geom-model"><i class="fas fa-link"></i></a>
 </h3>
 <p><img src="images/4/mold.jpg" align="left" width="25%"> בהינתן פוליהדרון <span class="math inline">\(P\)</span> בעל <span class="math inline">\(n\)</span> פאות שהן פוליגונים, נרצה לתכנן תבנית שתאפשר לנו לייצר את <span class="math inline">\(P\)</span>. כדי שנוכל לחלץ את <span class="math inline">\(P\)</span> מהתבנית על ידי משיכה בכיוון אחד, נדרוש שבדיוק אחת מהפאות של <span class="math inline">\(P\)</span> תהיה מוכלת בפאה העליונה של התבנית. התבנית חייבת להתאים לצורה של <span class="math inline">\(P\)</span>, אבל את הפאה העליונה נוכל לבחור מתוך <span class="math inline">\(n\)</span> הפאות של <span class="math inline">\(P\)</span>, ולכן יש לכל היותר <span class="math inline">\(n\)</span> תבניות אפשרויות. כמובן שלא כל תבנית תאפשר לנו לחלץ את <span class="math inline">\(P\)</span>.</p>
 <div class="rmdwarning">
@@ -171,8 +184,8 @@
 <span class="header-section-number">4.3.1</span> מהו תכנון לינארי?<a class="anchor" aria-label="anchor" href="#what-is-LP"><i class="fas fa-link"></i></a>
 </h3>
 <p>תכנון לינארי היא בעיית אופטימיזציה של ביטוי לינארי, תחת אוסף של אילוצים לינאריים. זוהי בעייה מרכזית בתחום של חקר ביצועים, שבו בעיות אופטימיזציה רבות ניתנות לתאור באמצעות תוכנית לינארית. הבעיה צברה פופולריות רבה משום שהיא שימושית בתחומים רבים נוספים, ולכן במשך השנים נעשו מאמצים רבים למציאת פתרונות יעילים ומהירים עבורה. בסרטון הבא נראה דוגמה לתוכנית כזאת, נזכיר חלק מהכלים הקיימים כיום לפתרון בעיות תכנון לינארי, ונדבר על הקשר בין תכנון לינארי במישור לבעיית החיתוך של חצאי מישורים.</p>
-<div id="צפו-בסרטון-הבא-1" class="section level4 unnumbered">
-<h4>צפו בסרטון הבא:<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90-1"><i class="fas fa-link"></i></a>
+<div id="צפו-בסרטון-הבא" class="section level4 unnumbered">
+<h4>צפו בסרטון הבא:<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90"><i class="fas fa-link"></i></a>
 </h4>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/r5vnvtTYiEY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
@@ -192,7 +205,7 @@
 <p>האלגוריתם האינקרמנטלי מתחיל מפתרון עבור <span class="math inline">\(C_0 = m_1 \cap m_2\)</span>, ואז מוסיף את יתר חצאי המישורים <span class="math inline">\(h_1, \dots, h_n\)</span> לפי הסדר. בשלב ה-<span class="math inline">\(i\)</span>, האלגוריתם ימצא קודקוד v_i שהוא הנקודה שממקסמת את פונקציית המטרה בחיתוך <span class="math inline">\(C_i = m_1 \cap m_2 \cap h_1 \cap h_2 \cap \dots \cap h_i\)</span>. הרעיון הוא שבכל שלב מצמצמים את התחום הפיזיבילי, ויש שתי אפשרויות עבור <span class="math inline">\(v_i\)</span>:</p>
 <p>אם <span class="math inline">\(v_{i-1}\in h_i\)</span> (כמו באיור הימני למטה), אז <span class="math inline">\(h_i\)</span> לא שינה את הפתרון האופטימלי ולכן <span class="math inline">\(v_i = v_{i-1}\)</span>. אחרת, <span class="math inline">\(h_i\)</span> גרם לכך ש-<span class="math inline">\(C_i\)</span> כבר לא כולל את <span class="math inline">\(v_{i-1}\)</span> (כמו באיור השמאלי למטה). בספר תראו הוכחה לכך שבמקרה זה, אם <span class="math inline">\(C_i\)</span> לא ריק, אז <span class="math inline">\(v_i\)</span> בהכרח נמצא על הישר <span class="math inline">\(\ell_i\)</span> המגדיר את חצי המישור <span class="math inline">\(h_i\)</span>.</p>
 <center>
-<img src="images/4/incremental_case1.jpg" style="width:40.0%">     <img src="images/4/incremental_case2.jpg" style="width:40.0%">
+<img src="images/4/incremental_case1.jpg" style="width:40.0%"><img src="images/4/incremental_case2.jpg" style="width:40.0%">
 </center>
 <p>באופן די מאכזב, זמן הריצה המתקבל מאלגוריתם זה הוא <span class="math inline">\(O(n^2)\)</span>, מכיון שבמקרה השני נצטרך לחשב את החיתוך של <span class="math inline">\(\ell_i\)</span> עם חצאי המישורים <span class="math inline">\(m_1, m_2, h_1, \dots, h_{i-1}\)</span>. לכן, במקרה הגרוע, זמן הריצה עבור השלב ה-<span class="math inline">\(i\)</span> יהיה <span class="math inline">\(O(i)\)</span>.</p>
 <div class="rmdwarning">
@@ -211,8 +224,8 @@
 </h3>
 <p>כמו שהובטח בחלקים הקודמים, תכנון לינארי במישור אכן ניתן לפיתרון בזמן צפוי של <span class="math inline">\(O( n )\)</span>, על ידי האלגוריתם 2DRandomizedBoundedLP אותו נציג בחלק זה. זהו כמובן אלגוריתם רנדומי, והוא זהה כמעט לחלוטין לאלגוריתם האינקרמטלי שהוצג בסעיף הקודם: ההבדל היחידי הוא בשורה השנייה של האלגוריתם, שם מחשבים פרמוטציה אקראית של חצאי המישורים בעזרת פרוצדורה בשם RandomPermutation.</p>
 <p>בסרטון הבא נראה כיצד שינוי זה, שנראה לכאורה כאילו אינו משפיע על האלגוריתם, מוביל לתופעה מעניינת ביותר: תוחלת זמן ריצה תהיה לינארית. כלומר, כאשר מגרילים את הסדר בו האלגוריתם האינקרמנטלי בוחן את חצאי המישורים, מקבלים שבממוצע על פני כל הפרמוטציות האפשריות, זמן הריצה הוא <span class="math inline">\(O( n )\)</span>.</p>
-<div id="צפו-בסרטון-הבא-2" class="section level4 unnumbered">
-<h4>צפו בסרטון הבא:<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90-2"><i class="fas fa-link"></i></a>
+<div id="צפו-בסרטון-הבא-1" class="section level4 unnumbered">
+<h4>צפו בסרטון הבא:<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90-1"><i class="fas fa-link"></i></a>
 </h4>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/f8OanQaN_D0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
@@ -240,10 +253,9 @@
 <div class="rmdnote">
 <p><img src="images/extra.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><strong>פתרון אלטרנטיבי</strong>:</p>
 <p><img src="images/4/unbounded-alg-1.jpg" align="left" width="33%"> דרך אחרת למציאת הקרן <span class="math inline">\(\rho\)</span>, היא להתבונן בחצי המישור <span class="math inline">\(h_i\)</span> עבורו הזווית בין <span class="math inline">\(\overrightarrow{c}\)</span> ל-<span class="math inline">\(\overrightarrow{\mu}( h_i )\)</span> היא הגדולה ביותר.</p>
-<p> <br>
- </p>
+<p><br></p>
 <p><img src="images/4/unbounded-alg-2.jpg" align="left" width="33%"> החיתוך בין הישר לבין חצי מישור אחר <span class="math inline">\(h_j\)</span> הוא קרן <span class="math inline">\(\rho\)</span> על . אם לכל <span class="math inline">\(j \neq i\)</span> הזוית בין הקרן <span class="math inline">\(\rho\)</span> שמוגדרת על ידי <span class="math inline">\(\ell_1 \cap h_j\)</span> לבין <span class="math inline">\(\overrightarrow{c}\)</span> קטנה או שווה ל-, אז הקרן שראשיתה בנקודה הקיצונית ביותר בכיוון <span class="math inline">\(\overrightarrow{c}\)</span> היא העדות לכך ש-C אינו חסום ביחס ל-<span class="math inline">\(\overrightarrow{c}\)</span>.</p>
-<p><img src="images/4/unbounded-alg-3.jpg" align="left" width="33%"> אחרת, אם עבור <span class="math inline">\(h_j\)</span> כלשהו הזוית בין <span class="math inline">\(\rho\)</span> ל-<span class="math inline">\(\overrightarrow{c}\)</span> גדולה מ-, אז חצאי המישורים <span class="math inline">\(h_i\)</span> ו-<span class="math inline">\(h_j\)</span> הם ההוכחה לכך ש-<span class="math inline">\(C\)</span> חסום ביחס ל-<span class="math inline">\(\overrightarrow{c}\)</span>. הסיבה לכך היא שהזווית בין <span class="math inline">\(\overrightarrow{c}\)</span> ל-<span class="math inline">\(\overrightarrow{\mu}( h_j )\)</span> קטנה יותר מהזווית בין <span class="math inline">\(\overrightarrow{c}\)</span> ל-<span class="math inline">\(\overrightarrow{\mu}( h_i )\)</span>, ולכן הזוית בין <span class="math inline">\(h_j\)</span> ל-<span class="math inline">\(\overrightarrow{c}\)</span> גדולה מ-<span class="math inline">\(90^\circ\)</span>.  </p>
+<p><img src="images/4/unbounded-alg-3.jpg" align="left" width="33%"> אחרת, אם עבור <span class="math inline">\(h_j\)</span> כלשהו הזוית בין <span class="math inline">\(\rho\)</span> ל-<span class="math inline">\(\overrightarrow{c}\)</span> גדולה מ-, אז חצאי המישורים <span class="math inline">\(h_i\)</span> ו-<span class="math inline">\(h_j\)</span> הם ההוכחה לכך ש-<span class="math inline">\(C\)</span> חסום ביחס ל-<span class="math inline">\(\overrightarrow{c}\)</span>. הסיבה לכך היא שהזווית בין <span class="math inline">\(\overrightarrow{c}\)</span> ל-<span class="math inline">\(\overrightarrow{\mu}( h_j )\)</span> קטנה יותר מהזווית בין <span class="math inline">\(\overrightarrow{c}\)</span> ל-<span class="math inline">\(\overrightarrow{\mu}( h_i )\)</span>, ולכן הזוית בין <span class="math inline">\(h_j\)</span> ל-<span class="math inline">\(\overrightarrow{c}\)</span> גדולה מ-<span class="math inline">\(90^\circ\)</span>.</p>
 </div>
 
 </div>
@@ -259,8 +271,9 @@
 <li><a class="nav-link" href="#linear-prog"><span class="header-section-number">4</span> תכנון ליניארי וחיתוך של חצאי מישורים</a></li>
 <li>
 <a class="nav-link" href="#preface-4"><span class="header-section-number">4.1</span> הקדמה</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#molding-prob"><span class="header-section-number">4.1.1</span> בעיית הייצור באמצעות תבניות</a></li>
-<li><a class="nav-link" href="#geom-model"><span class="header-section-number">4.1.2</span> מודל גאומטרי לבעיה</a></li>
+<li><a class="nav-link" href="#contents-4"><span class="header-section-number">4.1.1</span> מה ביחידה?</a></li>
+<li><a class="nav-link" href="#molding-prob"><span class="header-section-number">4.1.2</span> בעיית הייצור באמצעות תבניות</a></li>
+<li><a class="nav-link" href="#geom-model"><span class="header-section-number">4.1.3</span> מודל גאומטרי לבעיה</a></li>
 </ul>
 </li>
 <li>
@@ -293,7 +306,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p dir="rtl" style="text-align:right;">הספר "<strong>גאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2023-10-15.</p>
+    <p dir="rtl" style="text-align:right;">הספר "<strong>גאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2023-12-10.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
