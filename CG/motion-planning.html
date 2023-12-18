@@ -48,8 +48,8 @@
 <li><a class="" href="intro.html"><span class="header-section-number">1</span> מבוא</a></li>
 <li><a class="" href="map-overlay.html"><span class="header-section-number">2</span> מפות מישוריות וטכניקת הישר הסורק</a></li>
 <li><a class="" href="pol-tringle.html"><span class="header-section-number">3</span> שילושי פוליגונים ובעיית הגלריה לאמנות</a></li>
-<li><a class="" href="linear-prog.html"><span class="header-section-number">4</span> תכנון ליניארי וחיתוך של חצאי מישורים</a></li>
-<li><a class="" href="orthogonal-range-seach.html"><span class="header-section-number">5</span> חיפוש בתחומים אורתוגונלים</a></li>
+<li><a class="" href="linear-prog.html"><span class="header-section-number">4</span> תכנון לינארי וחיתוך של חצאי מישורים</a></li>
+<li><a class="" href="orthogonal-range-seach.html"><span class="header-section-number">5</span> חיפוש בתחומים אורתוגונליים</a></li>
 <li><a class="" href="point-location.html"><span class="header-section-number">6</span> מיקום נקודה ומפה טרפזית</a></li>
 <li><a class="" href="voronoi.html"><span class="header-section-number">7</span> דיאגרמת וורונוי</a></li>
 <li><a class="" href="duality-arrangements.html"><span class="header-section-number">8</span> מערכים ודואליות</a></li>
@@ -92,8 +92,8 @@
 <span class="header-section-number">10.1.2</span> תכנון תנועת רובוט<a class="anchor" aria-label="anchor" href="#%D7%AA%D7%9B%D7%A0%D7%95%D7%9F-%D7%AA%D7%A0%D7%95%D7%A2%D7%AA-%D7%A8%D7%95%D7%91%D7%95%D7%98"><i class="fas fa-link"></i></a>
 </h3>
 <p>תכנון תנועה לרובוט הוא תחום רחב ביותר, שהולך ומתפתח עם השיפור בטכנולוגיה הזמינה. פרק זה מספק הצצה לתחום מנקודת מבט גאומטרית.</p>
-<p>על מנת לפשט את הבעיות עליהן נדבר, אנחנו מניחים ביחידה זו שנתונה סביבה עם מכשולים קבועים וידועים מראש, ושהרובוט יכול לנוע בכל הכיוונים בלי לבצע פעולת סיבוב (כלומר, בתנועה הזזה בלבד). בסרטון הבא ניתן לראות דוגמה לרובוט כזה, המסוגל לנוע בכל כיוון (omnidirectional). הרובוט בסרטון נע לאורך מסלול ידוע מראש, מנקודת התחלתית לנקודת יעד. אנחנו לא נעסוק במכניקה המאפשרת לרובוט לעשות זאת, אלא במציאת מסלול ללא התנגשויות
-בסביבה עם מכשולים, בהינתן נקודת התחלה ונקודת יעד.</p>
+<p>באופן כללי, בעיות תכנון תנועה עשויות להיות מורכבות ומסובכות מאוד, אך ביחידה זו נעסוק במקרה הבסיסי ביותר: הרובוט הוא פוליגון <span class="math inline">\(\mathcal{R}\)</span>, שנע במישור עם מכשולים פוליגונליים קבועים וידועים מראש. הרובוט נע בתנועת הזזה (translation) בלבד ואינו יכול לבצע סיבוב (rotation).</p>
+<p>בסרטון הבא ניתן לראות דוגמה לרובוט כזה, המסוגל לנוע על ידי הזזה בכל כיוון אפשרי (omnidirectional). הרובוט בסרטון נע לאורך מסלול ידוע מראש, מנקודה התחלתית לנקודת יעד. אנחנו לא נעסוק במכניקה המאפשרת לרובוט לעשות זאת, אלא במציאת מסלול ללא התנגשויות בסביבה עם מכשולים, בהינתן נקודת התחלה ונקודת יעד.</p>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/jy6OjeZPPBY?si=8BHC--26ea1jvoei" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 </iframe>
@@ -110,9 +110,9 @@
 <h3>
 <span class="header-section-number">10.1.3</span> המודל הגאומטרי<a class="anchor" aria-label="anchor" href="#%D7%94%D7%9E%D7%95%D7%93%D7%9C-%D7%94%D7%92%D7%90%D7%95%D7%9E%D7%98%D7%A8%D7%99"><i class="fas fa-link"></i></a>
 </h3>
-<p><img src="images/10/robot.jpg" align="left" width="33%">
-באופן כללי, בעיות תכנון תנועה עשויות להיות מורכבות ומסובכות מאוד, אך ביחידה זו נעסוק בבעיה הבסיסית ביותר: רובוט פוליגונלי דו-מימדי <span class="math inline">\(\mathcal{R}\)</span>, שנע בתנועת הזזה (translation) בלבד ואינו יכול לבצע
-סיבוב (rotation). הרובוט נע במישור עם מכשולים פוליגונליים קבועים וידועים מראש. בסעיף 13.1 בספר הלימוד מופיעים מושגים בסיסיים המשמשים בהגדרת המודל הגאומטרי לבעיות תכנון תנועה.</p>
+<div class="inline-figure">
+<img src="images/10/robot.jpg" align="left" width="33%">
+כדי שנוכל לנתח ולאפיין את הבעיה בצורה מדויקת מתמטית, נגדיר קודם מודל גיאומטרי שיאפשר לנו לתאר את מיקום הרובוט והסביבה שבה הוא יכול לנוע. בסעיף 13.1 בספר הלימוד מופיעים מושגים בסיסיים המשמשים בהגדרת המודל הגאומטרי לבעיות תכנון תנועה באופן כללי.</div>
 <div id="קראו-את-סעיף-13.1-בספר-הלימוד-עמודים-284286." class="section level4 unnumbered">
 <h4>קראו את סעיף 13.1 בספר הלימוד (עמודים 284־286).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-13.1-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-284286."><i class="fas fa-link"></i></a>
 </h4>
@@ -289,8 +289,8 @@
 <div class="inline-figure">
 <img src="images/10/minkowski-sum.jpg" align="left" width="25%">
 ראינו שעבור רובוט נקודתי, מרחב העבודה שווה בדיוק למרחב החופשי. זהו לא המצב עבור רובוט שאינו נקודתי, ולכן על מנת שנוכל לחשב ולייצג את המרחב החופשי, נצטרך תחילה להבין כיצד נראים המכשולים במרחב הקונפיגורציות עבור רובוט פוליגונלי. בסרטון הבא נדבר על סכומי מינקובסקי, ונראה כיצד הם יעזרו לנו בתיאור ובניית מרחב הקונפיגורציות לרובוט פוליגונלי.</div>
-<div id="צפו-בסרטון-הבא.-13" class="section level4 unnumbered">
-<h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-13"><i class="fas fa-link"></i></a>
+<div id="צפו-בסרטון-הבא.-16" class="section level4 unnumbered">
+<h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-16"><i class="fas fa-link"></i></a>
 </h4>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/oKMx8DqELrQ?si=jNtJ7IDoJv2KHOdt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 </iframe>
@@ -481,8 +481,8 @@
 <span class="header-section-number">10.3.1</span> מסלול קצר ביותר וגרף הנִרְאוּת<a class="anchor" aria-label="anchor" href="#%D7%9E%D7%A1%D7%9C%D7%95%D7%9C-%D7%A7%D7%A6%D7%A8-%D7%91%D7%99%D7%95%D7%AA%D7%A8-%D7%95%D7%92%D7%A8%D7%A3-%D7%94%D7%A0%D7%A8%D7%90%D7%95%D7%AA"><i class="fas fa-link"></i></a>
 </h3>
 <p>עד עכשיו ראינו כיצד ניתן למצוא מסלול <strong>כלשהו</strong> ללא התנגשויות לרובוט, מנקודת ההתחלה לנקודת היעד, ולא דנו כלל בטיב המסלול שנבחר. אם רוצים לחסוך באנרגיה ובזמן, כדאי לבחור למשל במסלול הקצר ביותר האפשרי. בחלק זה נדבר על חישוב מסלול קצר ביותר לרובוט, וזאת על ידי בניית מפת דרכים אחרת, שנקראת גרף הנִרְאוּת.</p>
-<div id="צפו-בסרטון-הבא.-14" class="section level4 unnumbered">
-<h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-14"><i class="fas fa-link"></i></a>
+<div id="צפו-בסרטון-הבא.-17" class="section level4 unnumbered">
+<h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-17"><i class="fas fa-link"></i></a>
 </h4>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/K3pqlZLJHBw?si=cJ_DrRbDgpTAyY2Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 </iframe>
@@ -592,7 +592,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p dir="rtl" style="text-align:right;">הספר "<strong>גאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2023-12-10.</p>
+    <p dir="rtl" style="text-align:right;">הספר "<strong>גאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2023-12-18.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
