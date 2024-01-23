@@ -41,6 +41,16 @@ https://cdn.jsdelivr.net/npm/d3-delaunay@6.0.4/dist/d3-delaunay.min.js
   <button onclick="addPointsOnCircle()">Add Points on Circle</button>
 
   <br />
+
+  <label for="squarePoints">Number of points on square:</label>
+  <input type="number" id="squarePoints" value="5" />
+
+  <label for="squareSideLength">Side length of square:</label>
+  <input type="number" id="squareSideLength" value="100" />
+
+  <button onclick="addPointsOnSquare()">Add Points on Square</button>
+
+  <br />
   
   <button onclick="saveToFile()">Save Points to File</button>
 
@@ -180,6 +190,55 @@ https://cdn.jsdelivr.net/npm/d3-delaunay@6.0.4/dist/d3-delaunay.min.js
         ctx.fill();
       }
     }
+	
+	function addPointsOnSquare() {
+    const k = parseInt(document.getElementById('squarePoints').value);
+    const sideLength = parseInt(document.getElementById('squareSideLength').value);
+
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+
+    // Clear canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Draw existing points
+    ctx.fillStyle = '#000';
+    points.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 5, 0, 2 * Math.PI);
+      ctx.fill();
+    });
+
+    // Add points on square edges
+    for (let i = 0; i < k; i++) {
+      // Calculate position on the square's edge
+      let x, y;
+
+      if (i < k / 4) {
+        // Top edge
+        x = centerX - sideLength / 2 + (i / (k / 4)) * sideLength;
+        y = centerY - sideLength / 2;
+      } else if (i < k / 2) {
+        // Right edge
+        x = centerX + sideLength / 2;
+        y = centerY - sideLength / 2 + ((i - k / 4) / (k / 4)) * sideLength;
+      } else if (i < (3 * k) / 4) {
+        // Bottom edge
+        x = centerX + sideLength / 2 - ((i - k / 2) / (k / 4)) * sideLength;
+        y = centerY + sideLength / 2;
+      } else {
+        // Left edge
+        x = centerX - sideLength / 2;
+        y = centerY + sideLength / 2 - ((i - (3 * k) / 4) / (k / 4)) * sideLength;
+      }
+
+      points.push({ x, y });
+
+      ctx.beginPath();
+      ctx.arc(x, y, 5, 0, 2 * Math.PI);
+      ctx.fill();
+    }
+  }
 	
   
   </script>
