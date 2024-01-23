@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polygon Drawer</title>
+  <style>
+    canvas {
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+<h1>Visibility Polygons</h1>
+  <p>
+Instructions:
+<ol>
+  <li>Draw a polygon: pick its vertices by selecting points in the canvas above. <b>Double click</b> to pick the last vertex.</li>
+  <li>Use a <b>right click</b> to pick a point inside the polygon. All the points visible from it will be colored by a random color.</li>
+  <li>Milk</li>
+</ol>
+</p>
+  <canvas id="polygonCanvas" width="500" height="500"></canvas>
+  <script>
+    // Array to store polygon vertices
+    const polygonVertices = [];
+
+    // Get the canvas and context
+    const canvas = document.getElementById('polygonCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // Variable to track if drawing is in progress
+    let isDrawing = true;
+
+    // Event listener for mouse click
+    canvas.addEventListener('click', addPoint);
+
+    // Event listener for double click
+    canvas.addEventListener('dblclick', closePolygon);
+
+    // Event listener for context menu (right-click)
+    canvas.addEventListener('contextmenu', selectPoint);
+
+    // Selected point g
+    let selectedPoint = null;
+
+    // Function to add a point
+    function addPoint(e) {
+      if (isDrawing) {
+        const rect = canvas.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        // Draw a point
+        ctx.beginPath();
+        ctx.arc(x, y, 3, 0, 2 * Math.PI);
+        ctx.fillStyle = '#000';
+        ctx.fill();
+
+        // Add the vertex to the array
+        polygonVertices.push({ x, y });
+
+        // If it's not the first point, connect it to the previous point
+        if (polygonVertices.length > 1) {
+          const prevPoint = polygonVertices[polygonVertices.length - 2];
+          ctx.beginPath();
+          ctx.moveTo(prevPoint.x, prevPoint.y);
+          ctx.lineTo(x, y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    // Function to close the polygon on double click
+    function closePolygon() {
+      if (polygonVertices.length >= 3) {
+        // Connect the last point to the first point
+        const firstPoint = polygonVertices[0];
+        const lastPoint = polygonVertices[polygonVertices.length - 1];
+        ctx.beginPath();
+        ctx.moveTo(lastPoint.x, lastPoint.y);
+        ctx.lineTo(firstPoint.x, firstPoint.y);
+        ctx.stroke();
+
+        // Log the polygon vertices
+        console.log('Polygon Vertices:', polygonVertices);
+
+        // Allow selecting a point g inside the polygon
+        isDrawing = false;
+        //alert('Now right-click to select a point g inside the polygon.');
+      } else {
+        alert('Please select at least 3 points to close the polygon.');
+      }
+    }
+
+    // Function to select a point g inside the polygon
+    function selectPoint(e) {
+      e.preventDefault();
+      const rect = canvas.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      // Check if the selected point is inside the polygon
+      if (isPointInsidePolygon({ x, y }, polygonVertices)) {
+
+        // Store the selected point g
+        selectedPoint = { x, y };
+
+        // Color other points based on containment
+        colorPointsInsidePolygon();
+        
+        // Draw and color the selected point in red
+        ctx.beginPath();
+        ctx.arc(x, y, 3, 0, 2 * Math.PI);
+        ctx.fillStyle = 'red';
+        ctx.fill();
+      } else {
+        alert('Please select a point inside the polygon.');
+      }
+    }
+
+    // Function to check if a point is inside a polygon
+    function isPointInsidePolygon(point, vertices) {
+      let inside = false;
+
+      for (let i = 0, j = vertices.length - 1; i < vertices.length; j = i++) {
+        const xi = vertices[i].x;
+        const yi = vertices[i].y;
+        const xj = vertices[j].x;
+        const yj = vertices[j].y;
+
+        const intersect =
+          ((yi > point.y) !== (yj > point.y)) &&
+          (point.x < ((xj - xi) * (point.y - yi)) / (yj - yi) + xi);
+
+        if (intersect) inside = !inside;
+      }
+
+      return inside;
+    }
+    
+    
+        // Function to generate a random color with 30% opacity
+function getRandomColor() {
+  //return `hsla(${~~(360 * Math.random())}, 70%,  72%, 0.8)`
+  const r = Math.floor(Math.random() * 150) + 100; // Red component
+      const g = Math.floor(Math.random() * 150) + 100; // Green component
+      const b = Math.floor(Math.random() * 150) + 100; // Blue component
+
+      const randomColor = `rgba(${r}, ${g}, ${b}, 0.3)`;
+      return randomColor;
+}
+
+    // Function to color points inside the polygon based on containment
+    function colorPointsInsidePolygon() {
+    
+               const randomColor = getRandomColor();
+      for (let i = 0; i < canvas.width; i++) {
+        for (let j = 0; j < canvas.height; j++) {
+          const point = { x: i, y: j };
+
+          // Skip points that are part of the polygon's boundary
+          if (isPointOnPolygonBoundary(point, polygonVertices)) {
+            continue;
+          }
+
+          if (isPointInsidePolygon(point, polygonVertices)) {
+            // Check if the line segment between g and p is inside the polygon
+            if (isLineSegmentInsidePolygon(selectedPoint, point, polygonVertices)) {
+              // Color the point using a random color
+              ctx.beginPath();
+              ctx.arc(i, j, 3, 0, 2 * Math.PI);
+              ctx.fillStyle = randomColor;
+              ctx.fill();
+            }
+          }
+        }
+      }
+    }
+
+    // Function to check if a point is on the polygon's boundary
+    function isPointOnPolygonBoundary(point, vertices) {
+      for (let i = 0, j = vertices.length - 1; i < vertices.length; j = i++) {
+        const xi = vertices[i].x;
+        const yi = vertices[i].y;
+        const xj = vertices[j].x;
+        const yj = vertices[j].y;
+
+        const distance = pointToLineDistance(point.x, point.y, xi, yi, xj, yj);
+
+        if (distance < 3) {
+          // Consider points within a small distance from the edge as on the boundary
+          return true;
+        }
+      }
+
+      return false;
+    }
+
+    // Function to calculate the distance from a point to a line segment
+    function pointToLineDistance(px, py, x1, y1, x2, y2) {
+      const A = px - x1;
+      const B = py - y1;
+      const C = x2 - x1;
+      const D = y2 - y1;
+
+      const dot = A * C + B * D;
+      const lenSq = C * C + D * D;
+
+      const param = dot / lenSq;
+
+      let xx, yy;
+
+      if (param < 0 || (x1 === x2 && y1 === y2)) {
+        xx = x1;
+        yy = y1;
+      } else if (param > 1) {
+        xx = x2;
+        yy = y2;
+      } else {
+        xx = x1 + param * C;
+        yy = y1 + param * D;
+      }
+
+      const dx = px - xx;
+      const dy = py - yy;
+
+      return Math.sqrt(dx * dx + dy * dy);
+    }
+
+    // Function to check if a line segment is inside a polygon
+    function isLineSegmentInsidePolygon(pointG, pointP, vertices) {
+      // Check if both endpoints are inside the polygon
+      if (!isPointInsidePolygon(pointG, vertices) || !isPointInsidePolygon(pointP, vertices)) {
+        return false;
+      }
+
+      // Check if the line segment intersects with any edge of the polygon
+      for (let i = 0, j = vertices.length - 1; i < vertices.length; j = i++) {
+        const xi = vertices[i].x;
+        const yi = vertices[i].y;
+        const xj = vertices[j].x;
+        const yj = vertices[j].y;
+
+        const intersect =
+          lineIntersect(pointG.x, pointG.y, pointP.x, pointP.y, xi, yi, xj, yj);
+
+        if (intersect) return false;
+      }
+
+      return true;
+    }
+
+    // Function to check if two line segments intersect
+    function lineIntersect(x1, y1, x2, y2, x3, y3, x4, y4) {
+      const ua =
+        ((x4 - x3) * (y1 - y3) - (y4 - y3) * (x1 - x3)) /
+        ((y4 - y3) * (x2 - x1) - (x4 - x3) * (y2 - y1));
+      const ub =
+        ((x2 - x1) * (y1 - y3) - (y2 - y1) * (x1 - x3)) /
+        ((y4 - y3) * (x2 - x1) - (x4 - x3) * (y2 - y1));
+
+      return ua >= 0 && ua <= 1 && ub >= 0 && ub <= 1;
+    }
+  </script>
+</body>
+</html>
