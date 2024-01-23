@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voronoi Diagram Applet</title>
+  <style>
+    canvas {
+      border: 1px solid #000;
+    }
+  </style>
+  <!-- Include d3-delaunay library -->
+  <script src="
+https://cdn.jsdelivr.net/npm/d3-delaunay@6.0.4/dist/d3-delaunay.min.js
+"></script>
+
+</head>
+<body>
+  <h1>Voronoi Diagram and Delaunay Triangulation</h1>
+  <canvas id="voronoiCanvas" width="600" height="400"></canvas><br>
+  <button onclick="generateVoronoi()">Generate Voronoi Diagram</button>
+  <button onclick="generateDelaunay()">Generate Delaunay Triangulation</button>
+  <button onclick="clearCanvas()">Clear Canvas</button>
+  
+  <p>
+  <h2>Get creative!</h2>
+  Generate artistic Voronoi diagrams:
+<br />
+ <input type="file" id="fileInput" accept=".txt" />
+  <button onclick="loadFile()">Load Points from File</button>
+  
+  
+  <br />
+
+  <label for="circlePoints">Number of points on circle:</label>
+  <input type="number" id="circlePoints" value="5" />
+
+  <label for="circleRadius">Radius of circle:</label>
+  <input type="number" id="circleRadius" value="50" />
+
+  <button onclick="addPointsOnCircle()">Add Points on Circle</button>
+
+  <br />
+  
+  <button onclick="saveToFile()">Save Points to File</button>
+
+  <br />
+  </p>
+  <script>
+    let points = [];
+    let canvas = document.getElementById('voronoiCanvas');
+    let ctx = canvas.getContext('2d');
+    let isDrawing=true;
+
+    canvas.addEventListener('mousedown', drawPoint);
+
+
+    function drawPoint(e) {
+	  if (!isDrawing) {
+      	alert("Clear the canvas before adding more points"); 
+        return;
+      }
+      let rect = canvas.getBoundingClientRect();
+      let x = e.clientX - rect.left;
+      let y = e.clientY - rect.top;
+
+      points.push({ x, y });
+
+      ctx.fillStyle = '#000';
+      ctx.beginPath();
+      ctx.arc(x, y, 5, 0, 2 * Math.PI);
+      ctx.fill();
+    }
+
+    function generateVoronoi() {
+    if (points.length>0){
+    isDrawing=false;
+    // Use d3-delaunay library to compute Delaunay triangulation
+    const delaunay = d3.Delaunay.from(points.map(d => [d.x, d.y]));
+    const voronoi = delaunay.voronoi([0,0,600,400]);
+
+    // Draw Voronoi cells
+    //ctx.strokeStyle = '#333';
+    ctx.strokeStyle = "blue";
+    ctx.beginPath();
+    voronoi.render(ctx);
+    ctx.stroke();
+    }
+  }
+  
+  function generateDelaunay() {
+  	if (points.length>0){
+    isDrawing=false;
+    
+    // Use d3-delaunay library to compute Delaunay triangulation
+    const delaunay = d3.Delaunay.from(points.map(d => [d.x, d.y]));
+
+    // Draw Delaunay
+    //ctx.strokeStyle = '#333';
+    ctx.strokeStyle = "red";
+    ctx.beginPath();
+    delaunay.render(ctx);
+    ctx.stroke();
+    }
+  }
+  
+  function clearCanvas() {
+    // Clear canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    points = [];
+    isDrawing=true;
+  }
+  
+  function loadFile() {
+      let fileInput = document.getElementById('fileInput');
+      let file = fileInput.files[0];
+
+      if (file) {
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+          // Parse the content of the file and extract points
+          const content = e.target.result;
+          points = parseFileContent(content);
+
+          // Clear canvas
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+          // Draw points
+          ctx.fillStyle = '#000';
+          points.forEach(p => {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 5, 0, 2 * Math.PI);
+            ctx.fill();
+          });
+        };
+
+        reader.readAsText(file);
+      }
+    }
+
+    function parseFileContent(content) {
+      // Parse the content and extract points (assuming one point per line)
+      const lines = content.split('\n');
+      return lines.map(line => {
+        const [x, y] = line.split(' ').map(parseFloat);
+        return { x, y };
+      });
+    }
+	
+	function addPointsOnCircle() {
+      const k = parseInt(document.getElementById('circlePoints').value);
+      const radius = parseInt(document.getElementById('circleRadius').value);
+
+      const centerX = canvas.width / 2;
+      const centerY = canvas.height / 2;
+
+      const angleIncrement = (2 * Math.PI) / k;
+
+      // Clear canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Draw existing points
+      ctx.fillStyle = '#000';
+      points.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 5, 0, 2 * Math.PI);
+        ctx.fill();
+      });
+
+      // Add points on circle
+      for (let i = 0; i < k; i++) {
+        const angle = i * angleIncrement;
+        const x = centerX + radius * Math.cos(angle);
+        const y = centerY + radius * Math.sin(angle);
+        points.push({ x, y });
+
+        ctx.beginPath();
+        ctx.arc(x, y, 5, 0, 2 * Math.PI);
+        ctx.fill();
+      }
+    }
+	
+  
+  </script>
+</body>
+</html>
