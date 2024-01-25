@@ -29,7 +29,8 @@ https://cdn.jsdelivr.net/npm/d3-delaunay@6.0.4/dist/d3-delaunay.min.js
   <canvas id="voronoiCanvas" width="500" height="500"></canvas><br>
   <button onclick="generateVoronoi()">Generate Voronoi Diagram</button>
   <button onclick="generateDelaunay()">Generate Delaunay Triangulation</button>
-  <button onclick="clearCanvas()">Clear Canvas</button>
+  <button onclick="clearCanvas()">Clear Canvas</button></br>
+  Hide points? <input type="checkbox" id="hidePoints" onclick="hidePoints()">
   <p>
   <h4>Get creative! Generate artistic Voronoi diagrams:</h4>
 <table>
@@ -37,9 +38,9 @@ https://cdn.jsdelivr.net/npm/d3-delaunay@6.0.4/dist/d3-delaunay.min.js
   <td>Points on a Circle:</td>
   <td>
   <label for="circlePoints">Number of points:</label>
-  <input type="number" id="circlePoints" value="5" min="1" max="100"/>
+  <input type="number" id="circlePoints" value="16" min="1" max="100"/>
     <label for="circleRadius">Radius of circle:</label>
-  <input type="number" id="circleRadius" value="50" min="1" max="500"/>
+  <input type="number" id="circleRadius" value="150" min="1" max="500"/>
   </td><td>
   <button onclick="addPointsOnCircle()">Add</button>
   </td></tr>
@@ -82,6 +83,8 @@ https://cdn.jsdelivr.net/npm/d3-delaunay@6.0.4/dist/d3-delaunay.min.js
     let canvas = document.getElementById('voronoiCanvas');
     let ctx = canvas.getContext('2d');
     let isDrawing=true;
+	let isDel=false;
+	let isVor=false;
 
     canvas.addEventListener('mousedown', drawPoint);
 
@@ -106,6 +109,7 @@ https://cdn.jsdelivr.net/npm/d3-delaunay@6.0.4/dist/d3-delaunay.min.js
     function generateVoronoi() {
     if (points.length>0){
     isDrawing=false;
+	isVor=true;
     // Use d3-delaunay library to compute Delaunay triangulation
     const delaunay = d3.Delaunay.from(points.map(d => [d.x, d.y]));
     const voronoi = delaunay.voronoi([0,0,canvas.width,canvas.height]);
@@ -122,7 +126,7 @@ https://cdn.jsdelivr.net/npm/d3-delaunay@6.0.4/dist/d3-delaunay.min.js
   function generateDelaunay() {
   	if (points.length>0){
     isDrawing=false;
-    
+    isDel=true;
     // Use d3-delaunay library to compute Delaunay triangulation
     const delaunay = d3.Delaunay.from(points.map(d => [d.x, d.y]));
 
@@ -135,11 +139,33 @@ https://cdn.jsdelivr.net/npm/d3-delaunay@6.0.4/dist/d3-delaunay.min.js
     }
   }
   
+  function hidePoints() {
+  // Get the checkbox
+  var checkBox = document.getElementById("hidePoints");
+  
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // If the checkbox is checked, display the output text
+  if (checkBox.checked == false){
+	// Draw existing points
+      ctx.fillStyle = '#000';
+      points.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 5, 0, 2 * Math.PI);
+        ctx.fill();
+      });
+  }
+	if(isDel) generateDelaunay();
+	if(isVor) generateVoronoi();
+}
+  
   function clearCanvas() {
     // Clear canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     points = [];
     isDrawing=true;
+	isDel=false;
+	isVor=false;
   }
   
   function loadFile() {
