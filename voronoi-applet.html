@@ -108,7 +108,7 @@ https://cdn.jsdelivr.net/npm/d3-delaunay@6.0.4/dist/d3-delaunay.min.js
     isDrawing=false;
     // Use d3-delaunay library to compute Delaunay triangulation
     const delaunay = d3.Delaunay.from(points.map(d => [d.x, d.y]));
-    const voronoi = delaunay.voronoi([0,0,600,400]);
+    const voronoi = delaunay.voronoi([0,0,canvas.width,canvas.height]);
 
     // Draw Voronoi cells
     //ctx.strokeStyle = '#333';
