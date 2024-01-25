@@ -22,7 +22,7 @@ Instructions:
   <button onclick="clearCanvas()">Clear Canvas</button>
   <script>
     // Array to store polygon vertices
-    const polygonVertices = [];
+    let polygonVertices = [];
 
     // Get the canvas and context
     const canvas = document.getElementById('polygonCanvas');
@@ -48,6 +48,7 @@ Instructions:
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 		polygonVertices = [];
 		isDrawing=true;
+		selectedPoint = null;
 	  }
 
     // Function to add a point
@@ -147,15 +148,15 @@ Instructions:
     
     
         // Function to generate a random color with 30% opacity
-function getRandomColor() {
-  //return `hsla(${~~(360 * Math.random())}, 70%,  72%, 0.8)`
-  const r = Math.floor(Math.random() * 150) + 100; // Red component
-      const g = Math.floor(Math.random() * 150) + 100; // Green component
-      const b = Math.floor(Math.random() * 150) + 100; // Blue component
+	function getRandomColor() {
+	  //return `hsla(${~~(360 * Math.random())}, 70%,  72%, 0.8)`
+	  const r = Math.floor(Math.random() * 150) + 100; // Red component
+		  const g = Math.floor(Math.random() * 150) + 100; // Green component
+		  const b = Math.floor(Math.random() * 150) + 100; // Blue component
 
-      const randomColor = `rgba(${r}, ${g}, ${b}, 0.3)`;
-      return randomColor;
-}
+		  const randomColor = `rgba(${r}, ${g}, ${b}, 0.3)`;
+		  return randomColor;
+	}
 
     // Function to color points inside the polygon based on containment
     function colorPointsInsidePolygon() {
