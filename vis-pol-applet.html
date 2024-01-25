@@ -11,16 +11,15 @@
   </style>
 </head>
 <body>
-<h1>Visibility Polygons</h1>
-  <p>
+<h3>Visibility Polygons</h3>
 Instructions:
 <ol>
-  <li>Draw a polygon: pick its vertices by selecting points from the canvas above. <b>Double click</b> to pick the last vertex.</li>
-  <li>Use a <b>right click</b> to pick a point inside the polygon. All the points visible from it will be colored by a random color.</li>
-  <li>Refresh tha page to start over.</li>
+  <li>Select points from the canvas below to draw a polyon. <b>Double click</b> to pick the last vertex and close the poygon.</li>
+  <li><b>Right click</b> to pick a point inside the polygon. All the points visible from it will be colored by a random color.</li>
 </ol>
-</p>
   <canvas id="polygonCanvas" width="600" height="400"></canvas>
+  <br/>
+  <button onclick="clearCanvas()">Clear Canvas</button>
   <script>
     // Array to store polygon vertices
     const polygonVertices = [];
@@ -43,6 +42,13 @@ Instructions:
 
     // Selected point g
     let selectedPoint = null;
+
+	  function clearCanvas() {
+    // Clear canvas
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		polygonVertices = [];
+		isDrawing=true;
+	  }
 
     // Function to add a point
     function addPoint(e) {
