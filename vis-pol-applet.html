@@ -20,7 +20,7 @@ Instructions:
   <li>Refresh tha page to start over.</li>
 </ol>
 </p>
-  <canvas id="polygonCanvas" width="500" height="500"></canvas>
+  <canvas id="polygonCanvas" width="600" height="400"></canvas>
   <script>
     // Array to store polygon vertices
     const polygonVertices = [];
@@ -154,7 +154,7 @@ function getRandomColor() {
     // Function to color points inside the polygon based on containment
     function colorPointsInsidePolygon() {
     
-               const randomColor = getRandomColor();
+      const randomColor = getRandomColor();
       for (let i = 0; i < canvas.width; i++) {
         for (let j = 0; j < canvas.height; j++) {
           const point = { x: i, y: j };
@@ -169,7 +169,7 @@ function getRandomColor() {
             if (isLineSegmentInsidePolygon(selectedPoint, point, polygonVertices)) {
               // Color the point using a random color
               ctx.beginPath();
-              ctx.arc(i, j, 3, 0, 2 * Math.PI);
+              ctx.arc(i, j, 1, 0, 1 * Math.PI);
               ctx.fillStyle = randomColor;
               ctx.fill();
             }
@@ -188,7 +188,7 @@ function getRandomColor() {
 
         const distance = pointToLineDistance(point.x, point.y, xi, yi, xj, yj);
 
-        if (distance < 3) {
+        if (distance < 1) {
           // Consider points within a small distance from the edge as on the boundary
           return true;
         }
