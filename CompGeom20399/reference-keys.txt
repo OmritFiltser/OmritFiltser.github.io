@@ -1,5 +1,6 @@
 intro
 preface-1
+id_-leaning-goals-1
 what-is-cg
 basic-prop
 more-tools
@@ -17,6 +18,7 @@ output-sens
 deg-robust
 map-overlay
 preface-2
+contents-2
 them-map
 sweep-line
 line-int
@@ -28,6 +30,7 @@ problem-def
 bool-op
 pol-tringle
 preface-3
+contents-3
 agp
 geom-model
 worst-case
@@ -79,8 +82,8 @@ preface-7
 contents-7
 nns
 Voronoi-vid
-def
-prop
+structure
+complexity
 computing-VD
 beach-line
 Fortune-alg
@@ -92,12 +95,12 @@ duality-arrangements
 preface-8
 contents-8
 geometric-sampling
+discrepancy-definition
 discrepancy
 point-line-duality
 definition
 properties
 line-arrangements
-complexity
 construcion
 vertex-level
 הכוח-של-דואליות.

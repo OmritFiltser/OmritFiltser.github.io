@@ -107,13 +107,25 @@
 <h3>
 <span class="header-section-number">7.2.1</span> מהי דיאגרמת וורונוי?<a class="anchor" aria-label="anchor" href="#Voronoi-vid"><i class="fas fa-link"></i></a>
 </h3>
-<p>בסרטון הבא נגדיר את דיאגרמת וורונוי באופן פורמלי ונתאר מספר תכונות שלה. בסעיפים הבאים של חלק זה תוכלו למצוא את כל ההגדרות, האבחנות והמשפטים המופיעים בסרטון, כך שתוכלו לחזור אליהם בעת הצורך.</p>
-<div id="צפו-בסרטון-הבא.-10" class="section level4 unnumbered">
-<h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-10"><i class="fas fa-link"></i></a>
+<p>בסרטון הבא נגדיר את דיאגרמת וורונוי באופן פורמלי ונתאר מספר תכונות שלה.</p>
+<div id="צפו-בסרטון-הבא.-13" class="section level4 unnumbered">
+<h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-13"><i class="fas fa-link"></i></a>
 </h4>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Ofp5zWt8nTc?si=F0XW4UQFPIZZn5Os" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 </iframe>
+</center>
+<div class="rmdimportant">
+<p><img src="images/definition.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><u><strong>הגדרה</strong>: דיאגרמת וורונוי</u><br>
+תהי <span class="math inline">\(P=(p_1,\dots,p_n)\)</span> קבוצה של <span class="math inline">\(n\)</span> נקודות במישור. דיאגרמת וורונוי של הקבוצה <span class="math inline">\(P\)</span> היא חלוקה של המישור ל-<span class="math inline">\(n\)</span> תאים, אחד לכל נקודה של <span class="math inline">\(P\)</span>, כך שנקודה <span class="math inline">\(q\)</span> שייכת לתא שמתאים לנקודה <span class="math inline">\(p_i\)</span> אם ורק אם <span class="math inline">\(\|p_i-q\|&lt;\|p_j-q\|\)</span> לכל <span class="math inline">\(p_j\in P\)</span>, <span class="math inline">\(j\neq i\)</span>. נסמן ב-<span class="math inline">\(\text{Vor(P)}\)</span> את דיאגרמת וורונוי של הקבוצה <span class="math inline">\(P\)</span>, ועבור נקודה <span class="math inline">\(p_i\in P\)</span> נסמן ב-<span class="math inline">\(\mathcal{V}(p_i)\)</span> את התא בדיאגרמה המתאים ל-<span class="math inline">\(p_i\)</span>.</p>
+</div>
+</div>
+<div id="נסו-בעצמכם" class="section level4 unnumbered">
+<h4>נסו בעצמכם!<a class="anchor" aria-label="anchor" href="#%D7%A0%D7%A1%D7%95-%D7%91%D7%A2%D7%A6%D7%9E%D7%9B%D7%9D"><i class="fas fa-link"></i></a>
+</h4>
+<p>היישומון הבא מאפשר לבחור נקודות במישור, ובונה את דיאגרמת וורנוי שלהן באופן אינטראקטיבי. תוכלו לפתוח אותו בלשונית נפרדת <a href="https://alexbeutel.com/webgl/voronoi.html">בקישור הזה</a>.</p>
+<center>
+<embed type="text/html" src="https://alexbeutel.com/webgl/voronoi.html" width="100%" height="500"></embed>
 </center>
 <div class="rmdnote">
 <p><img src="images/extra.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><strong>מעניין לדעת</strong>: לדיאגרמת וורונוי יש שימושים רבים ומגוונים, ופרט לתחום החברתי-כלכלי (שהוזכר בהקדמה) היא משמשת גם בתחומים, כמו גרפיקה ממוחשבת, רובוטיקה, פיזיקה וביולוגיה, ומופיעה במגוון צורות בטבע, כפי שניתן לראות למשל בתמונות הבאות (מתוך המאמר <a href="https://www.sciencedirect.com/science/article/abs/pii/S0167732221012770">הזה</a>).</p>
@@ -121,51 +133,36 @@
 <img src="images/7/nature.jpg" style="width:80.0%">
 </center>
 </div>
-<div class="rmdwarning">
-<div class="inline-figure">
-<img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px">
-נסו זאת בעצמכם! ציירו את דיאגרמת וורנוי של קבוצת הנקודות הנתונה. ניתן להשתמש ב-Geogebra.</div>
-<iframe src="https://www.geogebra.org/classic/ypda7sap?embed" width="100%" height="500" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0">
-</iframe>
-<details><summary>
-(פתרון)
-</summary><iframe src="https://www.geogebra.org/classic/rqpdwhvx?embed" width="100%" height="500" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0">
-</iframe>
-</details>
 </div>
-<p>בשני העמודים הבאים מופיעות ההגדרות והתכונות של דיאגרמת וורונוי עליהן דנו בסרטון, יחד עם הערות, דוגמאות ותרגילים נוספים.</p>
-</div>
-</div>
-<div id="def" class="section level3" number="7.2.2">
-<h3>
-<span class="header-section-number">7.2.2</span> הגדרות<a class="anchor" aria-label="anchor" href="#def"><i class="fas fa-link"></i></a>
-</h3>
-<p>תהי <span class="math inline">\(P=(p_1,\dots,p_n)\)</span> קבוצה של <span class="math inline">\(n\)</span> נקודות במישור.</p>
-<div class="rmdimportant">
-<p><img src="images/definition.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><u><strong>הגדרה</strong>: דיאגרמת וורונוי</u><br>
-דיאגרמת וורונוי של הקבוצה <span class="math inline">\(P\)</span> היא חלוקה של המישור ל-<span class="math inline">\(n\)</span> תאים, אחד לכל נקודה של <span class="math inline">\(P\)</span>, כך שנקודה <span class="math inline">\(q\)</span> שייכת לתא שמתאים לנקודה <span class="math inline">\(p_i\)</span> אם ורק אם <span class="math inline">\(\|p_i-q\|&lt;\|p_j-q\|\)</span> לכל <span class="math inline">\(p_j\in P\)</span>, <span class="math inline">\(j\neq i\)</span>.</p>
-</div>
+<div id="נסו-בעצמכם-אמנות-חזותית-באמצעות-דיאגרמת-וורונוי" class="section level4 unnumbered">
+<h4>נסו בעצמכם! אמנות חזותית באמצעות דיאגרמת וורונוי<a class="anchor" aria-label="anchor" href="#%D7%A0%D7%A1%D7%95-%D7%91%D7%A2%D7%A6%D7%9E%D7%9B%D7%9D-%D7%90%D7%9E%D7%A0%D7%95%D7%AA-%D7%97%D7%96%D7%95%D7%AA%D7%99%D7%AA-%D7%91%D7%90%D7%9E%D7%A6%D7%A2%D7%95%D7%AA-%D7%93%D7%99%D7%90%D7%92%D7%A8%D7%9E%D7%AA-%D7%95%D7%95%D7%A8%D7%95%D7%A0%D7%95%D7%99"><i class="fas fa-link"></i></a>
+</h4>
+<p>היישומון הבא מאפשר ליצור יצירות אומנות בעזרת דיאגרמת וורונוי! תוכלו לפתוח אותו בלשונית נפרדת <a href="https://omrit.filtser.com/voronoi-applet.html">בקישור הזה</a>. (על טריאנגולצית דלוני נלמד בהמשך הקורס.)</p>
 <center>
-<img src="images/7/voronoi-cells.jpg" style="width:70.0%">
+<embed type="text/html" src="https://omrit.filtser.com/voronoi-applet.html" width="100%" height="700"></embed>
 </center>
-<p>נסמן ב-<span class="math inline">\(\text{Vor(P)}\)</span> את דיאגרמת וורונוי של הקבוצה <span class="math inline">\(P\)</span>, ועבור נקודה <span class="math inline">\(p_i\in P\)</span> נסמן ב-<span class="math inline">\(\mathcal{V}(p_i)\)</span> את התא בדיאגרמה המתאים ל-<span class="math inline">\(p_i\)</span>.</p>
+<p>בשני הסעיפים הבאים מופיעות ההגדרות, האבחנות והתכונות של דיאגרמת וורונוי עליהן דנו בסרטון, כדי שיהיה לכם נוח לחזור אליהן בעתיד. נוסף על כך, מופיעות בהם הערות ודוגמאות נוספות וכן תרגילים לחזרה, כך שמומלץ לעבור על כל אלו בעיון לפני שממשיכים לחלק הבא.</p>
+</div>
+</div>
+<div id="structure" class="section level3" number="7.2.2">
+<h3>
+<span class="header-section-number">7.2.2</span> מבנה הדיאגרמה<a class="anchor" aria-label="anchor" href="#structure"><i class="fas fa-link"></i></a>
+</h3>
+<div id="כיצד-נראית-הדיאגרמה-של-שני-אתרים-בלבד" class="section level4 unnumbered">
+<h4>כיצד נראית הדיאגרמה של שני אתרים בלבד?<a class="anchor" aria-label="anchor" href="#%D7%9B%D7%99%D7%A6%D7%93-%D7%A0%D7%A8%D7%90%D7%99%D7%AA-%D7%94%D7%93%D7%99%D7%90%D7%92%D7%A8%D7%9E%D7%94-%D7%A9%D7%9C-%D7%A9%D7%A0%D7%99-%D7%90%D7%AA%D7%A8%D7%99%D7%9D-%D7%91%D7%9C%D7%91%D7%93"><i class="fas fa-link"></i></a>
+</h4>
 <p>נניח שנתונות לנו שתי נקודות בלבד, <span class="math inline">\(p_1,p_2\)</span>. כיצד תיראה הדיאגרמה במקרה זה?</p>
 <div class="rmdimportant">
 <p><img src="images/definition.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><u><strong>הגדרה</strong>: bisector</u><br>
 עבור שתי נקודות <span class="math inline">\(p_1\)</span> ו-<span class="math inline">\(p_2\)</span>, האנך האמצעי לקטע <span class="math inline">\(\overline{p_1p_2}\)</span> נקרא ה-bisector של <span class="math inline">\(p_1\)</span> ו-<span class="math inline">\(p_2\)</span>.</p>
 </div>
-<p><img src="images/7/2-sites.jpg" align="left" width="30%">
-שימו לב שכל נקודה שנמצאת על ה-bisector היא במרחק שווה מ-<span class="math inline">\(p_1\)</span> ו-<span class="math inline">\(p_2\)</span> (חשבו, מדוע).</p>
+<p><img src="images/7/2-sites.jpg" align="left" width="30%"> שימו לב שכל נקודה שנמצאת על ה-bisector היא במרחק שווה מ-<span class="math inline">\(p_1\)</span> ו-<span class="math inline">\(p_2\)</span> (חשבו, מדוע).</p>
 <p>ה-bisector של <span class="math inline">\(p_1\)</span> ו-<span class="math inline">\(p_2\)</span> מחלק את המישור לשני חצאי מישור. נסמן ב-<span class="math inline">\(h(p_1,p_2)\)</span> את חצי המישור הפתוח שמכיל את <span class="math inline">\(p_1\)</span>. כל נקודה הנמצאת ב-<span class="math inline">\(h(p_1,p_2)\)</span>, קרובה יותר ל-<span class="math inline">\(p_1\)</span> מאשר ל-<span class="math inline">\(p_2\)</span>.</p>
 </div>
-<div id="prop" class="section level3" number="7.2.3">
-<h3>
-<span class="header-section-number">7.2.3</span> תכונות הדיאגרמה<a class="anchor" aria-label="anchor" href="#prop"><i class="fas fa-link"></i></a>
-</h3>
 <div id="כיצד-נראה-תא-וורונוי" class="section level4 unnumbered">
 <h4>כיצד נראה תא וורונוי?<a class="anchor" aria-label="anchor" href="#%D7%9B%D7%99%D7%A6%D7%93-%D7%A0%D7%A8%D7%90%D7%94-%D7%AA%D7%90-%D7%95%D7%95%D7%A8%D7%95%D7%A0%D7%95%D7%99"><i class="fas fa-link"></i></a>
 </h4>
-<p>האבחנות שראינו למעלה מובילות אותנו לאבחנה הבאה בנוגע למבנה של תא בדיאגרמת וורונוי:</p>
+<p>האבחנות שראינו קודם מובילות אותנו לאבחנה הבאה בנוגע למבנה של תא בדיאגרמת וורונוי:</p>
 <div class="rmdimportant">
 <p><img src="images/definition.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><u><strong>אבחנה</strong>:</u> תא וורונוי <span class="math inline">\(\mathcal{V}(p_i)\)</span> מתקבל על ידי חיתוך של <span class="math inline">\(n-1\)</span> חצאי מישורים, ולכן הוא פוליגון קמור (ייתכן שאינו חסום) בעל לכל היותר <span class="math inline">\(n-1\)</span> קודקודים ו-<span class="math inline">\(n-1\)</span> צלעות.</p>
 <center>
@@ -178,12 +175,36 @@
 </h4>
 <p>מכיוון שכל תא בדיאגרמה הוא חיתוך של חצאי מישורים, דיאגרמת וורונוי תהיה חלוקה של המישור שהצלעות שלה הן ישרים, חצאי ישרים או קטעים. צלעות שהן ישרים (כלומר כאלו שאינן חסומות משני הצדדים) יתקבלו רק במקרה שבו כל הנקודות נמצאות על ישר אחד. בספר הלימוד מופיעה ההוכחה המלאה למשפט הבא:</p>
 <div class="rmdimportant">
-<p><img src="images/definition.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><u><strong>משפט</strong>:</u> אם כל נקודות <span class="math inline">\(P\)</span> נמצאות על ישר אחד, אז <span class="math inline">\(\text{Vor(P)}\)</span> מורכבת מ-<span class="math inline">\(n-1\)</span> ישרים מקבילים. אחרת, <span class="math inline">\(\text{Vor(P)}\)</span> קשירה, והצלעות שלה הן קטעים או חצאי ישרים (קרניים).</p>
+<p><img src="images/definition.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><u><strong>משפט (7.2 בספר הלימוד)</strong>:</u> אם כל נקודות <span class="math inline">\(P\)</span> נמצאות על ישר אחד, אז <span class="math inline">\(\text{Vor(P)}\)</span> מורכבת מ-<span class="math inline">\(n-1\)</span> ישרים מקבילים. אחרת, <span class="math inline">\(\text{Vor(P)}\)</span> קשירה, והצלעות שלה הן קטעים או חצאי ישרים (קרניים).</p>
 <center>
 <img src="images/7/vor-diam.jpg" style="width:100.0%">
 </center>
 </div>
+<div class="rmdwarning">
+<div class="inline-figure">
+<img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> נסו זאת בעצמכם! ציירו את דיאגרמת וורנוי של קבוצת הנקודות הנתונה. ניתן להשתמש ב-Geogebra.</div>
+<iframe src="https://www.geogebra.org/classic/ypda7sap?embed" width="100%" height="500" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0">
+</iframe>
+<details><summary>
+(פתרון)
+</summary><iframe src="https://www.geogebra.org/classic/rqpdwhvx?embed" width="100%" height="500" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0">
+</iframe>
+</details>
 </div>
+<div class="rmdwarning">
+<div class="inline-figure">
+<img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> נסו לחשוב בעצמכם על אלגוריתם פשוט לבניית דיאגרמת וורונוי.</div>
+<details><summary>
+(רמז)
+</summary><p>ניתן להשתמש באבחנה בנוגע למבנה של תא וורונוי. התשובה מופיעה בתחילת הסעיף הבא.</p>
+</details>
+</div>
+</div>
+</div>
+<div id="complexity" class="section level3" number="7.2.3">
+<h3>
+<span class="header-section-number">7.2.3</span> סיבוכיות הדיאגרמה ותכונת המעגל הריק<a class="anchor" aria-label="anchor" href="#complexity"><i class="fas fa-link"></i></a>
+</h3>
 <div id="סיבוכיות-הדיאגרמה." class="section level4 unnumbered">
 <h4>סיבוכיות הדיאגרמה.<a class="anchor" aria-label="anchor" href="#%D7%A1%D7%99%D7%91%D7%95%D7%9B%D7%99%D7%95%D7%AA-%D7%94%D7%93%D7%99%D7%90%D7%92%D7%A8%D7%9E%D7%94."><i class="fas fa-link"></i></a>
 </h4>
@@ -193,7 +214,7 @@
 </center>
 <p>מה הסיבוכיות של כל הדיאגרמה? על ידי שימוש ב<a href="map-overlay.html#euiler">נוסחת אוילר</a>, והעובדה שהדרגה המינימלית של קודקוד בדיאגרמה היא 3, ניתן להוכיח שהסיבוכיות של <span class="math inline">\(\text{Vor}(P)\)</span> היא <span class="math inline">\(O(n)\)</span> (ההוכחה המלאה מופיעה בספר הלימוד).</p>
 <div class="rmdimportant">
-<p><img src="images/definition.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><u><strong>משפט</strong>:</u> הסיבוכיות של <span class="math inline">\(\text{Vor(P)}\)</span> היא <span class="math inline">\(O(n)\)</span>.</p>
+<p><img src="images/definition.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><u><strong>משפט (7.3 בספר הלימוד)</strong>:</u> הסיבוכיות של <span class="math inline">\(\text{Vor(P)}\)</span> היא <span class="math inline">\(O(n)\)</span>.</p>
 </div>
 </div>
 <div id="תכונת-המעגל-הריק." class="section level4 unnumbered">
@@ -208,19 +229,22 @@
 </ol>
 </div>
 <div class="rmdtip">
-<p><img src="images/example.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><u>דוגמה:<br></u>
-באיור הבא, הנקודות הירוקות <span class="math inline">\(q_1\)</span> ו-<span class="math inline">\(q_3\)</span> הן קודקודים של הדיאגרמה <span class="math inline">\(\text{Vor(P)}\)</span>: המעגל <span class="math inline">\(C_P(q_1)\)</span> מכיל ארבע נקודות של <span class="math inline">\(P\)</span> על שפתו, והמעגל <span class="math inline">\(C_p(q_3)\)</span> מכיל שלוש נקודות של <span class="math inline">\(P\)</span> על שפתו.
-הנקודה האדומה <span class="math inline">\(q_2\)</span> נמצאת על ה-bisector של <span class="math inline">\(p_i\)</span> ו-<span class="math inline">\(p_j\)</span>, והמעגל <span class="math inline">\(C_P(q_2)\)</span> מכיל את <span class="math inline">\(p_i\)</span> ו-<span class="math inline">\(p_j\)</span> על שפתו ואינו מכיל אף נקודה אחרת של <span class="math inline">\(P\)</span> על שפתו. לכן ה-bisector של <span class="math inline">\(p_i\)</span> ו-<span class="math inline">\(p_j\)</span> מגדיר צלע של <span class="math inline">\(\text{Vor(P)}\)</span>.</p>
+<p><img src="images/example.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><u>דוגמה:<br></u> באיור הבא, הנקודות הירוקות <span class="math inline">\(q_1\)</span> ו-<span class="math inline">\(q_3\)</span> הן קודקודים של הדיאגרמה <span class="math inline">\(\text{Vor(P)}\)</span>: המעגל <span class="math inline">\(C_P(q_1)\)</span> מכיל ארבע נקודות של <span class="math inline">\(P\)</span> על שפתו, והמעגל <span class="math inline">\(C_p(q_3)\)</span> מכיל שלוש נקודות של <span class="math inline">\(P\)</span> על שפתו. הנקודה האדומה <span class="math inline">\(q_2\)</span> נמצאת על ה-bisector של <span class="math inline">\(p_i\)</span> ו-<span class="math inline">\(p_j\)</span>, והמעגל <span class="math inline">\(C_P(q_2)\)</span> מכיל את <span class="math inline">\(p_i\)</span> ו-<span class="math inline">\(p_j\)</span> על שפתו ואינו מכיל אף נקודה אחרת של <span class="math inline">\(P\)</span> על שפתו. לכן ה-bisector של <span class="math inline">\(p_i\)</span> ו-<span class="math inline">\(p_j\)</span> מגדיר צלע של <span class="math inline">\(\text{Vor(P)}\)</span>.</p>
 <center>
 <img src="images/7/circles.jpg" style="width:100.0%">
 </center>
 </div>
 <div class="rmdwarning">
-<img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> לפני שתעברו לחלק הבא, נסו לחשוב בעצמכם על אלגוריתם פשוט לבניית דיאגרמת וורונוי.
+<div class="inline-figure">
+<img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> k אנשים מחלקים ביניהם עוגה עגולה, באופן הבא. כל אחד מהם בתורו בוחר נקודה על ההיקף של העוגה, ואז בונים את דיאגרמת וורונוי של k הנקודות וחותכים את העוגה לפרוסות לפי צלעות הדיאגרמה.</div>
+<ol style="list-style-type: decimal">
+<li><p>עבור k=2, מי מהאנשים יקבל פרוסה גדולה יותר?</p></li>
+<li><p>עבור k=3, איזה חלק של העוגה יכול האדם השלישי להבטיח שיקבל?</p></li>
+<li><p>איזה חלק של העוגה יקבל האדם ה-k, עבור <span class="math inline">\(k\ge 3\)</span>?</p></li>
+</ol>
 <details><summary>
-(רמז)
-</summary>
-ניתן להשתמש באבחנה בנוגע למבנה של תא וורונוי. התשובה מופיעה בתחילת הסעיף הבא.
+(פתרון)
+</summary><p>עבור k=2, דיאגרמת וורונוי היא בדיוק ה-bisector של שתי הנקודות שנבחרו, ולכן לא משנה איזה נקודות יבחרו – העוגה תמיד תתחלק לשני חלקים שווים. שימו לב שה-bisector תמיד עובר במרכז המעגל. מתכונת המעגל הריק, עבור <span class="math inline">\(k\ge 3\)</span> לדיגארמה תמיד יהיה קודקוד יחיד שנמצא בדיוק במרכז העוגה. נניח לשם פשטות שהעוגה היא מעגל עם היקף באורך 1, ו-k-1 האנשים הראשונים בוחרים נקודות על המעגל הזה, שמחלקות את המעגל ל-k-1 קשתות. כשיגיע תורו של האדם ה-k, הוא תמיד יוכל למצוא קשת של המעגל בין שתי נקודות שכבר נבחרו, שהיא באורך לפחות <span class="math inline">\(\frac{1}{k-1}\)</span>. זה מכיוון שאם כל k-1 הקשתות הקיימות הן באורך קטן ממש מ-<span class="math inline">\(\frac{1}{k-1}\)</span>, אז סכומן יהיה קטן מ-1. אם האדם ה-k יבחר נקודה על הקשת הזו, הוא יקבל פרוסה בגודל <span class="math inline">\(\frac{1}{2(k-1)}\)</span> מהעוגה.</p>
 </details>
 </div>
 </div>
@@ -239,11 +263,9 @@
 <h3>
 <span class="header-section-number">7.3.1</span> סריקת קו החוף<a class="anchor" aria-label="anchor" href="#beach-line"><i class="fas fa-link"></i></a>
 </h3>
-<p><img src="images/7/vor-cell.jpg" width="30%" align="left">
-האבחנה שראינו בחלק הקודם בנוגע למבנה של תא וורונוי מובילה לאלגוריתם פשוט למדי לחישוב הדיאגרמה. נוכל לחשב לכל אתר <span class="math inline">\(p_i\)</span> את החיתוך של חצאי המישורים <span class="math inline">\(h(p_i,p_j)\)</span> לכל <span class="math inline">\(j\neq i\)</span> בעזרת האלגוריתם שראינו בפרק 4, וכך נקבל את התא המתאים ל-<span class="math inline">\(p_i\)</span>. כך החישוב של כל תא יהיה בזמן <span class="math inline">\(O(n\log n)\)</span>, וסך כל זמן הריצה יהיה <span class="math inline">\(O(n^2 \log n)\)</span>. האם ניתן להשיג זמן טוב יותר? אחרי הכול, הסיבוכיות של דיאגרמת וורונוי היא לינארית.
-בסרטון הבא נתאר רעיון לחישוב דיאגרמת וורונוי בעזרת אלגוריתם סורק.</p>
-<div id="צפו-בסרטון-הבא.-11" class="section level4 unnumbered">
-<h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-11"><i class="fas fa-link"></i></a>
+<p><img src="images/7/vor-cell.jpg" width="30%" align="left"> האבחנה שראינו בחלק הקודם בנוגע למבנה של תא וורונוי מובילה לאלגוריתם פשוט למדי לחישוב הדיאגרמה. נוכל לחשב לכל אתר <span class="math inline">\(p_i\)</span> את החיתוך של חצאי המישורים <span class="math inline">\(h(p_i,p_j)\)</span> לכל <span class="math inline">\(j\neq i\)</span> בעזרת האלגוריתם שראינו ביחידה 4, וכך נקבל את התא המתאים ל-<span class="math inline">\(p_i\)</span>. כך החישוב של כל תא יהיה בזמן <span class="math inline">\(O(n\log n)\)</span>, וסך כל זמן הריצה יהיה <span class="math inline">\(O(n^2 \log n)\)</span>. האם ניתן להשיג זמן טוב יותר? אחרי הכול, הסיבוכיות של דיאגרמת וורונוי היא לינארית. בסרטון הבא נתאר רעיון לחישוב דיאגרמת וורונוי בעזרת אלגוריתם סורק.</p>
+<div id="צפו-בסרטון-הבא.-14" class="section level4 unnumbered">
+<h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-14"><i class="fas fa-link"></i></a>
 </h4>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/T4QqrteIy7s?si=CclpxQG3dWJzMQ55" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
@@ -253,8 +275,7 @@
 <div id="הדגמה." class="section level4 unnumbered">
 <h4>הדגמה.<a class="anchor" aria-label="anchor" href="#%D7%94%D7%93%D7%92%D7%9E%D7%94."><i class="fas fa-link"></i></a>
 </h4>
-<p>ביישומון הבא, מאת <a href="https://www.youtube.com/@PhilippKindermann">Philipp Kindermann</a>, תוכלו לראות בעצמכם כיצד נראה קו החוף ביחס לדיאגרמה.
-הזיזו את קו החוף מעלה ומטה. שימו לב מתי נוספות קשתות חדשות, וכיצד נקודות החיבור בין הקשתות של קו החוף “משרטטות” את צלעות הדיאגרמה כאשר הישר הסורק מתקדם מטה.</p>
+<p>ביישומון הבא, מאת <a href="https://www.youtube.com/@PhilippKindermann">Philipp Kindermann</a>, תוכלו לראות בעצמכם כיצד נראה קו החוף ביחס לדיאגרמה. הזיזו את קו החוף מעלה ומטה. שימו לב מתי נוספות קשתות חדשות, וכיצד נקודות החיבור בין הקשתות של קו החוף “משרטטות” את צלעות הדיאגרמה כאשר הישר הסורק מתקדם מטה.</p>
 <center>
 <iframe src="https://www.desmos.com/calculator/dcdpn6w8ua?embed" width="100%" height="500" style="border: 1px solid #ccc" frameborder="0">
 </iframe>
@@ -295,10 +316,7 @@
 </h3>
 <p>בחלקים הקודמים הגדרנו את דיאגרמת וורונוי עבור אוסף של נקודות במישור תחת מטריקת <span class="math inline">\(L_2\)</span>, כלומר המרחק האוקלידי. זהו בעצם מקרה פשוט של רעיון כללי ומופשט הרבה יותר; באופן כללי, דיאגרמת וורונוי מתארת חלוקה של המרחב לתאים, לפי המרחק לאובייקטים מאוסף נתון. ראו למשל את <a href="https://en.wikipedia.org/wiki/Voronoi_diagram#Formal_definition">ההגדרה הפורמלית של דיאגרמת וורונוי המופיעה בוויקיפדיה</a> (עבור מרחבים מטריים).</p>
 <p>הכללה אחת שניתן לעשות נוגעת ל<strong>מרחב</strong> שבו נמצאים האתרים. הדוגמה הפשוטה ביותר להכללה כזו היא עבור נקודות בממדים גבוהים מ-2. עבור נקודות מממד <span class="math inline">\(d\)</span>, הסיבוכיות של הדיאגרמה יכולה להגיע ל-<span class="math inline">\(\Theta(n^{\lceil d/2\rceil})\)</span>, וניתן לחשב אותה בזמן <span class="math inline">\(O(n\log n+n^{\lceil d/2\rceil})\)</span>.</p>
-<p><img src="images/7/L_1-dist.jpg" width="30%" align="left">
-הכללה אחרת נוגעת לפונקציית ה<strong>מרחק</strong>: במקום מרחק אוקלידי, נוכל להשתמש בפונקציית מרחק אחרת בין הנקודות. למשל, מרחק <span class="math inline">\(L_1\)</span> (שנקרא גם “מרחק מנהטן”) בין שתי נקודות <span class="math inline">\(p\)</span> ו-<span class="math inline">\(q\)</span> מוגדר להיות
-<span class="math display">\[\|p-q\|_1:=|p_x-q_x|+|p_y-q_y\|.\]</span>
-במקרה זה כל צלעות הדיאגרמה יהיו אופקיות, אנכיות או בזווית של <span class="math inline">\(45^\circ\)</span> בלבד.</p>
+<p><img src="images/7/L_1-dist.jpg" width="30%" align="left"> הכללה אחרת נוגעת לפונקציית ה<strong>מרחק</strong>: במקום מרחק אוקלידי, נוכל להשתמש בפונקציית מרחק אחרת בין הנקודות. למשל, מרחק <span class="math inline">\(L_1\)</span> (שנקרא גם “מרחק מנהטן”) בין שתי נקודות <span class="math inline">\(p\)</span> ו-<span class="math inline">\(q\)</span> מוגדר להיות <span class="math display">\[\|p-q\|_1:=|p_x-q_x|+|p_y-q_y\|.\]</span> במקרה זה כל צלעות הדיאגרמה יהיו אופקיות, אנכיות או בזווית של <span class="math inline">\(45^\circ\)</span> בלבד.</p>
 <p>הכללה נוספת של הדיאגרמה נוגעת לאתרים עצמם: במקום אוסף של נקודות, נוכל להגדיר את קבוצת האתרים להיות <strong>אוסף של אובייקטים</strong>, כלומר אוסף של תת-קבוצות של נקודות מהמרחב. דוגמה אחת שמופיעה בספר הלימוד לשימוש בהכללה הזו היא כאשר האובייקטים האלו הם קטעים. המרחק בין נקודה <span class="math inline">\(q\)</span> לקטע <span class="math inline">\(s\)</span> מוגדר להיות המרחק (האוקלידי) בין <span class="math inline">\(q\)</span> לנקודה על <span class="math inline">\(s\)</span> שקרובה אליה ביותר. תוכלו לקרוא על כך בסעיף 7.3 בספר הלימוד.</p>
 </div>
 <div id="other-defs" class="section level3" number="7.4.2">
@@ -309,19 +327,13 @@
 <div id="דיאגרמת-וורונוי-ממושקלת." class="section level4 unnumbered">
 <h4>דיאגרמת וורונוי ממושקלת.<a class="anchor" aria-label="anchor" href="#%D7%93%D7%99%D7%90%D7%92%D7%A8%D7%9E%D7%AA-%D7%95%D7%95%D7%A8%D7%95%D7%A0%D7%95%D7%99-%D7%9E%D7%9E%D7%95%D7%A9%D7%A7%D7%9C%D7%AA."><i class="fas fa-link"></i></a>
 </h4>
-<p>כאן, נוסף על אוסף האתרים <span class="math inline">\(P=(p_1,\dots,p_n)\)</span>, נתון לנו גם אוסף של משקלים <span class="math inline">\(W=(w_1,\dots,w_n)\)</span>, כך שמשקל המתאים ל-<span class="math inline">\(p_i\)</span> הוא <span class="math inline">\(w_i\)</span>. השינוי בהגדרה של הדיאגרמה הוא בפונקציית המרחק: נקודה <span class="math inline">\(q\)</span> שייכת לתא שמתאים לנקודה <span class="math inline">\(p_i\)</span> אם ורק אם
-<span class="math inline">\(\|p_i-q\|+w_i&lt;\|p_j-q\|+w_j\)</span> לכל <span class="math inline">\(p_j\in P\)</span>, <span class="math inline">\(j\neq i\)</span>.
-שימו לב שאם כל המשקלים הם 0, אז מדובר בבעיה המקורית.</p>
+<p>כאן, נוסף על אוסף האתרים <span class="math inline">\(P=(p_1,\dots,p_n)\)</span>, נתון לנו גם אוסף של משקלים <span class="math inline">\(W=(w_1,\dots,w_n)\)</span>, כך שמשקל המתאים ל-<span class="math inline">\(p_i\)</span> הוא <span class="math inline">\(w_i\)</span>. השינוי בהגדרה של הדיאגרמה הוא בפונקציית המרחק: נקודה <span class="math inline">\(q\)</span> שייכת לתא שמתאים לנקודה <span class="math inline">\(p_i\)</span> אם ורק אם <span class="math inline">\(\|p_i-q\|+w_i&lt;\|p_j-q\|+w_j\)</span> לכל <span class="math inline">\(p_j\in P\)</span>, <span class="math inline">\(j\neq i\)</span>. שימו לב שאם כל המשקלים הם 0, אז מדובר בבעיה המקורית.</p>
 <p>ניתן לחשוב על סיטואציות שונות מהעולם האמיתי שבהן יש צורך בהוספת משקלים, למשל כאשר כל אתר מסמל מרכז קניות שלם, וכל מרכז קניות הוא אטרקטיבי במידה שונה.</p>
 </div>
 <div id="דיאגרמת-וורונוי-מסדר-k." class="section level4 unnumbered">
 <h4>דיאגרמת וורונוי מסדר k.<a class="anchor" aria-label="anchor" href="#%D7%93%D7%99%D7%90%D7%92%D7%A8%D7%9E%D7%AA-%D7%95%D7%95%D7%A8%D7%95%D7%A0%D7%95%D7%99-%D7%9E%D7%A1%D7%93%D7%A8-k."><i class="fas fa-link"></i></a>
 </h4>
-<p>עבור קבוצת אתרים <span class="math inline">\(P=(p_1,\dots,p_n)\)</span> ומספר <span class="math inline">\(1\le k\le n-1\)</span>, דיאגרמת וורונוי מסדר <span class="math inline">\(k\)</span> היא חלוקה של המישור לתאים, כך שכל תא מזוהה עם תת-קבוצה בגודל <span class="math inline">\(k\)</span> של אתרים מ-<span class="math inline">\(P\)</span>, ונקודה שייכת לתא המזוהה עם קבוצה
-<span class="math inline">\(\{p_{i_1},\dots,p_{i_k}\}\)</span>
-אם ורק אם אלו הם
-<span class="math inline">\(k\)</span> האתרים הקרובים אליה ביותר מבין כל האתרים ב-<span class="math inline">\(P\)</span>.
-למשל, עבור <span class="math inline">\(k=2\)</span> כל תא מזוהה עם זוג נקודות, ונקודה <span class="math inline">\(q\)</span> שייכת לתא של <span class="math inline">\(p_i,p_j\)</span> אם לא קיים אתר אחר ב-<span class="math inline">\(P\)</span> שקרוב אליה יותר מ-<span class="math inline">\(p_i\)</span> או <span class="math inline">\(p_j\)</span>.</p>
+<p>עבור קבוצת אתרים <span class="math inline">\(P=(p_1,\dots,p_n)\)</span> ומספר <span class="math inline">\(1\le k\le n-1\)</span>, דיאגרמת וורונוי מסדר <span class="math inline">\(k\)</span> היא חלוקה של המישור לתאים, כך שכל תא מזוהה עם תת-קבוצה בגודל <span class="math inline">\(k\)</span> של אתרים מ-<span class="math inline">\(P\)</span>, ונקודה שייכת לתא המזוהה עם קבוצה <span class="math inline">\(\{p_{i_1},\dots,p_{i_k}\}\)</span> אם ורק אם אלו הם <span class="math inline">\(k\)</span> האתרים הקרובים אליה ביותר מבין כל האתרים ב-<span class="math inline">\(P\)</span>. למשל, עבור <span class="math inline">\(k=2\)</span> כל תא מזוהה עם זוג נקודות, ונקודה <span class="math inline">\(q\)</span> שייכת לתא של <span class="math inline">\(p_i,p_j\)</span> אם לא קיים אתר אחר ב-<span class="math inline">\(P\)</span> שקרוב אליה יותר מ-<span class="math inline">\(p_i\)</span> או <span class="math inline">\(p_j\)</span>.</p>
 <p>מקרה מעניין במיוחד הוא עבור <span class="math inline">\(k=n-1\)</span>: במקרה זה כל תא מזוהה עם <span class="math inline">\(n-1\)</span> נקודות, ובאופן שקול, כל תא מזוהה עם נקודה אחת (היחידה שאינה בקבוצה), ונקודה <span class="math inline">\(q\)</span> שייכת לתא של <span class="math inline">\(p_i\)</span> אם <span class="math inline">\(p_i\)</span> היא הנקודה הרחוקה ביותר ממנה מבין נקודות <span class="math inline">\(P\)</span>. לפיכך מקרה זה נקרא Farthest-Point Voronoi Diagram, או בקיצור דיאגרמת FPV. באיור למטה, ניתן לראות דוגמה לדיאגרמת FPV של קבוצת נקודות. האם תצליחו לזהות איזה תא מתאים לאיזו נקודה?</p>
 <center>
 <img src="images/7/fpv.jpg" style="width:35.0%">
@@ -339,9 +351,8 @@
 <h3>
 <span class="header-section-number">7.5.1</span> משחק וורונוי על ריבוע<a class="anchor" aria-label="anchor" href="#%D7%9E%D7%A9%D7%97%D7%A7-%D7%95%D7%95%D7%A8%D7%95%D7%A0%D7%95%D7%99-%D7%A2%D7%9C-%D7%A8%D7%99%D7%91%D7%95%D7%A2"><i class="fas fa-link"></i></a>
 </h3>
-<p>(חלק זה הוא העשרה בלבד ואינו נכלל בחומר הקורס)</p>
-<p><img src="images/7/vor-game.jpg" width="35%" align="left">
-במשחק וורונוי יש שני שחקנים, כחול ואדום, והלוח הוא ריבוע במישור. השחקנים משחקים בתורות במשך <span class="math inline">\(k\)</span> סבבים, כאשר האדום משחק ראשון והכחול שני. כל שחקן בתורו בוחר נקודה על הלוח, ואז בונים את דיאגרמת וורונוי של כל הנקודות שנבחרו ומחשבים את סכום השטחים של תאי וורונוי האדומים ושל תאי וורונוי הכחולים. המנצח הוא זה שבסוף המשחק הצליח להשיג שטח גדול יותר.</p>
+<p>(חלק זה הוא להעשרה בלבד ואינו נכלל בחומר הקורס.)</p>
+<p><img src="images/7/vor-game.jpg" width="35%" align="left"> במשחק וורונוי יש שני שחקנים, כחול ואדום, והלוח הוא ריבוע במישור. השחקנים משחקים בתורות במשך <span class="math inline">\(n\)</span> סבבים, כאשר האדום משחק ראשון והכחול שני. כל שחקן בתורו בוחר נקודה על הלוח, ואז בונים את דיאגרמת וורונוי של כל הנקודות שנבחרו ומחשבים את סכום השטחים של תאי וורונוי האדומים ושל תאי וורונוי הכחולים. המנצח הוא זה שבסוף המשחק הצליח להשיג שטח גדול יותר.</p>
 <p>שאלה מעניינת למחקר היא: למי מהשחקנים יש אסטרטגיה מנצחת, ומהי? שאלה נוספת: בהינתן מצב של הלוח, באיזו נקודה כדאי לבחור כדי למקסם את השטח? ואיך ניתן לחשב זאת בזמן יעיל? ניתן לחשוב גם מה קורה כשלוח המשחק הוא לאו דווקא ריבוע; למשל, מה קורה כאשר לוח המשחק הוא פוליגון? או גרף?</p>
 <p>ניתן לשחק במשחק וורונוי <a href="https://cfbrasz.github.io/VoronoiColoring.html">בסימולציה </a> מאת Frederik Brasz.</p>
 
@@ -364,8 +375,8 @@
 <li>
 <a class="nav-link" href="#basic-prop"><span class="header-section-number">7.2</span> הגדרה ותכונות בסיסיות</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#Voronoi-vid"><span class="header-section-number">7.2.1</span> מהי דיאגרמת וורונוי?</a></li>
-<li><a class="nav-link" href="#def"><span class="header-section-number">7.2.2</span> הגדרות</a></li>
-<li><a class="nav-link" href="#prop"><span class="header-section-number">7.2.3</span> תכונות הדיאגרמה</a></li>
+<li><a class="nav-link" href="#structure"><span class="header-section-number">7.2.2</span> מבנה הדיאגרמה</a></li>
+<li><a class="nav-link" href="#complexity"><span class="header-section-number">7.2.3</span> סיבוכיות הדיאגרמה ותכונת המעגל הריק</a></li>
 </ul>
 </li>
 <li>
@@ -399,7 +410,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p dir="rtl" style="text-align:right;">הספר "<strong>גיאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2023-12-28.</p>
+    <p dir="rtl" style="text-align:right;">הספר "<strong>גיאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2024-02-22.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

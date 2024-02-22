@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>יחידה 6 מיקום נקודה ומפה טרפזית | גיאומטריה חישובית</title>
 <meta name="author" content="ד’’ר עומרית פילצר">
-<meta name="description" content="6.1 הקדמה  6.1.1 מה ביחידה? יחידה זו מקבילה לפרק השישי בספר הלימוד. המושגים והרעיונות העיקריים שיילמדו ביחידה: בעיית מיקום נקודה במפה מישורית. מפה טרפזית. בניית מבנה נתונים לשאילתות מיקום נקודה...">
+<meta name="description" content="6.1 הקדמה  6.1.1 מה ביחידה? יחידה זו מקבילה לפרק השישי בספר הלימוד. המושגים והרעיונות העיקריים שיילמדו ביחידה: בעיית מיקום נקודה במפה מישורית. מפה טרפזית. אלגוריתם אינקרמנטלי-רנדומי לבניית מבנה...">
 <meta name="generator" content="bookdown 0.34 with bs4_book()">
 <meta property="og:title" content="יחידה 6 מיקום נקודה ומפה טרפזית | גיאומטריה חישובית">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://omrit.filtser.com/CG/point-location.html">
-<meta property="og:description" content="6.1 הקדמה  6.1.1 מה ביחידה? יחידה זו מקבילה לפרק השישי בספר הלימוד. המושגים והרעיונות העיקריים שיילמדו ביחידה: בעיית מיקום נקודה במפה מישורית. מפה טרפזית. בניית מבנה נתונים לשאילתות מיקום נקודה...">
+<meta property="og:description" content="6.1 הקדמה  6.1.1 מה ביחידה? יחידה זו מקבילה לפרק השישי בספר הלימוד. המושגים והרעיונות העיקריים שיילמדו ביחידה: בעיית מיקום נקודה במפה מישורית. מפה טרפזית. אלגוריתם אינקרמנטלי-רנדומי לבניית מבנה...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="יחידה 6 מיקום נקודה ומפה טרפזית | גיאומטריה חישובית">
-<meta name="twitter:description" content="6.1 הקדמה  6.1.1 מה ביחידה? יחידה זו מקבילה לפרק השישי בספר הלימוד. המושגים והרעיונות העיקריים שיילמדו ביחידה: בעיית מיקום נקודה במפה מישורית. מפה טרפזית. בניית מבנה נתונים לשאילתות מיקום נקודה...">
+<meta name="twitter:description" content="6.1 הקדמה  6.1.1 מה ביחידה? יחידה זו מקבילה לפרק השישי בספר הלימוד. המושגים והרעיונות העיקריים שיילמדו ביחידה: בעיית מיקום נקודה במפה מישורית. מפה טרפזית. אלגוריתם אינקרמנטלי-רנדומי לבניית מבנה...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.0/transition.js"></script><script src="libs/bs3compat-0.5.0/tabs.js"></script><script src="libs/bs3compat-0.5.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -81,7 +81,7 @@
 <ul>
 <li>בעיית מיקום נקודה במפה מישורית.</li>
 <li>מפה טרפזית.</li>
-<li>בניית מבנה נתונים לשאילתות מיקום נקודה בעזרת אלגוריתם אינקרמנטלי-רנדומי.</li>
+<li>אלגוריתם אינקרמנטלי-רנדומי לבניית מבנה נתונים עבור שאילתות מיקום נקודה.</li>
 </ul>
 <p>למידה מהנה!</p>
 </div>
@@ -122,8 +122,8 @@
 <span class="header-section-number">6.2.2</span> פירוק לטרפזים<a class="anchor" aria-label="anchor" href="#%D7%A4%D7%99%D7%A8%D7%95%D7%A7-%D7%9C%D7%98%D7%A8%D7%A4%D7%96%D7%99%D7%9D"><i class="fas fa-link"></i></a>
 </h3>
 <p>שימו לב שהחלוקה לרצועות שראינו בעמוד הקודם יוצרת מפה מישורית <span class="math inline">\(\mathcal{S'}\)</span> שבה כל פאה היא טרפז או משולש (או פאה אינסופית דמוית טרפז/משולש). המפה <span class="math inline">\(\mathcal{S'}\)</span> היא עידון (refinement) של המפה המקורית <span class="math inline">\(\mathcal{S}\)</span>, כלומר כל פאה של <span class="math inline">\(\mathcal{S'}\)</span> מוכלת לחלוטין בפאה של <span class="math inline">\(\mathcal{S}\)</span>, ולכן אם מצאנו שנקודת השאילתה נמצאת בפאה מסוימת של <span class="math inline">\(\mathcal{S'}\)</span>, נוכל לדעת לאיזו פאה של <span class="math inline">\(\mathcal{S}\)</span> היא שייכת. העידון בעזרת חלוקה לרצועות מוביל למבנה נתונים בגודל ריבועי (במקרה הגרוע), ולכן אינו מעשי. בחלק זה נראה עידון אחר שסיבוכיות הזיכרון שלו לא תהיה גדולה בהרבה מזו של <span class="math inline">\(\mathcal{S}\)</span>, ושעדיין יאפשר לנו לענות על שאילתות מיקום נקודה בקלות יחסית.</p>
-<div id="צפו-בסרטון-הבא.-8" class="section level4 unnumbered">
-<h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-8"><i class="fas fa-link"></i></a>
+<div id="צפו-בסרטון-הבא.-11" class="section level4 unnumbered">
+<h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-11"><i class="fas fa-link"></i></a>
 </h4>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1ISWNiNI05c?si=DrbWnrZYTK0YMDu8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 </iframe>
@@ -178,7 +178,7 @@
 <li>צומת (פנימי) y – מתאים לקטע מ-<span class="math inline">\(\mathcal{S}\)</span> (מסומן בעיגול אפור).</li>
 <li>עלה – מתאים לטרפז במפה <span class="math inline">\(\mathcal{T}(\mathcal{S})\)</span> (מסומן בריבוע).</li>
 </ul>
-<p>נוסף על כך, לגרף יש שורש יחיד ובדיוק עלה אחד לכל טרפז במפה <span class="math inline">\(\mathcal{D}\)</span>. באיור למשל, לעלה של טרפז C יש מצביעים משני קודקודים פנימיים.</p>
+<p>נוסף על כך, לגרף יש שורש יחיד ובדיוק עלה אחד לכל טרפז במפה <span class="math inline">\(\mathcal{T}(\mathcal{S})\)</span>. למשל באיור למטה, לעלה של טרפז C יש מצביעים משני קודקודים פנימיים.</p>
 <p>הרעיון בבנייה זו דומה לעצי kd שראינו ביחידה 5: לכל צומת פנימי, ההסתעפות ימינה או שמאלה תלויה בתשובה לשאלה המתאימה לסוג הצומת.</p>
 <center>
 <img src="images/6/ds.jpg" style="width:100.0%">
@@ -188,7 +188,7 @@
 <li>אם הגענו לצומת <span class="math inline">\(x\)</span> המתאים לנקודת קצה <span class="math inline">\(p\)</span>, נשאל: “האם <span class="math inline">\(q\)</span> מימין או משמאל לישר האנכי שעובר דרך p?”. אם התשובה היא “מימין” – נמשיך ימינה, אחרת שמאלה.</li>
 <li>אם הגענו לצומת <span class="math inline">\(y\)</span> המתאים לקטע <span class="math inline">\(s\)</span>, נשאל: “האם <span class="math inline">\(q\)</span> מעל או מתחת לקטע <span class="math inline">\(s\)</span>?”. אם התשובה היא “מתחת” – נמשיך ימינה, אחרת שמאלה. שימו לב שכדי שהשאלה הזו תהיה הגיונית, נצטרך להבטיח שבשלב זה הישר האנכי שעובר דרך <span class="math inline">\(q\)</span> חותך את <span class="math inline">\(s\)</span>.</li>
 </ul>
-<p>כשנגיע לעלה, נבדוק אם הטרפז המתאים לו מכיל אתq.</p>
+<p>כשנגיע לעלה, נבדוק אם הטרפז המתאים לו מכיל את <span class="math inline">\(q\)</span>.</p>
 <div class="rmdwarning">
 <div class="inline-figure">
 <img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> בדקו את עצמכם! ענו על השאלות הבאות. נתון מבנה החיפוש למטה.</div>
@@ -220,8 +220,8 @@
 </h3>
 <p>בחלק זה נתאר אלגוריתם אינקרמנטלי לבניית מבנה החיפוש <span class="math inline">\(\mathcal{D}\)</span> והמפה הטרפזית <span class="math inline">\(\mathcal{T}(\mathcal{S})\)</span> גם יחד. האלגוריתם מוסיף את הקטעים מהאוסף <span class="math inline">\(\mathcal{S}\)</span>, זה אחר זה בסדר רנדומי, ובכל פעם מעדכן את מבנה החיפוש והמפה בהתאם לקטע החדש שנוסף.</p>
 <p>הסיבה לכך שנבחר סדר רנדומי על הקטעים היא שבאופן זה נוכל לצפות לזמני ריצה ולסיבוכיות מקום יעילים, בדומה לאלגוריתם האינקרמנטלי-רנדומי לתכנון לינארי במישור שראינו ביחידה 4. נדון בכך בעמוד הבא של חלק זה.</p>
-<div id="צפו-בסרטון-הבא.-9" class="section level4 unnumbered">
-<h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-9"><i class="fas fa-link"></i></a>
+<div id="צפו-בסרטון-הבא.-12" class="section level4 unnumbered">
+<h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-12"><i class="fas fa-link"></i></a>
 </h4>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/3_6Uu1jYBcA?si=dgWhrulyuSIfHmhd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
@@ -237,7 +237,7 @@
 <center>
 <img src="images/6/alg_question1.jpg" style="width:100.0%">
 </center>
-<p>אילו טרפזים האלגוריתם ימצא ויעדכן כאשר נוסיף את s_i?</p>
+<p>אילו טרפזים האלגוריתם ימצא ויעדכן כאשר נוסיף את <span class="math inline">\(s_i\)</span>?</p>
 <details><summary>
 (פתרון)
 </summary><center>
@@ -271,11 +271,11 @@
 <div id="רעיון-ההוכחה-זמן-השאילתה." class="section level4 unnumbered">
 <h4>רעיון ההוכחה (זמן השאילתה).<a class="anchor" aria-label="anchor" href="#%D7%A8%D7%A2%D7%99%D7%95%D7%9F-%D7%94%D7%94%D7%95%D7%9B%D7%97%D7%94-%D7%96%D7%9E%D7%9F-%D7%94%D7%A9%D7%90%D7%99%D7%9C%D7%AA%D7%94."><i class="fas fa-link"></i></a>
 </h4>
-<p>תהי <span class="math inline">\(q\)</span> נקודת שאילתה. נרצה להעריך את תוחלת אורך המסלול כאשר נחפש במבנה <span class="math inline">\(\mathcal{D}\)</span> את הטרפז שמכיל את <span class="math inline">\(q\)</span> (מספר הצמתים מהשורש לטרפז). לשם כך, ננסה להבין כיצד המסלול משתנה במהלך ריצת אלגוריתם הבנייה של <span class="math inline">\(\mathcal{D}\)</span>.</p>
+<p>תהי <span class="math inline">\(q\)</span> נקודת שאילתה. נרצה להעריך את תוחלת אורך המסלול שבו נלך כאשר נחפש במבנה <span class="math inline">\(\mathcal{D}\)</span> את הטרפז שמכיל את <span class="math inline">\(q\)</span> (מספר הצמתים מהשורש לטרפז). לשם כך, ננסה להבין כיצד המסלול משתנה במהלך ריצת אלגוריתם הבנייה של <span class="math inline">\(\mathcal{D}\)</span>.</p>
 <p>למשל, ניתן להראות שבכל פעם שקטע חדש נוסף למבנה, המסלול יתארך לכל היותר בשלושה צמתים. לפיכך ניתן לומר שאורך המסלול הוא לכל היותר <span class="math inline">\(3n\)</span>. זהו חסם עבור המקרה הגרוע, אך אנו מעוניינים במקרה הממוצע (על פני כל <span class="math inline">\(n!\)</span> הסדרים האפשריים), ולכן ננסה לחשב את ממוצע מספר הצמתים שנוספו למסלול בכל איטרציה של האלגוריתם.</p>
 <p>נסמן ב-<span class="math inline">\(X_i\)</span> (עבור <span class="math inline">\(1 \le i \le n\)</span>) את מספר הצמתים על המסלול שנוספו באיטרציה ה-<span class="math inline">\(i\)</span>-ית (כלומר לאחר הוספת הקטע <span class="math inline">\(s_i\)</span>). לפיכך, <span class="math inline">\(X_i\)</span> הוא משתנה מקרי התלוי בסדר הוספת הקטעים, ולכן תוחלת אורך המסלול אל הטרפז המכיל את <span class="math inline">\(q\)</span> היא <span class="math inline">\(E[ \sum_{i=1}^{n} X_i ]\)</span>, ומלינאריות התוחלת <span class="math inline">\(\sum_{i=1}^{n} E[X_i]\)</span>.</p>
 <p>מכיוון שבכל איטרציה נוספים לכל היותר שלושה צמתים למסלול, מתקיים <span class="math inline">\(X_i \le 3\)</span>. לכן, אם נסמן ב-<span class="math inline">\(P_i\)</span> את ההסתברות לכך שקיים צומת במסלול שנוצר באיטרציה ה-<span class="math inline">\(i\)</span>-ית, נקבל <span class="math inline">\(E[ X_i ] \le 3 P_i\)</span>.</p>
-<p>האבחנה המרכזית בהוכחה היא שבאיטרציה ה-<span class="math inline">\(i\)</span>-ית נוסף קודקוד למסלול שלנו רק אם הטרפז שמכיל את <span class="math inline">\(q\)</span> בדיוק לפני הוספת <span class="math inline">\(s_i\)</span> שונה מהטרפז המכיל את <span class="math inline">\(q\)</span> מייד לאחר הוספת <span class="math inline">\(s_i\)</span>. לכן, בדומה להוכחה שראינו ביחידה 4, נוכל לנתח את ההסתברות לכך שהטרפז המכיל את <span class="math inline">\(q\)</span> משתנה בין האיטרציה ה-<span class="math inline">\(i – 1\)</span> לאיטרציה ה-<span class="math inline">\(i\)</span>-ית בשיטת הניתוח לאחור (backwards analysis). כלומר, נסתכל על המפה שהתקבלה מייד לאחר הוספת <span class="math inline">\(s_i\)</span>, ונשאל מה ההסתברות לכך שהטרפז <span class="math inline">\(\Delta\)</span> המכיל את <span class="math inline">\(q\)</span> במפה זו ייעלם אם נוציא את <span class="math inline">\(s_i\)</span>. שימו לב שהטרפז <span class="math inline">\(\Delta\)</span> ייעלם אם ורק אם אחד מהשדות המגדירים אותו (<span class="math inline">\(top(\Delta)\)</span>, <span class="math inline">\(bottom(\Delta)\)</span>, <span class="math inline">\(leftp(\Delta)\)</span>, <span class="math inline">\(rightp(\Delta)\)</span>) ייעלם. ההסתברות לכך ש-<span class="math inline">\(s_i\)</span> הוא הקטע שמגדיר את <span class="math inline">\(top(\Delta)\)</span> למשל, היא 1 over i, ובאופן דומה ניתן לחשב זאת עבור <span class="math inline">\(bottom(\Delta)\)</span>, <span class="math inline">\(leftp(\Delta)\)</span>, <span class="math inline">\(rightp(\Delta)\)</span>. לכן נקבל <span class="math inline">\(P_i \le \frac{4}{i}\)</span>, ונוכל לחשב שתוחלת אורך המסלול היא <span class="math inline">\(O (\log n )\)</span>.</p>
+<p>האבחנה המרכזית בהוכחה היא שבאיטרציה ה-<span class="math inline">\(i\)</span>-ית נוסף קודקוד למסלול שלנו רק אם הטרפז שמכיל את <span class="math inline">\(q\)</span> בדיוק לפני הוספת <span class="math inline">\(s_i\)</span> שונה מהטרפז המכיל את <span class="math inline">\(q\)</span> מייד לאחר הוספת <span class="math inline">\(s_i\)</span>. לכן, בדומה להוכחה שראינו ביחידה 4, נוכל לנתח את ההסתברות לכך שהטרפז המכיל את <span class="math inline">\(q\)</span> משתנה בין האיטרציה ה-<span class="math inline">\(i – 1\)</span> לאיטרציה ה-<span class="math inline">\(i\)</span>-ית בשיטת הניתוח לאחור (backwards analysis). כלומר, נסתכל על המפה שהתקבלה מייד לאחר הוספת <span class="math inline">\(s_i\)</span>, ונשאל מה ההסתברות לכך שהטרפז <span class="math inline">\(\Delta\)</span> המכיל את <span class="math inline">\(q\)</span> במפה זו ייעלם אם נוציא את <span class="math inline">\(s_i\)</span>. שימו לב שהטרפז <span class="math inline">\(\Delta\)</span> ייעלם אם ורק אם אחד מהשדות המגדירים אותו (<span class="math inline">\(top(\Delta)\)</span>, <span class="math inline">\(bottom(\Delta)\)</span>, <span class="math inline">\(leftp(\Delta)\)</span>, <span class="math inline">\(rightp(\Delta)\)</span>) ייעלם. ההסתברות לכך ש-<span class="math inline">\(s_i\)</span> הוא הקטע שמגדיר את <span class="math inline">\(top(\Delta)\)</span> למשל, היא <span class="math inline">\(\frac{1}{i}\)</span>, ובאופן דומה ניתן לחשב זאת עבור <span class="math inline">\(bottom(\Delta)\)</span>, <span class="math inline">\(leftp(\Delta)\)</span>, <span class="math inline">\(rightp(\Delta)\)</span>. לכן נקבל <span class="math inline">\(P_i \le \frac{4}{i}\)</span>, ונוכל לחשב שתוחלת אורך המסלול היא <span class="math inline">\(O (\log n )\)</span>.</p>
 </div>
 <div id="קראו-את-חלקו-השני-של-סעיף-6.2-בספר-הלימוד-עמודים-133137." class="section level4 unnumbered">
 <h4>קראו את חלקו השני של סעיף 6.2 בספר הלימוד (עמודים 133–137).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%97%D7%9C%D7%A7%D7%95-%D7%94%D7%A9%D7%A0%D7%99-%D7%A9%D7%9C-%D7%A1%D7%A2%D7%99%D7%A3-6.2-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-133137."><i class="fas fa-link"></i></a>
@@ -327,7 +327,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p dir="rtl" style="text-align:right;">הספר "<strong>גיאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2023-12-28.</p>
+    <p dir="rtl" style="text-align:right;">הספר "<strong>גיאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2024-02-22.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

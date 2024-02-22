@@ -101,7 +101,12 @@
 </li>
 </ul>
 <div class="inline-figure"><img src="08-duality-arrangements_files/figure-html/unnamed-chunk-1-1.png" width="60%" style="display: block; margin: auto;"></div>
-<p>עם זאת, לא כל דגימה מקרית תהיה “טובה”, כלומר היינו רוצים שפיזור הנקודות שנדגמו יהיה פחות או יותר אחיד, כדי שישקף את המצב המקורי. נסביר זאת על ידי דוגמה.</p>
+<p>עם זאת, לא כל דגימה מקרית תהיה “טובה”, כלומר היינו רוצים שפיזור הנקודות שנדגמו יהיה פחות או יותר אחיד, כדי שישקף את המצב המקורי. נסביר זאת בסעיף הבא בעזרת מושג שנקרא discrepancy.</p>
+</div>
+<div id="discrepancy-definition" class="section level3" number="8.1.3">
+<h3>
+<span class="header-section-number">8.1.3</span> ה-discrepancy של קבוצת נקודות<a class="anchor" aria-label="anchor" href="#discrepancy-definition"><i class="fas fa-link"></i></a>
+</h3>
 <p><img src="images/8/discrepancy.jpg" align="left" width="33%"> נניח שדגמנו קבוצה <span class="math inline">\(S\)</span> של <span class="math inline">\(n\)</span> נקודות מריבוע היחידה <span class="math inline">\(U=[0,1]\times [0,1]\)</span>. היינו רוצים שלקבוצה <span class="math inline">\(S\)</span> תהיה התכונה הבאה: לכל חצי מישור <span class="math inline">\(h\)</span>, <strong>שיעור</strong> הנקודות מ-<span class="math inline">\(S\)</span> שנמצאות ב-<span class="math inline">\(h\)</span> יהיה פחות או יותר כמו גודל החיתוך של <span class="math inline">\(h\)</span> עם <span class="math inline">\(U\)</span>.</p>
 <p>באופן פורמלי יותר, נגדיר את <strong>המדד הרציף</strong> של <span class="math inline">\(h\)</span> להיות השטח של <span class="math inline">\(h \cap U\)</span>. נסמן אותו ב-<span class="math inline">\(\mu(h)\)</span>. נוסף על כך, נגדיר את <strong>המדד הדיסקרטי</strong> של <span class="math inline">\(h\)</span> להיות <span class="math inline">\(\mu_S(h)=|S\cap h|/|S|\)</span>. הדגימה <span class="math inline">\(S\)</span> תהיה טובה אם לכל בחירה של חצי מישור <span class="math inline">\(h\)</span> יתקיים <span class="math inline">\(\mu(h)\approx\mu_S(h)\)</span>.<br>
 במתמטיקה, מושג זה נקרא <a href="https://en.m.wikipedia.org/wiki/Discrepancy_theory">Discrepancy</a>. מדד ה-discrepancy של חצי המישור <span class="math inline">\(h\)</span> מוגדר להיות: <span class="math display">\[\Delta_S(h)=|\mu(h)-\mu_S(h)|.\]</span></p>
@@ -134,15 +139,15 @@
 </details>
 </div>
 </div>
-<div id="discrepancy" class="section level3" number="8.1.3">
+<div id="discrepancy" class="section level3" number="8.1.4">
 <h3>
-<span class="header-section-number">8.1.3</span> חישוב ה-discrepancy של קבוצת נקודות<a class="anchor" aria-label="anchor" href="#discrepancy"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.1.4</span> חישוב ה-discrepancy של קבוצת נקודות<a class="anchor" aria-label="anchor" href="#discrepancy"><i class="fas fa-link"></i></a>
 </h3>
 <p>עכשיו נוכל לשאול: כיצד ניתן לחשב את <span class="math inline">\(\Delta_S(\mathcal{H})\)</span>? בעצם אנחנו מחפשים חצי מישור <span class="math inline">\(\hat{h}\)</span> שעבורו <span class="math inline">\(\Delta_S(\mathcal{H})=\Delta_S(\hat{h})\)</span> , כלומר לכל <span class="math inline">\(h\in\mathcal{H}\)</span> מתקיים <span class="math inline">\(\Delta_S(\hat{h})\ge \Delta_S(h)\)</span>.</p>
 <p><img src="images/8/discrepancy-obs.jpg" align="left" width="30%"> אבחנה מיידית ראשונה היא שהישר שמגדיר את <span class="math inline">\(\hat{h}\)</span> חייב לעבור דרך לפחות נקודה אחת מ-<span class="math inline">\(S\)</span>: אם זה לא המצב, נוכל להזיז מעט את הישר המגדיר את <span class="math inline">\(\hat{h}\)</span> לעבר הנקודה הקרובה ביותר אליו מאחד הצדדים, מבלי לשנות את המידה הדיסקרטית שלו. המידה הרציפה תגדל או תקטן, ובאחד הצדדים נקבל מדד discrepancy גדול יותר.</p>
 <p>כדי לחשב את <span class="math inline">\(\Delta_S(\mathcal{H})\)</span>, היינו רוצים למצוא מספר סופי של מועמדים להיות <span class="math inline">\(\hat{h}\)</span>. בסעיף 8.1 בספר הלימוד מוכיחים את הטענה הבאה:</p>
 <div class="rmdimportant">
-<p><img src="images/definition.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><u><strong>טענה</strong>:</u></p>
+<p><img src="images/definition.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><u><strong>טענה (8.1)</strong>:</u></p>
 <p>חצי מישור <span class="math inline">\(h\)</span> שעבורו <span class="math inline">\(\Delta_S(h)\)</span> מקסימלי, הוא אחד משני הסוגים הבאים:</p>
 <ol style="list-style-type: decimal">
 <li>ל-<span class="math inline">\(h\)</span> יש בדיוק נקודה אחת מ-<span class="math inline">\(S\)</span> על שפתו,</li>
@@ -160,7 +165,7 @@
 </center>
 <details><summary>
 (פתרון)
-</summary><p>שטח החיתוך של <span class="math inline">\(h_1\)</span> או <span class="math inline">\(h_2\)</span> עם <span class="math inline">\(U\)</span> הוא הגדול ביותר, והוא שווה ל-<span class="math inline">\(3/4\)</span>. השטח קטן יותר ויותר לאחר שעוברים את <span class="math inline">\(h_2\)</span> ומסובבים לכיוון <span class="math inline">\(h_4\)</span>. שטח החיתוך של <span class="math inline">\(h_4\)</span> של <span class="math inline">\(U\)</span> הוא הקטן ביותר. כולם מכילים <span class="math inline">\(4/5\)</span> מהנקודות ב-<span class="math inline">\(S\)</span>, ולכן ככל ששטח החיתוך קטן נקבל הפרש גדול יותר בין המדד הדיסקרטי לרציף. לכן המדד המקסימלי יתקבל עבור <span class="math inline">\(h_1\)</span> ו-<span class="math inline">\(h_2\)</span>, והמינימלי עבור <span class="math inline">\(h_4\)</span>.</p>
+</summary><p>שטח החיתוך של <span class="math inline">\(h_1\)</span> או <span class="math inline">\(h_2\)</span> עם <span class="math inline">\(U\)</span> הוא הגדול ביותר, והוא שווה ל-<span class="math inline">\(3/4\)</span>. השטח קטן יותר ויותר לאחר שעוברים את <span class="math inline">\(h_2\)</span> ומסובבים לכיוון <span class="math inline">\(h_4\)</span>. שטח החיתוך של <span class="math inline">\(h_4\)</span> עם <span class="math inline">\(U\)</span> הוא הקטן ביותר. כולם מכילים <span class="math inline">\(4/5\)</span> מהנקודות ב-<span class="math inline">\(S\)</span>, ולכן ככל ששטח החיתוך קטן נקבל הפרש גדול יותר בין המדד הדיסקרטי לרציף. לכן המדד המקסימלי יתקבל עבור <span class="math inline">\(h_1\)</span> ו-<span class="math inline">\(h_2\)</span>, והמינימלי עבור <span class="math inline">\(h_4\)</span>.</p>
 </details>
 </div>
 <hr>
@@ -217,8 +222,8 @@
 <span class="header-section-number">8.2.2</span> תכונות הטרנספורמציה הדואלית<a class="anchor" aria-label="anchor" href="#properties"><i class="fas fa-link"></i></a>
 </h3>
 <p>כדי שנוכל להשתמש בטרנספורמציה הדואלית שהגדרנו, ננסה להבין תחילה מה היחס בין המישור הדואלי למישור הראשי, כלומר אילו תכונות נשמרות וכיצד. בסרטון הבא נבחן יחד את הטרנספורמציה הדואלית ואת התכונות שלה.</p>
-<div id="צפו-בסרטון-הבא.-12" class="section level4 unnumbered">
-<h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-12"><i class="fas fa-link"></i></a>
+<div id="צפו-בסרטון-הבא.-15" class="section level4 unnumbered">
+<h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-15"><i class="fas fa-link"></i></a>
 </h4>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Ou4zdkMlgoI?si=qpbcGcV6AeENuL-s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
@@ -240,8 +245,7 @@
 </div>
 <p>כמו כן, ראינו שבמישור הדואלי, קטע <span class="math inline">\(s=\overline{pq}\)</span> הוא איחוד הישרים הדואליים לנקודות על <span class="math inline">\(s\)</span>. כלומר <span class="math inline">\(s^*\)</span> הוא אוסף אינסופי של ישרים, שלכולם נקודת חיתוך אחת. ניתן לראות זאת ביישומון הבא: הזיזו את הנקודה השחורה שעל הקטע <span class="math inline">\(\overline{pq}\)</span>, ותוכלו לראות כיצד הישר הדואלי (הצבוע בשחור) משתנה ביחס לישרים הדואלים ל-<span class="math inline">\(p\)</span> ו-<span class="math inline">\(q\)</span>.</p>
 <center>
-<iframe src="https://www.desmos.com/calculator/bhy5azkiwk?embed" width="100%" height="500" style="border: 1px solid #ccc" frameborder="0">
-</iframe>
+
 </center>
 <div class="rmdnote">
 <p><img src="images/extra.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><strong>הגדרה שקולה:</strong><br>
@@ -283,8 +287,8 @@
 <span class="header-section-number">8.3.1</span> הגדרה, מבנה וגודל<a class="anchor" aria-label="anchor" href="#complexity"><i class="fas fa-link"></i></a>
 </h3>
 <p><img src="images/8/line-arr.jpg" align="left" width="33%"> קבוצה <span class="math inline">\(L\)</span> של <span class="math inline">\(n\)</span> ישרים במישור מחלקת את המישור לאוסף של תאים (פאות), צלעות וקודקודים. חלוקה כזאת של המישור נקראת <strong>מערך של ישרים</strong> (line arrangement), ומסומנת <span class="math inline">\(\mathcal{A}(L)\)</span>. בסרטון הבא נדבר על המבנה ועל הגודל של מערכי ישרים במישור.</p>
-<div id="צפו-בסרטון-הבא.-13" class="section level4 unnumbered">
-<h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-13"><i class="fas fa-link"></i></a>
+<div id="צפו-בסרטון-הבא.-16" class="section level4 unnumbered">
+<h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-16"><i class="fas fa-link"></i></a>
 </h4>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/AuoNQrgeHT0?si=EZW3CmU270MloKEa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
@@ -299,7 +303,7 @@
 <p>הפאות הן כמובן קמורות, שכן הן נוצרות מחיתוך של חצאי מישורים.</p>
 <p>כמו כן, הגדרנו שהמערך <span class="math inline">\(\mathcal{A}(L)\)</span> הוא <strong>פשוט</strong> אם אין ב-<span class="math inline">\(L\)</span> שלושה ישרים שעוברים דרך אותה נקודה, ואין ישרים מקבילים.</p>
 <div class="rmdimportant">
-<p><img src="images/definition.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><u><strong>משפט</strong>:</u></p>
+<p><img src="images/definition.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><u><strong>משפט (8.4)</strong>:</u></p>
 <p>תהי <span class="math inline">\(L\)</span> קבוצה של <span class="math inline">\(n\)</span> ישרים במישור, ויהי <span class="math inline">\(\mathcal{A}(L)\)</span> המערך של <span class="math inline">\(L\)</span>. מתקיים:</p>
 <ol style="list-style-type: decimal">
 <li>מספר הקודקודים ב-<span class="math inline">\(\mathcal{A}(L)\)</span> הוא לכל היותר <span class="math inline">\(n(n-1)/2\)</span>.</li>
@@ -319,7 +323,7 @@
 <h3>
 <span class="header-section-number">8.3.2</span> ייצוג ובניית המערך<a class="anchor" aria-label="anchor" href="#construcion"><i class="fas fa-link"></i></a>
 </h3>
-<p>בעמוד הקודם ראינו שהמערך <span class="math inline">\(\mathcal{A}(L)\)</span> של אוסף <span class="math inline">\(L\)</span> של ישרים הוא חלוקה של המישור, ואסימפטוטית הוא לכל היותר מגודל ריבועי (במספר הישרים).</p>
+<p>בסעיף הקודם ראינו שהמערך <span class="math inline">\(\mathcal{A}(L)\)</span> של אוסף <span class="math inline">\(L\)</span> של ישרים הוא חלוקה של המישור, ואסימפטוטית הוא לכל היותר מגודל ריבועי (במספר הישרים).</p>
 <div id="כיצד-נייצג-מערך-של-ישרים" class="section level4 unnumbered">
 <h4>כיצד נייצג מערך של ישרים?<a class="anchor" aria-label="anchor" href="#%D7%9B%D7%99%D7%A6%D7%93-%D7%A0%D7%99%D7%99%D7%A6%D7%92-%D7%9E%D7%A2%D7%A8%D7%9A-%D7%A9%D7%9C-%D7%99%D7%A9%D7%A8%D7%99%D7%9D"><i class="fas fa-link"></i></a>
 </h4>
@@ -331,7 +335,7 @@
 <p>כדי לבנות את ה-DCEL עבור <span class="math inline">\(\mathcal{A}(L)\)</span> המוכל במלבן <span class="math inline">\(R\)</span>, נוכל פשוט להשתמש באלגוריתם הסורק שראינו ביחידה 2. האלגוריתם ימצא את כל נקודות החיתוך בין קטעים, שהם הקודקודים של המערך, בזמן <span class="math inline">\(O(n^2\log n)\)</span>, ובעזרתו נוכל (על ידי מספר שינויים פשוטים) גם לחשב את מבנה ה-DCEL.</p>
 <div class="rmdwarning">
 <div class="inline-figure">
-<img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> חשבו בעצמכם מהם השינויים הנדרשים באלגוריתם הסורק כדי לחשב את מבנה ה-DCEL של מערך ישרים.</div>
+<img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> חשבו מהם השינויים הנדרשים באלגוריתם הסורק כדי לחשב את מבנה ה-DCEL של מערך ישרים.</div>
 </div>
 </div>
 <div id="אלגוריתם-יעיל-יותר." class="section level4 unnumbered">
@@ -445,7 +449,8 @@
 <a class="nav-link" href="#preface-8"><span class="header-section-number">8.1</span> הקדמה</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#contents-8"><span class="header-section-number">8.1.1</span> מה ביחידה?</a></li>
 <li><a class="nav-link" href="#geometric-sampling"><span class="header-section-number">8.1.2</span> דגימה גיאומטרית טובה</a></li>
-<li><a class="nav-link" href="#discrepancy"><span class="header-section-number">8.1.3</span> חישוב ה-discrepancy של קבוצת נקודות</a></li>
+<li><a class="nav-link" href="#discrepancy-definition"><span class="header-section-number">8.1.3</span> ה-discrepancy של קבוצת נקודות</a></li>
+<li><a class="nav-link" href="#discrepancy"><span class="header-section-number">8.1.4</span> חישוב ה-discrepancy של קבוצת נקודות</a></li>
 </ul>
 </li>
 <li>
@@ -478,7 +483,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p dir="rtl" style="text-align:right;">הספר "<strong>גיאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2023-12-28.</p>
+    <p dir="rtl" style="text-align:right;">הספר "<strong>גיאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2024-02-22.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

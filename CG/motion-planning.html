@@ -227,7 +227,7 @@
 </center>
 <details><summary>
 (פתרון)
-</summary><p>הקונפיגורציות <span class="math inline">\(p_1,p_2,p_2\)</span> הן חופשיות והשאר אסורות.</p>
+</summary><p>הקונפיגורציות <span class="math inline">\(p_1,p_2,p_5\)</span> הן חופשיות והשאר אסורות.</p>
 <p>הרובוט יוכל להגיע מהנקודה <span class="math inline">\(p_1\)</span> לנקודה <span class="math inline">\(p_2\)</span>, אך לא יוכל להגיע לנקודה <span class="math inline">\(p_5\)</span> מכיוון שהוא חסום על ידי המכשולים שסביבו. המשמעות של קונפיגורציה חופשית היא נקודה שבה הרובוט אינו מתנגש במכשולים, ובמקרה זה הוא לא בהכרח יכול להגיע לכל קונפיגורציה שהיא חופשית.</p>
 <center>
 <img src="images/10/confing_ans.jpg" style="width:75.0%">
@@ -289,8 +289,8 @@
 <div class="inline-figure">
 <img src="images/10/minkowski-sum.jpg" align="left" width="25%">
 ראינו שעבור רובוט נקודתי, מרחב העבודה שווה בדיוק למרחב החופשי. זהו לא המצב עבור רובוט שאינו נקודתי, ולכן כדי שנוכל לחשב ולייצג את המרחב החופשי, נצטרך תחילה להבין כיצד נראים המכשולים במרחב הקונפיגורציות עבור רובוט פוליגונלי. בסרטון הבא נדבר על סכומי מינקובסקי, ונראה כיצד הם יעזרו לנו בתיאור ובבניית מרחב הקונפיגורציות לרובוט פוליגונלי.</div>
-<div id="צפו-בסרטון-הבא.-16" class="section level4 unnumbered">
-<h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-16"><i class="fas fa-link"></i></a>
+<div id="צפו-בסרטון-הבא.-19" class="section level4 unnumbered">
+<h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-19"><i class="fas fa-link"></i></a>
 </h4>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/oKMx8DqELrQ?si=jNtJ7IDoJv2KHOdt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 </iframe>
@@ -481,8 +481,8 @@
 <span class="header-section-number">10.3.1</span> מסלול קצר ביותר וגרף הנִרְאוּת<a class="anchor" aria-label="anchor" href="#visibility-graph"><i class="fas fa-link"></i></a>
 </h3>
 <p>עד כה ראינו כיצד ניתן למצוא לרובוט מסלול <strong>כלשהו</strong> ללא התנגשויות, מנקודת ההתחלה לנקודת היעד, ולא דנו כלל בטיב המסלול שנבחר. אם רוצים לחסוך באנרגיה ובזמן, כדאי לבחור למשל במסלול הקצר ביותר האפשרי. בחלק זה נדבר על חישוב מסלול קצר ביותר לרובוט, וזאת באמצעות בניית מפת דרכים אחרת, שנקראת גרף הנִרְאוּת.</p>
-<div id="צפו-בסרטון-הבא.-17" class="section level4 unnumbered">
-<h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-17"><i class="fas fa-link"></i></a>
+<div id="צפו-בסרטון-הבא.-20" class="section level4 unnumbered">
+<h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-20"><i class="fas fa-link"></i></a>
 </h4>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/K3pqlZLJHBw?si=cJ_DrRbDgpTAyY2Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 </iframe>
@@ -505,7 +505,7 @@
 <div id="גרף-הנראות-visibility-graph." class="section level4 unnumbered">
 <h4>גרף הנִרְאוּת (visibility graph).<a class="anchor" aria-label="anchor" href="#%D7%92%D7%A8%D7%A3-%D7%94%D7%A0%D7%A8%D7%90%D7%95%D7%AA-visibility-graph."><i class="fas fa-link"></i></a>
 </h4>
-<p>בהינתן אוסף <span class="math inline">\(S\)</span> של מכשולים פוליגונליים, גרף הנראות מסומן <span class="math inline">\(\mathcal{G}_{\text{vis}}(S)\)</span>. הקודקודים של <span class="math inline">\(\mathcal{G}_{\text{vis}}(S)\)</span> הם הקודקודים של פוליגונים מהקבוצה <span class="math inline">\(S\)</span>, ויש צלע בין שני קודקודים <span class="math inline">\(v,w\)</span> אם הם <strong>רואים</strong> זה את זה, כלומר הקטע <span class="math inline">\(\overline{vw}\)</span> אינו נחתך עם הפְּנים של אף פוליגון מהקבוצה <span class="math inline">\(S\)</span>.</p>
+<p>בהינתן אוסף <span class="math inline">\(S\)</span> של מכשולים פוליגונליים בעלי <span class="math inline">\(n\)</span> קודקודים בסך הכל, גרף הנראות מסומן <span class="math inline">\(\mathcal{G}_{\text{vis}}(S)\)</span>. הקודקודים של <span class="math inline">\(\mathcal{G}_{\text{vis}}(S)\)</span> הם הקודקודים של פוליגונים מהקבוצה <span class="math inline">\(S\)</span>, ויש צלע בין שני קודקודים <span class="math inline">\(v,w\)</span> אם הם <strong>רואים</strong> זה את זה, כלומר הקטע <span class="math inline">\(\overline{vw}\)</span> אינו נחתך עם הפְּנים של אף פוליגון מהקבוצה <span class="math inline">\(S\)</span>.</p>
 <p>בסרטון ראינו שמסלול קצר ביותר לרובוט בין נקודה <span class="math inline">\(p_\text{start}\)</span> לנקודה <span class="math inline">\(p_\text{goal}\)</span> הוא מסלול בגרף
 <span class="math inline">\(\mathcal{G}_{\text{vis}}(S\cup\{p_\text{start},p_\text{goal}\})\)</span>, וניתן למצוא אותו בעזרת האלגוריתם של דייקסטרה בזמן <span class="math inline">\(O(n^2\log n)\)</span>.</p>
 </div>
@@ -592,7 +592,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p dir="rtl" style="text-align:right;">הספר "<strong>גיאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2023-12-28.</p>
+    <p dir="rtl" style="text-align:right;">הספר "<strong>גיאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2024-02-22.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

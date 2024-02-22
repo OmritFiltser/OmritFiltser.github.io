@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>יחידה 2 מפות מישוריות וטכניקת הישר הסורק | גיאומטריה חישובית</title>
 <meta name="author" content="ד’’ר עומרית פילצר">
-<meta name="description" content="2.1 הקדמה  2.1.1 שכבות מידע במפה  ביחידה זו נעסוק בבעיות הנוגעות לחיתוכי קטעים במישור. דוגמה אחת לבעיה כזו מופיעה בתחום של מערכות מידע גאוגרפיות (GIS - Graphic Information Systems), כאשר רוצים...">
+<meta name="description" content="2.1 הקדמה  2.1.1 מה ביחידה? יחידה זו מקבילה לפרק השני בספר הלימוד. המושגים והרעיונות העיקריים שילמדו ביחידה: טכניקת הישר הסורק. בעיית חיתוך קטעים במישור. מפות מישוריות וייצוגן במבנה DCEL. בעיית...">
 <meta name="generator" content="bookdown 0.34 with bs4_book()">
 <meta property="og:title" content="יחידה 2 מפות מישוריות וטכניקת הישר הסורק | גיאומטריה חישובית">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://omrit.filtser.com/CG/map-overlay.html">
-<meta property="og:description" content="2.1 הקדמה  2.1.1 שכבות מידע במפה  ביחידה זו נעסוק בבעיות הנוגעות לחיתוכי קטעים במישור. דוגמה אחת לבעיה כזו מופיעה בתחום של מערכות מידע גאוגרפיות (GIS - Graphic Information Systems), כאשר רוצים...">
+<meta property="og:description" content="2.1 הקדמה  2.1.1 מה ביחידה? יחידה זו מקבילה לפרק השני בספר הלימוד. המושגים והרעיונות העיקריים שילמדו ביחידה: טכניקת הישר הסורק. בעיית חיתוך קטעים במישור. מפות מישוריות וייצוגן במבנה DCEL. בעיית...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="יחידה 2 מפות מישוריות וטכניקת הישר הסורק | גיאומטריה חישובית">
-<meta name="twitter:description" content="2.1 הקדמה  2.1.1 שכבות מידע במפה  ביחידה זו נעסוק בבעיות הנוגעות לחיתוכי קטעים במישור. דוגמה אחת לבעיה כזו מופיעה בתחום של מערכות מידע גאוגרפיות (GIS - Graphic Information Systems), כאשר רוצים...">
+<meta name="twitter:description" content="2.1 הקדמה  2.1.1 מה ביחידה? יחידה זו מקבילה לפרק השני בספר הלימוד. המושגים והרעיונות העיקריים שילמדו ביחידה: טכניקת הישר הסורק. בעיית חיתוך קטעים במישור. מפות מישוריות וייצוגן במבנה DCEL. בעיית...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.0/transition.js"></script><script src="libs/bs3compat-0.5.0/tabs.js"></script><script src="libs/bs3compat-0.5.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -72,27 +72,36 @@
 <h2>
 <span class="header-section-number">2.1</span> הקדמה<a class="anchor" aria-label="anchor" href="#preface-2"><i class="fas fa-link"></i></a>
 </h2>
-<div id="them-map" class="section level3" number="2.1.1">
+<div id="contents-2" class="section level3" number="2.1.1">
 <h3>
-<span class="header-section-number">2.1.1</span> שכבות מידע במפה<a class="anchor" aria-label="anchor" href="#them-map"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.1.1</span> מה ביחידה?<a class="anchor" aria-label="anchor" href="#contents-2"><i class="fas fa-link"></i></a>
+</h3>
+<p>יחידה זו מקבילה לפרק השני בספר הלימוד.</p>
+<p>המושגים והרעיונות העיקריים שילמדו ביחידה:</p>
+<ul>
+<li>טכניקת הישר הסורק.</li>
+<li>בעיית חיתוך קטעים במישור.</li>
+<li>מפות מישוריות וייצוגן במבנה DCEL.</li>
+<li>בעיית map overlay - חישוב הייצוג המאוחד של שתי מפות מישוריות.</li>
+</ul>
+<p>למידה מהנה!</p>
+</div>
+<div id="them-map" class="section level3" number="2.1.2">
+<h3>
+<span class="header-section-number">2.1.2</span> שכבות מידע במפה<a class="anchor" aria-label="anchor" href="#them-map"><i class="fas fa-link"></i></a>
 </h3>
 <div class="inline-figure">
 <img src="images/2/gis_map_overlay.jpg" align="left" width="33%">
 ביחידה זו נעסוק בבעיות הנוגעות לחיתוכי קטעים במישור. דוגמה אחת לבעיה
 כזו מופיעה בתחום של מערכות מידע גאוגרפיות (GIS - Graphic Information
-Systems), כאשר רוצים להציג ולנתח שכבות מידע ממספר מפות. למשל, בהינתן מפה
-של נהרות ומפה של כבישים, נוכל להצליב את המידע משתי המפות כדי למצוא
-היכן ממוקמים גשרים: בנקודות החיתוך בין כבישים לנהרות. כל מפה
+Systems), כאשר רוצים להציג ולנתח שכבות מידע ממספר מפות. למשל, בהינתן מפה של נהרות ומפה של כבישים, נוכל להצליב את המידע משתי המפות כדי למצוא היכן ממוקמים גשרים: בנקודות החיתוך בין כבישים לנהרות. כל מפה
 נושאית כזו ניתנת לייצוג גיאומטרי על ידי אוסף של קטעים, עקומים, או
 פוליגונים. בעזרת טכניקות גיאומטריות, נוכל למצוא את נקודות החיתוך ולחשב את
 הייצוג המאוחד של שתי מפות (map overlay).</div>
 <p>תחילה נראה כיצד ניתן למצוא את כל החיתוכים באוסף קטעים נתון, ולשם כך
-נשתמש בטכניקה חשובה ושימושית מאוד: טכניקת הישר הסורק (sweep-line). לאחר
-מכן נדבר על ייצוג של מפות מישוריות (גרפים מישוריים), ונתאר מבנה נתונים
-יעיל לאחסונם – DCEL. לבסוף, נראה כיצד ניתן לאחד שני מבנים כאלה, המייצגים
-שתי מפות מישוריות, למפה מישורית אחת המאגדת את כל המידע.</p>
-<div id="קראו-את-ההקדמה-לפרק-2-עמודים-1920." class="section level4 unnumbered">
-<h4>קראו את ההקדמה לפרק 2 (עמודים 19–20).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%94%D7%94%D7%A7%D7%93%D7%9E%D7%94-%D7%9C%D7%A4%D7%A8%D7%A7-2-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-1920."><i class="fas fa-link"></i></a>
+נשתמש בטכניקה חשובה ושימושית מאוד: טכניקת הישר הסורק (sweep-line). לאחר מכן נדבר על ייצוג של מפות מישוריות (גרפים מישוריים), ונתאר מבנה נתונים יעיל לאחסונם – DCEL. לבסוף, נראה כיצד ניתן לאחד שני מבנים כאלה, המייצגים שתי מפות מישוריות, למפה מישורית אחת המאגדת את כל המידע.</p>
+<div id="קראו-את-ההקדמה-לפרק-2-בספר-הלימוד-עמודים-1920." class="section level4 unnumbered">
+<h4>קראו את ההקדמה לפרק 2 בספר הלימוד (עמודים 19־20).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%94%D7%94%D7%A7%D7%93%D7%9E%D7%94-%D7%9C%D7%A4%D7%A8%D7%A7-2-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-1920."><i class="fas fa-link"></i></a>
 </h4>
 <hr>
 </div>
@@ -150,13 +159,10 @@ intersection). בבעיה זו, הקלט הוא אוסף של קטעים במי�
 <h3>
 <span class="header-section-number">2.2.2</span> טכניקת הישר הסורק – מימוש<a class="anchor" aria-label="anchor" href="#line-sweep-impl"><i class="fas fa-link"></i></a>
 </h3>
-<p>בסעיף הקודם ראינו סקיצה של אלגוריתם המשתמש בטכניקת הישר הסורק, והסברנו
-באופן אינטואיטיבי מדוע גישה כזו תיתן לנו אלגוריתם יעיל שהוא רגיש לפלט,
-ושאינו בודק חיתוכים בין כל זוג קטעים.</p>
+<p>בסעיף הקודם ראינו סקיצה של אלגוריתם המשתמש בטכניקת הישר הסורק, והסברנו באופן אינטואיטיבי מדוע גישה כזו תיתן לנו אלגוריתם יעיל שהוא רגיש לפלט, ושאינו בודק חיתוכים בין כל זוג קטעים.</p>
 <p>כיצד מממשים אלגוריתם כזה ביעילות? בסעיף 2.1 בספר הלימוד מתואר בפירוט
 האלגוריתם <strong>FindIntersections</strong>, מבני הנתונים שנזדקק להם עבור תור
-המאורעות והסטטוס, והפרוצדורה <strong>HandleEvenPoint</strong> לטיפול במאורעות. זמן
-הריצה של האלגוריתם הוא <span class="math inline">\(O((n+k)\log n)\)</span>, כאשר <span class="math inline">\(k\)</span> הוא מספר נקודות
+המאורעות והסטטוס, והפרוצדורה <strong>HandleEvenPoint</strong> לטיפול במאורעות. זמן הריצה של האלגוריתם הוא <span class="math inline">\(O((n+k)\log n)\)</span>, כאשר <span class="math inline">\(k\)</span> הוא מספר נקודות
 החיתוך.</p>
 <div id="קראו-בעיון-את-סעיף-2.1-בספר-הלימוד-עמודים-2029." class="section level4 unnumbered">
 <h4>קראו בעיון את סעיף 2.1 בספר הלימוד (עמודים 20–29).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%91%D7%A2%D7%99%D7%95%D7%9F-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-2.1-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-2029."><i class="fas fa-link"></i></a>
@@ -237,8 +243,7 @@ intersection). בבעיה זו, הקלט הוא אוסף של קטעים במי�
 בשלב השלישי, האם מספיק לבדוק שנקודת החיתוך שייכת לאחד הקטעים?</div>
 <details><summary>
 (פתרון)
-</summary><p>בדוגמה המופיעה כאן, הקטעים אינם חותכים זה את זה, אך נקודת החיתוך בין הישרים
-המכילים את הקטעים מופיעה על אחד מהם.</p>
+</summary><p>בדוגמה המופיעה כאן, הקטעים אינם חותכים זה את זה, אך נקודת החיתוך בין הישרים המכילים את הקטעים מופיעה על אחד מהם.</p>
 <center>
 <img src="images/2/line_intersection.jpg" style="width:50.0%">
 </center>
@@ -248,15 +253,11 @@ intersection). בבעיה זו, הקלט הוא אוסף של קטעים במי�
 <div id="כיצד-מטפלים-במקרים-מיוחדים" class="section level4 unnumbered">
 <h4>כיצד מטפלים במקרים מיוחדים?<a class="anchor" aria-label="anchor" href="#%D7%9B%D7%99%D7%A6%D7%93-%D7%9E%D7%98%D7%A4%D7%9C%D7%99%D7%9D-%D7%91%D7%9E%D7%A7%D7%A8%D7%99%D7%9D-%D7%9E%D7%99%D7%95%D7%97%D7%93%D7%99%D7%9D"><i class="fas fa-link"></i></a>
 </h4>
-<p>שימו לב שבגישה הראשונה התעלמנו ממספר מצבים מיוחדים של הקלט, למשל כאשר
-הקטעים הם אנכיים. נסו לבדוק בעצמכם מהם מצבי הקלט שאנחנו מתעלמים מהם,
-וחשבו כיצד ניתן לטפל בהם.</p>
-<p>ביחידה הראשונה של הקורס דנו בנושא של <strong>מצבים מנוונים</strong>. ראינו שניתן לטפל
-במצבים מנוונים על ידי חלוקה למקרים נפרדים, אך חלוקה כזו היא בדרך כלל
+<p>שימו לב שבגישה הראשונה התעלמנו ממספר מצבים מיוחדים של הקלט, למשל כאשר הקטעים הם אנכיים. נסו לבדוק בעצמכם מהם מצבי הקלט שאנחנו מתעלמים מהם, וחשבו כיצד ניתן לטפל בהם.</p>
+<p>ביחידה הראשונה של הקורס דנו בנושא של <strong>מצבים מנוונים</strong>. ראינו שניתן לטפל במצבים מנוונים על ידי חלוקה למקרים נפרדים, אך חלוקה כזו היא בדרך כלל
 מתישה ומועדת לטעויות. דרך נוספת לטיפול במצבים כאלו היא למצוא מערכת
 גיאומטרית אחרת שבה המקרים המיוחדים נעלמים, למשל על ידי סיבוב מערכת
-הצירים, אך פעולה זו לא תמיד אפשרית. אפשרות אחרת היא להשתמש ב<strong>הנחת מצב
-כללי</strong>: מניחים שהקלט אינו מכיל מצבים מנוונים.</p>
+הצירים, אך פעולה זו לא תמיד אפשרית. אפשרות אחרת היא להשתמש ב<strong>הנחת מצב כללי</strong>: מניחים שהקלט אינו מכיל מצבים מנוונים.</p>
 <p>במקרה של חיתוך ישרים, ניתן למצוא פתרון אחר שבו המקרים המיוחדים אינם
 דורשים טיפול נפרד, כמו בגישה הבאה.</p>
 </div>
@@ -369,7 +370,10 @@ DCEL, נרצה לחשב מבנה DCEL עבור ה-overlay של <span class="math
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#map-overlay"><span class="header-section-number">2</span> מפות מישוריות וטכניקת הישר הסורק</a></li>
 <li>
-<a class="nav-link" href="#preface-2"><span class="header-section-number">2.1</span> הקדמה</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#them-map"><span class="header-section-number">2.1.1</span> שכבות מידע במפה</a></li></ul>
+<a class="nav-link" href="#preface-2"><span class="header-section-number">2.1</span> הקדמה</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#contents-2"><span class="header-section-number">2.1.1</span> מה ביחידה?</a></li>
+<li><a class="nav-link" href="#them-map"><span class="header-section-number">2.1.2</span> שכבות מידע במפה</a></li>
+</ul>
 </li>
 <li>
 <a class="nav-link" href="#sweep-line"><span class="header-section-number">2.2</span> טכניקת הישר הסורק</a><ul class="nav navbar-nav">
@@ -401,7 +405,7 @@ DCEL, נרצה לחשב מבנה DCEL עבור ה-overlay של <span class="math
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p dir="rtl" style="text-align:right;">הספר "<strong>גיאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2023-12-28.</p>
+    <p dir="rtl" style="text-align:right;">הספר "<strong>גיאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2024-02-22.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

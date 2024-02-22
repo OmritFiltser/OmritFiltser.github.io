@@ -45,7 +45,7 @@
 
 <img src="images/5/kd-tree.jpg" align="left" width="33%"/>מבנה הנתונים הראשון שנראה עבור חיפוש בתחומים בשני ממדים נקרא עץ kd. עץ זה הוא הכללה של עץ החיפוש שראינו עבור נקודות בממד אחד, שבו בכל רמה של העץ משנים את הקואורדינטה שלפיה בוחרים את החציון.
 
-#### צפו בסרטון הבא: {.unnumbered}
+#### צפו בסרטון הבא. {.unnumbered}
 
 <center>
 
@@ -104,7 +104,7 @@
 
 <img src="images/5/range_tree.jpg" align="left" width="33%"/> בחלק זה נראה מבנה נתונים אחר לחיפוש בתחומים במישור, ושמו עץ תחומים, (range tree). גם הוא הכללה של עץ החיפוש שראינו עבור נקודות על הישר, אך באופן שונה: כאן כל קודקוד פנימי בעץ הממיין את הנקודות לפי קואורדינטת ה-$x$, יכיל מצביע לעץ נוסף הממיין את העלים בתת-עץ שלו לפי קואורדינטת ה-$y$.
 
-#### צפו בסרטון הבא: {.unnumbered}
+#### צפו בסרטון הבא. {.unnumbered}
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Aiy7igqoQCQ?si=EmDfmC6mkx1-Vcnb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </center>
