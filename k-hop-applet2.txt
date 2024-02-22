@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polyomino Drawer</title>
+    <style>
+        #polyominoCanvas {
+            border: 1px solid #000;
+        }
+
+        .unit-square {
+            width: 15px;
+            height: 15px;
+            display: inline-block;
+            border: 1px solid #fff;
+            margin: -1px 0 0 -1px;
+        }
+
+        .black {
+            background-color: #000;
+        }
+
+        .white {
+            background-color: #fff;
+        }
+
+        .locked {
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button id="lockPolyomino">Lock Polyomino</button>
+        <input type="number" id="geodesicDistance" name="geodesicDistance" min="2" max="20" value="2">
+        <button id="clearGuards">Clear Guards</button>
+        <button id="reset">Reset</button>
+    </div>
+    <div id="polyominoCanvas"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const canvas = document.getElementById("polyominoCanvas");
+            const lockPolyominoButton = document.getElementById("lockPolyomino");
+            const geodesicDistanceInput = document.getElementById("geodesicDistance");
+            const clearGuardsButton = document.getElementById("clearGuards");
+            const resetButton = document.getElementById("reset");
+
+            let isLocked = false;
+            let isMousePressed = false;
+            let polyominoSquares = [];
+
+            lockPolyominoButton.addEventListener("click", toggleLock);
+            clearGuardsButton.addEventListener("click", clearGuards);
+            resetButton.addEventListener("click", resetApplet);
+
+            createGrid();
+
+            function toggleLock() {
+                isLocked = !isLocked;
+                lockPolyominoButton.textContent = isLocked ? "Unlock Polyomino" : "Lock Polyomino";
+            }
+
+            function createGrid() {
+                for (let i = 0; i < 100; i++) {
+                    polyominoSquares[i] = [];
+                    for (let j = 0; j < 100; j++) {
+                        const unitSquare = document.createElement("div");
+                        unitSquare.classList.add("unit-square", "black");
+                        unitSquare.dataset.x = i;
+                        unitSquare.dataset.y = j;
+                        unitSquare.addEventListener("mousedown", handleMouseDown);
+                        unitSquare.addEventListener("mouseup", handleMouseUp);
+                        unitSquare.addEventListener("mouseover", toggleColor);
+                        canvas.appendChild(unitSquare);
+                        polyominoSquares[i][j] = unitSquare;
+                    }
+                    const lineBreak = document.createElement("br");
+                    canvas.appendChild(lineBreak);
+                }
+            }
+
+            function handleMouseDown() {
+                isMousePressed = true;
+                toggleColor.call(this); // Change color on click
+            }
+
+            function handleMouseUp() {
+                isMousePressed = false;
+            }
+
+            function toggleColor() {
+                if (!isLocked && isMousePressed) {
+                    if (this.classList.contains("black")) {
+                        this.classList.toggle("white");
+                    } else {
+                        this.classList.toggle("black");
+                    }
+                }
+                if (isLocked && isMousePressed) {
+                    colorNearbySquares.call(this);
+                }
+            }
+
+            function colorNearbySquares() {
+                const color = getRandomColor();
+                const k = parseInt(geodesicDistanceInput.value);
+                const closeSquares = [this];
+                this.style.backgroundColor = color;
+
+                for (let p = 0; p < k; p++) {
+                    const newCloseSquares = [];
+                    closeSquares.forEach(square => {
+                        const x = parseInt(square.dataset.x);
+                        const y = parseInt(square.dataset.y);
+
+                        // Check and color neighbors
+                        for (let i = -1; i <= 1; i++) {
+                            for (let j = -1; j <= 1; j++) {
+                                const newX = x + i;
+                                const newY = y + j;
+
+                                if (
+                                    newX >= 0 && newX < 100 &&
+                                    newY >= 0 && newY < 100 &&
+                                    polyominoSquares[newX][newY].classList.contains("white") &&
+                                    !newCloseSquares.includes(polyominoSquares[newX][newY])
+                                ) {
+                                    polyominoSquares[newX][newY].style.backgroundColor = color;
+                                    newCloseSquares.push(polyominoSquares[newX][newY]);
+                                }
+                            }
+                        }
+                    });
+                    closeSquares.push(...newCloseSquares);
+                }
+            }
+
+            function clearGuards() {
+                const whiteSquares = document.querySelectorAll(".white");
+                whiteSquares.forEach(square => square.style.backgroundColor = "#fff");
+            }
+
+            function resetApplet() {
+                polyominoSquares = [];
+                isLocked = false;
+                lockPolyominoButton.textContent = "Lock Polyomino";
+
+                const unitSquares = document.querySelectorAll(".unit-square");
+                unitSquares.forEach(square => {
+                    square.classList.remove("white");
+                    square.classList.add("black");
+                    square.style.backgroundColor = "";
+                });
+            }
+
+            function getRandomColor() {
+                const letters = "0123456789ABCDEF";
+                let color = "#";
+                for (let i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color + "4D"; // Adding 30% opacity
+            }
+        });
+    </script>
+</body>
+</html>

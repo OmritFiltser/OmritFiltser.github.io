@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>ברוכים הבאים | גיאומטריה חישובית</title>
+<meta name="author" content="ד’’ר עומרית פילצר">
+<meta name="description" content="A course in computational geometry.">
+<meta name="generator" content="bookdown 0.34 with bs4_book()">
+<meta property="og:title" content="ברוכים הבאים | גיאומטריה חישובית">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://omrit.filtser.com/CG/">
+<meta property="og:description" content="A course in computational geometry.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ברוכים הבאים | גיאומטריה חישובית">
+<meta name="twitter:description" content="A course in computational geometry.">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.0/transition.js"></script><script src="libs/bs3compat-0.5.0/tabs.js"></script><script src="libs/bs3compat-0.5.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row no-pad">
+  <header class="col-sm-12 col-lg-2 sidebar sidebar-book border-left"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">גיאומטריה חישובית</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search" dir="rtl">
+        <input id="search" class="form-control" type="search" placeholder="חיפוש" aria-label="Search" dir="rtl">
+</form>
+
+      <nav aria-label="Table of contents"><h2>יחידות הלימוד:</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="active" href="index.html">ברוכים הבאים</a></li>
+<li><a class="" href="intro.html"><span class="header-section-number">1</span> מבוא</a></li>
+<li><a class="" href="map-overlay.html"><span class="header-section-number">2</span> מפות מישוריות וטכניקת הישר הסורק</a></li>
+<li><a class="" href="pol-tringle.html"><span class="header-section-number">3</span> שילושי פוליגונים ובעיית הגלריה לאמנות</a></li>
+<li><a class="" href="linear-prog.html"><span class="header-section-number">4</span> תכנון לינארי וחיתוך של חצאי מישורים</a></li>
+<li><a class="" href="orthogonal-range-seach.html"><span class="header-section-number">5</span> חיפוש בתחומים אורתוגונליים</a></li>
+<li><a class="" href="point-location.html"><span class="header-section-number">6</span> מיקום נקודה ומפה טרפזית</a></li>
+<li><a class="" href="voronoi.html"><span class="header-section-number">7</span> דיאגרמת וורונוי</a></li>
+<li><a class="" href="duality-arrangements.html"><span class="header-section-number">8</span> מערכים ודואליות</a></li>
+<li><a class="" href="Delaunay-triangulation.html"><span class="header-section-number">9</span> שילושי דלוני</a></li>
+<li><a class="" href="motion-planning.html"><span class="header-section-number">10</span> תכנון תנועה</a></li>
+<li><a class="" href="WSPD-spanners.html"><span class="header-section-number">11</span> פורשים גאומטריים וקבוצות מופרדות היטב</a></li>
+<li><a class="" href="curve-similarity.html"><span class="header-section-number">12</span> דמיון בין עקומים</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><!--bookdown:title:end--><!--bookdown:title:start--><div id="before-we-start" class="section level1 unnumbered">
+<h1>ברוכים הבאים<a class="anchor" aria-label="anchor" href="#before-we-start"><i class="fas fa-link"></i></a>
+</h1>
+<p>ספר זה נועד ללוות את הלומדים בקורס גיאומטריה חישובית לתואר ראשון, המבוסס על הספר Computational Geometry: Algorithms and Applications מאת
+Mark de Berg, Otfried Cheong, Marc van Kreveld, Mark Overmars.</p>
+<div id="welcome" class="section level2 unnumbered">
+<h2>לפני שמתחילים<a class="anchor" aria-label="anchor" href="#welcome"><i class="fas fa-link"></i></a>
+</h2>
+<p>לפני שנתחיל, הנה כמה פרטים שכדאי לדעת:</p>
+<ul>
+<li><p><strong>למי מיועד הקורס?</strong> תלמידים בשלב מתקדם בתואר הראשון, וכן תלמידי תואר שני במתמטיקה ומדעי המחשב. הקורס מתאים למי שמעוניין להתנסות בתחום מחקר תיאורטי, וגם למי שמחפש בסיס תיאורטי ליישומים מעשיים.</p></li>
+<li><p><strong>למה לי בכלל ללמוד גאומטריה חישובית?</strong> לאלגוריתמים ולמבני הנתונים שנלמד יש אין־ספור יישומים מעשיים חשובים במגוון תחומים רלוונטיים, כמו גרפיקה וראייה מומחשבת, מערכות מידע גיאוגרפיות, ניתוח מידע רב ועוד. תוכלו לרכוש לעצמכם אוסף כלים, מודלים וטכניקות, המוכנים לשליפה ולמימוש בפתרון מגוון של בעיות אלגוריתמיות. נוסף על כך, יש בהם גם יופי מרתק שגלום בתכונות הגיאומטריות, בהגדרה הנקייה של הבעיות, ובאסתטיקה של הפתרונות. בקורס נלמד בעיקר את הטכניקות והאלגוריתמים המשמשים בסיס רעיוני למימושים נפוצים, אך גם נושאים הנמצאים בחזית המחקר כיום.</p></li>
+</ul>
+<div id="אופן-הלימוד-בקורס" class="section level4 unnumbered">
+<h4>אופן הלימוד בקורס<a class="anchor" aria-label="anchor" href="#%D7%90%D7%95%D7%A4%D7%9F-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%91%D7%A7%D7%95%D7%A8%D7%A1"><i class="fas fa-link"></i></a>
+</h4>
+<ul>
+<li><p><strong>מבנה הקורס:</strong> בקורס 12 יחידות. כל יחידה נפתחת בהצגה של בעיה חדשה (או אוסף חדש של בעיות), ולאחר מכן יוצגו הכלים (מבני נתונים, אלגוריתמים, מודלים) המתאימים לפתרון.</p></li>
+<li><p><strong>ספרי הלימוד:</strong> הספר המרכזי אשר ישמש אותנו ביחידות 1–10 הוא<br><a href="http://www.cs.uu.nl/geobook/"><strong>Computational Geometry: Algorithms and Applications</strong></a>.<br>
+שני הפרקים האחרונים בקורס, 11–12, מבוססים על שני פרקים בספר<br><a href="https://sarielhp.org/book/"><strong>Geometric Approximation Algorithms</strong></a>.</p></li>
+<li><p><strong>ידע קודם:</strong> בקורס נדרש ידע בנושאים של סיבוכיות אסימפטוטית, אלגוריתמים ומבני נתונים בסיסיים.</p></li>
+<li><p><strong>שאלות עזר מנחות:</strong> במהלך כל אחת מיחידות הלימוד יופיעו שאלות פשוטות (ללא ציון), שיעזרו לכם לוודא שהבנתם באופן בסיסי את ההגדרות והרעיונות של הפרק.</p></li>
+<li><p><strong>יש נושא ספיציפי שמעניין אתכם? רוצים לראות דוגמאות נוספות?</strong> חומרי עזר לקריאה נוספת והעשרה ינתנו במקומות הרלוונטים.</p></li>
+<li><p><strong>מצאתם טעות בחומר הלימוד?</strong> אם מצאתם טעות או בעיה בחומר הלימוד – בין שזו שגיאת כתיב, טעות בנוסחה או “חור” בהוכחה - אנא כתבו לי.</p></li>
+</ul>
+<script>
+title=document.getElementById('before-we-start');
+title.innerHTML = '<img src="images/logo.jpg" width="100%">' + title.innerHTML
+</script>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="empty"></div>
+<div class="next"><a href="intro.html"><span class="header-section-number">1</span> מבוא</a></div>
+</div></main><div class="col-md-3 col-lg-3 d-none d-md-block sidebar sidebar-chapter border-right">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>ביחידה זו:</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#before-we-start">ברוכים הבאים</a></li>
+<li><a class="nav-link" href="#welcome">לפני שמתחילים</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p dir="rtl" style="text-align:right;">הספר "<strong>גיאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2023-12-28.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

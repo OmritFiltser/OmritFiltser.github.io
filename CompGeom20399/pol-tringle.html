@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>יחידה 3 שילושי פוליגונים ובעיית הגלריה לאמנות | גיאומטריה חישובית</title>
+<meta name="author" content="ד’’ר עומרית פילצר">
+<meta name="description" content="3.1 הקדמה  3.1.1 בעיית הגלריה לאמנות  גלריות ומוזיאונים משקיעים מאמצים רבים בשמירה על אוצרותיהם, למשל באמצעות הצבת שומרים או מצלמות שיוכלו לראות כל פינה בגלריה. במהלך היום, שומרים המסתובבים בגלריה...">
+<meta name="generator" content="bookdown 0.34 with bs4_book()">
+<meta property="og:title" content="יחידה 3 שילושי פוליגונים ובעיית הגלריה לאמנות | גיאומטריה חישובית">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://omrit.filtser.com/CG/pol-tringle.html">
+<meta property="og:description" content="3.1 הקדמה  3.1.1 בעיית הגלריה לאמנות  גלריות ומוזיאונים משקיעים מאמצים רבים בשמירה על אוצרותיהם, למשל באמצעות הצבת שומרים או מצלמות שיוכלו לראות כל פינה בגלריה. במהלך היום, שומרים המסתובבים בגלריה...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="יחידה 3 שילושי פוליגונים ובעיית הגלריה לאמנות | גיאומטריה חישובית">
+<meta name="twitter:description" content="3.1 הקדמה  3.1.1 בעיית הגלריה לאמנות  גלריות ומוזיאונים משקיעים מאמצים רבים בשמירה על אוצרותיהם, למשל באמצעות הצבת שומרים או מצלמות שיוכלו לראות כל פינה בגלריה. במהלך היום, שומרים המסתובבים בגלריה...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.0/transition.js"></script><script src="libs/bs3compat-0.5.0/tabs.js"></script><script src="libs/bs3compat-0.5.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row no-pad">
+  <header class="col-sm-12 col-lg-2 sidebar sidebar-book border-left"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">גיאומטריה חישובית</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search" dir="rtl">
+        <input id="search" class="form-control" type="search" placeholder="חיפוש" aria-label="Search" dir="rtl">
+</form>
+
+      <nav aria-label="Table of contents"><h2>יחידות הלימוד:</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">ברוכים הבאים</a></li>
+<li><a class="" href="intro.html"><span class="header-section-number">1</span> מבוא</a></li>
+<li><a class="" href="map-overlay.html"><span class="header-section-number">2</span> מפות מישוריות וטכניקת הישר הסורק</a></li>
+<li><a class="active" href="pol-tringle.html"><span class="header-section-number">3</span> שילושי פוליגונים ובעיית הגלריה לאמנות</a></li>
+<li><a class="" href="linear-prog.html"><span class="header-section-number">4</span> תכנון לינארי וחיתוך של חצאי מישורים</a></li>
+<li><a class="" href="orthogonal-range-seach.html"><span class="header-section-number">5</span> חיפוש בתחומים אורתוגונליים</a></li>
+<li><a class="" href="point-location.html"><span class="header-section-number">6</span> מיקום נקודה ומפה טרפזית</a></li>
+<li><a class="" href="voronoi.html"><span class="header-section-number">7</span> דיאגרמת וורונוי</a></li>
+<li><a class="" href="duality-arrangements.html"><span class="header-section-number">8</span> מערכים ודואליות</a></li>
+<li><a class="" href="Delaunay-triangulation.html"><span class="header-section-number">9</span> שילושי דלוני</a></li>
+<li><a class="" href="motion-planning.html"><span class="header-section-number">10</span> תכנון תנועה</a></li>
+<li><a class="" href="WSPD-spanners.html"><span class="header-section-number">11</span> פורשים גאומטריים וקבוצות מופרדות היטב</a></li>
+<li><a class="" href="curve-similarity.html"><span class="header-section-number">12</span> דמיון בין עקומים</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="pol-tringle" class="section level1" number="3">
+<h1>
+<span class="header-section-number">יחידה 3</span> שילושי פוליגונים ובעיית הגלריה לאמנות<a class="anchor" aria-label="anchor" href="#pol-tringle"><i class="fas fa-link"></i></a>
+</h1>
+<div id="preface-3" class="section level2" number="3.1">
+<h2>
+<span class="header-section-number">3.1</span> הקדמה<a class="anchor" aria-label="anchor" href="#preface-3"><i class="fas fa-link"></i></a>
+</h2>
+<div id="agp" class="section level3" number="3.1.1">
+<h3>
+<span class="header-section-number">3.1.1</span> בעיית הגלריה לאמנות<a class="anchor" aria-label="anchor" href="#agp"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-figure">
+<img src="images/3/art-gallery.jpg" align="left" width="42%"> גלריות ומוזיאונים משקיעים מאמצים רבים בשמירה על אוצרותיהם, למשל באמצעות הצבת שומרים או מצלמות שיוכלו לראות כל פינה בגלריה. במהלך היום, שומרים המסתובבים בגלריה יכולים למנוע גניבה, אולם בלילה מלאכה זו בדרך כלל נעשית על ידי מצלמות או חיישנים. יכולות להיות כמה סיבות לדרוש מספר קטן ככל האפשר של מצלמות כאלה; למשל משיקולי עלות, וגם מכיוון שקל יותר לפקח על מעט מצלמות בו-זמנית. עם זאת, נרצה שהמצלמות יכסו כל פינה בגלריה, ומספר קטן מדי של מצלמות עלול לא להספיק.</div>
+<p>אם כן, כמה מצלמות נצטרך להציב כדי לשמור על כל הגלריה? והיכן נצטרך להציב אותן? בעיה זו הייתה ההשראה לאחת הבעיות המפורסמות והמרתקות ביותר בתחום הגיאומטריה החישובית: <strong>בעיית הגלריה לאמנות</strong>.</p>
+<div id="קראו-את-ההקדמה-לפרק-3-בספר-הלימוד-עמוד-45." class="section level4 unnumbered">
+<h4>קראו את ההקדמה לפרק 3 בספר הלימוד (עמוד 45).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%94%D7%94%D7%A7%D7%93%D7%9E%D7%94-%D7%9C%D7%A4%D7%A8%D7%A7-3-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93-45."><i class="fas fa-link"></i></a>
+</h4>
+</div>
+</div>
+<div id="geom-model" class="section level3" number="3.1.2">
+<h3>
+<span class="header-section-number">3.1.2</span> מודל גיאומטרי לבעיה<a class="anchor" aria-label="anchor" href="#geom-model"><i class="fas fa-link"></i></a>
+</h3>
+<p>בעיית הגלריה לאמנות נוסחה ב-1973 בידי המתמטיקאי ויקטור קלי.</p>
+<p>מנקודת מבט גיאומטרית, נוכל לתאר גלריה בעלת <span class="math inline">\(n\)</span> קירות בעזרת פוליגון פשוט <span class="math inline">\(P\)</span> בעל <span class="math inline">\(n\)</span> צלעות (וכמובן גם <span class="math inline">\(n\)</span> קודקודים), ואת מיקומי המצלמות בתור נקודות בתוך <span class="math inline">\(P\)</span>. נניח שמצלמה יכולה לצלם כל נקודה בגלריה שאינה מוסתרת ממנה על ידי אחד הקירות. במילים אחרות, מצלמה (נקודה) <span class="math inline">\(g\)</span> שומרת על נקודה <span class="math inline">\(p\in P\)</span> אם הקטע <span class="math inline">\(\overline{pq}\)</span> מוכל בתוך <span class="math inline">\(P\)</span> (הפנים והשפה של <span class="math inline">\(P\)</span>).</p>
+<p>באיור למטה מתואר פוליגון עם מצלמה יחידה בתוכו, והאיזור המוצלל הוא כל הנקודות שמצלמה זו שומרת עליהן, או “רואה” אותן.</p>
+<center>
+<img src="images/3/13-gallery.jpg" style="width:60.0%">
+</center>
+<p>מהו המספר המינימלי של מצלמות שנצטרך כדי לשמור על כל <span class="math inline">\(P\)</span>? כאן, ברור שהתשובה תלויה במבנה של הפוליגון <span class="math inline">\(P\)</span>.</p>
+<div class="rmdwarning">
+<div class="inline-figure">
+<img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> עבור אילו פוליגונים מספיקה מצלמה יחידה? שימו לב שעבור פוליגון כוכבי מספיקה מצלמה יחידה (לפי הגדרה). גם לכל פוליגון קמור מספיקה מצלמה יחידה. מדוע?</div>
+<center>
+<img src="images/3/14-guard-star.jpg" style="width:70.0%">
+</center>
+</div>
+</div>
+<div id="worst-case" class="section level3" number="3.1.3">
+<h3>
+<span class="header-section-number">3.1.3</span> מהו המקרה הגרוע ביותר?<a class="anchor" aria-label="anchor" href="#worst-case"><i class="fas fa-link"></i></a>
+</h3>
+<p>מציאת המספר המינימלי של מצלמות הנדרשות לשמירה על פוליגון נתון <span class="math inline">\(P\)</span> היא בעיית אופטימיזציה אלגוריתמית, כלומר הפתרון לה הוא אלגוריתם המחזיר קבוצת נקודות <span class="math inline">\(G\)</span> מגודל מינימלי, כך שלכל <span class="math inline">\(p\in P\)</span> קיימת <span class="math inline">\(g \in G\)</span> כך שהקטע <span class="math inline">\(\overline{pg}\)</span> מוכל בתוך <span class="math inline">\(P\)</span> (כלומר <span class="math inline">\(g\)</span> שומרת על <span class="math inline">\(p\)</span>). בעיה זו היא NP-קשה, ובפרט לא ידוע אם קיים אלגוריתם כזה עם זמן ריצה פולינומי (ויותר מכך, ההשערה הרווחת היא שלא קיים כזה).</p>
+<p>נוכל גם לשאול את השאלה הקומבינטורית הבאה: מהו מספר המצלמות המינימלי הנדרש במקרה הגרוע ביותר? במילים אחרות, היינו רוצים למצוא פונקציה <span class="math inline">\(g(n)\)</span>, כך ש-:</p>
+<ol style="list-style-type: decimal">
+<li>
+<span class="math inline">\(g(n)\)</span> מצלמות מספיקות לכל פוליגון בעל <span class="math inline">\(n\)</span> קודקודים; וגם</li>
+<li>קיים פוליגון בעל <span class="math inline">\(n\)</span> קודקודים שעבורו נדרשות <span class="math inline">\(g(n)\)</span> מצלמות.</li>
+</ol>
+<p>התבוננו במשפחת הפוליגונים הבאה, שלהם צורה דמוית מסרק.</p>
+<center>
+<img src="images/3/16-comb2.jpg" style="width:80.0%">
+</center>
+<p>שימו לב שכדי לשמור על פוליגון מסרק בעל שתי “שיניים” נדרשות שתי מצלמות: המשולשים שהם שיני המסרק אינם נחתכים, ולכן אין נקודה אחת ש”רואה” את שני הקודקודים העליונים שלהם. עבור מסרק בעל שלוש שיניים נדרשות שלוש מצלמות, וכן הלאה. מהו מספר המצלמות שנצטרך עבור מסרק בעל <span class="math inline">\(k\)</span> שיניים? כמה קודקודים יש למסרק כזה?</p>
+<p>ניתן להציג את משפחת פוליגוני המסרק באופן כללי כך: לכל <span class="math inline">\(n \ge 3\)</span>, פוליגון מסרק בעל <span class="math inline">\(n\)</span> קודקודים מורכב מבסיס שהוא צלע אופקית, ומעליו <span class="math inline">\(\lfloor \frac{n}{3} \rfloor\)</span> שיניים, שכל אחת מהן מורכבת משתי צלעות כל אחת, ומחוברות ביניהן על ידי צלעות אופקיות, כמו באיור הבא:</p>
+<center>
+<img src="images/3/17-general-comb.jpg" style="width:50.0%">
+</center>
+<p>קל לראות שניתן לבנות את המסרק כך שלא ניתן להציב מצלמה ששומרת על שני קודקודים שנמצאים בקצוות של שיניים שונות. לכן, מספר המצלמות הנדרש עבור מסרק בעל <span class="math inline">\(n\)</span> קודקודים הוא <span class="math inline">\(\lfloor \frac{n}{3} \rfloor\)</span>.</p>
+<p>אם כך, ראינו שלכל n קיים פוליגון בעל n קודקודים שעבורו מספר המצלמות הנדרש הוא<span class="math inline">\(\lfloor \frac{n}{3}. \rfloor\)</span> במילים אחרות, <span class="math inline">\(g(n)\ge \lfloor \frac{n}{3} \rfloor\)</span>. אך האם זהו המקרה הגרוע ביותר? האם <span class="math inline">\(\lfloor \frac{n}{3} \rfloor\)</span> מצלמות תמיד מספיקות כדי לשמור על פוליגון בגודל <span class="math inline">\(n\)</span>? את זה נגלה בחלק הבא.</p>
+<hr class="mt-5 mb-5">
+</div>
+</div>
+<div id="guarding" class="section level2" number="3.2">
+<h2>
+<span class="header-section-number">3.2</span> שמירה ושילושים<a class="anchor" aria-label="anchor" href="#guarding"><i class="fas fa-link"></i></a>
+</h2>
+<div id="diagonals" class="section level3" number="3.2.1">
+<h3>
+<span class="header-section-number">3.2.1</span> חלוקה בעזרת אלכסונים<a class="anchor" aria-label="anchor" href="#diagonals"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-figure">
+<img src="images/3/7-complecated_shape.jpg" align="left" width="40%"> בניגוד לשמו, פוליגון פשוט עשוי להיות צורה מסובכת מאוד, ראו לדוגמה את האיור משמאל. הייצוג של פוליגון כסדרה של נקודות הוא אמנם פשוט, אך לעיתים קרובות נרצה לעבוד דווקא עם ייצוג מורכב יותר, שיעזור לנו להבין טוב יותר את המבנה של הפוליגון. לדוגמה, כיצד נוכל לחשב את השטח של פוליגון פשוט? דרך אחת לעשות זאת היא לחלק את הפוליגון לצורות בסיסיות יותר, כמו משולשים או מרובעים, שעבורן אנו יודעים לחשב את השטח בקלות. חלוקה כזאת ניתן לקבל למשל על ידי הוספת אלכסונים לפוליגון.</div>
+<div class="rmdimportant">
+<p><img src="images/definition.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><u><strong>הגדרה</strong>: אלכסון של פוליגון</u><br>
+אלכסון של פוליגון P הוא קטע פתוח המחבר שני קודקודים של P ומוכל בפנימו.</p>
+</div>
+<div class="rmdtip">
+<p><img src="images/example.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><u>דוגמה:<br></u>התבוננו בפוליגונים שבאיור הבא, כולם בעלי חמישה קודקודים, ואלכסוניהם מסומנים בקו מקווקו. לפוליגון מימין יש שלושה אלכסונים. לעומת זאת, לפוליגון האמצעי יש רק שני אלכסונים. באופן כללי, בפוליגון בעל חמישה קודקודים קיימים לכל היותר חמישה אלכסונים. ניתן לראות זאת בפוליגון משמאל.</p>
+<center>
+<img src="images/3/8-diagonals.jpg" style="width:90.0%">
+</center>
+</div>
+<div class="rmdwarning">
+<div class="inline-figure">
+<img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> מהו מספר האלכסונים המקסימלי האפשרי בפוליגון בעל n קודקודים?</div>
+<details><summary>
+(פתרון)
+</summary><p>שימו לב למקרה של פוליגון קמור: מכל קודקוד ניתן למתוח <span class="math inline">\(n-3\)</span> אלכסונים (לכל קודקוד שהוא לא הוא עצמו או אחד משכניו). מכיוון שבאופן זה כל אלכסון נספר פעמיים (פעם אחת לכל אחד מקודקודיו), נחלק ב-2. לכן התשובה היא <span class="math inline">\(\frac{n(n-3)}{2}\)</span>.</p>
+</details>
+</div>
+</div>
+<div id="triangulation" class="section level3" number="3.2.2">
+<h3>
+<span class="header-section-number">3.2.2</span> שילוש של פוליגונים<a class="anchor" aria-label="anchor" href="#triangulation"><i class="fas fa-link"></i></a>
+</h3>
+<p>שילוש של פוליגונים הוא כלי מרכזי וחשוב בגיאומטריה של המישור, ויש לו שימוש רבים, בעיקר בתחום הגרפיקה הממוחשבת.</p>
+<div class="rmdimportant">
+<p><img src="images/definition.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><u><strong>הגדרה</strong>: שילוש (טריאנגולציה)</u><br>
+לחלוקה של פוליגון למשולשים על ידי מספר מקסימלי של אלכסונים שאינם חותכים זה את זה אנו קוראים “שילוש” (טריאנגולציה).</p>
+</div>
+<div class="rmdtip">
+<p><img src="images/example.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><u>דוגמה:<br></u>בדרך כלל קיים יותר משילוש אחד לפוליגון. למשל, את הפוליגון באיור הבא ניתן לשלש בכמה דרכים שונות. נסו למצוא שילוש השונה מהשניים המוצעים כאן.</p>
+<center>
+<img src="images/3/9-triangulation.jpg" style="width:60.0%">
+</center>
+</div>
+<div id="מדוע-נדרוש-מספר-מקסימלי-של-אלכסונים" class="section level4 unnumbered">
+<h4>מדוע נדרוש מספר מקסימלי של אלכסונים?<a class="anchor" aria-label="anchor" href="#%D7%9E%D7%93%D7%95%D7%A2-%D7%A0%D7%93%D7%A8%D7%95%D7%A9-%D7%9E%D7%A1%D7%A4%D7%A8-%D7%9E%D7%A7%D7%A1%D7%99%D7%9E%D7%9C%D7%99-%D7%A9%D7%9C-%D7%90%D7%9C%D7%9B%D7%A1%D7%95%D7%A0%D7%99%D7%9D"><i class="fas fa-link"></i></a>
+</h4>
+<p>כדי להבטיח שלא יהיו קודקודים של הפוליגון שאינם קודקודים של אחד המשולשים. מצב כזה יכול לקרות כאשר שלושה קודקודים עוקבים מופיעים על ישר אחד. ראו למשל את שלושת הקודקודים משמאל למטה באיור הקודם.</p>
+<p>ראינו דוגמה לפוליגון עם יותר משילוש אחד, אך האם תמיד קיים שילוש? התשובה היא כן! כדי להוכיח זאת, נראה קודם שתמיד נוכל למצוא אלכסון בפוליגון בעל לפחות ארבעה קודקודים.</p>
+</div>
+<div id="משפט-לכל-פוליגון-פשוט-בעל-ארבעה-קודקודים-לפחות-קיים-אלכסון." class="section level4 unnumbered">
+<h4>משפט: לכל פוליגון פשוט בעל ארבעה קודקודים לפחות, קיים אלכסון.<a class="anchor" aria-label="anchor" href="#%D7%9E%D7%A9%D7%A4%D7%98-%D7%9C%D7%9B%D7%9C-%D7%A4%D7%95%D7%9C%D7%99%D7%92%D7%95%D7%9F-%D7%A4%D7%A9%D7%95%D7%98-%D7%91%D7%A2%D7%9C-%D7%90%D7%A8%D7%91%D7%A2%D7%94-%D7%A7%D7%95%D7%93%D7%A7%D7%95%D7%93%D7%99%D7%9D-%D7%9C%D7%A4%D7%97%D7%95%D7%AA-%D7%A7%D7%99%D7%99%D7%9D-%D7%90%D7%9C%D7%9B%D7%A1%D7%95%D7%9F."><i class="fas fa-link"></i></a>
+</h4>
+<p><strong>הוכחה</strong>: יהי <span class="math inline">\(P\)</span> פוליגון בעל <span class="math inline">\(n\ge 4\)</span> קודקודים, ויהי <span class="math inline">\(v\)</span> הקודקוד השמאלי ביותר של <span class="math inline">\(P\)</span> (במקרה שיש יותר מאחד כזה, נבחר בנמוך ביותר). נסמן ב-<span class="math inline">\(u,w\)</span> את שני הקודקודים השכנים ל-<span class="math inline">\(v\)</span> על שפת הפוליגון. מכיוון של-<span class="math inline">\(P\)</span> יש לפחות ארבעה קודקודים, לא ייתכן שהקטע <span class="math inline">\(\overline{uw}\)</span> הוא צלע של <span class="math inline">\(P\)</span>. אם הקטע הפתוח <span class="math inline">\(\overline{u w}\)</span> מוכל בפנים של <span class="math inline">\(P\)</span>, אזי מצאנו אלכסון של <span class="math inline">\(P\)</span>. אחרת, קיים לפחות קודקוד אחד של <span class="math inline">\(P\)</span> בפנימו של המשולש המוגדר על ידי הקודקודים <span class="math inline">\(u,v,w\)</span>, או על הקטע <span class="math inline">\(\overline{u w}\)</span> (נשים לב כי מבחירת <span class="math inline">\(v\)</span>, הקודקודים <span class="math inline">\(u, v, w\)</span> לא יכולים להיות כולם על ישר אחד). יהי <span class="math inline">\(v'\)</span> הקודקוד השמאלי ביותר בתוך המשולש הזה. הקטע <span class="math inline">\(\overline{v v'}\)</span> לא חותך אף צלע של <span class="math inline">\(P\)</span>, אחרת אחד מהקודקודים של צלע כזו היה בפנים המשולש ושמאלי יותר מ-<span class="math inline">\(v'\)</span>. לכן הקטע הפתוח <span class="math inline">\(\overline{v v'}\)</span> הוא אלכסון של <span class="math inline">\(P\)</span>.</p>
+<center>
+<img src="images/3/10-diagonal_exists.jpg" style="width:80.0%">
+</center>
+</div>
+<div id="משפט-לכל-פוליגון-קיים-שילוש." class="section level4 unnumbered">
+<h4>משפט: לכל פוליגון קיים שילוש.<a class="anchor" aria-label="anchor" href="#%D7%9E%D7%A9%D7%A4%D7%98-%D7%9C%D7%9B%D7%9C-%D7%A4%D7%95%D7%9C%D7%99%D7%92%D7%95%D7%9F-%D7%A7%D7%99%D7%99%D7%9D-%D7%A9%D7%99%D7%9C%D7%95%D7%A9."><i class="fas fa-link"></i></a>
+</h4>
+<p>נוסף על כך, כל שילוש של פוליגון פשוט בעל <span class="math inline">\(n\)</span> קודקודים מכיל בדיוק <span class="math inline">\(n-2\)</span> משולשים ו- <span class="math inline">\(2n-3\)</span> צלעות.</p>
+<p><strong>הוכחה</strong>: יהי <span class="math inline">\(P\)</span> פוליגון בעל <span class="math inline">\(n\)</span> קודקודים. נוכיח את המשפט באינדוקציה על <span class="math inline">\(n\)</span>. עבור <span class="math inline">\(n=3\)</span>, <span class="math inline">\(P\)</span> הוא משולש והמשפט מתקיים. יהי <span class="math inline">\(n&gt;3\)</span>, ונניח שהמשפט מתקיים לכל <span class="math inline">\(m&lt;n\)</span>. לפי המשפט שהוכחנו קודם, קיים ב-<span class="math inline">\(P\)</span> אלכסון. כל אלכסון כזה מחלק את <span class="math inline">\(P\)</span> לשני פוליגונים <span class="math inline">\(P_1,P_2\)</span>. מספר הקודקודים של כל אחד מהפוליגונים האלו קטן ממש מ-<span class="math inline">\(n\)</span>, ולכן לפי הנחת האינדוקציה קיים שילוש של <span class="math inline">\(P_ 1\)</span> ו-<span class="math inline">\(P_ 2\)</span>, והאיחוד שלהם הוא שילוש של <span class="math inline">\(P\)</span>.<br>
+כדי לחסום את מספר המשולשים, נתבונן בשילוש כלשהו של <span class="math inline">\(P\)</span>, ונבחר אלכסון <span class="math inline">\(\overline{uv}\)</span> כלשהו בשילוש (כאשר <span class="math inline">\(u, v\)</span> הם קודקודים של <span class="math inline">\(P\)</span>). אלכסון זה מחלק את <span class="math inline">\(P\)</span> לשני פוליגונים <span class="math inline">\(P_ 1, P_ 2\)</span>, בעלי <span class="math inline">\(m_ 1, m_ 2\)</span> קודקודים, בהתאמה. כל קודקוד של <span class="math inline">\(P\)</span>, פרט לקודקודים <span class="math inline">\(u, v\)</span>, מופיע בדיוק באחד מ-<span class="math inline">\(P_ 1, P_ 2\)</span>, והקודקודים <span class="math inline">\(u, v\)</span> מופיעים בשניהם. לכן מתקיים <span class="math inline">\(m_1+m_2= n+2\)</span>. לפי הנחת האינדוקציה, מספר המשולשים בשילוש של <span class="math inline">\(P_1\)</span> הוא <span class="math inline">\(m_1-2\)</span>, ומספר המשולשים בשילוש של <span class="math inline">\(P_2\)</span> הוא <span class="math inline">\(m_2- 2\)</span>. לכן השילוש של מכיל בסך הכול <span class="math inline">\(m_1-2+ m_2-2 = n- 2\)</span> משולשים.<br>
+באופן דומה, כל אלכסון בשילוש של <span class="math inline">\(P\)</span>’ פרט ל-<span class="math inline">\(\overline{u v}\)</span>, מופיע בדיוק באחד מהשילושים של <span class="math inline">\(P_1, P_2\)</span>, והאלכסון <span class="math inline">\(\overline{u v }\)</span> מופיע כצלע בשניהם. לכן לפי הנחת האינדוקציה, מספר הצלעות בשילוש של <span class="math inline">\(P\)</span> הוא <span class="math inline">\((2m_1 - 3)+ (2m_2- 3 )- 1 = 2 (m_1+m_2)-7=2(n+2)-7=2n-3\)</span>.</p>
+<!-- #### מציאת שילוש. {.unnumbered} -->
+<!-- אז אמנם ראינו ששילוש קיים תמיד, אך כדי להשתמש בו נרצה גם להראות אלגוריתם שיודע למצוא שילוש ביעילות. -->
+<!-- ::: rmdwarning -->
+<!-- <img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"/> שאלה למחשבה: השתמשו בהוכחות המשפטים המופיעות למעלה, כדי להראות אלגוריתם המוצא שילוש של פוליגון פשוט בעל $n$ קודקודים בזמן $O(n^2)$. -->
+<!-- ::: -->
+<!-- בהמשך נראה אלגוריתם יעיל יותר למציאת שילוש, עם זמן ריצה של $O(n \log n)$, ו-$O(n)$ זיכרון. -->
+</div>
+</div>
+<div id="agp-thm" class="section level3" number="3.2.3">
+<h3>
+<span class="header-section-number">3.2.3</span> משפט הגלריה לאמנות<a class="anchor" aria-label="anchor" href="#agp-thm"><i class="fas fa-link"></i></a>
+</h3>
+<p>ראינו קודם שכדי לשמור על פוליגון מסרק בעל <span class="math inline">\(n\)</span> קודקודים, נזדקק ל-<span class="math inline">\(\lfloor \frac{n}{3} \rfloor\)</span> מצלמות. במילים אחרות, זה אומר ש-<span class="math inline">\(g(n)\ge \lfloor \frac{n}{3} \rfloor\)</span>. האם זהו המקרה הגרוע ביותר? כלומר, האם <span class="math inline">\(\lfloor \frac{n}{3} \rfloor\)</span> מצלמות יספיקו לכל פוליגון בגודל <span class="math inline">\(n\)</span> שנבחר? או שקיימיים פוליגונים “גרועים” יותר?</p>
+<p>התשובה היא שתמיד ניתן להסתפק ב-<span class="math inline">\(\lfloor \frac{n}{3} \rfloor\)</span> מצלמות! כלומר, נוכל להראות שמתקיים <span class="math inline">\(g(n)\le \lfloor \frac{n}{3} \rfloor\)</span>, ובכך להוכיח את המשפט המפורסם:</p>
+<div id="משפט-הגלריה-לאמנות-gnlfloor-fracn3-rfloor." class="section level4 unnumbered">
+<h4>משפט הגלריה לאמנות: <span class="math inline">\(g(n)=\lfloor \frac{n}{3} \rfloor\)</span>.<a class="anchor" aria-label="anchor" href="#%D7%9E%D7%A9%D7%A4%D7%98-%D7%94%D7%92%D7%9C%D7%A8%D7%99%D7%94-%D7%9C%D7%90%D7%9E%D7%A0%D7%95%D7%AA-gnlfloor-fracn3-rfloor."><i class="fas fa-link"></i></a>
+</h4>
+<div class="rmdnote">
+<p><img src="images/extra.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><strong>מעניין לדעת</strong>: הראשון שניסח והוכיח את משפט הגלריה לאמנות היה ואצלב כבטל (Václav Chvátal), אך את ההוכחה שנראה כאן גילה סטיב פיסק (Steve Fisk). ההוכחה של פיסק הייתה קצרה ופשוטה יותר, ונחשבה אלגנטית כל כך עד שנכללה בספר “Proofs from the BOOK” - המכיל אוסף של הוכחות בהשראת אמרתו של פול ארדש (Paul Erdős): “a place where God keeps aesthetically perfect proofs”.</p>
+</div>
+<p>לפני שנראה את ההוכחה לכך ש-<span class="math inline">\(\lfloor \frac{n}{3} \rfloor\)</span> מצלמות מספיקות תמיד, ננסה להבין כיצד ניתן להוכיח חסמים פשוטים יותר. כיצד ניתן להראות שמספר מסוים של מצלמות מספיק לכל פוליגון <span class="math inline">\(P\)</span> בעל <span class="math inline">\(n\)</span> קודקודים?</p>
+<div class="rmdtip">
+<p><img src="images/example.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><u>דוגמה:<br></u>נתבונן בשילוש של <span class="math inline">\(P\)</span>. קל להראות שמספיקות <span class="math inline">\(n\)</span> מצלמות המוצבות על קודקודי <span class="math inline">\(P\)</span>. מדוע?</p>
+<center>
+<img src="images/3/18-vertex-guards.jpg" style="width:60.0%">
+</center>
+<p>קודקודי המשולשים הם קודקודים של <span class="math inline">\(P\)</span>, ומשולש הוא פוליגון קמור, ולכן קבוצה זו של מצלמות שומרת על כל <span class="math inline">\(P\)</span>. למעשה, מכיוון שבכל שילוש יש <span class="math inline">\(n-2\)</span> משולשים, נוכל להסתפק ב-<span class="math inline">\(n-2\)</span> מצלמות.</p>
+</div>
+<p>כעת נראה הוכחה למשפט הגלריה לאמנות. אולי בשלב זה כבר ניחשתם כי הוכחה זו מבוססת גם היא על שילוש של הפוליגון. נוסף על השילוש, ההוכחה תתבסס גם על צביעה של הגרף המוגדר על ידי צלעות המשולשים וקודקודי הפוליגון. נזכיר כי <strong>גרף הוא</strong> <span class="math inline">\(k\)</span><strong>-צביע</strong> (ניתן לצביעה ב-<span class="math inline">\(k\)</span> צבעים) אם ניתן להתאים לכל אחד מקודקודיו צבע (מספר) בין 1 ל-<span class="math inline">\(k\)</span>, כך שכל שני קודקודים המחוברים בצלע משותפת צבועים בצבעים שונים.</p>
+</div>
+<div id="טענה-כל-שילוש-ניתן-לצביעה-בשלושה-צבעים." class="section level4 unnumbered">
+<h4>טענה: כל שילוש ניתן לצביעה בשלושה צבעים.<a class="anchor" aria-label="anchor" href="#%D7%98%D7%A2%D7%A0%D7%94-%D7%9B%D7%9C-%D7%A9%D7%99%D7%9C%D7%95%D7%A9-%D7%A0%D7%99%D7%AA%D7%9F-%D7%9C%D7%A6%D7%91%D7%99%D7%A2%D7%94-%D7%91%D7%A9%D7%9C%D7%95%D7%A9%D7%94-%D7%A6%D7%91%D7%A2%D7%99%D7%9D."><i class="fas fa-link"></i></a>
+</h4>
+<p><strong>הוכחה</strong>: נוכיח את המשפט באינדוקציה על מספר הקודקודים <span class="math inline">\(n\)</span>. עבור <span class="math inline">\(n=3\)</span> הפוליגון הוא משולש, והוא ניתן לצביעה בשלושה צבעים. יהי <span class="math inline">\(n&gt; 3\)</span>, ונניח שהמשפט מתקיים לכל <span class="math inline">\(m&lt;n\)</span>. יהי <span class="math inline">\(P\)</span> פוליגון בעל <span class="math inline">\(n\)</span> קודקודים, נתבונן בשילוש כלשהו של <span class="math inline">\(P\)</span>, ונבחר אלכסון <span class="math inline">\(overline{u v}\)</span> כלשהו בשילוש (כאשר <span class="math inline">\(u,v\)</span> הם קודקודים של <span class="math inline">\(P\)</span>). אלכסון זה מחלק את <span class="math inline">\(P\)</span> לשני פוליגונים <span class="math inline">\(P_1,P_2\)</span>. לפי הנחת האינדוקציה, נוכל לצבוע את <span class="math inline">\(P_1\)</span> בשלושה צבעים: אדום, כחול וצהוב, ואת <span class="math inline">\(P_2\)</span> בצבעים: כתום, סגול וירוק. כעת נרצה “להדביק” את שני הפוליגונים כך שנקבל צביעה של <span class="math inline">\(P\)</span>. מכיוון שבחירת הצבעים היא שרירותית, נוכל להניח בלי הגבלת הכלליות שבצביעה של <span class="math inline">\(P_1\)</span> הקודקודים <span class="math inline">\(u,v\)</span> נצבעו באדום וכחול בהתאמה, ובצביעה של <span class="math inline">\(P_2\)</span> הם נצבעו בכתום וסגול בהתאמה. לכן נחליף את הצבע של כל קודקוד כתום לאדום, סגול לכחול, וירוק לצהוב. קיבלנו צביעה של <span class="math inline">\(P\)</span> בשלושה צבעים.</p>
+<center>
+<img src="images/3/21-coloring.jpg" style="width:80.0%">
+</center>
+</div>
+<div id="משפט-gnle-lfloor-fracn3-rfloor." class="section level4 unnumbered">
+<h4>משפט: <span class="math inline">\(g(n)\le \lfloor \frac{n}{3} \rfloor\)</span>.<a class="anchor" aria-label="anchor" href="#%D7%9E%D7%A9%D7%A4%D7%98-gnle-lfloor-fracn3-rfloor."><i class="fas fa-link"></i></a>
+</h4>
+<p>כלומר, ניתן לשמור על כל פוליגון פשוט <span class="math inline">\(P\)</span> בעל <span class="math inline">\(n\)</span> קודקודים בעזרת <span class="math inline">\(\lfloor \frac{n}{3} \rfloor\)</span> מצלמות.</p>
+<p><strong>הוכחה</strong>: נבחר שילוש כלשהו <span class="math inline">\(T\)</span> של <span class="math inline">\(P\)</span> ונצבע אותו בשלושה צבעים: אדום, כחול, וצהוב. מעקרון שובך היונים, קיים לפחות צבע אחד שבו צבועים לכל היותר <span class="math inline">\(\lfloor \frac{n}{3} \rfloor\)</span> קודקודים (אחרת, נקבל שסכום הקודקודים גדול מ-<span class="math inline">\(n\)</span>). נניח שצבע זה הוא האדום, ונמקם מצלמה בכל קודקוד הצבוע באדום. נשים לב שבכל משולש ב-T יש בדיוק קודקוד אחד הצבוע באדום: אחרת, נקבל צלע במשולש ששני קודקודיה צבועים באותו הצבע. מכיוון שכל משולש הוא קמור, המצלמה הממוקמת על הקודקוד האדום שומרת על כולו, ולכן המצלמות שהצבנו שומרות על כל P.</p>
+</div>
+<div id="גלריות-אורתוגונליות." class="section level4 unnumbered">
+<h4>גלריות אורתוגונליות.<a class="anchor" aria-label="anchor" href="#%D7%92%D7%9C%D7%A8%D7%99%D7%95%D7%AA-%D7%90%D7%95%D7%A8%D7%AA%D7%95%D7%92%D7%95%D7%A0%D7%9C%D7%99%D7%95%D7%AA."><i class="fas fa-link"></i></a>
+</h4>
+<p>עבור פוליגון פשוט אורתוגונלי, ניתן להראות כי מספיקים <span class="math inline">\(\lfloor \frac{n}{4} \rfloor\)</span> שומרים. קווי ההוכחה דומים: תחילה “מרבעים” את הפוליגון, כלומר מחלקים את הפוליגון למרובעים קמורים בעזרת אלכסונים. לאחר מכן, מוסיפים לכל מרובע את שני האלכסונים שלו (שימו לב שהאלכסונים חוצים זה את זה), ולבסוף מראים שקיימת צביעה של הגרף שהתקבל בארבעה צבעים. מכאן, לפי עקרון שובך היונים, קיים צבע אחד שהשתמשנו בו לכל היותר <span class="math inline">\(\lfloor \frac{n}{4} \rfloor\)</span> פעמים, ומכיוון שלכל אחד מהמרובעים יש בדיוק קודקוד אחד הצבוע בצבע זה, קיבלנו קבוצה של מצלמות ששומרות על הפוליגון כולו.</p>
+</div>
+</div>
+<div id="dual-graph" class="section level3" number="3.2.4">
+<h3>
+<span class="header-section-number">3.2.4</span> הגרף הדואלי לשילוש<a class="anchor" aria-label="anchor" href="#dual-graph"><i class="fas fa-link"></i></a>
+</h3>
+<p>תכונה מעניינת (ושימושית!) נוספת של שילושים מתקבלת כשמתבוננים בגרף הדואלי לשילוש. למעשה, הייצוג של שילוש באמצעות גרף מאפשר לנו לתרגם את הבעיה הגיאומטרית לבעיה קומבינטורית.</p>
+<p>נסמן ב-<span class="math inline">\(T\)</span> את אוסף המשולשים בשילוש כלשהו של פוליגון <span class="math inline">\(P\)</span>. הגרף הדואלי <span class="math inline">\(G_T\)</span> לשילוש <span class="math inline">\(T\)</span> הוא הגרף שקבוצת הקודקודים שלו מכילה קודקוד אחד לכל משולש ב-<span class="math inline">\(T\)</span>, וקבוצת הצלעות שלו מכילה צלע בין שני קודקודים <span class="math inline">\(u,v\)</span> של הגרף אם המשולשים המתאימים לקודקודים אלו חולקים אלכסון משותף.</p>
+<div class="rmdtip">
+<p><img src="images/example.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><u>דוגמה:<br></u>באיור למטה ניתן לראות שילוש <span class="math inline">\(T\)</span> ואת הגרף <span class="math inline">\(G_T\)</span> המתאים לו.</p>
+<p>כל קודקוד של <span class="math inline">\(G_T\)</span> מתאים למשולש מ-<span class="math inline">\(T\)</span>, וכל צלע של <span class="math inline">\(G_T\)</span> מתאימה לאלכסון בשילוש (כל צלע חוצה אלכסון אחד). שימו לב שהגרף <span class="math inline">\(G_T\)</span> הוא עץ. האם זה מקרי?</p>
+<center>
+<img src="images/3/11-graph.jpg" style="width:80.0%">
+</center>
+</div>
+<div id="אבחנה-הגרף-הדואלי-לשילוש-הוא-עץ." class="section level4 unnumbered">
+<h4>אבחנה: הגרף הדואלי לשילוש הוא עץ.<a class="anchor" aria-label="anchor" href="#%D7%90%D7%91%D7%97%D7%A0%D7%94-%D7%94%D7%92%D7%A8%D7%A3-%D7%94%D7%93%D7%95%D7%90%D7%9C%D7%99-%D7%9C%D7%A9%D7%99%D7%9C%D7%95%D7%A9-%D7%94%D7%95%D7%90-%D7%A2%D7%A5."><i class="fas fa-link"></i></a>
+</h4>
+<p>נראה שלכל שילוש <span class="math inline">\(T\)</span>, הגרף הדואלי <span class="math inline">\(G_T\)</span> הוא עץ.</p>
+<p><strong>הוכחה</strong>: ראשית, נשים לב שהגרף <span class="math inline">\(G_T\)</span> הוא קשיר מכיוון שפנים הפוליגון קשיר. שנית, כל אלכסון מחלק את <span class="math inline">\(P\)</span> לשני פוליגונים, לכן מחיקה של צלע מהגרף <span class="math inline">\(G_T\)</span> מחלקת את הגרף לשני רכיבי קשירות. במילים אחרות, הגרף <span class="math inline">\(G_T\)</span> הוא קשיר ואינו מכיל מעגלים, כלומר הוא עץ.</p>
+<div class="rmdtip">
+<p><img src="images/example.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> שימו לב: טענה זו אינה נכונה עבור פוליגון עם חורים! הגרף הדואלי לשילוש של <u>פוליגון עם חורים</u> עשוי להכיל מעגלים, כמו באיור למטה.</p>
+<p>חשבו, מדוע זה קורה? אילו אלכסונים אינם מחלקים את הפוליגון לשני חלקים?</p>
+<center>
+<img src="images/3/12-graph_with_holes.jpg" style="width:70.0%">
+</center>
+</div>
+</div>
+<div id="אלגוריתם-למציאת-מיקומי-המצלמות." class="section level4 unnumbered">
+<h4>אלגוריתם למציאת מיקומי המצלמות.<a class="anchor" aria-label="anchor" href="#%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D-%D7%9C%D7%9E%D7%A6%D7%99%D7%90%D7%AA-%D7%9E%D7%99%D7%A7%D7%95%D7%9E%D7%99-%D7%94%D7%9E%D7%A6%D7%9C%D7%9E%D7%95%D7%AA."><i class="fas fa-link"></i></a>
+</h4>
+<p>משפט הגלריה לאמנות אומר שתמיד מספיקות <span class="math inline">\(\lfloor \frac{n}{3} \rfloor\)</span> מצלמות כדי לשמור על כל פוליגון נתון, אך כיצד נוכל לדעת היכן למקם אותן? נוכל בקלות להפוך את הוכחת הקיום שראינו בעמוד הקודם, לאלגוריתם בזמן לינארי המוצא את מיקומי המצלמות – בעזרת הגרף הדואלי לשילוש. בהינתן הגרף הדואלי, נוכל למצוא צביעה של קודקודי הגרף בשלושה צבעים בזמן לינארי על ידי סריקת DFS פשוטה. נסו לחשוב ולהראות בעצמכם כיצד ניתן לעשות זאת (הפתרון מופיע בסעיף 3.1 בספר הלימוד).</p>
+<p>בחלק הבא נראה כיצד ניתן למצוא שילוש של פוליגון בזמן <span class="math inline">\(O(n \log n)\)</span>, ולכן נוכל להסיק שלכל פוליגון ניתן למצוא בזמן כמעט לינארי קבוצה של <span class="math inline">\(\lfloor \frac{n}{3} \rfloor\)</span> מצלמות ששומרות עליו.</p>
+</div>
+</div>
+<div id="לחזרה-קריאה-בספר-הלימוד" class="section level3" number="3.2.5">
+<h3>
+<span class="header-section-number">3.2.5</span> לחזרה: קריאה בספר הלימוד<a class="anchor" aria-label="anchor" href="#%D7%9C%D7%97%D7%96%D7%A8%D7%94-%D7%A7%D7%A8%D7%99%D7%90%D7%94-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93"><i class="fas fa-link"></i></a>
+</h3>
+<p>בסעיפים הקודמים של חלק זה ראינו הוכחות מלאות לקיום של שילוש ומשפט הגלריה לאמנות. לשם השלמות של החומר באתר, ולמי שמעוניין בחזרה ובהרחבה, ניתן לקרוא כאן את הסעיף המתאים בספר הלימוד.</p>
+<div id="קראו-את-סעיף-3.1-בספר-עמודים-4649." class="section level4 unnumbered">
+<h4>קראו את סעיף 3.1 בספר (עמודים 46–49).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-3.1-%D7%91%D7%A1%D7%A4%D7%A8-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-4649."><i class="fas fa-link"></i></a>
+</h4>
+<hr class="mt-5 mb-5">
+</div>
+</div>
+</div>
+<div id="אלגוריתם-לשילוש-של-פוליגון" class="section level2" number="3.3">
+<h2>
+<span class="header-section-number">3.3</span> אלגוריתם לשילוש של פוליגון<a class="anchor" aria-label="anchor" href="#%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D-%D7%9C%D7%A9%D7%99%D7%9C%D7%95%D7%A9-%D7%A9%D7%9C-%D7%A4%D7%95%D7%9C%D7%99%D7%92%D7%95%D7%9F"><i class="fas fa-link"></i></a>
+</h2>
+<div id="איך-נחשב-שילוש" class="section level3" number="3.3.1">
+<h3>
+<span class="header-section-number">3.3.1</span> איך נחשב שילוש?<a class="anchor" aria-label="anchor" href="#%D7%90%D7%99%D7%9A-%D7%A0%D7%97%D7%A9%D7%91-%D7%A9%D7%99%D7%9C%D7%95%D7%A9"><i class="fas fa-link"></i></a>
+</h3>
+<p>בחלק הקודם ראינו ששילוש קיים תמיד, אך כדי להשתמש בו, נרצה גם להראות אלגוריתם שיודע למצוא שילוש ביעילות.</p>
+<p>שימו לב שההוכחות לקיום אלכסון ושילוש שראינו בחלק הקודם הן <strong>קונסטרוקטיביות</strong>, כלומר הן מציגות דרך למציאה של אלכסון ושילוש של פוליגון פשוט בעל <span class="math inline">\(n\)</span> קודקודים בזמן <span class="math inline">\(O(n^2)\)</span>.</p>
+<div class="rmdwarning">
+<p><img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> נסו לחשוב בעצמכם: השתמשו בהוכחות המשפטים לקיום אלכסון ושילוש כדי להראות אלגוריתם המוצא שילוש של פוליגון פשוט בעל <span class="math inline">\(n\)</span> קודקודים בזמן <span class="math inline">\(O(n^2)\)</span>. (התשובה מופיעה בפסקה הראשונה של פרק 3.2 בספר הלימוד).</p>
+</div>
+<div id="האם-ניתן-למצוא-אלגוריתם-שילוש-יעיל-יותר" class="section level4 unnumbered">
+<h4>האם ניתן למצוא אלגוריתם שילוש יעיל יותר?<a class="anchor" aria-label="anchor" href="#%D7%94%D7%90%D7%9D-%D7%A0%D7%99%D7%AA%D7%9F-%D7%9C%D7%9E%D7%A6%D7%95%D7%90-%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D-%D7%A9%D7%99%D7%9C%D7%95%D7%A9-%D7%99%D7%A2%D7%99%D7%9C-%D7%99%D7%95%D7%AA%D7%A8"><i class="fas fa-link"></i></a>
+</h4>
+<p>בהחלט ניתן למצוא שילוש ביעילות עבור משפחות מסוימות של פוליגונים מיוחדים. למשל, אם הפוליגון שלנו קמור, נוכל לבחור קודקוד באופן שרירותי, ולהוסיף את כל האלכסונים המחברים אותו לכל הקודקודים שהם לא שכנים שלו. זמן הריצה יהיה לינארי, כלומר <span class="math inline">\(O(n)\)</span>.</p>
+<p>לפיכך, גישה אפשרית למציאת שילוש במקרה הכללי תהיה כזו: נחלק את הפוליגון שלנו לחלקים שניתן לשלש ביעילות, ולאחר מכן נשלש כל חלק בנפרד.</p>
+<p>בסעיפים הבאים נראה אלגוריתם למציאת שילוש שמשתמש בגישה הזו, על ידי חלוקה של הפוליגון לחלקים מונוטוניים. זמן הריצה של האלגוריתם הוא <span class="math inline">\(O(n \log n)\)</span>, והוא משתמש ב-<span class="math inline">\(O(n)\)</span> זיכרון.</p>
+<div class="rmdimportant">
+<p><img src="images/definition.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><u><strong>הגדרה</strong>: פוליגון מונוטוני</u><br><img src="images/3/monotone.jpg" align="left" width="25%"> פוליגון פשוט <span class="math inline">\(P\)</span> נקרא <strong>מונוטוני ביחס לישר</strong> <span class="math inline">\(\ell\)</span> אם לכל ישר <span class="math inline">\(\ell'\)</span> שמאונך ל-<span class="math inline">\(\ell\)</span>, החיתוך של <span class="math inline">\(\ell'\)</span>עם הפוליגון הוא קשיר. במילים אחרות, <span class="math inline">\(\ell'\cap P\)</span> יכול להיות קטע, נקודה או הקבוצה הריקה.</p>
+<p>פוליגון שהוא מונוטוני ביחס לציר ה-<span class="math inline">\(y\)</span> נקרא <span class="math inline">\(y\)</span>-מונוטוני, ופוליגון שהוא מונוטוני ביחס לציר ה-<span class="math inline">\(x\)</span> נקרא <span class="math inline">\(x\)</span>-מונוטוני.</p>
+<p>באיור משמאל מופיע פוליגון <span class="math inline">\(y\)</span>-מונוטוני: החיתוך שלו עם כל ישר המקביל לציר ה-<span class="math inline">\(x\)</span> (מאונך לציר ה-<span class="math inline">\(y\)</span>) הוא קשיר.</p>
+</div>
+<div class="rmdwarning">
+<p><img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> אילו מהפוליגונים הבאים הם <span class="math inline">\(y\)</span>-מונוטוניים? ואילו <span class="math inline">\(x\)</span>-מונוטוניים?</p>
+<center>
+<img src="images/3/monotone-ex.jpg" style="width:100.0%">
+</center>
+<details><summary>
+(פתרון)
+</summary><p>(א) הוא גם <span class="math inline">\(y\)</span>-מונוטוני וגם <span class="math inline">\(x\)</span>-מונוטוני (ד) הוא רק <span class="math inline">\(x\)</span>-מונוטוני (ה) הוא רק <span class="math inline">\(y\)</span>-מונוטוני</p>
+</details>
+</div>
+</div>
+</div>
+<div id="חלוקה-לפוליגונים-מונוטוניים" class="section level3" number="3.3.2">
+<h3>
+<span class="header-section-number">3.3.2</span> חלוקה לפוליגונים מונוטוניים<a class="anchor" aria-label="anchor" href="#%D7%97%D7%9C%D7%95%D7%A7%D7%94-%D7%9C%D7%A4%D7%95%D7%9C%D7%99%D7%92%D7%95%D7%A0%D7%99%D7%9D-%D7%9E%D7%95%D7%A0%D7%95%D7%98%D7%95%D7%A0%D7%99%D7%99%D7%9D"><i class="fas fa-link"></i></a>
+</h3>
+<p>בסרטון הבא נדבר על אלגוריתם MakeMonotone, המוצא חלוקה של פוליגון <span class="math inline">\(P\)</span> בעל <span class="math inline">\(n\)</span> קודקודים לפוליגונים <span class="math inline">\(y\)</span>-מונוטוניים. האלגוריתם משתמש בשיטת הישר הסורק שלמדנו בחלק השני של פרק 2, ולכן מומלץ להיזכר בשיטה ולוודא קודם שהבנתם את הפרטים שלה.</p>
+<div id="צפו-בסרטון-הבא.-5" class="section level4 unnumbered">
+<h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-5"><i class="fas fa-link"></i></a>
+</h4>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cIYV1rg3mc8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+</center>
+<p><br>
+הנה התשובה לשאלה האחרונה שנשאלה בסרטון: הייצוג של <span class="math inline">\(P\)</span> ותת-הפוליגונים המונוטוניים בחלוקה שלו יהיה בעזרת מבנה DCEL, כפי שלמדנו בחלק השלישי של פרק 2.</p>
+<p>כיצד נממש את האלגוריתם הסורק ביעילות? על אופן המימוש ופרטי האלגוריתם MakeMonotone תקראו בסעיף 3.2 בספר הלימוד. זמן הריצה של האלגוריתם הוא <span class="math inline">\(O(n \log n)\)</span>, והוא משתמש ב-<span class="math inline">\(O(n)\)</span> זיכרון.</p>
+</div>
+<div id="קראו-את-סעיף-3.2-בספר-עמודים-4955." class="section level4 unnumbered">
+<h4>קראו את סעיף 3.2 בספר (עמודים 49–55).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-3.2-%D7%91%D7%A1%D7%A4%D7%A8-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-4955."><i class="fas fa-link"></i></a>
+</h4>
+</div>
+</div>
+<div id="שילוש-של-פוליגון-מונוטוני" class="section level3" number="3.3.3">
+<h3>
+<span class="header-section-number">3.3.3</span> שילוש של פוליגון מונוטוני<a class="anchor" aria-label="anchor" href="#%D7%A9%D7%99%D7%9C%D7%95%D7%A9-%D7%A9%D7%9C-%D7%A4%D7%95%D7%9C%D7%99%D7%92%D7%95%D7%9F-%D7%9E%D7%95%D7%A0%D7%95%D7%98%D7%95%D7%A0%D7%99"><i class="fas fa-link"></i></a>
+</h3>
+<p>לאחר שראינו כיצד ניתן לחלק פוליגון פשוט בעל <span class="math inline">\(n\)</span> קודקודים לפוליגונים <span class="math inline">\(y\)</span>-מונוטוניים בזמן <span class="math inline">\(O(n \log n)\)</span>, נותר לנו להראות שכל פוליגון מונוטוני ניתן לשילוש בזמן לינארי.</p>
+<div id="צפו-בסרטון-הבא.-6" class="section level4 unnumbered">
+<h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-6"><i class="fas fa-link"></i></a>
+</h4>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GB0OGV3Heu0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+</center>
+<p><br>
+בסעיף 3.3 בספר הלימוד תקראו בפירוט רב יותר על האלגוריתם TriangulateMonotonePolygons שתואר בסרטון. זמן הריצה של האלגוריתם הזה הוא אכן <span class="math inline">\(O(n)\)</span>, ומכאן שקיבלנו אלגוריתם שילוש בזמן <span class="math inline">\(O(n\log n)\)</span> – שיפור משמעותי לעומת האלגוריתם בזמן ריבועי (<span class="math inline">\(O(n^2)\)</span>) המבוסס על ההוכחה לקיום שילוש. למעשה, נוכל להסיק שכל מפה מישורית בעלת <span class="math inline">\(n\)</span> קודקודים ניתנת לשילוש בזמן <span class="math inline">\(O(n\log n)\)</span>!</p>
+</div>
+<div id="קראו-את-סעיף-3.3-בספר-עמודים-5558." class="section level4 unnumbered">
+<h4>קראו את סעיף 3.3 בספר (עמודים 55–58).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-3.3-%D7%91%D7%A1%D7%A4%D7%A8-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-5558."><i class="fas fa-link"></i></a>
+</h4>
+
+</div>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="map-overlay.html"><span class="header-section-number">2</span> מפות מישוריות וטכניקת הישר הסורק</a></div>
+<div class="next"><a href="linear-prog.html"><span class="header-section-number">4</span> תכנון לינארי וחיתוך של חצאי מישורים</a></div>
+</div></main><div class="col-md-3 col-lg-3 d-none d-md-block sidebar sidebar-chapter border-right">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>ביחידה זו:</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#pol-tringle"><span class="header-section-number">3</span> שילושי פוליגונים ובעיית הגלריה לאמנות</a></li>
+<li>
+<a class="nav-link" href="#preface-3"><span class="header-section-number">3.1</span> הקדמה</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#agp"><span class="header-section-number">3.1.1</span> בעיית הגלריה לאמנות</a></li>
+<li><a class="nav-link" href="#geom-model"><span class="header-section-number">3.1.2</span> מודל גיאומטרי לבעיה</a></li>
+<li><a class="nav-link" href="#worst-case"><span class="header-section-number">3.1.3</span> מהו המקרה הגרוע ביותר?</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#guarding"><span class="header-section-number">3.2</span> שמירה ושילושים</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#diagonals"><span class="header-section-number">3.2.1</span> חלוקה בעזרת אלכסונים</a></li>
+<li><a class="nav-link" href="#triangulation"><span class="header-section-number">3.2.2</span> שילוש של פוליגונים</a></li>
+<li><a class="nav-link" href="#agp-thm"><span class="header-section-number">3.2.3</span> משפט הגלריה לאמנות</a></li>
+<li><a class="nav-link" href="#dual-graph"><span class="header-section-number">3.2.4</span> הגרף הדואלי לשילוש</a></li>
+<li><a class="nav-link" href="#%D7%9C%D7%97%D7%96%D7%A8%D7%94-%D7%A7%D7%A8%D7%99%D7%90%D7%94-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93"><span class="header-section-number">3.2.5</span> לחזרה: קריאה בספר הלימוד</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D-%D7%9C%D7%A9%D7%99%D7%9C%D7%95%D7%A9-%D7%A9%D7%9C-%D7%A4%D7%95%D7%9C%D7%99%D7%92%D7%95%D7%9F"><span class="header-section-number">3.3</span> אלגוריתם לשילוש של פוליגון</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#%D7%90%D7%99%D7%9A-%D7%A0%D7%97%D7%A9%D7%91-%D7%A9%D7%99%D7%9C%D7%95%D7%A9"><span class="header-section-number">3.3.1</span> איך נחשב שילוש?</a></li>
+<li><a class="nav-link" href="#%D7%97%D7%9C%D7%95%D7%A7%D7%94-%D7%9C%D7%A4%D7%95%D7%9C%D7%99%D7%92%D7%95%D7%A0%D7%99%D7%9D-%D7%9E%D7%95%D7%A0%D7%95%D7%98%D7%95%D7%A0%D7%99%D7%99%D7%9D"><span class="header-section-number">3.3.2</span> חלוקה לפוליגונים מונוטוניים</a></li>
+<li><a class="nav-link" href="#%D7%A9%D7%99%D7%9C%D7%95%D7%A9-%D7%A9%D7%9C-%D7%A4%D7%95%D7%9C%D7%99%D7%92%D7%95%D7%9F-%D7%9E%D7%95%D7%A0%D7%95%D7%98%D7%95%D7%A0%D7%99"><span class="header-section-number">3.3.3</span> שילוש של פוליגון מונוטוני</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p dir="rtl" style="text-align:right;">הספר "<strong>גיאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2023-12-28.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
