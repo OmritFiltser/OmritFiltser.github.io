@@ -3,7 +3,6 @@ preface-1
 id_-leaning-goals-1
 what-is-cg
 basic-prop
-more-tools
 notations
 basic-objects
 curves-polygons

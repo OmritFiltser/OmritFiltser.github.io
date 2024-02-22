@@ -18,6 +18,8 @@ csl: chicago-fullnote-bibliography.csl
 ספר זה נועד ללוות את הלומדים בקורס גיאומטריה חישובית לתואר ראשון, המבוסס על הספר Computational Geometry: Algorithms and Applications מאת 
 Mark de Berg, Otfried Cheong, Marc van Kreveld, Mark Overmars.
 
+------------------------------------------------------------------------
+
 ## לפני שמתחילים {.unnumbered #welcome}
 
 #### שלום וברוכים הבאים לקורס בגיאומטריה חישובית! {.unnumbered}
@@ -31,6 +33,8 @@ Mark de Berg, Otfried Cheong, Marc van Kreveld, Mark Overmars.
 -   **למה לי בכלל ללמוד גאומטריה חישובית?** לאלגוריתמים ולמבני הנתונים שנלמד יש אין־ספור יישומים מעשיים חשובים במגוון תחומים רלוונטיים, כמו גרפיקה וראייה מומחשבת, מערכות מידע גיאוגרפיות, ניתוח מידע רב ועוד. תוכלו לרכוש לעצמכם אוסף כלים, מודלים וטכניקות, המוכנים לשליפה ולמימוש בפתרון מגוון של בעיות אלגוריתמיות. נוסף על כך, יש בהם גם יופי מרתק שגלום בתכונות הגיאומטריות, בהגדרה הנקייה של הבעיות, ובאסתטיקה של הפתרונות. בקורס נלמד בעיקר את הטכניקות והאלגוריתמים המשמשים בסיס רעיוני למימושים נפוצים, אך גם נושאים הנמצאים בחזית המחקר כיום.  
 
 -   **ידע קודם:** בקורס נדרש ידע בנושאים של סיבוכיות אסימפטוטית, אלגוריתמים ומבני נתונים בסיסיים.
+
+------------------------------------------------------------------------
 
 ## אופן הלימוד בקורס {.unnumbered #howToStudy}
 
@@ -48,19 +52,25 @@ Mark de Berg, Otfried Cheong, Marc van Kreveld, Mark Overmars.
 
 -   **מצאתם טעות בחומר הלימוד?** אם מצאתם טעות או בעיה בחומר הלימוד -- בין שזו שגיאת כתיב, טעות בנוסחה או "חור" בהוכחה -- אנא כתבו לי.
 
-## כלים ומקורות נוספים  {.unnumbered #tools}
+------------------------------------------------------------------------
+
+## כלים ומקורות נוספים {.unnumbered #tools}
+
 בסעיף זה ירוכזו כלים שימושיים לקורס, ומקורות נוספים ללמידה ולהעשרה.
 
-#### הרצאות מוקלטות וחומרי לימוד נוספים   {.unnumbered}
-- <a href="http://www.cs.umd.edu/class/spring2020/cmsc754/Lects/cmsc754-spring2020-lects.pdf">CMSC 754 Computational Geometry</a>, by David M. Mount.
-- <a href="https://geometry.inf.ethz.ch/gca18.pdf">Geometry: Combinatorics and Algorithms</a>, by Luis Barba Bernd Gärtner, Michael Hoffmann and Emo Welzl.
-- <a href="https://www.youtube.com/@PhilippKindermann/playlists?view=50&sort=dd&shelf_id=2">Computational Geometry</a>, video lectures by Philipp Kindermann.
+#### כלים מומלצים לשימוש בקורס. {.unnumbered}
 
-#### כלים מומלצים לשימוש בקורס {.unnumbered}
-- <a href="https://ipe.otfried.org/">Ipe</a> - כלי חינמי מצוין לציורים גיאומטריים שפיתח Otfried Cheong, חוקר בגיאומטריה חישובית. מדריך מצוין לכלי זה ניתן למצוא <a href="https://www.youtube.com/watch?v=moM4CATxTgw&ab_channel=V%C3%A1clavBla%C5%BEej">כאן</a>.
-- <a href="https://www.geogebra.org/geometry">Geogebra</a> - כלי ליצירת אובייקטים גיאומטריים אינטראקטיביים. 
-- <a href="https://www.desmos.com/calculator">Desmos</a> - כלי לחישוב והצגה של פונקציות.
-- <a href="https://www.cgal.org/">CGAL</a> - ספריית ++C המכילה מגוון אלגוריתמים ומבני נתונים גיאומטריים.
+-   [Ipe](https://ipe.otfried.org/) - כלי חינמי מצוין לציורים גיאומטריים שפיתח Otfried Cheong, חוקר בגיאומטריה חישובית. מדריך מצוין לכלי זה ניתן למצוא [כאן](https://www.youtube.com/watch?v=moM4CATxTgw&ab_channel=V%C3%A1clavBla%C5%BEej).
+-   [Geogebra](https://www.geogebra.org/geometry) - כלי ליצירת אובייקטים גיאומטריים אינטראקטיביים.
+-   [CGAL](https://www.cgal.org/) - ספריית ++C המכילה מגוון אלגוריתמים ומבני נתונים גיאומטריים.
+
+#### הרצאות מוקלטות וחומרי לימוד נוספים. {.unnumbered}
+
+למעוניינים בכך, ניתן למצוא חומרי לימוד מצוינים מקורסים דומים הניתנים ברחבי העולם. הנה רשימה חלקית ביותר של הבולטים בהם:
+
+-   [CMSC 754 Computational Geometry](http://www.cs.umd.edu/class/spring2020/cmsc754/Lects/cmsc754-spring2020-lects.pdf), by David M. Mount.
+-   [Geometry: Combinatorics and Algorithms](https://geometry.inf.ethz.ch/gca18.pdf), by Luis Barba Bernd Gärtner, Michael Hoffmann and Emo Welzl.
+-   [Computational Geometry](https://www.youtube.com/@PhilippKindermann/playlists?view=50&sort=dd&shelf_id=2), video lectures by Philipp Kindermann.
 
 
 <script>
