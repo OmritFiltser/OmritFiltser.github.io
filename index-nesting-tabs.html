@@ -94,16 +94,8 @@
 						<a class="brand" href="./" target="_self">Omrit Filtser</a>
 						<ul class="nav" id="myTab">
 						  <li class="active"><a href="#home">Home</a></li>
-						  <li class="dropdown">
-							  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Research<b class="caret"></b></a>
-							  <ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="#publications">Publications</a></li>
-								<li><a class="dropdown-item" href="#videos">Videos</a></li>
-								<li><a class="dropdown-item" href="#frechet">Fréchet Distance Library</a></li>
-								<li><a class="dropdown-item" href="#apps">Apps</a></li>
-							  </ul>
-						  </li>		
-						  <li><a href="#research">Research</a></li>			  
+						  <li><a href="#research">Research</a></li>	
+						  <li><a href="#teaching">Teaching</a></li>			  
 						  <li><a href="#personal">Personal</a></li>
 						</ul>
 				  </div>
@@ -116,6 +108,8 @@
 					</div>
 					
 					<div class="tab-pane fade" id="research"> <!-- Research --> 
+					
+						<div class="container">
 						  <ul class="nav nav-tabs">
 							<li class="active"><a data-toggle="tab" href="#publications2">Publications</a></li>
 							<li><a data-toggle="tab" href="#videos2">Videos</a></li>
@@ -123,306 +117,27 @@
 							<li><a data-toggle="tab" href="#apps2">Apps</a></li>
 						  </ul>
 
-					<div class="tab-content">
-						<div class="tab-pane fade active in" id="publications2"> <!-- Publications -->
-							<div w3-include-html="about-me.html"></div>
+							<div class="tab-content">
+								<div class="tab-pane fade active in" id="publications2"> <!-- Publications -->
+									<div w3-include-html="publications.html"></div>
+								</div>
+								<div class="tab-pane fade" id="videos2"> <!-- Videos -->
+									<div w3-include-html="videos.html"></div>
+								</div>
+								<div class="tab-pane fade" id="frechet2"> <!-- Frechet -->
+									<div w3-include-html="lib5.html"></div>
+									<hr>
+									<p><a name="bibliography"><h3>Bibliography</h3></a></p>
+									<div w3-include-html="bib.html"></div>
+								</div>
+								<div class="tab-pane fade" id="apps2"> <!-- Apps -->
+									<div w3-include-html="apps.html"></div>
+								</div>
+							</div>
 						</div>
-						<div class="tab-pane fade" id="videos2"> <!-- Videos -->
-							<div w3-include-html="about-me.html"></div>
-						</div>
-						<div class="tab-pane fade" id="frechet2"> <!-- Frechet -->
-							<div w3-include-html="about-me.html"></div>
-						</div>
-						<div class="tab-pane fade" id="apps2"> <!-- Apps -->
-							<div w3-include-html="about-me.html"></div>
-						</div>
-					</div>
-									
-					<div class="tab-pane fade" id="publications"> <!-- Publications -->
-						<H2>Publications</H2>
-						<p>
-						[<a href="https://dblp.org/pers/hd/f/Filtser:Omrit">DBLP</a>] [<a href="https://scholar.google.com/citations?user=gUDGUC8AAAAJ&hl=en">Google Scholar</a>]
-						</p><br>
-						<ol reversed>
-							<li>
-							<b>Robustly Guarding Polygons</b>.<br>
-								Rathish Das, Omrit Filtser, Matthew J. Katz, and Joseph Mitchell.<br>
-								[SoCG 2024]
-							</li>
-							<li>
-							<b>A tour of general Hanoi graphs</b>.<br>
-								Daniel Berend, Liat Cohen, and Omrit Filtser.<br>
-								[<a href="https://www.sciencedirect.com/science/article/abs/pii/S0304397523006023?via%3Dihub">TCS 2024</a>]
-							</li>
-							<li>
-							<b>Minimum k-Hop Dominating Sets in Grid Graphs</b>.<br>
-								Omrit Filtser, Erik Krohn, Bengt J. Nilsson, Christian Rieck, and Christiane Schmidt.<br>
-								[LATIN 2024]
-								[<a href="https://arxiv.org/abs/2308.00334">ArXiv</a>]
-							</li>
-							<li>
-							<b>On Flipping the Fréchet distance</b>.<br>
-								Omrit Filtser, Mayank Goswami, Joseph S.B. Mitchell, and Valentin Polishchuk.<br>
-								[<a href="https://drops.dagstuhl.de/opus/volltexte/2023/17554/">ITCS 2023</a>]
-								[<a href="https://arxiv.org/abs/2203.04548v2">ArXiv</a>]
-							</li>
-							<li>
-							<b>Static and Streaming Data Structures for Fréchet Distance Queries</b>.<br>
-								Arnold Filtser and Omrit Filtser.<br>
-								[<a href="https://dl.acm.org/doi/10.1145/3610227">TALG 2023</a>]
-								[<a href="https://epubs.siam.org/doi/pdf/10.1137/1.9781611976465.71">SODA 2021</a>]
-								[<a href="https://arxiv.org/abs/2007.10898">ArXiv</a>]
-								[<a href="https://player.vimeo.com/video/496701766">Video</a>]
-							</li>
-							<li>
-							<b>Condorcet Relaxation In Spatial Voting</b>.<br>
-								Arnold Filtser and Omrit Filtser.<br>
-								[<a href="https://ojs.aaai.org/index.php/AAAI/article/view/16681">AAAI 2021</a>]
-								[<a href="https://arxiv.org/abs/2005.04799">ArXiv</a>]
-								[<a href="https://slideslive.com/38948631/condorcet-relaxation-in-spatial-voting">Video</a>]
-								[<a href="./files/AAAI-presentation.pdf">Slides</a>]
-							</li>
-							<li>
-								<b>A Constant-Factor Approximation Algorithm for Vertex Guarding a WV-Polygon</b>.<br>
-								Stav Ashur, 
-								Omrit Filtser, and 
-								Matthew J. Katz.<br>
-								[<a href="https://jocg.org/index.php/jocg/article/view/3434">JoCG 2021</a>]
-								[<a href="https://link.springer.com/chapter/10.1007%2F978-3-030-80879-2_6">WAOA 2020</a>]
-								[<a href="http://arxiv.org/abs/1907.01228">ArXiv</a>]
-							</li>
-							<li>
-								<b>Approximate Nearest Neighbor for Curves - Simple, Efficient, and Deterministic</b>.<br>
-								Arnold Filtser,
-								Omrit Filtser, and 
-								Matthew J. Katz.<br>
-								[<a href="https://link.springer.com/article/10.1007/s00453-022-01080-1">Algorithmica 2023</a>]
-								[<a href="https://drops.dagstuhl.de/opus/volltexte/2020/12455/">ICALP 2020</a>]
-								[<a href="http://arxiv.org/abs/1902.07562">ArXiv</a>]
-								[<a href="https://www.youtube.com/watch?v=W2kNOsFwCGk">Video</a>]
-							</li>
-							<li>
-								<b>Efficient Nearest-Neighbor Query and Clustering of Planar Curves</b>.<br>
-								Boris Aronov,
-								Omrit Filtser, 
-								Michael Horton,
-								Khadijeh Sheikhan, and 
-								Matthew J. Katz.<br>
-								[<a href="https://link.springer.com/chapter/10.1007%2F978-3-030-24766-9_3">WADS 2019</a>]
-								[<a href="http://arxiv.org/abs/1904.11026">ArXiv</a>]
-							</li>
-							<li>
-								<b>Terrain-Like Graphs: PTASs for Guarding Weakly-Visible Polygons and Terrains</b>.<br>
-								Stav Ashur,
-								Omrit Filtser,
-								Matthew J. Katz, and
-								Rachel Saban.<br>
-								[<a href="https://www.sciencedirect.com/science/article/abs/pii/S0925772121000882?via%3Dihub">CGTA 2022</a>]
-								[<a href="https://link.springer.com/chapter/10.1007/978-3-030-39479-0_1">WAOA 2019</a>]
-							</li>
-							<li>
-								<b>Bipartite Diameter and Other Measures Under Translation</b>.<br>
-								Boris Aronov,
-								Omrit Filtser, 
-								Khadijeh Sheikhan, and 
-								Matthew J. Katz.<br>
-								[<a href=https://link.springer.com/article/10.1007/s00454-022-00433-5">DCG 2022</a>]
-								[<a href="https://drops.dagstuhl.de/opus/volltexte/2019/10247/">STACS 2019</a>]
-								[<a href="./files/bipartite_diameter-slides.pdf">Slides</a>]
-							</li>
-							<li>
-								<b>Algorithms for the discrete Fréchet distance under translation</b>.<br>
-								Omrit Filtser and 
-								Matthew J. Katz.<br>
-								[<a href="http://drops.dagstuhl.de/opus/volltexte/2018/8846/">SWAT 2018</a>]
-								[<a href="https://journals.carleton.ca/jocg/index.php/jocg/article/view/409">JoCG 2020</a>]
-								[<a href="./files/frechet_under_translation-slides.pdf">Slides</a>]
-							</li>		
-							<li>
-								<b>Universal approximate simplification under the discrete Fréchet distance</b>.<br>
-								Omrit Filtser.<br>
-								[<a href="https://www.sciencedirect.com/science/article/pii/S0020019017301801">IPL 2018</a>]
-							</li>
-							<li>
-								<b>Guarding orthogonal art galleries with sliding cameras</b>.<br>
-								Stephane Durocher, 
-								Omrit Filtser, 
-								Robert Fraser, 
-								Ali D. Mehrabi, and 
-								Saeed Mehrabi.<br>
-								[<a href="https://www.sciencedirect.com/science/article/pii/S0925772117300251">CGTA 2017</a>]
-							</li>
-							<li>
-								<b>On the General Chain Pair Simplification Problem</b>.<br>
-								Chenglin Fan,
-								Omrit Filtser,
-								Matthew J. Katz, and
-								Binhai Zhu.<br>
-								[<a href="http://drops.dagstuhl.de/opus/volltexte/2016/6451/">MFCS 2016</a>]
-							</li>
-							<li>
-								<b>The Discrete Fréchet Gap</b>.<br>
-								Omrit Filtser and
-								Matthew J. Katz.<br>
-								[<a href="http://arxiv.org/abs/1506.04861">Arxiv</a>]
-							</li>
-							<li>
-								<b>On the Chain Pair Simplification Problem</b>.<br>
-								Chenglin Fan,
-								Omrit Filtser,
-								Matthew J. Katz,
-								Tim Wylie, and
-								Binhai Zhu.<br>
-								[<a href="https://link.springer.com/chapter/10.1007%2F978-3-319-21840-3_29">WADS 2015</a>]
-								[<a href="http://arxiv.org/abs/1409.2457">Arxiv</a>]
-							</li>
-							<li>
-								<b>The Discrete Fréchet Distance with Shortcuts via Approximate Distance Counting and Selection Techniques</b>.<br>
-								Rinat Ben Avraham,
-								Omrit Filtser,
-								Haim Kaplan,
-								Matthew J. Katz, and
-								Micha Sharir.<br>
-								[<a href="https://dl.acm.org/citation.cfm?doid=2582112.2582155">SoCG 2014</a>]
-								[<a href="https://dl.acm.org/citation.cfm?doid=2700222">TALG 2015</a>]
-								[<a href="http://arxiv.org/abs/1310.5245">Arxiv</a>]
-							</li>
-						</ol>
-						<p>My PhD Thesis: <a href="./files/Omrit Filtser - Thesis.pdf">The Discrete Fréchet Distance and Applications</a></p>
-					</div>
 
-					<div class="tab-pane fade" id="videos"> <!-- Videos -->
-						<H2>Videos</H2>
-						<ul>
-							<li>
-							Proximity search in trajectory data under the Fréchet distance:<br>
-							<a href="https://www.youtube.com/watch?v=Q-jrrL3wwZs&list=PLOAh6TOuLkq6Lhz6tA2pHhhcZKcml6GTI&index=3&t=63s&ab_channel=TCSWomen">TCS Women Spotlight Workshop, STOC 2021</a>
-							</li>
-							<li>
-							Static and Streaming Data Structures for Fréchet Distance Queries:<br> 
-							<a href="https://player.vimeo.com/video/496701766">SODA 2021</a>, <a href="https://www.youtube.com/watch?v=DRElYvgbXVo&list=PLOAh6TOuLkq6Lhz6tA2pHhhcZKcml6GTI&index=2&t=7s&ab_channel=ComputationalGeometry">TAU CG seminar 2020</a>
-							</li>
-							<li>
-							Condorcet Relaxation In Spatial Voting:<br>
-							<a href="https://slideslive.com/38948631/condorcet-relaxation-in-spatial-voting">AAAI 2021</a>
-							</li>
-							<li>
-								Approximate Nearest Neighbor for Curves - Simple, Efficient, and Deterministic:<br>
-								<a href="https://www.youtube.com/watch?v=W2kNOsFwCGk">ICALP 2020</a>
-							</li>
-						</ul>
-						<p dir="rtl">
-						<b>עברית</b>
-						<br>
-						<a href=https://www.youtube.com/watch?v=V3xTLxG0F7E&list=PLOAh6TOuLkq6uHsN7kFC3qb1ppZUztwpG&index=3&t=111s&ab_channel=TheOpenUniversity">
-						יום המדענית 2022, האוניברסיטה הפתוחה
-						</a>
-						<br>
-						<a href="https://www.youtube.com/watch?v=joLAkH0YAU8&list=PLOAh6TOuLkq6uHsN7kFC3qb1ppZUztwpG&index=2&t=1s&ab_channel=TheOpenUniversity">
-						לסטודנטים: תחומי מחקר
-						</a>
-						<br>
-						<a href="https://openu.zoom.us/rec/share/guRBETLKyrnIzTBuDGFTBbzYP_gHBl1lrLPrg44r56_x4G-zqKB3Boli9LMHx-DP.kA_a0Mx63pmbEDM_">
-						אשנב למחקר: גאומטריה חישובית
-						</a>
-						</p>
-					</div>
-
-					<div class="tab-pane fade" id="frechet"> <!-- Frechet -->
-						<div id="lib"></div>
-						<hr>
-						<p><a name="bibliography"><h3>Bibliography</h3></a></p>
-						<div id="bib"></div>
-					</div>
-					
-					<div class="tab-pane fade" id="apps"> <!-- Apps -->
-						<H2>Apps</H2>
-						I'm using ChatGPT to generate some cute and simple JavaScript applets.
-						<ul>
-						<li>
-							<a href="k-hop-applet.html" target="_blank">k-hop domination in polyomines</a>
-						</li>
-						<li>
-							<a href="vis-pol-applet.html" target="_blank">Illustrating visibility polygons</a>
-						</li>
-												<li>
-							<a href="voronoi-applet.html" target="_blank">Voronoi diagram and Delaunay Triangulation</a>
-						</li>
-						</ul>
-					</div>
-					
-					<!-- CV
-					<div class="tab-pane fade" id="cv">
-						[<a href="./files/CV_Omrit_Filtser.pdf">My full CV</a>] (last update: December 2020)
-						
-						<H2>Honors and Awards</H2>
-						<ul>
-							<li> <b>The Israeli Council for Higher Education fellowship</b> for postdoctoral women fellows, 2019.</li>
-							<li> <b>BGU scholarship</b> for postdoctoral women fellows abroad, 2019.</li>
-							<li> <b>Eric and Wendy Schmidt Postdoctoral Award</b> for Women in Mathematical and Computing Sciences, Schmidt Futures, 2018.	</li>
-							<li> <b>Philippe Chaim Zabey Award</b> for excellent Master Thesis, CS Department, Ben-Gurion University, 2017.</li>
-							<li> <b>The Israeli Ministry of Science & Technology Scholarship</b> for women in science (for PhD students), 2015.</li>
-							<li> <b>Dean's Honour</b> for excellent graduate students, The Faculty of Natural Sciences, Ben-Gurion University, 2015.</li>
-							<li> <b>Friedman Award</b> for outstanding achievements in research, CS Department, Ben-Gurion University, 2015.</li>
-							<li> <b>Negev Scholarship</b> for excellence in research, Ben-Gurion University, 2014.</li>
-							<li> <b>The Israeli Ministry of Science & Technology Scholarship</b> for women in science (for M.Sc. students), 2013.</li>
-							<li> <b>Intel Award</b> for excellent undergraduate students, 2012. </li>
-							<li> <b>Martha and Solomon Scharf Prize</b> for excellent undergraduate students, 2010,2011,2012.</li>
-							<li> <b>Dean's Honour</b> for excellent undergraduate students, The Faculty of Natural Sciences, Ben-Gurion University, 2011,2012.</li>
-						</ul>
-			
-						<H2>Teaching:</H2>
-						<UL>
-							<li>Fall 2013: <a href="http://www.cs.bgu.ac.il/~auto131/Main">Automata and Formal Languages</a></br>
-							</li>
-							<li>Spring 2015: <a href="http://www.cs.bgu.ac.il/~ds152/Main">Data Structures</a></br>
-							</li>
-							<li>Spring 2016: <a href="http://www.cs.bgu.ac.il/~ds162/Main">Data Structures</a></br>
-							</li>
-							<li>Spring 2017: <a href="http://www.cs.bgu.ac.il/~ds172/Main">Data Structures</a></br>
-							</li>
-							<li>Spring 2018: <a href="http://www.cs.bgu.ac.il/~ds182/Main">Data Structures</a></br>
-							</li>
-							<li>Spring 2019: <a href="http://www.cs.bgu.ac.il/~ds192/Main">Data Structures</a></br>
-							</li>
-						</UL>
-						<H2>Grading:</H2>
-						<UL>
-							<li>Spring 2013: <a href="http://www.cs.bgu.ac.il/~dsc132/Main">Discrete Structures and Combinatorics</a></br>
-							</li>
-							<li>Fall 2014: <a href="http://www.cs.bgu.ac.il/~auto141/Main">Automata and Formal Languages</a></br>
-							</li>
-							<li>Spring 2014: <a href="http://www.cs.bgu.ac.il/~dsc142/Main">Discrete Structures and Combinatorics</a></br>
-							</li>
-							<li>Fall 2015: <a href="http://www.cs.bgu.ac.il/~cg151/Main">Computational Geometry</a></br>
-							</li>
-							<li>Fall 2016: <a href="http://www.cs.bgu.ac.il/~matya/Courses/cg15.htm">Computational Geometry</a></br>
-							</li>
-							<li>Fall 2017: <a href="http://www.cs.bgu.ac.il/~matya/Courses/cg15.htm">Computational Geometry</a></br>
-							</li>
-							<li>Fall 2018: <a href="http://www.cs.bgu.ac.il/~matya/Courses/cg15.htm">Computational Geometry</a></br>
-							</li>
-						</UL>
-					</div>
-					-->
-					
 					<div class="tab-pane fade" id="personal"> <!-- Personal -->
-						<div class="column">
-							<div class="span7">
-								<H2>Personal</H2>
-								<p>
-										I am married to <a href="http://arnold.filtser.com/" target="_blank">Arnold Filtser</a>, who is a faculty member in the Computer Science Department at Bar Ilan university.
-										I am also a mother to two clever and curious girls, 
-										<a href="http://naama.filtser.com/" target="_blank">Naama</a> and <a href="http://hadass.filtser.com/" target="_blank">Hadass</a>, and two cute and funny boys, Ehud and Boaz.
-								</p>
-								<p>
-										Things that I like to do other than research: <a href="http://www.ravelry.com/designers/omrit-filtser" target="_blank">crocheting</a>, <a href="https://www.textillia.com/members/omrit">sewing</a>, <a href="https://www.deviantart.com/omrit/gallery">drawing</a>, <a href="./img/ski.jpg">skiing</a>.
-								</p>
-							</div>
-							<div class="span7" style="text-align: center;">
-									<img src="./img/family5.jpg" class="img-polaroid">
-							</div>
-						</div>
+						<div w3-include-html="personal.html"></div>
 					</div>
 
 				</div><!-- tab content-->
