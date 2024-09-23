@@ -7,7 +7,7 @@
 <title>יחידה 10 תכנון תנועה | גיאומטריה חישובית</title>
 <meta name="author" content="ד’’ר עומרית פילצר">
 <meta name="description" content="10.1 הקדמה  10.1.1 מה ביחידה? יחידה זו מקבילה לפרקים 13 ו-15 בספר הלימוד. המושגים והרעיונות העיקריים שיילמדו ביחידה: מודל גיאומטרי לתכנון תנועת רובוט: מרחב העבודה, נקודות ייחוס, דרגות חופש, מרחבי...">
-<meta name="generator" content="bookdown 0.34 with bs4_book()">
+<meta name="generator" content="bookdown 0.40 with bs4_book()">
 <meta property="og:title" content="יחידה 10 תכנון תנועה | גיאומטריה חישובית">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://omrit.filtser.com/CG/motion-planning.html">
@@ -17,7 +17,7 @@
 <meta name="twitter:description" content="10.1 הקדמה  10.1.1 מה ביחידה? יחידה זו מקבילה לפרקים 13 ו-15 בספר הלימוד. המושגים והרעיונות העיקריים שיילמדו ביחידה: מודל גיאומטרי לתכנון תנועת רובוט: מרחב העבודה, נקודות ייחוס, דרגות חופש, מרחבי...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.0/transition.js"></script><script src="libs/bs3compat-0.5.0/tabs.js"></script><script src="libs/bs3compat-0.5.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.7.0/transition.js"></script><script src="libs/bs3compat-0.7.0/tabs.js"></script><script src="libs/bs3compat-0.7.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
@@ -55,7 +55,7 @@
 <li><a class="" href="duality-arrangements.html"><span class="header-section-number">8</span> מערכים ודואליות</a></li>
 <li><a class="" href="Delaunay-triangulation.html"><span class="header-section-number">9</span> שילושי דלוני</a></li>
 <li><a class="active" href="motion-planning.html"><span class="header-section-number">10</span> תכנון תנועה</a></li>
-<li><a class="" href="WSPD-spanners.html"><span class="header-section-number">11</span> פורשים גאומטריים וקבוצות מופרדות היטב</a></li>
+<li><a class="" href="wspd-approx.html"><span class="header-section-number">11</span> WSPD ואלגוריתמי קירוב גיאומטריים</a></li>
 <li><a class="" href="curve-similarity.html"><span class="header-section-number">12</span> דמיון בין עקומים</a></li>
 </ul>
 
@@ -289,8 +289,8 @@
 <div class="inline-figure">
 <img src="images/10/minkowski-sum.jpg" align="left" width="25%">
 ראינו שעבור רובוט נקודתי, מרחב העבודה שווה בדיוק למרחב החופשי. זהו לא המצב עבור רובוט שאינו נקודתי, ולכן כדי שנוכל לחשב ולייצג את המרחב החופשי, נצטרך תחילה להבין כיצד נראים המכשולים במרחב הקונפיגורציות עבור רובוט פוליגונלי. בסרטון הבא נדבר על סכומי מינקובסקי, ונראה כיצד הם יעזרו לנו בתיאור ובבניית מרחב הקונפיגורציות לרובוט פוליגונלי.</div>
-<div id="צפו-בסרטון-הבא.-19" class="section level4 unnumbered">
-<h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-19"><i class="fas fa-link"></i></a>
+<div id="צפו-בסרטון-הבא.-20" class="section level4 unnumbered">
+<h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-20"><i class="fas fa-link"></i></a>
 </h4>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/oKMx8DqELrQ?si=jNtJ7IDoJv2KHOdt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 </iframe>
@@ -481,8 +481,8 @@
 <span class="header-section-number">10.3.1</span> מסלול קצר ביותר וגרף הנִרְאוּת<a class="anchor" aria-label="anchor" href="#visibility-graph"><i class="fas fa-link"></i></a>
 </h3>
 <p>עד כה ראינו כיצד ניתן למצוא לרובוט מסלול <strong>כלשהו</strong> ללא התנגשויות, מנקודת ההתחלה לנקודת היעד, ולא דנו כלל בטיב המסלול שנבחר. אם רוצים לחסוך באנרגיה ובזמן, כדאי לבחור למשל במסלול הקצר ביותר האפשרי. בחלק זה נדבר על חישוב מסלול קצר ביותר לרובוט, וזאת באמצעות בניית מפת דרכים אחרת, שנקראת גרף הנִרְאוּת.</p>
-<div id="צפו-בסרטון-הבא.-20" class="section level4 unnumbered">
-<h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-20"><i class="fas fa-link"></i></a>
+<div id="צפו-בסרטון-הבא.-21" class="section level4 unnumbered">
+<h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-21"><i class="fas fa-link"></i></a>
 </h4>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/K3pqlZLJHBw?si=cJ_DrRbDgpTAyY2Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 </iframe>
@@ -547,7 +547,7 @@
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="Delaunay-triangulation.html"><span class="header-section-number">9</span> שילושי דלוני</a></div>
-<div class="next"><a href="WSPD-spanners.html"><span class="header-section-number">11</span> פורשים גאומטריים וקבוצות מופרדות היטב</a></div>
+<div class="next"><a href="wspd-approx.html"><span class="header-section-number">11</span> WSPD ואלגוריתמי קירוב גיאומטריים</a></div>
 </div></main><div class="col-md-3 col-lg-3 d-none d-md-block sidebar sidebar-chapter border-right">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>ביחידה זו:</h2>
       <ul class="nav navbar-nav">
@@ -592,7 +592,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p dir="rtl" style="text-align:right;">הספר "<strong>גיאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2024-02-22.</p>
+    <p dir="rtl" style="text-align:right;">הספר "<strong>גיאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2024-09-23.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>יחידה 11 WSPD ואלגוריתמי קירוב גיאומטריים | גיאומטריה חישובית</title>
+<meta name="author" content="ד’’ר עומרית פילצר">
+<meta name="description" content="11.1 חלק 1: הקדמה  11.1.1 מה ביחידה? ביחידה זו נלמד חלקים מהפרק השלישי בספר “Geometric Approximation Algorithms”, מאת פרופ’ שריאל הר-פלד. פרק זה יספק לנו הצצה לתחום חשוב ומרתק: אלגוריתמי קירוב...">
+<meta name="generator" content="bookdown 0.40 with bs4_book()">
+<meta property="og:title" content="יחידה 11 WSPD ואלגוריתמי קירוב גיאומטריים | גיאומטריה חישובית">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://omrit.filtser.com/CG/wspd-approx.html">
+<meta property="og:description" content="11.1 חלק 1: הקדמה  11.1.1 מה ביחידה? ביחידה זו נלמד חלקים מהפרק השלישי בספר “Geometric Approximation Algorithms”, מאת פרופ’ שריאל הר-פלד. פרק זה יספק לנו הצצה לתחום חשוב ומרתק: אלגוריתמי קירוב...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="יחידה 11 WSPD ואלגוריתמי קירוב גיאומטריים | גיאומטריה חישובית">
+<meta name="twitter:description" content="11.1 חלק 1: הקדמה  11.1.1 מה ביחידה? ביחידה זו נלמד חלקים מהפרק השלישי בספר “Geometric Approximation Algorithms”, מאת פרופ’ שריאל הר-פלד. פרק זה יספק לנו הצצה לתחום חשוב ומרתק: אלגוריתמי קירוב...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.7.0/transition.js"></script><script src="libs/bs3compat-0.7.0/tabs.js"></script><script src="libs/bs3compat-0.7.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row no-pad">
+  <header class="col-sm-12 col-lg-2 sidebar sidebar-book border-left"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">גיאומטריה חישובית</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search" dir="rtl">
+        <input id="search" class="form-control" type="search" placeholder="חיפוש" aria-label="Search" dir="rtl">
+</form>
+
+      <nav aria-label="Table of contents"><h2>יחידות הלימוד:</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">ברוכים הבאים</a></li>
+<li><a class="" href="intro.html"><span class="header-section-number">1</span> מבוא</a></li>
+<li><a class="" href="map-overlay.html"><span class="header-section-number">2</span> מפות מישוריות וטכניקת הישר הסורק</a></li>
+<li><a class="" href="pol-tringle.html"><span class="header-section-number">3</span> שילושי פוליגונים ובעיית הגלריה לאמנות</a></li>
+<li><a class="" href="linear-prog.html"><span class="header-section-number">4</span> תכנון לינארי וחיתוך של חצאי מישורים</a></li>
+<li><a class="" href="orthogonal-range-seach.html"><span class="header-section-number">5</span> חיפוש בתחומים אורתוגונליים</a></li>
+<li><a class="" href="point-location.html"><span class="header-section-number">6</span> מיקום נקודה ומפה טרפזית</a></li>
+<li><a class="" href="voronoi.html"><span class="header-section-number">7</span> דיאגרמת וורונוי</a></li>
+<li><a class="" href="duality-arrangements.html"><span class="header-section-number">8</span> מערכים ודואליות</a></li>
+<li><a class="" href="Delaunay-triangulation.html"><span class="header-section-number">9</span> שילושי דלוני</a></li>
+<li><a class="" href="motion-planning.html"><span class="header-section-number">10</span> תכנון תנועה</a></li>
+<li><a class="active" href="wspd-approx.html"><span class="header-section-number">11</span> WSPD ואלגוריתמי קירוב גיאומטריים</a></li>
+<li><a class="" href="curve-similarity.html"><span class="header-section-number">12</span> דמיון בין עקומים</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="wspd-approx" class="section level1" number="11">
+<h1>
+<span class="header-section-number">יחידה 11</span> WSPD ואלגוריתמי קירוב גיאומטריים<a class="anchor" aria-label="anchor" href="#wspd-approx"><i class="fas fa-link"></i></a>
+</h1>
+<div id="preface-11" class="section level2" number="11.1">
+<h2>
+<span class="header-section-number">11.1</span> חלק 1: הקדמה<a class="anchor" aria-label="anchor" href="#preface-11"><i class="fas fa-link"></i></a>
+</h2>
+<div id="contents-11" class="section level3" number="11.1.1">
+<h3>
+<span class="header-section-number">11.1.1</span> מה ביחידה?<a class="anchor" aria-label="anchor" href="#contents-11"><i class="fas fa-link"></i></a>
+</h3>
+<p>ביחידה זו נלמד חלקים מהפרק השלישי בספר “Geometric Approximation Algorithms”, מאת פרופ’ שריאל הר-פלד. פרק זה יספק לנו הצצה לתחום חשוב ומרתק: אלגוריתמי קירוב גיאומטריים.</p>
+<p>המושגים והרעיונות העיקריים שיילמדו ביחידה:</p>
+<ul>
+<li>אלגוריתמי קירוב גיאומטריים</li>
+<li>ה-spread של קבוצת נקודות</li>
+<li>עצי רביעים (Quadtrees)</li>
+<li>פירוק לזוגות מופרדים היטב (WSPD – well-separated pair decomposition)</li>
+<li>פורשים גיאומטריים</li>
+</ul>
+<p>למידה מהנה!</p>
+</div>
+<div id="geometric-approx" class="section level3" number="11.1.2">
+<h3>
+<span class="header-section-number">11.1.2</span> אלגוריתמי קירוב גיאומטריים<a class="anchor" aria-label="anchor" href="#geometric-approx"><i class="fas fa-link"></i></a>
+</h3>
+<p><img src="images/11/approx_path.jpg" align="left" width="45%">
+כל האלגוריתמים שראינו עד עכשיו בקורס חישבו פתרון אופטימלי מדויק לבעיה נתונה. למשל, ביחידה הקודמת כאשר רצינו לחשב את המסלול הקצר ביותר לרובוט מנקודת התחלה <span class="math inline">\(p_{start}\)</span> לנקודת סיום <span class="math inline">\(p_{goal}\)</span> בסביבה עם מכשולים, הפתרון שהוחזר על ידי האלגוריתם היה אופטימלי: כל מסלול אחר מ-<span class="math inline">\(p_{start}\)</span> ל-<span class="math inline">\(p_{goal}\)</span> ללא התנגשויות במכשולים הוא באורך גדול או שווה למסלול שהוחזר על ידי האלגוריתם. זמן הריצה של האלגוריתם שראינו הוא קרוב לריבועי, <span class="math inline">\(O(n^2\log n)\)</span>, זמן שיכול להיות לא מעשי ליישומים מסויימים בהם <span class="math inline">\(n\)</span> הוא גדול מאוד.
+לפעמים נהיה מוכנים להתפשר על הדיוק של הפתרון, בתמורה לשיפור בזמני הריצה או סיבוכיות הזיכרון. למשל, נתפשר על כך שהמסלול שיוחזר על ידי האלגוריתם לא יהיה הקצר ביותר, אלא לכל היותר באורך שהוא פי שניים מאורך המסלול הקצר ביותר, וזה בתמורה לכך שזמן הריצה יהיה קרוב ללינארי. אלגוריתם מהסוג הזה נקרא <strong>אלגוריתם קירוב</strong>.</p>
+<p>שימו לב שאלגוריתמי הקירוב שנדבר עליהם ביחידה זו הם לא אלגוריתמי קירוב לבעיות NP-קשות, אלא דווקא לבעיות שאפשר לפתור בזמן פולינומי. בעיות רבות בגיאומטריה חישובית ניתנות לפתרון בזמן יעיל מאוד כאשר מדובר בשניים או בשלושה ממדים, אך זמן הריצה של הפתרונות הללו תלוי אקספוננציאלית בממד, מה שהופך אותם לבלתי מעשיים בממדים גבוהים. תופעה מפורסמת זו נקראת <strong>קללת הממד</strong> (<a href="https://en.wikipedia.org/wiki/Curse_of_dimensionality">curse of dimensionality</a>).</p>
+דוגמה אחת לכך היא בעיית Euclidean MST (עץ פורש מינימלי אוקלידי). עבור אוסף של <strong>נקודות במישור</strong>, ניתן למצוא עץ פורש מינימלי של הגרף המלא עליהן (כאשר משקלי הצלעות הם המרחקים בין הנקודות) בזמן <span class="math inline">\(O(n\log n)\)</span>. לעומת זאת, בממד 3 ומעלה זמן הריצה גדל משמעותית, והוא הולך ומתקרב ל-<span class="math inline">\(O(n^2)\)</span> ככל שהממד גדל. בהמשך היחידה נראה שניתן לחשב קירוב ל-EMST בזמן <span class="math inline">\(O(n\log n)\)</span> לכל ממד קבוע.
+<center>
+<img src="images/11/EMST.jpg" align="center" width="80%">
+</center>
+<p><br></p>
+<p>כמובן שקיימים גם אלגוריתמי קירוב גיאומטריים לבעיות שהן NP-קשות. דוגמה מפורסמת לכך היא בעיית הסוכן הנוסע (TSP - Traveling Salesman Problem): בהיתן אוסף של נקודות, יש למצוא את המסלול הקצר ביותר שעובר בכולן. זו בעיה NP-קשה, אך קיים עבורה אלגוריתם PTAS (Polynomial Time Approximation Scheme) – אלגוריתם עם פקטור קירוב של <span class="math inline">\(1+\varepsilon\)</span> לכל <span class="math inline">\(\varepsilon&gt;0\)</span>, שזמן הריצה שלו תלוי ב-<span class="math inline">\(\varepsilon\)</span>.</p>
+<center>
+<img src="images/11/TSP.jpg" align="center" width="80%">
+</center>
+<div id="תרגיל-אלגוריתם-קירוב-2-לבעיית-הסוכן-הנוסע-במישור" class="section level4 unnumbered">
+<h4>תרגיל: אלגוריתם קירוב-2 לבעיית הסוכן הנוסע במישור<a class="anchor" aria-label="anchor" href="#%D7%AA%D7%A8%D7%92%D7%99%D7%9C-%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D-%D7%A7%D7%99%D7%A8%D7%95%D7%91-2-%D7%9C%D7%91%D7%A2%D7%99%D7%99%D7%AA-%D7%94%D7%A1%D7%95%D7%9B%D7%9F-%D7%94%D7%A0%D7%95%D7%A1%D7%A2-%D7%91%D7%9E%D7%99%D7%A9%D7%95%D7%A8"><i class="fas fa-link"></i></a>
+</h4>
+<p>נתונה קבוצה <span class="math inline">\(P\)</span> של <span class="math inline">\(n\)</span> נקודות במישור. נתון לכם אלגוריתם שמחשב את ה-EMST של <span class="math inline">\(P\)</span> בזמן <span class="math inline">\(O(n\log n)\)</span>. הראו שניתן לחשב בזמן <span class="math inline">\(O(n\log n)\)</span> מסלול שעובר בכל נקודות <span class="math inline">\(P\)</span>, ואורכו לכל היותר פי 2 מאורך המסלול הקצר ביותר העובר בכל נקודות <span class="math inline">\(P\)</span>.</p>
+</div>
+</div>
+<div id="ה-spread-של-קבוצת-נקודות" class="section level3" number="11.1.3">
+<h3>
+<span class="header-section-number">11.1.3</span> ה-Spread של קבוצת נקודות<a class="anchor" aria-label="anchor" href="#%D7%94-spread-%D7%A9%D7%9C-%D7%A7%D7%91%D7%95%D7%A6%D7%AA-%D7%A0%D7%A7%D7%95%D7%93%D7%95%D7%AA"><i class="fas fa-link"></i></a>
+</h3>
+<p>הסיבוכיות של האלגוריתמים ומבני הנתונים שראינו בקורס תלויה בגודל הקומבינטורי של הפלט והקלט, כלומר מספר הנקודות או האובייקטים, ולא ב<strong>תכונות גיאומטריות</strong> של הקלט, כמו מרחקים בין נקודות, אורכי צלעות, זוויות או שיפועים של ישרים. מה הסיבה לכך?</p>
+<div id="צפו-בסרטון-הבא.-22" class="section level4 unnumbered">
+<h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-22"><i class="fas fa-link"></i></a>
+</h4>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9dPApo1t-7o?si=OT0xf3x4-5Cu1Mlv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+</iframe>
+</center>
+</div>
+<div id="הגדרה-ה-spread-של-קבוצת-נקודות" class="section level4 unnumbered">
+<h4>הגדרה: ה-Spread של קבוצת נקודות<a class="anchor" aria-label="anchor" href="#%D7%94%D7%92%D7%93%D7%A8%D7%94-%D7%94-spread-%D7%A9%D7%9C-%D7%A7%D7%91%D7%95%D7%A6%D7%AA-%D7%A0%D7%A7%D7%95%D7%93%D7%95%D7%AA"><i class="fas fa-link"></i></a>
+</h4>
+<p>עבור קבוצה <span class="math inline">\(P\)</span> של <span class="math inline">\(n\)</span> נקודות ב-<span class="math inline">\(\mathbb{R}^d\)</span>, ה-spread של <span class="math inline">\(P\)</span> הוא
+<span class="math display">\[\Phi(P)=\frac{\max_{p,q\in P}\|p-q\|}{\min_{p,q\in P, p\neq q}\|p-q\|}.\]</span></p>
+</div>
+<div id="תרגיל-מספר-הרמות-בחלוקה-לפי-מרחק" class="section level4 unnumbered">
+<h4>תרגיל: מספר הרמות בחלוקה לפי מרחק<a class="anchor" aria-label="anchor" href="#%D7%AA%D7%A8%D7%92%D7%99%D7%9C-%D7%9E%D7%A1%D7%A4%D7%A8-%D7%94%D7%A8%D7%9E%D7%95%D7%AA-%D7%91%D7%97%D7%9C%D7%95%D7%A7%D7%94-%D7%9C%D7%A4%D7%99-%D7%9E%D7%A8%D7%97%D7%A7"><i class="fas fa-link"></i></a>
+</h4>
+<p>הראו שמספר הרמות בחלוקה של קבוצת נקודות <span class="math inline">\(P\)</span> לפי מרחק שהוזכרה בסרטון הוא
+<span class="math inline">\(O(\log(\Phi(P))\)</span>.</p>
+</div>
+</div>
+</div>
+<div id="Quadtrees" class="section level2" number="11.2">
+<h2>
+<span class="header-section-number">11.2</span> חלק 2: עצי רביעים (Quadtrees)<a class="anchor" aria-label="anchor" href="#Quadtrees"><i class="fas fa-link"></i></a>
+</h2>
+<div id="עצי-רביעים-quadtrees" class="section level3" number="11.2.1">
+<h3>
+<span class="header-section-number">11.2.1</span> עצי רביעים (Quadtrees)<a class="anchor" aria-label="anchor" href="#%D7%A2%D7%A6%D7%99-%D7%A8%D7%91%D7%99%D7%A2%D7%99%D7%9D-quadtrees"><i class="fas fa-link"></i></a>
+</h3>
+<p>עץ רביעים (quadtree) הוא חלוקה היררכית של המרחב לתאים. זהו מבנה נתונים פשוט יחסית, ועם זאת הוא אחד המבנים השימושיים ביותר בגיאומטריה חישובית. למבנה זה יש אופי מעט שונה מאלו שראינו עד עכשיו, מכיוון שהחלוקה ההיררכית מתבצעת ביחס למרחקים בין הנקודות, ולא ביחס למספר הנקודות.</p>
+<div id="היפרקובייה-קובייה-d-ממדית" class="section level4 unnumbered">
+<h4>היפרקובייה (קובייה <span class="math inline">\(d\)</span>-ממדית)<a class="anchor" aria-label="anchor" href="#%D7%94%D7%99%D7%A4%D7%A8%D7%A7%D7%95%D7%91%D7%99%D7%99%D7%94-%D7%A7%D7%95%D7%91%D7%99%D7%99%D7%94-d-%D7%9E%D7%9E%D7%93%D7%99%D7%AA"><i class="fas fa-link"></i></a>
+</h4>
+<p>ביחידה זו לא נגביל את עצמינו למישור האוקלידי, ונתייחס למרחבים מממד <span class="math inline">\(d\)</span> כלשהו, כאשר <strong><span class="math inline">\(d\)</span> הוא קבוע</strong> שאינו תלוי בגודל הקלט (המשמעות היא ש-<span class="math inline">\(2^d\)</span> למשל, הוא מספר קבוע).</p>
+המבנה ההיררכי שנראה מיד מחלק את המרחב לתאים שכל אחד מהם הוא <strong>היפרקובייה</strong> – זוהי הכללה של מושג הקובייה לממד כללי: הקודקודים של היפרקוביית היחידה מממד <span class="math inline">\(d\)</span> הם <span class="math inline">\(2^d\)</span> הנקודות מממד <span class="math inline">\(d\)</span> שכל הקואורדינטות שלהן הן 0 או 1. להיפרקובייה יש צלע המחברת זוג קודקודים כאלו אם ורק אם הם שונים זה מזה בקואורדינטה אחת בלבד. היפרקובייה כללית מתקבלת על ידי הזזה, סיבוב, או שינוי קנה מידה (scaling) של היפרקוביית היחידה.
+<center>
+<img src="images/11/hypercube.jpg" align="center" width="100%">
+</center>
+<p><br></p>
+</div>
+<div id="בניית-עץ-רביעים" class="section level4 unnumbered">
+<h4>בניית עץ רביעים<a class="anchor" aria-label="anchor" href="#%D7%91%D7%A0%D7%99%D7%99%D7%AA-%D7%A2%D7%A5-%D7%A8%D7%91%D7%99%D7%A2%D7%99%D7%9D"><i class="fas fa-link"></i></a>
+</h4>
+<p>נתונה לנו קבוצה <span class="math inline">\(P\)</span> של <span class="math inline">\(n\)</span> נקודות במרחב אוקלידי <span class="math inline">\(d\)</span> ממדי, ונניח שהן חסומות על ידי היפרקוביית היחידה (אם זה לא המצב, ניתן להזיז ולשנות את קנה המידה).</p>
+<p>עץ רביעים הוא חלוקה היררכית של היפרקוביית היחידה לתאים, שכל אחד מהם הוא היפרקובייה קטנה יותר. את התאים נשמור בעץ מושרש <span class="math inline">\(\mathcal{T}\)</span>, כך שכל צומת <span class="math inline">\(v\)</span> מתאים לתא <span class="math inline">\(\square_v\)</span> בחלוקה. השורש של <span class="math inline">\(\mathcal{T}\)</span> מתאים להיפרקוביית היחידה, ובניית שאר העץ מתבצעת באופן רקורסיבי:</p>
+<ul>
+<li>נסתכל על צומת <span class="math inline">\(u\)</span> של העץ המתאים לתא <span class="math inline">\(\square_u\)</span> שעדיין לא נסרק.</li>
+<li>אם <span class="math inline">\(\square_u\)</span> מכיל לכל היותר נקודה אחת של <span class="math inline">\(P\)</span> (יתכן שהוא ריק), אז הצומת <span class="math inline">\(u\)</span> יהיה עלה של העץ <span class="math inline">\(\mathcal{T}\)</span>.</li>
+<li>אחרת, נחלק את <span class="math inline">\(\square_u\)</span> ל-<span class="math inline">\(2^d\)</span> היפרקוביות קטנות יותר, כל אחת בעלת אורך צלע שהוא בדיוק חצי מאורך הצלע של <span class="math inline">\(\square_u\)</span>. לכל אחד מהתאים האלו ניצור צומת חדש שיהיה ילד של הצומת <span class="math inline">\(u\)</span> בעץ <span class="math inline">\(\mathcal{T}\)</span>.</li>
+</ul>
+<p>עבור <span class="math inline">\(d=2\)</span>, ההיפרקובייה היא ריבוע, ובכל שלב ברקורסיה נחלק ריבוע לארבעה רביעים: NE,NW,SW,SE (כמו באיור למטה). מכאן שמו של המבנה - עץ רביעים, או באנגלית quadtree.</p>
+<center>
+<img src="images/11/quadtree.jpg" align="center" width="80%">
+</center>
+</div>
+<div id="ענו-על-השאלה-הבאה" class="section level4 unnumbered">
+<h4>ענו על השאלה הבאה:<a class="anchor" aria-label="anchor" href="#%D7%A2%D7%A0%D7%95-%D7%A2%D7%9C-%D7%94%D7%A9%D7%90%D7%9C%D7%94-%D7%94%D7%91%D7%90%D7%94"><i class="fas fa-link"></i></a>
+</h4>
+<p>השלימו את עץ הרביעים שבאיור.</p>
+<center>
+<img src="images/11" style="width:35.0%">
+</center>
+<details><summary>
+(פתרון)
+</summary></details>
+</div>
+</div>
+<div id="עץ-רביעים-דחוס-compressed-quadtree" class="section level3" number="11.2.2">
+<h3>
+<span class="header-section-number">11.2.2</span> עץ רביעים דחוס (Compressed Quadtree)<a class="anchor" aria-label="anchor" href="#%D7%A2%D7%A5-%D7%A8%D7%91%D7%99%D7%A2%D7%99%D7%9D-%D7%93%D7%97%D7%95%D7%A1-compressed-quadtree"><i class="fas fa-link"></i></a>
+</h3>
+<p>המבנה שתיארנו בעמוד הקודם נוטה להיות יעיל מאוד באופן מעשי, אך צריך לשים לב לשני עניינים חשובים שעלולים לגרום לזמן הריצה להיות גדול מאוד במקרים מסוימים.</p>
+<p><img src="images/11/trivial_path.jpg" align="left" width="45%">
+הראשון הוא שמספר הצמתים בעץ יכול להיות גדול הרבה יותר מ-<span class="math inline">\(O(n)\)</span>. לדוגמה, אם בתא כלשהו כל הנקודות קרובות מאוד זו לזו יחסית לגודל התא, כמו באיור משמאל, אז העץ יכיל מסלול ארוך מאוד שמוביל לנקודות האלו, שבו לכל צומת יהיה רק ילד אחד (מתוך <span class="math inline">\(2^d\)</span>) שהוא צומת פנימי בעץ.</p>
+<div id="שאלה-למחשבה-מספר-הצמתים-במקרה-הגרוע" class="section level4 unnumbered">
+<h4>שאלה למחשבה: מספר הצמתים במקרה הגרוע<a class="anchor" aria-label="anchor" href="#%D7%A9%D7%90%D7%9C%D7%94-%D7%9C%D7%9E%D7%97%D7%A9%D7%91%D7%94-%D7%9E%D7%A1%D7%A4%D7%A8-%D7%94%D7%A6%D7%9E%D7%AA%D7%99%D7%9D-%D7%91%D7%9E%D7%A7%D7%A8%D7%94-%D7%94%D7%92%D7%A8%D7%95%D7%A2"><i class="fas fa-link"></i></a>
+</h4>
+<p>מה יהיה מספר הצמתים בעץ הרביעים שמתואר למעלה, במקרה הגרוע ביותר? כתבו חסם אסימפטוטי כתלות ב-spread.</p>
+</div>
+<div id="דחיסת-מסלולים" class="section level4 unnumbered">
+<h4>דחיסת מסלולים<a class="anchor" aria-label="anchor" href="#%D7%93%D7%97%D7%99%D7%A1%D7%AA-%D7%9E%D7%A1%D7%9C%D7%95%D7%9C%D7%99%D7%9D"><i class="fas fa-link"></i></a>
+</h4>
+<p>ניתן להקטין את מספר הצמתים בעץ עד כדי <span class="math inline">\(O(n)\)</span> בעזרת תהליך של דחיסת מסלולים. הרעיון הוא לכווץ כל מסלול “טריוויאלי” שכזה לצומת בודד. העץ שמתקבל אחרי דחיסה של כל המסלולים הטרוויאלים נקרא <strong>עץ רביעים דחוס (compressed quadtree)</strong>, ומכיוון שלכל צומת פנימי בו יש לפחות שני ילדים שתת העץ המושרש בהם מכיל תא עם נקודה מ-<span class="math inline">\(P\)</span>, מספר הצמתים הפנימיים הוא לכל היותר <span class="math inline">\(n-1\)</span> ולכן מספר הצמתים הכולל בעץ הוא <span class="math inline">\(O(n)\)</span>.</p>
+<center>
+<img src="images/11/compressed_quadtree.jpg" align="center" width="100%">
+</center>
+</div>
+<div id="זמן-בניית-העץ" class="section level4 unnumbered">
+<h4>זמן בניית העץ<a class="anchor" aria-label="anchor" href="#%D7%96%D7%9E%D7%9F-%D7%91%D7%A0%D7%99%D7%99%D7%AA-%D7%94%D7%A2%D7%A5"><i class="fas fa-link"></i></a>
+</h4>
+<p>העניין השני שצריך לשים לב אליו הוא זמן הריצה של אלגוריתם הבנייה של העץ. אמנם ניתן לבנות את העץ בזמן <span class="math inline">\(O(n\cdot h)\)</span> כאשר <span class="math inline">\(h\)</span> הוא הגובה של העץ, אך מכיוון שגובה העץ יכול להיות <span class="math inline">\(O(n)\)</span> נקבל זמן ריצה של <span class="math inline">\(O(n^2)\)</span>. למעשה, ניתן להראות שאפשר לבנות עץ רביעים בזמן <span class="math inline">\(O(n\log n)\)</span>! אנחנו לא נלמד את אלגוריתם הבניה הזה בקורס, אך נשתמש במשפט הבא בהמשך:</p>
+<div class="rmdimportant">
+<p><strong>משפט</strong>: בהינתן קבוצה <span class="math inline">\(P\)</span> של <span class="math inline">\(n\)</span> נקודות מממד קבוע <span class="math inline">\(d\)</span>, ניתן לבנות עבור <span class="math inline">\(P\)</span> עץ רביעים דחוס (compressed quadtree) עם <span class="math inline">\(O(n)\)</span> צמתים בזמן <span class="math inline">\(O(n\log n)\)</span>.</p>
+</div>
+</div>
+<div id="שאלה-למחשבה-בניית-עץ-רביעים-בזמן-oncdot-h" class="section level4 unnumbered">
+<h4>שאלה למחשבה: בניית עץ רביעים בזמן <span class="math inline">\(O(n\cdot h)\)</span><a class="anchor" aria-label="anchor" href="#%D7%A9%D7%90%D7%9C%D7%94-%D7%9C%D7%9E%D7%97%D7%A9%D7%91%D7%94-%D7%91%D7%A0%D7%99%D7%99%D7%AA-%D7%A2%D7%A5-%D7%A8%D7%91%D7%99%D7%A2%D7%99%D7%9D-%D7%91%D7%96%D7%9E%D7%9F-oncdot-h"><i class="fas fa-link"></i></a>
+</h4>
+<p>כיצד ניתן לבנות עץ רביעים דחוס עבור קבוצה <span class="math inline">\(P\)</span> של <span class="math inline">\(n\)</span> נקודות בזמן <span class="math inline">\(O(n\cdot h)\)</span>, כאשר <span class="math inline">\(h\)</span> הוא הגובה של העץ?</p>
+</div>
+<div id="לקריאה-נוספת" class="section level4 unnumbered">
+<h4>לקריאה נוספת<a class="anchor" aria-label="anchor" href="#%D7%9C%D7%A7%D7%A8%D7%99%D7%90%D7%94-%D7%A0%D7%95%D7%A1%D7%A4%D7%AA"><i class="fas fa-link"></i></a>
+</h4>
+<p>ביחידה זו לא ניכנס לעומק הבניה והניתוח של עצי רביעים, ונסתפק בהיכרות עם המבנה ותכונותיו, שמופיעה בעמוד זה. למעוניינים בהעמקה, ניתן לקרוא עוד על עצי רביעים בפרק השני של הספר “Geometric Approximation Algorithms” מאת פרופ’ שריאל הר-פלד, וכן בספר הלימוד המרכזי של הקורס בסעיף 14.2 (עמודים 309–315).</p>
+</div>
+</div>
+<div id="תכונת-האריזה-packing-property" class="section level3" number="11.2.3">
+<h3>
+<span class="header-section-number">11.2.3</span> תכונת האריזה (packing property)<a class="anchor" aria-label="anchor" href="#%D7%AA%D7%9B%D7%95%D7%A0%D7%AA-%D7%94%D7%90%D7%A8%D7%99%D7%96%D7%94-packing-property"><i class="fas fa-link"></i></a>
+</h3>
+<p>לעץ רביעים (לא דחוס) יש שתי תכונות חשובות:
+1. לכל צומת בעץ מתאים תא (היפרקובייה) עם אורך צלע שקטן בדיוק פי שניים מאורך הצלע של התא המתאים לאבא של הצומת.
+2. כל התאים הנמצאים באותה רמה של העץ הם היפרקוביות שהן בדיוק באותו הגודל, וכולן זרות בפנימן.</p>
+<p>שתי התכונות האלו מובילות לתכונת האריזה, שנזדקק לה בהמשך היחידה:</p>
+<div class="rmdimportant">
+<p><strong>למה (The packing lemma)</strong>: יהי <span class="math inline">\(\square\)</span> תא בעץ רביעים מממד קבוע <span class="math inline">\(d\)</span> שאורך הצלע שלו הוא <span class="math inline">\(x\)</span>. לכל <span class="math inline">\(r\ge x\)</span>, מספר התאים בעץ הרביעים שהם באותה רמה של <span class="math inline">\(\square\)</span> בעץ ונמצאים במרחק לכל היותר <span class="math inline">\(r\)</span> ממנו הוא <span class="math inline">\(O((r/x)^d)\)</span>.</p>
+</div>
+<p>משפט זה מופיע (בשינויים קלים) בתור למה 3.5 בפרק השלישי של הספר “Geometric Approximation Algorithms”, מאת פרופ’ שריאל הר-פלד. הספר אינו מכיל הוכחה של הלמה ולכן היא כלולה כאן.</p>
+<div id="הוכחת-ה-packing-lemma" class="section level4 unnumbered">
+<h4>הוכחת ה-packing lemma<a class="anchor" aria-label="anchor" href="#%D7%94%D7%95%D7%9B%D7%97%D7%AA-%D7%94-packing-lemma"><i class="fas fa-link"></i></a>
+</h4>
+<p>נשים לב שאוסף הנקודות שנמצאות במרחק <span class="math inline">\(r\)</span> מהתא <span class="math inline">\(\square\)</span> מוכל בהיפרקובייה עם אורך צלע <span class="math inline">\(2r+x\)</span>, ולכן כל תא שנמצא במרחק לכל היותר <span class="math inline">\(r\)</span> מ-<span class="math inline">\(\square\)</span> מוכל בהיפרקובייה <span class="math inline">\(H\)</span> עם אורך צלע <span class="math inline">\(2r+3x\)</span>. נפח ההיפרקוביה <span class="math inline">\(H\)</span> הוא <span class="math inline">\((2r+3x)^d\)</span>, ונפח כל אחד מהתאים ברמה של <span class="math inline">\(\square\)</span> הוא <span class="math inline">\(x^d\)</span>, כי לכולם יש אורך צלע זהה – <span class="math inline">\(x\)</span>. מכיוון שהתאים ברמה של <span class="math inline">\(\square\)</span> הם זרים זה לזה (וגם ל-<span class="math inline">\(\square\)</span>), נקבל שמספר התאים שמוכלים ב-<span class="math inline">\(H\)</span> הוא לכל היותר <span class="math inline">\((3+ \frac{2r}{x})^d\)</span>. מכיוון שהממד <span class="math inline">\(d\)</span> קבוע, נקבל שיש <span class="math inline">\(O((r/x)^d)\)</span> תאים כאלו.</p>
+</div>
+</div>
+</div>
+<div id="WSPD" class="section level2" number="11.3">
+<h2>
+<span class="header-section-number">11.3</span> חלק 3: פירוק לזוגות מופרדים היטב (WSPD)<a class="anchor" aria-label="anchor" href="#WSPD"><i class="fas fa-link"></i></a>
+</h2>
+<div id="סימולציית-n-הגופים" class="section level3" number="11.3.1">
+<h3>
+<span class="header-section-number">11.3.1</span> סימולציית N הגופים<a class="anchor" aria-label="anchor" href="#%D7%A1%D7%99%D7%9E%D7%95%D7%9C%D7%A6%D7%99%D7%99%D7%AA-n-%D7%94%D7%92%D7%95%D7%A4%D7%99%D7%9D"><i class="fas fa-link"></i></a>
+</h3>
+<p>סימולציית N הגופים (<a href="https://en.wikipedia.org/wiki/N-body_simulation">N-body simulation</a>) משמשת לפתרון של בעייה נפוצה וחשובה במגוון תחומים בפיזיקה. משתמשים בסימולציה מהסוג הזה כאשר מעוניינים למדל מערכת פיזיקלית דינמית המערבת מספר רב של גופים (כמו גרמי שמיים) המשפיעים זה על זה (למשל באמצעות כוח הכבידה שלהם). ניתן לבצע חישובים מדויקים של התנועה המתקבלת מהאינטראקציה ההדדית בין שני גופים, אך כבר עבור מערכת של שלושה גופים החישובים נעשים מורכבים מדי, ולכן משתמשים בסימולציה מקורבת של המערכת.</p>
+<center>
+<img src="images/11/N-body_simulation.gif" width="75%"><br>
+סימולציה של N גופים, קרדיט: <a href="https://github.com/n3a9/nbody-simulation" class="uri">https://github.com/n3a9/nbody-simulation</a>
+</center>
+<p><br></p>
+<p>כדי לחשב את התנועה של גוף בודד בסימולציה של <span class="math inline">\(n\)</span> גופים, יש לחשב את הכוחות שמפעילים עליו <span class="math inline">\(n-1\)</span> הגופים האחרים. כלומר עבור גוף אחד נדרשים לנו <span class="math inline">\(\Omega(n)\)</span> חישובים, ולכן נדרשים לנו <span class="math inline">\(\Omega(n^2)\)</span> חישובים בסך הכל. אך האם יש דרך לעשות זאת מהר יותר?
+נניח שמה שאנחנו צריכים לחשב עבור הסימולציה הוא המרחק בין כל שני גופים. יש <span class="math inline">\(n \choose 2\)</span> זוגות של גופים, ולכן לא ניתן לחשב אם כל המרחקים באופן מדויק בזמן תת-ריבועי. לכן, המטרה שלנו תהיה למצוא יצוג קומפקטי של כל הקבוצה, שיתפוס את המבנה של המרחקים בין הגופים באופן מקורב.</p>
+<p><img src="images/11/N-body.jpg" align="left" width="45%">
+נשים לב לאבחנה הבאה: אם יש לנו קבוצה <span class="math inline">\(S\)</span> של גופים שהם קרובים זה לזה
+יחסית לנקודה אחת <span class="math inline">\(t\)</span> שרחוקה מכולן, אז המרחק מ-<span class="math inline">\(t\)</span> לכל אחת מהנקודות ב-<span class="math inline">\(S\)</span> יהיה דומה. זה אומר שמספיק לנו לקחת נציג <span class="math inline">\(s\)</span> מהקבוצה <span class="math inline">\(S\)</span>, והמרחק בינו לבין <span class="math inline">\(t\)</span> יהיה קירוב טוב למרחק בין <span class="math inline">\(t\)</span> לכל אחת מהנקודות ב-<span class="math inline">\(S\)</span>. בעצם ככל שהנקודה <span class="math inline">\(t\)</span> רחוקה מהקבוצה <span class="math inline">\(S\)</span> כך ההבדל בין המרחקים השונים נהיה קטן, והקירוב נעשה יותר טוב.</p>
+<p>המבנה שנתאר בעמוד הבא מבוסס בדיוק על הרעיון הזה, ובהמשך נראה כיצד ניתן להשתמש בו עבור אלגוריתמי קירוב גיאומטריים.</p>
+</div>
+<div id="פירוק-לזוגות-מופרדים-היטב---הגדרות" class="section level3" number="11.3.2">
+<h3>
+<span class="header-section-number">11.3.2</span> פירוק לזוגות מופרדים היטב - הגדרות<a class="anchor" aria-label="anchor" href="#%D7%A4%D7%99%D7%A8%D7%95%D7%A7-%D7%9C%D7%96%D7%95%D7%92%D7%95%D7%AA-%D7%9E%D7%95%D7%A4%D7%A8%D7%93%D7%99%D7%9D-%D7%94%D7%99%D7%98%D7%91---%D7%94%D7%92%D7%93%D7%A8%D7%95%D7%AA"><i class="fas fa-link"></i></a>
+</h3>
+<p>בסרטון הבא נגדיר מהו פירוק לזוגות מופרדים היטב (well-separated pair decomposition).</p>
+<div id="צפו-בסרטון-הבא" class="section level4 unnumbered">
+<h4>צפו בסרטון הבא:<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90"><i class="fas fa-link"></i></a>
+</h4>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/u6wNF_XzV1o?si=01rSIYMjROGh-ra3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+</iframe>
+</center>
+</div>
+<div id="הגדרה-פירוק-לזוגות" class="section level4 unnumbered">
+<h4>הגדרה: פירוק לזוגות<a class="anchor" aria-label="anchor" href="#%D7%94%D7%92%D7%93%D7%A8%D7%94-%D7%A4%D7%99%D7%A8%D7%95%D7%A7-%D7%9C%D7%96%D7%95%D7%92%D7%95%D7%AA"><i class="fas fa-link"></i></a>
+</h4>
+<p>עבור שתי קבוצות <span class="math inline">\(A\)</span> ו-<span class="math inline">\(B\)</span> נסמן
+<span class="math display">\[A\otimes B=\{\{x,y\}\mid x\in A, y\in B, x\neq y\}\]</span>
+כלומר <span class="math inline">\(A\otimes B\)</span> היא קבוצת כל הזוגות של נקודות, אחת מ-<span class="math inline">\(A\)</span> והשניה מ-<span class="math inline">\(B\)</span>.</p>
+<p>בהינתן קבוצת נקודות <span class="math inline">\(P\)</span>, פירוק של <span class="math inline">\(P\)</span> לזוגות הוא אוסף של זוגות
+<span class="math inline">\(\{\{A_1,B_1\},\dots,\{A_s,B_s\}\}\)</span>
+כך שמתקיים:</p>
+<ol style="list-style-type: decimal">
+<li>לכל <span class="math inline">\(1\le i\le s\)</span>, <span class="math inline">\(A_i,B_i\subset P\)</span>
+</li>
+<li>לכל <span class="math inline">\(1\le i\le s\)</span>, <span class="math inline">\(A_i\cap B_i=\emptyset\)</span>
+</li>
+<li>
+<span class="math inline">\(\bigcup_{i=1}^s A_i\otimes B_i=P\otimes P\)</span>, כלומר לכל זוג נקודות שונות <span class="math inline">\(p,q\in P\)</span> קיים לפחות זוג אחד <span class="math inline">\(\{A_i,B_i\}\)</span> כך ש-<span class="math inline">\(p\in A_i\)</span> ו-<span class="math inline">\(q\in B_i\)</span>, או <span class="math inline">\(q\in A_i\)</span> ו-<span class="math inline">\(p\in B_i\)</span>.</li>
+</ol>
+</div>
+<div id="ענו-על-השאלה-הבאה-1" class="section level4 unnumbered">
+<h4>ענו על השאלה הבאה:<a class="anchor" aria-label="anchor" href="#%D7%A2%D7%A0%D7%95-%D7%A2%D7%9C-%D7%94%D7%A9%D7%90%D7%9C%D7%94-%D7%94%D7%91%D7%90%D7%94-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>מי מהבאים הוא פירוק לזוגות של הקבוצה <span class="math inline">\(P\)</span>?</p>
+<center>
+<img src="images/11" style="width:35.0%">
+</center>
+<details><summary>
+(פתרון)
+</summary></details>
+</div>
+<div id="הגדרה-הקוטר-של-קבוצת-נקודות" class="section level4 unnumbered">
+<h4>הגדרה: הקוטר של קבוצת נקודות<a class="anchor" aria-label="anchor" href="#%D7%94%D7%92%D7%93%D7%A8%D7%94-%D7%94%D7%A7%D7%95%D7%98%D7%A8-%D7%A9%D7%9C-%D7%A7%D7%91%D7%95%D7%A6%D7%AA-%D7%A0%D7%A7%D7%95%D7%93%D7%95%D7%AA"><i class="fas fa-link"></i></a>
+</h4>
+<p>הקוטר של קבוצת נקודות <span class="math inline">\(P\)</span> מסומן <span class="math inline">\(\text{diam}(P)\)</span> והוא שווה למרחק בין שתי הנקודות הרחוקות ביותר ב-<span class="math inline">\(P\)</span>, כלומר
+<span class="math inline">\(\text{diam}(P)=\max_{p,q\in P}\|p-q\|\)</span>.</p>
+</div>
+<div id="תרגיל-חישוב-הקוטר" class="section level4 unnumbered">
+<h4>תרגיל: חישוב הקוטר<a class="anchor" aria-label="anchor" href="#%D7%AA%D7%A8%D7%92%D7%99%D7%9C-%D7%97%D7%99%D7%A9%D7%95%D7%91-%D7%94%D7%A7%D7%95%D7%98%D7%A8"><i class="fas fa-link"></i></a>
+</h4>
+<p>הראו כיצד ניתן לחשב את הקוטר של קבוצת של <span class="math inline">\(n\)</span> נקודות במישור בזמן <span class="math inline">\(O(n\log n)\)</span>.</p>
+<details><summary>
+(פתרון)
+</summary></details>
+</div>
+<div id="הגדרה-זוג-מופרד-היטב-separated-pair-1varepsilon" class="section level4 unnumbered">
+<h4>הגדרה: זוג מופרד היטב (separated pair-<span class="math inline">\(1/\varepsilon\)</span>)<a class="anchor" aria-label="anchor" href="#%D7%94%D7%92%D7%93%D7%A8%D7%94-%D7%96%D7%95%D7%92-%D7%9E%D7%95%D7%A4%D7%A8%D7%93-%D7%94%D7%99%D7%98%D7%91-separated-pair-1varepsilon"><i class="fas fa-link"></i></a>
+</h4>
+<p>עבור <span class="math inline">\(1&gt;\varepsilon&gt;0\)</span>, זוג קבוצות <span class="math inline">\(Q\)</span> ו-<span class="math inline">\(R\)</span> הוא <span class="math inline">\(1/\varepsilon\)</span>-מופרד היטב אם הקוטר של כל אחת מהקבוצות הוא לכל היותר <span class="math inline">\(\varepsilon\cdot \textbf{d}(Q,R)\)</span>, כאשר <span class="math inline">\(\textbf{d}(Q,R)\)</span> הוא המרחק הקטן ביותר בין נקודה מ-<span class="math inline">\(Q\)</span> לנקודה מ-<span class="math inline">\(R\)</span>, כלומר
+<span class="math inline">\(\textbf{d}(Q,R)=\min_{q\in Q,s\in R}\|q-s\|\)</span>.</p>
+</div>
+<div id="ענו-על-השאלה-הבאה-2" class="section level4 unnumbered">
+<h4>ענו על השאלה הבאה:<a class="anchor" aria-label="anchor" href="#%D7%A2%D7%A0%D7%95-%D7%A2%D7%9C-%D7%94%D7%A9%D7%90%D7%9C%D7%94-%D7%94%D7%91%D7%90%D7%94-2"><i class="fas fa-link"></i></a>
+</h4>
+<p>מהו יחס ההפרדה של זוג הקבוצות באיור?</p>
+<center>
+<img src="images/11" style="width:35.0%">
+</center>
+<details><summary>
+(פתרון)
+</summary></details>
+</div>
+<div id="שאלה-למחשבה" class="section level4 unnumbered">
+<h4>שאלה למחשבה<a class="anchor" aria-label="anchor" href="#%D7%A9%D7%90%D7%9C%D7%94-%D7%9C%D7%9E%D7%97%D7%A9%D7%91%D7%94"><i class="fas fa-link"></i></a>
+</h4>
+<p>בסרטון הוצגה ההגדרה האלטרנטיבית הבאה לזוג מופרד היטב:</p>
+<p>עבור <span class="math inline">\(0&lt;\varepsilon&lt;1\)</span>, זוג קבוצות <span class="math inline">\(A\)</span> ו-<span class="math inline">\(B\)</span> הוא <span class="math inline">\(1/\varepsilon\)</span>-מופרד היטב אם קיים כדור ברדיוס <span class="math inline">\(r\)</span> שמכיל את כל הנקודות של <span class="math inline">\(A\)</span> וכדור ברדיוס <span class="math inline">\(r\)</span> שמכיל את כל הנקודות של <span class="math inline">\(B\)</span>, כך שהמרחק בין הכדורים הוא לפחות <span class="math inline">\(2r/\varepsilon\)</span>.</p>
+<p>האם הגדרה זו שקולה להגדרה הקודמת? האם אחת מהן גוררת את השניה? הוכיחו את תנו דוגמה נגדית.</p>
+<details><summary>
+(פתרון)
+</summary></details>
+</div>
+<div id="הגדרה-פירוק-לזוגות-מופרדים-היטב-wspd-1varepsilon" class="section level4 unnumbered">
+<h4>הגדרה: פירוק לזוגות מופרדים היטב (WSPD-<span class="math inline">\(1/\varepsilon\)</span>)<a class="anchor" aria-label="anchor" href="#%D7%94%D7%92%D7%93%D7%A8%D7%94-%D7%A4%D7%99%D7%A8%D7%95%D7%A7-%D7%9C%D7%96%D7%95%D7%92%D7%95%D7%AA-%D7%9E%D7%95%D7%A4%D7%A8%D7%93%D7%99%D7%9D-%D7%94%D7%99%D7%98%D7%91-wspd-1varepsilon"><i class="fas fa-link"></i></a>
+</h4>
+<p>עבור קבוצת נקודות <span class="math inline">\(P\)</span> ופרמטר <span class="math inline">\(\varepsilon&gt;0\)</span>, פירוק לזוגות מופרדים היטב של <span class="math inline">\(P\)</span> ביחס <span class="math inline">\(1/\varepsilon\)</span> הוא פירוק של <span class="math inline">\(P\)</span> לזוגות
+<span class="math inline">\(\{\{A_1,B_1\},\{A_2,B_2\},\dots,\{A_s,B_s\}\}\)</span>
+כך שלכל <span class="math inline">\(1\le i\le s\)</span> הזוג <span class="math inline">\(\{A_i,B_i\}\)</span> הוא <span class="math inline">\(1/\varepsilon\)</span>-מופרד היטב.</p>
+</div>
+<div id="קראו-את-סעיף-3.1-בספר-הלימוד-עמודים-2931." class="section level4 unnumbered">
+<h4>קראו את סעיף 3.1 בספר הלימוד (עמודים 29–31).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-3.1-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-2931."><i class="fas fa-link"></i></a>
+</h4>
+<!--
+(להתעלם)
+שימו לב שלקראת סוף הסעיף מוזכרת האפשרות של בניית ה-WSPD בעזרת עץ, או באופן יותר ספציפי, בעזרת מבנה הנקרא עץ רביעים (quadtree). אנחנו נדון במבנה זה ממש עוד מעט, בהמשך של חלק זה.
+-->
+</div>
+</div>
+<div id="אלגוריתם-לבניית-wspd" class="section level3" number="11.3.3">
+<h3>
+<span class="header-section-number">11.3.3</span> אלגוריתם לבניית WSPD<a class="anchor" aria-label="anchor" href="#%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D-%D7%9C%D7%91%D7%A0%D7%99%D7%99%D7%AA-wspd"><i class="fas fa-link"></i></a>
+</h3>
+<p>כעת נראה כיצד ניתן לבנות WSPD בעזרת quadtree.</p>
+<div id="צפו-בסרטון-הבא.-23" class="section level4 unnumbered">
+<h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-23"><i class="fas fa-link"></i></a>
+</h4>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Oz8L3WE1pOc?si=rK3cGP8--s38w__J" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+</iframe>
+</center>
+<div class="rmdimportant">
+<p><strong>משפט</strong>: עבור <span class="math inline">\(1\ge \varepsilon&gt;0\)</span> ניתן לבנות WSPD-<span class="math inline">\(1/\varepsilon\)</span> בגודל <span class="math inline">\(n\varepsilon^{-d}\)</span> בזמן <span class="math inline">\(O(n\log n+n\varepsilon^{-d})\)</span>.</p>
+</div>
+</div>
+<div id="קראו-את-סעיף-3.1.1-בספר-הלימוד-עמודים-3133." class="section level4 unnumbered">
+<h4>קראו את סעיף 3.1.1 בספר הלימוד (עמודים 31–33).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-3.1.1-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-3133."><i class="fas fa-link"></i></a>
+</h4>
+</div>
+</div>
+</div>
+<div id="חלק-4-שימושים-של-wspd" class="section level2" number="11.4">
+<h2>
+<span class="header-section-number">11.4</span> חלק 4: שימושים של WSPD<a class="anchor" aria-label="anchor" href="#%D7%97%D7%9C%D7%A7-4-%D7%A9%D7%99%D7%9E%D7%95%D7%A9%D7%99%D7%9D-%D7%A9%D7%9C-wspd"><i class="fas fa-link"></i></a>
+</h2>
+<div id="פורשים-גיאומטריים" class="section level3" number="11.4.1">
+<h3>
+<span class="header-section-number">11.4.1</span> פורשים גיאומטריים<a class="anchor" aria-label="anchor" href="#%D7%A4%D7%95%D7%A8%D7%A9%D7%99%D7%9D-%D7%92%D7%99%D7%90%D7%95%D7%9E%D7%98%D7%A8%D7%99%D7%99%D7%9D"><i class="fas fa-link"></i></a>
+</h3>
+<p><img src="images/11/spanner-train.jpg" align="left" width="30%">
+נניח שנתונה לנו קבוצה <span class="math inline">\(P\)</span> של <span class="math inline">\(n\)</span> ערים, ואנחנו רוצים לבנות רשת של מסילות רכבת שיקשרו אותם. מצד אחד, נרצה שהמרחק בין שני אתרים <span class="math inline">\(p,q\in P\)</span> על גבי הרשת יהיה קרוב ככל האפשר למרחק האוקלידי ביניהם, <span class="math inline">\(\|p-q\|\)</span>. מצד שני, בניית מסילות והפעלה של כל קו רכבת עולה לא מעט כסף, ולכן נרצה שמספר המסילות ברשת (או סכום האורכים שלהם) יהיה כמה שיותר קטן.</p>
+<div id="שאלה-למחשבה-מקרי-קיצון" class="section level4 unnumbered">
+<h4>שאלה למחשבה: מקרי קיצון<a class="anchor" aria-label="anchor" href="#%D7%A9%D7%90%D7%9C%D7%94-%D7%9C%D7%9E%D7%97%D7%A9%D7%91%D7%94-%D7%9E%D7%A7%D7%A8%D7%99-%D7%A7%D7%99%D7%A6%D7%95%D7%9F"><i class="fas fa-link"></i></a>
+</h4>
+<ul>
+<li>איזו רשת מסילות נבנה אם אין לנו אילוצי תקציב בכלל, וחשוב לנו שנוכל להגיע מעיר אחת לשניה במהירות המקסימלית האפשרית?</li>
+<li>איזו רשת מסילות נבנה אם אילוץ המרחקים לא משנה לנו, ואנחנו רוצים לחסוך כמה שיותר כסף?</li>
+</ul>
+</div>
+<div id="הגדרה-t-פורש-גיאומטרי" class="section level4 unnumbered">
+<h4>הגדרה: <span class="math inline">\(t\)</span>-פורש גיאומטרי<a class="anchor" aria-label="anchor" href="#%D7%94%D7%92%D7%93%D7%A8%D7%94-t-%D7%A4%D7%95%D7%A8%D7%A9-%D7%92%D7%99%D7%90%D7%95%D7%9E%D7%98%D7%A8%D7%99"><i class="fas fa-link"></i></a>
+</h4>
+<p>גרף <span class="math inline">\(t\)</span>-פורש של קבוצת נקודות <span class="math inline">\(P\)</span> ב-<span class="math inline">\(\mathbb{R}^d\)</span> הוא גרף ממושקל <span class="math inline">\(G\)</span> שקבוצת הקודקודים שלו היא <span class="math inline">\(P\)</span>, ולכל שתי נקודות <span class="math inline">\(p,q\in P\)</span> מתקיים
+<span class="math display">\[\|p-q\|\le d_G(p,q)\le t\cdot\|p-q\|,\]</span>
+כאשר <span class="math inline">\(d_G(p,q)\)</span> הוא המרחק בין <span class="math inline">\(p\)</span> ל-<span class="math inline">\(q\)</span> בגרף (כלומר אורך המסלול הקצר ביותר ביניהם בגרף <span class="math inline">\(G\)</span>).</p>
+<p>היחס <span class="math inline">\(d_G(p,q)/\|p-q\|\)</span> נקרא ה-<strong>stretch</strong> של <span class="math inline">\(p\)</span> ו-<span class="math inline">\(q\)</span>, וה-stretch של <span class="math inline">\(G\)</span> הוא ה-stretch המקסימלי על פני כל הזוגות של נקודות מ-<span class="math inline">\(P\)</span>.</p>
+</div>
+<div id="ענו-על-השאלה-הבאה-3" class="section level4 unnumbered">
+<h4>ענו על השאלה הבאה:<a class="anchor" aria-label="anchor" href="#%D7%A2%D7%A0%D7%95-%D7%A2%D7%9C-%D7%94%D7%A9%D7%90%D7%9C%D7%94-%D7%94%D7%91%D7%90%D7%94-3"><i class="fas fa-link"></i></a>
+</h4>
+<p>בכל אחד מהאיורים למטה ניתן לראות קבוצה של נקודות שחורות, ופורש שלהן שצלעותיו כחולות. בשני האיורים, כל הצלעות של הפורש הן באורך <span class="math inline">\(r\)</span>. מהו ה-stretch בכל אחד מהמקרים?</p>
+<center>
+<img src="images/11/spanner-ex.jpg" align="center" width="80%">
+</center>
+<details><summary>
+(פתרון)
+</summary>
+באיור מימין ה-stretch של הגרף הפורש הוא 2, ובאיור משמאל הוא <span class="math inline">\(\sqrt{2}\)</span>.
+</details>
+</div>
+<div id="מ-wspd-לפורש-גיאומטרי-בגודל-לינארי" class="section level4 unnumbered">
+<h4>מ-WSPD לפורש גיאומטרי בגודל לינארי<a class="anchor" aria-label="anchor" href="#%D7%9E-wspd-%D7%9C%D7%A4%D7%95%D7%A8%D7%A9-%D7%92%D7%99%D7%90%D7%95%D7%9E%D7%98%D7%A8%D7%99-%D7%91%D7%92%D7%95%D7%93%D7%9C-%D7%9C%D7%99%D7%A0%D7%90%D7%A8%D7%99"><i class="fas fa-link"></i></a>
+</h4>
+<p>בדרך כלל, עבור קבוצה של <span class="math inline">\(n\)</span> נקודות נרצה למצוא <span class="math inline">\(t\)</span>-פורש בעל <span class="math inline">\(O(n)\)</span> צלעות בלבד, מכיוון שאז נוכל לבצע עליו חישובים ביעילות. כמובן שנרצה גם <span class="math inline">\(t\)</span> קטן ככל האפשר, כדי שהקירוב למרחקים יהיה כמה שיותר טוב.
+עובדה ידועה (שלא נוכיח כאן) היא שגרף דלוני הוא <span class="math inline">\(O(1)\)</span>-פורש (ראו הערה למטה), אך מספר הצלעות שלו הוא <span class="math inline">\(O(n)\)</span> רק עבור נקודות במישור. בממדים גבוהים יותר, מספר הצלעות יכול להיות ריבועי.</p>
+<p>כפי שתקראו מיד בספר, בעזרת WSPD ניתן לחשב <span class="math inline">\(1+\varepsilon\)</span>-פורש בגודל <span class="math inline">\(O(n\varepsilon^{-d})\)</span>/ עבור קבוצה של <span class="math inline">\(n\)</span> נקודות ב-<span class="math inline">\(\mathbb{R}^d\)</span>, לכל <span class="math inline">\(d\)</span> קבוע.</p>
+<div class="rmdimportant">
+<p><strong>משפט</strong>: בהינתן קבוצה <span class="math inline">\(P\)</span> של <span class="math inline">\(n\)</span> נקודות ב-<span class="math inline">\(\mathbb{R}^d\)</span>, ופרמטר <span class="math inline">\(1\ge \varepsilon &gt;0\)</span>, ניתן לחשב <span class="math inline">\((1+\varepsilon)\)</span>-פורש בגודל
+<span class="math inline">\(O(n/\varepsilon)\)</span> של <span class="math inline">\(P\)</span> עם
+<span class="math inline">\(O(n\varepsilon^{-d})\)</span> צלעות, בזמן
+<span class="math inline">\(O(n\log n+n\varepsilon^{-d})\)</span>.</p>
+</div>
+</div>
+<div id="מעניין-לדעת-ה-stretch-של-גרף-דלוני" class="section level4 unnumbered">
+<h4>מעניין לדעת: ה-stretch של גרף דלוני<a class="anchor" aria-label="anchor" href="#%D7%9E%D7%A2%D7%A0%D7%99%D7%99%D7%9F-%D7%9C%D7%93%D7%A2%D7%AA-%D7%94-stretch-%D7%A9%D7%9C-%D7%92%D7%A8%D7%A3-%D7%93%D7%9C%D7%95%D7%A0%D7%99"><i class="fas fa-link"></i></a>
+</h4>
+<p>בשנת 1992 זוג חוקרים (<a href="https://link.springer.com/article/10.1007/BF02187821">Keil and Gutwin</a>) הראו שגרף דלוני הוא <span class="math inline">\(t\)</span>-פורש עבור
+<span class="math inline">\(t=4\pi\sqrt{3}/9\approx 2.41\)</span>.
+זהו רק חסם עליון על <span class="math inline">\(t\)</span>, כלומר יתכן שגרף דלוני הוא <span class="math inline">\(t\)</span>-פורש עבור <span class="math inline">\(t\)</span> קטן יותר מ-2.41. במשך שנים ההשערה הרווחת היתה שגרף דלוני הוא <span class="math inline">\(\pi/2\)</span>-פורש, עד שבשנת 2008 היא הוכחה כשגויה, והחסם התחתון עומד כרגע על קצת יותר מ-<span class="math inline">\(\pi/2\)</span>. אחת השאלות הפתוחות החשובות ביותר בתחום היא סגירת הפער בין החסם העליון לתחתון.</p>
+</div>
+<div id="קראו-את-סעיף-3.2.1-בספר-הלימוד-עמודים-3335." class="section level4 unnumbered">
+<h4>קראו את סעיף 3.2.1 בספר הלימוד (עמודים 33–35).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-3.2.1-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-3335."><i class="fas fa-link"></i></a>
+</h4>
+</div>
+</div>
+<div id="אלגוריתמי-קירוב-גיאומטריים" class="section level3" number="11.4.2">
+<h3>
+<span class="header-section-number">11.4.2</span> אלגוריתמי קירוב גיאומטריים<a class="anchor" aria-label="anchor" href="#%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9E%D7%99-%D7%A7%D7%99%D7%A8%D7%95%D7%91-%D7%92%D7%99%D7%90%D7%95%D7%9E%D7%98%D7%A8%D7%99%D7%99%D7%9D"><i class="fas fa-link"></i></a>
+</h3>
+<p>שני הסעיפים הבאים בספר מתארים שני שימושים של WSPD באלגוריתמי קירוב גיאומטריים.</p>
+<div id="קירוב-לעץ-פורש-מינימלי-אוקלידי-emst" class="section level4 unnumbered">
+<h4>קירוב לעץ פורש מינימלי אוקלידי (EMST)<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%99%D7%A8%D7%95%D7%91-%D7%9C%D7%A2%D7%A5-%D7%A4%D7%95%D7%A8%D7%A9-%D7%9E%D7%99%D7%A0%D7%99%D7%9E%D7%9C%D7%99-%D7%90%D7%95%D7%A7%D7%9C%D7%99%D7%93%D7%99-emst"><i class="fas fa-link"></i></a>
+</h4>
+<p>עץ פורש מינימלי אוקלידי (Euclidean Mimimum Spanning Tree) של קבוצת נקודות <span class="math inline">\(P\)</span> הוא העץ הפורש המינימלי (MST) של הגרף האוקלידי המלא על נקודות <span class="math inline">\(P\)</span> (הגרף הממושקל שקודקודיו הם נקודות <span class="math inline">\(P\)</span> ומשקל כל צלע הוא המרחק האוקלידי בין הנקודות). ראינו ביחידה 9 שה-EMST הוא תת-גרף של גרף דלוני של <span class="math inline">\(P\)</span>, והסקנו שניתן לחשב את ה-EMST של קבוצת נקודות במישור בזמן <span class="math inline">\(O(n\log n)\)</span>.
+שוב, מכיוון שבממדים גבוהים מספר הצלעות בגרף דלוני יכול להיות ריבועי, לא נוכל לקבל באותו האופן פתרון טוב יותר מאשר הפתרון למקרה הכללי, כלומר זמן של <span class="math inline">\(O(n^2)\)</span>.</p>
+<p>עם זאת, נוכל להראות שלכל <span class="math inline">\(\varepsilon &gt;0\)</span> ניתן לחשב עץ פורש של <span class="math inline">\(P\)</span> עם משקל של לכל היותר <span class="math inline">\(1+\varepsilon\)</span> כפול משקל ה-EMST של <span class="math inline">\(P\)</span>. הרעיון הוא לחשב <span class="math inline">\(1+\varepsilon\)</span>-פורש <span class="math inline">\(G\)</span> של <span class="math inline">\(P\)</span> עם <span class="math inline">\(O(n\varepsilon^{-d})\)</span>/ צלעות, כמו שראינו קודם, ואז לחשב את ה-MST של <span class="math inline">\(G\)</span> בזמן לינארי בעזרת אחד מהאלגוריתמים הידועים לחישוב MST. לאחר מכן יש להוכיח את הטענה הבאה:
+משקל ה-MST של גרף t-פורש של קבוצת נקודות P, הוא לכל היותר פי t ממשקל ה-EMST של P.</p>
+</div>
+<div id="קראו-את-סעיף-3.2.2-בספר-הלימוד-עמודים-3335." class="section level4 unnumbered">
+<h4>קראו את סעיף 3.2.2 בספר הלימוד (עמודים 33–35).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-3.2.2-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-3335."><i class="fas fa-link"></i></a>
+</h4>
+</div>
+<div id="חישוב-הקוטר-של-קבוצת-נקודות" class="section level4 unnumbered">
+<h4>חישוב הקוטר של קבוצת נקודות<a class="anchor" aria-label="anchor" href="#%D7%97%D7%99%D7%A9%D7%95%D7%91-%D7%94%D7%A7%D7%95%D7%98%D7%A8-%D7%A9%D7%9C-%D7%A7%D7%91%D7%95%D7%A6%D7%AA-%D7%A0%D7%A7%D7%95%D7%93%D7%95%D7%AA"><i class="fas fa-link"></i></a>
+</h4>
+<p>בחלק הקודם הגדרנו את הקוטר של קבוצת נקודות, וראינו שניתן לחשב את הקוטר של קבוצת של <span class="math inline">\(n\)</span> נקודות במישור בזמן <span class="math inline">\(O(n\log n)\)</span>. גם כאן לא ניתן להכליל את האלגוריתם לממדים גבוהים, מכיוון שסיבוכיות הקמור תלויה אקספוננציאלית בממד.</p>
+<p>בעזרת WSPD ניתן לחשב קירוב קבוע לקוטר בזמן <span class="math inline">\(O(n\log n)\)</span>.</p>
+<div class="rmdimportant">
+<p><strong>משפט</strong>: בהינתן קבוצה <span class="math inline">\(P\)</span> של <span class="math inline">\(n\)</span> נקודות ב-<span class="math inline">\(\mathbb{R}^d\)</span>, ניתן למצוא בזמן <span class="math inline">\(O(n\log n+n\varepsilon^{-d})\)</span> זוג נקודות <span class="math inline">\(p,q\in P\)</span> כך שמתקיים
+<span class="math inline">\(\|p-q\|\ge (1-\varepsilon)\text{diam}(P)\)</span>.</p>
+</div>
+</div>
+<div id="קראו-את-סעיף-3.2.3-בספר-הלימוד-עמודים-3335." class="section level4 unnumbered">
+<h4>קראו את סעיף 3.2.3 בספר הלימוד (עמודים 33–35).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-3.2.3-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-3335."><i class="fas fa-link"></i></a>
+</h4>
+</div>
+</div>
+<div id="הזוג-הקרוב-ביותר" class="section level3" number="11.4.3">
+<h3>
+<span class="header-section-number">11.4.3</span> הזוג הקרוב ביותר<a class="anchor" aria-label="anchor" href="#%D7%94%D7%96%D7%95%D7%92-%D7%94%D7%A7%D7%A8%D7%95%D7%91-%D7%91%D7%99%D7%95%D7%AA%D7%A8"><i class="fas fa-link"></i></a>
+</h3>
+<p>בהינתן קבוצה <span class="math inline">\(P\)</span> של <span class="math inline">\(n\)</span> נקודות ב-<span class="math inline">\(\mathbb{R}^d\)</span>, נרצה למצוא את זוג הנקודות מ-<span class="math inline">\(P\)</span> שהמרחק ביניהן הוא הקטן ביותר.</p>
+<p>אלגוריתם טריוויאלי יחשב את המרחקים בין כל הזוגות של נקודות בזמן <span class="math inline">\(O(n^2)\)</span>. עבור נקודות במישור, ניתן לפתור את הבעיה בזמן <span class="math inline">\(O(n\log n)\)</span> על ידי חישוב דיאגרמת וורונוי, כמו שראינו ביחידה 7. אבל הסיבוכיות של דיאגרמת וורונוי תלויה אקספוננציאלית במימד <span class="math inline">\(d\)</span>: במימדים גבוהים הסיבוכיות של הדיאגרמה היא <span class="math inline">\(O(n^{\lceil d/2\rceil})\)</span>, ולכן כבר בשלושה ממדים נקבל זמן ריבועי. קיים אלגוריתם רנדומי שמוצא את הזוג הקרוב ביותר עם תוחלת זמן <span class="math inline">\(O(n)\)</span>, אך בעזרת WSPD ניתן למצוא את הזוג הקרוב ביותר (במדויק!) בזמן <span class="math inline">\(O(n\log n)\)</span>, לכל <span class="math inline">\(d\)</span> קבוע.</p>
+<div class="rmdimportant">
+<p><strong>משפט</strong>: בהינתן קבוצה <span class="math inline">\(P\)</span> של <span class="math inline">\(n\)</span> נקודות ב-<span class="math inline">\(\mathbb{R}^d\)</span>, ניתן למצוא את זוג הנקודות הקרובות ביותר בזמן <span class="math inline">\(O(n\log n)\)</span>.</p>
+</div>
+<div id="קראו-את-סעיף-3.2.4-בספר-הלימוד-עמודים-3335." class="section level4 unnumbered">
+<h4>קראו את סעיף 3.2.4 בספר הלימוד (עמודים 33–35).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-3.2.4-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-3335."><i class="fas fa-link"></i></a>
+</h4>
+</div>
+<div id="בונוס-בעיית-כל-השכנים-הקרובים-ביותר" class="section level4 unnumbered">
+<h4>בונוס: בעיית כל השכנים הקרובים ביותר<a class="anchor" aria-label="anchor" href="#%D7%91%D7%95%D7%A0%D7%95%D7%A1-%D7%91%D7%A2%D7%99%D7%99%D7%AA-%D7%9B%D7%9C-%D7%94%D7%A9%D7%9B%D7%A0%D7%99%D7%9D-%D7%94%D7%A7%D7%A8%D7%95%D7%91%D7%99%D7%9D-%D7%91%D7%99%D7%95%D7%AA%D7%A8"><i class="fas fa-link"></i></a>
+</h4>
+<p>בהינתן קבוצה <span class="math inline">\(P\)</span> של <span class="math inline">\(n\)</span> נקודות ב-<span class="math inline">\(\mathbb{R}^d\)</span>, נרצה למצוא לכל נקודה <span class="math inline">\(p\in P\)</span> את השכן הקרוב ביותר אליה, כלומר הנקודה הקרובה ביותר אליה מהקבוצה <span class="math inline">\(P\setminus \{p\}\)</span>.</p>
+<p>גם כאן ניתן לפתור את הבעיה בשני ממדים בקלות יחסית, בעזרת דיאגרמת וורונוי. אך מה לגבי ממדים גבוהים? באופן די מדהים, גם כאן ניתן להשתמש ב-WSPD כדי לפתור את הבעיה בזמן <span class="math inline">\(O(n\log n)\)</span> לכל <span class="math inline">\(d\)</span> קבוע. למעוניינים, ניתן לקרוא את פרטי ההוכחה בסעיף 3.2.5 של ספר הלימוד (עמודים 36–39), אך היא אינה חלק מחומר הקורס.</p>
+<!--
+(להתעלם)
+#### בעיית כל השכנים הקרובים ביותר
+בשני מימדים ניתן לפתור את הבעיה בקלות יחסית על ידי חישוב דיאגרמת וורונוי, כמו שראינו ביחידה 7. אבל הסיבוכיות של דיאגרמת וורונוי תלויה אקספוננציאלית במימד d: במימדים גבוהים הסיבוכיות של הדיאגרמה היא:... ולכן כש-d גדול זה לא מעשי לחשב את הדיגארמה ובוודאי שלא לשמור אותה בזיכרון.
+
+לכן נרצה לבנות מבנה נתונים לקירוב בעיית כל השכנים הקרובים ביותר. 
+נגדיר את הבעיה הבאה:
+בהיתן קבוצה \(P\) של \(n\) נקודות ב-\(\mathbb{R}^d\), נרצה למצוא לכל נקודה ב-\(P\) את השכן ה-\(\varepsilon\)-קרוב לה. כלומר, לכל \(q\in P\) נרצה למצוא נקודה \(p\in P\) כך שלכל נקודה \(p'\in P\) מתקיים 
+\(\|p-q\|\le (1+\varepsilon)\|p'-q\|\)
+
+אם רוצים מדויק אפשר כמובן בזמן \(O(n^2)\)
+בהמשך נראה איך לפתור...
+-->
+
+</div>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="motion-planning.html"><span class="header-section-number">10</span> תכנון תנועה</a></div>
+<div class="next"><a href="curve-similarity.html"><span class="header-section-number">12</span> דמיון בין עקומים</a></div>
+</div></main><div class="col-md-3 col-lg-3 d-none d-md-block sidebar sidebar-chapter border-right">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>ביחידה זו:</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#wspd-approx"><span class="header-section-number">11</span> WSPD ואלגוריתמי קירוב גיאומטריים</a></li>
+<li>
+<a class="nav-link" href="#preface-11"><span class="header-section-number">11.1</span> חלק 1: הקדמה</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#contents-11"><span class="header-section-number">11.1.1</span> מה ביחידה?</a></li>
+<li><a class="nav-link" href="#geometric-approx"><span class="header-section-number">11.1.2</span> אלגוריתמי קירוב גיאומטריים</a></li>
+<li><a class="nav-link" href="#%D7%94-spread-%D7%A9%D7%9C-%D7%A7%D7%91%D7%95%D7%A6%D7%AA-%D7%A0%D7%A7%D7%95%D7%93%D7%95%D7%AA"><span class="header-section-number">11.1.3</span> ה-Spread של קבוצת נקודות</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#Quadtrees"><span class="header-section-number">11.2</span> חלק 2: עצי רביעים (Quadtrees)</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#%D7%A2%D7%A6%D7%99-%D7%A8%D7%91%D7%99%D7%A2%D7%99%D7%9D-quadtrees"><span class="header-section-number">11.2.1</span> עצי רביעים (Quadtrees)</a></li>
+<li><a class="nav-link" href="#%D7%A2%D7%A5-%D7%A8%D7%91%D7%99%D7%A2%D7%99%D7%9D-%D7%93%D7%97%D7%95%D7%A1-compressed-quadtree"><span class="header-section-number">11.2.2</span> עץ רביעים דחוס (Compressed Quadtree)</a></li>
+<li><a class="nav-link" href="#%D7%AA%D7%9B%D7%95%D7%A0%D7%AA-%D7%94%D7%90%D7%A8%D7%99%D7%96%D7%94-packing-property"><span class="header-section-number">11.2.3</span> תכונת האריזה (packing property)</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#WSPD"><span class="header-section-number">11.3</span> חלק 3: פירוק לזוגות מופרדים היטב (WSPD)</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#%D7%A1%D7%99%D7%9E%D7%95%D7%9C%D7%A6%D7%99%D7%99%D7%AA-n-%D7%94%D7%92%D7%95%D7%A4%D7%99%D7%9D"><span class="header-section-number">11.3.1</span> סימולציית N הגופים</a></li>
+<li><a class="nav-link" href="#%D7%A4%D7%99%D7%A8%D7%95%D7%A7-%D7%9C%D7%96%D7%95%D7%92%D7%95%D7%AA-%D7%9E%D7%95%D7%A4%D7%A8%D7%93%D7%99%D7%9D-%D7%94%D7%99%D7%98%D7%91---%D7%94%D7%92%D7%93%D7%A8%D7%95%D7%AA"><span class="header-section-number">11.3.2</span> פירוק לזוגות מופרדים היטב - הגדרות</a></li>
+<li><a class="nav-link" href="#%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D-%D7%9C%D7%91%D7%A0%D7%99%D7%99%D7%AA-wspd"><span class="header-section-number">11.3.3</span> אלגוריתם לבניית WSPD</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#%D7%97%D7%9C%D7%A7-4-%D7%A9%D7%99%D7%9E%D7%95%D7%A9%D7%99%D7%9D-%D7%A9%D7%9C-wspd"><span class="header-section-number">11.4</span> חלק 4: שימושים של WSPD</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#%D7%A4%D7%95%D7%A8%D7%A9%D7%99%D7%9D-%D7%92%D7%99%D7%90%D7%95%D7%9E%D7%98%D7%A8%D7%99%D7%99%D7%9D"><span class="header-section-number">11.4.1</span> פורשים גיאומטריים</a></li>
+<li><a class="nav-link" href="#%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9E%D7%99-%D7%A7%D7%99%D7%A8%D7%95%D7%91-%D7%92%D7%99%D7%90%D7%95%D7%9E%D7%98%D7%A8%D7%99%D7%99%D7%9D"><span class="header-section-number">11.4.2</span> אלגוריתמי קירוב גיאומטריים</a></li>
+<li><a class="nav-link" href="#%D7%94%D7%96%D7%95%D7%92-%D7%94%D7%A7%D7%A8%D7%95%D7%91-%D7%91%D7%99%D7%95%D7%AA%D7%A8"><span class="header-section-number">11.4.3</span> הזוג הקרוב ביותר</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p dir="rtl" style="text-align:right;">הספר "<strong>גיאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2024-09-23.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

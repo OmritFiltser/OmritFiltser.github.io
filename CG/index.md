@@ -1,7 +1,7 @@
 ---
 title: "גיאומטריה חישובית"
 author: "ד''ר עומרית פילצר"
-date: "2024-02-22"
+date: "2024-09-23"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -68,7 +68,7 @@ Mark de Berg, Otfried Cheong, Marc van Kreveld, Mark Overmars.
 
 למעוניינים בכך, ניתן למצוא חומרי לימוד מצוינים מקורסים דומים הניתנים ברחבי העולם. הנה רשימה חלקית ביותר של הבולטים בהם:
 
--   [CMSC 754 Computational Geometry](http://www.cs.umd.edu/class/spring2020/cmsc754/Lects/cmsc754-spring2020-lects.pdf), by David M. Mount.
+-   [CMSC 754 Computational Geometry](https://www.cs.umd.edu/class/fall2023/cmsc754/lectures.html), by David M. Mount.
 -   [Geometry: Combinatorics and Algorithms](https://geometry.inf.ethz.ch/gca18.pdf), by Luis Barba Bernd Gärtner, Michael Hoffmann and Emo Welzl.
 -   [Computational Geometry](https://www.youtube.com/@PhilippKindermann/playlists?view=50&sort=dd&shelf_id=2), video lectures by Philipp Kindermann.
 

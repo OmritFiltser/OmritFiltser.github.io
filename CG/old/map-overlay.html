@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>יחידה 2 מפות מישוריות וטכניקת הישר הסורק | גיאומטריה חישובית</title>
+<meta name="author" content="ד’’ר עומרית פילצר">
+<meta name="description" content="2.1 הקדמה  2.1.1 מה ביחידה? יחידה זו מקבילה לפרק השני בספר הלימוד. המושגים והרעיונות העיקריים שילמדו ביחידה: טכניקת הישר הסורק. בעיית חיתוך קטעים במישור. מפות מישוריות וייצוגן במבנה DCEL. בעיית...">
+<meta name="generator" content="bookdown 0.34 with bs4_book()">
+<meta property="og:title" content="יחידה 2 מפות מישוריות וטכניקת הישר הסורק | גיאומטריה חישובית">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://omrit.filtser.com/CG/map-overlay.html">
+<meta property="og:description" content="2.1 הקדמה  2.1.1 מה ביחידה? יחידה זו מקבילה לפרק השני בספר הלימוד. המושגים והרעיונות העיקריים שילמדו ביחידה: טכניקת הישר הסורק. בעיית חיתוך קטעים במישור. מפות מישוריות וייצוגן במבנה DCEL. בעיית...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="יחידה 2 מפות מישוריות וטכניקת הישר הסורק | גיאומטריה חישובית">
+<meta name="twitter:description" content="2.1 הקדמה  2.1.1 מה ביחידה? יחידה זו מקבילה לפרק השני בספר הלימוד. המושגים והרעיונות העיקריים שילמדו ביחידה: טכניקת הישר הסורק. בעיית חיתוך קטעים במישור. מפות מישוריות וייצוגן במבנה DCEL. בעיית...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.0/transition.js"></script><script src="libs/bs3compat-0.5.0/tabs.js"></script><script src="libs/bs3compat-0.5.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row no-pad">
+  <header class="col-sm-12 col-lg-2 sidebar sidebar-book border-left"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">גיאומטריה חישובית</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search" dir="rtl">
+        <input id="search" class="form-control" type="search" placeholder="חיפוש" aria-label="Search" dir="rtl">
+</form>
+
+      <nav aria-label="Table of contents"><h2>יחידות הלימוד:</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">ברוכים הבאים</a></li>
+<li><a class="" href="intro.html"><span class="header-section-number">1</span> מבוא</a></li>
+<li><a class="active" href="map-overlay.html"><span class="header-section-number">2</span> מפות מישוריות וטכניקת הישר הסורק</a></li>
+<li><a class="" href="pol-tringle.html"><span class="header-section-number">3</span> שילושי פוליגונים ובעיית הגלריה לאמנות</a></li>
+<li><a class="" href="linear-prog.html"><span class="header-section-number">4</span> תכנון לינארי וחיתוך של חצאי מישורים</a></li>
+<li><a class="" href="orthogonal-range-seach.html"><span class="header-section-number">5</span> חיפוש בתחומים אורתוגונליים</a></li>
+<li><a class="" href="point-location.html"><span class="header-section-number">6</span> מיקום נקודה ומפה טרפזית</a></li>
+<li><a class="" href="voronoi.html"><span class="header-section-number">7</span> דיאגרמת וורונוי</a></li>
+<li><a class="" href="duality-arrangements.html"><span class="header-section-number">8</span> מערכים ודואליות</a></li>
+<li><a class="" href="Delaunay-triangulation.html"><span class="header-section-number">9</span> שילושי דלוני</a></li>
+<li><a class="" href="motion-planning.html"><span class="header-section-number">10</span> תכנון תנועה</a></li>
+<li><a class="" href="WSPD-spanners.html"><span class="header-section-number">11</span> פורשים גאומטריים וקבוצות מופרדות היטב</a></li>
+<li><a class="" href="curve-similarity.html"><span class="header-section-number">12</span> דמיון בין עקומים</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="map-overlay" class="section level1" number="2">
+<h1>
+<span class="header-section-number">יחידה 2</span> מפות מישוריות וטכניקת הישר הסורק<a class="anchor" aria-label="anchor" href="#map-overlay"><i class="fas fa-link"></i></a>
+</h1>
+<div id="preface-2" class="section level2" number="2.1">
+<h2>
+<span class="header-section-number">2.1</span> הקדמה<a class="anchor" aria-label="anchor" href="#preface-2"><i class="fas fa-link"></i></a>
+</h2>
+<div id="contents-2" class="section level3" number="2.1.1">
+<h3>
+<span class="header-section-number">2.1.1</span> מה ביחידה?<a class="anchor" aria-label="anchor" href="#contents-2"><i class="fas fa-link"></i></a>
+</h3>
+<p>יחידה זו מקבילה לפרק השני בספר הלימוד.</p>
+<p>המושגים והרעיונות העיקריים שילמדו ביחידה:</p>
+<ul>
+<li>טכניקת הישר הסורק.</li>
+<li>בעיית חיתוך קטעים במישור.</li>
+<li>מפות מישוריות וייצוגן במבנה DCEL.</li>
+<li>בעיית map overlay - חישוב הייצוג המאוחד של שתי מפות מישוריות.</li>
+</ul>
+<p>למידה מהנה!</p>
+</div>
+<div id="them-map" class="section level3" number="2.1.2">
+<h3>
+<span class="header-section-number">2.1.2</span> שכבות מידע במפה<a class="anchor" aria-label="anchor" href="#them-map"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-figure">
+<img src="images/2/gis_map_overlay.jpg" align="left" width="33%">
+ביחידה זו נעסוק בבעיות הנוגעות לחיתוכי קטעים במישור. דוגמה אחת לבעיה
+כזו מופיעה בתחום של מערכות מידע גאוגרפיות (GIS - Graphic Information
+Systems), כאשר רוצים להציג ולנתח שכבות מידע ממספר מפות. למשל, בהינתן מפה של נהרות ומפה של כבישים, נוכל להצליב את המידע משתי המפות כדי למצוא היכן ממוקמים גשרים: בנקודות החיתוך בין כבישים לנהרות. כל מפה
+נושאית כזו ניתנת לייצוג גיאומטרי על ידי אוסף של קטעים, עקומים, או
+פוליגונים. בעזרת טכניקות גיאומטריות, נוכל למצוא את נקודות החיתוך ולחשב את
+הייצוג המאוחד של שתי מפות (map overlay).</div>
+<p>תחילה נראה כיצד ניתן למצוא את כל החיתוכים באוסף קטעים נתון, ולשם כך
+נשתמש בטכניקה חשובה ושימושית מאוד: טכניקת הישר הסורק (sweep-line). לאחר מכן נדבר על ייצוג של מפות מישוריות (גרפים מישוריים), ונתאר מבנה נתונים יעיל לאחסונם – DCEL. לבסוף, נראה כיצד ניתן לאחד שני מבנים כאלה, המייצגים שתי מפות מישוריות, למפה מישורית אחת המאגדת את כל המידע.</p>
+<div id="קראו-את-ההקדמה-לפרק-2-בספר-הלימוד-עמודים-1920." class="section level4 unnumbered">
+<h4>קראו את ההקדמה לפרק 2 בספר הלימוד (עמודים 19־20).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%94%D7%94%D7%A7%D7%93%D7%9E%D7%94-%D7%9C%D7%A4%D7%A8%D7%A7-2-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-1920."><i class="fas fa-link"></i></a>
+</h4>
+<hr>
+</div>
+</div>
+</div>
+<div id="sweep-line" class="section level2" number="2.2">
+<h2>
+<span class="header-section-number">2.2</span> טכניקת הישר הסורק<a class="anchor" aria-label="anchor" href="#sweep-line"><i class="fas fa-link"></i></a>
+</h2>
+<div id="line-int" class="section level3" number="2.2.1">
+<h3>
+<span class="header-section-number">2.2.1</span> חיתוך קטעים במישור<a class="anchor" aria-label="anchor" href="#line-int"><i class="fas fa-link"></i></a>
+</h3>
+<p>טכניקת הישר הסורק (sweep-line) היא חשובה ושימושית מאוד בגיאומטריה
+חישובית. כדי להדגים את השימוש בטכניקה זו, ולפני שנדבר על מפות מישוריות,
+נציג בעיה פשוטה לכאורה שנקראת בעיית חיתוך קטעים במישור (line segment
+intersection). בבעיה זו, הקלט הוא אוסף של קטעים במישור, והמטרה היא למצוא
+את כל נקודות החיתוך בין קטעים. בסרטון הבא נתאר את רעיון השימוש בישר
+הסורק עבור בעיית חיתוך קטעים במישור.</p>
+<div id="צפו-בסרטון-הבא.-3" class="section level4 unnumbered">
+<h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-3"><i class="fas fa-link"></i></a>
+</h4>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/x1BxalWtFqk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+</center>
+<p>בטכניקת הישר הסורק, הרעיון הוא “לסרוק” את הקטעים בעזרת ישר אופקי <span class="math inline">\(\ell\)</span>
+הנע מלעלה למטה. ה”<strong>סטטוס</strong>” (status) של הישר הוא אוסף הקטעים הנחתכים עם
+הישר במיקומו הנוכחי. את הסטטוס יש לעדכן בזמן שהישר נע מטה, אך הוא אינו
+מתעדכן באופן רציף – העדכון מתבצע רק כאשר הישר מגיע לנקודות מסוימות
+שאנו מכנים “<strong>מאורעות</strong>” (event points). בבעיית חיתוך הקטעים, המאורעות
+הם נקודות הקצה של הקטעים, וגם נקודות החיתוך עצמן, שמתגלות במהלך
+האלגוריתם. בכל פעם שהישר מגיע למאורע, יש לעדכן את הסטטוס ואת תור
+המאורעות, ולבצע בדיקות של חיתוכים בין הקטעים בסטטוס.</p>
+<div class="rmdwarning">
+<p><img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px">
+זמן הריצה של האלגוריתם הראשון שמתואר בסרטון ומשתמש בשיטת הישר הסורק, הוא
+<span class="math inline">\(O(n^2)\)</span>. האם קיים אוסף של קטעים ללא נקודות חיתוך כלל, שעבורו זמן הריצה
+של האלגוריתם הזה יהיה <span class="math inline">\(\Theta(n^2)\)</span>? אם לא, הסבירו מדוע. אם כן, ציירו
+דוגמה לאוסף כזה.</p>
+<details><summary>
+(פתרון)
+</summary><p>באוסף הקטעים שבאיור למטה אין נקודות חיתוך, אך בשלב שבו הקטע ה- <span class="math inline">\(i\)</span> נוסף
+לסטטוס, כבר מופיעים בסטטוס <span class="math inline">\(i-1\)</span> הקטעים הראשונים, ולכן יהיו <span class="math inline">\(i-1\)</span>
+בדיקות. בסך הכול מספר הבדיקות בכל השלבים יהיה <span class="math inline">\(\Theta(n^2)\)</span>.</p>
+<p align="center" width="100%">
+</p>
+<div class="inline-figure"><img src="images/2/worst-case-question.jpg" width="50%"></div>
+
+</details>
+</div>
+</div>
+</div>
+<div id="line-sweep-impl" class="section level3" number="2.2.2">
+<h3>
+<span class="header-section-number">2.2.2</span> טכניקת הישר הסורק – מימוש<a class="anchor" aria-label="anchor" href="#line-sweep-impl"><i class="fas fa-link"></i></a>
+</h3>
+<p>בסעיף הקודם ראינו סקיצה של אלגוריתם המשתמש בטכניקת הישר הסורק, והסברנו באופן אינטואיטיבי מדוע גישה כזו תיתן לנו אלגוריתם יעיל שהוא רגיש לפלט, ושאינו בודק חיתוכים בין כל זוג קטעים.</p>
+<p>כיצד מממשים אלגוריתם כזה ביעילות? בסעיף 2.1 בספר הלימוד מתואר בפירוט
+האלגוריתם <strong>FindIntersections</strong>, מבני הנתונים שנזדקק להם עבור תור
+המאורעות והסטטוס, והפרוצדורה <strong>HandleEvenPoint</strong> לטיפול במאורעות. זמן הריצה של האלגוריתם הוא <span class="math inline">\(O((n+k)\log n)\)</span>, כאשר <span class="math inline">\(k\)</span> הוא מספר נקודות
+החיתוך.</p>
+<div id="קראו-בעיון-את-סעיף-2.1-בספר-הלימוד-עמודים-2029." class="section level4 unnumbered">
+<h4>קראו בעיון את סעיף 2.1 בספר הלימוד (עמודים 20–29).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%91%D7%A2%D7%99%D7%95%D7%9F-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-2.1-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-2029."><i class="fas fa-link"></i></a>
+</h4>
+</div>
+<div id="euiler" class="section level4 unnumbered">
+<h4>נוסחת אוילר.<a class="anchor" aria-label="anchor" href="#euiler"><i class="fas fa-link"></i></a>
+</h4>
+<p>בסעיף 2.1 בספר הלימוד, יש שימוש בנוסחת אוילר להשגת חסם על מספר המאורעות.</p>
+<p>עבור גרף מישורי עם <span class="math inline">\(n_v\)</span> קודקודים, <span class="math inline">\(n_e\)</span> צלעות, ו-<span class="math inline">\(n_f\)</span> פאות, נוסחת
+אוילר מתארת את הקשר ביניהם באופן הבא.</p>
+<div class="rmdimportant">
+<p><img src="images/definition.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><strong>נוסחת אוילר</strong>: <span class="math inline">\(n_v-n_e+n_f\ge 2\)</span>.</p>
+</div>
+<p>זוהי נוסחה חשובה ביותר, ונעשה בה שימוש גם בהמשך הקורס.</p>
+<div class="rmdwarning">
+<div class="inline-figure">
+<img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px">
+נסו לחשוב על אלגוריתם המקבל אוסף של קטעים במישור, ובודק אם קיים זוג
+קטעים שחותכים זה את זה. איזה זמן ריצה ניתן להשיג?</div>
+<details><summary>
+(פתרון)
+</summary><p>שימו לב שניתן להשתמש באותו אלגוריתם שראינו למציאת כל נקודות החיתוך, אך
+לעצור מייד במציאת נקודת החיתוך הראשונה. נקבל זמן ריצה של <span class="math inline">\(O(n\log n)\)</span>.</p>
+</details>
+</div>
+</div>
+</div>
+<div id="check-line-int" class="section level3" number="2.2.3">
+<h3>
+<span class="header-section-number">2.2.3</span> כיצד נבדוק אם זוג קטעים חותכים זה את זה?<a class="anchor" aria-label="anchor" href="#check-line-int"><i class="fas fa-link"></i></a>
+</h3>
+<p>במהלך האלגוריתם הסורק שראינו קודם, אנו נדרשים למצוא את נקודת החיתוך בין
+שני קטעים נתונים. בהינתן שני קטעים, <span class="math inline">\(S=\overline{pq}\)</span> ו-
+<span class="math inline">\(S'=\overline{p'q'}\)</span>, כיצד נבדוק אם הם חותכים זה את זה?</p>
+<p align="center" width="100%">
+</p>
+<div class="inline-figure"><img src="images/2/segments.jpg" width="100%"></div>
+
+<div id="גישה-ראשונה-חישוב-הישרים-המכילים-את-הקטעים." class="section level4 unnumbered">
+<h4>גישה ראשונה: חישוב הישרים המכילים את הקטעים.<a class="anchor" aria-label="anchor" href="#%D7%92%D7%99%D7%A9%D7%94-%D7%A8%D7%90%D7%A9%D7%95%D7%A0%D7%94-%D7%97%D7%99%D7%A9%D7%95%D7%91-%D7%94%D7%99%D7%A9%D7%A8%D7%99%D7%9D-%D7%94%D7%9E%D7%9B%D7%99%D7%9C%D7%99%D7%9D-%D7%90%D7%AA-%D7%94%D7%A7%D7%98%D7%A2%D7%99%D7%9D."><i class="fas fa-link"></i></a>
+</h4>
+<ol style="list-style-type: decimal">
+<li>
+<img src="images/2/line.jpg" align="left" width="33%"> נחשב את הישר
+<span class="math inline">\(\ell\)</span> המכיל את הקטע <span class="math inline">\(S\)</span>, ואת הישר <span class="math inline">\(\ell'\)</span> המכיל את הקטע <span class="math inline">\(S'\)</span>.</li>
+<li>נחשב את נקודת החיתוך <span class="math inline">\(t\)</span> בין הישרים <span class="math inline">\(\ell\)</span> ו-<span class="math inline">\(\ell'\)</span>.</li>
+<li>נבדוק אם <span class="math inline">\(t\)</span> שייכת לשני הקטעים <span class="math inline">\(S\)</span> ו-<span class="math inline">\(S'\)</span>.</li>
+</ol>
+<p>בשיטה זו אנו מוצאים את נקודת החיתוך, אם היא קיימת.</p>
+</div>
+<div id="מציאת-הישר-המכיל-קטע." class="section level4 unnumbered">
+<h4>מציאת הישר המכיל קטע.<a class="anchor" aria-label="anchor" href="#%D7%9E%D7%A6%D7%99%D7%90%D7%AA-%D7%94%D7%99%D7%A9%D7%A8-%D7%94%D7%9E%D7%9B%D7%99%D7%9C-%D7%A7%D7%98%D7%A2."><i class="fas fa-link"></i></a>
+</h4>
+<p>מציבים את שתי נקודות הקצה של הקטע במשוואת הישר <span class="math inline">\(y=m x + c\)</span>, ולאחר מכן
+פותרים מערכת של שתי משוואות כדי למצוא את <span class="math inline">\(m\)</span>.</p>
+<p>למשל, עבור הקטע <span class="math inline">\(\overline{pq}\)</span> נסמן <span class="math inline">\(p=(p_x,p_y)\)</span>, <span class="math inline">\(q=(q_x,q_y)\)</span>, ונקבל
+<span class="math inline">\(m=\frac{q_y-p_y}{q_x-p_x}\)</span>.</p>
+<p>לאחר מכן, מוצאים את <span class="math inline">\(c\)</span> על ידי הצבה של אחת מהנקודות במשוואה.</p>
+<p>שימו לב שאם הקטע <span class="math inline">\(\overline{p q}\)</span> הוא אנכי, אז המכנה של <span class="math inline">\(m\)</span> מתאפס.</p>
+</div>
+<div id="מציאת-נקודת-החיתוך-בין-שני-ישרים." class="section level4 unnumbered">
+<h4>מציאת נקודת החיתוך בין שני ישרים.<a class="anchor" aria-label="anchor" href="#%D7%9E%D7%A6%D7%99%D7%90%D7%AA-%D7%A0%D7%A7%D7%95%D7%93%D7%AA-%D7%94%D7%97%D7%99%D7%AA%D7%95%D7%9A-%D7%91%D7%99%D7%9F-%D7%A9%D7%A0%D7%99-%D7%99%D7%A9%D7%A8%D7%99%D7%9D."><i class="fas fa-link"></i></a>
+</h4>
+<p>בהינתן שני ישרים לא אנכיים,<span class="math inline">\(\ell: y= m x + c\)</span> ו-<span class="math inline">\(\ell': y= m'x+ c'\)</span>,
+נציב את נקודת החיתוך <span class="math inline">\(t=(t_x,t_y)\)</span> בשתי המשוואות. נפתור ונקבל:
+<span class="math inline">\(t_x=\frac{c-c'}{m'-m}\)</span>, <span class="math inline">\(t_y=\frac{cm'-c'm}{m'-m}\)</span>.</p>
+<p>גם כאן נשים לב שהמכנה מתאפס אם הישרים אנכיים או מקבילים זה לזה.</p>
+</div>
+<div id="בדיקה-אם-נקודת-החיתוך-שייכת-לקטע." class="section level4 unnumbered">
+<h4>בדיקה אם נקודת החיתוך שייכת לקטע.<a class="anchor" aria-label="anchor" href="#%D7%91%D7%93%D7%99%D7%A7%D7%94-%D7%90%D7%9D-%D7%A0%D7%A7%D7%95%D7%93%D7%AA-%D7%94%D7%97%D7%99%D7%AA%D7%95%D7%9A-%D7%A9%D7%99%D7%99%D7%9B%D7%AA-%D7%9C%D7%A7%D7%98%D7%A2."><i class="fas fa-link"></i></a>
+</h4>
+<p>נניח שמתקיים <span class="math inline">\(p_x\le q_x\)</span>, <span class="math inline">\(p_y\le q_y\)</span>. אז נקודת החיתוך <span class="math inline">\(t\)</span> שייכת לקטע
+<span class="math inline">\(\overline{p q}\)</span> אם <span class="math inline">\(t_x\in [p_x, q_y]\)</span>, <span class="math inline">\(t_y\in[p_y, q_y]\)</span>.</p>
+<div class="rmdwarning">
+<div class="inline-figure">
+<img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px">
+בשלב השלישי, האם מספיק לבדוק שנקודת החיתוך שייכת לאחד הקטעים?</div>
+<details><summary>
+(פתרון)
+</summary><p>בדוגמה המופיעה כאן, הקטעים אינם חותכים זה את זה, אך נקודת החיתוך בין הישרים המכילים את הקטעים מופיעה על אחד מהם.</p>
+<center>
+<img src="images/2/line_intersection.jpg" style="width:50.0%">
+</center>
+</details>
+</div>
+</div>
+<div id="כיצד-מטפלים-במקרים-מיוחדים" class="section level4 unnumbered">
+<h4>כיצד מטפלים במקרים מיוחדים?<a class="anchor" aria-label="anchor" href="#%D7%9B%D7%99%D7%A6%D7%93-%D7%9E%D7%98%D7%A4%D7%9C%D7%99%D7%9D-%D7%91%D7%9E%D7%A7%D7%A8%D7%99%D7%9D-%D7%9E%D7%99%D7%95%D7%97%D7%93%D7%99%D7%9D"><i class="fas fa-link"></i></a>
+</h4>
+<p>שימו לב שבגישה הראשונה התעלמנו ממספר מצבים מיוחדים של הקלט, למשל כאשר הקטעים הם אנכיים. נסו לבדוק בעצמכם מהם מצבי הקלט שאנחנו מתעלמים מהם, וחשבו כיצד ניתן לטפל בהם.</p>
+<p>ביחידה הראשונה של הקורס דנו בנושא של <strong>מצבים מנוונים</strong>. ראינו שניתן לטפל במצבים מנוונים על ידי חלוקה למקרים נפרדים, אך חלוקה כזו היא בדרך כלל
+מתישה ומועדת לטעויות. דרך נוספת לטיפול במצבים כאלו היא למצוא מערכת
+גיאומטרית אחרת שבה המקרים המיוחדים נעלמים, למשל על ידי סיבוב מערכת
+הצירים, אך פעולה זו לא תמיד אפשרית. אפשרות אחרת היא להשתמש ב<strong>הנחת מצב כללי</strong>: מניחים שהקלט אינו מכיל מצבים מנוונים.</p>
+<p>במקרה של חיתוך ישרים, ניתן למצוא פתרון אחר שבו המקרים המיוחדים אינם
+דורשים טיפול נפרד, כמו בגישה הבאה.</p>
+</div>
+<div id="גישה-שנייה-חישוב-דטרמיננטה." class="section level4 unnumbered">
+<h4>גישה שנייה: חישוב דטרמיננטה.<a class="anchor" aria-label="anchor" href="#%D7%92%D7%99%D7%A9%D7%94-%D7%A9%D7%A0%D7%99%D7%99%D7%94-%D7%97%D7%99%D7%A9%D7%95%D7%91-%D7%93%D7%98%D7%A8%D7%9E%D7%99%D7%A0%D7%A0%D7%98%D7%94."><i class="fas fa-link"></i></a>
+</h4>
+<p><img src="images/2/line-sep.jpg" align="left" width="33%"><strong>אבחנה</strong>:
+הקטעים <span class="math inline">\(S\)</span> ו-<span class="math inline">\(S'\)</span> חותכים זה את זה אם ורק אם הישר <span class="math inline">\(\ell\)</span> שמכיל את <span class="math inline">\(S\)</span>
+“מפריד” בין הנקודות <span class="math inline">\(p'\)</span> ו-<span class="math inline">\(q'\)</span> , והישר <span class="math inline">\(\ell'\)</span> שמכיל את <span class="math inline">\(S'\)</span> “מפריד”
+בין הנקודות <span class="math inline">\(p\)</span> ו-<span class="math inline">\(q\)</span>.</p>
+<p><strong>כיצד נבדוק אם ישר מפריד בין שתי נקודות?</strong> נוכל להמיר את הבעיה הזו
+לבעיה הבאה: בהינתן שלוש נקודות, <span class="math inline">\(a,b,c\)</span>, נרצה לדעת אם כאשר נעים מ-<span class="math inline">\(a\)</span>
+ל-<span class="math inline">\(b\)</span> ואחר כך ל-<span class="math inline">\(c\)</span>, מבצעים פנייה ימינה, שמאלה, או שממשיכים באותו הכיוון.
+<img src="images/2/left_turn.jpg" align="left" width="33%"></p>
+<p>לשם כך נחשב את הדטרמיננטה הבאה:
+<span class="math inline">\(det\begin{bmatrix}a_x&amp;a_y&amp;1\\b_x&amp;b_y&amp;1\\c_x&amp;c_y&amp;1\end{bmatrix}=a_xb_y+a_yc_x+b_xc_y-a_yb_x-a_xc_y-b_yc_x\)</span></p>
+<p>הערך המוחלט של הדטרמיננטה הזו שווה בדיוק לפעמיים שטח המשולש
+<span class="math inline">\(\triangle a b c\)</span>.</p>
+<p>ערכה חיובי אם פונים שמאלה ב-<span class="math inline">\(b\)</span>, שלילי אם פונים ימינה ב-<span class="math inline">\(b\)</span>, ו-0 אם
+ממשיכים באותו הכיוון.</p>
+<p><img src="images/2/det.jpg" align="left" width="33%"> לכן, בשיטה זו
+נוכל לבדוק אם הנקודות <span class="math inline">\(p'\)</span> ו-<span class="math inline">\(q'\)</span> נמצאות בשני צדדים שונים של הישר
+<span class="math inline">\(\ell\)</span> המכיל את <span class="math inline">\(\overline{pq}\)</span>, על ידי חישוב של שתי הדטרמיננטות
+המתאימות. לאחר מכן נוכל לבדוק אם הנקודות <span class="math inline">\(p\)</span> ו-<span class="math inline">\(q\)</span> נמצאות בשני צדדים
+שונים של הישר <span class="math inline">\(\ell'\)</span> המכיל את <span class="math inline">\(\overline{p'q'}\)</span>.</p>
+<hr>
+</div>
+</div>
+</div>
+<div id="dcel" class="section level2" number="2.3">
+<h2>
+<span class="header-section-number">2.3</span> מבנה DCEL<a class="anchor" aria-label="anchor" href="#dcel"><i class="fas fa-link"></i></a>
+</h2>
+<div id="plan-map" class="section level3" number="2.3.1">
+<h3>
+<span class="header-section-number">2.3.1</span> יצוג של מפה מישורית<a class="anchor" aria-label="anchor" href="#plan-map"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-figure">
+<img src="images/2/thematic_map.jpg" align="left" width="33%"> בחלק
+הקודם פתרנו למעשה את בעיית map overlay עבור המקרה הפשוט ביותר, שבו שתי
+המפות מיוצגות כאוסף של קטעים. בחלק הזה נדבר על מפות מורכבות יותר, כאלו
+שמחלקות את המישור לאזורים (למשל, מפה המייצגת גידולים חקלאיים שונים). אך
+לפני שנוכל לפתור את בעיית map overlay עבור מפות כאלו, נרצה להבין קודם
+כיצד בכלל ניתן לייצג ולאחסן מפה כזאת באופן יעיל ונוח לשימוש. זהו בעצם
+מבנה הנתונים הגיאומטרי הראשון שנראה במהלך הקורס, והוא נקרא DCEL
+(Doubly-Connected Edge List).</div>
+<div id="צפו-בסרטון-הבא.-4" class="section level4 unnumbered">
+<h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-4"><i class="fas fa-link"></i></a>
+</h4>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/HuT0R9LRR9M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+</center>
+</div>
+<div id="קראו-את-סעיף-2.2-בספר-עמודים-2933." class="section level4 unnumbered">
+<h4>קראו את סעיף 2.2 בספר (עמודים 29–33).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-2.2-%D7%91%D7%A1%D7%A4%D7%A8-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-2933."><i class="fas fa-link"></i></a>
+</h4>
+</div>
+</div>
+<div id="problem-def" class="section level3" number="2.3.2">
+<h3>
+<span class="header-section-number">2.3.2</span> בעיית map overlay<a class="anchor" aria-label="anchor" href="#problem-def"><i class="fas fa-link"></i></a>
+</h3>
+<p>לאחר שראינו כיצד ניתן לייצג מפה מישורית, בחלק זה נראה כיצד ניתן לחשב את
+ה-overlay של שתי מפות מישוריות. ה-overlay הוא הייצוג המאוחד של שתי שכבות
+מפה כאשר הן מונחות זו על גבי זו.</p>
+<p>בהינתן שתי מפות <span class="math inline">\(\mathcal{S_1}\)</span> ו-<span class="math inline">\(\mathcal{S_2}\)</span> המיוצגות על ידי מבני
+DCEL, נרצה לחשב מבנה DCEL עבור ה-overlay של <span class="math inline">\(\mathcal{S_1}\)</span> ו-
+<span class="math inline">\(\mathcal{S_1}\)</span>, שמסומן <span class="math inline">\(\mathcal{O}=(\mathcal{S_1},\mathcal{S_2})\)</span>.
+ה-overlay הוא מפה מישורית, שבה לכל זוג פאות <span class="math inline">\(f_1\)</span> מ-<span class="math inline">\(\mathcal{S_1}\)</span>
+ו-<span class="math inline">\(f_2\)</span> מ-<span class="math inline">\(\mathcal{S_2}\)</span> שהחיתוך שלהן לא ריק, קיימת פאה <span class="math inline">\(f\)</span> שהיא בדיוק
+אחד מרכיבי הקשירות של <span class="math inline">\(f_1\cap f_2\)</span>. (שימו לב ש-<span class="math inline">\(f_1\)</span> או <span class="math inline">\(f_2\)</span> יכולות
+להיות הפאה החיצונית שאינה חסומה). נוסף על כך, נרצה לסמן את הפאה <span class="math inline">\(f\)</span> בסימונים
+של הפאות <span class="math inline">\(f_1\)</span> ו-<span class="math inline">\(f_2\)</span>. למשל, נוכל לסמן <span class="math inline">\(f=f_1f_2\)</span>, כמו בדוגמה הבאה:</p>
+<center>
+<img src="images/2/overlay.jpg" style="width:80.0%">
+</center>
+<p>בפרק 2.3 בספר הלימוד מתואר אלגוריתם MapOverlay, המחשב את
+<span class="math inline">\(\mathcal{O}=(\mathcal{S_1},\mathcal{S_2})\)</span> בשיטת הישר הסורק שראינו
+קודם.</p>
+<div id="קראו-את-סעיף-2.3-בספר-עמודים-3339." class="section level4 unnumbered">
+<h4>קראו את סעיף 2.3 בספר (עמודים 33–39).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-2.3-%D7%91%D7%A1%D7%A4%D7%A8-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-3339."><i class="fas fa-link"></i></a>
+</h4>
+</div>
+</div>
+<div id="bool-op" class="section level3" number="2.3.3">
+<h3>
+<span class="header-section-number">2.3.3</span> פעולות בוליאניות<a class="anchor" aria-label="anchor" href="#bool-op"><i class="fas fa-link"></i></a>
+</h3>
+<p>אלגוריתם MapOverlay הוא כלי חזק ושימושי במגוון של בעיות. בסעיף 2.4 בספר הלימוד
+מופיעה דוגמה אחת לכך: חישוב של פעולות בוליאניות על שני
+פוליגונים. בהינתן שני פוליגונים <span class="math inline">\(P_1,P_2\)</span>, האלגוריתם מאפשר לנו לחשב את
+האיחוד והחיתוך שלהם, ואת ההפרש ביניהם. הרעיון הוא שלאחר חישוב ה-overlay, לכל פאה
+בייצוג המאוחד יש תווית שקובעת אם פאה זו שייכת ל-<span class="math inline">\(P_1\)</span>, ל-<span class="math inline">\(P_2\)</span>, או
+לשניהם. לכן בעזרת התוויות נוכל להחליט עבור כל פאה אם היא נמצאת באיחוד,
+בחיתוך, או בהפרש.</p>
+<div id="קראו-את-סעיף-2.4-בספר-הלימוד-עמודים-3940." class="section level4 unnumbered">
+<h4>קראו את סעיף 2.4 בספר הלימוד (עמודים 39–40).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-2.4-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-3940."><i class="fas fa-link"></i></a>
+</h4>
+
+</div>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="intro.html"><span class="header-section-number">1</span> מבוא</a></div>
+<div class="next"><a href="pol-tringle.html"><span class="header-section-number">3</span> שילושי פוליגונים ובעיית הגלריה לאמנות</a></div>
+</div></main><div class="col-md-3 col-lg-3 d-none d-md-block sidebar sidebar-chapter border-right">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>ביחידה זו:</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#map-overlay"><span class="header-section-number">2</span> מפות מישוריות וטכניקת הישר הסורק</a></li>
+<li>
+<a class="nav-link" href="#preface-2"><span class="header-section-number">2.1</span> הקדמה</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#contents-2"><span class="header-section-number">2.1.1</span> מה ביחידה?</a></li>
+<li><a class="nav-link" href="#them-map"><span class="header-section-number">2.1.2</span> שכבות מידע במפה</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#sweep-line"><span class="header-section-number">2.2</span> טכניקת הישר הסורק</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#line-int"><span class="header-section-number">2.2.1</span> חיתוך קטעים במישור</a></li>
+<li><a class="nav-link" href="#line-sweep-impl"><span class="header-section-number">2.2.2</span> טכניקת הישר הסורק – מימוש</a></li>
+<li><a class="nav-link" href="#check-line-int"><span class="header-section-number">2.2.3</span> כיצד נבדוק אם זוג קטעים חותכים זה את זה?</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#dcel"><span class="header-section-number">2.3</span> מבנה DCEL</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#plan-map"><span class="header-section-number">2.3.1</span> יצוג של מפה מישורית</a></li>
+<li><a class="nav-link" href="#problem-def"><span class="header-section-number">2.3.2</span> בעיית map overlay</a></li>
+<li><a class="nav-link" href="#bool-op"><span class="header-section-number">2.3.3</span> פעולות בוליאניות</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p dir="rtl" style="text-align:right;">הספר "<strong>גיאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2024-02-22.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>יחידה 9 שילושי דלוני | גיאומטריה חישובית</title>
+<meta name="author" content="ד’’ר עומרית פילצר">
+<meta name="description" content="9.1 הקדמה  9.1.1 מה ביחידה? יחידה זו מקבילה לפרק התשיעי בספר הלימוד. המושגים והרעיונות העיקריים שיילמדו ביחידה: מפה מישורית מקסימלית. שילוש של קבוצת נקודות במישור. שילוש חוקי ושילוש אופטימלי...">
+<meta name="generator" content="bookdown 0.34 with bs4_book()">
+<meta property="og:title" content="יחידה 9 שילושי דלוני | גיאומטריה חישובית">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://omrit.filtser.com/CG/Delaunay-triangulation.html">
+<meta property="og:description" content="9.1 הקדמה  9.1.1 מה ביחידה? יחידה זו מקבילה לפרק התשיעי בספר הלימוד. המושגים והרעיונות העיקריים שיילמדו ביחידה: מפה מישורית מקסימלית. שילוש של קבוצת נקודות במישור. שילוש חוקי ושילוש אופטימלי...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="יחידה 9 שילושי דלוני | גיאומטריה חישובית">
+<meta name="twitter:description" content="9.1 הקדמה  9.1.1 מה ביחידה? יחידה זו מקבילה לפרק התשיעי בספר הלימוד. המושגים והרעיונות העיקריים שיילמדו ביחידה: מפה מישורית מקסימלית. שילוש של קבוצת נקודות במישור. שילוש חוקי ושילוש אופטימלי...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.0/transition.js"></script><script src="libs/bs3compat-0.5.0/tabs.js"></script><script src="libs/bs3compat-0.5.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row no-pad">
+  <header class="col-sm-12 col-lg-2 sidebar sidebar-book border-left"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">גיאומטריה חישובית</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search" dir="rtl">
+        <input id="search" class="form-control" type="search" placeholder="חיפוש" aria-label="Search" dir="rtl">
+</form>
+
+      <nav aria-label="Table of contents"><h2>יחידות הלימוד:</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">ברוכים הבאים</a></li>
+<li><a class="" href="intro.html"><span class="header-section-number">1</span> מבוא</a></li>
+<li><a class="" href="map-overlay.html"><span class="header-section-number">2</span> מפות מישוריות וטכניקת הישר הסורק</a></li>
+<li><a class="" href="pol-tringle.html"><span class="header-section-number">3</span> שילושי פוליגונים ובעיית הגלריה לאמנות</a></li>
+<li><a class="" href="linear-prog.html"><span class="header-section-number">4</span> תכנון לינארי וחיתוך של חצאי מישורים</a></li>
+<li><a class="" href="orthogonal-range-seach.html"><span class="header-section-number">5</span> חיפוש בתחומים אורתוגונליים</a></li>
+<li><a class="" href="point-location.html"><span class="header-section-number">6</span> מיקום נקודה ומפה טרפזית</a></li>
+<li><a class="" href="voronoi.html"><span class="header-section-number">7</span> דיאגרמת וורונוי</a></li>
+<li><a class="" href="duality-arrangements.html"><span class="header-section-number">8</span> מערכים ודואליות</a></li>
+<li><a class="active" href="Delaunay-triangulation.html"><span class="header-section-number">9</span> שילושי דלוני</a></li>
+<li><a class="" href="motion-planning.html"><span class="header-section-number">10</span> תכנון תנועה</a></li>
+<li><a class="" href="WSPD-spanners.html"><span class="header-section-number">11</span> פורשים גאומטריים וקבוצות מופרדות היטב</a></li>
+<li><a class="" href="curve-similarity.html"><span class="header-section-number">12</span> דמיון בין עקומים</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="Delaunay-triangulation" class="section level1" number="9">
+<h1>
+<span class="header-section-number">יחידה 9</span> שילושי דלוני<a class="anchor" aria-label="anchor" href="#Delaunay-triangulation"><i class="fas fa-link"></i></a>
+</h1>
+<div id="preface-9" class="section level2" number="9.1">
+<h2>
+<span class="header-section-number">9.1</span> הקדמה<a class="anchor" aria-label="anchor" href="#preface-9"><i class="fas fa-link"></i></a>
+</h2>
+<div id="contents-9" class="section level3" number="9.1.1">
+<h3>
+<span class="header-section-number">9.1.1</span> מה ביחידה?<a class="anchor" aria-label="anchor" href="#contents-9"><i class="fas fa-link"></i></a>
+</h3>
+<p>יחידה זו מקבילה לפרק התשיעי בספר הלימוד.</p>
+<p>המושגים והרעיונות העיקריים שיילמדו ביחידה:</p>
+<ul>
+<li>מפה מישורית מקסימלית.</li>
+<li>שילוש של קבוצת נקודות במישור.</li>
+<li>שילוש חוקי ושילוש אופטימלי בזוויות.</li>
+<li>גרף דלוני ושילוש דלוני.</li>
+<li>אלגוריתמים לחישוב השילוש (אלגוריתם היפוך צלעות, אלגוריתם סורק, אלגוריתם אינקרמנטלי-רנדומי).</li>
+</ul>
+<p>למידה מהנה!</p>
+</div>
+<div id="terrains" class="section level3" number="9.1.2">
+<h3>
+<span class="header-section-number">9.1.2</span> אינטרפולציה של גבהים<a class="anchor" aria-label="anchor" href="#terrains"><i class="fas fa-link"></i></a>
+</h3>
+<p><img src="images/9/terrain.jpg" align="left" width="55%">
+ייצוג תלת-ממדי של פני שטח (terrain) נעשה בדרך כלל על ידי לקיחה דגימות של גובה בנקודות מסוימות, וקביעת גובה הנקודות שלא נמדדו על ידי אינטרפולציה כלשהי של נקודות הדגימה. הדרך המקובלת לעשות זאת היא בעזרת שילוש של קבוצת הנקודות, כלומר חלוקה של המישור שכל הפאות החסומות שלה הן משולשים שקודקודיהם הם נקודות הדגימה. הגובה של נקודה <span class="math inline">\(q\)</span> שלא נמדדה יתקבל כך: נמצא את המשולש <span class="math inline">\(\triangle abc\)</span> שהנקודה <span class="math inline">\(q\)</span> נמצאת בתוכו. הנקודות <span class="math inline">\(a,b,c\)</span> עם מדידות הגובה שלהן הן נקודות תלת-ממדיות, ולכן מגדירות מישור בתלת-ממד. נטיל את <span class="math inline">\(q\)</span> על המישור הזה, וקואורדינטת ה-<span class="math inline">\(z\)</span> שתתקבל תהיה הגובה של <span class="math inline">\(q\)</span>.</p>
+<p>לא כל השילושים ייראו לנו “טובים” או “טבעיים” באותה המידה. התבוננו למשל בשני השילושים באיור למטה. אלו שני שילושים שונים של אותה קבוצת נקודות, יחד עם הגבהים המתאימים להן. בכל אחד מהם, הנקודה המסומנת <span class="math inline">\(q\)</span> תהיה בגובה שונה. איזה מהשילושים סביר שיתאר את המציאות באופן מהימן יותר?</p>
+<center>
+<img src="images/9/good_triangulation.jpg" style="width:80.0%">
+</center>
+<div class="rmdwarning">
+<p><img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> מה (בערך) יהיה הגובה של הנקודה <span class="math inline">\(q\)</span> בכל אחד מהשילושים באיור למעלה?</p>
+<details><summary>
+(פתרון)
+</summary><p>בשילוש מימין, הגובה של <span class="math inline">\(q\)</span> יהיה בין 100 ל-120. בשילוש משמאל, הגובה יהיה בין 550 ל-610.</p>
+<p>השילוש משמאל נראה טבעי יותר מהימני, מכיוון שבאופן אינטואיטיבי סביר יותר שהגובה של הנקודה <span class="math inline">\(q\)</span> יהיה דומה לגובה של הנקודות שנמצאות בסביבתה הקרובה.</p>
+</details>
+</div>
+<p>ביחידה זו ננסה להבין כיצד להגדיר שילוש שמשקף את התפיסה האינטואיטיבית שלנו לגבי מהו שילוש “טוב”, וכן נלמד כיצד ניתן לחשב שילוש כזה.</p>
+<div id="קראו-את-ההקדמה-לפרק-9-בספר-הלימוד-עמודים-191193." class="section level4 unnumbered">
+<h4>קראו את ההקדמה לפרק 9 בספר הלימוד (עמודים 191–193).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%94%D7%94%D7%A7%D7%93%D7%9E%D7%94-%D7%9C%D7%A4%D7%A8%D7%A7-9-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-191193."><i class="fas fa-link"></i></a>
+</h4>
+<hr>
+</div>
+</div>
+</div>
+<div id="point-set-triangulation" class="section level2" number="9.2">
+<h2>
+<span class="header-section-number">9.2</span> שילוש של קבוצת נקודות במישור<a class="anchor" aria-label="anchor" href="#point-set-triangulation"><i class="fas fa-link"></i></a>
+</h2>
+<div id="מפה-מישורית-מקסימלית" class="section level3" number="9.2.1">
+<h3>
+<span class="header-section-number">9.2.1</span> מפה מישורית מקסימלית<a class="anchor" aria-label="anchor" href="#%D7%9E%D7%A4%D7%94-%D7%9E%D7%99%D7%A9%D7%95%D7%A8%D7%99%D7%AA-%D7%9E%D7%A7%D7%A1%D7%99%D7%9E%D7%9C%D7%99%D7%AA"><i class="fas fa-link"></i></a>
+</h3>
+<p>ביחידה 3 בקורס דיברנו על שילוש של פוליגונים – חלוקה של פוליגון למשולשים על ידי מספר מקסימלי של אלכסונים שאינם חותכים זה את זה. ביחידה זו, נעסוק בשילושים של קבוצות של נקודות במישור. כדי להגדיר באופן פורמלי מהו שילוש של קבוצת נקודות, נסביר קודם מהי מפה מישורית <strong>מקסימלית</strong> (שימו לב שביחידה 2 עסקנו במפות מישוריות שאינן בהכרח מקסימליות).</p>
+<div class="rmdimportant">
+<p><img src="images/definition.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><u><strong>הגדרה</strong>: מפה מישורית מקסימלית</u><br>
+מפה מישורית מקסימלית היא מפה מישורית שלא ניתן להוסיף לה צלעות, כלומר כל צלע שנוסיף בין שני קודקודים תחתוך צלע אחרת.</p>
+</div>
+<div class="rmdwarning">
+<div class="inline-figure">
+<img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> מי מהמפות המישוריות הבאות היא מקסימלית?</div>
+<center>
+<img src="images/9/map_q.jpg" style="width:100.0%">
+</center>
+<details><summary>
+(פתרון)
+</summary><p>שלוש המפות התחתונות בלבד.</p>
+</details>
+</div>
+<div id="תכונות-של-מפה-מישורית-מקסימלית." class="section level4 unnumbered">
+<h4>תכונות של מפה מישורית מקסימלית.<a class="anchor" aria-label="anchor" href="#%D7%AA%D7%9B%D7%95%D7%A0%D7%95%D7%AA-%D7%A9%D7%9C-%D7%9E%D7%A4%D7%94-%D7%9E%D7%99%D7%A9%D7%95%D7%A8%D7%99%D7%AA-%D7%9E%D7%A7%D7%A1%D7%99%D7%9E%D7%9C%D7%99%D7%AA."><i class="fas fa-link"></i></a>
+</h4>
+<p>כאשר פתרתם את התרגיל הקודם, ודאי הבחנתם בשתי התכונות הבאות:</p>
+<ul>
+<li><p><strong>הפאות (החסומות) הן משולשים</strong>: אם יש פאה חסומה שהיא לא משולש, ניתן לשלש אותה על ידי הוספת אלכסונים, כפי שראינו ביחידה 3 (שילוש של פוליגונים).</p></li>
+<li><p><strong>כל צלעות הקמור של קבוצת הקודקודים שייכות למפה</strong> (והן הצלעות של הפאה הלא חסומה): לא תיתכן צלע שיוצאת החוצה מהקמור, ולכן הצלעות של הקמור לא יחתכו שום צלע אחרת, ויהיה ניתן להוסיף אותן למפה.</p></li>
+</ul>
+</div>
+</div>
+<div id="triang-def" class="section level3" number="9.2.2">
+<h3>
+<span class="header-section-number">9.2.2</span> שילוש של נקודות במישור<a class="anchor" aria-label="anchor" href="#triang-def"><i class="fas fa-link"></i></a>
+</h3>
+<p>התכונה הראשונה שראינו מובילה אותנו להגדרת שילוש של קבוצת נקודות <span class="math inline">\(P\)</span> במישור באופן הבא:</p>
+<div class="rmdimportant">
+<p><img src="images/definition.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><u><strong>הגדרה</strong>: שילוש של קבוצת נקודות במישור</u><br>
+בהינתן קבוצה <span class="math inline">\(P\)</span> של <span class="math inline">\(n\)</span> נקודות במישור, שילוש של <span class="math inline">\(P\)</span> הוא מפה מישורית מקסימלית שהקודקודים שלה הם נקודות <span class="math inline">\(P\)</span>.</p>
+</div>
+<p>שימו לב, ייתכן שקיים יותר משילוש אחד לקבוצה נתונה של נקודות!</p>
+<div class="rmdwarning">
+<div class="inline-figure">
+<img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> כמה שילושים שונים תוכלו למצוא עבור קבוצת הנקודות הבאה? כמה משולשים יש בכל אחד מהשילושים?</div>
+<center>
+<img src="images/9/triang_q.jpg" style="width:20.0%">
+</center>
+<details><summary>
+(פתרון)
+</summary><p>זכרו שצלעות הקמור חייבות להיות בשילוש. יש שלושה שילושים אפשריים, בכל אחד מהם ארבעה משולשים. מייד נראה שזה לא מקרי – כל השילושים האפשריים של קבוצת נקודות נתונה הם בדיוק באותו הגודל!</p>
+<center>
+<img src="images/9/triang_ans.jpg" style="width:80.0%">
+</center>
+</details>
+</div>
+<div id="גודל-השילוש." class="section level4 unnumbered">
+<h4>גודל השילוש.<a class="anchor" aria-label="anchor" href="#%D7%92%D7%95%D7%93%D7%9C-%D7%94%D7%A9%D7%99%D7%9C%D7%95%D7%A9."><i class="fas fa-link"></i></a>
+</h4>
+<p>באופן מעניין למדי, כל השילושים האפשריים של קבוצה <span class="math inline">\(P\)</span> של <span class="math inline">\(n\)</span> נקודות הם בדיוק באותו הגודל, כלומר יש להם מספר זהה של משולשים וצלעות. גודל השילוש תלוי במספר הנקודות שמופיעות על השפה של <span class="math inline">\(CH(P)\)</span> (שפת הקמור של <span class="math inline">\(P\)</span>).</p>
+<div class="rmdimportant">
+<p><img src="images/definition.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><u><strong>משפט (9.1)</strong>:</u> תהי <span class="math inline">\(P\)</span> קבוצה של <span class="math inline">\(n\)</span> נקודות במישור, שלא כולן על ישר אחד. נסמן ב-<span class="math inline">\(k\)</span> את מספר הנקודות על השפה של <span class="math inline">\(CH(P)\)</span>. לפיכך בכל שילוש של <span class="math inline">\(P\)</span> יש <span class="math inline">\(2n-2-k\)</span> משולשים ו-<span class="math inline">\(3n-3-k\)</span> צלעות.</p>
+</div>
+<p>ההוכחה למשפט מופיעה בסעיף 9.1 בספר הלימוד, ונעשה בה שימוש בנוסחת אוילר, שכבר ראינו כמה פעמים בעבר.</p>
+<div class="rmdwarning">
+<div class="inline-figure">
+<img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> לפני שתקראו את ההוכחה המופיעה בספר, נסו להוכיח בעצמכם את המשפט לגבי גודל השילוש.</div>
+</div>
+</div>
+<div id="קראו-את-חלקו-הראשון-של-סעיף-9.1-בספר-הלימוד-עמודים-193194." class="section level4 unnumbered">
+<h4>קראו את חלקו הראשון של סעיף 9.1 בספר הלימוד (עמודים 193–194).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%97%D7%9C%D7%A7%D7%95-%D7%94%D7%A8%D7%90%D7%A9%D7%95%D7%9F-%D7%A9%D7%9C-%D7%A1%D7%A2%D7%99%D7%A3-9.1-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-193194."><i class="fas fa-link"></i></a>
+</h4>
+<p>קראו עד לסוף ההוכחה של משפט 9.1.</p>
+</div>
+</div>
+<div id="opt_triang" class="section level3" number="9.2.3">
+<h3>
+<span class="header-section-number">9.2.3</span> שילוש חוקי ושילוש אופטימלי בזוויות<a class="anchor" aria-label="anchor" href="#opt_triang"><i class="fas fa-link"></i></a>
+</h3>
+<p>בהקדמה ליחידה זו, ראינו ששילושים שלא מכילים משולשים “צרים” (כלומר כאלו שיש להם זוויות חדות מאוד), בסבירות גבוהה משקפים טוב יותר את המצב במציאות. לכן נעדיף שילושים שבהם הזוויות הן כמה שיותר גדולות. בסרטון הבא נראה כיצד ניתן להגדיר שילוש אופטימלי כזה באופן מדויק.</p>
+<div id="צפו-בסרטון-הבא.-17" class="section level4 unnumbered">
+<h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-17"><i class="fas fa-link"></i></a>
+</h4>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OZvbdwovqxU?si=WnAhmzRwX2l4W_Co" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+</div>
+<div id="קראו-את-חלקו-השני-של-סעיף-9.1-בספר-הלימוד-עמודים-194195." class="section level4 unnumbered">
+<h4>קראו את חלקו השני של סעיף 9.1 בספר הלימוד (עמודים 194–195).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%97%D7%9C%D7%A7%D7%95-%D7%94%D7%A9%D7%A0%D7%99-%D7%A9%D7%9C-%D7%A1%D7%A2%D7%99%D7%A3-9.1-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-194195."><i class="fas fa-link"></i></a>
+</h4>
+<p>שימו לב שבחלק האחרון של הסעיף מוצג אלגוריתם נאיבי לחישוב של שילוש אופטימלי בזוויות, אך אלגוריתם זה אינו יעיל במיוחד. בהמשך נראה אלגוריתמים יעילים יותר לחישוב של שילוש כזה.</p>
+</div>
+</div>
+<div id="reminder" class="section level3" number="9.2.4">
+<h3>
+<span class="header-section-number">9.2.4</span> חזרה: הגדרות ותרגילים<a class="anchor" aria-label="anchor" href="#reminder"><i class="fas fa-link"></i></a>
+</h3>
+<p>למטה מופיעות ההגדרות, האבחנות והטענות המרכזיות שדנו בהן בחלק זה, כדי שיהיה לכם נוח לחזור אליהן בעתיד. נוסף על כך, מופיעות כאן הערות ודוגמאות נוספות וכן תרגילים לחזרה, כך שמומלץ לעבור על כל אלו לפני שממשיכים לסעיף הבא.</p>
+<div id="וקטור-הזוויות." class="section level4 unnumbered">
+<h4>וקטור הזוויות.<a class="anchor" aria-label="anchor" href="#%D7%95%D7%A7%D7%98%D7%95%D7%A8-%D7%94%D7%96%D7%95%D7%95%D7%99%D7%95%D7%AA."><i class="fas fa-link"></i></a>
+</h4>
+<p>בהינתן שילוש <span class="math inline">\(\mathcal{T}\)</span> בעל <span class="math inline">\(m\)</span> משולשים, נסמן את <span class="math inline">\(3m\)</span> זוויות המשולשים שלו <span class="math inline">\(\alpha_1,\alpha_2,\dots,\alpha_{3m}\)</span> כך ש-<span class="math inline">\(\alpha_i\le\alpha_j\)</span> לכל <span class="math inline">\(i&lt;j\)</span>. הווקטור <span class="math inline">\(A(\mathcal{T}):=(\alpha_1,\alpha_2,\dots,\alpha_{3m})\)</span> נקרא <strong>וקטור הזוויות</strong> של <span class="math inline">\(\mathcal{T}\)</span>.</p>
+<div class="rmdwarning">
+<p><img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> מהו וקטור הזוויות של השילוש <span class="math inline">\(\mathcal{T}\)</span> הבא?</p>
+<center>
+<img src="images/9/angle_vec_q.jpg" style="width:40.0%">
+</center>
+<details><summary>
+(פתרון)
+</summary><p><span class="math inline">\(A(\mathcal{T})=(20^\circ,30^\circ,40^\circ,45^\circ,110^\circ,115^\circ)\)</span></p>
+</details>
+</div>
+</div>
+<div id="שילוש-אופטימלי-בזוויות." class="section level4 unnumbered">
+<h4>שילוש אופטימלי בזוויות.<a class="anchor" aria-label="anchor" href="#%D7%A9%D7%99%D7%9C%D7%95%D7%A9-%D7%90%D7%95%D7%A4%D7%98%D7%99%D7%9E%D7%9C%D7%99-%D7%91%D7%96%D7%95%D7%95%D7%99%D7%95%D7%AA."><i class="fas fa-link"></i></a>
+</h4>
+<p>עבור שני שילושים שונים <span class="math inline">\(\mathcal{T}\)</span> ו-<span class="math inline">\(\mathcal{T}'\)</span> של אותה קבוצת נקודות, נגדיר שווקטור הזוויות <span class="math inline">\(A(\mathcal{T}):=(\alpha_1,\alpha_2,\dots,\alpha_{3m})\)</span> גדול מווקטור הזוויות <span class="math inline">\(A(\mathcal{T}'):=(\alpha'_1,\alpha'_2,\dots,\alpha'_{3m})\)</span> אם הוא גדול ממנו ב<strong>סדר לקסיקוגרפי</strong>. כלומר <span class="math inline">\(A(\mathcal{T})&gt;A(\mathcal{T}')\)</span> אם קיים <span class="math inline">\(1\le i\le 3m\)</span> כך ש־:</p>
+<ul>
+<li>
+<span class="math inline">\(\alpha_j=\alpha'_j\)</span> לכל <span class="math inline">\(j&lt;i\)</span>, וגם</li>
+<li>
+<span class="math inline">\(\alpha_i&gt;\alpha'_i\)</span>.</li>
+</ul>
+<p>שילוש <span class="math inline">\(\mathcal{T}\)</span> הוא <strong>שילוש אופטימלי בזוויות</strong> אם לכל שילוש אחר <span class="math inline">\(\mathcal{T}'\)</span> של אותה קבוצת נקודות מתקיים <span class="math inline">\(A(\mathcal{T})\ge A(\mathcal{T}')\)</span>.</p>
+<div class="rmdwarning">
+<div class="inline-figure">
+<img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> איזה מהווקטורים הבאים גדול יותר בסדר לקסיקוגרפי?</div>
+<p><span class="math inline">\(A_1=(20^\circ,30^\circ,30^\circ,50^\circ, 120^\circ, 130^\circ)\)</span></p>
+<p>או</p>
+<p><span class="math inline">\(A_2=(20^\circ,30^\circ,35^\circ,40^\circ, 90^\circ, 110^\circ)\)</span></p>
+<p>(שימו לב שווקטורים אלו לא בהכרח מייצגים שילוש כלשהו.)</p>
+<details><summary>
+(פתרון)
+</summary><p><span class="math inline">\(A_2\)</span></p>
+</details>
+</div>
+</div>
+<div id="משפט-תאלס-מורחב." class="section level4 unnumbered">
+<h4>משפט תאלס (מורחב).<a class="anchor" aria-label="anchor" href="#%D7%9E%D7%A9%D7%A4%D7%98-%D7%AA%D7%90%D7%9C%D7%A1-%D7%9E%D7%95%D7%A8%D7%97%D7%91."><i class="fas fa-link"></i></a>
+</h4>
+<p>יהי <span class="math inline">\(C\)</span> מעגל, ו-<span class="math inline">\(\ell\)</span> ישר שחותך את המעגל בנקודות <span class="math inline">\(a,b\)</span>. יהיו <span class="math inline">\(p,q,s,r\)</span> נקודות שכולן מאותו צד של <span class="math inline">\(\ell\)</span>, כך ש-<span class="math inline">\(p,q\)</span> נמצאות על שפת המעגל, <span class="math inline">\(r\)</span> בתוכו ו-<span class="math inline">\(s\)</span> מחוץ למעגל. אז מתקיים: <span class="math display">\[\measuredangle asb &lt; \measuredangle apb = \measuredangle aqb &lt; \measuredangle arb.\]</span></p>
+ביישומון הבא, תוכלו להזיז את הנקודה הירוקה לתוך המעגל כדי לראות כיצד הזווית משתנה, ואת הנקודה הסגולה על שפת המעגל כדי לראות כיצד הזווית אינה משתנה. נוסף על כך, ניתן להזיז את הישר (הכחול) כדי להגדיל או להקטין את הקשת.
+<center>
+<iframe src="https://www.desmos.com/calculator/lz9baqbqiw?embed" width="80%" height="300" style="border: 1px solid #ccc" frameborder="0">
+</iframe>
+</center>
+<div class="rmdnote">
+<p><img src="images/extra.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> קיימים כמה משפטים בגיאומטריה של המישור שנקראים באותו השם – “משפט תאלס”. אם למדתם גיאומטריה בתיכון בישראל, כנראה שאתם מכירים גרסה אחרת של המשפט. בוויקיפדיה גרסה זו נקראת <a href="https://he.wikipedia.org/wiki/%D7%9E%D7%A9%D7%A4%D7%98_%D7%AA%D7%90%D7%9C%D7%A1#%D7%94%D7%9E%D7%A9%D7%A4%D7%98_%D7%94%D7%A9%D7%A0%D7%99">המשפט השני</a>.</p>
+</div>
+</div>
+<div id="פעולת-היפוך-צלע." class="section level4 unnumbered">
+<h4>פעולת היפוך צלע.<a class="anchor" aria-label="anchor" href="#%D7%A4%D7%A2%D7%95%D7%9C%D7%AA-%D7%94%D7%99%D7%A4%D7%95%D7%9A-%D7%A6%D7%9C%D7%A2."><i class="fas fa-link"></i></a>
+</h4>
+<p>יהי <span class="math inline">\(\mathcal{T}\)</span> שילוש, ו-<span class="math inline">\(e=\overline{p_ip_j}\)</span> צלע בשילוש שמשותפת לשני משולשים <span class="math inline">\(\triangle p_ip_jp_k\)</span> ו- <span class="math inline">\(\triangle p_ip_jp_l\)</span>. אם המרובע <span class="math inline">\(p_ip_kp_jp_l\)</span> הוא קמור אז ניתן לקבל מ-<span class="math inline">\(\mathcal{T}\)</span> שילוש אחר, <span class="math inline">\(\mathcal{T}'\)</span>, על ידי החלפת הצלע <span class="math inline">\(e\)</span> בצלע <span class="math inline">\(\overline{p_kp_l}\)</span>. פעולה זו נקראת היפוך של <span class="math inline">\(e\)</span>, או <span class="math inline">\(flip(e)\)</span>.</p>
+<center>
+<img src="images/9/edge_flip.jpg" style="width:80.0%">
+</center>
+</div>
+<div id="צלעות-לא-חוקיות." class="section level4 unnumbered">
+<h4>צלעות לא חוקיות.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%9C%D7%A2%D7%95%D7%AA-%D7%9C%D7%90-%D7%97%D7%95%D7%A7%D7%99%D7%95%D7%AA."><i class="fas fa-link"></i></a>
+</h4>
+<p><img src="images/9/illegal_edge.jpg" align="left" width="30%">
+צלע <span class="math inline">\(\overline{p_ip_j}\)</span> בשילוש <span class="math inline">\(\mathcal{T}\)</span> שמשותפת לשני משולשים <span class="math inline">\(\triangle p_ip_jp_k\)</span> ו- <span class="math inline">\(\triangle p_ip_jp_l\)</span> היא <strong>לא חוקית</strong> אם ורק אם המעגל <span class="math inline">\(C\)</span> שעובר דרך <span class="math inline">\(p_i,p_j,p_k\)</span> מכיל את <span class="math inline">\(p_l\)</span> בפנימו.</p>
+<p><strong>תמיד ניתן לבצע היפוך של צלע לא חוקית</strong>: אם <span class="math inline">\(\overline{p_ip_j}\)</span> לא חוקית, אז המרובע <span class="math inline">\(p_ip_kp_jp_l\)</span> חייב להיות קמור.</p>
+<div class="rmdimportant">
+<p><img src="images/definition.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><u><strong>טענה</strong>:</u>
+אם המרובע <span class="math inline">\(p_ip_kp_jp_l\)</span> הוא קמור, ואין מעגל שעובר דרך ארבע הפינות שלו, אז בדיוק אחד משני האלכסונים של המרובע הוא חוקי. אם קיים מעגל שעובר דרך ארבע הפינות שלו, אז שני האלכסונים חוקיים.</p>
+</div>
+<div class="rmdwarning">
+<p><img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> איזה מהאלכסונים של המרובע <span class="math inline">\(p_ip_kp_jp_l\)</span> אינו חוקי?</p>
+<center>
+<img src="images/9/illegal_edge_q1.jpg" style="width:40.0%">
+</center>
+<details><summary>
+(פתרון)
+</summary><p>האלכסון <span class="math inline">\(p_lp_k\)</span> אינו חוקי מכיוון שהמעגל הסגול שעובר בנקודות <span class="math inline">\(p_l,p_i,p_k\)</span> מכיל את <span class="math inline">\(p_j\)</span>.</p>
+</details>
+</div>
+</div>
+<div id="שילוש-חוקי." class="section level4 unnumbered">
+<h4>שילוש חוקי.<a class="anchor" aria-label="anchor" href="#%D7%A9%D7%99%D7%9C%D7%95%D7%A9-%D7%97%D7%95%D7%A7%D7%99."><i class="fas fa-link"></i></a>
+</h4>
+<p><strong>שילוש חוקי</strong> הוא שילוש שאינו מכיל צלעות לא חוקיות.</p>
+<div class="rmdwarning">
+<div class="inline-figure">
+<img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> התבוננו בשילוש הבא.</div>
+<ol style="list-style-type: decimal">
+<li>האם הצלע <span class="math inline">\(p_2p_4\)</span> חוקית?</li>
+<li>האם הצלע <span class="math inline">\(p_1p_4\)</span> חוקית?</li>
+<li>האם יתקבל שילוש חוקי לאחר שנבצע <span class="math inline">\(flip(p_1p_4)\)</span>?</li>
+</ol>
+<center>
+<img src="images/9/illegal_edge_q2.jpg" style="width:40.0%">
+</center>
+<details><summary>
+(פתרון)
+</summary><ol style="list-style-type: decimal">
+<li>כן.</li>
+<li>לא.</li>
+<li>לא, מכיוון שאז הצלע <span class="math inline">\(p_2p_4\)</span> תהפוך ללא חוקית.</li>
+</ol></details>
+</div>
+<div class="rmdwarning">
+<div class="inline-figure">
+<img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> נכון או לא נכון?</div>
+<ol style="list-style-type: decimal">
+<li>כל שילוש אופטימלי בזוויות הוא חוקי.</li>
+<li>כל שילוש חוקי הוא אופטימלי בזוויות.</li>
+</ol>
+<details><summary>
+(פתרון)
+</summary><ol style="list-style-type: decimal">
+<li>נכון. תמיד ניתן “לשפר” שילוש לא חוקי על ידי פעולת היפוך צלע. שילוש אופטימלי לא ניתן לשיפור, ולכן הוא חוקי.</li>
+<li>במצב לא כללי, כלומר כאשר יש ארבע נקודות על מעגל אחד, ייתכן שילוש חוקי שאינו אופטימלי בזוויות. שימו לב שבשילוש חוקי רק הזווית המינימלית היא חשובה, ולעומת זאת בשילוש אופטימלי בזוויות מתחשבים בכל וקטור הזוויות. בדוגמה הבאה מימין מופיע שילוש חוקי שאינו אופטימלי בזוויות, ומשמאל שילוש אופטימלי. שימו לב שווקטור הזוויות של שני השילושים כמעט זהה, פרט לכך שבשילוש מימין יש שתי זוויות שנשענות על האלכסון <span class="math inline">\(p_kp_l\)</span>, ובשילוש משמאל יש שתי זוויות שנשענות על האלכסון <span class="math inline">\(p_ipj\)</span> שהוא ארוך יותר, ולכן זוויות אלו גדולות יותר.</li>
+</ol>
+<center>
+<img src="images/9/optimal_q.jpg" style="width:80.0%">
+</center>
+<p>בהמשך נראה שאם הנקודות במצב כללי (כלומר אין ארבע נקודות על מעגל אחד), אז כל שילוש חוקי הוא אופטימלי בזוויות.</p>
+</details>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<div id="שילוש-דלוני" class="section level2" number="9.3">
+<h2>
+<span class="header-section-number">9.3</span> שילוש דלוני<a class="anchor" aria-label="anchor" href="#%D7%A9%D7%99%D7%9C%D7%95%D7%A9-%D7%93%D7%9C%D7%95%D7%A0%D7%99"><i class="fas fa-link"></i></a>
+</h2>
+<div id="גרף-דלוני-ושילוש-דלוני" class="section level3" number="9.3.1">
+<h3>
+<span class="header-section-number">9.3.1</span> גרף דלוני ושילוש דלוני<a class="anchor" aria-label="anchor" href="#%D7%92%D7%A8%D7%A3-%D7%93%D7%9C%D7%95%D7%A0%D7%99-%D7%95%D7%A9%D7%99%D7%9C%D7%95%D7%A9-%D7%93%D7%9C%D7%95%D7%A0%D7%99"><i class="fas fa-link"></i></a>
+</h3>
+<p>לפני שנמשיך לדבר על שילושים, נציג את גרף דלוני, שהוא הגרף הדואלי לדיאגרמת וורונוי של קבוצת נקודות. מהן תכונות הגרף? וכיצד הוא קשור לשילוש? על כך בסרטון הבא.</p>
+<div id="צפו-בסרטון-הבא.-18" class="section level4 unnumbered">
+<h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-18"><i class="fas fa-link"></i></a>
+</h4>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TBkHTe1iUYg?si=Ro6an4spaBk6PODC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><img src="images/9/delaunay_def.jpg" align="left" width="25%">
+בסרטון הגדרנו את גרף דלוני <span class="math inline">\(\mathcal{DG}(P)\)</span> של קבוצת נקודות <span class="math inline">\(P\)</span> במישור, בעזרת דיאגרמת וורונוי של <span class="math inline">\(P\)</span>: זהו שיכון של הגרף הדואלי ל-<span class="math inline">\(Vor(P)\)</span>, שהקודקודים שלו הם נקודות <span class="math inline">\(P\)</span>, והצלעות הן הקטעים הישרים המחברים בין אתרים שלפאות שלהם בדיאגרמה יש צלע משותפת. הוכחנו שגרף דלוני הוא מישורי, ודיברנו על התכונות המאפיינות אותו.</p>
+<div class="rmdwarning">
+<div class="inline-figure">
+<img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px">
+האם כל צלע של גרף דלוני חותכת את הצלע המשותפת לפאות של שני האתרים המתאימים לה בדיאגרמת וורונוי?
+אם כן, הסבירו. אם לא, ציירו דוגמה לכך.</div>
+<details><summary>
+(פתרון)
+</summary><p>לא, דוגמה:</p>
+<center>
+<img src="images/9/del_vor_q.jpg" style="width:30.0%">
+</center>
+</details>
+</div>
+<div class="rmdwarning">
+<div class="inline-figure">
+<img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px">
+כמה תאים של דיאגרמת וורונוי יכולים להיחתך עם אותה צלע של גרף דלוני במקרה הגרוע ביותר?</div>
+<details><summary>
+(פתרון)
+</summary><p>במקרה הגרוע ביותר, צלע אחת של גרף דלוני יכולה להיחתך עם כל התאים. דוגמה:</p>
+<center>
+<img src="images/9/del_vor_q2.jpg" style="width:50.0%">
+</center>
+</details>
+</div>
+</div>
+<div id="תכונות-של-גרף-דלוני." class="section level4 unnumbered">
+<h4>תכונות של גרף דלוני.<a class="anchor" aria-label="anchor" href="#%D7%AA%D7%9B%D7%95%D7%A0%D7%95%D7%AA-%D7%A9%D7%9C-%D7%92%D7%A8%D7%A3-%D7%93%D7%9C%D7%95%D7%A0%D7%99."><i class="fas fa-link"></i></a>
+</h4>
+<p>המשפט הבא מקביל לתכונות שראינו עבור דיאגרמת וורונוי:</p>
+<div class="rmdimportant">
+<p><img src="images/definition.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><u><strong>משפט (9.6)</strong>:</u>
+תהי <span class="math inline">\(P\)</span> קבוצה של נקודות במישור.</p>
+<ol style="list-style-type: decimal">
+<li>שלוש נקודות <span class="math inline">\(p_i,p_j,p_k\in P\)</span> הן קודקודים של אותה פאה חסומה ב-<span class="math inline">\(\mathcal{DG}(P)\)</span> אם ורק אם המעגל דרך <span class="math inline">\(p_i,p_j,p_k\)</span> לא מכיל נקודות של <span class="math inline">\(P\)</span> בפנימו.</li>
+<li>זוג נקודות <span class="math inline">\(p_i,p_j\in P\)</span> יוצרות צלע של <span class="math inline">\(\mathcal{DG}(P)\)</span> אם ורק אם קיים דיסק סגור <span class="math inline">\(C\)</span> שמכיל את <span class="math inline">\(p_i,p_j\)</span> על שפתו, ואינו מכיל עוד אף נקודה אחרת של <span class="math inline">\(P\)</span>.</li>
+</ol>
+</div>
+<div class="rmdwarning">
+<p><img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px">
+נתונה קבוצה <span class="math inline">\(P=\{p_1,p_2,p_3,p_4\}\)</span> כך שכל ארבע הנקודות נמצאות על מעגל אחד. כיצד ייראה גרף דלוני של <span class="math inline">\(P\)</span>?</p>
+<details><summary>
+(פתרון)
+</summary><p>לפי התכונה הראשונה, כל הנקודות של <span class="math inline">\(P\)</span> שייכות לאותה פאה חסומה, ונקבל גרף (ירוק באיור) עם פאה חסומה אחת שהיא מרובע שקודקודיו הם <span class="math inline">\(\{p_1,p_2,p_3,p_4\}\)</span>.</p>
+<center>
+<img src="images/9/gen_pos_q.jpg" style="width:35.0%">
+</center>
+<p>ניתן גם לראות זאת לפי דיאגרמת וורונוי: מרכז המעגל הוא קודקוד בדיאגרמת וורונוי, והוא משותף לכל הפאות, אך אין צלע משותפת לקודקודים “נגדיים”, כלומר כאלו המתאימים לאלכסונים של המרובע.</p>
+</details>
+</div>
+<div class="rmdwarning">
+<div class="inline-figure">
+<img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px">
+האם פאה של גרף דלוני חייבת להיות קמורה? אם לא, ציירו דוגמה. אם כן, הסבירו.</div>
+<details><summary>
+(פתרון)
+</summary><p>כן. לפי התכונה הראשונה, כל הקודקודים של פאה בגרף דלוני נמצאים על מעגל אחד, ומחוברים בצלעות לפי הסדר שלהם על המעגל. לכן כל הפאות בגרף דלוני הן קמורות.</p>
+</details>
+</div>
+</div>
+<div id="שילוש-דלוני." class="section level4 unnumbered">
+<h4>שילוש דלוני.<a class="anchor" aria-label="anchor" href="#%D7%A9%D7%99%D7%9C%D7%95%D7%A9-%D7%93%D7%9C%D7%95%D7%A0%D7%99."><i class="fas fa-link"></i></a>
+</h4>
+<p>ראינו שגרף דלוני של קבוצת נקודות <span class="math inline">\(P\)</span> אינו בהכרח שילוש: אם קיימות ארבע נקודות ב-<span class="math inline">\(P\)</span> על מעגל אחד, נקבל פאה שאינה משולש. לעומת זאת, אם לא קיימות ארבע נקודות ב-<span class="math inline">\(P\)</span> על מעגל אחד, אז כל הקודקודים של דיאגרמת וורונוי יהיו מדרגה 3, ולכן גרף דלוני יהיה שילוש. לכן בשלב זה נאמר שקבוצת נקודות <span class="math inline">\(P\)</span> היא ב<strong>מצב כללי</strong> אם אין בה ארבע נקודות על מעגל אחד.</p>
+<p>בכל זאת, לא נניח שהנקודות הן במצב כללי, ונגדיר את <strong>שילוש דלוני</strong> של קבוצת נקודות <span class="math inline">\(P\)</span> להיות <u>כל שילוש</u> המתקבל על ידי הוספת צלעות ל-<span class="math inline">\(\mathcal{DG}(P)\)</span>.</p>
+</div>
+<div id="תכונת-המעגל-הריק.-1" class="section level4 unnumbered">
+<h4>תכונת המעגל הריק.<a class="anchor" aria-label="anchor" href="#%D7%AA%D7%9B%D7%95%D7%A0%D7%AA-%D7%94%D7%9E%D7%A2%D7%92%D7%9C-%D7%94%D7%A8%D7%99%D7%A7.-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>התכונות של גרף דלוני שראינו קודם מובילות לאפיון הבא של שילוש דלוני:</p>
+<div class="rmdimportant">
+<p><img src="images/definition.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><u><strong>משפט (9.7)</strong>:</u>
+שילוש <span class="math inline">\(\mathcal{T}\)</span> של קבוצת נקודות <span class="math inline">\(P\)</span> במישור הוא שילוש דלוני אם ורק אם המעגל החוסם של כל משולש ב-<span class="math inline">\(\mathcal{T}\)</span> אינו מכיל נקודות של <span class="math inline">\(P\)</span> בפנימו.</p>
+</div>
+</div>
+</div>
+<div id="וקטור-הזוויות-של-שילוש-דלוני" class="section level3" number="9.3.2">
+<h3>
+<span class="header-section-number">9.3.2</span> וקטור הזוויות של שילוש דלוני<a class="anchor" aria-label="anchor" href="#%D7%95%D7%A7%D7%98%D7%95%D7%A8-%D7%94%D7%96%D7%95%D7%95%D7%99%D7%95%D7%AA-%D7%A9%D7%9C-%D7%A9%D7%99%D7%9C%D7%95%D7%A9-%D7%93%D7%9C%D7%95%D7%A0%D7%99"><i class="fas fa-link"></i></a>
+</h3>
+<p>בסעיף 9.2 בספר הלימוד מוכיחים את המשפט הבא:</p>
+<div class="rmdimportant">
+<p><img src="images/definition.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><u><strong>משפט (9.8)</strong>:</u>
+שילוש <span class="math inline">\(\mathcal{T}\)</span> של קבוצת נקודות <span class="math inline">\(P\)</span> במישור הוא חוקי, אם ורק אם <span class="math inline">\(\mathcal{T}\)</span> הוא שילוש דלוני של <span class="math inline">\(P\)</span>.</p>
+</div>
+<p>כיוון אחד של ההוכחה נובע מיידית מההגדרה ומהתכונות של שילוש דלוני: כל שילוש דלוני הוא חוקי, מכיוון שהמעגל החוסם של כל משולש ב-<span class="math inline">\(\mathcal{T}\)</span> אינו מכיל נקודות של <span class="math inline">\(P\)</span> בפנימו.
+הוכחת הכיוון השני היא מורכבת יותר, ומופיעה בספר הלימוד.</p>
+<div id="מתי-שילוש-דלוני-הוא-אופטימלי-בזוויות" class="section level4 unnumbered">
+<h4>מתי שילוש דלוני הוא אופטימלי בזוויות?<a class="anchor" aria-label="anchor" href="#%D7%9E%D7%AA%D7%99-%D7%A9%D7%99%D7%9C%D7%95%D7%A9-%D7%93%D7%9C%D7%95%D7%A0%D7%99-%D7%94%D7%95%D7%90-%D7%90%D7%95%D7%A4%D7%98%D7%99%D7%9E%D7%9C%D7%99-%D7%91%D7%96%D7%95%D7%95%D7%99%D7%95%D7%AA"><i class="fas fa-link"></i></a>
+</h4>
+<p>כל שילוש אופטימלי הוא חוקי, ולכן הוא בהכרח שילוש דלוני! מתי שילוש דלוני הוא אופטימלי בזוויות?</p>
+<ul>
+<li><p>אם הנקודות <strong>במצב כללי</strong>, אז שילוש דלוני הוא יחיד! לכן יש רק שילוש חוקי אחד, והוא <strong>השילוש האופטימלי היחיד</strong>.</p></li>
+<li><p>אם הנקודות <strong>לא במצב כללי</strong>, אז שילוש דלוני לא בהכרח אופטימלי בזוויות. עם זאת, אפשר להראות (בעזרת משפט תאלס המורחב) שלכל שילוש דלוני יש בדיוק אותה <strong>זווית מינימלית</strong> (ההוכחה בסעיף 9.2 בספר הלימוד). לכן לכל השילושים החוקיים יש אותה זווית מינימלית, ובפרט זוהי גם הזווית המינימלית בשילוש אופטימלי. לכן הזווית המינימלית בשילוש דלוני היא המקסימלית האפשרית על פני כל השילושים של <span class="math inline">\(P\)</span>.</p></li>
+</ul>
+<p>הדיאגרמה הבאה נועדה לעשות סדר בהגדרות השונות לסוגי שילושים שראינו עד כה. הקבוצה <span class="math inline">\(T_1\)</span> מכילה את כל השילושים, <span class="math inline">\(T_2\)</span> מכילה את כל השילושים שבהם הזווית המינימלית היא מקסימלית, <span class="math inline">\(T_3\)</span> מכילה את כל השילושים החוקיים (שהם למעשה כל שילושי דלוני), <span class="math inline">\(T_4\)</span> מכילה שילושים אופטימליים בזוויות.</p>
+<center>
+<img src="images/9/all_defs.jpg" style="width:100.0%">
+</center>
+</div>
+<div id="קראו-את-סעיף-9.2-בספר-הלימוד-עמודים-196199." class="section level4 unnumbered">
+<h4>קראו את סעיף 9.2 בספר הלימוד (עמודים 196–199).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-9.2-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-196199."><i class="fas fa-link"></i></a>
+</h4>
+</div>
+</div>
+</div>
+<div id="triangulation-algorithms" class="section level2" number="9.4">
+<h2>
+<span class="header-section-number">9.4</span> חישוב השילוש<a class="anchor" aria-label="anchor" href="#triangulation-algorithms"><i class="fas fa-link"></i></a>
+</h2>
+<div id="naive-tring-alg" class="section level3" number="9.4.1">
+<h3>
+<span class="header-section-number">9.4.1</span> אלגוריתם נאיבי<a class="anchor" aria-label="anchor" href="#naive-tring-alg"><i class="fas fa-link"></i></a>
+</h3>
+<p>מכיוון ששילוש דלוני שימושי מאוד ביישומים רבים ומגוונים, קיימים כמה אלגוריתמים שונים לחישובו.
+האלגוריתם הפשוט ביותר הוא זה שפגשתם בחלק האחרון של סעיף 9.1 בספר הלימוד. הוא מתחיל משילוש <span class="math inline">\(\mathcal{T}\)</span> כלשהו, ואז, כל עוד קיימת צלע לא חוקית, הוא מבצע פעולת היפוך. מכיוון שבכל פעולת היפוך וקטור הזוויות של השילוש גדל (בסדר הלקסיקוגרפי), התהליך הוא סופי, ובסופו יתקבל שילוש אופטימלי בזוויות.</p>
+<div class="rmdwarning">
+<div class="inline-figure">
+<img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> הפעילו את האלגוריתם הנאיבי על השילוש הבא, וציירו את השילוש האופטימלי שהתקבל. כמה פעולות היפוך צלע ביצע האלגוריתם?</div>
+<center>
+<img src="images/9/illegal_edge_q2.jpg" style="width:35.0%">
+</center>
+<details><summary>
+(פתרון)
+</summary><center>
+<img src="images/9/flip_ans.jpg" style="width:100.0%">
+</center>
+</details>
+</div>
+<p>מייד נפגוש שני אלגוריתמים נוספים, לשניהם זמן ריצה <span class="math inline">\(O(n\log n)\)</span> (לראשון במקרה הגרוע, לשני בתוחלת), אך הם שונים זה מזה בפשטות המימוש או ביעילות שלהם בפועל במצבים מסוימים (ראו למשל את <a href="https://www.sciencedirect.com/science/article/pii/S0925772196000259">המאמר הזה</a>, המשווה בין הביצועים של האלגוריתמים השונים על אוספים של נקודות שנדגמו מהתפלגויות שונות).</p>
+</div>
+<div id="triang-sweep-alg" class="section level3" number="9.4.2">
+<h3>
+<span class="header-section-number">9.4.2</span> אלגוריתם סורק (שימוש בדיאגרמת וורונוי)<a class="anchor" aria-label="anchor" href="#triang-sweep-alg"><i class="fas fa-link"></i></a>
+</h3>
+<p><img src="images/9/del-vor-alg.jpg" align="left" width="45%">
+מכיוון שגרף דלוני הוא הדואלי לדיאגרמת וורונוי, ניתן לחשב את שילוש דלוני של קבוצת נקודות <span class="math inline">\(P\)</span> במישור בעזרת דיאגרמת וורונוי של <span class="math inline">\(P\)</span>:</p>
+<ol style="list-style-type: decimal">
+<li>נחשב את <span class="math inline">\(Vor(P)\)</span> בעזרת האלגוריתם הסורק שראינו ביחידה 7 (הדיאגרמה מופיעה בכחול באיור משמאל).</li>
+<li>נבנה את הגרף הדואלי לדיאגרמה, כלומר גרף דלוני (מופיע בירוק באיור).</li>
+<li>לבסוף, אם יש פאה בגרף שהיא לא משולש, נשלש אותה. נוכל לעשות זאת למשל בעזרת האלגוריתם לשילוש של פוליגון שראינו ביחידה 3. (באיור משמאל יש פאה אחת בגרף דלוני שהיא לא משולשת, ולכן נוסיף את הצלע האפורה).</li>
+</ol>
+<p>זמן הריצה הכולל יהיה <span class="math inline">\(O(n\log n)\)</span> (במקרה הגרוע).</p>
+</div>
+<div id="triang-inc-rand-alg" class="section level3" number="9.4.3">
+<h3>
+<span class="header-section-number">9.4.3</span> אלגוריתם אינקרמנטלי-רנדומי<a class="anchor" aria-label="anchor" href="#triang-inc-rand-alg"><i class="fas fa-link"></i></a>
+</h3>
+<p>דרך אחרת לחישוב שילוש דלוני היא בעזרת האלגוריתם האינקרמנטלי-רנדומי <strong>DelaunayTriangulation</strong> המתואר בסעיף 9.3 בספר הלימוד.</p>
+<p><img src="images/9/del_inc_alg.jpg" align="left" width="45%"> הרעיון המרכזי באלגוריתם הוא לבנות משולש כלשהו, גדול מספיק, שמכיל את כל הנקודות של הקבוצה <span class="math inline">\(P\)</span> בפנימו, ואז להוסיף את נקודות <span class="math inline">\(P\)</span> בזו אחר זו, בסדר אקראי, ובכל פעם לעדכן את השילוש.</p>
+<p>נסמן את נקודות <span class="math inline">\(P\)</span> לפי הסדר האקראי ב-<span class="math inline">\(p_1,p_2,\dots,p_n\)</span>, ואת קודקודי המשולש ההתחלתי ב-<span class="math inline">\(p_{-1},p_{-2},p_{-3}\)</span>. נניח שחישבנו את שילוש דלוני של <span class="math inline">\(p_{-1},p_{-2},p_{-3},p_1,p_2,\dots,p_{r-1}\)</span>, ועכשיו אנחנו רוצים להוסיף את <span class="math inline">\(p_r\)</span>. יש שני מקרים:</p>
+<ol style="list-style-type: decimal">
+<li>אם הנקודה <span class="math inline">\(p_r\)</span> נמצאת בפנים של משולש <span class="math inline">\(\triangle p_ip_jp_k\)</span>: נוסיף צלעות מ-<span class="math inline">\(p_r\)</span> לכל אחד מקודקודי המשולש.</li>
+<li>אם הנקודה <span class="math inline">\(p_r\)</span> נמצאת על צלע <span class="math inline">\(\overline{p_ip_j}\)</span> שמשותפת לשני משולשים, <span class="math inline">\(\triangle p_ip_jp_k\)</span> ו-<span class="math inline">\(\triangle p_ip_jp_l\)</span>: נוסיף צלעות מ-<span class="math inline">\(p_r\)</span> לקודקודים <span class="math inline">\(p_k\)</span> ו-<span class="math inline">\(p_l\)</span>.</li>
+</ol>
+<center>
+<img src="images/9/del_inc_alg_cases.jpg" style="width:80.0%">
+</center>
+<p>בשני המקרים קיבלנו שילוש, שהוא לא בהכרח שילוש דלוני. כדי לתקן את השילוש במקרה הצורך, האלגוריתם קורא לפרוצדורה נוספת בשם <strong>LegalizeEdge</strong>, שמקבלת שילוש, את הקודקוד <span class="math inline">\(p_r\)</span>, וצלע במשולש שייתכן שיש צורך לבצע פעולת היפוך עבורה. במקרה הראשון למשל, האלגוריתם יקרא לפרוצדורה הזאת עבור כל אחת מצלעות המשולש <span class="math inline">\(\triangle p_ip_jp_k\)</span>. אם הצלע אינה חוקית, הפרוצדורה תבצע היפוך שלה, ואז תמשיך לבדוק באופן רקורסיבי את צלעות המשולשים החדשים שנוצרו.</p>
+<div class="rmdwarning">
+<p><img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"> התבוננו באיור הבא, המתאר את השלב באלגוריתם שבו הנקודה <span class="math inline">\(p_r\)</span> נוספה לשילוש, יחד עם צלעות לקודקודים <span class="math inline">\(p_1\)</span>, <span class="math inline">\(p_4\)</span>, ו-<span class="math inline">\(p_5\)</span>, ולפני הפעלת הפרוצדורה LegalizeEdge. כיצד ייראה השילוש לאחר הפעלת LegalizeEdge על כל אחת מצלעות המשולש <span class="math inline">\(\triangle p_1p_4p_5\)</span>?</p>
+<center>
+<img src="images/9/inc_alg_q.jpg" style="width:90.0%">
+</center>
+<details><summary>
+(פתרון)
+</summary><p>פעולות ההיפוך שיתבצעו הן:</p>
+<ol style="list-style-type: decimal">
+<li><p>היפוך של <span class="math inline">\(p_1p_5\)</span>.</p></li>
+<li><p>היפוך של <span class="math inline">\(p_1p_6\)</span>.</p></li>
+<li><p>היפוך של <span class="math inline">\(p_1p_4\)</span>.</p></li>
+<li><p>היפוך של <span class="math inline">\(p_2p_4\)</span>.</p></li>
+</ol>
+<p>בסוף התהליך, יהיו צלעות מ-<span class="math inline">\(p_r\)</span> לכל אחד מהקודקודים האחרים.</p>
+<center>
+<img src="images/9/inc_alg_ans.jpg" style="width:80.0%">
+</center>
+</details>
+</div>
+<p>במהלך הקריאה בסעיף 9.3, נסו לענות על השאלות הבאות (כל התשובות מופיעות בספר):</p>
+<ol style="list-style-type: decimal">
+<li>מדוע התהליך הרקורסיבי בפרוצדורה LegalizeEdge הוא סופי?</li>
+<li>מדוע הצלעות שמוסיפים מ-<span class="math inline">\(p_r\)</span> לקודקודי המשולש שהוא נמצא בו הן בהכרח צלעות של שילוש דלוני?</li>
+<li>כיצד מוצא האלגוריתם את המשולש שמכיל את <span class="math inline">\(p_r\)</span>?</li>
+</ol>
+<div id="קראו-את-סעיף-9.3-בספר-הלימוד-עמודים-199204." class="section level4 unnumbered">
+<h4>קראו את סעיף 9.3 בספר הלימוד (עמודים 199–204).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-9.3-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-199204."><i class="fas fa-link"></i></a>
+</h4>
+<p>קראו עד סוף הפסקה הראשונה בעמוד 204.</p>
+</div>
+</div>
+<div id="inc-rand-analisys" class="section level3" number="9.4.4">
+<h3>
+<span class="header-section-number">9.4.4</span> ניתוח האלגוריתם האינקרמנטלי-רנדומי<a class="anchor" aria-label="anchor" href="#inc-rand-analisys"><i class="fas fa-link"></i></a>
+</h3>
+<p>ניתוח זמן הריצה של האלגוריתם משתמש בטכניקה שכבר ראינו ביחידות 4 ו-6: <strong>אנליזה לאחור</strong>. ביחידה זו לא נתעמק בפרטי ההוכחה ונסתפק בציטוט המשפט הבא:</p>
+<div class="rmdimportant">
+<p><img src="images/definition.png" align="left" width="10%" style="padding:0px 0px 0px 10px"><u><strong>משפט (9.12)</strong>:</u> האלגוריתם האינקרמנטלי-רנדומי מחשב שילוש דלוני של קבוצה <span class="math inline">\(P\)</span> של <span class="math inline">\(n\)</span> נקודות במישור בזמן <span class="math inline">\(O(n \log n)\)</span> בתוחלת, ועם תוחלת זיכרון <span class="math inline">\(O(n)\)</span>.</p>
+</div>
+<p>למעוניינים בהעשרה ובהרחבה, ניתן לקרוא את סעיף 9.4 בספר הלימוד, המנתח בפירוט את זמן הריצה וסיבוכיות המקום של האלגוריתם DelaunayTriangulation.</p>
+</div>
+</div>
+<div id="תרגילים-נוספים" class="section level2" number="9.5">
+<h2>
+<span class="header-section-number">9.5</span> תרגילים נוספים<a class="anchor" aria-label="anchor" href="#%D7%AA%D7%A8%D7%92%D7%99%D7%9C%D7%99%D7%9D-%D7%A0%D7%95%D7%A1%D7%A4%D7%99%D7%9D"><i class="fas fa-link"></i></a>
+</h2>
+<div id="ה-mst" class="section level3" number="9.5.1">
+<h3>
+<span class="header-section-number">9.5.1</span> ה-MST<a class="anchor" aria-label="anchor" href="#%D7%94-mst"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="gabriel-graph" class="section level3" number="9.5.2">
+<h3>
+<span class="header-section-number">9.5.2</span> Gabriel Graph<a class="anchor" aria-label="anchor" href="#gabriel-graph"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="rng" class="section level3" number="9.5.3">
+<h3>
+<span class="header-section-number">9.5.3</span> RNG<a class="anchor" aria-label="anchor" href="#rng"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="חסם-תחתון" class="section level3" number="9.5.4">
+<h3>
+<span class="header-section-number">9.5.4</span> חסם תחתון<a class="anchor" aria-label="anchor" href="#%D7%97%D7%A1%D7%9D-%D7%AA%D7%97%D7%AA%D7%95%D7%9F"><i class="fas fa-link"></i></a>
+</h3>
+
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="duality-arrangements.html"><span class="header-section-number">8</span> מערכים ודואליות</a></div>
+<div class="next"><a href="motion-planning.html"><span class="header-section-number">10</span> תכנון תנועה</a></div>
+</div></main><div class="col-md-3 col-lg-3 d-none d-md-block sidebar sidebar-chapter border-right">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>ביחידה זו:</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#Delaunay-triangulation"><span class="header-section-number">9</span> שילושי דלוני</a></li>
+<li>
+<a class="nav-link" href="#preface-9"><span class="header-section-number">9.1</span> הקדמה</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#contents-9"><span class="header-section-number">9.1.1</span> מה ביחידה?</a></li>
+<li><a class="nav-link" href="#terrains"><span class="header-section-number">9.1.2</span> אינטרפולציה של גבהים</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#point-set-triangulation"><span class="header-section-number">9.2</span> שילוש של קבוצת נקודות במישור</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#%D7%9E%D7%A4%D7%94-%D7%9E%D7%99%D7%A9%D7%95%D7%A8%D7%99%D7%AA-%D7%9E%D7%A7%D7%A1%D7%99%D7%9E%D7%9C%D7%99%D7%AA"><span class="header-section-number">9.2.1</span> מפה מישורית מקסימלית</a></li>
+<li><a class="nav-link" href="#triang-def"><span class="header-section-number">9.2.2</span> שילוש של נקודות במישור</a></li>
+<li><a class="nav-link" href="#opt_triang"><span class="header-section-number">9.2.3</span> שילוש חוקי ושילוש אופטימלי בזוויות</a></li>
+<li><a class="nav-link" href="#reminder"><span class="header-section-number">9.2.4</span> חזרה: הגדרות ותרגילים</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#%D7%A9%D7%99%D7%9C%D7%95%D7%A9-%D7%93%D7%9C%D7%95%D7%A0%D7%99"><span class="header-section-number">9.3</span> שילוש דלוני</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#%D7%92%D7%A8%D7%A3-%D7%93%D7%9C%D7%95%D7%A0%D7%99-%D7%95%D7%A9%D7%99%D7%9C%D7%95%D7%A9-%D7%93%D7%9C%D7%95%D7%A0%D7%99"><span class="header-section-number">9.3.1</span> גרף דלוני ושילוש דלוני</a></li>
+<li><a class="nav-link" href="#%D7%95%D7%A7%D7%98%D7%95%D7%A8-%D7%94%D7%96%D7%95%D7%95%D7%99%D7%95%D7%AA-%D7%A9%D7%9C-%D7%A9%D7%99%D7%9C%D7%95%D7%A9-%D7%93%D7%9C%D7%95%D7%A0%D7%99"><span class="header-section-number">9.3.2</span> וקטור הזוויות של שילוש דלוני</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#triangulation-algorithms"><span class="header-section-number">9.4</span> חישוב השילוש</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#naive-tring-alg"><span class="header-section-number">9.4.1</span> אלגוריתם נאיבי</a></li>
+<li><a class="nav-link" href="#triang-sweep-alg"><span class="header-section-number">9.4.2</span> אלגוריתם סורק (שימוש בדיאגרמת וורונוי)</a></li>
+<li><a class="nav-link" href="#triang-inc-rand-alg"><span class="header-section-number">9.4.3</span> אלגוריתם אינקרמנטלי-רנדומי</a></li>
+<li><a class="nav-link" href="#inc-rand-analisys"><span class="header-section-number">9.4.4</span> ניתוח האלגוריתם האינקרמנטלי-רנדומי</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#%D7%AA%D7%A8%D7%92%D7%99%D7%9C%D7%99%D7%9D-%D7%A0%D7%95%D7%A1%D7%A4%D7%99%D7%9D"><span class="header-section-number">9.5</span> תרגילים נוספים</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#%D7%94-mst"><span class="header-section-number">9.5.1</span> ה-MST</a></li>
+<li><a class="nav-link" href="#gabriel-graph"><span class="header-section-number">9.5.2</span> Gabriel Graph</a></li>
+<li><a class="nav-link" href="#rng"><span class="header-section-number">9.5.3</span> RNG</a></li>
+<li><a class="nav-link" href="#%D7%97%D7%A1%D7%9D-%D7%AA%D7%97%D7%AA%D7%95%D7%9F"><span class="header-section-number">9.5.4</span> חסם תחתון</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p dir="rtl" style="text-align:right;">הספר "<strong>גיאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2024-02-22.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

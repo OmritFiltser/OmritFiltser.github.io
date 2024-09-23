@@ -7,7 +7,7 @@
 <title>יחידה 1 מבוא | גיאומטריה חישובית</title>
 <meta name="author" content="ד’’ר עומרית פילצר">
 <meta name="description" content="1.1 הקדמה  1.1.1 מה ביחידה? יחידה זו מקבילה לפרק הראשון בספר הלימוד. בסיום יחידה זו: תכירו את תחום הגיאומטריה החישובית והמאפיינים שלו. תכירו מושגי יסוד בגיאומטריה אוקלידית: המרחב האוקלידי, ישר,...">
-<meta name="generator" content="bookdown 0.34 with bs4_book()">
+<meta name="generator" content="bookdown 0.40 with bs4_book()">
 <meta property="og:title" content="יחידה 1 מבוא | גיאומטריה חישובית">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://omrit.filtser.com/CG/intro.html">
@@ -17,7 +17,7 @@
 <meta name="twitter:description" content="1.1 הקדמה  1.1.1 מה ביחידה? יחידה זו מקבילה לפרק הראשון בספר הלימוד. בסיום יחידה זו: תכירו את תחום הגיאומטריה החישובית והמאפיינים שלו. תכירו מושגי יסוד בגיאומטריה אוקלידית: המרחב האוקלידי, ישר,...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.0/transition.js"></script><script src="libs/bs3compat-0.5.0/tabs.js"></script><script src="libs/bs3compat-0.5.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.7.0/transition.js"></script><script src="libs/bs3compat-0.7.0/tabs.js"></script><script src="libs/bs3compat-0.7.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
@@ -55,7 +55,7 @@
 <li><a class="" href="duality-arrangements.html"><span class="header-section-number">8</span> מערכים ודואליות</a></li>
 <li><a class="" href="Delaunay-triangulation.html"><span class="header-section-number">9</span> שילושי דלוני</a></li>
 <li><a class="" href="motion-planning.html"><span class="header-section-number">10</span> תכנון תנועה</a></li>
-<li><a class="" href="WSPD-spanners.html"><span class="header-section-number">11</span> פורשים גאומטריים וקבוצות מופרדות היטב</a></li>
+<li><a class="" href="wspd-approx.html"><span class="header-section-number">11</span> WSPD ואלגוריתמי קירוב גיאומטריים</a></li>
 <li><a class="" href="curve-similarity.html"><span class="header-section-number">12</span> דמיון בין עקומים</a></li>
 </ul>
 
@@ -378,9 +378,8 @@
 </h3>
 <p>בחלק הראשון של סעיף 1.1 בספר הלימוד מופיעות הגדרות הקמור שראינו קודם, וכן מתואר האלגוריתם <strong>SlowConvexHull</strong>, שהוא אלגוריתם נאיבי. סיבוכיות זמן הריצה שלו היא <span class="math inline">\(O(n^3)\)</span>, והיא רחוקה מלהיות אופטימלית, אך הוא אינטואיטיבי ונכונותו נובעת ישירות מהאבחנות שהצגנו קודם לגבי התכונות הגיאומטריות של הקמור.</p>
 <p>באלגוריתם זה עולה הנושא של <strong>מצבים מנוונים</strong> <strong>(degeneracies)</strong>, שהם למעשה מקרי קצה של הקלט שיש להביא בחשבון. נוסף על כך, באלגוריתם עולה גם בעיה של <strong>עמידות החישוב</strong> <strong>(robustness)</strong>, כלומר במצבים מסוימים של טעויות עיגול בחישובים עם נקודה צפה (floating point), ייתכן שהאלגוריתם אפילו לא יחזיר פוליגון. בחלק הרביעי של יחידה זו תוכלו לקרוא עוד על עמידות החישוב ומצבים מנוונים.</p>
-<div id="קראו-את-חלקו-הראשון-של-סעיף-1.1-בספר-הלימוד-עמודים-25-.unnumbered." class="section level4" number="1.3.2.1">
-<h4>
-<span class="header-section-number">1.3.2.1</span> קראו את חלקו הראשון של סעיף 1.1 בספר הלימוד (עמודים 2–5) {.unnumbered}.<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%97%D7%9C%D7%A7%D7%95-%D7%94%D7%A8%D7%90%D7%A9%D7%95%D7%9F-%D7%A9%D7%9C-%D7%A1%D7%A2%D7%99%D7%A3-1.1-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-25-.unnumbered."><i class="fas fa-link"></i></a>
+<div id="קראו-את-חלקו-הראשון-של-סעיף-1.1-בספר-הלימוד-עמודים-25." class="section level4 unnumbered">
+<h4>קראו את חלקו הראשון של סעיף 1.1 בספר הלימוד (עמודים 2–5).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%97%D7%9C%D7%A7%D7%95-%D7%94%D7%A8%D7%90%D7%A9%D7%95%D7%9F-%D7%A9%D7%9C-%D7%A1%D7%A2%D7%99%D7%A3-1.1-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%A2%D7%9E%D7%95%D7%93%D7%99%D7%9D-25."><i class="fas fa-link"></i></a>
 </h4>
 </div>
 </div>
@@ -389,9 +388,8 @@
 <span class="header-section-number">1.3.3</span> אלגוריתם אינקרמנטלי<a class="anchor" aria-label="anchor" href="#incremental-alg"><i class="fas fa-link"></i></a>
 </h3>
 <p>בסרטון הבא נתאר את האלגוריתם <strong>ConvexHull</strong> המופיע בחלקו השני של סעיף 1.1 בספר הלימוד. האלגוריתם הזה נקרא גם <strong>האלגוריתם האינקרמנטלי</strong>, או <strong>סריקת גרהם (Graham Scan)</strong>. הוא מתוחכם יותר, וסיבוכיות זמן הריצה שלו היא כמעט לינארית. זהו שיפור משמעותי מאוד לעומת האלגוריתם הנאיבי שראינו בחלק הקודם.</p>
-<div id="צפו-בסרטון-הבא-.unnumbered." class="section level4" number="1.3.3.1">
-<h4>
-<span class="header-section-number">1.3.3.1</span> צפו בסרטון הבא {.unnumbered}.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90-.unnumbered."><i class="fas fa-link"></i></a>
+<div id="צפו-בסרטון-הבא.-2" class="section level4 unnumbered">
+<h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-2"><i class="fas fa-link"></i></a>
 </h4>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/RgGhwKWO2F4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
@@ -408,8 +406,8 @@
 <span class="header-section-number">1.3.4</span> אלגוריתם רגיש לפלט<a class="anchor" aria-label="anchor" href="#output-sens"><i class="fas fa-link"></i></a>
 </h3>
 <p>האם ניתן לשפר את זמן הריצה של האלגוריתם האינקרמנטלי שראינו קודם? בסרטון הבא נתאר אלגוריתם נוסף לחישוב הקמור, שנקרא <strong>אלגוריתם עטיפת המתנה (Gift Wrapping)</strong> או <strong>Jarvis’s March</strong>. זמן הריצה שלו הוא <span class="math inline">\(O(nh)\)</span>, כאשר <span class="math inline">\(h\)</span> הוא מספר קודקודי הקמור. סוג כזה של אלגוריתם נקרא <strong>output sensitive</strong>, כלומר אלגוריתם שזמן הריצה שלו תלוי בגודל הפלט.</p>
-<div id="צפו-בסרטון-הבא.-2" class="section level4 unnumbered">
-<h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-2"><i class="fas fa-link"></i></a>
+<div id="צפו-בסרטון-הבא.-3" class="section level4 unnumbered">
+<h4>צפו בסרטון הבא.<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90.-3"><i class="fas fa-link"></i></a>
 </h4>
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/6eZmX1bAC_w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
@@ -478,7 +476,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p dir="rtl" style="text-align:right;">הספר "<strong>גיאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2024-02-22.</p>
+    <p dir="rtl" style="text-align:right;">הספר "<strong>גיאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2024-09-23.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
