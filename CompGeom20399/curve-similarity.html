@@ -6,18 +6,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>יחידה 12 דמיון בין עקומים | גיאומטריה חישובית</title>
 <meta name="author" content="ד’’ר עומרית פילצר">
-<meta name="description" content="A course in computational geometry.">
-<meta name="generator" content="bookdown 0.34 with bs4_book()">
+<meta name="description" content="12.1 חלק 1: הקדמה  12.1.1 מה ביחידה?  דמיון בין עקומים ביחידה זו נלמד חלקים מפרק 30 בספר “Geometric Approximation Algorithms”, מאת פרופ’ שריאל הר-פלד. ניתן לצפות גם ב סדרת ההרצאות הקצרה של Thomas...">
+<meta name="generator" content="bookdown 0.40 with bs4_book()">
 <meta property="og:title" content="יחידה 12 דמיון בין עקומים | גיאומטריה חישובית">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://omrit.filtser.com/CG/curve-similarity.html">
-<meta property="og:description" content="A course in computational geometry.">
+<meta property="og:description" content="12.1 חלק 1: הקדמה  12.1.1 מה ביחידה?  דמיון בין עקומים ביחידה זו נלמד חלקים מפרק 30 בספר “Geometric Approximation Algorithms”, מאת פרופ’ שריאל הר-פלד. ניתן לצפות גם ב סדרת ההרצאות הקצרה של Thomas...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="יחידה 12 דמיון בין עקומים | גיאומטריה חישובית">
-<meta name="twitter:description" content="A course in computational geometry.">
+<meta name="twitter:description" content="12.1 חלק 1: הקדמה  12.1.1 מה ביחידה?  דמיון בין עקומים ביחידה זו נלמד חלקים מפרק 30 בספר “Geometric Approximation Algorithms”, מאת פרופ’ שריאל הר-פלד. ניתן לצפות גם ב סדרת ההרצאות הקצרה של Thomas...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.0/transition.js"></script><script src="libs/bs3compat-0.5.0/tabs.js"></script><script src="libs/bs3compat-0.5.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.7.0/transition.js"></script><script src="libs/bs3compat-0.7.0/tabs.js"></script><script src="libs/bs3compat-0.7.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
@@ -55,7 +55,7 @@
 <li><a class="" href="duality-arrangements.html"><span class="header-section-number">8</span> מערכים ודואליות</a></li>
 <li><a class="" href="Delaunay-triangulation.html"><span class="header-section-number">9</span> שילושי דלוני</a></li>
 <li><a class="" href="motion-planning.html"><span class="header-section-number">10</span> תכנון תנועה</a></li>
-<li><a class="" href="WSPD-spanners.html"><span class="header-section-number">11</span> פורשים גאומטריים וקבוצות מופרדות היטב</a></li>
+<li><a class="" href="wspd-approx.html"><span class="header-section-number">11</span> WSPD ואלגוריתמי קירוב גיאומטריים</a></li>
 <li><a class="active" href="curve-similarity.html"><span class="header-section-number">12</span> דמיון בין עקומים</a></li>
 </ul>
 
@@ -68,14 +68,383 @@
 <h1>
 <span class="header-section-number">יחידה 12</span> דמיון בין עקומים<a class="anchor" aria-label="anchor" href="#curve-similarity"><i class="fas fa-link"></i></a>
 </h1>
+<div id="preface-12" class="section level2" number="12.1">
+<h2>
+<span class="header-section-number">12.1</span> חלק 1: הקדמה<a class="anchor" aria-label="anchor" href="#preface-12"><i class="fas fa-link"></i></a>
+</h2>
+<div id="contents-12" class="section level3" number="12.1.1">
+<h3>
+<span class="header-section-number">12.1.1</span> מה ביחידה?<a class="anchor" aria-label="anchor" href="#contents-12"><i class="fas fa-link"></i></a>
+</h3>
+<div id="דמיון-בין-עקומים" class="section level4 unnumbered">
+<h4>דמיון בין עקומים<a class="anchor" aria-label="anchor" href="#%D7%93%D7%9E%D7%99%D7%95%D7%9F-%D7%91%D7%99%D7%9F-%D7%A2%D7%A7%D7%95%D7%9E%D7%99%D7%9D"><i class="fas fa-link"></i></a>
+</h4>
+<p>ביחידה זו נלמד חלקים מפרק 30 בספר “Geometric Approximation Algorithms”, מאת פרופ’ שריאל הר-פלד. ניתן לצפות גם ב
+<a href="https://www.youtube.com/playlist?list=PLu39BqGd2oyOqo2Fe7OM1GVB0jWyoKOwd">סדרת ההרצאות הקצרה של Thomas van Dijk</a>. ההרצאות קצרות ותמציתיות ומעבירות את רוב החומר של היחידה בצורה מרתקת.</p>
+<p>בסיום יחידה זו, תכירו את המושגים ותרכשו את הטכניקות והכלים הבאים:</p>
+<ul>
+<li>מרחק האוסדורף</li>
+<li>מרחק פְרֶשֶׁה (Fréchet), הרציף והדיסקרטי</li>
+<li>דיאגרמת המרחב החופשי (free space diagram)</li>
+</ul>
+<p>למידה מהנה!</p>
+</div>
+</div>
+<div id="measuring-similarity" class="section level3" number="12.1.2">
+<h3>
+<span class="header-section-number">12.1.2</span> כיצד מודדים דמיון בין עקומים?<a class="anchor" aria-label="anchor" href="#measuring-similarity"><i class="fas fa-link"></i></a>
+</h3>
+<p>עקומים פוליגונליים משמשים לייצוג של נתונים ומידע במגוון רחב של יישומים. כאשר מדובר בכמויות עצומות של מידע, עולה הצורך בשיטות מדעיות לניתוח והפקת תובנות מנתונים – תחום זה נקרא מדעי הנתונים. במקרים רבים השיטות לניתוח נתונים מבוססות על מדד כלשהו להשוואה בין שני אובייקטים (פיסות מידע), אך לא תמיד ברור כיצד ניתן להגדיר מדד כזה, שישקף את התפיסה האינטואיטיבית שלנו לגבי השאלה מתי (או עד כמה) שני אובייקטים הם דומה זה לזה. בסרטון הבא נדון בשאלה הזו בהקשר של עקומים פוליגונליים: כיצד ניתן לקבוע עד כמה שני עקומים נתונים הם דומים זה לזה?</p>
+<center>
+<img src="images/12/similarity.jpg" style="width:80.0%">
+</center>
+<div id="צפו-בסרטון-הבא-22" class="section level4 unnumbered">
+<h4>צפו בסרטון הבא:<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90-22"><i class="fas fa-link"></i></a>
+</h4>
+</div>
+<div id="תרגיל-מרחק-האוסדורף-hausdorff" class="section level4 unnumbered">
+<h4>תרגיל: מרחק האוסדורף (Hausdorff)<a class="anchor" aria-label="anchor" href="#%D7%AA%D7%A8%D7%92%D7%99%D7%9C-%D7%9E%D7%A8%D7%97%D7%A7-%D7%94%D7%90%D7%95%D7%A1%D7%93%D7%95%D7%A8%D7%A3-hausdorff"><i class="fas fa-link"></i></a>
+</h4>
+<p><img src="images/12/hausdorff.jpg" width="30%" align="left">
+בסרטון הגדרנו את מרחק האוסדורף, והסקנו שהוא מתאים יותר למדידת מרחק בין שתי קבוצות של נקודות. באופן פורמלי, מרחק האוסדורף בין שתי קבוצות של נקודות מוגדר כך:
+בהינתן קבוצה <span class="math inline">\(P\)</span> של <span class="math inline">\(n\)</span> נקודות וקבוצה <span class="math inline">\(Q\)</span> של <span class="math inline">\(m\)</span> נקודות, <strong>מרחק האוסדורף המכוון</strong> הוא
+<span class="math display">\[\overrightarrow{d_H}(P,Q)=\max_{p\in P}\min_{q\in Q}\|p-q\|\]</span>
+ו<strong>מרחק האוסדורף</strong> הוא
+<span class="math display">\[d_H(P,Q)=\max(\overrightarrow{d_H}(P,Q),\overrightarrow{d_H}(Q,P))\]</span>
+הציעו אלגוריתם יעיל ככל האפשר לחישוב מרחק האוסדורף עבור שתי קבוצות של נקודות במישור.</p>
+</div>
+<div id="קראו-בספר-הלימוד-מההקדמה-לפרק-30-ועד-סעיף-30.1.1-כולל." class="section level4 unnumbered">
+<h4>קראו בספר הלימוד מההקדמה לפרק 30 ועד סעיף 30.1.1 (כולל).<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%9E%D7%94%D7%94%D7%A7%D7%93%D7%9E%D7%94-%D7%9C%D7%A4%D7%A8%D7%A7-30-%D7%95%D7%A2%D7%93-%D7%A1%D7%A2%D7%99%D7%A3-30.1.1-%D7%9B%D7%95%D7%9C%D7%9C."><i class="fas fa-link"></i></a>
+</h4>
+</div>
+</div>
+</div>
+<div id="frechet-definition" class="section level2" number="12.2">
+<h2>
+<span class="header-section-number">12.2</span> חלק 2: מרחק פְרֶשֶׁה (Fréchet)<a class="anchor" aria-label="anchor" href="#frechet-definition"><i class="fas fa-link"></i></a>
+</h2>
+<div id="discrete-frechet" class="section level3" number="12.2.1">
+<h3>
+<span class="header-section-number">12.2.1</span> מרחק פְרֶשֶׁה הדיסקרטי (Discrete Fréchet distance)<a class="anchor" aria-label="anchor" href="#discrete-frechet"><i class="fas fa-link"></i></a>
+</h3>
+<p>לפני שנגדיר באופן פורמלי את מרחק פרשה, נדון בגרסה פשוטה יותר שלו: הגרסה הדיסקרטית. בסרטון הבא נגדיר את מרחק פרשה הדיסקרטי ונראה איך ניתן לחשב אותו.</p>
+<div id="צפו-בסרטון-הבא-23" class="section level4 unnumbered">
+<h4>צפו בסרטון הבא:<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90-23"><i class="fas fa-link"></i></a>
+</h4>
+<p>הגדרה, אלגוריתם תכנון דינאמי, המרחק החלש (על האלגוריתם יקראו בספר)</p>
+</div>
+<div id="הגדרה-מרחק-פרשה-הדיסקרטי" class="section level4 unnumbered">
+<h4>הגדרה: מרחק פְרֶשֶׁה הדיסקרטי<a class="anchor" aria-label="anchor" href="#%D7%94%D7%92%D7%93%D7%A8%D7%94-%D7%9E%D7%A8%D7%97%D7%A7-%D7%A4%D7%A8%D7%A9%D7%94-%D7%94%D7%93%D7%99%D7%A1%D7%A7%D7%A8%D7%98%D7%99"><i class="fas fa-link"></i></a>
+</h4>
+<p>יהיו <span class="math inline">\(P=(p_,\dots,p_n)\)</span> ו-<span class="math inline">\(Q=(q_1,\dots,q_m)\)</span> שני עקומים בעלי <span class="math inline">\(n\)</span> ו-<span class="math inline">\(m\)</span> נקודות בהתאמה.</p>
+<p><img src="images/12/discrete_frechet_def.jpg" width="40%" align="left"><strong>טיול (walk)</strong> על <span class="math inline">\(P\)</span> ו-<span class="math inline">\(Q\)</span> הוא סדרה של זוגות
+<span class="math inline">\(\pi=((i_1,j_1),(i_2,j_2),\dots,(i_k,j_k))\)</span>
+כך שמתקיים:</p>
+<ul>
+<li>
+<span class="math inline">\((i_1,j_1)=(1,1)\)</span>,</li>
+<li>
+<span class="math inline">\((i_k,j_k)=(m,n)\)</span>,</li>
+<li>וגם לכל <span class="math inline">\(1\le t&lt; k\)</span> הזוג <span class="math inline">\((i_{t+1},j_{t+1})\)</span> הוא אחת משלושת האפשרויות הבאות: <span class="math inline">\((i_t+1,j_t)\)</span>, <span class="math inline">\((i_t,j_t+1)\)</span>, או <span class="math inline">\((i_t+1,j_t+1)\)</span>.</li>
+</ul>
+<p>במילים אחרות, טיול הוא מסלול מונוטוני על הגריד <span class="math inline">\([n]\times[m]\)</span> מ-<span class="math inline">\((1,1)\)</span> ל-<span class="math inline">\((n,m)\)</span>.</p>
+<p><strong>מרחק פרשה הדיסקרטי</strong> בין <span class="math inline">\(P\)</span> ו-<span class="math inline">\(Q\)</span> הוא
+<span class="math display">\[d_{dF}(P,Q)=\min_{\pi \in \Pi}\max_{1\le t\le|\pi|}\|p_{i_t}-q_{i_t}\|\]</span>
+כאשר <span class="math inline">\(\Pi\)</span> היא קבוצת כל הטיולים האפשריים על <span class="math inline">\(P\)</span> ו-<span class="math inline">\(Q\)</span>.</p>
+<div class="rmdimportant">
+<p><u><strong>משפט</strong>:</u> ניתן לחשב את <span class="math inline">\(d_{dF}(P,Q)\)</span> בזמן <span class="math inline">\(O(mn)\)</span>.</p>
+</div>
+<center>
+<img src="images/12/two-frogs.gif" style="width:80.0%">
+</center>
+</div>
+<div id="הגדרה-מרחק-פרשה-הדיסקרטי-החלש" class="section level4 unnumbered">
+<h4>הגדרה: מרחק פְרֶשֶׁה הדיסקרטי החלש<a class="anchor" aria-label="anchor" href="#%D7%94%D7%92%D7%93%D7%A8%D7%94-%D7%9E%D7%A8%D7%97%D7%A7-%D7%A4%D7%A8%D7%A9%D7%94-%D7%94%D7%93%D7%99%D7%A1%D7%A7%D7%A8%D7%98%D7%99-%D7%94%D7%97%D7%9C%D7%A9"><i class="fas fa-link"></i></a>
+</h4>
+<p>יהיו <span class="math inline">\(P=(p_,\dots,p_n)\)</span> ו-<span class="math inline">\(Q=(q_1,\dots,q_m)\)</span> שני עקומים בעלי <span class="math inline">\(n\)</span> ו-<span class="math inline">\(m\)</span> נקודות בהתאמה.</p>
+<p><strong>מרחק פרשה הדיסקרטי החלש</strong> בין <span class="math inline">\(P\)</span> ו-<span class="math inline">\(Q\)</span> הוא
+<span class="math display">\[d^w_{dF}(P,Q)=\min_{\pi \in \Pi^w}\max_{1\le t\le|\pi|}\|p_{i_t}-q_{i_t}\|\]</span>
+כאשר <span class="math inline">\(\Pi^w\)</span> היא קבוצת כל המסלולים על הגריד <span class="math inline">\([n]\times[m]\)</span> מ-<span class="math inline">\((1,1)\)</span> ל-<span class="math inline">\((n,m)\)</span> (לא בהכרח מונוטוניים).</p>
+<div class="rmdimportant">
+<p><u><strong>משפט</strong>:</u> ניתן לחשב את <span class="math inline">\(d^w_{dF}(P,Q)\)</span> בזמן <span class="math inline">\(O(mn)\)</span>.</p>
+</div>
+</div>
+<div id="ענו-על-השאלה-הבאה-46" class="section level4 unnumbered">
+<h4>ענו על השאלה הבאה:<a class="anchor" aria-label="anchor" href="#%D7%A2%D7%A0%D7%95-%D7%A2%D7%9C-%D7%94%D7%A9%D7%90%D7%9C%D7%94-%D7%94%D7%91%D7%90%D7%94-46"><i class="fas fa-link"></i></a>
+</h4>
+<p>התבוננו בשני העקומים הבאים, וההתאמה ביניהם. מי מהאיורים מתאר את מרחק פרשה הדיסקרטי החזק? ומי את החלש?</p>
+<div class="inline-figure">א. <img src="images/12/discrete_frechet_q_a.jpg" style="width:70.0%">
+</div>
+<div class="inline-figure">ב. <img src="images/12/discrete_frechet_q_b.jpg" style="width:70.0%">
+</div>
+מהו מרחק פרשה הדיסקרטי בין שני העקומים עבור המרחקים המצוינים באיור למטה? ומהו מרחק פרשה הדיסקרטי החלש ביניהם?
+<center>
+<img src="images/12/discrete_frechet_q_c.jpg" style="width:70.0%">
+</center>
+<details><summary>
+(פתרון)
+</summary>
+איור א מתאר את מרחק פרשה הדיסקרטי החזק, ו-ב’ מתאר את המרחק החלש.
+המרחק החזק הוא <span class="math inline">\(\sqrt{2}\)</span> והחלש הוא 1.
+</details>
+</div>
+<div id="ענו-על-השאלה-הבאה-47" class="section level4 unnumbered">
+<h4>ענו על השאלה הבאה:<a class="anchor" aria-label="anchor" href="#%D7%A2%D7%A0%D7%95-%D7%A2%D7%9C-%D7%94%D7%A9%D7%90%D7%9C%D7%94-%D7%94%D7%91%D7%90%D7%94-47"><i class="fas fa-link"></i></a>
+</h4>
+<p>אילו מההיגדים הבאים נכונים לכל שני עקומים <span class="math inline">\(P\)</span> ו-<span class="math inline">\(Q\)</span>?</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(d_H(P,Q)\le d_{dF}(P,Q)\)</span></li>
+<li><span class="math inline">\(d_{df}^w(P,Q)\le d_{dF}(P,Q)\)</span></li>
+<li><span class="math inline">\(d_H(P,Q)\le d_{dF}^w(P,Q)\)</span></li>
+</ol>
+<details><summary>
+(פתרון)
+</summary>
+כולם נכונים.
+<!--
+TODO להוסיף היגדים לא נכונים, או לשנות את פורמט השאלה כך שיצטרכו לבחור את האופרטור המתאים
+-->
+</details>
+</div>
+<div id="קראו-את-סעיף-30.1.2-בספר-הלימוד." class="section level4 unnumbered">
+<h4>קראו את סעיף 30.1.2 בספר הלימוד.<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-30.1.2-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93."><i class="fas fa-link"></i></a>
+</h4>
+<p>שימו לב שהגדרת המרחק בספר שונה במעט, ואינה מאפשרת צעד “באלכסון” על הגריד (קפיצה סימולטנית), אך הדבר אינו עקרוני עבור הנלמד ביחידה זו.</p>
+</div>
+<div id="תרגיל-מרחק-פרשה-הדיסקרטי-עם-קיצורי-דרך" class="section level4 unnumbered">
+<h4>תרגיל: מרחק פְרֶשֶׁה הדיסקרטי עם קיצורי דרך<a class="anchor" aria-label="anchor" href="#%D7%AA%D7%A8%D7%92%D7%99%D7%9C-%D7%9E%D7%A8%D7%97%D7%A7-%D7%A4%D7%A8%D7%A9%D7%94-%D7%94%D7%93%D7%99%D7%A1%D7%A7%D7%A8%D7%98%D7%99-%D7%A2%D7%9D-%D7%A7%D7%99%D7%A6%D7%95%D7%A8%D7%99-%D7%93%D7%A8%D7%9A"><i class="fas fa-link"></i></a>
+</h4>
+<p>גרסה מעניינת נוספת של מרחק פרשה הדיסקרטי נקראת “מרחק פרשה הדיסקרטי עם קיצורי דרך”. אם נחזור לאנלוגייה של זוג הצפרדעים, אז בגרסה זו מותר לצפרדע הכחולה לקפץ מעל נקודות בעקום שלה. הצפרדעים עדיין מתחילות את הטיול כאשר כל אחד מהן נמצאת על הנקודה הראשונה במסלול שלה, והן חייבות לסיים אותו כאשר כל אחת מהן נמצאת על הנקודה האחרונה במסלול שלה, אבל הצפרדע האדומה צריכה לקפץ דרך כל הנקודות שלה, ולצפרדע הכחולה מותר לדלג על נקודות (כמה שהיא רוצה, וכמה פעמים שהיא רוצה) באמצע המסלול.</p>
+<center>
+<img src="images/12/shortcuts.jpg" style="width:80.0%">
+</center>
+<ol style="list-style-type: decimal">
+<li>הגדירו את “מרחק פרשה הדיסקרטי עם קיצורי דרך” באופן פורמלי (הגדירו walk בדומה להגדרה 30.1.1 בספר, ואז את המרחק בדומה להגדרה 30.1.2). שימו לב שהמרחק הזה אינו סימטרי.</li>
+<li>הציעו אלגוריתם שמקבל שני מסלולים, <span class="math inline">\(P\)</span> באורך <span class="math inline">\(n\)</span> ו-<span class="math inline">\(Q\)</span> באורך <span class="math inline">\(m\)</span>, ופרמטר <span class="math inline">\(\delta\)</span>, ובודק האם מרחק פרשה הדיסקרטי עם קיצורי דרך מ-<span class="math inline">\(P\)</span> ל-<span class="math inline">\(Q\)</span> הוא לכל היותר <span class="math inline">\(\delta\)</span>. רמז: הסתכלו על גריד הקונפיגורציות וחישבו על אלגוריתם חמדן.</li>
+<li>נסו לחשוב: באילו מקרים מציאותיים גרסה זו של המרחק יכולה להחזיר תוצאות המשקפות טוב יותר את המציאות (לעומת מרחק פרשה הדיסקרטי ללא קיצורי דרך)?</li>
+</ol>
+</div>
+</div>
+<div id="continuous-frechet" class="section level3" number="12.2.2">
+<h3>
+<span class="header-section-number">12.2.2</span> מרחק פְרֶשֶׁה הרציף<a class="anchor" aria-label="anchor" href="#continuous-frechet"><i class="fas fa-link"></i></a>
+</h3>
+<p>עד עכשיו ראינו תיאור רעיוני של מרחק פרשה, ולא הגדרנו ביטוי מתמטי שמתאר את המרחק בין שני עקומים. כיצד מגדירים את מרחק פְרֶשֶׁה הרציף באופן פורמלי?</p>
+<center>
+<img src="images/12/man-dog2.gif" style="width:80.0%">
+</center>
+<p>בסעיף 30.1.3 מופיעה הגדרה מתמטית מדויקת של המרחק, שמתאימה גם לעקומים שאינם פוליגונלים. הרעיון הוא להגדיר עקום <span class="math inline">\(P\)</span> בתור פונקציה מהתחום <span class="math inline">\([0,1]\)</span> ל-<span class="math inline">\(\mathbb{R}^d\)</span>, ואת <strong>“קצב ההליכה”</strong> של האדם והכלב על העקום בתור פונקציה מ-<span class="math inline">\([0,1]\)</span> ל-<span class="math inline">\([0,1]\)</span>. כלומר אם למשל העקום שלנו הוא
+<span class="math inline">\(\pi:[0,1]\rightarrow\mathbb{R}^d\)</span>
+ופונקציית קצב ההליכה היא
+<span class="math inline">\(f:[0,1]\rightarrow[0,1]\)</span>,
+אז בזמן נתון <span class="math inline">\(t\in[0,1]\)</span> האדם נמצא בנקודה
+<span class="math inline">\(\pi(f(t))\)</span>.</p>
+<div id="נסו-בעצמכם-3" class="section level4 unnumbered">
+<h4>נסו בעצמכם!<a class="anchor" aria-label="anchor" href="#%D7%A0%D7%A1%D7%95-%D7%91%D7%A2%D7%A6%D7%9E%D7%9B%D7%9D-3"><i class="fas fa-link"></i></a>
+</h4>
+<p>הזיזו את הסליידר של המשתנה <span class="math inline">\(t\)</span> על מנת לראות כיצד נראית ההליכה על העקום <span class="math inline">\(P\)</span> (הצבוע בשחור) תחת כל אחת מפונקציות הקצב השונות: האדומה, הכחולה והירוקה.</p>
+<center>
+<iframe src="https://www.geogebra.org/classic/hzetb8mv?embed" width="100%" height="700" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0">
+</iframe>
+</center>
+</div>
+<div id="ענו-על-השאלה-הבאה-48" class="section level4 unnumbered">
+<h4>ענו על השאלה הבאה:<a class="anchor" aria-label="anchor" href="#%D7%A2%D7%A0%D7%95-%D7%A2%D7%9C-%D7%94%D7%A9%D7%90%D7%9C%D7%94-%D7%94%D7%91%D7%90%D7%94-48"><i class="fas fa-link"></i></a>
+</h4>
+איזו פונקציה מהסימולציה לעיל מתאימה לאיזו נקודה?
+<details><summary>
+(פתרון)
+</summary>
+האדומה היא <span class="math inline">\(h\)</span>, הכחולה היא <span class="math inline">\(f\)</span> והירוקה היא <span class="math inline">\(g\)</span>.
+</details>
+</div>
+<div id="קראו-את-סעיף-30.1.3-בספר-הלימוד." class="section level4 unnumbered">
+<h4>קראו את סעיף 30.1.3 בספר הלימוד.<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-30.1.3-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93."><i class="fas fa-link"></i></a>
+</h4>
+<p>שימו לב לטעות בטקסט: בהגדרה 30.1.6 צריך להחליף את המילה width ב-<span class="math inline">\(\omega\)</span>.</p>
+</div>
+</div>
+</div>
+<div id="computing-frechet" class="section level2" number="12.3">
+<h2>
+<span class="header-section-number">12.3</span> חלק 3: חישוב מרחק פְרֶשֶׁה הרציף<a class="anchor" aria-label="anchor" href="#computing-frechet"><i class="fas fa-link"></i></a>
+</h2>
+<div id="free-space-diagram" class="section level3" number="12.3.1">
+<h3>
+<span class="header-section-number">12.3.1</span> דיאגרמת המרחב החופשי (free space diagram)<a class="anchor" aria-label="anchor" href="#free-space-diagram"><i class="fas fa-link"></i></a>
+</h3>
+<p>כאשר רצינו לחשב את מרחק פרשה הדיסקרטי, נעזרנו במרחב הקונפיגורציות, וראינו שניתן לתאר אותו בתור גרף גריד או מטריצה דו מימדית. בסרטון הבא נראה כיצד ניתן לתאר את מרחב הקונפיגורציות עבור מרחק פרשה הרציף.</p>
+<center>
+<img src="images/12/free-space.jpg" style="width:100.0%">
+</center>
+<div id="צפו-בסרטון-הבא-24" class="section level4 unnumbered">
+<h4>צפו בסרטון הבא:<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90-24"><i class="fas fa-link"></i></a>
+</h4>
+<p>שני קטעים
+בעיית ההחלטה</p>
+<p>כדי להבין איך מתנהג מרחק פרשה הרציף, נתחיל במקרה הפשוט ביותר: כל אחד מהעקומים <span class="math inline">\(P\)</span> ו-<span class="math inline">\(Q\)</span> הוא קטע ישר. כלומר נניח ש-<span class="math inline">\(P\)</span> הוא הקטע <span class="math inline">\(\overline{pp'}\)</span> ו-<span class="math inline">\(Q\)</span> הוא הקטע () כאשר
+<span class="math inline">\(p,p',q,q'\in\mathbb{R}^d\)</span>.</p>
+</div>
+<div id="נסו-בעצמכם-הדיאגרמה-של-שני-קטעים" class="section level4 unnumbered">
+<h4>נסו בעצמכם! הדיאגרמה של שני קטעים<a class="anchor" aria-label="anchor" href="#%D7%A0%D7%A1%D7%95-%D7%91%D7%A2%D7%A6%D7%9E%D7%9B%D7%9D-%D7%94%D7%93%D7%99%D7%90%D7%92%D7%A8%D7%9E%D7%94-%D7%A9%D7%9C-%D7%A9%D7%A0%D7%99-%D7%A7%D7%98%D7%A2%D7%99%D7%9D"><i class="fas fa-link"></i></a>
+</h4>
+<p>היישומון הבא מציג את הדיאגרמה של שני קטעים, <span class="math inline">\(P\)</span> ו-<span class="math inline">\(Q\)</span>. תוכלו להזיז את הנקודה <span class="math inline">\(s\)</span> כדי לראות את המיקומים המתאימים על גבי הקטעים. תוכלו גם לשנות את הרדיוס של המעגלים. מהן שתי הנקודות שמגדירות את מרחק פרשה בין שני הקטעים?</p>
+<center>
+<iframe src="https://www.geogebra.org/classic/p5ub2xym?embed" width="100%" height="400" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0">
+</iframe>
+</center>
+<p>ביישומון <a href="https://www1.pub.informatik.uni-wuerzburg.de/pub/dijk/frechet/">הזה</a> מאת <a href="https://github.com/tcvdijk">Thomas van Dijk</a> תוכלו לראות את הדיאגרמה של שני עקומים עם יותר מקטע אחד. כאשר תזיזו את העכבר על גבי הדיאגרמה, יסומנו הנקודות על העקומים שמתאימות לקונפיגורציה.</p>
+</div>
+<div id="קראו-את-סעיף-30.2.2-בספר-הלימוד." class="section level4 unnumbered">
+<h4>קראו את סעיף 30.2.2 בספר הלימוד.<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-30.2.2-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93."><i class="fas fa-link"></i></a>
+</h4>
+<p>שימו לב! למעוניינים בהרחבה והעשרה, ניתן לקרוא קודם את סעיף 30.2.1 בספר הלימוד, המתאר את מרחק פרשה בין שני קטעים ומכיל את ההוכחות לכמה מהמשפטים שהוזכרו בסרטון.</p>
+</div>
+<div id="ענו-על-השאלה-הבאה-49" class="section level4 unnumbered">
+<h4>ענו על השאלה הבאה:<a class="anchor" aria-label="anchor" href="#%D7%A2%D7%A0%D7%95-%D7%A2%D7%9C-%D7%94%D7%A9%D7%90%D7%9C%D7%94-%D7%94%D7%91%D7%90%D7%94-49"><i class="fas fa-link"></i></a>
+</h4>
+<p>באיור מטה מופיעה דיאגרמת המרחב החופשי של שני עקומים. התאימו לכל נקודה המסומנת על הדיאגרמה את זוג הנקודות המתאימות על גבי העקומים.</p>
+<center>
+<img src="images/12/q_diagram.jpg" style="width:100.0%">
+</center>
+<details><summary>
+(פתרון)
+</summary>
+TODO
+</details>
+</div>
+</div>
+<div id="frechet-decision" class="section level3" number="12.3.2">
+<h3>
+<span class="header-section-number">12.3.2</span> אלגוריתם לבעיית ההחלטה<a class="anchor" aria-label="anchor" href="#frechet-decision"><i class="fas fa-link"></i></a>
+</h3>
+<p><img src="images/12/path-in-free-space.jpg" width="50%" align="left">
+האלגוריתם עבור בעיית ההחלטה מבצע סריקת BSF על דיאגרמת המרחב החופשי של שני העקומים עם פרמטר <span class="math inline">\(\delta\)</span>, וכך בעצם מחשב את <strong>המרחב הנגיש</strong> (reachable space) של הדיאגרמה. המרחב הנגיש הוא אוסף כל הנקודות בדיאגמת המרחב החופשי שניתן להגיע אליהן מהנקודה <span class="math inline">\((0,0)\)</span> על ידי מסלול בדיאגרמה שהוא <span class="math inline">\((x,y)\)</span> מונוטוני.</p>
+<p>במהלך הסריקה, האלגוריתם מחשב את האינטרוולים הנגישים של כל תא שהוא פוגש, וממשיך בסריקה כל עוד יש לתא אינטרוול נגיש שאינו ריק. אם הוא מגיע לתא שמתאים לשני הקטעים האחרונים של העקומים, והנקודה <span class="math inline">\((m,n)\)</span> היא נגישה, זה אומר שקיים מסלול בדיאגרמת המרחב החופשי מהנקודה <span class="math inline">\((0,0)\)</span> לנקודה <span class="math inline">\((m,n)\)</span>, ולכן המרחק בין העקומים קטן מ-<span class="math inline">\(\delta\)</span>.</p>
+<div id="קראו-את-סעיף-30.2.3-בספר-הלימוד." class="section level4 unnumbered">
+<h4>קראו את סעיף 30.2.3 בספר הלימוד.<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-30.2.3-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93."><i class="fas fa-link"></i></a>
+</h4>
+</div>
+<div id="ענו-על-השאלה-הבאה-50" class="section level4 unnumbered">
+<h4>ענו על השאלה הבאה:<a class="anchor" aria-label="anchor" href="#%D7%A2%D7%A0%D7%95-%D7%A2%D7%9C-%D7%94%D7%A9%D7%90%D7%9C%D7%94-%D7%94%D7%91%D7%90%D7%94-50"><i class="fas fa-link"></i></a>
+</h4>
+<p>התבוננו שוב באיור מהשאלה בסעיף הקודם. אילו מהנקודות המסומנות על גבי הדיאגרמה שייוכת למרחב הנגיש?</p>
+<center>
+<img src="images/12/q_diagram.jpg" style="width:100.0%">
+</center>
+<details><summary>
+(פתרון)
+</summary>
+הנקודות <span class="math inline">\(a,b\)</span> בלבד.
+</details>
+</div>
+</div>
+<div id="frechet-critical-events" class="section level3" number="12.3.3">
+<h3>
+<span class="header-section-number">12.3.3</span> הערכים הקריטיים<a class="anchor" aria-label="anchor" href="#frechet-critical-events"><i class="fas fa-link"></i></a>
+</h3>
+<p>בסעיף הקודם ראינו אלגוריתם לבעיית ההחלטה: בהינתן שני עקומים <span class="math inline">\(P\)</span> ו-<span class="math inline">\(Q\)</span> באורך <span class="math inline">\(n\)</span> כל אחד, ופרמטר <span class="math inline">\(\delta\)</span>, אנחנו יודעים להחליט בזמן <span class="math inline">\(O(n^2)\)</span> האם <span class="math inline">\(d_F(P,Q)\le \delta\)</span>. אבל כיצד נוכל למצוא את ה-<span class="math inline">\(\delta\)</span> הקטן ביותר?</p>
+<p>בדרך כלל, ניתן למצוא אוסף סופי (וקטן יחסית) של ערכים שאחד מהם הוא ערך הפתרון האופטימלי, ואז ניתן לבצע עליהם חיפוש בינארי כאשר משתמשים בפרוצדורת ההחלטה כדי להחליט האם להגדיל או להקטין את ערך החיפוש. האם זהו המצב במקרה של מרחק פרשה הרציף? האם מספיק לבדוק למשל רק את המרחקים בין כל זוג קודקודים? התבוננו למשל בשני העקומים הבאים. מה מגדיר את מרחק פרשה ביניהם?</p>
+<center>
+<img src="images/12/critical_value.jpg" style="width:70.0%">
+</center>
+<p>בעצם הערכים שבהם אנחנו מעוניינים הם הערכים עבורם יש שינוי במספר רכיבי הקשירות של דיאגרמת המרחב החופשי. בפרט, ערך <span class="math inline">\(\delta\)</span> הוא ערך קריטי אם קיימת נקודה כלשהי שהיא נגישה במרחב החופשי של <span class="math inline">\(\delta\)</span>, ולא נגישה במרחב החופשי של כל <span class="math inline">\(\delta'&lt;\delta\)</span>. אפשר לחשוב על זה גם בצורה הבאה: נסתכל על “דיאגרמת פני השטח” שמוגדרת על שני העקומים. דמיינו שהיא מתמלאת במים לאט לאט. ככל שהמים עולים, כך מעברים מסויימים נסגרים. הערכים שעבורם קיים מעבר שנסגר הם הערכים הקריטיים.</p>
+<p>בסעיף 30.2.4 בספר הלימוד מתוארים סוגי הערכים הקריטיים שרלוונטיים לחישוב מרחק פרשה.</p>
+<div id="קראו-את-סעיף-30.2.4-בספר-הלימוד." class="section level4 unnumbered">
+<h4>קראו את סעיף 30.2.4 בספר הלימוד.<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-30.2.4-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93."><i class="fas fa-link"></i></a>
+</h4>
+<p>התעלמו מאבחנה 30.2.9.</p>
+</div>
+<div id="שני-סוגים-של-ערכים-קריטיים" class="section level4 unnumbered">
+<h4>שני סוגים של ערכים קריטיים<a class="anchor" aria-label="anchor" href="#%D7%A9%D7%A0%D7%99-%D7%A1%D7%95%D7%92%D7%99%D7%9D-%D7%A9%D7%9C-%D7%A2%D7%A8%D7%9B%D7%99%D7%9D-%D7%A7%D7%A8%D7%99%D7%98%D7%99%D7%99%D7%9D"><i class="fas fa-link"></i></a>
+</h4>
+<p>הערכים הקריטיים הרלוונטים לחישוב מרחק פרשה נקבעים על ידי:</p>
+<ol style="list-style-type: decimal">
+<li>צלע של עקום אחד וקודקוד של השני (vertex-edge event).</li>
+<li>שני קודקודים של עקום אחד וצלע של העקום השני (monotonicity event).</li>
+</ol>
+</div>
+<div id="ענו-על-השאלה-הבאה-51" class="section level4 unnumbered">
+<h4>ענו על השאלה הבאה:<a class="anchor" aria-label="anchor" href="#%D7%A2%D7%A0%D7%95-%D7%A2%D7%9C-%D7%94%D7%A9%D7%90%D7%9C%D7%94-%D7%94%D7%91%D7%90%D7%94-51"><i class="fas fa-link"></i></a>
+</h4>
+איזה מהאיורים הבאים מתאר motonicity event?
+<center>
+<img src="images/12/monotonicity_event_q.jpg" style="width:100.0%">
+</center>
+</div>
+<div id="ענו-על-השאלה-הבאה-52" class="section level4 unnumbered">
+<h4>ענו על השאלה הבאה:<a class="anchor" aria-label="anchor" href="#%D7%A2%D7%A0%D7%95-%D7%A2%D7%9C-%D7%94%D7%A9%D7%90%D7%9C%D7%94-%D7%94%D7%91%D7%90%D7%94-52"><i class="fas fa-link"></i></a>
+</h4>
+<p>כמה ערכים קריטיים יש עבור שני עקומים <span class="math inline">\(P\)</span> ו-<span class="math inline">\(Q\)</span> באורך <span class="math inline">\(n\)</span> כל אחד? ובכמה זמן ניתן למצוא אותם?</p>
+<details><summary>
+(פתרון)
+</summary>
+יש <span class="math inline">\(O(n^3)\)</span> ערכים כאלה, וניתן למצוא אותם בזמן <span class="math inline">\(O(n^3)\)</span>.
+</details>
+</div>
+</div>
+<div id="frechet-optimal" class="section level3" number="12.3.4">
+<h3>
+<span class="header-section-number">12.3.4</span> חישוב מרחק פרשה<a class="anchor" aria-label="anchor" href="#frechet-optimal"><i class="fas fa-link"></i></a>
+</h3>
+<p>כפי שראיתם בסעיף הקודם, יש <span class="math inline">\(O(n^3)\)</span> ערכים קריטיים, וניתן למצוא אותם בזמן <span class="math inline">\(O(n^3)\)</span>. אם נעשה זאת ואז נבצע חיפוש בינארי בעזרת פרוצדורת ההחלטה, זמן הריצה של האלגוריתם יהיה <span class="math inline">\(O(n^3)\)</span> (הזמן למציאת הערכים הקריטיים). בעזרת טכניקה מתקדמת יותר (<a href="https://en.wikipedia.org/wiki/Parametric_search">חיפוש פרמטרי</a>, שלא נראה בקורס הזה) ניתן לעשות זאת בזמן <span class="math inline">\(O(n^2\log n)\)</span>.</p>
+<div class="rmdimportant">
+<p><u><strong>משפט</strong>:</u> בהינתן שני עקומים בעלי n קודקודים בסך הכל, ניתן לחשב את מרחק פרשה ביניהם בזמן <span class="math inline">\(O(n^2\log n)\)</span>.</p>
+</div>
+<p>טכניקת החיפוש הפרמטרי אמנם מספקת אלגוריתם עם זמן ריצה <span class="math inline">\(O(n^2\log n)\)</span>, אך היא נחשב קשה למימוש ולא מעשית. בסעיף 30.2.5 בספר הלימוד מתואר אלגוריתם רנדומי פשוט יותר לחישוב מרחק פרשה, אך הוא אינו נכלל בחומר של הקורס הזה.</p>
+<div id="להרחבה-והעשרה-קראו-את-סעיף-30.2.5-בספר-הלימוד." class="section level4 unnumbered">
+<h4>להרחבה והעשרה: קראו את סעיף 30.2.5 בספר הלימוד.<a class="anchor" aria-label="anchor" href="#%D7%9C%D7%94%D7%A8%D7%97%D7%91%D7%94-%D7%95%D7%94%D7%A2%D7%A9%D7%A8%D7%94-%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-30.2.5-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93."><i class="fas fa-link"></i></a>
+</h4>
+</div>
+<div id="תרגיל-מרחק-פרשה-תחת-הזזה" class="section level4 unnumbered">
+<h4>תרגיל: מרחק פרשה תחת הזזה<a class="anchor" aria-label="anchor" href="#%D7%AA%D7%A8%D7%92%D7%99%D7%9C-%D7%9E%D7%A8%D7%97%D7%A7-%D7%A4%D7%A8%D7%A9%D7%94-%D7%AA%D7%97%D7%AA-%D7%94%D7%96%D7%96%D7%94"><i class="fas fa-link"></i></a>
+</h4>
+<p>יתכן ששמת לב שמרחק פרשה אינו מושלם ויש לו מספר בעיות. אחת מהן היא שניתן להתשמש בו רק עבור עקומים שהם מיושרים זה כלפי זה….</p>
+<p>הוכיחו שניתן לחשב קירוב 2 למרחק פרשה תחת הזזה בזמן…
+(רמז: הראה שאם מזיזים עקום אחד כך שנקודות ההתחלה מתלכדות אז המרחק בין העקומים…)</p>
+</div>
+<div id="מעניין-לדעת-מרחק-פרשה-הוא-פסאודו-מטריקה" class="section level4" number="12.3.4.1">
+<h4>
+<span class="header-section-number">12.3.4.1</span> מעניין לדעת: מרחק פרשה הוא פסאודו מטריקה<a class="anchor" aria-label="anchor" href="#%D7%9E%D7%A2%D7%A0%D7%99%D7%99%D7%9F-%D7%9C%D7%93%D7%A2%D7%AA-%D7%9E%D7%A8%D7%97%D7%A7-%D7%A4%D7%A8%D7%A9%D7%94-%D7%94%D7%95%D7%90-%D7%A4%D7%A1%D7%90%D7%95%D7%93%D7%95-%D7%9E%D7%98%D7%A8%D7%99%D7%A7%D7%94"><i class="fas fa-link"></i></a>
+</h4>
+</div>
+<div id="תרגיל-אי-שיוויון-המשולש" class="section level4" number="12.3.4.2">
+<h4>
+<span class="header-section-number">12.3.4.2</span> תרגיל: אי-שיוויון המשולש<a class="anchor" aria-label="anchor" href="#%D7%AA%D7%A8%D7%92%D7%99%D7%9C-%D7%90%D7%99-%D7%A9%D7%99%D7%95%D7%95%D7%99%D7%95%D7%9F-%D7%94%D7%9E%D7%A9%D7%95%D7%9C%D7%A9"><i class="fas fa-link"></i></a>
+</h4>
 
 </div>
+</div>
+</div>
+</div>
   <div class="chapter-nav">
-<div class="prev"><a href="WSPD-spanners.html"><span class="header-section-number">11</span> פורשים גאומטריים וקבוצות מופרדות היטב</a></div>
+<div class="prev"><a href="wspd-approx.html"><span class="header-section-number">11</span> WSPD ואלגוריתמי קירוב גיאומטריים</a></div>
 <div class="empty"></div>
 </div></main><div class="col-md-3 col-lg-3 d-none d-md-block sidebar sidebar-chapter border-right">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>ביחידה זו:</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#curve-similarity"><span class="header-section-number">12</span> דמיון בין עקומים</a></li></ul>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#curve-similarity"><span class="header-section-number">12</span> דמיון בין עקומים</a></li>
+<li>
+<a class="nav-link" href="#preface-12"><span class="header-section-number">12.1</span> חלק 1: הקדמה</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#contents-12"><span class="header-section-number">12.1.1</span> מה ביחידה?</a></li>
+<li><a class="nav-link" href="#measuring-similarity"><span class="header-section-number">12.1.2</span> כיצד מודדים דמיון בין עקומים?</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#frechet-definition"><span class="header-section-number">12.2</span> חלק 2: מרחק פְרֶשֶׁה (Fréchet)</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#discrete-frechet"><span class="header-section-number">12.2.1</span> מרחק פְרֶשֶׁה הדיסקרטי (Discrete Fréchet distance)</a></li>
+<li><a class="nav-link" href="#continuous-frechet"><span class="header-section-number">12.2.2</span> מרחק פְרֶשֶׁה הרציף</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#computing-frechet"><span class="header-section-number">12.3</span> חלק 3: חישוב מרחק פְרֶשֶׁה הרציף</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#free-space-diagram"><span class="header-section-number">12.3.1</span> דיאגרמת המרחב החופשי (free space diagram)</a></li>
+<li><a class="nav-link" href="#frechet-decision"><span class="header-section-number">12.3.2</span> אלגוריתם לבעיית ההחלטה</a></li>
+<li><a class="nav-link" href="#frechet-critical-events"><span class="header-section-number">12.3.3</span> הערכים הקריטיים</a></li>
+<li><a class="nav-link" href="#frechet-optimal"><span class="header-section-number">12.3.4</span> חישוב מרחק פרשה</a></li>
+</ul>
+</li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
@@ -91,7 +460,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p dir="rtl" style="text-align:right;">הספר "<strong>גיאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2024-02-22.</p>
+    <p dir="rtl" style="text-align:right;">הספר "<strong>גיאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2024-10-14.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
