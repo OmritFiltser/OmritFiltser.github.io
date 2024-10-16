@@ -1,7 +1,7 @@
 ---
 title: "גיאומטריה חישובית"
 author: "ד''ר עומרית פילצר"
-date: "2024-10-14"
+date: "2024-10-16"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]

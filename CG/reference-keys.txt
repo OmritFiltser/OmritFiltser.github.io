@@ -170,5 +170,4 @@ free-space-diagram
 frechet-decision
 frechet-critical-events
 frechet-optimal
-מעניין-לדעת-מרחק-פרשה-הוא-פסאודו-מטריקה
-תרגיל-אי-שיוויון-המשולש
+תרגילים-נוספים-1

@@ -5,8 +5,7 @@
 ### מה ביחידה? {#contents-12}
 
 #### דמיון בין עקומים {.unnumbered}
-ביחידה זו נלמד חלקים מפרק 30 בספר "Geometric Approximation Algorithms", מאת פרופ' שריאל הר-פלד. ניתן לצפות גם ב
-[סדרת ההרצאות הקצרה של Thomas van Dijk](https://www.youtube.com/playlist?list=PLu39BqGd2oyOqo2Fe7OM1GVB0jWyoKOwd). ההרצאות קצרות ותמציתיות ומעבירות את רוב החומר של היחידה בצורה מרתקת.
+ביחידה זו נלמד חלקים מפרק 30 בספר "Geometric Approximation Algorithms", מאת פרופ' שריאל הר-פלד. ניתן לצפות גם ב[סדרת ההרצאות הקצרה של Thomas van Dijk](https://www.youtube.com/playlist?list=PLu39BqGd2oyOqo2Fe7OM1GVB0jWyoKOwd). ההרצאות קצרות ותמציתיות ומעבירות את רוב החומר של היחידה בצורה מרתקת.
  
 
 בסיום יחידה זו, תכירו את המושגים ותרכשו את הטכניקות והכלים הבאים:
@@ -23,7 +22,9 @@
 <center>![](images/12/similarity.jpg){width="80%"}</center>
 
 #### צפו בסרטון הבא: {.unnumbered}
-
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xCpLXCwSyJs?si=XXFjkjpa5KGuElQK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</center>
 
 
 #### תרגיל: מרחק האוסדורף (Hausdorff) {.unnumbered}
@@ -43,7 +44,9 @@
 לפני שנגדיר באופן פורמלי את מרחק פרשה, נדון בגרסה פשוטה יותר שלו: הגרסה הדיסקרטית. בסרטון הבא נגדיר את מרחק פרשה הדיסקרטי ונראה איך ניתן לחשב אותו.
 
 #### צפו בסרטון הבא: {.unnumbered}
-הגדרה, אלגוריתם תכנון דינאמי, המרחק החלש (על האלגוריתם יקראו בספר)
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/F4rl97x4o98?si=T1EH1a3dRAu72zgR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</center>
 
 
 #### הגדרה: מרחק פְרֶשֶׁה הדיסקרטי {.unnumbered}
@@ -169,11 +172,10 @@ TODO להוסיף היגדים לא נכונים, או לשנות את פורמ�
 <center>![](images/12/free-space.jpg){width="100%"}</center>
 
 #### צפו בסרטון הבא: {.unnumbered}
-שני קטעים
-בעיית ההחלטה
 
-כדי להבין איך מתנהג מרחק פרשה הרציף, נתחיל במקרה הפשוט ביותר: כל אחד מהעקומים \(P\) ו-\(Q\) הוא קטע ישר. כלומר נניח ש-\(P\) הוא הקטע \(\overline{pp'}\) ו-\(Q\) הוא הקטע (\overline{qq'}\) כאשר 
-\(p,p',q,q'\in\mathbb{R}^d\).
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0r7k1XDbuEY?si=A_eBE-wXM3GA5nFY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</center>
 
 
 #### נסו בעצמכם! הדיאגרמה של שני קטעים {.unnumbered}
@@ -271,13 +273,16 @@ TODO
 #### להרחבה והעשרה: קראו את סעיף 30.2.5 בספר הלימוד. {.unnumbered}
 
 
+
+## תרגילים נוספים
+
 #### תרגיל: מרחק פרשה תחת הזזה  {.unnumbered}
-יתכן ששמת לב שמרחק פרשה אינו מושלם ויש לו מספר בעיות. אחת מהן היא שניתן להתשמש בו רק עבור עקומים שהם מיושרים זה כלפי זה....
+יתכן ששמת לב שמרחק פרשה אינו מושלם ויש לו מספר בעיות. אחת מהן היא שניתן להתשמש בו רק עבור עקומים שהם מיושרים זה כלפי זה...
 
-הוכיחו שניתן לחשב קירוב 2 למרחק פרשה תחת הזזה בזמן...
-(רמז: הראה שאם מזיזים עקום אחד כך שנקודות ההתחלה מתלכדות אז המרחק בין העקומים...)
+הוכיחו שניתן לחשב קירוב 2 למרחק פרשה תחת הזזה בזמן $O(n^2)$.
+(רמז: הראה שאם מזיזים עקום אחד כך שנקודות ההתחלה מתלכדות אז המרחק בין העקומים הוא קירוב 2 למרחק תחת הזזה.)
 
 
-#### מעניין לדעת: מרחק פרשה הוא פסאודו מטריקה
-
-#### תרגיל: אי-שיוויון המשולש
+#### תרגיל: מרחק פרשה הוא פסאודו מטריקה  {.unnumbered}
+הוכיחו שמרחק פרשה הדיסקרטי מקיים את אי-שיוויון המשולש.
+הראו שמרחק פרשה הדיסקרטי הוא פסאודו-מטריקה.
