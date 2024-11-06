@@ -142,9 +142,11 @@
 <div id="הגדרה-מרחק-פרשה-הדיסקרטי" class="section level4 unnumbered">
 <h4>הגדרה: מרחק פְרֶשֶׁה הדיסקרטי<a class="anchor" aria-label="anchor" href="#%D7%94%D7%92%D7%93%D7%A8%D7%94-%D7%9E%D7%A8%D7%97%D7%A7-%D7%A4%D7%A8%D7%A9%D7%94-%D7%94%D7%93%D7%99%D7%A1%D7%A7%D7%A8%D7%98%D7%99"><i class="fas fa-link"></i></a>
 </h4>
-<p>יהיו <span class="math inline">\(P=(p_,\dots,p_n)\)</span> ו-<span class="math inline">\(Q=(q_1,\dots,q_m)\)</span> שני עקומים בעלי <span class="math inline">\(n\)</span> ו-<span class="math inline">\(m\)</span> נקודות בהתאמה.</p>
-<p><img src="images/12/discrete_frechet_def.jpg" width="40%" align="left"><strong>טיול (walk)</strong> על <span class="math inline">\(P\)</span> ו-<span class="math inline">\(Q\)</span> הוא סדרה של זוגות
-<span class="math inline">\(\pi=((i_1,j_1),(i_2,j_2),\dots,(i_k,j_k))\)</span>
+<p>יהיו <span class="math inline">\(P=(p_,\dots,p_n)\)</span> ו-<span class="math inline">\(Q=(q_1,\dots,q_m)\)</span> שני עקומים פוליגונלים בעלי <span class="math inline">\(n\)</span> ו-<span class="math inline">\(m\)</span> קודקודים בהתאמה.</p>
+<p><img src="images/12/discrete_frechet_def.jpg" width="40%" align="left">
+נסמן ב-<span class="math inline">\(\Pi(n,m)\)</span> את קבוצת כל המסלולים המונוטוניים האפשריים מ-<span class="math inline">\((1,1)\)</span> ל-<span class="math inline">\((n,m)\)</span> על הגריד <span class="math inline">\([n]\times[m]\)</span>. כל מסלול מונוטוני כזה נקרא <strong>טיול (walk)</strong>.
+באופן יותר פורמלי, טיול הוא סדרה של זוגות אינדקסים (קונפיגורציות)
+<span class="math display">\[\pi=((i_1,j_1),(i_2,j_2),\dots,(i_k,j_k))\]</span>
 כך שמתקיים:</p>
 <ul>
 <li>
@@ -153,12 +155,10 @@
 <span class="math inline">\((i_k,j_k)=(m,n)\)</span>,</li>
 <li>וגם לכל <span class="math inline">\(1\le t&lt; k\)</span> הזוג <span class="math inline">\((i_{t+1},j_{t+1})\)</span> הוא אחת משלושת האפשרויות הבאות: <span class="math inline">\((i_t+1,j_t)\)</span>, <span class="math inline">\((i_t,j_t+1)\)</span>, או <span class="math inline">\((i_t+1,j_t+1)\)</span>.</li>
 </ul>
-<p>במילים אחרות, טיול הוא מסלול מונוטוני על הגריד <span class="math inline">\([n]\times[m]\)</span> מ-<span class="math inline">\((1,1)\)</span> ל-<span class="math inline">\((n,m)\)</span>.</p>
 <p><strong>מרחק פרשה הדיסקרטי</strong> בין <span class="math inline">\(P\)</span> ו-<span class="math inline">\(Q\)</span> הוא
-<span class="math display">\[d_{dF}(P,Q)=\min_{\pi \in \Pi}\max_{1\le t\le|\pi|}\|p_{i_t}-q_{i_t}\|\]</span>
-כאשר <span class="math inline">\(\Pi\)</span> היא קבוצת כל הטיולים האפשריים על <span class="math inline">\(P\)</span> ו-<span class="math inline">\(Q\)</span>.</p>
+<span class="math display">\[d_{dF}(P,Q)=\min_{\pi \in \Pi(n,m)}\max_{1\le t\le|\pi|}\|p_{i_t}-q_{i_t}\|.\]</span></p>
 <div class="rmdimportant">
-<p><u><strong>משפט</strong>:</u> ניתן לחשב את <span class="math inline">\(d_{dF}(P,Q)\)</span> בזמן <span class="math inline">\(O(mn)\)</span>.</p>
+<p><u><strong>משפט (למה 30.1.3 בספר הלימוד)</strong>:</u> ניתן לחשב את <span class="math inline">\(d_{dF}(P,Q)\)</span> בזמן <span class="math inline">\(O(mn)\)</span>.</p>
 </div>
 <center>
 <img src="images/12/two-frogs.gif" style="width:80.0%">
@@ -167,12 +167,12 @@
 <div id="הגדרה-מרחק-פרשה-הדיסקרטי-החלש" class="section level4 unnumbered">
 <h4>הגדרה: מרחק פְרֶשֶׁה הדיסקרטי החלש<a class="anchor" aria-label="anchor" href="#%D7%94%D7%92%D7%93%D7%A8%D7%94-%D7%9E%D7%A8%D7%97%D7%A7-%D7%A4%D7%A8%D7%A9%D7%94-%D7%94%D7%93%D7%99%D7%A1%D7%A7%D7%A8%D7%98%D7%99-%D7%94%D7%97%D7%9C%D7%A9"><i class="fas fa-link"></i></a>
 </h4>
-<p>יהיו <span class="math inline">\(P=(p_,\dots,p_n)\)</span> ו-<span class="math inline">\(Q=(q_1,\dots,q_m)\)</span> שני עקומים בעלי <span class="math inline">\(n\)</span> ו-<span class="math inline">\(m\)</span> נקודות בהתאמה.</p>
+<p>יהיו <span class="math inline">\(P=(p_,\dots,p_n)\)</span> ו-<span class="math inline">\(Q=(q_1,\dots,q_m)\)</span> שני עקומים פוליגונלים בעלי <span class="math inline">\(n\)</span> ו-<span class="math inline">\(m\)</span> נקודות בהתאמה.</p>
+<p>נסמן ב-<span class="math inline">\(\Pi^w(n,m)\)</span> את קבוצת כל המסלולים האפשריים מ-<span class="math inline">\((1,1)\)</span> ל-<span class="math inline">\((n,m)\)</span> על הגריד <span class="math inline">\([n]\times[m]\)</span> (שהם לא בהכרח מונוטוניים).</p>
 <p><strong>מרחק פרשה הדיסקרטי החלש</strong> בין <span class="math inline">\(P\)</span> ו-<span class="math inline">\(Q\)</span> הוא
-<span class="math display">\[d^w_{dF}(P,Q)=\min_{\pi \in \Pi^w}\max_{1\le t\le|\pi|}\|p_{i_t}-q_{i_t}\|\]</span>
-כאשר <span class="math inline">\(\Pi^w\)</span> היא קבוצת כל המסלולים על הגריד <span class="math inline">\([n]\times[m]\)</span> מ-<span class="math inline">\((1,1)\)</span> ל-<span class="math inline">\((n,m)\)</span> (לא בהכרח מונוטוניים).</p>
+<span class="math display">\[d^w_{dF}(P,Q)=\min_{\pi \in \Pi^w(n,m)}\max_{1\le t\le|\pi|}\|p_{i_t}-q_{i_t}\|.\]</span></p>
 <div class="rmdimportant">
-<p><u><strong>משפט</strong>:</u> ניתן לחשב את <span class="math inline">\(d^w_{dF}(P,Q)\)</span> בזמן <span class="math inline">\(O(mn)\)</span>.</p>
+<p><u><strong>משפט (מסקנה מטענה 30.1.5 בספר הלימוד)</strong>:</u> ניתן לחשב את <span class="math inline">\(d^w_{dF}(P,Q)\)</span> בזמן <span class="math inline">\(O(mn)\)</span>.</p>
 </div>
 </div>
 <div id="ענו-על-השאלה-הבאה-46" class="section level4 unnumbered">
@@ -200,7 +200,7 @@
 <p>אילו מההיגדים הבאים נכונים לכל שני עקומים <span class="math inline">\(P\)</span> ו-<span class="math inline">\(Q\)</span>?</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(d_H(P,Q)\le d_{dF}(P,Q)\)</span></li>
-<li><span class="math inline">\(d_{df}^w(P,Q)\le d_{dF}(P,Q)\)</span></li>
+<li><span class="math inline">\(d_{dF}^w(P,Q)\le d_{dF}(P,Q)\)</span></li>
 <li><span class="math inline">\(d_H(P,Q)\le d_{dF}^w(P,Q)\)</span></li>
 </ol>
 <details><summary>
@@ -269,6 +269,15 @@ TODO להוסיף היגדים לא נכונים, או לשנות את פורמ�
 </h4>
 <p>שימו לב לטעות בטקסט: בהגדרה 30.1.6 צריך להחליף את המילה width ב-<span class="math inline">\(\omega\)</span>.</p>
 </div>
+<div id="הגדרה-מרחק-פרשה-הרציף" class="section level4 unnumbered">
+<h4>הגדרה: מרחק פְרֶשֶׁה הרציף<a class="anchor" aria-label="anchor" href="#%D7%94%D7%92%D7%93%D7%A8%D7%94-%D7%9E%D7%A8%D7%97%D7%A7-%D7%A4%D7%A8%D7%A9%D7%94-%D7%94%D7%A8%D7%A6%D7%99%D7%A3"><i class="fas fa-link"></i></a>
+</h4>
+<p>יהיו <span class="math inline">\(\pi:[0,1]\rightarrow\mathbb{R}^d\)</span> ו-<span class="math inline">\(\sigma:[0,1]\rightarrow\mathbb{R}^d\)</span> שני עקומים.</p>
+<p><strong>ריפרמטריזציה (reparameterization)</strong> היא פונקציה <span class="math inline">\(f:[0,1]\rightarrow[0,1]\)</span> חד-חד ערכית ועל כך ש-<span class="math inline">\(f(0)=0\)</span> ו-<span class="math inline">\(f(1)=1\)</span>.</p>
+<p><strong>מרחק פרשה הרציף</strong> בין <span class="math inline">\(\pi\)</span> ו-<span class="math inline">\(\sigma\)</span> הוא
+<span class="math display">\[d_{F}(\pi,\sigma)=\inf_{f,g}\max_{t\in [0,1]}\|\pi(f(t))-\sigma(g(t))\|\]</span>
+כאשר <span class="math inline">\(f,g\)</span> הן ריפרמטריזציות.</p>
+</div>
 </div>
 </div>
 <div id="computing-frechet" class="section level2" number="12.3">
@@ -325,7 +334,7 @@ TODO
 <span class="header-section-number">12.3.2</span> אלגוריתם לבעיית ההחלטה<a class="anchor" aria-label="anchor" href="#frechet-decision"><i class="fas fa-link"></i></a>
 </h3>
 <p><img src="images/12/path-in-free-space.jpg" width="50%" align="left">
-האלגוריתם עבור בעיית ההחלטה מבצע סריקת BSF על דיאגרמת המרחב החופשי של שני העקומים עם פרמטר <span class="math inline">\(\delta\)</span>, וכך בעצם מחשב את <strong>המרחב הנגיש</strong> (reachable space) של הדיאגרמה. המרחב הנגיש הוא אוסף כל הנקודות בדיאגמת המרחב החופשי שניתן להגיע אליהן מהנקודה <span class="math inline">\((0,0)\)</span> על ידי מסלול בדיאגרמה שהוא <span class="math inline">\((x,y)\)</span> מונוטוני.</p>
+האלגוריתם עבור בעיית ההחלטה מבצע סריקת BFS על דיאגרמת המרחב החופשי של שני העקומים עם פרמטר <span class="math inline">\(\delta\)</span>, וכך בעצם מחשב את <strong>המרחב הנגיש</strong> (reachable space) של הדיאגרמה. המרחב הנגיש הוא אוסף כל הנקודות בדיאגמת המרחב החופשי שניתן להגיע אליהן מהנקודה <span class="math inline">\((0,0)\)</span> על ידי מסלול בדיאגרמה שהוא <span class="math inline">\((x,y)\)</span> מונוטוני.</p>
 <p>במהלך הסריקה, האלגוריתם מחשב את האינטרוולים הנגישים של כל תא שהוא פוגש, וממשיך בסריקה כל עוד יש לתא אינטרוול נגיש שאינו ריק. אם הוא מגיע לתא שמתאים לשני הקטעים האחרונים של העקומים, והנקודה <span class="math inline">\((m,n)\)</span> היא נגישה, זה אומר שקיים מסלול בדיאגרמת המרחב החופשי מהנקודה <span class="math inline">\((0,0)\)</span> לנקודה <span class="math inline">\((m,n)\)</span>, ולכן המרחק בין העקומים קטן מ-<span class="math inline">\(\delta\)</span>.</p>
 <div id="קראו-את-סעיף-30.2.3-בספר-הלימוד." class="section level4 unnumbered">
 <h4>קראו את סעיף 30.2.3 בספר הלימוד.<a class="anchor" aria-label="anchor" href="#%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-30.2.3-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93."><i class="fas fa-link"></i></a>
@@ -334,7 +343,7 @@ TODO
 <div id="ענו-על-השאלה-הבאה-50" class="section level4 unnumbered">
 <h4>ענו על השאלה הבאה:<a class="anchor" aria-label="anchor" href="#%D7%A2%D7%A0%D7%95-%D7%A2%D7%9C-%D7%94%D7%A9%D7%90%D7%9C%D7%94-%D7%94%D7%91%D7%90%D7%94-50"><i class="fas fa-link"></i></a>
 </h4>
-<p>התבוננו שוב באיור מהשאלה בסעיף הקודם. אילו מהנקודות המסומנות על גבי הדיאגרמה שייוכת למרחב הנגיש?</p>
+<p>התבוננו שוב באיור מהשאלה בסעיף הקודם. אילו מהנקודות המסומנות על גבי הדיאגרמה שייכות למרחב הנגיש?</p>
 <center>
 <img src="images/12/q_diagram.jpg" style="width:100.0%">
 </center>
@@ -401,6 +410,7 @@ TODO
 <div id="להרחבה-והעשרה-קראו-את-סעיף-30.2.5-בספר-הלימוד." class="section level4 unnumbered">
 <h4>להרחבה והעשרה: קראו את סעיף 30.2.5 בספר הלימוד.<a class="anchor" aria-label="anchor" href="#%D7%9C%D7%94%D7%A8%D7%97%D7%91%D7%94-%D7%95%D7%94%D7%A2%D7%A9%D7%A8%D7%94-%D7%A7%D7%A8%D7%90%D7%95-%D7%90%D7%AA-%D7%A1%D7%A2%D7%99%D7%A3-30.2.5-%D7%91%D7%A1%D7%A4%D7%A8-%D7%94%D7%9C%D7%99%D7%9E%D7%95%D7%93."><i class="fas fa-link"></i></a>
 </h4>
+<p>——— עריכה לשונית: לא להתייחס למה שכתוב מתחת —————</p>
 </div>
 </div>
 </div>
@@ -411,7 +421,7 @@ TODO
 <div id="תרגיל-מרחק-פרשה-תחת-הזזה" class="section level4 unnumbered">
 <h4>תרגיל: מרחק פרשה תחת הזזה<a class="anchor" aria-label="anchor" href="#%D7%AA%D7%A8%D7%92%D7%99%D7%9C-%D7%9E%D7%A8%D7%97%D7%A7-%D7%A4%D7%A8%D7%A9%D7%94-%D7%AA%D7%97%D7%AA-%D7%94%D7%96%D7%96%D7%94"><i class="fas fa-link"></i></a>
 </h4>
-<p>יתכן ששמת לב שמרחק פרשה אינו מושלם ויש לו מספר בעיות. אחת מהן היא שניתן להתשמש בו רק עבור עקומים שהם מיושרים זה כלפי זה…</p>
+<p>יתכן ששמתם לב שמרחק פרשה אינו מושלם ויש לו מספר בעיות. אחת מהן היא שניתן להתשמש בו רק עבור עקומים שהם מיושרים זה כלפי זה…</p>
 <p>הוכיחו שניתן לחשב קירוב 2 למרחק פרשה תחת הזזה בזמן <span class="math inline">\(O(n^2)\)</span>.
 (רמז: הראה שאם מזיזים עקום אחד כך שנקודות ההתחלה מתלכדות אז המרחק בין העקומים הוא קירוב 2 למרחק תחת הזזה.)</p>
 </div>
@@ -419,7 +429,7 @@ TODO
 <h4>תרגיל: מרחק פרשה הוא פסאודו מטריקה<a class="anchor" aria-label="anchor" href="#%D7%AA%D7%A8%D7%92%D7%99%D7%9C-%D7%9E%D7%A8%D7%97%D7%A7-%D7%A4%D7%A8%D7%A9%D7%94-%D7%94%D7%95%D7%90-%D7%A4%D7%A1%D7%90%D7%95%D7%93%D7%95-%D7%9E%D7%98%D7%A8%D7%99%D7%A7%D7%94"><i class="fas fa-link"></i></a>
 </h4>
 <p>הוכיחו שמרחק פרשה הדיסקרטי מקיים את אי-שיוויון המשולש.
-הראו שמרחק פרשה הדיסקרטי הוא פסאודו-מטריקה.</p>
+הראו שמרחק פרשה הדיסקרטי הוא פסאודו-מטריקה. (TODO להגדיר)</p>
 
 </div>
 </div>
@@ -468,7 +478,7 @@ TODO
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p dir="rtl" style="text-align:right;">הספר "<strong>גיאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2024-10-16.</p>
+    <p dir="rtl" style="text-align:right;">הספר "<strong>גיאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2024-11-06.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
