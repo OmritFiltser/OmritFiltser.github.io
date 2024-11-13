@@ -146,7 +146,6 @@ preface-11
 contents-11
 geometric-approx
 spread
-Quadtrees
 quadtrees
 compressed-quadtree
 packing
