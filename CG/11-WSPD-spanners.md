@@ -47,9 +47,9 @@
 
 הסיבוכיות של האלגוריתמים ושל מבני הנתונים שראינו בקורס תלויה בגודל הקומבינטורי של הפלט והקלט, כלומר במספר הנקודות או האובייקטים, ולא ב**תכונות גיאומטריות** של הקלט, כמו מרחקים בין נקודות, אורכי צלעות, זוויות או שיפועים של ישרים. מה הסיבה לכך?
 
-#### צפו בסרטון הבא. {.unnumbered}
+#### צפו בסרטון הבא: {.unnumbered}
 <center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/9dPApo1t-7o?si=OT0xf3x4-5Cu1Mlv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/lX9cyWpP6s0?si=vG2o1v24sPlOFg_l" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </center>
 
 #### הגדרה: ה-spread של קבוצת נקודות {.unnumbered}
@@ -95,13 +95,13 @@
 השלימו את עץ הרביעים שבאיור.
 
 
-<center>![](images/11/){width="35%"}</center>
+<center>![](images/11/quadtree_q.jpg){width="80%"}</center>
 
 <details>
 
 <summary>(פתרון)</summary>
 
-
+<center>![](images/11/quadtree_ans.jpg){width="80%"}</center>
 
 </details>
 
@@ -187,7 +187,7 @@
 
 #### צפו בסרטון הבא: {.unnumbered}
 <center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/u6wNF_XzV1o?si=01rSIYMjROGh-ra3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zhHTJap2XGw?si=fpgU7nMuSGlIBfx_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </center>
 
 #### הגדרה: פירוק לזוגות {.unnumbered}
@@ -195,7 +195,7 @@
 \[A\otimes B=\{\{x,y\}\mid x\in A, y\in B, x\neq y\}\]
 כלומר \(A\otimes B\) היא קבוצת כל זוגות הנקודות, אחת מ-\(A\) והשנייה מ-\(B\).
 
-בהינתן קבוצת נקודות \(P\)\, פירוק של \(P\) לזוגות הוא אוסף של זוגות
+בהינתן קבוצת נקודות \(P\), פירוק של \(P\) לזוגות הוא אוסף של זוגות
 \(\{\{A_1,B_1\},\dots,\{A_s,B_s\}\}\)
 כך שמתקיים:
 
@@ -205,10 +205,18 @@
 
 
 #### ענו על השאלה הבאה:  {.unnumbered}
-מי מהבאים הוא פירוק לזוגות של הקבוצה \(P\)?
+נתונה הקבוצה \(P=\{a,b,c\}\) ותתי הקבוצות:
 
+\(A_1=\{a,b\}\)
+\(A_2=\{a\}\)
+\(B_1=\{b,c\}\)
+\(B_2=\{c\}\)
 
-<center>![](images/11/){width="35%"}</center>
+מי מהבאים הוא פירוק לזוגות של \(P\), ומדוע?
+
+1. \(\{\{A_1,B_1\}\}\)?
+2. \(\{\{A_1,B_2\}\}\)?
+3. \(\{\{A_2,B_1\}, \{A_1,B_2\}\}\)?
 
 <details>
 
@@ -238,27 +246,28 @@
 #### הגדרה: זוג מופרד היטב (separated pair-\(1/\varepsilon\))  {.unnumbered}
 
 
-עבור \(1>\varepsilon>0\), זוג קבוצות \(Q\) ו-\(R\) הוא \(1/\varepsilon\)-מופרד היטב אם הקוטר של כל אחת מהקבוצות הוא לכל היותר \(\varepsilon\cdot \textbf{d}(Q,R)\)\, כאשר \(\textbf{d}(Q,R)\) הוא המרחק הקטן ביותר בין נקודה מ-\(Q\) לנקודה מ-\(R\), כלומר
+עבור \(1>\varepsilon>0\), זוג קבוצות \(Q\) ו-\(R\) הוא \(1/\varepsilon\)-מופרד היטב אם הקוטר של כל אחת מהקבוצות הוא לכל היותר
+\(\varepsilon\cdot \textbf{d}(Q,R)\)\, כאשר \(\textbf{d}(Q,R)\) הוא המרחק הקטן ביותר בין נקודה מ-\(Q\) לנקודה מ-\(R\), כלומר
 \(\textbf{d}(Q,R)=\min_{q\in Q,s\in R}\|q-s\|\).
 
 
 
 #### ענו על השאלה הבאה:  {.unnumbered}
 
-מהו יחס ההפרדה של זוג הקבוצות באיור?
+מהו ה-\(\varepsilon\) הקטן ביותר עבורו זוג הקבוצות באיור הוא \(1/\varepsilon\)-מופרד היטב?
 
 
-<center>![](images/11/){width="35%"}</center>
+<center>![](images/11/well-sep_q.jpg){width="75%"}</center>
 
 <details>
 
 <summary>(פתרון)</summary>
 
-
+1/3
 
 </details>
 
-#### שאלה למחשבה  {.unnumbered}
+#### תרגיל: הגדרה אלטרנטיבית  {.unnumbered}
 
 בסרטון הוצגה ההגדרה האלטרנטיבית הבאה לזוג מופרד היטב:
 
@@ -286,21 +295,16 @@
 
 
 #### קראו את סעיף 3.1 בספר הלימוד (עמודים 29–31). {.unnumbered}
-<!--
-(להתעלם)
-שימו לב שלקראת סוף הסעיף מוזכרת האפשרות של בניית ה-WSPD בעזרת עץ, או באופן יותר ספציפי, בעזרת מבנה הנקרא עץ רביעים (quadtree). אנחנו נדון במבנה זה ממש עוד מעט, בהמשך של חלק זה.
--->
+
 
 
 ### אלגוריתם לבניית WSPD {#WSPD-alg}
 
 כעת נראה כיצד ניתן לבנות WSPD בעזרת quadtree.
 
-#### צפו בסרטון הבא. {.unnumbered}
+#### צפו בסרטון הבא: {.unnumbered}
 <center>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Oz8L3WE1pOc?si=rK3cGP8--s38w__J" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IXq_u-nv0HE?si=oD-nKMjb0AdMZDmF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </center>
 
 
@@ -349,20 +353,19 @@
 כפי שתקראו מייד בספר, בעזרת WSPD ניתן לחשב \(1+\varepsilon\)-פורש בגודל \(O(n\varepsilon^{-d})\)/ עבור קבוצה של \(n\) נקודות ב-\(\mathbb{R}^d\), לכל \(d\) קבוע.
 
 ::: rmdimportant
-**משפט**: בהינתן קבוצה \(P\) של \(n\) נקודות ב-\(\mathbb{R}^d\), ופרמטר \(1\ge \varepsilon >0\), ניתן לחשב \((1+\varepsilon)\)-פורש בגודל
+**משפט (3.12 בספר הלימוד)**: בהינתן קבוצה \(P\) של \(n\) נקודות ב-\(\mathbb{R}^d\), ופרמטר \(1\ge \varepsilon >0\), ניתן לחשב \((1+\varepsilon)\)-פורש בגודל
 \(O(n/\varepsilon)\) של \(P\) עם 
 \(O(n\varepsilon^{-d})\) צלעות, בזמן 
 \(O(n\log n+n\varepsilon^{-d})\).
 :::
 
+
+#### קראו את סעיף 3.2.1 בספר הלימוד (עמודים 33–35). {.unnumbered}
+
 #### מעניין לדעת: ה-stretch של גרף דלוני {.unnumbered}
 בשנת 1992 הראו זוג החוקרים ([Keil and Gutwin](https://link.springer.com/article/10.1007/BF02187821)) שגרף דלוני הוא \(t\)-פורש עבור
 \(t=4\pi\sqrt{3}/9\approx 2.41\).
 זהו רק חסם עליון על \(t\), כלומר ייתכן שגרף דלוני הוא \(t\)-פורש עבור \(t\) קטן יותר מ-2.41. במשך שנים רווחה ההשערה שגרף דלוני הוא \(\pi/2\)-פורש, עד שבשנת 2008 היא הוכחה כשגויה, והחסם התחתון עומד כרגע על קצת יותר מ-\(\pi/2\). אחת השאלות הפתוחות החשובות ביותר בתחום היא סגירת הפער בין החסם העליון לתחתון.
-
-
-#### קראו את סעיף 3.2.1 בספר הלימוד (עמודים 33–35). {.unnumbered}
-
 
 ### אלגוריתמי קירוב גיאומטריים {#approx-algs}
 שני הסעיפים הבאים בספר מתארים שני שימושים של WSPD באלגוריתמי קירוב גיאומטריים. 
@@ -383,7 +386,7 @@
 בעזרת WSPD ניתן לחשב קירוב קבוע לקוטר, בזמן \(O(n\log n)\).
 
 ::: rmdimportant
-**משפט**: בהינתן קבוצה \(P\) של \(n\) נקודות ב-\(\mathbb{R}^d\), ניתן למצוא בזמן \(O(n\log n+n\varepsilon^{-d})\) זוג נקודות \(p,q\in P\) כך שמתקיים
+**משפט (למה 3.14 בספר הלימוד)**: בהינתן קבוצה \(P\) של \(n\) נקודות ב-\(\mathbb{R}^d\), ניתן למצוא בזמן \(O(n\log n+n\varepsilon^{-d})\) זוג נקודות \(p,q\in P\) כך שמתקיים
 \(\|p-q\|\ge (1-\varepsilon)\text{diam}(P)\).
 :::
 
@@ -397,7 +400,7 @@
 אלגוריתם טריוויאלי יחשב את המרחקים בין כל זוגות הנקודות בזמן \(O(n^2)\). עבור נקודות במישור, ניתן לפתור את הבעיה בזמן \(O(n\log n)\) באמצעות חישוב דיאגרמת וורונוי, כמו שראינו ביחידה 7. אבל הסיבוכיות של דיאגרמת וורונוי תלויה אקספוננציאלית בממד \(d\): בממדים גבוהים הסיבוכיות של הדיאגרמה היא \(O(n^{\lceil d/2\rceil})\), ולכן כבר בשלושה ממדים נקבל זמן ריבועי. קיים אלגוריתם רנדומי שמוצא את הזוג הקרוב ביותר, בתוחלת זמן \(O(n)\), אך בעזרת WSPD ניתן למצוא את הזוג הקרוב ביותר (במדויק!) בזמן \(O(n\log n)\), לכל \(d\) קבוע.
 
 ::: rmdimportant
-**משפט**: בהינתן קבוצה \(P\) של \(n\) נקודות ב-\(\mathbb{R}^d\), ניתן למצוא את זוג הנקודות הקרובות ביותר, בזמן \(O(n\log n)\).
+**משפט (3.16 בספר הלימוד)**: בהינתן קבוצה \(P\) של \(n\) נקודות ב-\(\mathbb{R}^d\), ניתן למצוא את זוג הנקודות הקרובות ביותר, בזמן \(O(n\log n)\).
 :::
 
 
@@ -408,18 +411,3 @@
 בהינתן קבוצה \(P\) של \(n\) נקודות ב-\(\mathbb{R}^d\), נרצה למצוא לכל נקודה \(p\in P\) את השכן הקרוב אליה ביותר, כלומר את הנקודה הקרובה אליה ביותר מהקבוצה \(P\setminus \{p\}\).
 
 גם כאן ניתן לפתור את הבעיה בשני ממדים בקלות יחסית, בעזרת דיאגרמת וורונוי. אך מה לגבי ממדים גבוהים? באופן די מדהים, גם כאן ניתן להשתמש ב-WSPD כדי לפתור את הבעיה בזמן \(O(n\log n)\) לכל \(d\) קבוע. למעוניינים, ניתן לקרוא את פרטי ההוכחה בסעיף 3.2.5 בספר הלימוד (עמודים 36–39), אך היא אינה חלק מחומר הקורס.
-
-
-<!--
-(להתעלם)
-#### בעיית כל השכנים הקרובים ביותר
-בשני מימדים ניתן לפתור את הבעיה בקלות יחסית על ידי חישוב דיאגרמת וורונוי, כמו שראינו ביחידה 7. אבל הסיבוכיות של דיאגרמת וורונוי תלויה אקספוננציאלית במימד d: במימדים גבוהים הסיבוכיות של הדיאגרמה היא:... ולכן כש-d גדול זה לא מעשי לחשב את הדיגארמה ובוודאי שלא לשמור אותה בזיכרון.
-
-לכן נרצה לבנות מבנה נתונים לקירוב בעיית כל השכנים הקרובים ביותר. 
-נגדיר את הבעיה הבאה:
-בהיתן קבוצה \(P\) של \(n\) נקודות ב-\(\mathbb{R}^d\), נרצה למצוא לכל נקודה ב-\(P\) את השכן ה-\(\varepsilon\)-קרוב לה. כלומר, לכל \(q\in P\) נרצה למצוא נקודה \(p\in P\) כך שלכל נקודה \(p'\in P\) מתקיים 
-\(\|p-q\|\le (1+\varepsilon)\|p'-q\|\)
-
-אם רוצים מדויק אפשר כמובן בזמן \(O(n^2)\)
-בהמשך נראה איך לפתור...
--->

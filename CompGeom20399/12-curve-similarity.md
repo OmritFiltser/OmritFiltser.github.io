@@ -23,7 +23,7 @@
 
 #### צפו בסרטון הבא: {.unnumbered}
 <center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/xCpLXCwSyJs?si=XXFjkjpa5KGuElQK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0A8OXcnR5Hw?si=bou2tIfZAGY4tPIa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </center>
 
 
@@ -36,7 +36,7 @@
 \[d_H(P,Q)=\max(\overrightarrow{d_H}(P,Q),\overrightarrow{d_H}(Q,P))\].
 הציעו אלגוריתם יעיל ככל האפשר לחישוב מרחק האוסדורף עבור שתי קבוצות של נקודות במישור.
 
-#### קראו בספר הלימוד מההקדמה לפרק 30 ועד סוף סעיף 30.1.1 (עמודים 381–384).{.unnumbered}
+#### קראו בספר הלימוד מההקדמה לפרק 30 ועד סוף סעיף 30.1.1 (עמודים 383–384).{.unnumbered}
 
 ## חלק 2: מרחק פְרֶשֶׁה (Fréchet) {#frechet-definition}
 
@@ -45,7 +45,7 @@
 
 #### צפו בסרטון הבא: {.unnumbered}
 <center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/F4rl97x4o98?si=T1EH1a3dRAu72zgR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/So2Q7FTZsKk?si=ryVsT4lzL2dKzb4M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </center>
 
 
@@ -73,6 +73,13 @@
 :::
 
 <center>![](images/12/two-frogs.gif){width="80%"}</center>
+
+
+#### קראו את סעיף 30.1.2 בספר הלימוד (עמודים 384–386). {.unnumbered}
+שימו לב שהגדרת המרחק בספר שונה מעט, ואינה מאפשרת צעד "באלכסון" על הגריד (קפיצה סימולטנית), אך הדבר אינו עקרוני עבור הנלמד ביחידה זו.
+
+
+### מרחק פְרֶשֶׁה הדיסקרטי החלש {#weak-frechet}
 
 #### הגדרה: מרחק פְרֶשֶׁה הדיסקרטי החלש {.unnumbered}
 יהיו \(P=(p_,\dots,p_n)\) ו-\(Q=(q_1,\dots,q_m)\) שני עקומים פוליגונליים בעלי \(n\) ו-\(m\) נקודות, בהתאמה. 
@@ -118,8 +125,6 @@ TODO להוסיף היגדים לא נכונים, או לשנות את פורמ�
 </details>
 
 
-#### קראו את סעיף 30.1.2 בספר הלימוד (עמודים 384–386). {.unnumbered}
-שימו לב שהגדרת המרחק בספר שונה מעט, ואינה מאפשרת צעד "באלכסון" על הגריד (קפיצה סימולטנית), אך הדבר אינו עקרוני עבור הנלמד ביחידה זו.
 
 
 #### תרגיל: מרחק פְרֶשֶׁה הדיסקרטי עם קיצורי דרך {.unnumbered}
@@ -185,7 +190,7 @@ TODO להוסיף היגדים לא נכונים, או לשנות את פורמ�
 #### צפו בסרטון הבא: {.unnumbered}
 
 <center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/0r7k1XDbuEY?si=A_eBE-wXM3GA5nFY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/LkbDFcyt2aU?si=oEe4E4k2TMfVZ97e" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </center>
 
 

@@ -163,6 +163,7 @@ contents-12
 measuring-similarity
 frechet-definition
 discrete-frechet
+weak-frechet
 continuous-frechet
 computing-frechet
 free-space-diagram
