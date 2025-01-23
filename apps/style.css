@@ -1,0 +1,56 @@
+body {
+  font-family: sans-serif;
+}
+
+.container {
+  width: 1020px;
+  margin: 0 auto;
+}
+
+.line-container {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.line {
+  width: 1000px;
+  height: 5px;
+  background-color: blue;
+  cursor: pointer;
+}
+
+#red-line {
+  background-color: red;
+}
+
+.label {
+  position: absolute;
+  top: 10px;
+}
+
+.point {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: black;
+  transform: translate(-50%, -50%);
+}
+
+.controls {
+  margin-bottom: 10px;
+}
+
+#result {
+  margin-top: 20px;
+}
+
+#distance-table {
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+#distance-table td, #distance-table th {
+  border: 1px solid black;
+  padding: 5px;
+}

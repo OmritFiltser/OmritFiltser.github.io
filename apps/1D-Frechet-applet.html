@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>1D Discrete Frechet Distance Applet</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>1D Discrete Frechet Distance</h1>
+     <label for="blue-line">Blue Sequence (0-1000)</label>
+    <div class="line-container" id="blue-line-container">
+<label for="blue-line">0</label>
+	<div class="line" id="blue-line"></div>
+    </div>
+    <div class="controls">
+      <button id="random-blue">Add k random blue points</button>
+	k=<input type="number" id="random-blue-count" min="1" max="100" value="10">
+    </div>
+    <div class="controls">
+    <button id="blue-remove-last">Remove last blue point</button><button id="blue-clear">Clear blue</button>
+	</div>
+
+<label for="red-line">Red Sequence (0-1000)</label>
+    <div class="line-container" id="red-line-container">
+       <label for="blue-line">0</label>
+     	<div class="line" id="red-line"></div>
+    </div>
+    <div class="controls">
+      <button id="random-red">Add k random red points</button>
+      k=<input type="number" id="random-red-count" min="1" max="100" value="10">
+    </div>
+	<div class="controls">
+    <button id="red-remove-last">Remove last red point</button><button id="red-clear">Clear red</button>
+</div>
+
+<div class="controls">
+
+<button id="save-button">Save R and B</button>
+<input type="file" id="load-file" accept=".json" style="display: none;">
+<button id="load-button">Load R and B</button>
+</div>
+
+
+<div id="mark-cells-container">  
+<button id="mark-cells-button">Mark all cells with value <= Delta</button>
+  <input type="number" id="delta-input" min="1" max="1000" value="50">
+
+</div>
+
+<div id="result">
+  <p id="frechet-distance"></p>
+  <table id="distance-table"></table>
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
