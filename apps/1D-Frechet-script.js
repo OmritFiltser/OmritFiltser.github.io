@@ -42,6 +42,7 @@ function pickRandomPoints(line, sequence, count) {
     const x = Math.floor(Math.random() * 1000);
     addPoint(line, sequence, x);
   }
+refresh();
 }
 
 blueLine.addEventListener('click', (event) => {
