@@ -59,6 +59,7 @@ randomBlueButton.addEventListener('click', () => {
 blueClearButton.addEventListener('click', () => {
   // Clear existing points
       clearPoints(blueLine);
+bluePoints = [];
 refresh();
 });
 
@@ -84,6 +85,7 @@ randomRedButton.addEventListener('click', () => {
 redClearButton.addEventListener('click', () => {
 // Clear existing points
       clearPoints(redLine);
+redPoints = [];
 refresh();
 });
 
