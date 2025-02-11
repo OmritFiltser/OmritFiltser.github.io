@@ -17,14 +17,10 @@
     .loading { text-align: center; font-style: italic; }
     @media (max-width: 768px) {
         table { font-size: 14px; }
+		/* Keep Event and Location, hide others */
         th, td { padding: 5px; }
-        th:nth-child(3), td:nth-child(3),
-        th:nth-child(4), td:nth-child(4),
-        th:nth-child(5), td:nth-child(5),
-        th:nth-child(6), td:nth-child(6),
-        th:nth-child(7), td:nth-child(7),
-        th:nth-child(8), td:nth-child(8),
-        th:nth-child(10), td:nth-child(10) { display: none; }
+        th:not(:nth-child(1)):not(:nth-child(2)),
+        td:not(:nth-child(1)):not(:nth-child(2)) { display: none; }
         table { display: block; overflow-x: auto; white-space: nowrap; }
     }
     </style>
@@ -38,82 +34,103 @@
     </table>
 
     <script>
-        async function fetchAndDisplayConferences() {
-            const sheetId = "11Jggxd8R_U6fuJaeA1CJVpLK5R63ikHYlbaT2eF9B0A";
-            const gid = '0';
-            const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&gid=${gid}`;
+    async function fetchAndDisplayConferences() {
+        const sheetId = "11Jggxd8R_U6fuJaeA1CJVpLK5R63ikHYlbaT2eF9B0A";
+        const gid = '0';
+        const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&gid=${gid}`;
 
-            try {
-                const response = await fetch(url);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                let text = await response.text();
-
-                // Directly parse, handling the "/*O_o*/" prefix.  MUCH simpler!
-                const json = parseGoogleSheetsJSONP(text);
-
-                const tableData = json.table;
-                const headers = tableData.cols.map(col => col.label);
-                const rows = tableData.rows;
-
-                // Populate table headers
-                const headerRow = document.querySelector("#conferenceTable thead tr");
-                headers.forEach(header => {
-                    const th = document.createElement("th");
-                    th.textContent = header;
-                    headerRow.appendChild(th);
-                });
-
-                // Populate table body
-                const tableBody = document.querySelector("#conferenceTable tbody");
-                rows.forEach(row => {
-                    const tr = document.createElement("tr");
-                    row.c.forEach((cell, index) => {
-						const td = document.createElement("td");
-                        // Handle null cells gracefully
-                        if (cell === null || cell.v === null) {
-                            td.textContent = ""; // Or some other placeholder
-                            tr.appendChild(td);
-                            return;
-                        }
-
-						// Handle links correctly (check for 'f' formatted value first)
-						if (index === 0 && row.c[1] && row.c[1].v && row.c[1].v.startsWith("http"))
-						{
-							const a = document.createElement("a");
-							a.href = row.c[1].v;  // Use the URL from the *next* cell
-							a.textContent = cell.f ? cell.f : cell.v; // Prefer formatted value
-							a.target = "_blank";
-							td.appendChild(a);
-						} else if (index === 1) {
-							// Skip the link URL column
-							return;
-						}
-						 else {
-							 //Use 'f' first, if exists
-							td.textContent = cell.f ? cell.f : cell.v;
-						}
-                        tr.appendChild(td);
-                    });
-                    tableBody.appendChild(tr);
-                });
-
-                document.querySelector(".loading").style.display = "none";
-
-            } catch (error) {
-                console.error("Error fetching or parsing data:", error);
-                document.querySelector(".loading").textContent = "Error loading conference data. Please try again later.";
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
-        }
+            let text = await response.text();
+            const json = parseGoogleSheetsJSONP(text);
 
-        // Now handles the "/*O_o*/" prefix correctly.
-        function parseGoogleSheetsJSONP(text) {
-            const jsonString = text.replace(/^\/\*O_o\*\/\s*/, '').replace(/google\.visualization\.Query\.setResponse\(|\);/g, "");
-            return JSON.parse(jsonString);
-        }
+            const tableData = json.table;
+            const headers = tableData.cols.map(col => col.label);
 
-        fetchAndDisplayConferences();
+             // Create a mapping of column IDs to their indices
+            const colIdToIndex = {};
+            tableData.cols.forEach((col, index) => {
+                colIdToIndex[col.id] = index;
+            });
+
+			 // Populate table headers (this part stays the same)
+            const headerRow = document.querySelector("#conferenceTable thead tr");
+            headers.forEach(header => {
+                const th = document.createElement("th");
+                th.textContent = header;
+                headerRow.appendChild(th);
+            });
+
+
+            // Populate table body, using column IDs
+            const tableBody = document.querySelector("#conferenceTable tbody");
+            tableData.rows.forEach(row => {
+                const tr = document.createElement("tr");
+
+                // Helper function to get cell data by column ID
+                function getCell(colId) {
+                    const colIndex = colIdToIndex[colId];
+                    if (colIndex !== undefined && row.c[colIndex]) {
+						const cell = row.c[colIndex];
+                        return cell.f ? cell.f : cell.v; // Prefer formatted value
+                    }
+                    return ""; // Return empty string if cell is missing
+                }
+
+
+                // Create table cells in the *correct* order, using getCell()
+                const eventTd = document.createElement("td");
+				const eventName = getCell("A");
+				const eventLink = getCell("H");
+				if (eventLink && eventLink.startsWith("http")) {
+					const a = document.createElement("a");
+					a.href = eventLink;
+					a.textContent = eventName;
+					a.target = "_blank";
+					eventTd.appendChild(a);
+				} else {
+					eventTd.textContent = eventName;
+				}
+				tr.appendChild(eventTd);
+                
+				// Add cells using the helper function
+                tr.appendChild(createTd(getCell("B"))); // Location
+                tr.appendChild(createTd(getCell("C"))); // Deadline
+                tr.appendChild(createTd(getCell("D"))); // Abstract
+                tr.appendChild(createTd(getCell("E"))); // Notification
+                tr.appendChild(createTd(getCell("F"))); // Date
+                tr.appendChild(createTd(getCell("G"))); // Comments
+                tr.appendChild(createTd(""));// Website (skip)
+				tr.appendChild(createTd(getCell("I"))); // Countdown
+				tr.appendChild(createTd(getCell("J"))); // (for sorting)
+
+                tableBody.appendChild(tr);
+            });
+
+            document.querySelector(".loading").style.display = "none";
+
+        } catch (error) {
+            console.error("Error fetching or parsing data:", error);
+            document.querySelector(".loading").textContent = "Error loading conference data. Please try again later.";
+        }
+    }
+	// Helper function to create table cells
+	function createTd(content) {
+		const td = document.createElement("td");
+		td.textContent = content || ""; // Ensure content is not null/undefined
+		return td;
+	}
+
+    // Handles the "/*O_o*/" prefix.
+    function parseGoogleSheetsJSONP(text) {
+        const jsonString = text.replace(/^\/\*O_o\*\/\s*/, '').replace(/google\.visualization\.Query\.setResponse\(|\);/g, "");
+        return JSON.parse(jsonString);
+    }
+
+    fetchAndDisplayConferences();
     </script>
 </body>
 </html>
