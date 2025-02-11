@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CG Conferences</title>
+    <style>
+    /* Same styles as before (good practice to keep CSS separate) */
+    body { font-family: sans-serif; margin: 20px; }
+    h1 { text-align: center; margin-bottom: 20px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    th { background-color: #f2f2f2; }
+    tr:nth-child(even) { background-color: #f9f9f9; }
+    a { color: blue; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .loading { text-align: center; font-style: italic; }
+    @media (max-width: 768px) {
+        table { font-size: 14px; }
+        th, td { padding: 5px; }
+        th:nth-child(3), td:nth-child(3),
+        th:nth-child(4), td:nth-child(4),
+        th:nth-child(5), td:nth-child(5),
+        th:nth-child(6), td:nth-child(6),
+        th:nth-child(7), td:nth-child(7),
+        th:nth-child(8), td:nth-child(8),
+        th:nth-child(10), td:nth-child(10) { display: none; }
+        table { display: block; overflow-x: auto; white-space: nowrap; }
+    }
+    </style>
+</head>
+<body>
+    <h1>Computer Graphics Conferences</h1>
+    <p class="loading">Loading conference data...</p>
+    <table id="conferenceTable">
+        <thead><tr></tr></thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+    async function fetchAndDisplayConferences() {
+        // 1.  Get the Sheet ID from the URL.  *MUCH* more robust.
+        const sheetId = "11Jggxd8R_U6fuJaeA1CJVpLK5R63ikHYlbaT2eF9B0A";
+        const gid = '0'; //  GID for the first sheet (usually '0').
+        const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&gid=${gid}`;
+
+
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const text = await response.text();
+
+            // 2. Parse the JSONP response.  Google Sheets API returns JSONP, *not* pure JSON.
+            const json = parseGoogleSheetsJSONP(text);
+
+            // 3.  Process the parsed JSON data.
+            const tableData = json.table;
+            const headers = tableData.cols.map(col => col.label);
+            const rows = tableData.rows;
+
+            // Populate table headers
+            const headerRow = document.querySelector("#conferenceTable thead tr");
+            headers.forEach(header => {
+                const th = document.createElement("th");
+                th.textContent = header;
+                headerRow.appendChild(th);
+            });
+
+            // Populate table body
+            const tableBody = document.querySelector("#conferenceTable tbody");
+            rows.forEach(row => {
+                const tr = document.createElement("tr");
+                row.c.forEach((cell, index) => {
+                    const td = document.createElement("td");
+
+                    // Handle null cells gracefully
+                    if (cell === null || cell.v === null) {
+                        td.textContent = ""; // Or some other placeholder
+                        tr.appendChild(td);
+                        return; // Skip to the next cell
+                    }
+
+                    // Handle links correctly (check for 'f' formatted value first)
+                    if (index === 0 && row.c[1] && row.c[1].v && row.c[1].v.startsWith("http"))
+                    {
+                        const a = document.createElement("a");
+                        a.href = row.c[1].v;  // Use the URL from the *next* cell
+                        a.textContent = cell.f ? cell.f : cell.v; // Prefer formatted value
+                        a.target = "_blank";
+                        td.appendChild(a);
+                    } else if (index === 1) {
+                        // Skip the link URL column
+                        return;
+                    }
+                     else {
+                         //Use 'f' first, if exists
+                        td.textContent = cell.f ? cell.f : cell.v;
+                    }
+                    tr.appendChild(td);
+                });
+                tableBody.appendChild(tr);
+            });
+
+
+
+            document.querySelector(".loading").style.display = "none";
+
+        } catch (error) {
+            console.error("Error fetching or parsing data:", error);
+            document.querySelector(".loading").textContent = "Error loading conference data. Please try again later.";
+        }
+    }
+
+    // Helper function to parse Google Sheets JSONP response
+    function parseGoogleSheetsJSONP(text) {
+        // Remove the wrapping function call and semicolon
+        const jsonString = text.replace(/google\.visualization\.Query\.setResponse\(|\);/g, "");
+        return JSON.parse(jsonString);
+    }
+
+    fetchAndDisplayConferences();
+    </script>
+</body>
+</html>
