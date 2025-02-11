@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CG Conferences</title>
     <style>
-    /* Same styles as before (good practice to keep CSS separate) */
+    /* ... (same styles as before) ... */
     body { font-family: sans-serif; margin: 20px; }
     h1 { text-align: center; margin-bottom: 20px; }
     table { width: 100%; border-collapse: collapse; margin-top: 20px; }
@@ -38,41 +38,56 @@
     </table>
 
     <script>
-    async function fetchAndDisplayConferences() {
-        const sheetId = "11Jggxd8R_U6fuJaeA1CJVpLK5R63ikHYlbaT2eF9B0A";
-        const gid = '0';
-        let url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&gid=${gid}`;
+        async function fetchAndDisplayConferences() {
+            const sheetId = "11Jggxd8R_U6fuJaeA1CJVpLK5R63ikHYlbaT2eF9B0A";
+            const gid = '0';
+            let url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&gid=${gid}`;
 
-        try {
-            let response = await fetch(url);
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            let text = await response.text();
-
-            // Check for the redirection page
-            if (text.startsWith("/*O_o*/")) {
-                // Extract the redirect URL (it's usually in a <meta> tag)
-                const redirectMatch = text.match(/<meta http-equiv="refresh" content="0; url='(.*?)'">/);
-                if (redirectMatch && redirectMatch[1]) {
-                    const redirectUrl = redirectMatch[1];
-					// *** IMPORTANT: Use a CORS proxy here! ***
-					url = "https://cors-anywhere.herokuapp.com/" + redirectUrl;
-
-                    response = await fetch(url); // Fetch from the *redirected* URL
-                      if (!response.ok) {
-                        throw new Error(`HTTP error on redirect! status: ${response.status}`);
-                    }
-                    text = await response.text();
-                } else {
-                    throw new Error("Could not find redirect URL in response.");
+            try {
+                let response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
                 }
-            }
+                let text = await response.text();
 
-            const json = parseGoogleSheetsJSONP(text);
+                // Check for the redirection page
+                if (text.startsWith("/*O_o*/")) {
+                    console.log("Redirect page detected.  Full content:", text); // Debugging!
 
-            // ... (rest of the processing code remains the same) ...
-            const tableData = json.table;
+                    // More robust URL extraction (using DOMParser)
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(text, "text/html");
+                    const metaRefresh = doc.querySelector('meta[http-equiv="refresh"]');
+
+                    if (metaRefresh) {
+                        const content = metaRefresh.getAttribute('content');
+                        const urlMatch = content.match(/URL='(.*?)'/i); // Case-insensitive
+
+                        if (urlMatch && urlMatch[1]) {
+                            let redirectUrl = urlMatch[1];
+                             // Decode HTML entities (e.g., &)
+                            redirectUrl = redirectUrl.replace(/&/g, '&');
+                            console.log("Extracted redirect URL:", redirectUrl); // Debugging!
+                            url = "https://cors-anywhere.herokuapp.com/" + redirectUrl;
+                            response = await fetch(url);
+                             if (!response.ok) {
+                                throw new Error(`HTTP error on redirect! status: ${response.status}`);
+                            }
+                            text = await response.text();
+
+
+                        } else {
+                            throw new Error("Could not find redirect URL within content attribute.");
+                        }
+                    } else {
+                        throw new Error("Could not find meta refresh tag.");
+                    }
+                }
+
+                const json = parseGoogleSheetsJSONP(text);
+
+                // ... (rest of your processing code: populate table, etc.) ...
+                const tableData = json.table;
             const headers = tableData.cols.map(col => col.label);
             const rows = tableData.rows;
 
@@ -119,13 +134,13 @@
                 tableBody.appendChild(tr);
             });
 
-            document.querySelector(".loading").style.display = "none";
+                document.querySelector(".loading").style.display = "none";
 
-        } catch (error) {
-            console.error("Error fetching or parsing data:", error);
-            document.querySelector(".loading").textContent = "Error loading conference data. Please try again later.";
+            } catch (error) {
+                console.error("Error fetching or parsing data:", error);
+                document.querySelector(".loading").textContent = "Error loading conference data. Please try again later.";
+            }
         }
-    }
 		// Helper function to parse Google Sheets JSONP response
 		function parseGoogleSheetsJSONP(text) {
 			// Remove the wrapping function call and semicolon
@@ -133,7 +148,7 @@
 			return JSON.parse(jsonString);
 		}
 
-    fetchAndDisplayConferences();
+        fetchAndDisplayConferences();
     </script>
 </body>
 </html>
