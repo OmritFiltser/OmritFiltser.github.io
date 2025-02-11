@@ -16,12 +16,13 @@
     a { color: blue; text-decoration: none; }
     a:hover { text-decoration: underline; }
     .loading { text-align: center; font-style: italic; }
-	/* Keep Event, Location and website, hide others */
+
     @media (max-width: 768px) {
         table { font-size: 14px; }
         th, td { padding: 5px; }
-        th:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(8)),
-        td:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(8)) { display: none; }
+        /* Keep Event and Location, hide others */
+         th:not(:nth-child(1)):not(:nth-child(2)),
+        td:not(:nth-child(1)):not(:nth-child(2))  { display: none; }
         table { display: block; overflow-x: auto; white-space: nowrap; }
     }
     </style>
@@ -64,7 +65,10 @@
             const json = parseGoogleSheetsJSONP(text);
 
             const tableData = json.table;
-            const headers = tableData.cols.map(col => col.label);
+			// Filter the headers to exclude unwanted columns
+            const headers = tableData.cols.map(col => col.label).filter(label =>
+                label !== "Website" && label !== "Website link" && label !== "Countdown" && label !== "(for sorting)"
+            );
 
             // Create a mapping of column IDs to their indices
             const colIdToIndex = {};
@@ -85,35 +89,34 @@
                 headerRowPastFuture.appendChild(th.cloneNode(true));
                 headerRowPastPast.appendChild(th.cloneNode(true));
             });
+
             // --- Populate table BODIES (separately) ---
             const tableBodyFuture = document.querySelector("#futureDeadlinesTable tbody");
             const tableBodyPastFuture = document.querySelector("#pastDeadlinesFutureDatesTable tbody");
             const tableBodyPastPast = document.querySelector("#pastDeadlinesPastDatesTable tbody");
 
-
             tableData.rows.forEach(row => {
 
-                // Helper function to get cell data by column ID and handle date parsing
+                // Helper function to get cell data by column ID
                 function getCell(colId) {
-                    const colIndex = colIdToIndex[colId];
-                     if (colIndex !== undefined && row.c[colIndex]) {
-                        const cell = row.c[colIndex];
-                         if (cell.v && typeof cell.v === 'string' && cell.v.startsWith('Date(')) {
-                            // Parse the date string
-                            const dateParts = cell.v.substring(5, cell.v.length - 1).split(',');
-                            return new Date(dateParts[0], dateParts[1], dateParts[2]);
-                        }
-                        return cell.f ? cell.f : cell.v; // Prefer formatted (.f) value
-                    }
-                    return "";
+					const colIndex = colIdToIndex[colId];
+					 if (colIndex !== undefined && row.c[colIndex]) {
+						const cell = row.c[colIndex];
+						 if (cell.v && typeof cell.v === 'string' && cell.v.startsWith('Date(')) {
+							// Parse the date string
+							const dateParts = cell.v.substring(5, cell.v.length - 1).split(',');
+							return new Date(dateParts[0], dateParts[1], dateParts[2]);
+						}
+						return cell.f ? cell.f : cell.v; // Prefer formatted (.f) value
+					}
+					return "";
                 }
 
-                // --- Get the relevant dates (parsed as Date objects) ---
+                 // --- Get the relevant dates (parsed as Date objects) ---
                 const deadline = getCell("C");
                 const conferenceDate = getCell("F");
 
-
-                // --- Determine which table the row belongs in ---
+				 // --- Determine which table the row belongs in ---
                 const now = new Date();
                 now.setHours(0, 0, 0, 0); // Normalize 'now' to midnight for accurate comparison
                 let targetTableBody;
@@ -143,9 +146,8 @@
                     targetTableBody = tableBodyPastPast;  // Default: Past deadlines, past dates
                 }
 
-                // --- Create the table row (same as before, but added to the correct table) ---
+                // --- Create the table row ---
                 const tr = document.createElement("tr");
-
                // Event (with link from name)
                 const eventTd = document.createElement("td");
                 const eventName = getCell("A");
@@ -163,29 +165,15 @@
                 tr.appendChild(eventTd);
 
                 // Other columns
-                tr.appendChild(createTd(getCell("B")));  // Location
-                tr.appendChild(createTd(getCell("C") instanceof Date ? getCell("C").toLocaleDateString() : getCell("C")));  // Deadline
-                tr.appendChild(createTd(getCell("D") instanceof Date ? getCell("D").toLocaleDateString() : getCell("D")));   // Abstract
-                tr.appendChild(createTd(getCell("E") instanceof Date ? getCell("E").toLocaleDateString() : getCell("E")));   // Notification
-                tr.appendChild(createTd(getCell("F")));  // Date
-                tr.appendChild(createTd(getCell("G")));  // Comments
-
-                // Website Column (separate) - THE KEY ADDITION
-                const websiteTd = document.createElement("td");
-                if (colIndexH !== undefined && row.c[colIndexH] && row.c[colIndexH].v && row.c[colIndexH].v.startsWith("http")) {
-                    const a = document.createElement("a");
-                    a.href = row.c[colIndexH].v; // Raw URL
-                    a.textContent = "Link";       // Display "Link" (or anything you want)
-                    a.target = "_blank";
-                    websiteTd.appendChild(a);
-                } // No "else" needed - leave the cell empty if no link
-                tr.appendChild(websiteTd);
-
-
-                tr.appendChild(createTd(getCell("I")));  // Countdown
-                tr.appendChild(createTd(getCell("J")));  // (for sorting)
+                if (colIdToIndex["B"] !== undefined) tr.appendChild(createTd(getCell("B"))); // Location
+                if (colIdToIndex["C"] !== undefined) tr.appendChild(createTd(getCell("C") instanceof Date ? getCell("C").toLocaleDateString() : getCell("C"))); // Deadline
+                if (colIdToIndex["D"] !== undefined) tr.appendChild(createTd(getCell("D") instanceof Date ? getCell("D").toLocaleDateString() : getCell("D")));  // Abstract
+                if (colIdToIndex["E"] !== undefined) tr.appendChild(createTd(getCell("E") instanceof Date ? getCell("E").toLocaleDateString() : getCell("E")));  // Notification
+                if (colIdToIndex["F"] !== undefined) tr.appendChild(createTd(getCell("F"))); // Date
+                if (colIdToIndex["G"] !== undefined) tr.appendChild(createTd(getCell("G")));  // Comments
 
                 targetTableBody.appendChild(tr); // Add the row to the correct table
+
             });
 
             document.querySelector(".loading").style.display = "none";
@@ -195,7 +183,8 @@
             document.querySelector(".loading").textContent = "Error loading conference data. Please try again later.";
         }
     }
-		// Helper function to create table cells
+
+    // Helper function to create table cells
 	function createTd(content) {
 		const td = document.createElement("td");
 		td.textContent = content || ""; // Ensure content is not null/undefined
