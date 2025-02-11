@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CG Conferences</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        a {
+            color: blue;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .loading {
+            text-align: center;
+            font-style: italic;
+        }
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            table {
+                font-size: 14px; /* Reduce font size for smaller screens */
+            }
+            th, td {
+                padding: 5px; /* Reduce padding */
+            }
+            /* Hide less important columns on small screens.  Crucially, keep "Event" visible! */
+            th:nth-child(3), td:nth-child(3), /* Start */
+            th:nth-child(4), td:nth-child(4), /* End */
+            th:nth-child(5), td:nth-child(5), /* Deadline (Abstracts) */
+            th:nth-child(6), td:nth-child(6), /* Deadline (Papers) */
+            th:nth-child(7), td:nth-child(7),  /* Notification */
+            th:nth-child(8), td:nth-child(8),  /* Camera Ready */
+            th:nth-child(10), td:nth-child(10) /* H5-index */
+            {
+                display: none;
+            }
+            
+            /* Make the table scroll horizontally if it overflows */
+             table {
+                display: block; /* Very important for horizontal scrolling */
+                overflow-x: auto;
+                white-space: nowrap; /* Prevent text wrapping within cells */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Computer Graphics Conferences</h1>
+
+    <p class="loading">Loading conference data...</p>
+
+    <table id="conferenceTable">
+        <thead>
+            <tr>
+                <!-- Headers will be populated by JavaScript -->
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Conference data will be populated by JavaScript -->
+        </tbody>
+    </table>
+
+    <script>
+        // Function to fetch and parse the CSV data
+        async function fetchAndDisplayConferences() {
+            const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vT7xDpuGyEisLvdqmFSztX1sWp3EBr7i_4QjfZo_tfT7uZyViCAqwLUIYSM_j3ZTUtpvkn_1U6QlLzX/pub?gid=0&single=true&output=csv";
+
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const csvText = await response.text();
+                const rows = csvText.split('\n').map(row => row.split(','));
+
+
+                // Populate table headers
+                const headerRow = document.querySelector("#conferenceTable thead tr");
+                rows[0].forEach(header => {
+                    const th = document.createElement("th");
+                    th.textContent = header;
+                    headerRow.appendChild(th);
+                });
+
+                // Populate table body
+                const tableBody = document.querySelector("#conferenceTable tbody");
+                for (let i = 1; i < rows.length; i++) {
+                  const rowData = rows[i];
+                  const tr = document.createElement("tr");
+
+                  rowData.forEach((cellData, index) => {
+                    const td = document.createElement("td");
+
+                    // If it's the "Event" column (index 0) and has a link (in the next column, index 1), make it a link
+                    if (index === 0 && rowData[index+1] && rowData[index+1].startsWith("http")) {
+                        const a = document.createElement("a");
+                        a.href = rowData[index + 1];
+                        a.textContent = cellData;
+                        a.target = "_blank"; // Open in a new tab
+                        td.appendChild(a);
+                    } else if (index === 1) {
+                        // Skip the link itself, because it's been added in previous column.
+                        return;
+                    }
+                     else {
+                        td.textContent = cellData;
+                    }
+                    tr.appendChild(td);
+
+                  });
+
+                    tableBody.appendChild(tr);
+                }
+                document.querySelector(".loading").style.display = "none"; // Hide loading message
+
+            } catch (error) {
+                console.error("Error fetching or parsing CSV:", error);
+                document.querySelector(".loading").textContent = "Error loading conference data. Please try again later.";
+            }
+        }
+
+        // Call the function to fetch and display the data
+        fetchAndDisplayConferences();
+    </script>
+</body>
+</html>
