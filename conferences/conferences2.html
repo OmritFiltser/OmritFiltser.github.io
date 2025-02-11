@@ -41,98 +41,63 @@
         async function fetchAndDisplayConferences() {
             const sheetId = "11Jggxd8R_U6fuJaeA1CJVpLK5R63ikHYlbaT2eF9B0A";
             const gid = '0';
-            let url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&gid=${gid}`;
+            const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&gid=${gid}`;
 
             try {
-                let response = await fetch(url);
+                const response = await fetch(url);
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 let text = await response.text();
 
-                // Check for the redirection page
-                if (text.startsWith("/*O_o*/")) {
-                    console.log("Redirect page detected.  Full content:", text); // Debugging!
-
-                    // More robust URL extraction (using DOMParser)
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(text, "text/html");
-                    const metaRefresh = doc.querySelector('meta[http-equiv="refresh"]');
-
-                    if (metaRefresh) {
-                        const content = metaRefresh.getAttribute('content');
-                        const urlMatch = content.match(/URL='(.*?)'/i); // Case-insensitive
-
-                        if (urlMatch && urlMatch[1]) {
-                            let redirectUrl = urlMatch[1];
-                             // Decode HTML entities (e.g., &)
-                            redirectUrl = redirectUrl.replace(/&/g, '&');
-                            console.log("Extracted redirect URL:", redirectUrl); // Debugging!
-                            url = "https://cors-anywhere.herokuapp.com/" + redirectUrl;
-                            response = await fetch(url);
-                             if (!response.ok) {
-                                throw new Error(`HTTP error on redirect! status: ${response.status}`);
-                            }
-                            text = await response.text();
-
-
-                        } else {
-                            throw new Error("Could not find redirect URL within content attribute.");
-                        }
-                    } else {
-                        throw new Error("Could not find meta refresh tag.");
-                    }
-                }
-
+                // Directly parse, handling the "/*O_o*/" prefix.  MUCH simpler!
                 const json = parseGoogleSheetsJSONP(text);
 
-                // ... (rest of your processing code: populate table, etc.) ...
                 const tableData = json.table;
-            const headers = tableData.cols.map(col => col.label);
-            const rows = tableData.rows;
+                const headers = tableData.cols.map(col => col.label);
+                const rows = tableData.rows;
 
-            // Populate table headers
-            const headerRow = document.querySelector("#conferenceTable thead tr");
-            headers.forEach(header => {
-                const th = document.createElement("th");
-                th.textContent = header;
-                headerRow.appendChild(th);
-            });
-
-            // Populate table body
-            const tableBody = document.querySelector("#conferenceTable tbody");
-            rows.forEach(row => {
-                const tr = document.createElement("tr");
-                row.c.forEach((cell, index) => {
-                    const td = document.createElement("td");
-
-                    // Handle null cells gracefully
-                    if (cell === null || cell.v === null) {
-                        td.textContent = ""; // Or some other placeholder
-                        tr.appendChild(td);
-                        return; // Skip to the next cell
-                    }
-
-                    // Handle links correctly (check for 'f' formatted value first)
-                    if (index === 0 && row.c[1] && row.c[1].v && row.c[1].v.startsWith("http"))
-                    {
-                        const a = document.createElement("a");
-                        a.href = row.c[1].v;  // Use the URL from the *next* cell
-                        a.textContent = cell.f ? cell.f : cell.v; // Prefer formatted value
-                        a.target = "_blank";
-                        td.appendChild(a);
-                    } else if (index === 1) {
-                        // Skip the link URL column
-                        return;
-                    }
-                     else {
-                         //Use 'f' first, if exists
-                        td.textContent = cell.f ? cell.f : cell.v;
-                    }
-                    tr.appendChild(td);
+                // Populate table headers
+                const headerRow = document.querySelector("#conferenceTable thead tr");
+                headers.forEach(header => {
+                    const th = document.createElement("th");
+                    th.textContent = header;
+                    headerRow.appendChild(th);
                 });
-                tableBody.appendChild(tr);
-            });
+
+                // Populate table body
+                const tableBody = document.querySelector("#conferenceTable tbody");
+                rows.forEach(row => {
+                    const tr = document.createElement("tr");
+                    row.c.forEach((cell, index) => {
+						const td = document.createElement("td");
+                        // Handle null cells gracefully
+                        if (cell === null || cell.v === null) {
+                            td.textContent = ""; // Or some other placeholder
+                            tr.appendChild(td);
+                            return;
+                        }
+
+						// Handle links correctly (check for 'f' formatted value first)
+						if (index === 0 && row.c[1] && row.c[1].v && row.c[1].v.startsWith("http"))
+						{
+							const a = document.createElement("a");
+							a.href = row.c[1].v;  // Use the URL from the *next* cell
+							a.textContent = cell.f ? cell.f : cell.v; // Prefer formatted value
+							a.target = "_blank";
+							td.appendChild(a);
+						} else if (index === 1) {
+							// Skip the link URL column
+							return;
+						}
+						 else {
+							 //Use 'f' first, if exists
+							td.textContent = cell.f ? cell.f : cell.v;
+						}
+                        tr.appendChild(td);
+                    });
+                    tableBody.appendChild(tr);
+                });
 
                 document.querySelector(".loading").style.display = "none";
 
@@ -141,12 +106,12 @@
                 document.querySelector(".loading").textContent = "Error loading conference data. Please try again later.";
             }
         }
-		// Helper function to parse Google Sheets JSONP response
-		function parseGoogleSheetsJSONP(text) {
-			// Remove the wrapping function call and semicolon
-			const jsonString = text.replace(/google\.visualization\.Query\.setResponse\(|\);/g, "");
-			return JSON.parse(jsonString);
-		}
+
+        // Now handles the "/*O_o*/" prefix correctly.
+        function parseGoogleSheetsJSONP(text) {
+            const jsonString = text.replace(/^\/\*O_o\*\/\s*/, '').replace(/google\.visualization\.Query\.setResponse\(|\);/g, "");
+            return JSON.parse(jsonString);
+        }
 
         fetchAndDisplayConferences();
     </script>
