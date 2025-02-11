@@ -5,30 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Computational Geometry Conferences</title>
     <style>
-    /* ... (same styles as before) ... */
+    /* ... (same styles as before, plus a bit extra) ... */
     body { font-family: sans-serif; margin: 20px; }
     h1 { text-align: center; margin-bottom: 20px; }
-    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    h2 { margin-top: 30px; margin-bottom: 10px; } /* For section headings */
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
     th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
     th { background-color: #f2f2f2; }
     tr:nth-child(even) { background-color: #f9f9f9; }
     a { color: blue; text-decoration: none; }
     a:hover { text-decoration: underline; }
     .loading { text-align: center; font-style: italic; }
+	/* Keep Event, Location and website, hide others */
     @media (max-width: 768px) {
         table { font-size: 14px; }
-		/* Keep Event, Location and website, hide others */
         th, td { padding: 5px; }
-		th:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(8)),
-        td:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(8))  { display: none; }
+        th:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(8)),
+        td:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(8)) { display: none; }
         table { display: block; overflow-x: auto; white-space: nowrap; }
     }
     </style>
 </head>
 <body>
     <h1>Computational Geometry Conferences</h1>
+
     <p class="loading">Loading conference data...</p>
-    <table id="conferenceTable">
+
+    <h2>Future Deadlines</h2>
+    <table id="futureDeadlinesTable">
+        <thead><tr></tr></thead>
+        <tbody></tbody>
+    </table>
+
+    <h2>Past Deadlines, Future Dates</h2>
+    <table id="pastDeadlinesFutureDatesTable">
+        <thead><tr></tr></thead>
+        <tbody></tbody>
+    </table>
+
+    <h2>Past Deadlines, Past Dates</h2>
+    <table id="pastDeadlinesPastDatesTable">
         <thead><tr></tr></thead>
         <tbody></tbody>
     </table>
@@ -50,37 +66,87 @@
             const tableData = json.table;
             const headers = tableData.cols.map(col => col.label);
 
-             // Create a mapping of column IDs to their indices
+            // Create a mapping of column IDs to their indices
             const colIdToIndex = {};
             tableData.cols.forEach((col, index) => {
                 colIdToIndex[col.id] = index;
             });
 
-            // Populate table headers (still the same)
-           const headerRow = document.querySelector("#conferenceTable thead tr");
+            // --- Populate table HEADERS (only once, for all tables) ---
+            const headerRowFuture = document.querySelector("#futureDeadlinesTable thead tr");
+            const headerRowPastFuture = document.querySelector("#pastDeadlinesFutureDatesTable thead tr");
+            const headerRowPastPast = document.querySelector("#pastDeadlinesPastDatesTable thead tr");
+
             headers.forEach(header => {
                 const th = document.createElement("th");
                 th.textContent = header;
-                headerRow.appendChild(th);
+                headerRowFuture.appendChild(th);
+                // Clone the header for the other tables
+                headerRowPastFuture.appendChild(th.cloneNode(true));
+                headerRowPastPast.appendChild(th.cloneNode(true));
             });
+            // --- Populate table BODIES (separately) ---
+            const tableBodyFuture = document.querySelector("#futureDeadlinesTable tbody");
+            const tableBodyPastFuture = document.querySelector("#pastDeadlinesFutureDatesTable tbody");
+            const tableBodyPastPast = document.querySelector("#pastDeadlinesPastDatesTable tbody");
 
-            // Populate table body, using column IDs
-            const tableBody = document.querySelector("#conferenceTable tbody");
+
             tableData.rows.forEach(row => {
-                const tr = document.createElement("tr");
 
-                // Helper function to get cell data by column ID
+                // Helper function to get cell data by column ID and handle date parsing
                 function getCell(colId) {
                     const colIndex = colIdToIndex[colId];
-                    if (colIndex !== undefined && row.c[colIndex]) {
+                     if (colIndex !== undefined && row.c[colIndex]) {
                         const cell = row.c[colIndex];
+                         if (cell.v && typeof cell.v === 'string' && cell.v.startsWith('Date(')) {
+                            // Parse the date string
+                            const dateParts = cell.v.substring(5, cell.v.length - 1).split(',');
+                            return new Date(dateParts[0], dateParts[1], dateParts[2]);
+                        }
                         return cell.f ? cell.f : cell.v; // Prefer formatted (.f) value
                     }
                     return "";
                 }
 
-                // --- Create cells in the desired order ---
-                // Event (with link from name)
+                // --- Get the relevant dates (parsed as Date objects) ---
+                const deadline = getCell("C");
+                const conferenceDate = getCell("F");
+
+
+                // --- Determine which table the row belongs in ---
+                const now = new Date();
+                now.setHours(0, 0, 0, 0); // Normalize 'now' to midnight for accurate comparison
+                let targetTableBody;
+
+                if (deadline instanceof Date && deadline > now) {
+                    targetTableBody = tableBodyFuture;
+                } else if (deadline instanceof Date && deadline <= now && conferenceDate && typeof conferenceDate === "string")
+                {
+                    const yearMatch = conferenceDate.match(/\b(\d{4})\b/);
+					if(yearMatch){
+						const year = parseInt(yearMatch[1], 10);
+                        const conferenceDateObj = new Date(year, 0); // Assume January 1st if no month given
+
+						if(conferenceDateObj > now)
+                        {
+                            targetTableBody = tableBodyPastFuture;
+                        }
+						else{
+							targetTableBody = tableBodyPastPast;
+						}
+					}
+					else{
+						targetTableBody = tableBodyPastPast;
+					}
+                }
+				else {
+                    targetTableBody = tableBodyPastPast;  // Default: Past deadlines, past dates
+                }
+
+                // --- Create the table row (same as before, but added to the correct table) ---
+                const tr = document.createElement("tr");
+
+               // Event (with link from name)
                 const eventTd = document.createElement("td");
                 const eventName = getCell("A");
                 const colIndexH = colIdToIndex["H"];
@@ -98,9 +164,9 @@
 
                 // Other columns
                 tr.appendChild(createTd(getCell("B")));  // Location
-                tr.appendChild(createTd(getCell("C")));  // Deadline
-                tr.appendChild(createTd(getCell("D")));  // Abstract
-                tr.appendChild(createTd(getCell("E")));  // Notification
+                tr.appendChild(createTd(getCell("C") instanceof Date ? getCell("C").toLocaleDateString() : getCell("C")));  // Deadline
+                tr.appendChild(createTd(getCell("D") instanceof Date ? getCell("D").toLocaleDateString() : getCell("D")));   // Abstract
+                tr.appendChild(createTd(getCell("E") instanceof Date ? getCell("E").toLocaleDateString() : getCell("E")));   // Notification
                 tr.appendChild(createTd(getCell("F")));  // Date
                 tr.appendChild(createTd(getCell("G")));  // Comments
 
@@ -118,7 +184,8 @@
 
                 tr.appendChild(createTd(getCell("I")));  // Countdown
                 tr.appendChild(createTd(getCell("J")));  // (for sorting)
-                tableBody.appendChild(tr);
+
+                targetTableBody.appendChild(tr); // Add the row to the correct table
             });
 
             document.querySelector(".loading").style.display = "none";
@@ -128,7 +195,7 @@
             document.querySelector(".loading").textContent = "Error loading conference data. Please try again later.";
         }
     }
-	// Helper function to create table cells
+		// Helper function to create table cells
 	function createTd(content) {
 		const td = document.createElement("td");
 		td.textContent = content || ""; // Ensure content is not null/undefined
