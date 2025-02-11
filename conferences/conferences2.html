@@ -39,23 +39,39 @@
 
     <script>
     async function fetchAndDisplayConferences() {
-        // 1.  Get the Sheet ID from the URL.  *MUCH* more robust.
         const sheetId = "11Jggxd8R_U6fuJaeA1CJVpLK5R63ikHYlbaT2eF9B0A";
-        const gid = '0'; //  GID for the first sheet (usually '0').
-        const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&gid=${gid}`;
-
+        const gid = '0';
+        let url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&gid=${gid}`;
 
         try {
-            const response = await fetch(url);
+            let response = await fetch(url);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
-            const text = await response.text();
+            let text = await response.text();
 
-            // 2. Parse the JSONP response.  Google Sheets API returns JSONP, *not* pure JSON.
+            // Check for the redirection page
+            if (text.startsWith("/*O_o*/")) {
+                // Extract the redirect URL (it's usually in a <meta> tag)
+                const redirectMatch = text.match(/<meta http-equiv="refresh" content="0; url='(.*?)'">/);
+                if (redirectMatch && redirectMatch[1]) {
+                    const redirectUrl = redirectMatch[1];
+					// *** IMPORTANT: Use a CORS proxy here! ***
+					url = "https://cors-anywhere.herokuapp.com/" + redirectUrl;
+
+                    response = await fetch(url); // Fetch from the *redirected* URL
+                      if (!response.ok) {
+                        throw new Error(`HTTP error on redirect! status: ${response.status}`);
+                    }
+                    text = await response.text();
+                } else {
+                    throw new Error("Could not find redirect URL in response.");
+                }
+            }
+
             const json = parseGoogleSheetsJSONP(text);
 
-            // 3.  Process the parsed JSON data.
+            // ... (rest of the processing code remains the same) ...
             const tableData = json.table;
             const headers = tableData.cols.map(col => col.label);
             const rows = tableData.rows;
@@ -103,8 +119,6 @@
                 tableBody.appendChild(tr);
             });
 
-
-
             document.querySelector(".loading").style.display = "none";
 
         } catch (error) {
@@ -112,13 +126,12 @@
             document.querySelector(".loading").textContent = "Error loading conference data. Please try again later.";
         }
     }
-
-    // Helper function to parse Google Sheets JSONP response
-    function parseGoogleSheetsJSONP(text) {
-        // Remove the wrapping function call and semicolon
-        const jsonString = text.replace(/google\.visualization\.Query\.setResponse\(|\);/g, "");
-        return JSON.parse(jsonString);
-    }
+		// Helper function to parse Google Sheets JSONP response
+		function parseGoogleSheetsJSONP(text) {
+			// Remove the wrapping function call and semicolon
+			const jsonString = text.replace(/google\.visualization\.Query\.setResponse\(|\);/g, "");
+			return JSON.parse(jsonString);
+		}
 
     fetchAndDisplayConferences();
     </script>
