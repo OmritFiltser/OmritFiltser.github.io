@@ -63,41 +63,36 @@
                 th.textContent = header;
                 headerRow.appendChild(th);
             });
-            // Populate table body, using column IDs
+			 // Populate table body, using column IDs
             const tableBody = document.querySelector("#conferenceTable tbody");
             tableData.rows.forEach(row => {
                 const tr = document.createElement("tr");
 
                // Helper function to get cell data by column ID
-                // MODIFIED:  Prefer .v for links, otherwise use .f or .v
+                // Use .f if available, otherwise .v
                 function getCell(colId) {
                     const colIndex = colIdToIndex[colId];
                     if (colIndex !== undefined && row.c[colIndex]) {
-                        const cell = row.c[colIndex];
-                        // KEY CHANGE:  For the link, use .v (raw value)
-                        if (colId === "H") {
-                            return cell.v; // Always return the raw value for the link
-                        }
-                        return cell.f ? cell.f : cell.v; // Otherwise, prefer .f
+						const cell = row.c[colIndex];
+                        return cell.f ? cell.f : cell.v;
                     }
                     return "";
                 }
-
                 // --- Create cells in the desired order ---
 
-                // Event (with link)
+                // Event (with link) - CORRECTED LINK HANDLING
                 const eventTd = document.createElement("td");
-                const eventName = getCell("A");  // Still use formatted name
-                const eventLink = getCell("H");    // Now gets the *raw* URL
+                const eventName = getCell("A");  // Get the event name
+                const colIndexH = colIdToIndex["H"]; //Get the index of the column H
 
-                if (eventLink && eventLink.startsWith("http")) {
-                    const a = document.createElement("a");
-                    a.href = eventLink;          // Use the raw URL
-                    a.textContent = eventName;    // Use the formatted name
-                    a.target = "_blank";
-                    eventTd.appendChild(a);
+                if (colIndexH !== undefined && row.c[colIndexH] && row.c[colIndexH].v && row.c[colIndexH].v.startsWith("http")) {
+                        const a = document.createElement("a");
+                        a.href =  row.c[colIndexH].v; // Use the RAW value for the URL
+                        a.textContent = eventName;    // Use getCell for other fields
+                        a.target = "_blank";
+                        eventTd.appendChild(a);
                 } else {
-                    eventTd.textContent = eventName;
+                     eventTd.textContent = eventName;
                 }
                 tr.appendChild(eventTd);
 
