@@ -17,10 +17,10 @@
     .loading { text-align: center; font-style: italic; }
     @media (max-width: 768px) {
         table { font-size: 14px; }
-		/* Keep Event and Location, hide others */
+		/* Keep Event, Location and website, hide others */
         th, td { padding: 5px; }
-        th:not(:nth-child(1)):not(:nth-child(2)),
-        td:not(:nth-child(1)):not(:nth-child(2)) { display: none; }
+		th:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(8)),
+        td:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(8))  { display: none; }
         table { display: block; overflow-x: auto; white-space: nowrap; }
     }
     </style>
@@ -56,43 +56,43 @@
                 colIdToIndex[col.id] = index;
             });
 
-            // Populate table headers
-            const headerRow = document.querySelector("#conferenceTable thead tr");
+            // Populate table headers (still the same)
+           const headerRow = document.querySelector("#conferenceTable thead tr");
             headers.forEach(header => {
                 const th = document.createElement("th");
                 th.textContent = header;
                 headerRow.appendChild(th);
             });
-			 // Populate table body, using column IDs
+
+            // Populate table body, using column IDs
             const tableBody = document.querySelector("#conferenceTable tbody");
             tableData.rows.forEach(row => {
                 const tr = document.createElement("tr");
 
-               // Helper function to get cell data by column ID
-                // Use .f if available, otherwise .v
+                // Helper function to get cell data by column ID
                 function getCell(colId) {
                     const colIndex = colIdToIndex[colId];
                     if (colIndex !== undefined && row.c[colIndex]) {
-						const cell = row.c[colIndex];
-                        return cell.f ? cell.f : cell.v;
+                        const cell = row.c[colIndex];
+                        return cell.f ? cell.f : cell.v; // Prefer formatted (.f) value
                     }
                     return "";
                 }
-                // --- Create cells in the desired order ---
 
-                // Event (with link) - CORRECTED LINK HANDLING
+                // --- Create cells in the desired order ---
+                // Event (with link from name)
                 const eventTd = document.createElement("td");
-                const eventName = getCell("A");  // Get the event name
-                const colIndexH = colIdToIndex["H"]; //Get the index of the column H
+                const eventName = getCell("A");
+                const colIndexH = colIdToIndex["H"];
 
                 if (colIndexH !== undefined && row.c[colIndexH] && row.c[colIndexH].v && row.c[colIndexH].v.startsWith("http")) {
-                        const a = document.createElement("a");
-                        a.href =  row.c[colIndexH].v; // Use the RAW value for the URL
-                        a.textContent = eventName;    // Use getCell for other fields
-                        a.target = "_blank";
-                        eventTd.appendChild(a);
+                    const a = document.createElement("a");
+                     a.href =  row.c[colIndexH].v; // Use the RAW value for the URL
+                    a.textContent = eventName;
+                    a.target = "_blank";
+                    eventTd.appendChild(a);
                 } else {
-                     eventTd.textContent = eventName;
+                    eventTd.textContent = eventName;
                 }
                 tr.appendChild(eventTd);
 
@@ -103,10 +103,21 @@
                 tr.appendChild(createTd(getCell("E")));  // Notification
                 tr.appendChild(createTd(getCell("F")));  // Date
                 tr.appendChild(createTd(getCell("G")));  // Comments
-				tr.appendChild(createTd(""));  // Website
+
+                // Website Column (separate) - THE KEY ADDITION
+                const websiteTd = document.createElement("td");
+                if (colIndexH !== undefined && row.c[colIndexH] && row.c[colIndexH].v && row.c[colIndexH].v.startsWith("http")) {
+                    const a = document.createElement("a");
+                    a.href = row.c[colIndexH].v; // Raw URL
+                    a.textContent = "Link";       // Display "Link" (or anything you want)
+                    a.target = "_blank";
+                    websiteTd.appendChild(a);
+                } // No "else" needed - leave the cell empty if no link
+                tr.appendChild(websiteTd);
+
+
                 tr.appendChild(createTd(getCell("I")));  // Countdown
                 tr.appendChild(createTd(getCell("J")));  // (for sorting)
-
                 tableBody.appendChild(tr);
             });
 
