@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Computational Geometry Conferences</title>  <!-- Updated Title -->
+    <title>Computational Geometry Conferences</title>
     <style>
     /* ... (same styles as before) ... */
     body { font-family: sans-serif; margin: 20px; }
@@ -26,7 +26,7 @@
     </style>
 </head>
 <body>
-    <h1>Computational Geometry Conferences</h1>  <!-- Updated Title -->
+    <h1>Computational Geometry Conferences</h1>
     <p class="loading">Loading conference data...</p>
     <table id="conferenceTable">
         <thead><tr></tr></thead>
@@ -50,52 +50,58 @@
             const tableData = json.table;
             const headers = tableData.cols.map(col => col.label);
 
-            // Create a mapping of column IDs to their indices
+             // Create a mapping of column IDs to their indices
             const colIdToIndex = {};
             tableData.cols.forEach((col, index) => {
                 colIdToIndex[col.id] = index;
             });
 
-             // Populate table headers (still the same)
+            // Populate table headers
             const headerRow = document.querySelector("#conferenceTable thead tr");
-			headers.forEach(header => {
-				const th = document.createElement("th");
-				th.textContent = header;
-				headerRow.appendChild(th);
-			});
+            headers.forEach(header => {
+                const th = document.createElement("th");
+                th.textContent = header;
+                headerRow.appendChild(th);
+            });
             // Populate table body, using column IDs
             const tableBody = document.querySelector("#conferenceTable tbody");
             tableData.rows.forEach(row => {
                 const tr = document.createElement("tr");
 
-                // Helper function to get cell data by column ID
+               // Helper function to get cell data by column ID
+                // MODIFIED:  Prefer .v for links, otherwise use .f or .v
                 function getCell(colId) {
                     const colIndex = colIdToIndex[colId];
                     if (colIndex !== undefined && row.c[colIndex]) {
-						const cell = row.c[colIndex];
-                        return cell.f ? cell.f : cell.v;  // Prefer formatted (.f) value
+                        const cell = row.c[colIndex];
+                        // KEY CHANGE:  For the link, use .v (raw value)
+                        if (colId === "H") {
+                            return cell.v; // Always return the raw value for the link
+                        }
+                        return cell.f ? cell.f : cell.v; // Otherwise, prefer .f
                     }
                     return "";
                 }
 
                 // --- Create cells in the desired order ---
-                // Event (with link from the "Website" column)
+
+                // Event (with link)
                 const eventTd = document.createElement("td");
-                const eventName = getCell("A");
-                const eventLink = getCell("H");  // Get the link from column "H"
+                const eventName = getCell("A");  // Still use formatted name
+                const eventLink = getCell("H");    // Now gets the *raw* URL
 
                 if (eventLink && eventLink.startsWith("http")) {
                     const a = document.createElement("a");
-                    a.href = eventLink;
-                    a.textContent = eventName;
+                    a.href = eventLink;          // Use the raw URL
+                    a.textContent = eventName;    // Use the formatted name
                     a.target = "_blank";
                     eventTd.appendChild(a);
                 } else {
-                    eventTd.textContent = eventName;  // If no link, just show the name
+                    eventTd.textContent = eventName;
                 }
                 tr.appendChild(eventTd);
 
-                // Other columns (using the helper function)
+                // Other columns
                 tr.appendChild(createTd(getCell("B")));  // Location
                 tr.appendChild(createTd(getCell("C")));  // Deadline
                 tr.appendChild(createTd(getCell("D")));  // Abstract
@@ -109,7 +115,6 @@
                 tableBody.appendChild(tr);
             });
 
-
             document.querySelector(".loading").style.display = "none";
 
         } catch (error) {
@@ -117,12 +122,13 @@
             document.querySelector(".loading").textContent = "Error loading conference data. Please try again later.";
         }
     }
-		// Helper function to create table cells
+	// Helper function to create table cells
 	function createTd(content) {
 		const td = document.createElement("td");
 		td.textContent = content || ""; // Ensure content is not null/undefined
 		return td;
 	}
+
     // Handles the "/*O_o*/" prefix.
     function parseGoogleSheetsJSONP(text) {
         const jsonString = text.replace(/^\/\*O_o\*\/\s*/, '').replace(/google\.visualization\.Query\.setResponse\(|\);/g, "");
