@@ -208,8 +208,8 @@
                     	futureDeadlinesCount++;
                 } 
 		else if (deadline instanceof Date && deadline <= now && conferenceDate instanceof Date && conferenceDate > now) {
-			targetTableBody = tableBodyPastPast;
-                        pastDeadlinesPastDatesCount++;
+			targetTableBody = tableBodyPastFuture;
+                        pastDeadlinesFutureDatesCount++;
                 }
 		else {
                     	targetTableBody = tableBodyPastPast;  // Default: Past deadlines, past dates
