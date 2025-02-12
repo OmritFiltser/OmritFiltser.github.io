@@ -116,13 +116,13 @@
         <tbody></tbody>
     </table>
 
-    <h2 id="pastDeadlinesFutureDatesHeader">Past Deadlines, Future Dates</h2>
+    <h2 id="pastDeadlinesFutureDatesHeader">Future Conferences (dealine over)</h2>
     <table id="pastDeadlinesFutureDatesTable">
         <thead><tr></tr></thead>
         <tbody></tbody>
     </table>
 
-    <h2 id="pastDeadlinesPastDatesHeader">Past Deadlines, Past Dates</h2>
+    <h2 id="pastDeadlinesPastDatesHeader">Past Conferences</h2>
     <table id="pastDeadlinesPastDatesTable">
         <thead><tr></tr></thead>
         <tbody></tbody>
@@ -199,39 +199,22 @@
                 const deadline = getCell("C");
                 const conferenceDate = getCell("F");
 
-				 // --- Determine which table the row belongs in ---
+		// --- Determine which table the row belongs in ---
                 const now = new Date();
                 now.setHours(0, 0, 0, 0); // Normalize 'now' to midnight for accurate comparison
                 let targetTableBody;
 
                 if (deadline instanceof Date && deadline > now) {
-                    targetTableBody = tableBodyFuture;
-                    futureDeadlinesCount++;
-                } else if (deadline instanceof Date && deadline <= now && conferenceDate && typeof conferenceDate === "string")
-                {
-                    const yearMatch = conferenceDate.match(/\b(\d{4})\b/);
-					if(yearMatch){
-						const year = parseInt(yearMatch[1], 10);
-                        const conferenceDateObj = new Date(year, 0); // Assume January 1st if no month given
-
-						if(conferenceDateObj > now)
-                        {
-                            targetTableBody = tableBodyPastFuture;
-                            pastDeadlinesFutureDatesCount++;
-                        }
-						else{
-							targetTableBody = tableBodyPastPast;
-                            pastDeadlinesPastDatesCount++;
-						}
-					}
-					else{
-						targetTableBody = tableBodyPastPast;
+                    	targetTableBody = tableBodyFuture;
+                    	futureDeadlinesCount++;
+                } 
+		else if (deadline instanceof Date && deadline <= now && conferenceDate instanceof Date && conferenceDate > now) {
+			targetTableBody = tableBodyPastPast;
                         pastDeadlinesPastDatesCount++;
-					}
                 }
-				else {
-                    targetTableBody = tableBodyPastPast;  // Default: Past deadlines, past dates
-                    pastDeadlinesPastDatesCount++;
+		else {
+                    	targetTableBody = tableBodyPastPast;  // Default: Past deadlines, past dates
+                    	pastDeadlinesPastDatesCount++;
                 }
 
 
@@ -260,8 +243,9 @@
                 if (colIdToIndex["C"] !== undefined) tr.appendChild(createTd(formatDate(getCell("C"))));  // Deadline
                 if (colIdToIndex["D"] !== undefined) tr.appendChild(createTd(formatDate(getCell("D"))));    // Abstract
                 if (colIdToIndex["E"] !== undefined) tr.appendChild(createTd(formatDate(getCell("E")))); // Notification
-                if (colIdToIndex["F"] !== undefined) tr.appendChild(createTd(formatDate(getCell("F")))); // Date
-                if (colIdToIndex["G"] !== undefined) tr.appendChild(createTd(getCell("G")));  // Comments
+                if (colIdToIndex["F"] !== undefined) tr.appendChild(createTd(formatDate(getCell("F")))); // Start Date                
+		if (colIdToIndex["G"] !== undefined) tr.appendChild(createTd(formatDate(getCell("G")))); // End Date
+                if (colIdToIndex["H"] !== undefined) tr.appendChild(createTd(getCell("H")));  // Comments
 
                 targetTableBody.appendChild(tr); // Add the row to the correct table
             });
