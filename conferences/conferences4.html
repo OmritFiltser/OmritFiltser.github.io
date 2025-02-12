@@ -159,6 +159,7 @@
             const headerRowPastFuture = document.querySelector("#pastDeadlinesFutureDatesTable thead tr");
             const headerRowPastPast = document.querySelector("#pastDeadlinesPastDatesTable thead tr");
 
+            <!--
 	     headers.forEach(header => {
                 const th = document.createElement("th");
                 th.textContent = header;
@@ -166,7 +167,43 @@
                 // Clone the header for the other tables
                 headerRowPastFuture.appendChild(th.cloneNode(true));
                 headerRowPastPast.appendChild(th.cloneNode(true));
-            });
+            });-->
+	
+		const th1 = document.createElement("th");
+                th1.textContent = "Conference";
+                headerRowFuture.appendChild(th1);
+                headerRowPastFuture.appendChild(th1.cloneNode(true));
+                headerRowPastPast.appendChild(th1.cloneNode(true));
+
+		const th2 = document.createElement("th");
+                th2.textContent = "Location";
+                headerRowFuture.appendChild(th2);
+                headerRowPastFuture.appendChild(th2.cloneNode(true));
+                headerRowPastPast.appendChild(th2.cloneNode(true));
+
+		const th3 = document.createElement("th");
+                th3.textContent = "Deadline";
+                headerRowFuture.appendChild(th3);
+                headerRowPastFuture.appendChild(th3.cloneNode(true));
+                headerRowPastPast.appendChild(th3.cloneNode(true));
+
+		const th4 = document.createElement("th");
+                th4.textContent = "Notification";
+                headerRowFuture.appendChild(th4);
+                headerRowPastFuture.appendChild(th4.cloneNode(true));
+                headerRowPastPast.appendChild(th4.cloneNode(true));
+
+		const th5 = document.createElement("th");
+                th5.textContent = "Date";
+                headerRowFuture.appendChild(th5);
+                headerRowPastFuture.appendChild(th5.cloneNode(true));
+                headerRowPastPast.appendChild(th5.cloneNode(true));
+
+		const th6 = document.createElement("th");
+                th6.textContent = "Comments";
+                headerRowFuture.appendChild(th6);
+                headerRowPastFuture.appendChild(th6.cloneNode(true));
+                headerRowPastPast.appendChild(th6.cloneNode(true));
 
             // --- Populate table BODIES (separately) ---
             const tableBodyFuture = document.querySelector("#futureDeadlinesTable tbody");
@@ -208,8 +245,8 @@
                     	futureDeadlinesCount++;
                 } 
 		else if (deadline instanceof Date && deadline <= now && conferenceDate instanceof Date && conferenceDate > now) {
-			targetTableBody = tableBodyPastPast;
-                        pastDeadlinesPastDatesCount++;
+			targetTableBody = tableBodyPastFuture;
+                        pastDeadlinesFutureDatesCount++;
                 }
 		else {
                     	targetTableBody = tableBodyPastPast;  // Default: Past deadlines, past dates
@@ -239,11 +276,9 @@
                 if (colIdToIndex["B"] !== undefined) tr.appendChild(createTd(getCell("B"))); // Location
 
                 // Format dates consistently
-                if (colIdToIndex["C"] !== undefined) tr.appendChild(createTd(formatDate(getCell("C"))));  // Deadline
-                if (colIdToIndex["D"] !== undefined) tr.appendChild(createTd(formatDate(getCell("D"))));    // Abstract
+                if (colIdToIndex["C"] !== undefined && colIdToIndex["D"] !== undefined) tr.appendChild(createTd(formatDateRange(getCell("C"),getCell("D"))));    // Abstract and Deadline
                 if (colIdToIndex["E"] !== undefined) tr.appendChild(createTd(formatDate(getCell("E")))); // Notification
-                if (colIdToIndex["F"] !== undefined) tr.appendChild(createTd(formatDate(getCell("F")))); // Start Date                
-		if (colIdToIndex["G"] !== undefined) tr.appendChild(createTd(formatDate(getCell("G")))); // End Date
+                if (colIdToIndex["F"] !== undefined && colIdToIndex["G"] !== undefined) tr.appendChild(createTd(formatDateRange(getCell("F"),getCell("G")))); // Start and End Date
                 if (colIdToIndex["H"] !== undefined) tr.appendChild(createTd(getCell("H")));  // Comments
 
                 targetTableBody.appendChild(tr); // Add the row to the correct table
@@ -291,6 +326,33 @@
 
             return `${day}-${month}-${year}`;
         }
+
+// NEW: Helper function to format a rage of dates
+        function formatDateRange(date1,date2) {
+            if (!(date1 instanceof Date)) {
+                return date1; // Return original if not a date
+            }
+            if (!(date2 instanceof Date)) {
+                return formatDate(date1);
+            }
+
+            const day1 = String(date1.getDate()).padStart(2, '0');
+            const month1 = date1.toLocaleString('default', { month: 'short' }); // Get short month name
+            const year1 = date1.getFullYear();
+
+            const day2 = String(date2.getDate()).padStart(2, '0');
+            const month2 = date2.toLocaleString('default', { month: 'short' }); // Get short month name
+            const year2 = date2.getFullYear();
+
+		if (month1==month2){
+			return `${day1}/${day2}-${month1}-${year1}`;
+		}
+		if (year1==year2){
+            		return `${day1}-${month1}/${day2}-${month2}-${year1}`;
+        	}
+		return `${day1}-${month1}-${year1}/${day2}-${month2}-${year2}`;
+	}
+
 
     // Handles the "/*O_o*/" prefix.
     function parseGoogleSheetsJSONP(text) {
