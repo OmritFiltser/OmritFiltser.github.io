@@ -245,8 +245,8 @@
                     	futureDeadlinesCount++;
                 } 
 		else if (deadline instanceof Date && deadline <= now && conferenceDate instanceof Date && conferenceDate > now) {
-			targetTableBody = tableBodyPastPast;
-                        pastDeadlinesPastDatesCount++;
+			targetTableBody = tableBodyPastFuture;
+                        pastDeadlinesFutureDatesCount++;
                 }
 		else {
                     	targetTableBody = tableBodyPastPast;  // Default: Past deadlines, past dates
@@ -278,8 +278,7 @@
                 // Format dates consistently
                 if (colIdToIndex["C"] !== undefined && colIdToIndex["D"] !== undefined) tr.appendChild(createTd(formatDateRange(getCell("C"),getCell("D"))));    // Abstract and Deadline
                 if (colIdToIndex["E"] !== undefined) tr.appendChild(createTd(formatDate(getCell("E")))); // Notification
-                if (colIdToIndex["F"] !== undefined) tr.appendChild(createTd(formatDate(getCell("F")))); // Start Date                
-		if (colIdToIndex["G"] !== undefined) tr.appendChild(createTd(formatDate(getCell("G")))); // End Date
+                if (colIdToIndex["F"] !== undefined && colIdToIndex["G"] !== undefined) tr.appendChild(createTd(formatDateRange(getCell("F"),getCell("G")))); // Start and End Date
                 if (colIdToIndex["H"] !== undefined) tr.appendChild(createTd(getCell("H")));  // Comments
 
                 targetTableBody.appendChild(tr); // Add the row to the correct table
