@@ -223,11 +223,11 @@
                // Event (with link from name)
                 const eventTd = document.createElement("td");
                 const eventName = getCell("A");
-                const colIndexH = colIdToIndex["H"];
+                const colIndexI = colIdToIndex["I"];
 
-                if (colIndexH !== undefined && row.c[colIndexH] && row.c[colIndexH].v && row.c[colIndexH].v.startsWith("http")) {
+                if (colIndexI !== undefined && row.c[colIndexI] && row.c[colIndexI].v && row.c[colIndexI].v.startsWith("http")) {
                     const a = document.createElement("a");
-                     a.href =  row.c[colIndexH].v; // Use the RAW value for the URL
+                     a.href =  row.c[colIndexI].v; // Use the RAW value for the URL
                     a.textContent = eventName;
                     a.target = "_blank";
                     eventTd.appendChild(a);
