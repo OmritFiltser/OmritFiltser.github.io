@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Computational Geometry Conferences</title>
     <style>
-    /* ... (same styles as before, plus a bit extra) ... */
     body { font-family: sans-serif; margin: 20px; }
     h1 { text-align: center; margin-bottom: 20px; }
     h2 { margin-top: 30px; margin-bottom: 10px; } /* For section headings */
@@ -16,6 +15,8 @@
     a { color: blue; text-decoration: none; }
     a:hover { text-decoration: underline; }
     .loading { text-align: center; font-style: italic; }
+    .hidden { display: none; } /* Class for hiding elements */
+
 
     @media (max-width: 768px) {
         table { font-size: 14px; }
@@ -32,19 +33,19 @@
 
     <p class="loading">Loading conference data...</p>
 
-    <h2>Future Deadlines</h2>
+    <h2 id="futureDeadlinesHeader">Future Deadlines</h2>
     <table id="futureDeadlinesTable">
         <thead><tr></tr></thead>
         <tbody></tbody>
     </table>
 
-    <h2>Past Deadlines, Future Dates</h2>
+    <h2 id="pastDeadlinesFutureDatesHeader">Past Deadlines, Future Dates</h2>
     <table id="pastDeadlinesFutureDatesTable">
         <thead><tr></tr></thead>
         <tbody></tbody>
     </table>
 
-    <h2>Past Deadlines, Past Dates</h2>
+    <h2 id="pastDeadlinesPastDatesHeader">Past Deadlines, Past Dates</h2>
     <table id="pastDeadlinesPastDatesTable">
         <thead><tr></tr></thead>
         <tbody></tbody>
@@ -52,8 +53,8 @@
 
     <script>
     async function fetchAndDisplayConferences() {
-        const sheetId = "11Jggxd8R_U6fuJaeA1CJVpLK5R63ikHYlbaT2eF9B0A";
-        const gid = '0';
+        const sheetId = "11Jggxd8R_U6fuJaeA1CJVpLK5R63ikHYlbaT2eF9B0A";  // Replace with your Sheet ID
+        const gid = '0'; // Replace with your Sheet's GID
         const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&gid=${gid}`;
 
         try {
@@ -90,10 +91,15 @@
                 headerRowPastPast.appendChild(th.cloneNode(true));
             });
 
+
             // --- Populate table BODIES (separately) ---
             const tableBodyFuture = document.querySelector("#futureDeadlinesTable tbody");
             const tableBodyPastFuture = document.querySelector("#pastDeadlinesFutureDatesTable tbody");
             const tableBodyPastPast = document.querySelector("#pastDeadlinesPastDatesTable tbody");
+            let futureDeadlinesCount = 0;
+            let pastDeadlinesFutureDatesCount = 0;
+            let pastDeadlinesPastDatesCount = 0;
+
 
             tableData.rows.forEach(row => {
 
@@ -123,6 +129,7 @@
 
                 if (deadline instanceof Date && deadline > now) {
                     targetTableBody = tableBodyFuture;
+                    futureDeadlinesCount++;
                 } else if (deadline instanceof Date && deadline <= now && conferenceDate && typeof conferenceDate === "string")
                 {
                     const yearMatch = conferenceDate.match(/\b(\d{4})\b/);
@@ -133,18 +140,23 @@
 						if(conferenceDateObj > now)
                         {
                             targetTableBody = tableBodyPastFuture;
+                            pastDeadlinesFutureDatesCount++;
                         }
 						else{
 							targetTableBody = tableBodyPastPast;
+                            pastDeadlinesPastDatesCount++;
 						}
 					}
 					else{
 						targetTableBody = tableBodyPastPast;
+                        pastDeadlinesPastDatesCount++;
 					}
                 }
 				else {
                     targetTableBody = tableBodyPastPast;  // Default: Past deadlines, past dates
+                    pastDeadlinesPastDatesCount++;
                 }
+
 
                 // --- Create the table row ---
                 const tr = document.createElement("tr");
@@ -173,8 +185,22 @@
                 if (colIdToIndex["G"] !== undefined) tr.appendChild(createTd(getCell("G")));  // Comments
 
                 targetTableBody.appendChild(tr); // Add the row to the correct table
-
             });
+
+            // Check if tables are empty and hide them along with headers
+            if (futureDeadlinesCount === 0) {
+                document.getElementById("futureDeadlinesTable").classList.add("hidden");
+                document.getElementById("futureDeadlinesHeader").classList.add("hidden");
+            }
+            if (pastDeadlinesFutureDatesCount === 0) {
+                document.getElementById("pastDeadlinesFutureDatesTable").classList.add("hidden");
+                document.getElementById("pastDeadlinesFutureDatesHeader").classList.add("hidden");
+            }
+             if (pastDeadlinesPastDatesCount === 0) {
+                document.getElementById("pastDeadlinesPastDatesTable").classList.add("hidden");
+                document.getElementById("pastDeadlinesPastDatesHeader").classList.add("hidden");
+            }
+
 
             document.querySelector(".loading").style.display = "none";
 
