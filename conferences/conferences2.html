@@ -53,8 +53,8 @@
 
     <script>
     async function fetchAndDisplayConferences() {
-        const sheetId = "11Jggxd8R_U6fuJaeA1CJVpLK5R63ikHYlbaT2eF9B0A";  // Replace with your Sheet ID
-        const gid = '0'; // Replace with your Sheet's GID
+        const sheetId = "11Jggxd8R_U6fuJaeA1CJVpLK5R63ikHYlbaT2eF9B0A";
+        const gid = '0';
         const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&gid=${gid}`;
 
         try {
@@ -178,10 +178,12 @@
 
                 // Other columns
                 if (colIdToIndex["B"] !== undefined) tr.appendChild(createTd(getCell("B"))); // Location
-                if (colIdToIndex["C"] !== undefined) tr.appendChild(createTd(getCell("C") instanceof Date ? getCell("C").toLocaleDateString() : getCell("C"))); // Deadline
-                if (colIdToIndex["D"] !== undefined) tr.appendChild(createTd(getCell("D") instanceof Date ? getCell("D").toLocaleDateString() : getCell("D")));  // Abstract
-                if (colIdToIndex["E"] !== undefined) tr.appendChild(createTd(getCell("E") instanceof Date ? getCell("E").toLocaleDateString() : getCell("E")));  // Notification
-                if (colIdToIndex["F"] !== undefined) tr.appendChild(createTd(getCell("F"))); // Date
+
+                // Format dates consistently
+                if (colIdToIndex["C"] !== undefined) tr.appendChild(createTd(formatDate(getCell("C"))));  // Deadline
+                if (colIdToIndex["D"] !== undefined) tr.appendChild(createTd(formatDate(getCell("D"))));    // Abstract
+                if (colIdToIndex["E"] !== undefined) tr.appendChild(createTd(formatDate(getCell("E")))); // Notification
+                if (colIdToIndex["F"] !== undefined) tr.appendChild(createTd(formatDate(getCell("F")))); // Date
                 if (colIdToIndex["G"] !== undefined) tr.appendChild(createTd(getCell("G")));  // Comments
 
                 targetTableBody.appendChild(tr); // Add the row to the correct table
@@ -216,6 +218,19 @@
 		td.textContent = content || ""; // Ensure content is not null/undefined
 		return td;
 	}
+
+    // NEW: Helper function to format dates as DD-Mon-YYYY
+        function formatDate(date) {
+            if (!(date instanceof Date)) {
+                return date; // Return original if not a date
+            }
+
+            const day = String(date.getDate()).padStart(2, '0');
+            const month = date.toLocaleString('default', { month: 'short' }); // Get short month name
+            const year = date.getFullYear();
+
+            return `${day}-${month}-${year}`;
+        }
 
     // Handles the "/*O_o*/" prefix.
     function parseGoogleSheetsJSONP(text) {
