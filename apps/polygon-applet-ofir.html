@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Polygon Covering Tool</title>
+  <style>
+    /* Modern, clean UI styles */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f7f7f7;
+      color: #333;
+      /* Prevent page scrolling */
+      overflow: hidden;
+    }
+    #toolbar {
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      flex-wrap: wrap;
+    }
+    #toolbar label {
+      font-size: 14px;
+    }
+    button {
+      background: #007BFF;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    input[type="color"],
+    select,
+    input[type="checkbox"] {
+      margin-left: 5px;
+      cursor: pointer;
+    }
+    /* Container holds sidebar and canvas */
+    #container {
+      display: flex;
+      height: calc(100vh - 70px); /* subtract toolbar height */
+    }
+    #sidebar {
+      width: 300px; /* enlarged sidebar */
+      background: #fff;
+      padding: 10px;
+      border-right: 1px solid #ddd;
+      box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+      overflow-y: auto;
+    }
+    #sidebar h3 {
+      margin-top: 0;
+      font-size: 18px;
+      text-align: center;
+    }
+    #objectList {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    #objectList li {
+      padding: 8px;
+      margin-bottom: 5px;
+      cursor: pointer;
+      border-left: 5px solid transparent;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+    #objectList li.selected {
+      background: #e0e0e0;
+    }
+    /* Make list items draggable */
+    #objectList li.dragging {
+      opacity: 0.5;
+    }
+    #canvasContainer {
+      flex: 1;
+      overflow: auto; /* canvas container scrolls */
+      background-color: #ddd;
+      padding: 10px;
+    }
+    /* High-quality canvas */
+    #canvas {
+      background-color: #fff;
+      display: block;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    /* Hide file input */
+    #loadInput {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="toolbar">
+    <button id="newObjectBtn">New Object</button>
+    <button id="deleteVertexBtn">Delete Vertex</button>
+    <button id="deleteObjectBtn">Delete Object</button>
+    <button id="saveJSONBtn">Save JSON</button>
+    <button id="loadJSONBtn">Load JSON</button>
+    <button id="copyImageBtn">Copy Image</button>
+    <label for="colorPicker">Color:</label>
+    <input type="color" id="colorPicker" value="#ff0000">
+    <label>
+      Mode:
+      <select id="modeSelect">
+        <option value="polygon">Polygon</option>
+        <option value="path">Path</option>
+      </select>
+    </label>
+    <label>
+      Transparent Fill:
+      <input type="checkbox" id="transparentFill">
+    </label>
+    <!-- Hidden file input for JSON loading -->
+    <input type="file" id="loadInput" accept=".json">
+  </div>
+  <div id="container">
+    <div id="sidebar">
+      <h3>Shapes</h3>
+      <ul id="objectList"></ul>
+    </div>
+    <div id="canvasContainer">
+      <!-- Larger canvas (1600x1200) -->
+      <canvas id="canvas" width="1600" height="1200"></canvas>
+    </div>
+  </div>
+  
+  <script>
+    // High-quality canvas setup.
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const dpr = window.devicePixelRatio || 1;
+    const canvasWidth = 1600, canvasHeight = 1200;
+    canvas.width = canvasWidth * dpr;
+    canvas.height = canvasHeight * dpr;
+    canvas.style.width = canvasWidth + "px";
+    canvas.style.height = canvasHeight + "px";
+    ctx.scale(dpr, dpr);
+    
+    // Grid and snapping settings.
+    const gridSize = 20;
+    const snapDistance = 10;
+    
+    // Shapes and selection state.
+    let shapes = [];
+    let currentShape = null;      // Currently selected or drawing shape.
+    let selectedVertexIndex = null; // Index of selected vertex (if any).
+    let isDragging = false;
+    let dragIndex = -1;
+    
+    // Undo/Redo stacks.
+    let undoStack = [];
+    let redoStack = [];
+    
+    // Unique shape counter.
+    let shapeCounter = 1;
+    
+    function saveState() {
+      undoStack.push(JSON.stringify(shapes));
+      redoStack = [];
+    }
+    
+    function undo() {
+      if (undoStack.length > 0) {
+        redoStack.push(JSON.stringify(shapes));
+        const state = undoStack.pop();
+        shapes = JSON.parse(state);
+        currentShape = null;
+        selectedVertexIndex = null;
+        redraw();
+      }
+    }
+    
+    function redo() {
+      if (redoStack.length > 0) {
+        undoStack.push(JSON.stringify(shapes));
+        const state = redoStack.pop();
+        shapes = JSON.parse(state);
+        currentShape = null;
+        selectedVertexIndex = null;
+        redraw();
+      }
+    }
+    
+    // Draw grid lines.
+    function drawGrid() {
+      ctx.strokeStyle = '#eee';
+      ctx.lineWidth = 1;
+      for (let x = 0; x <= canvasWidth; x += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, canvasHeight);
+        ctx.stroke();
+      }
+      for (let y = 0; y <= canvasHeight; y += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(canvasWidth, y);
+        ctx.stroke();
+      }
+    }
+    
+    // Compute bounding box.
+    function getBounds(vertices) {
+      let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+      vertices.forEach(pt => {
+        if (pt.x < minX) minX = pt.x;
+        if (pt.y < minY) minY = pt.y;
+        if (pt.x > maxX) maxX = pt.x;
+        if (pt.y > maxY) maxY = pt.y;
+      });
+      return { minX, minY, maxX, maxY };
+    }
+    
+    // Distance and projection from a point to a segment.
+    function pointToSegmentDistance(px, py, x1, y1, x2, y2) {
+      const A = px - x1, B = py - y1, C = x2 - x1, D = y2 - y1;
+      const dot = A * C + B * D;
+      const len_sq = C * C + D * D;
+      let param = (len_sq !== 0) ? dot / len_sq : -1;
+      let xx, yy;
+      if (param < 0) { xx = x1; yy = y1; }
+      else if (param > 1) { xx = x2; yy = y2; }
+      else { xx = x1 + param * C; yy = y1 + param * D; }
+      const dx = px - xx, dy = py - yy;
+      return { distance: Math.hypot(dx, dy), snapPoint: { x: xx, y: yy } };
+    }
+    
+    // Snap the given point.
+    function getSnappedPoint(x, y) {
+      let bestPoint = { x, y };
+      let bestDist = Infinity;
+      
+      // Snap to grid.
+      const gridX = Math.round(x / gridSize) * gridSize;
+      const gridY = Math.round(y / gridSize) * gridSize;
+      let d = Math.hypot(x - gridX, y - gridY);
+      if (d < snapDistance && d < bestDist) {
+        bestDist = d;
+        bestPoint = { x: gridX, y: gridY };
+      }
+      
+      // Snap to vertices.
+      shapes.forEach(shape => {
+        shape.vertices.forEach(pt => {
+          d = Math.hypot(x - pt.x, y - pt.y);
+          if (d < snapDistance && d < bestDist) {
+            bestDist = d;
+            bestPoint = { x: pt.x, y: pt.y };
+          }
+        });
+      });
+      
+      // Snap to boundaries.
+      shapes.forEach(shape => {
+        for (let i = 0; i < shape.vertices.length - 1; i++) {
+          const ptA = shape.vertices[i];
+          const ptB = shape.vertices[i+1];
+          const result = pointToSegmentDistance(x, y, ptA.x, ptA.y, ptB.x, ptB.y);
+          if (result.distance < snapDistance && result.distance < bestDist) {
+            bestDist = result.distance;
+            bestPoint = result.snapPoint;
+          }
+        }
+        if (shape.type === 'polygon' && shape.vertices.length > 2) {
+          const ptA = shape.vertices[shape.vertices.length - 1];
+          const ptB = shape.vertices[0];
+          const result = pointToSegmentDistance(x, y, ptA.x, ptA.y, ptB.x, ptB.y);
+          if (result.distance < snapDistance && result.distance < bestDist) {
+            bestDist = result.distance;
+            bestPoint = result.snapPoint;
+          }
+        }
+      });
+      
+      return bestPoint;
+    }
+    
+    // Find vertex at a given point, optionally within a target shape.
+    function findVertexAt(x, y, targetShape = null) {
+      const shapesToCheck = targetShape ? [targetShape] : shapes;
+      for (let shape of shapesToCheck) {
+        for (let i = 0; i < shape.vertices.length; i++) {
+          const pt = shape.vertices[i];
+          if (Math.hypot(x - pt.x, y - pt.y) < snapDistance) {
+            return { shape, index: i };
+          }
+        }
+      }
+      return null;
+    }
+    
+    // Find shape at a given point.
+    function findShapeAt(x, y) {
+      for (let shape of shapes) {
+        for (let i = 0; i < shape.vertices.length - 1; i++) {
+          const ptA = shape.vertices[i];
+          const ptB = shape.vertices[i+1];
+          const { distance } = pointToSegmentDistance(x, y, ptA.x, ptA.y, ptB.x, ptB.y);
+          if (distance < snapDistance) {
+            return { shape, index: null };
+          }
+        }
+        if (shape.type === 'polygon' && shape.vertices.length > 2) {
+          const ptA = shape.vertices[shape.vertices.length - 1];
+          const ptB = shape.vertices[0];
+          const { distance } = pointToSegmentDistance(x, y, ptA.x, ptA.y, ptB.x, ptB.y);
+          if (distance < snapDistance) {
+            return { shape, index: null };
+          }
+          if (pointInPolygon({ x, y }, shape.vertices)) {
+            return { shape, index: null };
+          }
+        }
+      }
+      return null;
+    }
+    
+    // Check if point is inside polygon.
+    function pointInPolygon(point, vertices) {
+      let inside = false;
+      for (let i = 0, j = vertices.length - 1; i < vertices.length; j = i++) {
+        const xi = vertices[i].x, yi = vertices[i].y;
+        const xj = vertices[j].x, yj = vertices[j].y;
+        const intersect = ((yi > point.y) !== (yj > point.y)) &&
+                          (point.x < (xj - xi) * (point.y - yi) / (yj - yi) + xi);
+        if (intersect) inside = !inside;
+      }
+      return inside;
+    }
+    
+    // Update the selected object's color based on toolbar controls.
+    function updateSelectedObjectColor() {
+      if (currentShape) {
+        const color = document.getElementById('colorPicker').value;
+        const transparent = document.getElementById('transparentFill').checked;
+        currentShape.strokeColor = color;
+        if (currentShape.type === 'polygon') {
+          currentShape.fillColor = transparent ? 'transparent' : color + '33';
+        }
+        redraw();
+      }
+    }
+    
+    // Draw shapes without overriding user-set colors.
+    function drawShapes() {
+      shapes.forEach(shape => {
+        const strokeColor = shape.strokeColor;
+        const fillColor = shape.fillColor;
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = strokeColor;
+        ctx.fillStyle = fillColor;
+        ctx.beginPath();
+        shape.vertices.forEach((pt, i) => {
+          if (i === 0) ctx.moveTo(pt.x, pt.y);
+          else ctx.lineTo(pt.x, pt.y);
+        });
+        if (shape.type === 'polygon' && shape.vertices.length > 2) {
+          ctx.closePath();
+          ctx.fill();
+        }
+        ctx.stroke();
+        
+        // Draw vertices.
+        shape.vertices.forEach((pt, i) => {
+          ctx.beginPath();
+          ctx.arc(pt.x, pt.y, (currentShape && currentShape.id === shape.id ? 6 : 4), 0, 2 * Math.PI);
+          ctx.fillStyle = (currentShape && currentShape.id === shape.id && selectedVertexIndex === i) ? 'yellow' : '#fff';
+          ctx.fill();
+          ctx.strokeStyle = strokeColor;
+          ctx.stroke();
+        });
+        
+        // Draw dashed bounding box for selected object.
+        if (currentShape && currentShape.id === shape.id) {
+          const bounds = getBounds(shape.vertices);
+          ctx.strokeStyle = 'gray';
+          ctx.lineWidth = 1;
+          ctx.setLineDash([5, 3]);
+          ctx.strokeRect(bounds.minX, bounds.minY, bounds.maxX - bounds.minX, bounds.maxY - bounds.minY);
+          ctx.setLineDash([]);
+        }
+      });
+    }
+    
+    // Update the sidebar list with all shapes and enable drag-and-drop reordering.
+    function updateObjectList() {
+      const list = document.getElementById('objectList');
+      list.innerHTML = '';
+      shapes.forEach((shape, index) => {
+        const li = document.createElement('li');
+        li.setAttribute("draggable", "true");
+        li.dataset.shapeId = shape.id;
+        li.textContent = (shape.type === 'polygon' ? 'Polygon ' : 'Path ') + shape.id;
+        li.style.borderLeftColor = shape.strokeColor;
+        if (currentShape && currentShape.id === shape.id) {
+          li.classList.add('selected');
+        }
+        // Drag events.
+        li.addEventListener("dragstart", (e) => {
+          li.classList.add("dragging");
+          e.dataTransfer.setData("text/plain", shape.id);
+        });
+        li.addEventListener("dragend", () => {
+          li.classList.remove("dragging");
+        });
+        li.addEventListener("dragover", (e) => {
+          e.preventDefault();
+        });
+        li.addEventListener("drop", (e) => {
+          e.preventDefault();
+          const draggedId = parseInt(e.dataTransfer.getData("text/plain"));
+          const targetId = parseInt(li.dataset.shapeId);
+          const draggedIndex = shapes.findIndex(s => s.id === draggedId);
+          const targetIndex = shapes.findIndex(s => s.id === targetId);
+          if (draggedIndex === -1 || targetIndex === -1) return;
+          // Remove dragged shape.
+          const [draggedShape] = shapes.splice(draggedIndex, 1);
+          // Insert it at the target index.
+          shapes.splice(targetIndex, 0, draggedShape);
+          redraw();
+        });
+        li.addEventListener("click", () => {
+          currentShape = shape;
+          selectedVertexIndex = null;
+          redraw();
+        });
+        list.appendChild(li);
+      });
+    }
+    
+    function redraw() {
+      ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+      drawGrid();
+      drawShapes();
+      updateObjectList();
+    }
+    
+    // --- JSON Save/Load & Image Copy Functions ---
+    function saveJSON() {
+      const data = JSON.stringify(shapes, null, 2);
+      const blob = new Blob([data], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "polygon_work.json";
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+    
+    function copyImage() {
+      canvas.toBlob(blob => {
+        const item = new ClipboardItem({ "image/png": blob });
+        navigator.clipboard.write([item]).then(() => {
+          alert("Image copied to clipboard!");
+        }).catch(err => {
+          alert("Error copying image: " + err);
+        });
+      });
+    }
+    
+    // --- Mouse Events ---
+    canvas.addEventListener('mousedown', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      let x = e.clientX - rect.left;
+      let y = e.clientY - rect.top;
+      const snapped = getSnappedPoint(x, y);
+      x = snapped.x;
+      y = snapped.y;
+      
+      // If a shape is active, try to add a new vertex.
+      if (currentShape) {
+        const vertexHit = findVertexAt(x, y, currentShape);
+        if (vertexHit) {
+          selectedVertexIndex = vertexHit.index;
+          isDragging = true;
+          dragIndex = vertexHit.index;
+          saveState();
+          redraw();
+          return;
+        }
+        if (currentShape.vertices.length >= 2) {
+          let vertices = currentShape.vertices;
+          let bestDistance = Infinity, bestSnap = null, insertIndex = -1;
+          let edges = [];
+          if (currentShape.type === 'polygon') {
+            if (currentShape.isDrawing) {
+              for (let i = 0; i < vertices.length - 1; i++) {
+                edges.push([i, i+1]);
+              }
+            } else {
+              for (let i = 0; i < vertices.length; i++) {
+                edges.push([i, (i+1) % vertices.length]);
+              }
+            }
+          } else {
+            for (let i = 0; i < vertices.length - 1; i++) {
+              edges.push([i, i+1]);
+            }
+          }
+          edges.forEach(pair => {
+            const i = pair[0], j = pair[1];
+            const ptA = vertices[i], ptB = vertices[j];
+            const result = pointToSegmentDistance(x, y, ptA.x, ptA.y, ptB.x, ptB.y);
+            if (result.distance < snapDistance && result.distance < bestDistance) {
+              bestDistance = result.distance;
+              bestSnap = result.snapPoint;
+              insertIndex = j;
+            }
+          });
+          if (bestSnap && insertIndex !== -1) {
+            saveState();
+            currentShape.vertices.splice(insertIndex, 0, bestSnap);
+            selectedVertexIndex = insertIndex;
+            redraw();
+            return;
+          }
+        }
+        if (currentShape.isDrawing) {
+          saveState();
+          currentShape.vertices.push({ x, y });
+          selectedVertexIndex = currentShape.vertices.length - 1;
+          redraw();
+          return;
+        }
+      }
+      
+      // If no active shape, attempt selection.
+      const vertexHit = findVertexAt(x, y);
+      if (vertexHit) {
+        currentShape = vertexHit.shape;
+        selectedVertexIndex = vertexHit.index;
+        isDragging = true;
+        dragIndex = vertexHit.index;
+        saveState();
+        redraw();
+        return;
+      }
+      const shapeHit = findShapeAt(x, y);
+      if (shapeHit) {
+        currentShape = shapeHit.shape;
+        selectedVertexIndex = null;
+        redraw();
+        return;
+      }
+      
+      currentShape = null;
+      selectedVertexIndex = null;
+      redraw();
+    });
+    
+    canvas.addEventListener('mousemove', (e) => {
+      if (isDragging && currentShape && selectedVertexIndex !== null) {
+        const rect = canvas.getBoundingClientRect();
+        let x = e.clientX - rect.left;
+        let y = e.clientY - rect.top;
+        const snapped = getSnappedPoint(x, y);
+        currentShape.vertices[selectedVertexIndex] = { x: snapped.x, y: snapped.y };
+        redraw();
+      }
+    });
+    
+    canvas.addEventListener('mouseup', () => {
+      isDragging = false;
+      dragIndex = -1;
+    });
+    
+    // --- Keyboard Events ---
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Delete') {
+        if (currentShape) {
+          if (selectedVertexIndex !== null) {
+            saveState();
+            currentShape.vertices.splice(selectedVertexIndex, 1);
+            selectedVertexIndex = null;
+            if ((currentShape.type === 'polygon' && currentShape.vertices.length < 3) ||
+                (currentShape.type === 'path' && currentShape.vertices.length < 2)) {
+              shapes = shapes.filter(s => s.id !== currentShape.id);
+              currentShape = null;
+            }
+            redraw();
+          } else {
+            saveState();
+            shapes = shapes.filter(s => s.id !== currentShape.id);
+            currentShape = null;
+            redraw();
+          }
+        }
+      }
+      if (e.key === 'Enter') {
+        currentShape = null;
+        selectedVertexIndex = null;
+        redraw();
+      }
+      if (e.ctrlKey && e.key === 'z') {
+        e.preventDefault();
+        undo();
+      }
+      if (e.ctrlKey && e.key === 'y') {
+        e.preventDefault();
+        redo();
+      }
+    });
+    
+    // --- Toolbar Button Events ---
+    document.getElementById('newObjectBtn').addEventListener('click', () => {
+      currentShape = null;
+      selectedVertexIndex = null;
+      const mode = document.getElementById('modeSelect').value;
+      const color = document.getElementById('colorPicker').value;
+      const transparent = document.getElementById('transparentFill').checked;
+      const fillColor = (mode === 'polygon') ? (transparent ? 'transparent' : color + '33') : 'transparent';
+      const newShape = {
+        id: shapeCounter++,
+        type: mode,
+        strokeColor: color,
+        fillColor: fillColor,
+        vertices: [],
+        isDrawing: true
+      };
+      saveState();
+      shapes.push(newShape);
+      currentShape = newShape;
+      redraw();
+    });
+    
+    document.getElementById('deleteVertexBtn').addEventListener('click', () => {
+      if (currentShape && currentShape.vertices.length > 0) {
+        saveState();
+        if (selectedVertexIndex !== null) {
+          currentShape.vertices.splice(selectedVertexIndex, 1);
+          selectedVertexIndex = null;
+        } else {
+          currentShape.vertices.pop();
+        }
+        if ((currentShape.type === 'polygon' && currentShape.vertices.length < 3) ||
+            (currentShape.type === 'path' && currentShape.vertices.length < 2)) {
+          shapes = shapes.filter(s => s.id !== currentShape.id);
+          currentShape = null;
+        }
+        redraw();
+      }
+    });
+    
+    document.getElementById('deleteObjectBtn').addEventListener('click', () => {
+      if (currentShape) {
+        saveState();
+        shapes = shapes.filter(s => s.id !== currentShape.id);
+        currentShape = null;
+        redraw();
+      }
+    });
+    
+    document.getElementById('saveJSONBtn').addEventListener('click', saveJSON);
+    document.getElementById('loadJSONBtn').addEventListener('click', () => {
+      document.getElementById('loadInput').click();
+    });
+    document.getElementById('loadInput').addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        try {
+          shapes = JSON.parse(event.target.result);
+          let maxId = 0;
+          shapes.forEach(shape => {
+            if (shape.id > maxId) maxId = shape.id;
+          });
+          shapeCounter = maxId + 1;
+          currentShape = null;
+          selectedVertexIndex = null;
+          redraw();
+        } catch(err) {
+          alert("Error loading JSON: " + err);
+        }
+      };
+      reader.readAsText(file);
+    });
+    
+    document.getElementById('copyImageBtn').addEventListener('click', copyImage);
+    document.getElementById('colorPicker').addEventListener('input', updateSelectedObjectColor);
+    document.getElementById('transparentFill').addEventListener('change', updateSelectedObjectColor);
+    
+    // Initial draw.
+    redraw();
+  </script>
+</body>
+</html>
