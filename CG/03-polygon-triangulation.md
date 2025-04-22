@@ -40,10 +40,10 @@
 
 #### נסו בעצמכם: מהו האיזור הנראה?
 ביישומון הבא תוכלו לצייר פוליגון, ואז להציב בתוכו נקודות ולראות את האיזור הנראה מהן. 
-ניתן לפתוח את היישומון בדף נפרד ב[קישור הזה](https://omrit.filtser.com/vis-pol-applet.html).
+ניתן לפתוח את היישומון בדף נפרד ב[קישור הזה](https://omrit.filtser.com/apps/vis-pol-applet.html).
 
 <center>
-<embed type="text/html" src="https://omrit.filtser.com/vis-pol-applet.html" width="100%" height="650">
+<embed type="text/html" src="https://omrit.filtser.com/apps/vis-pol-applet.html" width="100%" height="650">
 </center>
 
 
@@ -222,7 +222,8 @@
 
 יהי $P$ פוליגון פשוט בעל n קודקודים. סכום הזוויות הפנימיות של $P$ הוא  $540^\circ$, ולכן יש לו לכל היותר שני קודקודים קעורים (reflex vertices), כלומר קודקודים עם זווית פנימית גדולה מ-$180^\circ$. 
 אם $P$ קמור, או שיש לו קודקוד קעור יחיד, אז ראינו ביחידה 1 שהוא כוכבי. 
-אחרת, אם ל-$P$ יש שני קודקודים קעורים a ו-b, אז הם נמצאים על צלע משותפת (חשבו, מדוע?), ולכן ל-$P$ יש שילוש יחיד שבו שני אלכסונים שמחברים את a ו-b לקודקוד הקמור c שאינו שכן של אף אחד מהם. מכאן שהנקודה c היא מרכז של הפוליגון.
+אחרת, ל-$P$ יש שני קודקודים קעורים a ו-b. אם הם נמצאים על צלע משותפת, אז ל-$P$ יש שילוש יחיד שבו שני אלכסונים מחברים את a ו-b לקודקוד הקמור c שאינו שכן של אף אחד מהם, ונקבל שהנקודה c רואה את כל הפוליגון. 
+אם ל-a ו-b אין צלע משותפת, אז הקטע $\overline{ab}$ בהכרח מוכל ב-$P$ (חישבו, מדוע?), והוא מחלק את $P$ למשולש ולמרובע. למרובע יכולה להיות רק זוית פנימית אחת שגדולה מ-$180^\circ$, והיא יכולה להיות רק באחד מהקודקודים a או b. נניח שהזוית הפנימית ב-a גדולה מהזוית הפנימית ב-b, אז המרובע הוא פוליגון כוכבי שהמרכז שלו ב-a. מכיוון ש-a הוא קודקוד משותף למשלוש ולמרובע, נקבל ש-a רואה את כל הפוליגון.
 </details>
 
 <!-- #### מציאת שילוש. {.unnumbered} -->
@@ -409,7 +410,7 @@ $g(n)=\lfloor n/3\rfloor$
 #### צפו בסרטון הבא: {.unnumbered}
 
 <center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/cIYV1rg3mc8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZVHC6R5R9fI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 
 </iframe>
 </center>

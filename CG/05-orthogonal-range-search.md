@@ -50,7 +50,7 @@
 
 <center>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/17b7i-OTVO8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/bNfS6RtscpU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 
 </iframe>
 
@@ -107,7 +107,7 @@
 
 #### צפו בסרטון הבא: {.unnumbered}
 <center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Aiy7igqoQCQ?si=EmDfmC6mkx1-Vcnb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/lr8poU92_MQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </center>
 
 מבחינת זמן השאילתה, במקרה הגרוע עץ תחומים יעיל הרבה יותר מעץ kd -- זמן השאילתה שלו הוא $O( \log^2 n + k)$ בלבד, לעומת $O( \sqrt{n}+k)$ בעצי kd. שיפור זה מאלץ אותנו לשלם מעט בסיבוכיות המקום -- $O( n \log n)$ לעומת $O( n)$. בסעיף 5.3 בספר הלימוד מתואר האלגוריתם Build2DRangeTree שבונה את העץ, ואלגוריתם השאילתה 2DRangeQuery. קראו בעיון את ניתוח זמן הבנייה, סיבוכיות המקום וזמן השאילתה של עץ תחומים.

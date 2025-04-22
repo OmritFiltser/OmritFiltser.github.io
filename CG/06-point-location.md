@@ -43,9 +43,10 @@
 
 #### צפו בסרטון הבא: {.unnumbered}
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/1ISWNiNI05c?si=DrbWnrZYTK0YMDu8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Gx2veCtl7Fc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 
-</iframe>
+</iframe></center>
 
 #### ענו על השאלה הבאה: {.unnumbered}
 מי ה-$leftp$ של כל אחד מהטרפזים המסומנים באיור?
@@ -162,7 +163,7 @@ TODO
 
 <center>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/3_6Uu1jYBcA?si=dgWhrulyuSIfHmhd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Y5snemax_Ak" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 
 </iframe>
 

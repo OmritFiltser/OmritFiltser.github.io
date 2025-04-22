@@ -302,7 +302,8 @@
 </summary>
 יהי <span class="math inline">\(P\)</span> פוליגון פשוט בעל n קודקודים. סכום הזוויות הפנימיות של <span class="math inline">\(P\)</span> הוא <span class="math inline">\(540^\circ\)</span>, ולכן יש לו לכל היותר שני קודקודים קעורים (reflex vertices), כלומר קודקודים עם זווית פנימית גדולה מ-<span class="math inline">\(180^\circ\)</span>.
 אם <span class="math inline">\(P\)</span> קמור, או שיש לו קודקוד קעור יחיד, אז ראינו ביחידה 1 שהוא כוכבי.
-אחרת, אם ל-<span class="math inline">\(P\)</span> יש שני קודקודים קעורים a ו-b, אז הם נמצאים על צלע משותפת (חשבו, מדוע?), ולכן ל-<span class="math inline">\(P\)</span> יש שילוש יחיד שבו שני אלכסונים שמחברים את a ו-b לקודקוד הקמור c שאינו שכן של אף אחד מהם. מכאן שהנקודה c היא מרכז של הפוליגון.
+אחרת, ל-<span class="math inline">\(P\)</span> יש שני קודקודים קעורים a ו-b. אם הם נמצאים על צלע משותפת, אז ל-<span class="math inline">\(P\)</span> יש שילוש יחיד שבו שני אלכסונים מחברים את a ו-b לקודקוד הקמור c שאינו שכן של אף אחד מהם, ונקבל שהנקודה c רואה את כל הפוליגון.
+אם ל-a ו-b אין צלע משותפת, אז הקטע <span class="math inline">\(\overline{ab}\)</span> בהכרח מוכל ב-<span class="math inline">\(P\)</span> (חישבו, מדוע?), והוא מחלק את <span class="math inline">\(P\)</span> למשולש ולמרובע. למרובע יכולה להיות רק זוית פנימית אחת שגדולה מ-<span class="math inline">\(180^\circ\)</span>, והיא יכולה להיות רק באחד מהקודקודים a או b. נניח שהזוית הפנימית ב-a גדולה מהזוית הפנימית ב-b, אז המרובע הוא פוליגון כוכבי שהמרכז שלו ב-a. מכיוון ש-a הוא קודקוד משותף למשלוש ולמרובע, נקבל ש-a רואה את כל הפוליגון.
 </details><!-- #### מציאת שילוש. {.unnumbered} --><!-- אז אמנם ראינו ששילוש קיים תמיד, אך כדי להשתמש בו נרצה גם להראות אלגוריתם שיודע למצוא שילוש ביעילות. --><!-- ::: rmdwarning --><!-- <img src="images/question.png" align="left" width="10%" style="padding:0px 0px 0px 10px"/> שאלה למחשבה: השתמשו בהוכחות המשפטים המופיעות למעלה, כדי להראות אלגוריתם המוצא שילוש של פוליגון פשוט בעל $n$ קודקודים בזמן $O(n^2)$. --><!-- ::: --><!-- בהמשך נראה אלגוריתם יעיל יותר למציאת שילוש, עם זמן ריצה של $O(n \log n)$, ו-$O(n)$ זיכרון. -->
 </div>
 </div>
@@ -486,7 +487,7 @@
 <h4>צפו בסרטון הבא:<a class="anchor" aria-label="anchor" href="#%D7%A6%D7%A4%D7%95-%D7%91%D7%A1%D7%A8%D7%98%D7%95%D7%9F-%D7%94%D7%91%D7%90-6"><i class="fas fa-link"></i></a>
 </h4>
 <center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/cIYV1rg3mc8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZVHC6R5R9fI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 </iframe>
 </center>
 </div>
@@ -620,7 +621,7 @@ TODO
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p dir="rtl" style="text-align:right;">הספר "<strong>גיאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2024-12-10.</p>
+    <p dir="rtl" style="text-align:right;">הספר "<strong>גיאומטריה חישובית</strong>" נכתב על ידי ד’’ר עומרית פילצר. עדכון אחרון: 2025-04-22.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

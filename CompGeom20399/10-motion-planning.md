@@ -219,7 +219,9 @@ $\mathbb{R}^2\times [0:360)$.
 
 #### צפו בסרטון הבא: {.unnumbered}
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/oKMx8DqELrQ?si=jNtJ7IDoJv2KHOdt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Y_1R3OVMt-o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</center>
 
 #### הגדרה: סכום מינקובסקי {.unnumbered}
 ::: rmdimportant
@@ -398,7 +400,9 @@ $$B=\{v+w\mid v \text{ is a vertex of } \mathcal{P}, w \text{ is a vertex of } \
 
 #### צפו בסרטון הבא: {.unnumbered}
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/K3pqlZLJHBw?si=cJ_DrRbDgpTAyY2Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4Hpjg8nQFZ4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</center>
 
 
 #### מסלול קצר בסביבה עם מכשולים {.unnumbered}

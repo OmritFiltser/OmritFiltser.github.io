@@ -32,7 +32,7 @@
 
 <center>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Ofp5zWt8nTc?si=F0XW4UQFPIZZn5Os" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MK9BL5LapEo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 
 </iframe>
 
@@ -63,11 +63,11 @@
 
 #### נסו בעצמכם! אמנות חזותית באמצעות דיאגרמת וורונוי {.unnumbered}
 
-היישומון הבא מאפשר ליצור יצירות אומנות בעזרת דיאגרמת וורונוי! תוכלו לפתוח אותו בלשונית נפרדת <a href="https://omrit.filtser.com/voronoi-applet.html">בקישור הזה</a>. (על טריאנגולצית דלוני נלמד בהמשך הקורס.)
+היישומון הבא מאפשר ליצור יצירות אומנות בעזרת דיאגרמת וורונוי! תוכלו לפתוח אותו בלשונית נפרדת <a href="https://omrit.filtser.com/apps/voronoi-applet.html">בקישור הזה</a>. (על טריאנגולצית דלוני נלמד בהמשך הקורס.)
 
 <center>
 
-<embed type="text/html" src="https://omrit.filtser.com/voronoi-applet.html" width="100%" height="700">
+<embed type="text/html" src="https://omrit.filtser.com/apps/voronoi-applet.html" width="100%" height="700">
 
 </center>
 <br/>
@@ -238,7 +238,7 @@ k אנשים מחלקים ביניהם עוגה עגולה, באופן הבא. �
 
 <center>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/T4QqrteIy7s?si=CclpxQG3dWJzMQ55" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5vBU9Kl_jbQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 
 </iframe>
 

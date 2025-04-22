@@ -49,7 +49,7 @@
 
 #### צפו בסרטון הבא: {.unnumbered}
 <center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/lX9cyWpP6s0?si=vG2o1v24sPlOFg_l" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/lX9cyWpP6s0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </center>
 
 #### הגדרה: ה-spread של קבוצת נקודות {.unnumbered}
@@ -187,7 +187,7 @@
 
 #### צפו בסרטון הבא: {.unnumbered}
 <center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/zhHTJap2XGw?si=fpgU7nMuSGlIBfx_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zhHTJap2XGw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </center>
 
 #### הגדרה: פירוק לזוגות {.unnumbered}
@@ -304,7 +304,7 @@
 
 #### צפו בסרטון הבא: {.unnumbered}
 <center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/IXq_u-nv0HE?si=oD-nKMjb0AdMZDmF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IXq_u-nv0HE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </center>
 
 

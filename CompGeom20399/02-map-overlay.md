@@ -48,7 +48,7 @@ intersection). בבעיה זו, הקלט הוא אוסף של קטעים במי�
 
 <center>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/x1BxalWtFqk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5qCU9x7uD9E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 
 </iframe>
 
@@ -271,7 +271,7 @@ $\ell$ המכיל את $\overline{pq}$, על ידי חישוב של שתי הד�
 
 <center>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/HuT0R9LRR9M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FTgNX-_Ad24" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 
 </iframe>
 

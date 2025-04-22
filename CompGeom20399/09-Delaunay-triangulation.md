@@ -137,7 +137,9 @@
 
 #### צפו בסרטון הבא: {.unnumbered}
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/OZvbdwovqxU?si=WnAhmzRwX2l4W_Co" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0vyXITw5J38" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</center>
 
 #### קראו את חלקו השני של סעיף 9.1 בספר הלימוד (עמודים 194–195). {.unnumbered}
 שימו לב שבחלק האחרון של הסעיף מוצג אלגוריתם נאיבי לחישוב של שילוש אופטימלי בזוויות, אך אלגוריתם זה אינו יעיל במיוחד. בהמשך נראה אלגוריתמים יעילים יותר לחישוב של שילוש כזה.
@@ -298,7 +300,9 @@ $A_2$
 
 #### צפו בסרטון הבא: {.unnumbered}
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/TBkHTe1iUYg?si=Ro6an4spaBk6PODC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/uvOHwyMyMAg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</center>
 
 
 <img src="images/9/delaunay_def.jpg" align="left" width="25%"/>

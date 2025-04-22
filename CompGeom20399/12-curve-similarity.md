@@ -23,7 +23,7 @@
 
 #### צפו בסרטון הבא: {.unnumbered}
 <center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/0A8OXcnR5Hw?si=bou2tIfZAGY4tPIa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0A8OXcnR5Hw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </center>
 
 
@@ -45,7 +45,7 @@
 
 #### צפו בסרטון הבא: {.unnumbered}
 <center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/So2Q7FTZsKk?si=ryVsT4lzL2dKzb4M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/So2Q7FTZsKk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </center>
 
 
@@ -190,7 +190,7 @@ TODO להוסיף היגדים לא נכונים, או לשנות את פורמ�
 #### צפו בסרטון הבא: {.unnumbered}
 
 <center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/LkbDFcyt2aU?si=oEe4E4k2TMfVZ97e" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/LkbDFcyt2aU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </center>
 
 

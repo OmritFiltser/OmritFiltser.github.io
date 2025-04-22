@@ -190,7 +190,7 @@
 
 <center>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Ou4zdkMlgoI?si=qpbcGcV6AeENuL-s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7NoXMGXNZvY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 
 </iframe>
 
@@ -261,7 +261,7 @@
 
 <center>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/AuoNQrgeHT0?si=EZW3CmU270MloKEa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PRkNBpBVMqc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 
 </iframe>
 
@@ -362,7 +362,7 @@
 
 
 #### מעניין לדעת: כמה קודקודים יש ברמה החציונית? {.unnumbered}
-הרמה ה-$k$-ית של מערך $\mathcal{A}(L)$ של $n$ ישרים במישור היא אוסף הקודקודים של $\mathcal{A}(L)$ שהרמה שלהם היא $k$. כמה קודקודים יש ברמה ה-$n/2$? זוהי בעיה פתוחה. למעשה, ידוע חסם תחתון של $\Omega(n\log n)$ וחסם עליון של $O(n^{3/4})$.
+הרמה ה-$k$-ית של מערך $\mathcal{A}(L)$ של $n$ ישרים במישור היא אוסף הקודקודים של $\mathcal{A}(L)$ שהרמה שלהם היא $k$. כמה קודקודים יש ברמה ה-$n/2$? זוהי בעיה פתוחה. למעשה, ידוע חסם תחתון של $\Omega(n\log n)$ וחסם עליון של $O(n^{4/3})$.
 
 
 ### הכוח של דואליות
