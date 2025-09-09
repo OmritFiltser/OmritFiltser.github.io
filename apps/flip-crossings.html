@@ -24,6 +24,7 @@
   <canvas id="voronoiCanvas" width="500" height="500"></canvas><br>
 
   <button onclick="matchPoints()">Match Points</button>
+  <button onclick="clearSegments()">Clear Segments</button>
   <br>
   <button onclick="fixCrossing()">Fix Crossing</button>
   <button onclick="clearCanvas()">Clear Canvas</button>
@@ -107,6 +108,11 @@
       points = [];
       matchingEdges = [];
       isDrawing = true;
+    }
+	
+    function clearSegments() {
+      matchingEdges = [];
+      redraw();
     }
 
     function redraw() {
