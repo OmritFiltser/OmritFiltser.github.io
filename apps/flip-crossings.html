@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flipping Crossings</title>
+  <style>
+    canvas {
+      border: 1px solid #000;
+    }
+	table {
+	  border-collapse: collapse;
+	}
+
+	th, td {
+	  padding: 8px;
+	  text-align: left;
+	  border-bottom: 1px solid #ddd;
+	}
+  </style>
+</head>
+<body>
+  <h3>Point Generator Applet</h3>
+  <canvas id="voronoiCanvas" width="500" height="500"></canvas><br>
+
+  <button onclick="matchPoints()">Match Points</button>
+  <br>
+  <button onclick="fixCrossing()">Fix Crossing</button>
+  <button onclick="clearCanvas()">Clear Canvas</button>
+  <br><br>
+
+  <label for="randomX">Generate random points (2 × X):</label>
+  <input type="number" id="randomX" value="10" min="1" max="500"/>
+  <button onclick="generateRandomPoints()">Generate Random Points</button>
+
+<p>
+  <h4>Get creative! Generate artistic point patterns:</h4>
+<table>
+  <tr>
+  <td>Points on a Circle:</td>
+  <td>
+  <label for="circlePoints">Number of points:</label>
+  <input type="number" id="circlePoints" value="16" min="1" max="100"/>
+    <label for="circleRadius">Radius of circle:</label>
+  <input type="number" id="circleRadius" value="150" min="1" max="500"/>
+  </td><td>
+  <button onclick="addPointsOnCircle()">Add</button>
+  </td></tr>
+  <tr>
+  <td>Points on a Square:</td>
+  <td>
+    <label for="squarePoints">Number of points on each edge:</label>
+  <input type="number" id="squarePoints" value="5" min="1" max="100"/>
+  <label for="squareSideLength">Edge length:</label>
+  <input type="number" id="squareSideLength" value="100" min="1" max="500"/>
+</td><td>
+  <button onclick="addPointsOnSquare()">Add </button>
+  </td>
+  </tr>
+  <tr>
+    <td>Points on a Grid:</td>
+  <td>
+  <label for="gridSize">Grid Size:</label>
+  <input type="number" id="gridSizeX" value="5"  min="1" max="100"/> by <input type="number" id="gridSizeY" value="5"  min="1" max="100"/>
+  </td><td>
+  <button onclick="addGridPoints()">Add</button>
+  </td>
+  <tr>
+</table>
+
+  <br />
+  <button onclick="saveToFile()">Save Points to File</button>
+  <br/><br/>
+   <input type="file" id="fileInput" accept=".txt" />
+  <button onclick="loadFile()">Load Points from File</button>
+  <br />
+  </p>
+  
+  <script>
+    let points = [];
+    let matchingEdges = [];
+    let canvas = document.getElementById('voronoiCanvas');
+    let ctx = canvas.getContext('2d');
+    let isDrawing = true;
+
+    canvas.addEventListener('mousedown', drawPoint);
+
+    function drawPoint(e) {
+      if (!isDrawing) {
+        alert("Clear the canvas before adding more points"); 
+        return;
+      }
+      let rect = canvas.getBoundingClientRect();
+      let x = e.clientX - rect.left;
+      let y = e.clientY - rect.top;
+
+      points.push({ x, y });
+
+      ctx.fillStyle = '#000';
+      ctx.beginPath();
+      ctx.arc(x, y, 5, 0, 2 * Math.PI);
+      ctx.fill();
+    }
+
+    function clearCanvas() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      points = [];
+      matchingEdges = [];
+      isDrawing = true;
+    }
+
+    function redraw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Draw points
+      ctx.fillStyle = '#000';
+      points.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 5, 0, 2 * Math.PI);
+        ctx.fill();
+      });
+
+      // Draw edges
+      ctx.strokeStyle = "blue";
+      ctx.lineWidth = 2;
+      matchingEdges.forEach(([p1, p2]) => {
+        ctx.beginPath();
+        ctx.moveTo(p1.x, p1.y);
+        ctx.lineTo(p2.x, p2.y);
+        ctx.stroke();
+      });
+    }
+
+    function generateRandomPoints() {
+      const xValue = parseInt(document.getElementById("randomX").value);
+      const totalPoints = 2 * xValue;
+
+      for (let i = 0; i < totalPoints; i++) {
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height;
+        points.push({ x, y });
+      }
+      redraw();
+    }
+
+    function matchPoints() {
+      if (points.length % 2 !== 0) {
+        alert("Number of points must be even to form a perfect matching!");
+        return;
+      }
+
+      // Shuffle copy of points
+      let shuffled = points.slice();
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+
+      matchingEdges = [];
+      for (let i = 0; i < shuffled.length; i += 2) {
+        matchingEdges.push([shuffled[i], shuffled[i + 1]]);
+      }
+      redraw();
+    }
+
+    function segmentsIntersect(p1, p2, q1, q2) {
+      function orient(a, b, c) {
+        return (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x);
+      }
+      let o1 = orient(p1, p2, q1);
+      let o2 = orient(p1, p2, q2);
+      let o3 = orient(q1, q2, p1);
+      let o4 = orient(q1, q2, p2);
+
+      return (o1 * o2 < 0 && o3 * o4 < 0);
+    }
+
+    function f(w, z) {
+      let minX = Math.min(w.x, z.x);
+      let maxX = Math.max(w.x, z.x);
+      return points.filter(p => p !== w && p !== z && p.x > minX && p.x < maxX).length;
+    }
+
+    function fixCrossing() {
+      if (matchingEdges.length === 0) {
+        alert("No matching found!");
+        return;
+      }
+
+      // Find a pair of intersecting segments
+      for (let i = 0; i < matchingEdges.length; i++) {
+        for (let j = i + 1; j < matchingEdges.length; j++) {
+          let [u, v] = matchingEdges[i];
+          let [a, b] = matchingEdges[j];
+          if (u === a || u === b || v === a || v === b) continue; // share endpoint → skip
+          if (segmentsIntersect(u, v, a, b)) {
+            // Remove old edges
+            matchingEdges.splice(j, 1);
+            matchingEdges.splice(i, 1);
+
+            // Decide new pairing
+            let f1 = f(a, v) + f(b, u);
+            let f2 = f(a, u) + f(b, v);
+
+            if (f1 < f2) {
+              matchingEdges.push([a, v]);
+              matchingEdges.push([b, u]);
+            } else {
+              matchingEdges.push([a, u]);
+              matchingEdges.push([b, v]);
+            }
+
+            redraw();
+            return;
+          }
+        }
+      }
+
+      alert("No more crossings!");
+    }
+
+function loadFile() {
+      let fileInput = document.getElementById('fileInput');
+      let file = fileInput.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const content = e.target.result;
+          points = parseFileContent(content);
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.fillStyle = '#000';
+          points.forEach(p => {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 5, 0, 2 * Math.PI);
+            ctx.fill();
+          });
+        };
+        reader.readAsText(file);
+      }
+    }
+
+    function parseFileContent(content) {
+      const lines = content.split('\n');
+      return lines.map(line => {
+        const [x, y] = line.split(' ').map(parseFloat);
+        return { x, y };
+      });
+    }
+
+    function addPointsOnCircle() {
+      const k = parseInt(document.getElementById('circlePoints').value);
+      const radius = parseInt(document.getElementById('circleRadius').value);
+      const centerX = canvas.width / 2;
+      const centerY = canvas.height / 2;
+      const angleIncrement = (2 * Math.PI) / k;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#000';
+      points.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 5, 0, 2 * Math.PI);
+        ctx.fill();
+      });
+      for (let i = 0; i < k; i++) {
+        const angle = i * angleIncrement;
+        const x = centerX + radius * Math.cos(angle);
+        const y = centerY + radius * Math.sin(angle);
+        points.push({ x, y });
+        ctx.beginPath();
+        ctx.arc(x, y, 5, 0, 2 * Math.PI);
+        ctx.fill();
+      }
+    }
+
+    function addPointsOnSquare() {
+      const k = parseInt(document.getElementById('squarePoints').value) * 4;
+      const sideLength = parseInt(document.getElementById('squareSideLength').value);
+      const centerX = canvas.width / 2;
+      const centerY = canvas.height / 2;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#000';
+      points.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 5, 0, 2 * Math.PI);
+        ctx.fill();
+      });
+      for (let i = 0; i < k; i++) {
+        let x, y;
+        if (i < k / 4) {
+          x = centerX - sideLength / 2 + (i / (k / 4)) * sideLength;
+          y = centerY - sideLength / 2;
+        } else if (i < k / 2) {
+          x = centerX + sideLength / 2;
+          y = centerY - sideLength / 2 + ((i - k / 4) / (k / 4)) * sideLength;
+        } else if (i < (3 * k) / 4) {
+          x = centerX + sideLength / 2 - ((i - k / 2) / (k / 4)) * sideLength;
+          y = centerY + sideLength / 2;
+        } else {
+          x = centerX - sideLength / 2;
+          y = centerY + sideLength / 2 - ((i - (3 * k) / 4) / (k / 4)) * sideLength;
+        }
+        points.push({ x, y });
+        ctx.beginPath();
+        ctx.arc(x, y, 5, 0, 2 * Math.PI);
+        ctx.fill();
+      }
+    }
+
+    function addGridPoints() {
+      const n1 = parseInt(document.getElementById('gridSizeX').value);
+      const n2 = parseInt(document.getElementById('gridSizeY').value);
+      const gridSize = Math.min(canvas.width / (n1 + 1), canvas.height / (n2 + 1));
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#000';
+      points.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 5, 0, 2 * Math.PI);
+        ctx.fill();
+      });
+      for (let i = 1; i < n1 + 1; i++) {
+        for (let j = 1; j < n2 + 1; j++) {
+          const x = i * gridSize;
+          const y = j * gridSize;
+          points.push({ x, y });
+          ctx.beginPath();
+          ctx.arc(x, y, 5, 0, 2 * Math.PI);
+          ctx.fill();
+        }
+      }
+}
+
+  </script>
+</body>
+</html>
