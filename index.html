@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <base target="_blank">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Omrit Filtser</title>
@@ -324,20 +325,5 @@ color: #0056b3;
       });
     });
   </script>
-
-<script>
-  // Wait until the page finishes loading
-  document.addEventListener("DOMContentLoaded", function() {
-    // Select all links
-    const links = document.querySelectorAll('a[href]');
-    links.forEach(link => {
-      // Check if link goes to a different domain
-      if (link.hostname && link.hostname !== window.location.hostname) {
-        link.setAttribute('target', '_blank');
-        link.setAttribute('rel', 'noopener noreferrer'); // for security
-      }
-    });
-  });
-</script>
 </body>
 </html>
