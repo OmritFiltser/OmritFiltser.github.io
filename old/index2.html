@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Omrit Filtser</title>
+  <link rel="icon" type="image/x-icon" href="/img/icon.ico" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+	<style>
+			body {
+			}
+	</style>
+	<style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    .navbar-brand {
+      font-weight: 600;
+    }
+
+    .tab-pane {
+      padding: 2rem;
+      background-color: #ffffff;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    p, li {
+      font-size: 0.9rem;
+    }
+
+    img.img-responsive {
+      max-width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: #0056b3;
+    }
+
+    a:hover {
+      color: #003d80;
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 940px;
+    }
+
+/* Secondary tab text color (inactive) */
+#research .nav-tabs .nav-link {
+  color: #444;
+}
+
+/* Secondary tab text color on hover */
+#research .nav-tabs .nav-link:hover {
+  color: #0056b3;
+}
+
+/* Active secondary tab color */
+#research .nav-tabs .nav-link.active {
+  color: #ffffff;
+  background-color: #0056b3;
+  border-color: #dee2e6 #dee2e6 #fff;
+}
+.btn-outline-primary {
+  background-color: #e9ecef;    /* soft light gray background */
+  color: #333;                  /* darker gray text */
+  border: none;                 /* remove border */
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: #d6d8db;    /* slightly darker on hover */
+  color: #000;
+  border: none;
+}
+
+.btn-outline-primary:focus {
+  box-shadow: none;
+  outline: none;
+}
+.btn-outline-primary.active,
+.btn-outline-primary:active {
+  background-color: #ced4da;
+  color: #000;
+}
+
+.navbar-nav .nav-link {
+  background-color: #e9ecef;     /* soft light gray */
+  color: #333;                   /* dark text for contrast */
+  border: none;                 /* removes border */
+  margin-right: 0.5rem;         /* spacing between buttons */
+  border-radius: 0.25rem;       /* rounded corners */
+  padding: 0.5rem 1rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  background-color: #d6d8db;    /* slightly darker gray on hover */
+  color: #000;                  /* darker text on hover */
+}
+
+.navbar-nav .nav-link.active {
+  background-color: #ced4da;    /* active button background */
+  color: #000;
+}
+	</style>
+<style>
+		html,
+		body {
+				height: 100%;
+		}
+		#wrap {
+				min-height: 100%;
+				height: auto !important;
+				height: 100%;
+				margin: 0 auto -30px;
+		}
+		#push,
+		#footer {
+				height: 30px;
+		}
+</style>
+<style>
+    h1.visible {
+      visibility: visible;
+    }
+
+    h1.hidden {
+      visibility: hidden;
+    }
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+  <div class="container">
+    <a class="navbar-brand" href="#">Omrit Filtser (עומרית פילצר)</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <!-- LEFT-aligned buttons styled as regular buttons -->
+      <div class="navbar-nav d-flex flex-row gap-2">
+        <button class="btn btn-outline-primary" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button">Home</button>
+        <button class="btn btn-outline-primary" id="research-tab" data-bs-toggle="tab" data-bs-target="#research" type="button">Research</button>
+        <button class="btn btn-outline-primary" id="teaching-tab" data-bs-toggle="tab" data-bs-target="#teaching" type="button">Teaching</button>
+        <button class="btn btn-outline-primary" id="personal-tab" data-bs-toggle="tab" data-bs-target="#personal" type="button">Personal</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+    <main class="container" style="padding-top: 100px;">
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel">
+          <div w3-include-html="about-me.html"></div>
+        </div>
+        <div class="tab-pane fade" id="research" role="tabpanel">
+          <ul class="nav nav-tabs mt-4">
+            <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#publications">Publications</a></li>
+            <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#videos">Videos</a></li>
+            <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#frechet">Fréchet Distance Library</a></li>
+            <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#apps">Apps</a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane fade show active" id="publications"><div w3-include-html="publications.html"></div></div>
+            <div class="tab-pane fade" id="videos"><div w3-include-html="videos.html"></div></div>
+            <div class="tab-pane fade" id="frechet">
+              <div w3-include-html="lib.html"></div>
+              <hr />
+              <h3>Bibliography</h3>
+              <div id="bib"></div>
+            </div>
+            <div class="tab-pane fade" id="apps"><div w3-include-html="apps.html"></div></div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="teaching" role="tabpanel"><div w3-include-html="teaching.html"></div></div>
+        <div class="tab-pane fade" id="personal" role="tabpanel"><div w3-include-html="personal.html"></div></div>
+      </div>
+      <div id="push"></div>
+    </main>
+  </div>
+
+  <div id="footer">
+    <div class="container" style="color: #777;"><p>&nbsp;</p></div>
+		<h1 class="visible" align="center">
+		
+		<div class="container" style="width: 200px; height: 20px; overflow: hidden">
+			<script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=167&t=tt&d=J_9s5B0MgzU4ysCyLCXvwwiGt4wbZRtYMY18ucksWpc&co=ffffff&cmo=ffffff&cmn=ffffff&ct=000000'></script>
+		</div>
+		</h1>
+		<h1 class="hidden">
+		<a href="http://www.hitwebcounter.com" target="_blank">
+				<img src="http://hitwebcounter.com/counter/counter.php?page=6255329&style=0008&nbdigits=5&type=ip&initCount=0" title="Free track counters" Alt="Free track counters"   border="0" >
+		</a>
+		</h1>
+
+  </div>
+
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <script>
+    function includeHTML(callback) {
+      var z = document.getElementsByTagName("*");
+      var count = 0;
+      for (let i = 0; i < z.length; i++) {
+        let elmnt = z[i];
+        let file = elmnt.getAttribute("w3-include-html");
+        if (file) {
+          count++;
+          let xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function () {
+            if (this.readyState == 4) {
+              if (this.status == 200) elmnt.innerHTML = this.responseText;
+              if (this.status == 404) elmnt.innerHTML = "Page not found.";
+              elmnt.removeAttribute("w3-include-html");
+              count--;
+              if (count === 0 && typeof callback === "function") callback();
+            }
+          };
+          xhttp.open("GET", file, true);
+          xhttp.send();
+        }
+      }
+    }
+
+    includeHTML(function () {
+      $("#bib").load("bib5.html");
+
+      const hash = window.location.hash;
+
+      if (hash) {
+        const secondaryTab = document.querySelector(`a.nav-link[href='${hash}']`);
+        const mainTabButton = document.querySelector(`button[data-bs-target='#research']`);
+
+        if (secondaryTab && mainTabButton) {
+          const researchTab = new bootstrap.Tab(mainTabButton);
+          researchTab.show();
+
+          setTimeout(() => {
+            const innerTab = new bootstrap.Tab(secondaryTab);
+            innerTab.show();
+          }, 100);
+        } else {
+          const mainTab = document.querySelector(`button[data-bs-target='${hash}']`);
+          if (mainTab) {
+            const tab = new bootstrap.Tab(mainTab);
+            tab.show();
+          }
+        }
+      }
+
+      document.querySelectorAll('#myTab button').forEach(tabBtn => {
+        tabBtn.addEventListener('shown.bs.tab', function (event) {
+          const newHash = event.target.getAttribute('data-bs-target');
+          history.replaceState(null, null, newHash);
+        });
+      });
+
+      document.querySelectorAll('#research .nav-link').forEach(subTab => {
+        subTab.addEventListener('shown.bs.tab', function (event) {
+          const href = event.target.getAttribute('href');
+          if (href) {
+            history.replaceState(null, null, href);
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
