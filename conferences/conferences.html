@@ -2,303 +2,353 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Computational Geometry Conferences</title>
     <style>
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* More modern font */
-        margin: 20px;
-        background-color: #f8f9fa; /* Light gray background */
-        color: #333; /* Darker text for better readability */
-    }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        h2 {
+            margin-top: 30px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #ccc;
+        }
+        #future_deadline h2 { color: #007bff; } /* Blue */
+        #future_nodl h2 { color: #ffc107; } /* Yellow */
+        #past h2 { color: #d9534f; } /* Red */
 
-    h1 {
-        text-align: center;
-        margin-bottom: 30px; /* Increased margin */
-        color: #6c757d; /* Muted header color */
-        font-size: 2.5em; /* Larger font size */
-    }
-
-    h2 {
-        margin-top: 40px; /* Increased margin */
-        margin-bottom: 15px; /* Increased margin */
-        color: #007bff; /* Bootstrap primary color */
-        border-bottom: 2px solid #007bff; /* Underline */
-        padding-bottom: 5px;
-        font-size: 1.75em;
-    }
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 15px; /* Increased margin */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-        border-radius: 8px; /* Rounded corners */
-        overflow: hidden; /* Ensures rounded corners work with border-collapse */
-    }
-
-    th, td {
-        border: 1px solid #dee2e6; /* Lighter border color */
-        padding: 12px; /* Increased padding */
-        text-align: left;
-    }
-
-    th {
-        background-color: #cce5ff; /* Pastel blue */
-        color: #004085; /* Darker blue for text */
-        font-weight: 600; /* Slightly bolder */
-    }
-
-    tr:nth-child(even) {
-        background-color: #e9ecef; /* Light gray for even rows */
-    }
-     tr:nth-child(odd) {
-        background-color: #f8f9fa;
-    }
-
-    tr:hover {
-        background-color: #ffe5b4; /* Pastel yellow on hover */
-        transition: background-color 0.3s ease; /* Smooth transition */
-    }
-
-    a {
-        color: #007bff; /* Bootstrap primary color */
-        text-decoration: none;
-    }
-
-    a:hover {
-        text-decoration: underline;
-        color: #0056b3; /* Darker blue on hover */
-    }
-
-    .loading {
-        text-align: center;
-        font-style: italic;
-        color: #6c757d; /* Muted color */
-    }
-
-    .hidden {
-        display: none;
-    }
-
-    @media (max-width: 768px) {
         table {
-            font-size: 14px;
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background-color: white;
+            font-size: 0.9em; 
         }
         th, td {
-            padding: 8px; /* Reduced padding */
+            border: 1px solid #ddd;
+            padding: 8px 12px; 
+            text-align: left;
         }
-
-        /* Keep Event and Location, hide others */
-        th:not(:nth-child(1)):not(:nth-child(2)),
-        td:not(:nth-child(1)):not(:nth-child(2)) {
-            display: none;
+        th {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
         }
-        table {
-            display: block;
-            overflow-x: auto;
-            white-space: nowrap;
-             box-shadow: none; /*remove shadow in mobile*/
-
+        #future_deadline th { background-color: #007bff; }
+        #future_nodl th { background-color: #ffc107; color: #333; }
+        #past th { background-color: #d9534f; }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
         }
-    }
-
+        /* --- NEW CSS FOR HOVER EFFECT --- */
+        tr:hover {
+            background-color: #e0e0e0; /* A soft gray for highlighting */
+            cursor: pointer; /* Optional: Changes cursor to pointer */
+        }
+        /* Ensure even rows still highlight */
+        tr:nth-child(even):hover {
+            background-color: #e0e0e0; 
+        }
+        /* --- END NEW CSS --- */
+        .loading {
+            text-align: center;
+            padding: 50px;
+            font-size: 1.2em;
+            color: #555;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+            text-align: center;
+        }
+        .comments-col {
+            font-style: italic;
+            font-size: 0.85em;
+        }
     </style>
 </head>
 <body>
+
     <h1>Computational Geometry Conferences</h1>
 
-    <p class="loading">Loading conference data...</p>
+    <div id="loading" class="loading">Loading conference data...</div>
 
-    <h2 id="futureDeadlinesHeader">Future Deadlines</h2>
-    <table id="futureDeadlinesTable">
-        <thead><tr></tr></thead>
-        <tbody></tbody>
-    </table>
+    <div id="future_deadline">
+        <h2>Conferences with Future Deadline ⏳</h2>
+        <table id="table_future_deadline"></table>
+    </div>
 
-    <h2 id="pastDeadlinesFutureDatesHeader">Future Conferences (dealine over)</h2>
-    <table id="pastDeadlinesFutureDatesTable">
-        <thead><tr></tr></thead>
-        <tbody></tbody>
-    </table>
+    <div id="future_nodl">
+        <h2>Upcoming Conferences (Deadline Passed) 📅</h2>
+        <table id="table_future_nodl"></table>
+    </div>
 
-    <h2 id="pastDeadlinesPastDatesHeader">Past Conferences</h2>
-    <table id="pastDeadlinesPastDatesTable">
-        <thead><tr></tr></thead>
-        <tbody></tbody>
-    </table>
+    <div id="past">
+        <h2>Past Conferences archives 📚</h2>
+        <table id="table_past"></table>
+    </div>
 
     <script>
-   async function fetchAndDisplayConferences() {
-        const sheetId = "11Jggxd8R_U6fuJaeA1CJVpLK5R63ikHYlbaT2eF9B0A";
-        const gid = '0';
-        const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&gid=${gid}`;
-
-        try {
-            const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            const text = await response.text();
-            const json = parseGoogleSheetsJSONP(text);
-
-            const tableData = json.table;
-			// Filter the headers to exclude unwanted columns
-            const headers = tableData.cols.map(col => col.label).filter(label =>
-                label !== "Website" && label !== "Website link" && label !== "Countdown" && label !== "(for sorting)"
-            );
-
-            // Create a mapping of column IDs to their indices
-            const colIdToIndex = {};
-            tableData.cols.forEach((col, index) => {
-                colIdToIndex[col.id] = index;
-            });
-
-            // --- Populate table HEADERS (only once, for all tables) ---
-            const headerRowFuture = document.querySelector("#futureDeadlinesTable thead tr");
-            const headerRowPastFuture = document.querySelector("#pastDeadlinesFutureDatesTable thead tr");
-            const headerRowPastPast = document.querySelector("#pastDeadlinesPastDatesTable thead tr");
-
-	     headers.forEach(header => {
-                const th = document.createElement("th");
-                th.textContent = header;
-                headerRowFuture.appendChild(th);
-                // Clone the header for the other tables
-                headerRowPastFuture.appendChild(th.cloneNode(true));
-                headerRowPastPast.appendChild(th.cloneNode(true));
-            });
-
-            // --- Populate table BODIES (separately) ---
-            const tableBodyFuture = document.querySelector("#futureDeadlinesTable tbody");
-            const tableBodyPastFuture = document.querySelector("#pastDeadlinesFutureDatesTable tbody");
-            const tableBodyPastPast = document.querySelector("#pastDeadlinesPastDatesTable tbody");
-            let futureDeadlinesCount = 0;
-            let pastDeadlinesFutureDatesCount = 0;
-            let pastDeadlinesPastDatesCount = 0;
-
-
-            tableData.rows.forEach(row => {
-
-                // Helper function to get cell data by column ID
-                function getCell(colId) {
-					const colIndex = colIdToIndex[colId];
-					 if (colIndex !== undefined && row.c[colIndex]) {
-						const cell = row.c[colIndex];
-						 if (cell.v && typeof cell.v === 'string' && cell.v.startsWith('Date(')) {
-							// Parse the date string
-							const dateParts = cell.v.substring(5, cell.v.length - 1).split(',');
-							return new Date(dateParts[0], dateParts[1], dateParts[2]);
-						}
-						return cell.f ? cell.f : cell.v; // Prefer formatted (.f) value
-					}
-					return "";
+        // --- 1. Configuration ---
+        const SHEET_ID = '11Jggxd8R_U6fuJaeA1CJVpLK5R63ikHYlbaT2eF9B0A';
+        const GID = '0'; // Assumes the first sheet (tab).
+        const CALLBACK_NAME = 'handleGvizQueryResponse';
+        const API_BASE_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?gid=${GID}`;
+        
+        // --- 2. Utility Functions ---
+        
+        // Helper to parse the original Google Sheets Date object string: Date(YYYY, M-1, DD)
+        const parseSheetDate = (cellValue) => {
+            if (!cellValue) return null;
+            
+            // 1. Check for the Google Sheets 'Date(YYYY, M-1, DD)' format
+            if (cellValue.startsWith('Date(')) {
+                const parts = cellValue.match(/Date\((\d+),(\d+),(\d+)\)/);
+                if (parts) {
+                    // MONTH is 0-indexed in Google Sheets format
+                    return new Date(Date.UTC(parts[1], parts[2], parts[3]));
                 }
+            }
 
-                 // --- Get the relevant dates (parsed as Date objects) ---
-                const deadline = getCell("C");
-                const conferenceDate = getCell("F");
+            // 2. Fallback for standard ISO or simple strings (using UTC for consistency)
+            const isoDateString = cellValue.includes('T') ? cellValue : `${cellValue}T00:00:00Z`;
+            const date = new Date(isoDateString);
+            
+            if (!isNaN(date) && date.getFullYear() > 1900) {
+                 return date;
+            }
 
-		// --- Determine which table the row belongs in ---
+            return null; 
+        };
+
+        // Utility function to format a single date for display
+        const formatDate = (dateString) => {
+            if (!dateString) return 'N/A';
+            const date = parseSheetDate(dateString);
+            if (date && !isNaN(date)) {
+                return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' });
+            }
+            return 'N/A';
+        };
+
+        // Utility function to format date range
+        const formatConfDates = (startStr, endStr) => {
+            const startDate = parseSheetDate(startStr);
+            const endDate = parseSheetDate(endStr);
+
+            if (!startDate) return 'TBA';
+            
+            const startDay = startDate.getUTCDate();
+            const endDay = endDate ? endDate.getUTCDate() : null;
+            const monthYear = startDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', timeZone: 'UTC' });
+            
+            if (!endDate || startDate.getTime() === endDate.getTime()) {
+                // Single day or end date missing
+                return `${startDay} ${monthYear}`;
+            }
+
+            // Check if month/year are the same
+            if (startDate.getUTCFullYear() === endDate.getUTCFullYear() && startDate.getUTCMonth() === endDate.getUTCMonth()) {
+                return `${startDay}-${endDay} ${monthYear}`;
+            }
+
+            // Different months/years (fallback to standard display for complexity)
+            return `${formatDate(startStr)} - ${formatDate(endStr)}`;
+        };
+
+        // Function to create the HTML table rows
+        const createTable = (data, elementId) => {
+            const table = document.getElementById(elementId);
+            // Define headers based on the new desired order
+            const HEADERS = [
+                "Conference", "Location", "Submission Deadline", "Notification Date", "Conference Dates", "Comments", "Website"
+            ];
+
+            if (!data.length) {
+                table.innerHTML = `<thead><tr>${HEADERS.map(h => `<th>${h}</th>`).join('')}</tr></thead><tbody><tr><td colspan="${HEADERS.length}">No conferences found in this category.</td></tr></tbody>`;
+                return;
+            }
+
+            const headerHtml = `<thead><tr>${HEADERS.map(h => `<th>${h}</th>`).join('')}</tr></thead>`;
+            
+            const rows = data.map(item => {
+                const [name, location, deadline, abstractDL, notification, confStart, confEnd, comments, websiteLinkText, linkURL] = item;
+                
+                // Prepare formatted data
+                const confDatesStr = formatConfDates(confStart, confEnd);
+
+                let dlDisplay = formatDate(deadline);
+                if (abstractDL) {
+                    const abstractDisplay = formatDate(abstractDL);
+                    if (abstractDisplay !== 'N/A') {
+                        dlDisplay += ` (<span style="white-space: nowrap;">Abstract: ${abstractDisplay}</span>)`;
+                    }
+                }
+                
+                const notificationDisplay = formatDate(notification);
+                const linkHtml = linkURL && websiteLinkText ? `<a href="${linkURL}" target="_blank">${websiteLinkText}</a>` : 'N/A';
+                const commentsDisplay = comments || '';
+
+
+                return `
+                    <tr>
+                        <td>${name}</td>
+                        <td>${location || 'TBA'}</td>
+                        <td>${dlDisplay}</td>
+                        <td>${notificationDisplay}</td>
+                        <td>${confDatesStr}</td>
+                        <td class="comments-col">${commentsDisplay}</td>
+                        <td>${linkHtml}</td>
+                    </tr>
+                `;
+            }).join('');
+
+            table.innerHTML = headerHtml + `<tbody>${rows}</tbody>`;
+        };
+        
+        // --- 3. Main Data Handler (JSONP Callback) ---
+
+        window[CALLBACK_NAME] = (response) => {
+            try {
+                if (response.status !== 'ok') {
+                     throw new Error(response.errors.map(e => e.message).join(', ') || 'Unknown error fetching data.');
+                }
+                
+                const rows = response.table.rows;
+                
+                // Define 'today' consistently as midnight UTC (for accurate filtering)
                 const now = new Date();
-                now.setHours(0, 0, 0, 0); // Normalize 'now' to midnight for accurate comparison
-                let targetTableBody;
+                const year = now.getUTCFullYear();
+                const month = now.getUTCMonth();
+                const date = now.getUTCDate();
+                const todayUTC = new Date(Date.UTC(year, month, date)); 
 
-                if (deadline instanceof Date && deadline > now) {
-                    	targetTableBody = tableBodyFuture;
-                    	futureDeadlinesCount++;
-                } 
-		else if (deadline instanceof Date && deadline <= now && conferenceDate instanceof Date && conferenceDate > now) {
-			targetTableBody = tableBodyPastFuture;
-                        pastDeadlinesFutureDatesCount++;
-                }
-		else {
-                    	targetTableBody = tableBodyPastPast;  // Default: Past deadlines, past dates
-                    	pastDeadlinesPastDatesCount++;
-                }
+                const futureDeadline = [];
+                const futureNoDL = [];
+                const past = [];
 
+                rows.forEach(row => {
+                    const cells = row.c; 
+                    
+                    // --- MAPPING BASED ON YOUR COLUMN LIST (Indices remain the same) ---
+                    // A: Conference Name (Index 0)
+                    const name = cells[0] ? (cells[0].v || cells[0].f) : null;
+                    // B: Location (Index 1)
+                    const location = cells[1] ? (cells[1].v || cells[1].f) : null;
+                    // C: Deadline (Index 2)
+                    const deadlineDateStr = cells[2] ? cells[2].v : null; 
+                    // D: Abstract Deadline (Index 3)
+                    const abstractDateStr = cells[3] ? cells[3].v : null; 
+                    // E: Notification (Index 4)
+                    const notificationDateStr = cells[4] ? cells[4].v : null; 
+                    // F: Conference Start Date (Index 5) - Used for filtering
+                    const confStartStr = cells[5] ? cells[5].v : null; 
+                    // G: Conference End Date (Index 6)
+                    const confEndStr = cells[6] ? cells[6].v : null;
+                    // H: Comments (Index 7)
+                    const comments = cells[7] ? (cells[7].v || cells[7].f) : null;
+                    // I: Website Link Text (Index 8)
+                    const websiteLinkText = cells[8] ? (cells[8].v || cells[8].f) : null;
+                    // J: Website Link URL (Index 9)
+                    const linkURL = cells[9] ? (cells[9].v || cells[9].f) : null;
+                    
+                    // Skip if key data is missing (using Conference Start Date for filtering)
+                    if (!name || !confStartStr) return; 
 
-                // --- Create the table row ---
-                const tr = document.createElement("tr");
-               // Event (with link from name)
-                const eventTd = document.createElement("td");
-                const eventName = getCell("A");
-                const colIndexI = colIdToIndex["I"];
+                    // Parse dates (returns midnight UTC)
+                    const confDate = parseSheetDate(confStartStr);
+                    const deadlineDate = deadlineDateStr ? parseSheetDate(deadlineDateStr) : null;
+                    
+                    if (!confDate) {
+                        console.warn(`Skipping row with unparsable Conference Start Date: ${name}. Raw value: ${confStartStr}`);
+                        return; 
+                    }
+                    
+                    // The item array holds ALL the raw strings/values for display
+                    const item = [name, location, deadlineDateStr, abstractDateStr, notificationDateStr, confStartStr, confEndStr, comments, websiteLinkText, linkURL];
 
-                if (colIndexI !== undefined && row.c[colIndexI] && row.c[colIndexI].v && row.c[colIndexI].v.startsWith("http")) {
-                    const a = document.createElement("a");
-                     a.href =  row.c[colIndexI].v; // Use the RAW value for the URL
-                    a.textContent = eventName;
-                    a.target = "_blank";
-                    eventTd.appendChild(a);
-                } else {
-                    eventTd.textContent = eventName;
-                }
-                tr.appendChild(eventTd);
+                    // 1. PAST Conferences (Conference Date is strictly before Today UTC)
+                    if (confDate < todayUTC) {
+                        past.push(item);
+                        return;
+                    }
 
-                // Other columns
-                if (colIdToIndex["B"] !== undefined) tr.appendChild(createTd(getCell("B"))); // Location
+                    // 2. FUTURE Conferences (Conference Date is Today UTC or Later)
+                    
+                    // A. Conferences with FUTURE Deadline (Deadline is Today UTC or Later)
+                    if (deadlineDate && deadlineDate >= todayUTC) {
+                        futureDeadline.push(item);
+                        return;
+                    }
+                    
+                    // B. Upcoming Conferences (Deadline Passed or N/A)
+                    if (confDate >= todayUTC) {
+                         futureNoDL.push(item);
+                         return;
+                    }
+                });
 
-                // Format dates consistently
-                if (colIdToIndex["C"] !== undefined) tr.appendChild(createTd(formatDate(getCell("C"))));  // Deadline
-                if (colIdToIndex["D"] !== undefined) tr.appendChild(createTd(formatDate(getCell("D"))));    // Abstract
-                if (colIdToIndex["E"] !== undefined) tr.appendChild(createTd(formatDate(getCell("E")))); // Notification
-                if (colIdToIndex["F"] !== undefined) tr.appendChild(createTd(formatDate(getCell("F")))); // Start Date                
-		if (colIdToIndex["G"] !== undefined) tr.appendChild(createTd(formatDate(getCell("G")))); // End Date
-                if (colIdToIndex["H"] !== undefined) tr.appendChild(createTd(getCell("H")));  // Comments
+                // Sorting logic
+                // Helper for sorting
+                const sortByDate = (a, b, index, reverse = false) => {
+                    // a[index] and b[index] hold the raw date strings
+                    const dateA = parseSheetDate(a[index]);
+                    const dateB = parseSheetDate(b[index]);
+                    // Handle missing dates by pushing them to the end (A.T.M. means A goes after B)
+                    if (!dateA && !dateB) return 0;
+                    if (!dateA) return 1; 
+                    if (!dateB) return -1;
+                    return reverse ? (dateB - dateA) : (dateA - dateB);
+                };
+                
+                // Future tables sorted by Conference Start Date (Index 5)
+                futureDeadline.sort((a, b) => sortByDate(a, b, 5));
+                futureNoDL.sort((a, b) => sortByDate(a, b, 5));
 
-                targetTableBody.appendChild(tr); // Add the row to the correct table
-            });
+                // Past conferences sorted by Submission Deadline (Index 2) from OLDEST to NEWEST
+                past.sort((a, b) => sortByDate(a, b, 2, false)); 
 
-            // Check if tables are empty and hide them along with headers
-            if (futureDeadlinesCount === 0) {
-                document.getElementById("futureDeadlinesTable").classList.add("hidden");
-                document.getElementById("futureDeadlinesHeader").classList.add("hidden");
+                // Render the tables
+                createTable(futureDeadline, 'table_future_deadline');
+                createTable(futureNoDL, 'table_future_nodl');
+                createTable(past, 'table_past');
+
+            } catch (error) {
+                console.error('Error processing conference data:', error);
+                const loadingDiv = document.getElementById('loading');
+                loadingDiv.className = 'error';
+                loadingDiv.textContent = `CRITICAL ERROR: Could not process data. Details: ${error.message}.`;
+                return;
+            } finally {
+                document.getElementById('loading').style.display = 'none';
             }
-            if (pastDeadlinesFutureDatesCount === 0) {
-                document.getElementById("pastDeadlinesFutureDatesTable").classList.add("hidden");
-                document.getElementById("pastDeadlinesFutureDatesHeader").classList.add("hidden");
-            }
-             if (pastDeadlinesPastDatesCount === 0) {
-                document.getElementById("pastDeadlinesPastDatesTable").classList.add("hidden");
-                document.getElementById("pastDeadlinesPastDatesHeader").classList.add("hidden");
-            }
+        };
 
+        // --- 4. Initialization ---
 
-            document.querySelector(".loading").style.display = "none";
+        const fetchConferences = () => {
+            // Final URL includes JSONP bypass, but no TQ query
+            const finalUrl = `${API_BASE_URL}&tqx=reqId:0;out:json;responseHandler:${CALLBACK_NAME}`;
+            
+            const script = document.createElement('script');
+            script.src = finalUrl;
+            script.onerror = () => {
+                const loadingDiv = document.getElementById('loading');
+                loadingDiv.className = 'error';
+                loadingDiv.textContent = 'NETWORK ERROR: Failed to load Google Sheet data. Ensure the Sheet is "Published to the web" and the ID is correct.';
+                document.getElementById('loading').style.display = 'block';
+            };
+            document.head.appendChild(script);
+        };
 
-        } catch (error) {
-            console.error("Error fetching or parsing data:", error);
-            document.querySelector(".loading").textContent = "Error loading conference data. Please try again later.";
-        }
-    }
-
-    // Helper function to create table cells
-	function createTd(content) {
-		const td = document.createElement("td");
-		td.textContent = content || ""; // Ensure content is not null/undefined
-		return td;
-	}
-
-    // NEW: Helper function to format dates as DD-Mon-YYYY
-        function formatDate(date) {
-            if (!(date instanceof Date)) {
-                return date; // Return original if not a date
-            }
-
-            const day = String(date.getDate()).padStart(2, '0');
-            const month = date.toLocaleString('default', { month: 'short' }); // Get short month name
-            const year = date.getFullYear();
-
-            return `${day}-${month}-${year}`;
-        }
-
-    // Handles the "/*O_o*/" prefix.
-    function parseGoogleSheetsJSONP(text) {
-        const jsonString = text.replace(/^\/\*O_o\*\/\s*/, '').replace(/google\.visualization\.Query\.setResponse\(|\);/g, "");
-        return JSON.parse(jsonString);
-    }
-
-    fetchAndDisplayConferences();
+        document.addEventListener('DOMContentLoaded', fetchConferences);
     </script>
+
 </body>
 </html>
