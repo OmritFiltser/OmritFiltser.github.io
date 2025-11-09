@@ -310,8 +310,11 @@
                     return reverse ? (dateB - dateA) : (dateA - dateB);
                 };
                 
-                // Future tables sorted by Conference Start Date (Index 5)
-                futureDeadline.sort((a, b) => sortByDate(a, b, 5));
+
+		// Future deaeline table sorted by Dealine (Index 2)
+                futureDeadline.sort((a, b) => sortByDate(a, b, 2));
+
+                // Future conferences table sorted by Conference Start Date (Index 5)
                 futureNoDL.sort((a, b) => sortByDate(a, b, 5));
 
                 // Past conferences sorted by Submission Deadline (Index 2) from OLDEST to NEWEST
